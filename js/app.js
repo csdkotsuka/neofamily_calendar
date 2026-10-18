@@ -946,45 +946,46 @@ function openEventDetail(eventId) {
       </div>
     </div>
 
-    <!-- Archive Section (Password Protected) -->
+    <!-- Archive Section (No password required, viewing logged) -->
     <div class="border-t border-slate-200 pt-6">
       <div class="flex items-center justify-between mb-3">
         <h4 class="text-sm font-bold text-slate-900 flex items-center gap-2">
-          <i class="fa-solid fa-film text-rose-600"></i> Zoomアーカイブ・録画
+          <i class="fa-solid fa-film text-rose-600"></i> 録画アーカイブ・動画
         </h4>
         <button onclick="openArchiveAdminModal('${ev.id}')" class="text-xs text-slate-400 hover:text-slate-600">
           <i class="fa-solid fa-gear"></i> 管理
         </button>
       </div>
 
-      ${hasArchive ? `
-        ${isUnlocked ? `
-          <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-5">
-            <div class="flex items-center gap-2 text-emerald-700 font-bold text-sm mb-2">
-              <i class="fa-solid fa-circle-check"></i> パスワード認証済み（閲覧可能）
-            </div>
-            <p class="text-xs text-emerald-800 mb-4">${ev.archive.notes || 'アーカイブ動画が閲覧可能です。'}</p>
-            <div class="flex items-center gap-3 flex-wrap">
-              <a href="${ev.archive.archiveUrl}" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-md flex items-center gap-2 transition">
-                <i class="fa-solid fa-play"></i> 録画アーカイブを視聴する
-              </a>
-              <button onclick="lockArchive('${ev.id}')" class="px-3 py-2 text-slate-500 hover:text-slate-700 text-xs font-semibold">
-                ロックする
-              </button>
-            </div>
-          </div>
-        ` : `
-          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 text-center">
-            <div class="w-12 h-12 mx-auto mb-2 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center text-lg">
-              <i class="fa-solid fa-lock"></i>
-            </div>
-            <h5 class="text-sm font-bold text-slate-800 mb-1">アーカイブ動画は限定公開です</h5>
-            <p class="text-xs text-slate-500 mb-4">ネオファミリー会員専用の閲覧パスワードを入力してください。</p>
-            <button onclick="handleArchiveClick('${ev.id}')" class="px-6 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs rounded-xl shadow-md transition inline-flex items-center gap-2">
-              <i class="fa-solid fa-key"></i> パスワードを入力して視聴
-            </button>
-          </div>
-        `}
+      ${hasArchive && ev.archive && ev.archive.archiveUrl ? `
+        <div class="bg-rose-50/50 border border-rose-200/90 rounded-2xl p-5 shadow-xs">
+          ${(function() {
+            const ytId = getYouTubeVideoId(ev.archive.archiveUrl);
+            if (ytId) {
+              return `
+                <div class="relative w-full aspect-video rounded-xl overflow-hidden shadow-md border border-slate-300 mb-3 bg-black">
+                  <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/${ytId}" title="${ev.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="flex items-center justify-between flex-wrap gap-2">
+                  <p class="text-xs text-slate-600 font-medium">${ev.archive.notes || 'YouTube録画アーカイブをご視聴いただけます。'}</p>
+                  <button onclick="logAndOpenArchive('${ev.id}', '${ev.archive.archiveUrl}')" class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-bold text-xs rounded-xl shadow transition flex items-center gap-1.5">
+                    <i class="fa-brands fa-youtube"></i> YouTubeで開く
+                  </button>
+                </div>
+              `;
+            } else {
+              return `
+                <div class="flex items-center gap-2 text-slate-900 font-bold text-sm mb-1.5">
+                  <i class="fa-solid fa-circle-play text-rose-600"></i> アーカイブ動画が視聴可能です
+                </div>
+                <p class="text-xs text-slate-600 mb-4">${ev.archive.notes || 'Zoom録画または動画アーカイブをご視聴いただけます。'}</p>
+                <button onclick="logAndOpenArchive('${ev.id}', '${ev.archive.archiveUrl}')" class="px-6 py-3 bg-gradient-to-r from-rose-600 to-amber-600 hover:brightness-105 text-white font-bold text-xs rounded-xl shadow-md flex items-center justify-center gap-2 transition w-full sm:w-auto">
+                  <i class="fa-solid fa-play"></i> 録画アーカイブを視聴する
+                </button>
+              `;
+            }
+          })()}
+        </div>
       ` : `
         <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-center text-xs text-slate-400">
           現在このイベントのアーカイブ動画は公開されていません。
@@ -1043,45 +1044,70 @@ function closeArchivePasswordModal() {
   }
 }
 
-// Submit Archive Password
-function submitArchivePassword() {
-  const modal = document.getElementById("archive-password-modal");
-  const inputEl = document.getElementById("archive-password-input");
-  const errorEl = document.getElementById("archive-password-error");
-  if (!modal || !inputEl) return;
+// Extract YouTube video ID from URL
+function getYouTubeVideoId(url) {
+  if (!url) return null;
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[2].length === 11) ? match[2] : null;
+}
 
-  const eventId = modal.dataset.eventId;
+// Log archive view and open archive URL
+async function logAndOpenArchive(eventId, archiveUrl) {
   const ev = allEvents.find(e => e.id === eventId);
-  if (!ev || !ev.archive) return;
+  const title = ev ? ev.title : "不明なイベント";
+  const targetUrl = archiveUrl || (ev && ev.archive && ev.archive.archiveUrl) || "";
 
-  const entered = inputEl.value.trim();
-  const correct = ev.archive.password || "";
+  // Generate or retrieve persistent visitor ID
+  let visitorId = localStorage.getItem("neofamily_visitor_id");
+  if (!visitorId) {
+    visitorId = "usr_" + Math.random().toString(36).substring(2, 10) + "_" + Date.now().toString(36);
+    localStorage.setItem("neofamily_visitor_id", visitorId);
+  }
 
-  if (entered === correct || entered === "neofamily2026") {
-    // Success!
-    unlockedArchives.add(eventId);
-    closeArchivePasswordModal();
-    renderApp();
-    openEventDetail(eventId);
-  } else {
-    // Error
-    if (errorEl) {
-      errorEl.textContent = "パスワードが正しくありません。再度ご確認ください。";
-      errorEl.classList.remove("hidden");
+  const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+  const logEntry = {
+    eventId: eventId,
+    eventTitle: title,
+    archiveUrl: targetUrl,
+    viewedAt: new Date().toISOString(),
+    visitorId: visitorId,
+    device: isMobile ? "Mobile" : "Desktop",
+    userAgent: navigator.userAgent,
+    referrer: document.referrer || "Direct"
+  };
+
+  // 1. Save to local storage log buffer
+  try {
+    const localLogs = JSON.parse(localStorage.getItem("neofamily_archive_logs") || "[]");
+    localLogs.unshift(logEntry);
+    if (localLogs.length > 500) localLogs.pop();
+    localStorage.setItem("neofamily_archive_logs", JSON.stringify(localLogs));
+  } catch (e) {
+    console.warn("Could not save to local log buffer", e);
+  }
+
+  // 2. Save to Firestore if configured
+  if (typeof firebase !== "undefined" && firebase.firestore && isFirebaseConfigured()) {
+    try {
+      const db = firebase.firestore();
+      await db.collection("archive_views").add({
+        ...logEntry,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      });
+      console.log("Archive view logged to Firestore");
+    } catch (err) {
+      console.warn("Firestore logging failed:", err);
     }
-    inputEl.classList.add("border-rose-500", "animate-shake");
-    setTimeout(() => inputEl.classList.remove("animate-shake"), 500);
+  }
+
+  // 3. Open archive URL in new tab
+  if (targetUrl) {
+    window.open(targetUrl, "_blank", "noopener,noreferrer");
   }
 }
 
-// Lock Archive
-function lockArchive(eventId) {
-  unlockedArchives.delete(eventId);
-  renderApp();
-  openEventDetail(eventId);
-}
-
-// Admin Modal: Manage Archive URL and Password
+// Admin Modal: Manage Archive URL
 function openArchiveAdminModal(eventId) {
   const ev = allEvents.find(e => e.id === eventId);
   if (!ev) return;
@@ -1093,7 +1119,6 @@ function openArchiveAdminModal(eventId) {
   document.getElementById("admin-event-title").textContent = ev.title;
   document.getElementById("admin-has-archive").checked = !!(ev.archive && ev.archive.hasArchive);
   document.getElementById("admin-archive-url").value = (ev.archive && ev.archive.archiveUrl) || "";
-  document.getElementById("admin-archive-password").value = (ev.archive && ev.archive.password) || "";
   document.getElementById("admin-archive-notes").value = (ev.archive && ev.archive.notes) || "";
 
   modal.classList.remove("hidden");
@@ -1117,14 +1142,13 @@ function saveArchiveAdminSettings() {
 
   const hasArchive = document.getElementById("admin-has-archive").checked;
   const archiveUrl = document.getElementById("admin-archive-url").value.trim();
-  const password = document.getElementById("admin-archive-password").value.trim();
   const notes = document.getElementById("admin-archive-notes").value.trim();
 
   const customArchives = JSON.parse(localStorage.getItem("neofamily_custom_archives") || "{}");
   customArchives[eventId] = {
     hasArchive: hasArchive,
     archiveUrl: archiveUrl,
-    password: password,
+    password: "",
     notes: notes
   };
   localStorage.setItem("neofamily_custom_archives", JSON.stringify(customArchives));
@@ -1243,12 +1267,82 @@ function initEventListeners() {
   });
 }
 
+// Flyer image upload state
+let selectedEventImages = [];
+
+function handleImageSelection(input) {
+  const files = Array.from(input.files || []);
+  if (files.length === 0) return;
+
+  files.forEach(file => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        // Compress image via canvas
+        const maxDim = 1200;
+        let w = img.width;
+        let h = img.height;
+        if (w > maxDim || h > maxDim) {
+          if (w > h) {
+            h = Math.round((h * maxDim) / w);
+            w = maxDim;
+          } else {
+            w = Math.round((w * maxDim) / h);
+            h = maxDim;
+          }
+        }
+        const canvas = document.createElement("canvas");
+        canvas.width = w;
+        canvas.height = h;
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0, w, h);
+        const compressedDataUrl = canvas.toDataURL("image/jpeg", 0.82);
+        selectedEventImages.push(compressedDataUrl);
+        renderImagePreviews();
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function renderImagePreviews() {
+  const container = document.getElementById("image-preview-container");
+  if (!container) return;
+  if (selectedEventImages.length === 0) {
+    container.innerHTML = "";
+    container.classList.add("hidden");
+    return;
+  }
+  container.classList.remove("hidden");
+  container.innerHTML = selectedEventImages.map((src, idx) => `
+    <div class="relative group rounded-xl overflow-hidden border border-slate-200 bg-slate-100 aspect-square shadow-xs">
+      <img src="${src}" class="w-full h-full object-cover">
+      <button type="button" onclick="removeSelectedImage(${idx})" class="absolute top-1 right-1 w-5 h-5 rounded-full bg-rose-600 text-white flex items-center justify-center text-[10px] hover:bg-rose-700 shadow transition">
+        &times;
+      </button>
+      <span class="absolute bottom-1 left-1 bg-black/60 text-white text-[9px] px-1.5 py-0.2 rounded font-bold">${idx + 1}</span>
+    </div>
+  `).join("");
+}
+
+function removeSelectedImage(index) {
+  selectedEventImages.splice(index, 1);
+  renderImagePreviews();
+}
+
 // Open Create Event Modal
 function openCreateEventModal() {
   const modal = document.getElementById("create-event-modal");
   if (!modal) return;
   const form = document.getElementById("create-event-form");
   if (form) form.reset();
+
+  selectedEventImages = [];
+  renderImagePreviews();
+  const fileInput = document.getElementById("new-event-images");
+  if (fileInput) fileInput.value = "";
 
   // Default date to today or selectedDate
   const dateInput = document.getElementById("new-event-date");
@@ -1290,7 +1384,6 @@ async function handleCreateEventSubmit(e) {
 
   const hasArchive = document.getElementById("new-event-has-archive").checked;
   const archiveUrl = document.getElementById("new-event-archive-url").value.trim();
-  const archivePass = document.getElementById("new-event-archive-pass").value.trim();
 
   // Category Colors
   const colorMap = {
@@ -1319,7 +1412,8 @@ async function handleCreateEventSubmit(e) {
     fee: fee,
     capacity: "",
     presenter: presenter,
-    image: "",
+    image: selectedEventImages[0] || "",
+    images: [...selectedEventImages],
     description: description,
     registrationUrl: "",
     zoomUrl: zoomUrl,
@@ -1328,8 +1422,8 @@ async function handleCreateEventSubmit(e) {
     archive: {
       hasArchive: hasArchive,
       archiveUrl: archiveUrl,
-      password: archivePass,
-      notes: hasArchive ? "新規登録されたアーカイブです。" : ""
+      password: "",
+      notes: hasArchive ? "録画アーカイブが登録されています。" : ""
     }
   };
 

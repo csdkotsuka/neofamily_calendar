@@ -29,7 +29,7 @@ const INITIAL_EVENTS = [
     "archive": {
       "hasArchive": true,
       "archiveUrl": "https://vimeo.com/example/tokyo-teirei-1002",
-      "password": "neo1002",
+      "password": "",
       "notes": "10/2 東京定例会の全編録画アーカイブです。パスワード「neo1002」でご視聴いただけます。"
     },
     "images": []
@@ -147,7 +147,7 @@ const INITIAL_EVENTS = [
     "archive": {
       "hasArchive": true,
       "archiveUrl": "https://us06web.zoom.us/rec/share/example-luce",
-      "password": "luce1009",
+      "password": "",
       "notes": "美容事業LUCEスクール事業説明会のアーカイブ録画です。"
     },
     "images": []
@@ -205,7 +205,7 @@ const INITIAL_EVENTS = [
     "archive": {
       "hasArchive": true,
       "archiveUrl": "https://us06web.zoom.us/rec/share/example-makers",
-      "password": "makers1010",
+      "password": "",
       "notes": "maKeRs.事業説明会（会長冒頭参加）の録画アーカイブです。"
     },
     "images": []
@@ -234,7 +234,7 @@ const INITIAL_EVENTS = [
     "archive": {
       "hasArchive": true,
       "archiveUrl": "https://us06web.zoom.us/rec/share/example-fukushi",
-      "password": "fukushi1010",
+      "password": "",
       "notes": "福祉支援事業「みんなのて」初回会長Zoomアーカイブです。"
     },
     "images": [
@@ -296,7 +296,7 @@ const INITIAL_EVENTS = [
     "archive": {
       "hasArchive": true,
       "archiveUrl": "https://us06web.zoom.us/rec/share/example-kidswell",
-      "password": "kwa1011",
+      "password": "",
       "notes": "Kids Well Academy 事業説明会のアーカイブ録画です。"
     },
     "images": [
@@ -328,7 +328,7 @@ const INITIAL_EVENTS = [
     "archive": {
       "hasArchive": true,
       "archiveUrl": "https://us06web.zoom.us/rec/share/example-raytus1",
-      "password": "raytus2026",
+      "password": "",
       "notes": "合同事業説明会 DAY 1のアーカイブ動画です。"
     },
     "images": []
@@ -357,7 +357,7 @@ const INITIAL_EVENTS = [
     "archive": {
       "hasArchive": true,
       "archiveUrl": "https://us06web.zoom.us/rec/share/example-raytus2",
-      "password": "raytus2026",
+      "password": "",
       "notes": "合同事業説明会 DAY 2のアーカイブ動画です。"
     },
     "images": []
@@ -415,7 +415,7 @@ const INITIAL_EVENTS = [
     "archive": {
       "hasArchive": true,
       "archiveUrl": "https://us06web.zoom.us/rec/share/example-sanzensango",
-      "password": "koeki1015",
+      "password": "",
       "notes": "大好評だった産前産後オンライントークショーのアーカイブ録画です。"
     },
     "images": [
@@ -447,7 +447,7 @@ const INITIAL_EVENTS = [
     "archive": {
       "hasArchive": true,
       "archiveUrl": "https://vimeo.com/example-nougyo-taidan",
-      "password": "nougyo1016",
+      "password": "",
       "notes": "しの夫婦×武ちゃんの安全安心対談アーカイブです。"
     },
     "images": [
@@ -510,7 +510,7 @@ const INITIAL_EVENTS = [
     "archive": {
       "hasArchive": true,
       "archiveUrl": "https://us06web.zoom.us/rec/share/example-remiko",
-      "password": "remiko1018",
+      "password": "",
       "notes": "れみこ先生説明会の録画アーカイブです。"
     },
     "images": []
@@ -570,7 +570,7 @@ const INITIAL_EVENTS = [
     "archive": {
       "hasArchive": true,
       "archiveUrl": "https://us06web.zoom.us/rec/share/example-mohatsu1",
-      "password": "hair1019",
+      "password": "",
       "notes": "毛髪セミナー第1回のアーカイブ録画です。"
     },
     "images": [
@@ -601,7 +601,7 @@ const INITIAL_EVENTS = [
     "archive": {
       "hasArchive": true,
       "archiveUrl": "https://us06web.zoom.us/rec/share/example-osakana",
-      "password": "fish1022",
+      "password": "",
       "notes": "お魚プロジェクト事業説明会のアーカイブ録画です。"
     },
     "images": []
@@ -659,7 +659,7 @@ const INITIAL_EVENTS = [
     "archive": {
       "hasArchive": true,
       "archiveUrl": "https://us06web.zoom.us/rec/share/example-kaicho1023",
-      "password": "kaicho1023",
+      "password": "",
       "notes": "ぶった斬り会長オンライントークショーの録画アーカイブです。"
     },
     "images": [
@@ -753,7 +753,7 @@ const INITIAL_EVENTS = [
     "archive": {
       "hasArchive": true,
       "archiveUrl": "https://us06web.zoom.us/rec/share/example-joukiyeki",
-      "password": "biyo7777",
+      "password": "",
       "notes": "上清液セールストーク勉強会のアーカイブ録画です。"
     },
     "images": []
@@ -782,7 +782,7 @@ const INITIAL_EVENTS = [
     "archive": {
       "hasArchive": true,
       "archiveUrl": "https://vimeo.com/example-livecommerce",
-      "password": "live1030",
+      "password": "",
       "notes": "ライブコマーサー無料セミナーのアーカイブです。"
     },
     "images": []
