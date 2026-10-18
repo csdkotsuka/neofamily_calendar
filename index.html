@@ -42,21 +42,21 @@
 </head>
 <body class="text-slate-800 antialiased pb-24">
 
-  <!-- Sticky Top Navigation -->
-  <header class="sticky top-0 z-40 glass-header">
+  <!-- Top Navigation (Not Sticky) -->
+  <header class="glass-header border-b border-slate-200/80 bg-white/90">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16 md:h-20">
+      <div class="flex items-center justify-between h-16 md:h-18">
         <!-- Brand Title -->
         <div class="flex items-center gap-3 cursor-pointer" onclick="resetFilters()">
-          <div class="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-gradient-to-tr from-rose-600 to-amber-500 flex items-center justify-center text-white shadow-lg shadow-rose-500/20">
-            <i class="fa-solid fa-calendar-check text-lg md:text-xl"></i>
+          <div class="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-gradient-to-tr from-rose-600 to-amber-500 flex items-center justify-center text-white shadow-md shadow-rose-500/20">
+            <i class="fa-solid fa-calendar-check text-base md:text-lg"></i>
           </div>
           <div>
             <div class="flex items-center gap-2">
-              <span class="font-display font-extrabold text-lg md:text-xl tracking-tight text-slate-900">NEO FAMILY</span>
-              <span class="px-2 py-0.5 text-[10px] font-extrabold rounded-md bg-rose-100 text-rose-700 tracking-wider">OFFICIAL</span>
+              <span class="font-display font-extrabold text-base md:text-lg tracking-tight text-slate-900">NEO FAMILY</span>
+              <span class="px-1.5 py-0.2 text-[9px] font-extrabold rounded bg-rose-100 text-rose-700">CALENDAR</span>
             </div>
-            <p class="text-xs text-slate-500 font-medium">イベントカレンダー & アーカイブ</p>
+            <p class="text-[11px] text-slate-400 font-medium">イベント & アーカイブ</p>
           </div>
         </div>
 
@@ -71,46 +71,8 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
-    <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-rose-900 via-slate-900 to-slate-950 text-white p-6 md:p-10 shadow-2xl">
-      <!-- Decorative background blur -->
-      <div class="absolute -right-12 -top-12 w-64 h-64 rounded-full bg-rose-500/20 blur-3xl pointer-events-none"></div>
-      <div class="absolute -left-12 -bottom-12 w-64 h-64 rounded-full bg-amber-500/15 blur-3xl pointer-events-none"></div>
-
-      <div class="relative z-10 max-w-3xl">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-bold text-rose-200 mb-4">
-          <span class="w-2 h-2 rounded-full bg-rose-400 animate-pulse"></span>
-          2026年10月・11月 イベントスケジュール更新中
-        </div>
-        <h1 class="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight leading-tight mb-3">
-          ネオファミリーの予定を<br class="hidden sm:inline">スマホに簡単追加＆アーカイブ視聴
-        </h1>
-        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
-          定例会、ぶった斬り会長トークショー、各事業説明会、勉強ジンジャーなど注目の日程を網羅。各イベントのボタンからGoogleカレンダーやiPhone/スマホカレンダーに簡単追加できます。
-        </p>
-
-        <!-- Stats Chips -->
-        <div class="flex flex-wrap items-center gap-3 text-xs font-bold">
-          <div class="bg-white/10 backdrop-blur-md px-3.5 py-2 rounded-xl border border-white/10 flex items-center gap-2">
-            <i class="fa-solid fa-list-check text-rose-400"></i>
-            <span>掲載イベント: <strong id="stat-total-count" class="text-white text-sm">--</strong>件</span>
-          </div>
-          <div class="bg-white/10 backdrop-blur-md px-3.5 py-2 rounded-xl border border-white/10 flex items-center gap-2">
-            <i class="fa-regular fa-calendar text-amber-400"></i>
-            <span>今月(10月): <strong id="stat-oct-count" class="text-white text-sm">--</strong>件</span>
-          </div>
-          <div class="bg-white/10 backdrop-blur-md px-3.5 py-2 rounded-xl border border-white/10 flex items-center gap-2">
-            <i class="fa-solid fa-video text-sky-400"></i>
-            <span>録画アーカイブ: <strong id="stat-archive-count" class="text-white text-sm">--</strong>本</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Controls Bar: View Switcher, Search & Categories -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sticky top-16 md:top-20 z-30 bg-slate-50/80 backdrop-blur-md">
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 pb-2">
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
       
       <!-- View Switcher Tabs (2 modes: Cards and Month Calendar) -->
@@ -133,7 +95,7 @@
     </div>
 
     <!-- Category Filter Pills -->
-    <div class="flex items-center gap-2 overflow-x-auto py-2.5 mt-1 no-scrollbar">
+    <div class="flex items-center gap-2 overflow-x-auto py-2.5 mt-2 no-scrollbar">
       <button data-category="all" onclick="selectCategory('all')" class="category-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-rose-600 text-white shadow-sm">
         すべて表示
       </button>
@@ -156,7 +118,7 @@
   </section>
 
   <!-- Main Content Container -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3">
 
     <!-- View Mode 1: Cards View -->
     <section id="cards-view-section">
@@ -210,18 +172,8 @@
 
         <!-- Calendar helper note -->
         <p class="text-xs text-slate-400 mt-4 text-center">
-          ※ 日付をタップするとその日のイベントを絞り込み表示できます。
+          ※ イベント名をクリックすると詳細・Zoom情報・アーカイブが開きます。
         </p>
-      </div>
-
-      <!-- Filtered Events for Calendar -->
-      <div id="events-section">
-        <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-          <i class="fa-solid fa-list-ul text-rose-600"></i> イベント一覧
-        </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Synchronized with events-list-container -->
-        </div>
       </div>
     </section>
 

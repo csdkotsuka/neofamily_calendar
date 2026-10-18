@@ -120,6 +120,29 @@ function getFilteredEvents() {
   });
 }
 
+// Filter events by selected category and search query for month calendar view
+function getFilteredEventsForCalendar() {
+  return allEvents.filter(ev => {
+    // Category filter
+    if (currentCategory !== "all" && ev.category !== currentCategory) {
+      return false;
+    }
+    // Search query
+    if (currentSearch.trim() !== "") {
+      const q = currentSearch.toLowerCase();
+      const match = (
+        ev.title.toLowerCase().includes(q) ||
+        (ev.subtitle && ev.subtitle.toLowerCase().includes(q)) ||
+        (ev.location && ev.location.toLowerCase().includes(q)) ||
+        (ev.presenter && ev.presenter.toLowerCase().includes(q)) ||
+        (ev.description && ev.description.toLowerCase().includes(q))
+      );
+      if (!match) return false;
+    }
+    return true;
+  });
+}
+
 // Render event cards list
 function renderEventsList() {
   const container = document.getElementById("events-list-container");
@@ -342,13 +365,16 @@ function renderCalendarView() {
     `;
   }
 
+  // Filtered events for calendar according to category and search
+  const calendarFilteredEvents = getFilteredEventsForCalendar();
+
   // Current month days
   for (let day = 1; day <= lastDate; day++) {
     const monthStr = String(currentMonth + 1).padStart(2, "0");
     const dayStr = String(day).padStart(2, "0");
     const dateStr = `${currentYear}-${monthStr}-${dayStr}`;
 
-    const daysEvents = allEvents.filter(e => e.startDate === dateStr);
+    const daysEvents = calendarFilteredEvents.filter(e => e.startDate === dateStr);
     const isSelected = selectedDate === dateStr;
     const isToday = (currentYear === 2026 && currentMonth === 9 && day === 18); // System date: 2026-10-18
 
@@ -484,6 +510,7 @@ function selectCategory(cat) {
 // Search input
 function handleSearch(val) {
   currentSearch = val;
+  renderCalendarView();
   renderEventsList();
 }
 
