@@ -28,9 +28,9 @@ const INITIAL_EVENTS = [
     "zoomPasscode": "",
     "archive": {
       "hasArchive": true,
-      "archiveUrl": "https://vimeo.com/example/tokyo-teirei-1002",
+      "archiveUrl": "https://youtu.be/SnXEDtNAThA",
       "password": "",
-      "notes": "10/2 東京定例会の全編録画アーカイブです。パスワード「neo1002」でご視聴いただけます。"
+      "notes": "10/2 東京定例会のYouTube録画アーカイブです。"
     },
     "images": []
   },
