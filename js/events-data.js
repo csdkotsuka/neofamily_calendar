@@ -1,6 +1,6 @@
 /**
  * NEO FAMILY Events Dataset
- * Generated from LINE Group Chat Notices
+ * Generated from LINE Group Chat Notices & Provided Data
  */
 
 const INITIAL_EVENTS = [
@@ -578,35 +578,6 @@ const INITIAL_EVENTS = [
     ]
   },
   {
-    "id": "event-20261022-osakana",
-    "title": "＼お魚🐟食べよう週間／ 企画メンバー募集 事業説明会 Zoom",
-    "subtitle": "「魚のハードル」を下げ、みんなで食育レシピ＆知識をカタチに！",
-    "category": "事業説明会",
-    "categoryColor": "#7c3aed",
-    "startDate": "2026-10-22",
-    "startTime": "21:00",
-    "endDate": "2026-10-22",
-    "endTime": "22:00",
-    "location": "Zoom オンライン",
-    "locationType": "online",
-    "fee": "無料",
-    "capacity": "",
-    "presenter": "食育・お魚プロジェクトチーム",
-    "image": "",
-    "description": "「魚って身体にいいのは分かってるけど、調理が面倒・子どもが食べてくれない…」\n管理栄養士・料理人・保育士など専門職が集まって、魚のレシピや栄養の知識をカタチにする新プロジェクト！\n料理好き、食育に興味のある方、ぜひ説明会を覗きに来てください🥰",
-    "registrationUrl": "",
-    "zoomUrl": "https://us06web.zoom.us/j/86984245385?pwd=g0Sn20DCizVZ7ViHwhavyK57U6dBg8.1",
-    "zoomMeetingId": "869 8424 5385",
-    "zoomPasscode": "1111",
-    "archive": {
-      "hasArchive": false,
-      "archiveUrl": "",
-      "password": "",
-      "notes": ""
-    },
-    "images": []
-  },
-  {
     "id": "event-20261022-machinohokenshitsu",
     "title": "まちのほけんしつ 事業説明会",
     "subtitle": "地域に「ちょっと相談できる場所」をつくりたい仲間へ",
@@ -627,6 +598,35 @@ const INITIAL_EVENTS = [
     "zoomUrl": "https://us06web.zoom.us/",
     "zoomMeetingId": "",
     "zoomPasscode": "",
+    "archive": {
+      "hasArchive": false,
+      "archiveUrl": "",
+      "password": "",
+      "notes": ""
+    },
+    "images": []
+  },
+  {
+    "id": "event-20261022-osakana",
+    "title": "＼お魚🐟食べよう週間／ 企画メンバー募集 事業説明会 Zoom",
+    "subtitle": "「魚のハードル」を下げ、みんなで食育レシピ＆知識をカタチに！",
+    "category": "事業説明会",
+    "categoryColor": "#7c3aed",
+    "startDate": "2026-10-22",
+    "startTime": "21:00",
+    "endDate": "2026-10-22",
+    "endTime": "22:00",
+    "location": "Zoom オンライン",
+    "locationType": "online",
+    "fee": "無料",
+    "capacity": "",
+    "presenter": "食育・お魚プロジェクトチーム",
+    "image": "",
+    "description": "「魚って身体にいいのは分かってるけど、調理が面倒・子どもが食べてくれない…」\n管理栄養士・料理人・保育士など専門職が集まって、魚のレシピや栄養の知識をカタチにする新プロジェクト！\n料理好き、食育に興味のある方、ぜひ説明会を覗きに来てください🥰",
+    "registrationUrl": "",
+    "zoomUrl": "https://us06web.zoom.us/j/86984245385?pwd=g0Sn20DCizVZ7ViHwhavyK57U6dBg8.1",
+    "zoomMeetingId": "869 8424 5385",
+    "zoomPasscode": "1111",
     "archive": {
       "hasArchive": false,
       "archiveUrl": "",
@@ -698,6 +698,38 @@ const INITIAL_EVENTS = [
     ]
   },
   {
+    "id": "event-20261024-tosa-terakoya",
+    "title": "第2回 TOSA寺子屋交流会（親子で楽しむ ハロウィン寺子屋）",
+    "subtitle": "限定20組👻 親子で楽しむハロウィンワークショップ＆おかず作りランチ🍙",
+    "category": "リアルイベント",
+    "categoryColor": "#059669",
+    "startDate": "2026-10-24",
+    "startTime": "10:00",
+    "endDate": "2026-10-24",
+    "endTime": "15:30",
+    "isAllDay": false,
+    "location": "高知県高知市三里公民館",
+    "locationType": "offline",
+    "fee": "大人 1,000円 (中学生〜) / 子ども 500円 (3歳〜小学生)",
+    "capacity": "限定20組",
+    "presenter": "一般社団法人KidsWell Academy 高知（後援: 公益財団法人NEW TERAKOYA MIRAIを創る会）",
+    "image": "images/S__14049401.jpg",
+    "images": [
+      "images/S__14049401.jpg"
+    ],
+    "description": "🎃✨ 親子で楽しむ＼ハロウィン寺子屋開催👻💕／\n\nママたちは一緒におかず作り♪ 子どもたちはハロウィンワークショップ！\nそして、みんなで作ったおかずを囲んで一緒にお昼ごはんを楽しみませんか？🍙💕\n今回はなんと「軸が整うおむすび」を無料でご提供します🍙✨\n午後からはじゃんけん列車大会も開催🚃✨\n親子で楽しみながらリフレッシュして、ママ同士もつながれる一日に！\n\n【当日のスケジュール】\n・10:00〜 ママ：みんなでおかず作り / 子ども：ハロウィンワークショップ\n・12:00〜 『軸が整うおむすび』無料提供＆みんなで作ったおかずでランチ\n・13:30〜 じゃんけん列車大会🚃\n・14:30〜 フリータイム\n・15:30までに解散予定\n\n📝 お申し込みフォーム: https://forms.gle/TNzFBA7Po9NJPsVf9\n【主催】一般社団法人KidsWell Academy 高知\n【後援】公益財団法人NEW TERAKOYA MIRAIを創る会",
+    "registrationUrl": "https://forms.gle/TNzFBA7Po9NJPsVf9",
+    "zoomUrl": "",
+    "zoomMeetingId": "",
+    "zoomPasscode": "",
+    "archive": {
+      "hasArchive": false,
+      "archiveUrl": "",
+      "password": "",
+      "notes": ""
+    }
+  },
+  {
     "id": "event-20261024-meiji-retreat",
     "title": "🌿 明治温泉リトリート『子どもたちの特別体験』",
     "subtitle": "遊んで・感じて・つながる 1泊2日の特別な自然体験！",
@@ -728,6 +760,38 @@ const INITIAL_EVENTS = [
     "images": [
       "images/92301.jpg"
     ]
+  },
+  {
+    "id": "event-20261025-ehime-kenkofes",
+    "title": "まちほけ愛媛支部 『健康フェス』マルシェ",
+    "subtitle": "知って・測って・整える 秋のからだ時間（秋のテーマは「足」）",
+    "category": "リアルイベント",
+    "categoryColor": "#059669",
+    "startDate": "2026-10-25",
+    "startTime": "13:00",
+    "endDate": "2026-10-25",
+    "endTime": "16:30",
+    "isAllDay": false,
+    "location": "愛媛県男女共同参画センター（愛媛県松山市山越町450番地5）",
+    "locationType": "offline",
+    "fee": "各ブース 500円〜2,000円（時間内出入り自由）",
+    "capacity": "お子さま連れ大歓迎",
+    "presenter": "まちのほけん事業部（看護師・整体師・義肢装具士・アロマセラピスト）",
+    "image": "images/S__14049389.jpg",
+    "images": [
+      "images/S__14049389.jpg"
+    ],
+    "description": "【まちほけ愛媛支部 主催】\nまちのほけん事業部として『健康フェス』のマルシェを開催致します✨\nお子さま連れ大歓迎！病院に行くほどでもない地域寄り添い型の健康サポートです。\n\n🍁 秋のテーマは『足』〜観光シーズン到来・足元から健康に！〜\n今回はメンバーに足測定士さんも加わり、看護師・鍼灸整体師・アロマセラピストナースの各視点からアプローチします。\n\n【出展ブース】\n・🩺 看護師（500円）：血圧・生活習慣チェック、秋バテや自律神経のミニ相談、足裏チェック、シナプソロジー体験\n・🏃 整体師（1,000〜2,000円）：姿勢チェック、肩・首・背中ストレッチ、運動指導\n・🦶 義肢装具士（500円）：歩行改善・動きやすい体づくり施術、足形診断・お子さまの足・靴・インソール相談\n・🌿 アロマセラピスト（1,000円）：お好みの香り選び、香りのアロマクリーム作り\n・📝 最後に「わたしの秋の健康カルテ」へ体験をチェック＆記録できます！\n\n※ 会場詳細: https://www.ehime-joseizaidan.com/",
+    "registrationUrl": "https://www.ehime-joseizaidan.com/",
+    "zoomUrl": "",
+    "zoomMeetingId": "",
+    "zoomPasscode": "",
+    "archive": {
+      "hasArchive": false,
+      "archiveUrl": "",
+      "password": "",
+      "notes": ""
+    }
   },
   {
     "id": "event-20261026-biyo-joukiyeki",
@@ -844,6 +908,39 @@ const INITIAL_EVENTS = [
       "notes": ""
     },
     "images": []
+  },
+  {
+    "id": "event-20261103-okinawa-marche",
+    "title": "BKマルシェ 沖縄 ＆ ぶった斬り会長 オンライントークショー",
+    "subtitle": "つながる・ひろがる 笑顔の輪🌺 お気に入りを見つける。人とつながる。入場無料！",
+    "category": "リアルイベント",
+    "categoryColor": "#059669",
+    "startDate": "2026-11-03",
+    "startTime": "10:00",
+    "endDate": "2026-11-03",
+    "endTime": "16:00",
+    "isAllDay": false,
+    "location": "沖縄工芸の杜 エントランスホール（沖縄県豊見城市字豊見城 1114-1）",
+    "locationType": "hybrid",
+    "fee": "入場無料",
+    "capacity": "",
+    "presenter": "ぶった斬り会長（オンライン登壇 13:00〜14:00）",
+    "image": "images/S__15147119.jpg",
+    "images": [
+      "images/S__15147119.jpg",
+      "images/S__47866071.jpg"
+    ],
+    "description": "🌺 つながる・ひろがる 笑顔の輪【BKマルシェ 沖縄】入場無料！\n人と人とが繋がる場所、想いが集まるマルシェ。新しい出会いが広がるワクワクの1日✨\n\n【ブース内容】\n・ハンドメイド雑貨（想いがこもった素敵な作品がいっぱい）\n・フード＆スイーツ（おいしいフードやドリンク）\n・ワークショップ（大人も子どもも楽しめる体験）\n・リラクゼーション（心も体も癒やされるリラックス空間）\n\n💻【同日開催】ぶった斬り会長 オンライントークショー\n・時間: 13:00〜14:00\n・テーマ:「その一歩が、未来を変える。」\nやりたいことを実現してきた会長が、今の時代に大切な一歩を語ります。\n\n開催場所: 沖縄工芸の杜 エントランスホール（豊見城市字豊見城 1114-1）",
+    "registrationUrl": "",
+    "zoomUrl": "",
+    "zoomMeetingId": "",
+    "zoomPasscode": "",
+    "archive": {
+      "hasArchive": false,
+      "archiveUrl": "",
+      "password": "",
+      "notes": ""
+    }
   },
   {
     "id": "event-20261104-mohatsu-2",
@@ -971,20 +1068,24 @@ const INITIAL_EVENTS = [
   {
     "id": "event-20261115-kochi",
     "title": "土佐寺子屋キャラバン × ぶった斬り会長トークショー in 高知",
-    "subtitle": "＼高知初開催‼️30名様限定・お弁当付き🍱／",
+    "subtitle": "＼高知初開催‼️30名様限定・お弁当付き🍱 子どもの未来×女性の可能性／",
     "category": "トークショー",
     "categoryColor": "#2563eb",
     "startDate": "2026-11-15",
     "startTime": "10:00",
     "endDate": "2026-11-15",
     "endTime": "15:15",
+    "isAllDay": false,
     "location": "高知市土佐山 かわせみ（無料駐車場あり）",
     "locationType": "offline",
-    "fee": "3,000円（お弁当付き・お子様無料！）",
-    "capacity": "30名限定（託児ルームあり）",
-    "presenter": "ぶった斬り会長（主催: キッズウェルアカデミー高知 / 後援: 公益財団法人 NEW TERAKOYA）",
-    "image": "images/S__14016545.jpg",
-    "description": "子どもの未来 × 女性の可能性！託児ルーム完備＆お弁当交流会あり！\n10:00〜12:00 寺子屋レクリエーション\n12:15〜13:00 お弁当交流会\n13:15〜13:30 受付\n13:30〜13:45 キッズショー\n13:45〜14:45 会長トークショー\n14:45〜15:15 質問交流会\nひとつの出会いがあなたや子どもたちの未来を変える！",
+    "fee": "3,000円（お弁当付き・30名限定 / お子様無料・託児ルームあり）",
+    "capacity": "30名様限定（託児ルームあり）",
+    "presenter": "ぶった斬り会長（主催: キッズウェルアカデミー高知 / 後援: 公益財団法人 NEW TERAKOYA、MIRAIを創る会）",
+    "image": "images/S__14049391.jpg",
+    "images": [
+      "images/S__14049391.jpg"
+    ],
+    "description": "＼高知初開催‼️ 30名様限定🔥／\nSNS総フォロワー24万人超！国連女性フォーラムでも登壇・表彰された「ぶった斬り会長」が高知へ！\n「夢を形にしたい！」「何か始めてみたい！」「今の自分から一歩踏み出したい！」そんな方にぜひ来てほしいイベントです🌈\n\n【当日のスケジュール】\n・10:00〜12:00 寺子屋レクリエーション（子供たちはたっぷり遊ぶ♪）\n・12:15〜13:00 お弁当交流会🍱（みんなで楽しくつながろう♪）\n・13:15〜13:30 トークショー受付\n・13:30〜13:45 キッズショー\n・13:45〜14:45 会長トークショー（子育て、夢、人とのつながり…）\n・14:45〜15:15 質問交流会（直接質問できる特別な時間）\n\n👶託児ルームもありますので、小さなお子さま連れも大歓迎です💕\n子供はたっぷり遊んで、ママは刺激とワクワクのリフレッシュな1日に！\n\n📍 場所：高知市土佐山 かわせみ（無料駐車場あり）\n🗺️ Google Map: https://maps.app.goo.gl/pCbdtBTADJAsjp8U7?g_st=ipc\n📝 予約フォーム: https://forms.gle/DxGY9MZ7ASC2LsmT6",
     "registrationUrl": "https://forms.gle/DxGY9MZ7ASC2LsmT6",
     "zoomUrl": "",
     "zoomMeetingId": "",
@@ -994,28 +1095,29 @@ const INITIAL_EVENTS = [
       "archiveUrl": "",
       "password": "",
       "notes": ""
-    },
-    "images": [
-      "images/S__14016545.jpg"
-    ]
+    }
   },
   {
     "id": "event-20261116-ehime",
     "title": "第7回 IN 愛媛 BKマルシェ＆ぶった斬り会長トークショー",
-    "subtitle": "総勢24店舗集結のマルシェ＆参加費FREEトークショー！",
+    "subtitle": "🎊BKマルシェ1周年記念✨ 総勢24店舗大集合＆ぶった斬り会長リアルトークショー",
     "category": "リアルイベント",
     "categoryColor": "#059669",
     "startDate": "2026-11-16",
     "startTime": "10:30",
     "endDate": "2026-11-16",
     "endTime": "16:00",
+    "isAllDay": false,
     "location": "松山観光港 ターミナル研修室（愛媛県松山市高浜町5丁目2259-1）",
     "locationType": "offline",
-    "fee": "FREE（事前申込制・プレゼントあり🎁）",
-    "capacity": "マルシェ24店舗",
-    "presenter": "ぶった斬り会長（主催: BKマルシェ実行委員会 / 後援: 公益財団法人NEW TERAKOYA）",
-    "image": "images/S__14016551.jpg",
-    "description": "女性の挑戦が、未来を変える。頑張る女性を本気で応援します！\n10:30〜 マルシェ開始（総勢24店舗）\n13:00〜14:15 ぶった斬り会長トークショー（※トークショー中マルシェ一時中断）\n16:00 終了\n本音で語る起業のリアルと成功のヒント！",
+    "fee": "参加費 FREE（入場無料・トークショー事前申込制）",
+    "capacity": "マルシェ総勢24店舗",
+    "presenter": "ぶった斬り会長 / 主催: BKマルシェ実行委員会 / 後援: 公益財団法人 NEW TERAKOYA MIRAIを創る会、公益財団法人 NEW TERAKOYA 桜会",
+    "image": "images/S__14049403.jpg",
+    "images": [
+      "images/S__14049403.jpg"
+    ],
+    "description": "🎊✨ BKマルシェ1周年記念 ✨🎊\n「女性の挑戦が、未来を変える。頑張る女性を本気で応援します！」\nおかげさまでBKマルシェも1周年を迎えます🥹💕 今回も総勢24店舗が大集合！\n\n【当日のプログラム】\n・10:30〜 マルシェ開始（総勢24店舗・ハンドメイド・フード・リラクゼーション等）\n・13:00〜14:15 🔥ぶった斬り会長 リアルトークショー（本音で語る！起業のリアルと成功のヒント）\n　※トークショー中、マルシェは一時中断します\n・16:00 終了\n\nこんな方におすすめ！\n✔ 起業を考えている・始めたばかりの女性\n✔ ビジネスのヒントや人脈を広げたい方\n✔ 自分らしい働き方を実現したい方\n\n🎟️ 参加費無料・事前申込制\n👇 トークショーのお申し込みフォームはこちら:\nhttps://docs.google.com/forms/d/e/1FAIpQLSeOZkZjcD5DXGQDC-C8VY3hrWbDYCXJLIDt9tN9LLnPP_lfYQ/viewform",
     "registrationUrl": "https://docs.google.com/forms/d/e/1FAIpQLSeOZkZjcD5DXGQDC-C8VY3hrWbDYCXJLIDt9tN9LLnPP_lfYQ/viewform",
     "zoomUrl": "",
     "zoomMeetingId": "",
@@ -1025,10 +1127,39 @@ const INITIAL_EVENTS = [
       "archiveUrl": "",
       "password": "",
       "notes": ""
-    },
+    }
+  },
+  {
+    "id": "event-20261118-kochi-omusubi-koza",
+    "title": "おむすび師認定講座 & Ray和おむすび師認定トレーナー講座",
+    "subtitle": "おむすびでつなぐ、やさしさと学び。あなたの想いを、誰かの笑顔へ。",
+    "category": "セミナー・勉強会",
+    "categoryColor": "#d97706",
+    "startDate": "2026-11-18",
+    "startTime": "10:00",
+    "endDate": "2026-11-18",
+    "endTime": "15:00",
+    "isAllDay": false,
+    "location": "一時預かり専門託児所 憩い〜ikoi〜（〒781-0262 高知県高知市浦戸528-1）",
+    "locationType": "offline",
+    "fee": "おむすび師 ¥22,000 / おむすび師認定トレーナー(会員限定) ¥49,500",
+    "capacity": "",
+    "presenter": "RAY和おむすび",
+    "image": "images/S__14049395.jpg",
     "images": [
-      "images/S__14016551.jpg"
-    ]
+      "images/S__14049395.jpg"
+    ],
+    "description": "🌱 心と身体を整える方法を学びたい方\n🌱 自分でおむすび会を開催してみたい方\n\nおむすびで人と未来をつなぐ認定講座を高知で開催します！\n受講希望の方は公式LINEに「お名前とおむすび師希望 or 認定トレーナー希望」とメッセージをお送りください。\n\n【受講料】\n・おむすび師認定講座: ¥22,000\n　詳細: https://shopping.community-iyasakagu.jp/product/cms0500031_product0006/\n・Ray和おむすび師認定トレーナー講座 (会員限定): ¥49,500\n　詳細: https://shopping.community-iyasakagu.jp/product/cms0500031_product0007/\n\nお問い合わせ【公式LINE】: https://line.me/R/ti/p/@324cghvb",
+    "registrationUrl": "https://shopping.community-iyasakagu.jp/product/cms0500031_product0006/",
+    "zoomUrl": "",
+    "zoomMeetingId": "",
+    "zoomPasscode": "",
+    "archive": {
+      "hasArchive": false,
+      "archiveUrl": "",
+      "password": "",
+      "notes": ""
+    }
   },
   {
     "id": "event-20261118-soba-to-yu",
@@ -1061,6 +1192,38 @@ const INITIAL_EVENTS = [
       "images/S__58441764.jpg",
       "images/S__58458252.jpg"
     ]
+  },
+  {
+    "id": "event-20261119-kochi-omusubi",
+    "title": "親子で楽しく 軸が整うおむすび会",
+    "subtitle": "元保育園の園庭・室内でのびのび過ごせる！愛情たっぷりの高知のお米を使用🍙",
+    "category": "リアルイベント",
+    "categoryColor": "#059669",
+    "startDate": "2026-11-19",
+    "startTime": "11:30",
+    "endDate": "2026-11-19",
+    "endTime": "13:30",
+    "isAllDay": false,
+    "location": "一時預かり専門託児所 憩い〜ikoi〜（よりみちテラス内 / 〒781-0262 高知県高知市浦戸528-1 駐車場あり）",
+    "locationType": "offline",
+    "fee": "大人 2,500円 / 中・高校生 1,000円 / 幼児・小学生 500円",
+    "capacity": "",
+    "presenter": "RAY和おむすび",
+    "image": "images/S__14049393.jpg",
+    "images": [
+      "images/S__14049393.jpg"
+    ],
+    "description": "愛情たっぷりの高知のお米を使った『軸が整うおむすび会』を開催します❣️\n元保育園の園庭・室内でのびのび過ごせます。遊びながらママはゆっくりおむすび時間♡\n\n【スケジュール】\n1. ご挨拶\n2. 美味しいご飯の炊き方\n3. みんなでおむすび作り\n4. わくわくのおむすび実験\n5. 食事を楽しむ\n\n【献立】\n★ 無農薬米おむすび\n★ 無農薬野菜お漬物\n★ 無農薬野菜のお味噌汁\n\nおむすびを結びながら、心と身体をゆるめ、自分自身の軸が整っていくような特別な感覚を体験してみてください✨\nお子さまからご年配の方までどなたでもご参加いただけます！\nお問い合わせ: 公式LINE https://line.me/R/ti/p/@324cghvb",
+    "registrationUrl": "https://line.me/R/ti/p/@324cghvb",
+    "zoomUrl": "",
+    "zoomMeetingId": "",
+    "zoomPasscode": "",
+    "archive": {
+      "hasArchive": false,
+      "archiveUrl": "",
+      "password": "",
+      "notes": ""
+    }
   },
   {
     "id": "event-20261119-joukiyeki-3",

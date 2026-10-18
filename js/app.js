@@ -49,6 +49,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   initEventListeners();
   updateAdminUI();
   renderApp();
+  registerServiceWorker();
+  updateNotificationUI();
+  checkForNewEventsAndNotify(allEvents);
 
   // If Firebase is configured, fetch latest events from Firestore
   if (typeof fetchEventsFromFirestore === "function" && isFirebaseConfigured()) {
@@ -56,6 +59,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (remoteEvents && remoteEvents.length > 0) {
       applyEvents(remoteEvents);
       renderApp();
+      checkForNewEventsAndNotify(allEvents);
       if (isAdmin) {
         renderAdminEventsTable();
       }
@@ -1391,11 +1395,12 @@ function initEventListeners() {
       closeCreateEventModal();
       closeAdminLoginModal();
       closeAdminDashboardModal();
+      closeNotificationModal();
     }
   });
 
   // Close modals when clicking backdrop
-  ["event-detail-modal", "archive-password-modal", "archive-admin-modal", "create-event-modal", "admin-login-modal", "admin-dashboard-modal"].forEach(id => {
+  ["event-detail-modal", "archive-password-modal", "archive-admin-modal", "create-event-modal", "admin-login-modal", "admin-dashboard-modal", "notification-modal"].forEach(id => {
     const el = document.getElementById(id);
     if (el) {
       el.addEventListener("click", (e) => {
@@ -1406,6 +1411,7 @@ function initEventListeners() {
           closeCreateEventModal();
           closeAdminLoginModal();
           closeAdminDashboardModal();
+          closeNotificationModal();
         }
       });
     }
@@ -2109,6 +2115,10 @@ async function handleCreateEventSubmit(e) {
     localStorage.setItem("neofamily_custom_archives", JSON.stringify(customArchives));
   }
 
+  if (stateIdx < 0) {
+    notifyNewEventCreated(savedEvent);
+  }
+
   editingEventId = null;
   closeCreateEventModal();
   renderApp();
@@ -2117,3 +2127,223 @@ async function handleCreateEventSubmit(e) {
   }
   openEventDetail(savedEvent.id);
 }
+
+// ==================== PWA & WEB PUSH NOTIFICATIONS ====================
+
+// Register Service Worker for PWA & Notifications
+function registerServiceWorker() {
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./sw.js")
+        .then((reg) => {
+          console.log("[NEO FAMILY PWA] Service Worker registered:", reg.scope);
+        })
+        .catch((err) => {
+          console.warn("[NEO FAMILY PWA] Service Worker registration failed:", err);
+        });
+    });
+
+    navigator.serviceWorker.addEventListener("message", (event) => {
+      if (event.data && event.data.type === "OPEN_EVENT_DETAIL" && event.data.eventId) {
+        openEventDetail(event.data.eventId);
+      }
+    });
+  }
+}
+
+// Update UI based on Notification permission
+function updateNotificationUI() {
+  const btn = document.getElementById("btn-notification-toggle");
+  const icon = document.getElementById("notification-icon");
+  const label = document.getElementById("notification-label");
+  const statusText = document.getElementById("notification-status-text");
+  const testBtn = document.getElementById("btn-test-notification");
+  const reqBtn = document.getElementById("btn-request-permission");
+
+  if (!("Notification" in window)) {
+    if (btn) btn.classList.add("hidden");
+    return;
+  }
+
+  const perm = Notification.permission;
+  if (perm === "granted") {
+    if (btn) {
+      btn.className = "inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition shadow-xs bg-rose-50 text-rose-700 border border-rose-200 hover:bg-rose-100";
+    }
+    if (icon) icon.className = "fa-solid fa-bell text-rose-600";
+    if (label) label.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block mr-1 animate-pulse"></span>通知ON';
+    if (statusText) {
+      statusText.textContent = "通知は有効です（新着イベントを自動でお知らせします）";
+      statusText.className = "font-bold text-emerald-600";
+    }
+    if (testBtn) testBtn.classList.remove("hidden");
+    if (reqBtn) reqBtn.classList.add("hidden");
+  } else if (perm === "denied") {
+    if (btn) {
+      btn.className = "inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition shadow-xs bg-slate-100 text-slate-500 hover:bg-slate-200";
+    }
+    if (icon) icon.className = "fa-solid fa-bell-slash text-slate-400";
+    if (label) label.textContent = "通知OFF";
+    if (statusText) {
+      statusText.textContent = "ブラウザ設定で通知が拒否されています";
+      statusText.className = "font-bold text-rose-600";
+    }
+    if (testBtn) testBtn.classList.add("hidden");
+    if (reqBtn) {
+      reqBtn.classList.remove("hidden");
+      reqBtn.innerHTML = '<i class="fa-solid fa-gear"></i> <span>端末の設定から通知を許可してください</span>';
+      reqBtn.disabled = true;
+    }
+  } else {
+    // Default (not asked yet)
+    if (btn) {
+      btn.className = "inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition shadow-xs bg-slate-100 hover:bg-slate-200 text-slate-700";
+    }
+    if (icon) icon.className = "fa-regular fa-bell text-slate-500";
+    if (label) label.textContent = "通知を受け取る";
+    if (statusText) {
+      statusText.textContent = "未設定（通知はまだ届きません）";
+      statusText.className = "font-bold text-slate-600";
+    }
+    if (testBtn) testBtn.classList.add("hidden");
+    if (reqBtn) {
+      reqBtn.classList.remove("hidden");
+      reqBtn.innerHTML = '<i class="fa-solid fa-bell"></i> <span>通知をONにする</span>';
+      reqBtn.disabled = false;
+    }
+  }
+}
+
+// Handle clicking notification toggle button in header
+function handleNotificationToggleClick() {
+  const modal = document.getElementById("notification-modal");
+  if (!modal) return;
+
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  const isStandalone = window.navigator.standalone === true || window.matchMedia("(display-mode: standalone)").matches;
+  const iosGuide = document.getElementById("ios-pwa-guide");
+
+  // Show guide on iOS if opened in browser instead of installed home screen app
+  if (isIOS && !isStandalone && iosGuide) {
+    iosGuide.classList.remove("hidden");
+  } else if (iosGuide) {
+    iosGuide.classList.add("hidden");
+  }
+
+  updateNotificationUI();
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+}
+
+// Close Notification Modal
+function closeNotificationModal() {
+  const modal = document.getElementById("notification-modal");
+  if (modal) {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+  }
+}
+
+// Request permission
+async function requestNotificationPermission() {
+  if (!("Notification" in window)) {
+    alert("お使いのブラウザはプッシュ通知に対応していません。\nホーム画面に追加してから再度お試しください。");
+    return;
+  }
+
+  try {
+    const permission = await Notification.requestPermission();
+    updateNotificationUI();
+
+    if (permission === "granted") {
+      sendNotificationPayload({
+        title: "【NEO FAMILY】通知が有効になりました！",
+        body: "新しい定例会やマルシェ情報が追加された際にお知らせします🔔",
+        icon: "images/apple-touch-icon.png",
+        url: "./index.html"
+      });
+      alert("新着イベント通知を有効にしました！新しいイベントが追加された際にお知らせします。");
+    } else if (permission === "denied") {
+      alert("通知が拒否されました。通知を受け取るにはブラウザまたは端末の設定画面から通知権限を許可してください。");
+    }
+  } catch (err) {
+    console.warn("Notification request error:", err);
+  }
+}
+
+// Send Test Notification
+function sendTestNotification() {
+  sendNotificationPayload({
+    title: "【NEO FAMILY】テスト通知",
+    body: "新着イベント通知は正常に機能しています！新しいイベントが追加された際に自動でお知らせが届きます。",
+    icon: "images/apple-touch-icon.png",
+    url: "./index.html"
+  });
+  alert("テスト通知を送信しました。端末の通知をご確認ください。");
+}
+
+// Send Notification via ServiceWorker or Web Notification
+function sendNotificationPayload(payload) {
+  if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+    navigator.serviceWorker.controller.postMessage({
+      type: "SHOW_NOTIFICATION",
+      ...payload
+    });
+  } else if ("Notification" in window && Notification.permission === "granted") {
+    try {
+      new Notification(payload.title, {
+        body: payload.body,
+        icon: payload.icon || "images/apple-touch-icon.png",
+        tag: "neofamily-notice"
+      });
+    } catch (e) {
+      console.warn("Direct Notification error:", e);
+    }
+  }
+}
+
+// Check if new events were added and notify subscribers
+function checkForNewEventsAndNotify(events) {
+  if (!events || events.length === 0) return;
+  const currentIds = events.map(e => e.id);
+  const knownJson = localStorage.getItem("neofamily_known_event_ids");
+
+  if (knownJson) {
+    try {
+      const knownIds = new Set(JSON.parse(knownJson));
+      const newEvents = events.filter(e => !knownIds.has(e.id));
+
+      if (newEvents.length > 0 && "Notification" in window && Notification.permission === "granted") {
+        const latest = newEvents[0];
+        const bodyText = newEvents.length > 1
+          ? `「${latest.title}」ほか ${newEvents.length} 件の新しいイベントが追加されました！`
+          : `「${latest.title}」（${latest.startDate}）が新しく追加されました！`;
+
+        sendNotificationPayload({
+          title: "【NEO FAMILY】新着イベントが追加されました！",
+          body: bodyText,
+          icon: "images/apple-touch-icon.png",
+          url: "./index.html",
+          eventId: latest.id
+        });
+      }
+    } catch (e) {
+      console.warn("Error checking new events:", e);
+    }
+  }
+
+  // Update known IDs
+  localStorage.setItem("neofamily_known_event_ids", JSON.stringify(currentIds));
+}
+
+// Trigger notification when admin creates a new event
+function notifyNewEventCreated(event) {
+  sendNotificationPayload({
+    title: "【NEO FAMILY】新着イベントが追加されました！",
+    body: `「${event.title}」（${event.startDate}）が追加されました！`,
+    icon: "images/apple-touch-icon.png",
+    url: "./index.html",
+    eventId: event.id
+  });
+}
+

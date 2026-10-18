@@ -906,6 +906,13 @@ async function handleCreateEvent(e) {
         console.warn("Firestore save failed:", err);
       }
     }
+    sendNotificationPayload({
+      title: "【NEO FAMILY】新着イベントが追加されました！",
+      body: `「${eventPayload.title}」（${eventPayload.startDate}）が登録されました！`,
+      icon: "images/apple-touch-icon.png",
+      url: "./index.html",
+      eventId: newId
+    });
     alert("イベントを登録しました。");
   }
 
@@ -998,3 +1005,23 @@ function setupEscapeKeyHandler() {
     }
   });
 }
+
+function sendNotificationPayload(payload) {
+  if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+    navigator.serviceWorker.controller.postMessage({
+      type: "SHOW_NOTIFICATION",
+      ...payload
+    });
+  } else if ("Notification" in window && Notification.permission === "granted") {
+    try {
+      new Notification(payload.title, {
+        body: payload.body,
+        icon: payload.icon || "images/apple-touch-icon.png",
+        tag: "neofamily-notice"
+      });
+    } catch (e) {
+      console.warn("Direct Notification error:", e);
+    }
+  }
+}
+
