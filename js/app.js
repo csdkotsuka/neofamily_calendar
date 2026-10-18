@@ -84,7 +84,7 @@ function applyEvents(baseEvents) {
           customArchives[k].notes = "10/2 東京定例会のYouTube録画アーカイブです。";
           customArchivesChanged = true;
         }
-      } else if (customArchives[k].archiveUrl.includes("vimeo.com/example")) {
+      } else if (customArchives[k].archiveUrl.includes("vimeo.com/example") || customArchives[k].archiveUrl.includes("zoom.us/rec/share/example")) {
         customArchives[k].hasArchive = false;
         customArchives[k].archiveUrl = "";
         customArchivesChanged = true;
@@ -107,7 +107,7 @@ function applyEvents(baseEvents) {
   allEvents = combined.map(ev => {
     // Ensure Tokyo regular meeting has its real YouTube URL
     if (ev.id === "event-20261002-tokyo-teirei") {
-      if (!ev.archive || !ev.archive.archiveUrl || ev.archive.archiveUrl.includes("vimeo.com")) {
+      if (!ev.archive || !ev.archive.archiveUrl || ev.archive.archiveUrl.includes("vimeo.com") || ev.archive.archiveUrl.includes("zoom.us/rec/share/example")) {
         ev.archive = {
           hasArchive: true,
           archiveUrl: "https://youtu.be/SnXEDtNAThA",
@@ -119,8 +119,8 @@ function applyEvents(baseEvents) {
 
     if (customArchives[ev.id]) {
       const arch = { ...ev.archive, ...customArchives[ev.id] };
-      // Prevent dummy vimeo from overriding
-      if (arch.archiveUrl && arch.archiveUrl.includes("vimeo.com/example")) {
+      // Prevent dummy vimeo or dummy zoom from overriding
+      if (arch.archiveUrl && (arch.archiveUrl.includes("vimeo.com/example") || arch.archiveUrl.includes("zoom.us/rec/share/example"))) {
         if (ev.id === "event-20261002-tokyo-teirei") {
           arch.archiveUrl = "https://youtu.be/SnXEDtNAThA";
         } else {
@@ -1067,6 +1067,17 @@ function openEventDetail(eventId) {
 
   modal.classList.remove("hidden");
   modal.classList.add("flex");
+
+  // Ensure scroll position is completely reset to top
+  modal.scrollTop = 0;
+  const innerCard = modal.querySelector(".overflow-y-auto") || modal.firstElementChild;
+  if (innerCard) {
+    innerCard.scrollTop = 0;
+  }
+  requestAnimationFrame(() => {
+    modal.scrollTop = 0;
+    if (innerCard) innerCard.scrollTop = 0;
+  });
 }
 
 // Close Event Detail Modal
@@ -1075,6 +1086,9 @@ function closeEventDetail() {
   if (modal) {
     modal.classList.add("hidden");
     modal.classList.remove("flex");
+    modal.scrollTop = 0;
+    const innerCard = modal.querySelector(".overflow-y-auto") || modal.firstElementChild;
+    if (innerCard) innerCard.scrollTop = 0;
   }
 }
 

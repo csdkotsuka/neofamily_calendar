@@ -145,10 +145,10 @@ const INITIAL_EVENTS = [
     "zoomMeetingId": "815 8898 3331",
     "zoomPasscode": "1009",
     "archive": {
-      "hasArchive": true,
-      "archiveUrl": "https://us06web.zoom.us/rec/share/example-luce",
+      "hasArchive": false,
+      "archiveUrl": "",
       "password": "",
-      "notes": "美容事業LUCEスクール事業説明会のアーカイブ録画です。"
+      "notes": ""
     },
     "images": []
   },
@@ -203,10 +203,10 @@ const INITIAL_EVENTS = [
     "zoomMeetingId": "",
     "zoomPasscode": "",
     "archive": {
-      "hasArchive": true,
-      "archiveUrl": "https://us06web.zoom.us/rec/share/example-makers",
+      "hasArchive": false,
+      "archiveUrl": "",
       "password": "",
-      "notes": "maKeRs.事業説明会（会長冒頭参加）の録画アーカイブです。"
+      "notes": ""
     },
     "images": []
   },
@@ -232,10 +232,10 @@ const INITIAL_EVENTS = [
     "zoomMeetingId": "846 1775 5146",
     "zoomPasscode": "1010",
     "archive": {
-      "hasArchive": true,
-      "archiveUrl": "https://us06web.zoom.us/rec/share/example-fukushi",
+      "hasArchive": false,
+      "archiveUrl": "",
       "password": "",
-      "notes": "福祉支援事業「みんなのて」初回会長Zoomアーカイブです。"
+      "notes": ""
     },
     "images": [
       "images/S__344580101.jpg"
@@ -294,10 +294,10 @@ const INITIAL_EVENTS = [
     "zoomMeetingId": "",
     "zoomPasscode": "",
     "archive": {
-      "hasArchive": true,
-      "archiveUrl": "https://us06web.zoom.us/rec/share/example-kidswell",
+      "hasArchive": false,
+      "archiveUrl": "",
       "password": "",
-      "notes": "Kids Well Academy 事業説明会のアーカイブ録画です。"
+      "notes": ""
     },
     "images": [
       "images/S__258900010.jpg",
@@ -326,10 +326,10 @@ const INITIAL_EVENTS = [
     "zoomMeetingId": "811 1315 2898",
     "zoomPasscode": "2026",
     "archive": {
-      "hasArchive": true,
-      "archiveUrl": "https://us06web.zoom.us/rec/share/example-raytus1",
+      "hasArchive": false,
+      "archiveUrl": "",
       "password": "",
-      "notes": "合同事業説明会 DAY 1のアーカイブ動画です。"
+      "notes": ""
     },
     "images": []
   },
@@ -355,10 +355,10 @@ const INITIAL_EVENTS = [
     "zoomMeetingId": "811 1315 2898",
     "zoomPasscode": "2026",
     "archive": {
-      "hasArchive": true,
-      "archiveUrl": "https://us06web.zoom.us/rec/share/example-raytus2",
+      "hasArchive": false,
+      "archiveUrl": "",
       "password": "",
-      "notes": "合同事業説明会 DAY 2のアーカイブ動画です。"
+      "notes": ""
     },
     "images": []
   },
@@ -413,10 +413,10 @@ const INITIAL_EVENTS = [
     "zoomMeetingId": "851 1408 2179",
     "zoomPasscode": "koeki",
     "archive": {
-      "hasArchive": true,
-      "archiveUrl": "https://us06web.zoom.us/rec/share/example-sanzensango",
+      "hasArchive": false,
+      "archiveUrl": "",
       "password": "",
-      "notes": "大好評だった産前産後オンライントークショーのアーカイブ録画です。"
+      "notes": ""
     },
     "images": [
       "images/S__65536042.jpg",
@@ -508,10 +508,10 @@ const INITIAL_EVENTS = [
     "zoomMeetingId": "879 0117 8475",
     "zoomPasscode": "101821",
     "archive": {
-      "hasArchive": true,
-      "archiveUrl": "https://us06web.zoom.us/rec/share/example-remiko",
+      "hasArchive": false,
+      "archiveUrl": "",
       "password": "",
-      "notes": "れみこ先生説明会の録画アーカイブです。"
+      "notes": ""
     },
     "images": []
   },
@@ -568,10 +568,10 @@ const INITIAL_EVENTS = [
     "zoomMeetingId": "844 3042 7414",
     "zoomPasscode": "101921",
     "archive": {
-      "hasArchive": true,
-      "archiveUrl": "https://us06web.zoom.us/rec/share/example-mohatsu1",
+      "hasArchive": false,
+      "archiveUrl": "",
       "password": "",
-      "notes": "毛髪セミナー第1回のアーカイブ録画です。"
+      "notes": ""
     },
     "images": [
       "images/S__603512837.jpg"
@@ -599,10 +599,10 @@ const INITIAL_EVENTS = [
     "zoomMeetingId": "869 8424 5385",
     "zoomPasscode": "1111",
     "archive": {
-      "hasArchive": true,
-      "archiveUrl": "https://us06web.zoom.us/rec/share/example-osakana",
+      "hasArchive": false,
+      "archiveUrl": "",
       "password": "",
-      "notes": "お魚プロジェクト事業説明会のアーカイブ録画です。"
+      "notes": ""
     },
     "images": []
   },
@@ -657,10 +657,10 @@ const INITIAL_EVENTS = [
     "zoomMeetingId": "818 9048 1169",
     "zoomPasscode": "",
     "archive": {
-      "hasArchive": true,
-      "archiveUrl": "https://us06web.zoom.us/rec/share/example-kaicho1023",
+      "hasArchive": false,
+      "archiveUrl": "",
       "password": "",
-      "notes": "ぶった斬り会長オンライントークショーの録画アーカイブです。"
+      "notes": ""
     },
     "images": [
       "images/S__36356128.jpg"
@@ -751,10 +751,10 @@ const INITIAL_EVENTS = [
     "zoomMeetingId": "322 551 8128",
     "zoomPasscode": "7777",
     "archive": {
-      "hasArchive": true,
-      "archiveUrl": "https://us06web.zoom.us/rec/share/example-joukiyeki",
+      "hasArchive": false,
+      "archiveUrl": "",
       "password": "",
-      "notes": "上清液セールストーク勉強会のアーカイブ録画です。"
+      "notes": ""
     },
     "images": []
   },
