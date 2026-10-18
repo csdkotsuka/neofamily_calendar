@@ -448,7 +448,7 @@ function renderCalendarView() {
     else if (isSaturday) dayNumberColor = "text-blue-600";
 
     html += `
-      <div class="calendar-day-cell ${isSelected ? 'is-selected' : ''} ${isToday ? 'is-today' : ''}" onclick="selectDate('${dateStr}')">
+      <div class="calendar-day-cell ${isSelected ? 'is-selected' : ''} ${isToday ? 'is-today' : ''}" onclick="handleMonthDayClick('${dateStr}')">
         <div class="flex items-center justify-between">
           <span class="text-xs md:text-sm font-black ${dayNumberColor}">${day}</span>
           ${isToday ? `<span class="text-[9px] font-extrabold bg-rose-600 text-white px-1 rounded">今日</span>` : ''}
@@ -458,14 +458,13 @@ function renderCalendarView() {
           ${daysEvents.slice(0, 2).map(ev => `
             <div class="truncate text-[10px] md:text-xs font-semibold px-1.5 py-0.5 rounded text-white cursor-pointer hover:brightness-110 active:scale-95 transition shadow-xs" 
                  style="background-color: ${ev.categoryColor || '#e11d48'};" 
-                 title="${ev.title} (クリックで詳細)" 
-                 onclick="event.stopPropagation(); openEventDetail('${ev.id}');"
-                 ondblclick="event.stopPropagation(); openEventDetail('${ev.id}');">
+                 title="${ev.title}${daysEvents.length > 1 ? ' (同日に複数あるため週間カレンダーで表示)' : ' (クリックで詳細)'}" 
+                 onclick="event.stopPropagation(); handleMonthEventClick('${dateStr}', '${ev.id}');">
               ${ev.title}
             </div>
           `).join("")}
           ${daysEvents.length > 2 ? `
-            <span class="text-[9px] font-bold text-slate-500 self-end cursor-pointer" onclick="event.stopPropagation(); selectDate('${dateStr}');">+他${daysEvents.length - 2}件</span>
+            <span class="text-[9px] font-bold text-slate-500 self-end cursor-pointer" onclick="event.stopPropagation(); handleMonthDayClick('${dateStr}');">+他${daysEvents.length - 2}件</span>
           ` : ""}
         </div>
       </div>
@@ -484,6 +483,50 @@ function renderCalendarView() {
   }
 
   grid.innerHTML = html;
+}
+
+// Navigate week calendar to the week containing given date
+function goToWeekOfDate(dateStr) {
+  const [y, m, d] = dateStr.split("-").map(Number);
+  const targetDate = new Date(y, m - 1, d);
+  const dayOfWeek = targetDate.getDay(); // 0 is Sunday
+  const start = new Date(targetDate);
+  start.setDate(targetDate.getDate() - dayOfWeek);
+  start.setHours(0, 0, 0, 0);
+  currentWeekStartDate = start;
+}
+
+// Click on event pill in month calendar
+function handleMonthEventClick(dateStr, eventId) {
+  const calendarFilteredEvents = getFilteredEventsForCalendar();
+  const daysEvents = calendarFilteredEvents.filter(e => e.startDate === dateStr);
+
+  if (daysEvents.length > 1) {
+    // When there are multiple events on this date, switch to week calendar so user can see time slots clearly
+    goToWeekOfDate(dateStr);
+    switchViewMode("week");
+  } else {
+    // Exactly 1 event on this date -> open detail directly
+    openEventDetail(eventId);
+  }
+}
+
+// Click on day cell in month calendar
+function handleMonthDayClick(dateStr) {
+  const calendarFilteredEvents = getFilteredEventsForCalendar();
+  const daysEvents = calendarFilteredEvents.filter(e => e.startDate === dateStr);
+
+  if (daysEvents.length === 1) {
+    // Only 1 event on this date -> open detail directly
+    openEventDetail(daysEvents[0].id);
+  } else if (daysEvents.length > 1) {
+    // Multiple events on this date -> switch to week calendar to clarify time slots
+    goToWeekOfDate(dateStr);
+    switchViewMode("week");
+  } else {
+    // No events -> select date
+    selectDate(dateStr);
+  }
 }
 
 // Select a date on calendar (does NOT scroll or jump elsewhere)
