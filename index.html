@@ -256,80 +256,6 @@
     </div>
   </div>
 
-  <!-- Modal 2: Archive Password Modal -->
-  <div id="archive-password-modal" onclick="if(event.target === this) closeArchivePasswordModal()" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm cursor-pointer">
-    <div class="relative w-full max-w-md bg-white rounded-3xl shadow-2xl p-6 md:p-8 modal-enter cursor-default">
-      <button onclick="closeArchivePasswordModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition">
-        <i class="fa-solid fa-xmark text-xs"></i>
-      </button>
-
-      <div class="text-center mb-6">
-        <div class="w-14 h-14 mx-auto mb-3 bg-gradient-to-tr from-rose-600 to-amber-500 rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg shadow-rose-600/30">
-          <i class="fa-solid fa-key"></i>
-        </div>
-        <h3 class="text-lg font-black text-slate-900">アーカイブ閲覧パスワード</h3>
-        <p id="archive-event-title" class="text-xs text-rose-600 font-bold mt-1 line-clamp-1"></p>
-        <p class="text-xs text-slate-500 mt-2">
-          このイベントの録画アーカイブを視聴するには、配布されたパスワードを入力してください。
-        </p>
-      </div>
-
-      <div class="space-y-4">
-        <div>
-          <label class="block text-xs font-bold text-slate-700 mb-1">閲覧パスワード</label>
-          <input type="password" id="archive-password-input" placeholder="パスワードを入力" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 text-sm font-semibold tracking-wider">
-          <p id="archive-password-error" class="hidden text-xs text-rose-600 font-semibold mt-1"></p>
-        </div>
-
-        <button onclick="submitArchivePassword()" class="w-full py-3 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-xl text-sm shadow-md transition flex items-center justify-center gap-2">
-          <i class="fa-solid fa-unlock"></i> ロック解除して視聴
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal 3: Archive Admin Modal -->
-  <div id="archive-admin-modal" onclick="if(event.target === this) closeArchiveAdminModal()" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm cursor-pointer">
-    <div class="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl p-6 md:p-8 modal-enter max-h-[90vh] overflow-y-auto cursor-default">
-      <button onclick="closeArchiveAdminModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition">
-        <i class="fa-solid fa-xmark text-xs"></i>
-      </button>
-
-      <div class="mb-5">
-        <h3 class="text-lg font-black text-slate-900 flex items-center gap-2">
-          <i class="fa-solid fa-gear text-slate-600"></i> アーカイブ設定管理
-        </h3>
-        <p id="admin-event-title" class="text-xs text-rose-600 font-bold mt-1 line-clamp-1"></p>
-      </div>
-
-      <div class="space-y-4 text-xs">
-        <div class="flex items-center gap-2 p-3 bg-slate-50 rounded-xl border border-slate-200">
-          <input type="checkbox" id="admin-has-archive" class="w-4 h-4 rounded text-rose-600 focus:ring-rose-500">
-          <label for="admin-has-archive" class="font-bold text-slate-800">このイベントでアーカイブを公開する</label>
-        </div>
-
-        <div>
-          <label class="block font-bold text-slate-700 mb-1">Zoom録画 / YouTube / Vimeo URL</label>
-          <input type="url" id="admin-archive-url" placeholder="https://www.youtube.com/watch?v=... または Zoom URL" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500">
-        </div>
-
-        <div>
-          <label class="block font-bold text-slate-700 mb-1">会員向け注意事項 / 補足メモ</label>
-          <textarea id="admin-archive-notes" rows="3" placeholder="パスコードや視聴期限などを入力" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500"></textarea>
-        </div>
-
-        <div class="flex items-center gap-3 pt-2">
-          <button onclick="saveArchiveAdminSettings()" class="flex-1 py-2.5 bg-slate-900 hover:bg-black text-white font-bold rounded-xl shadow transition">
-            保存する
-          </button>
-          <button onclick="closeArchiveAdminModal()" class="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl transition">
-            キャンセル
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Modal: Admin Login Modal -->
   <div id="admin-login-modal" onclick="if(event.target === this) closeAdminLoginModal()" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm cursor-pointer">
     <div class="relative w-full max-w-sm bg-white rounded-3xl shadow-2xl p-6 md:p-8 modal-enter cursor-default">
@@ -348,7 +274,7 @@
       <form onsubmit="handleAdminLogin(event)" class="space-y-4">
         <div>
           <label class="block text-xs font-bold text-slate-700 mb-1">管理者パスコード</label>
-          <input type="password" id="admin-login-passcode" required placeholder="パスコードを入力" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 text-sm font-semibold">
+          <input type="password" id="admin-passcode-input" required placeholder="パスコードを入力" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 text-sm font-semibold">
           <p id="admin-login-error" class="hidden text-xs text-rose-600 font-bold mt-1.5"></p>
         </div>
 

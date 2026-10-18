@@ -228,8 +228,7 @@ function createEventCardHtml(ev) {
   const weekDay = weekDays[dateObj.getDay()];
   const isWeekend = weekDay === "日" || weekDay === "土";
 
-  const hasArchive = ev.archive && ev.archive.hasArchive;
-  const isUnlocked = unlockedArchives.has(ev.id);
+  const hasArchive = !!(ev.archive && ev.archive.hasArchive && ev.archive.archiveUrl);
 
   const locationBadge = ev.locationType === "online" 
     ? `<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-sky-50 text-sky-700 border border-sky-200"><i class="fa-solid fa-video"></i> Zoom/オンライン</span>`
@@ -240,9 +239,9 @@ function createEventCardHtml(ev) {
   const allImgs = (ev.images && ev.images.length > 0) ? ev.images : (ev.image ? [ev.image] : []);
 
   return `
-    <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between border border-slate-200/90 hover:border-rose-300 transition duration-300">
+    <div onclick="openEventDetail('${ev.id}')" class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between border border-slate-200/90 hover:border-rose-400 hover:shadow-xl transition-all duration-300 cursor-pointer group">
       ${allImgs.length > 0 ? `
-        <div class="relative w-full h-48 bg-slate-100 overflow-hidden group cursor-pointer" onclick="openEventDetail('${ev.id}')">
+        <div class="relative w-full h-48 bg-slate-100 overflow-hidden">
           <img src="${allImgs[0]}" alt="${ev.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
           <div class="absolute bottom-3 left-3 right-3 flex justify-between items-end text-white">
@@ -251,7 +250,7 @@ function createEventCardHtml(ev) {
             </span>
             ${hasArchive ? `
               <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold bg-rose-600 text-white shadow-md">
-                <i class="fa-solid fa-circle-play"></i> アーカイブ対応
+                <i class="fa-solid fa-video"></i> 録画あり
               </span>
             ` : ""}
           </div>
@@ -267,7 +266,7 @@ function createEventCardHtml(ev) {
             </span>
             ${locationBadge}
           </div>
-          ${hasArchive && !ev.image ? `
+          ${hasArchive && allImgs.length === 0 ? `
             <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-100 text-rose-700 border border-rose-200">
               <i class="fa-solid fa-video"></i> 録画あり
             </span>
@@ -285,7 +284,7 @@ function createEventCardHtml(ev) {
         </div>
 
         <!-- Title & Subtitle -->
-        <h3 class="text-base font-bold text-slate-900 leading-snug mb-1 hover:text-rose-600 transition cursor-pointer" onclick="openEventDetail('${ev.id}')">
+        <h3 class="text-base font-bold text-slate-900 leading-snug mb-1 group-hover:text-rose-600 transition">
           ${ev.title}
         </h3>
         ${ev.subtitle ? `
@@ -313,36 +312,21 @@ function createEventCardHtml(ev) {
             </div>
           ` : ""}
         </div>
-
-        <!-- Archive Status Banner if applicable -->
-        ${hasArchive ? `
-          <div class="mt-3 p-2.5 rounded-xl ${isUnlocked ? 'bg-emerald-50 border border-emerald-200' : 'bg-rose-50 border border-rose-200'} flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <i class="${isUnlocked ? 'fa-solid fa-lock-open text-emerald-600' : 'fa-solid fa-lock text-rose-600'} text-sm"></i>
-              <span class="text-xs font-bold ${isUnlocked ? 'text-emerald-800' : 'text-rose-800'}">
-                ${isUnlocked ? 'アーカイブ視聴可能 (解除済)' : 'Zoom録画アーカイブ (要パスワード)'}
-              </span>
-            </div>
-            <button onclick="handleArchiveClick('${ev.id}')" class="px-2.5 py-1 text-xs font-bold rounded-lg ${isUnlocked ? 'bg-emerald-600 hover:bg-emerald-700 text-white' : 'bg-rose-600 hover:bg-rose-700 text-white'} shadow-sm transition">
-              ${isUnlocked ? '見る' : '解除して見る'}
-            </button>
-          </div>
-        ` : ""}
       </div>
 
       <!-- Action Buttons -->
-      <div class="p-4 pt-2 bg-slate-50/70 border-t border-slate-100 flex items-center gap-2">
-        <button onclick="openEventDetail('${ev.id}')" class="flex-1 py-2 px-3 bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-sm">
+      <div class="p-4 pt-2 bg-slate-50/70 border-t border-slate-100 flex items-center gap-2" onclick="event.stopPropagation()">
+        <button onclick="event.stopPropagation(); openEventDetail('${ev.id}')" class="flex-1 py-2 px-3 bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-sm">
           <i class="fa-solid fa-circle-info"></i> 詳細
         </button>
 
         <!-- Google Calendar Button -->
-        <a href="${getGoogleCalendarUrl(ev)}" target="_blank" rel="noopener noreferrer" class="py-2 px-3 bg-blue-50 hover:bg-blue-100 border border-blue-200 text-blue-700 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1 shadow-sm" title="Googleカレンダーに追加">
+        <a href="${getGoogleCalendarUrl(ev)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="py-2 px-3 bg-blue-50 hover:bg-blue-100 border border-blue-200 text-blue-700 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1 shadow-sm" title="Googleカレンダーに追加">
           <i class="fa-brands fa-google"></i> 追加
         </a>
 
         <!-- ICS Download Button -->
-        <button onclick="downloadSingleICS('${ev.id}')" class="py-2 px-3 bg-rose-50 hover:bg-rose-100 border border-rose-200 text-rose-700 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1 shadow-sm" title="スマホカレンダー(.ics)に登録">
+        <button onclick="event.stopPropagation(); downloadSingleICS('${ev.id}')" class="py-2 px-3 bg-rose-50 hover:bg-rose-100 border border-rose-200 text-rose-700 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1 shadow-sm" title="スマホカレンダー(.ics)に登録">
           <i class="fa-solid fa-calendar-plus"></i> スマホ登録
         </button>
       </div>
@@ -836,8 +820,6 @@ function openEventDetail(eventId) {
   const weekDay = weekDays[dateObj.getDay()];
 
   const hasArchive = ev.archive && ev.archive.hasArchive;
-  const isUnlocked = unlockedArchives.has(ev.id);
-
   const allImgs = (ev.images && ev.images.length > 0) ? ev.images : (ev.image ? [ev.image] : []);
 
   modalContent.innerHTML = `
@@ -1047,35 +1029,18 @@ function closeEventDetail() {
   }
 }
 
-// Handle Archive Click -> Open Password Dialog
+// Handle Archive Click -> Open archive directly and log view (no password needed)
 function handleArchiveClick(eventId) {
   const ev = allEvents.find(e => e.id === eventId);
   if (!ev) return;
-
-  if (unlockedArchives.has(eventId)) {
-    // Already unlocked, open detail modal
+  if (ev.archive && ev.archive.archiveUrl) {
+    logAndOpenArchive(eventId, ev.archive.archiveUrl);
+  } else {
     openEventDetail(eventId);
-    return;
   }
-
-  const modal = document.getElementById("archive-password-modal");
-  const eventTitleEl = document.getElementById("archive-event-title");
-  const inputEl = document.getElementById("archive-password-input");
-  const errorEl = document.getElementById("archive-password-error");
-
-  if (!modal || !eventTitleEl || !inputEl) return;
-
-  eventTitleEl.textContent = ev.title;
-  inputEl.value = "";
-  if (errorEl) errorEl.classList.add("hidden");
-  modal.dataset.eventId = eventId;
-
-  modal.classList.remove("hidden");
-  modal.classList.add("flex");
-  setTimeout(() => inputEl.focus(), 100);
 }
 
-// Close Archive Password Dialog
+// Close Archive Password Dialog (safety stub)
 function closeArchivePasswordModal() {
   const modal = document.getElementById("archive-password-modal");
   if (modal) {
@@ -1273,14 +1238,6 @@ function initEventListeners() {
     searchInput.addEventListener("input", (e) => handleSearch(e.target.value));
   }
 
-  // Password Enter key
-  const passwordInput = document.getElementById("archive-password-input");
-  if (passwordInput) {
-    passwordInput.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") submitArchivePassword();
-    });
-  }
-
   // Close modals on escape key
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
@@ -1336,11 +1293,14 @@ function updateAdminUI() {
 // Open Admin Login Modal
 function openAdminLoginModal() {
   const modal = document.getElementById("admin-login-modal");
-  const input = document.getElementById("admin-passcode-input");
+  const input = document.getElementById("admin-passcode-input") || document.getElementById("admin-login-passcode");
   const err = document.getElementById("admin-login-error");
   if (!modal) return;
   if (input) input.value = "";
-  if (err) err.classList.add("hidden");
+  if (err) {
+    err.textContent = "";
+    err.classList.add("hidden");
+  }
   modal.classList.remove("hidden");
   modal.classList.add("flex");
   setTimeout(() => input && input.focus(), 100);
@@ -1358,10 +1318,10 @@ function closeAdminLoginModal() {
 // Handle Admin Login Submission
 function handleAdminLogin(e) {
   e.preventDefault();
-  const input = document.getElementById("admin-passcode-input");
+  const input = document.getElementById("admin-passcode-input") || document.getElementById("admin-login-passcode");
   const err = document.getElementById("admin-login-error");
   const val = (input ? input.value : "").trim();
-  const currentPasscode = localStorage.getItem("neofamily_admin_passcode") || DEFAULT_ADMIN_PASSCODE;
+  const currentPasscode = (localStorage.getItem("neofamily_admin_passcode") || DEFAULT_ADMIN_PASSCODE).trim();
 
   if (val === currentPasscode) {
     isAdmin = true;
@@ -1371,7 +1331,10 @@ function handleAdminLogin(e) {
     renderApp();
     openAdminDashboardModal();
   } else {
-    if (err) err.classList.remove("hidden");
+    if (err) {
+      err.textContent = "パスコードが正しくありません。";
+      err.classList.remove("hidden");
+    }
     if (input) {
       input.select();
       input.focus();
