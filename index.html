@@ -75,13 +75,17 @@
   <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 pb-2">
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
       
-      <!-- View Switcher Tabs (2 modes: Cards and Month Calendar) -->
+      <!-- View Switcher Tabs (3 modes: Cards, Week, and Month Calendar) -->
       <div class="flex items-center p-1 bg-slate-200/80 rounded-2xl w-full md:w-auto shadow-inner">
-        <button id="btn-view-cards" onclick="switchViewMode('cards')" class="flex-1 md:flex-initial px-5 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 bg-rose-600 text-white shadow-md">
+        <button id="btn-view-cards" onclick="switchViewMode('cards')" class="flex-1 md:flex-initial px-4 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 bg-rose-600 text-white shadow-md">
           <i class="fa-solid fa-grip"></i>
           <span>カード一覧</span>
         </button>
-        <button id="btn-view-calendar" onclick="switchViewMode('calendar')" class="flex-1 md:flex-initial px-5 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 bg-white text-slate-700 hover:bg-slate-100">
+        <button id="btn-view-week" onclick="switchViewMode('week')" class="flex-1 md:flex-initial px-4 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 bg-white text-slate-700 hover:bg-slate-100">
+          <i class="fa-solid fa-calendar-week"></i>
+          <span>週間カレンダー</span>
+        </button>
+        <button id="btn-view-calendar" onclick="switchViewMode('calendar')" class="flex-1 md:flex-initial px-4 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 bg-white text-slate-700 hover:bg-slate-100">
           <i class="fa-regular fa-calendar-days"></i>
           <span>月間カレンダー</span>
         </button>
@@ -128,6 +132,41 @@
       <!-- Event Cards Grid -->
       <div id="events-list-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Rendered dynamically via app.js -->
+      </div>
+    </section>
+
+    <!-- View Mode 2: Week Timetable View -->
+    <section id="week-view-section" class="hidden">
+      <div class="glass-card rounded-3xl p-4 sm:p-6 md:p-8 border border-slate-200 mb-8">
+        <!-- Week Header -->
+        <div class="flex items-center justify-between mb-4 flex-wrap gap-3">
+          <div class="flex items-center gap-3">
+            <h2 id="week-range-title" class="text-xl md:text-2xl font-black text-slate-900 tracking-tight">
+              2026年 10月18日(日) 〜 10月24日(土)
+            </h2>
+            <button onclick="goToCurrentWeek()" class="text-xs font-bold px-2.5 py-1 bg-rose-50 text-rose-700 border border-rose-200 rounded-lg hover:bg-rose-100 transition">
+              今週
+            </button>
+          </div>
+          <div class="flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl">
+            <button onclick="changeWeek(-1)" title="前の週" class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-600 hover:bg-white hover:shadow-sm transition">
+              <i class="fa-solid fa-chevron-left text-xs"></i>
+            </button>
+            <button onclick="changeWeek(1)" title="次の週" class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-600 hover:bg-white hover:shadow-sm transition">
+              <i class="fa-solid fa-chevron-right text-xs"></i>
+            </button>
+          </div>
+        </div>
+
+        <p class="text-xs text-slate-500 mb-4 flex items-center gap-1">
+          <i class="fa-regular fa-clock text-rose-500"></i>
+          時間帯ごとのスケジュールを確認できます。イベントをクリックすると詳細が開きます。
+        </p>
+
+        <!-- Week Timetable Grid -->
+        <div id="week-timetable-container" class="overflow-x-auto rounded-2xl border border-slate-200/90 bg-white shadow-xs">
+          <!-- Rendered dynamically via app.js -->
+        </div>
       </div>
     </section>
 

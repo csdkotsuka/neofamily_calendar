@@ -7,12 +7,12 @@
  */
 
 let FIREBASE_CONFIG = {
-  apiKey: "",             // 例: "AIzaSy..."
-  authDomain: "",         // 例: "your-project.firebaseapp.com"
-  projectId: "",          // 例: "your-project"
-  storageBucket: "",      // 例: "your-project.appspot.com"
-  messagingSenderId: "",  // 例: "1234567890"
-  appId: ""               // 例: "1:1234567890:web:abcdef..."
+  apiKey: "AIzaSyBCLMFTF4Sufn_IulZsJ3kHmbaTkpURmqU",             // 例: "AIzaSy..."
+  authDomain: "neofamily-calendar.firebaseapp.com",         // 例: "your-project.firebaseapp.com"
+  projectId: "neofamily-calendar",          // 例: "your-project"
+  storageBucket: "neofamily-calendar.firebasestorage.app",      // 例: "your-project.appspot.com"
+  messagingSenderId: "620399220851",  // 例: "1234567890"
+  appId: "1:620399220851:web:626e3cc57f064490e53206"               // 例: "1:1234567890:web:abcdef..."
 };
 
 // Cloudflare Pages の /api/config から環境変数を取得
