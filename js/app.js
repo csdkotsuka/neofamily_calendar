@@ -215,15 +215,17 @@ function createEventCardHtml(ev) {
     ? `<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-50 text-purple-700 border border-purple-200"><i class="fa-solid fa-users-viewfinder"></i> リアル＆配信</span>`
     : `<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200"><i class="fa-solid fa-location-dot"></i> 現地開催</span>`;
 
+  const allImgs = (ev.images && ev.images.length > 0) ? ev.images : (ev.image ? [ev.image] : []);
+
   return `
     <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between border border-slate-200/90 hover:border-rose-300 transition duration-300">
-      ${ev.image ? `
+      ${allImgs.length > 0 ? `
         <div class="relative w-full h-48 bg-slate-100 overflow-hidden group cursor-pointer" onclick="openEventDetail('${ev.id}')">
-          <img src="${ev.image}" alt="${ev.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+          <img src="${allImgs[0]}" alt="${ev.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
           <div class="absolute bottom-3 left-3 right-3 flex justify-between items-end text-white">
             <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold backdrop-blur-md bg-white/20 border border-white/30">
-              <i class="fa-regular fa-image"></i> フライヤーあり
+              <i class="fa-regular fa-image"></i> ${allImgs.length > 1 ? `チラシ ${allImgs.length}枚` : 'フライヤーあり'}
             </span>
             ${hasArchive ? `
               <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold bg-rose-600 text-white shadow-md">
@@ -814,10 +816,35 @@ function openEventDetail(eventId) {
   const hasArchive = ev.archive && ev.archive.hasArchive;
   const isUnlocked = unlockedArchives.has(ev.id);
 
+  const allImgs = (ev.images && ev.images.length > 0) ? ev.images : (ev.image ? [ev.image] : []);
+
   modalContent.innerHTML = `
-    ${ev.image ? `
-      <div class="relative w-full max-h-80 bg-slate-900 overflow-hidden rounded-2xl mb-6 shadow-md">
-        <img src="${ev.image}" alt="${ev.title}" class="w-full h-full object-contain mx-auto">
+    ${allImgs.length > 0 ? `
+      <div class="mb-6 space-y-2">
+        ${allImgs.length === 1 ? `
+          <div class="relative w-full max-h-96 bg-slate-950 overflow-hidden rounded-2xl shadow-md border border-slate-200">
+            <a href="${allImgs[0]}" target="_blank" rel="noopener noreferrer" title="新しいタブで画像を拡大表示">
+              <img src="${allImgs[0]}" alt="${ev.title}" class="w-full max-h-96 object-contain mx-auto hover:opacity-95 transition">
+            </a>
+          </div>
+        ` : `
+          <div class="flex items-center justify-between text-xs font-bold text-slate-600 px-1">
+            <span><i class="fa-regular fa-images text-rose-500 mr-1"></i> チラシ・案内画像 (${allImgs.length}枚)</span>
+            <span class="text-slate-400 text-[11px]">※クリックで原寸拡大</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            ${allImgs.map((imgSrc, idx) => `
+              <div class="relative bg-slate-950 overflow-hidden rounded-2xl shadow-md border border-slate-200 group">
+                <a href="${imgSrc}" target="_blank" rel="noopener noreferrer" title="新しいタブで画像を拡大表示">
+                  <img src="${imgSrc}" alt="${ev.title} チラシ ${idx + 1}" class="w-full h-64 object-contain mx-auto group-hover:scale-102 transition">
+                  <div class="absolute bottom-2 right-2 bg-black/70 text-white text-[10px] px-2 py-0.5 rounded-md font-bold">
+                    ${idx + 1} / ${allImgs.length}
+                  </div>
+                </a>
+              </div>
+            `).join("")}
+          </div>
+        `}
       </div>
     ` : ""}
 

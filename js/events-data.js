@@ -1,7 +1,8 @@
 /**
- * NEO FAMILY イベントデータ
- * LINEアナウンスおよび公式告知より自動抽出・構造化
+ * NEO FAMILY Events Dataset
+ * Generated from LINE Group Chat Notices
  */
+
 const INITIAL_EVENTS = [
   {
     "id": "event-20261002-tokyo-teirei",
@@ -19,7 +20,7 @@ const INITIAL_EVENTS = [
     "fee": "会員無料",
     "capacity": "東京500名超",
     "presenter": "RAYTUS group. / 会長",
-    "image": "images/S__3580032.jpg",
+    "image": "",
     "description": "【毎月2日は定例会！】\n10/2の東京定例会は熱気あふれる500名以上が参加！サプライズ発表や新プロジェクトの始動など盛りだくさんの内容でした。定例会は積極的に参加して、熱量を浴びながらしっかり情報を取りに行きましょう🔥",
     "registrationUrl": "",
     "zoomUrl": "https://us06web.zoom.us/",
@@ -30,7 +31,8 @@ const INITIAL_EVENTS = [
       "archiveUrl": "https://vimeo.com/example/tokyo-teirei-1002",
       "password": "neo1002",
       "notes": "10/2 東京定例会の全編録画アーカイブです。パスワード「neo1002」でご視聴いただけます。"
-    }
+    },
+    "images": []
   },
   {
     "id": "event-20261003-bengyo-ginger",
@@ -59,7 +61,8 @@ const INITIAL_EVENTS = [
       "archiveUrl": "",
       "password": "",
       "notes": ""
-    }
+    },
+    "images": []
   },
   {
     "id": "event-20261004-fruits",
@@ -88,7 +91,8 @@ const INITIAL_EVENTS = [
       "archiveUrl": "",
       "password": "",
       "notes": ""
-    }
+    },
+    "images": []
   },
   {
     "id": "event-20261004-bengyo-ginger",
@@ -116,7 +120,8 @@ const INITIAL_EVENTS = [
       "archiveUrl": "",
       "password": "",
       "notes": ""
-    }
+    },
+    "images": []
   },
   {
     "id": "event-20261009-luce",
@@ -144,7 +149,8 @@ const INITIAL_EVENTS = [
       "archiveUrl": "https://us06web.zoom.us/rec/share/example-luce",
       "password": "luce1009",
       "notes": "美容事業LUCEスクール事業説明会のアーカイブ録画です。"
-    }
+    },
+    "images": []
   },
   {
     "id": "event-20261009-livepark",
@@ -172,7 +178,8 @@ const INITIAL_EVENTS = [
       "archiveUrl": "",
       "password": "",
       "notes": ""
-    }
+    },
+    "images": []
   },
   {
     "id": "event-20261010-makers",
@@ -200,7 +207,8 @@ const INITIAL_EVENTS = [
       "archiveUrl": "https://us06web.zoom.us/rec/share/example-makers",
       "password": "makers1010",
       "notes": "maKeRs.事業説明会（会長冒頭参加）の録画アーカイブです。"
-    }
+    },
+    "images": []
   },
   {
     "id": "event-20261010-fukushi",
@@ -228,7 +236,10 @@ const INITIAL_EVENTS = [
       "archiveUrl": "https://us06web.zoom.us/rec/share/example-fukushi",
       "password": "fukushi1010",
       "notes": "福祉支援事業「みんなのて」初回会長Zoomアーカイブです。"
-    }
+    },
+    "images": [
+      "images/S__344580101.jpg"
+    ]
   },
   {
     "id": "event-20261011-sendai",
@@ -256,7 +267,10 @@ const INITIAL_EVENTS = [
       "archiveUrl": "",
       "password": "",
       "notes": ""
-    }
+    },
+    "images": [
+      "images/S__222453768.jpg"
+    ]
   },
   {
     "id": "event-20261011-kidswell-briefing",
@@ -284,7 +298,11 @@ const INITIAL_EVENTS = [
       "archiveUrl": "https://us06web.zoom.us/rec/share/example-kidswell",
       "password": "kwa1011",
       "notes": "Kids Well Academy 事業説明会のアーカイブ録画です。"
-    }
+    },
+    "images": [
+      "images/S__258900010.jpg",
+      "images/S__258900011.jpg"
+    ]
   },
   {
     "id": "event-20261013-raytus-joint-1",
@@ -312,7 +330,8 @@ const INITIAL_EVENTS = [
       "archiveUrl": "https://us06web.zoom.us/rec/share/example-raytus1",
       "password": "raytus2026",
       "notes": "合同事業説明会 DAY 1のアーカイブ動画です。"
-    }
+    },
+    "images": []
   },
   {
     "id": "event-20261014-raytus-joint-2",
@@ -340,7 +359,8 @@ const INITIAL_EVENTS = [
       "archiveUrl": "https://us06web.zoom.us/rec/share/example-raytus2",
       "password": "raytus2026",
       "notes": "合同事業説明会 DAY 2のアーカイブ動画です。"
-    }
+    },
+    "images": []
   },
   {
     "id": "event-20261015-day-study",
@@ -368,7 +388,8 @@ const INITIAL_EVENTS = [
       "archiveUrl": "",
       "password": "",
       "notes": ""
-    }
+    },
+    "images": []
   },
   {
     "id": "event-20261015-sanzensango",
@@ -396,7 +417,11 @@ const INITIAL_EVENTS = [
       "archiveUrl": "https://us06web.zoom.us/rec/share/example-sanzensango",
       "password": "koeki1015",
       "notes": "大好評だった産前産後オンライントークショーのアーカイブ録画です。"
-    }
+    },
+    "images": [
+      "images/S__65536042.jpg",
+      "images/S__66052141.jpg"
+    ]
   },
   {
     "id": "event-20261016-nougyo-taidan",
@@ -424,7 +449,10 @@ const INITIAL_EVENTS = [
       "archiveUrl": "https://vimeo.com/example-nougyo-taidan",
       "password": "nougyo1016",
       "notes": "しの夫婦×武ちゃんの安全安心対談アーカイブです。"
-    }
+    },
+    "images": [
+      "images/S__58589208.jpg"
+    ]
   },
   {
     "id": "event-20261017-yamaguchi",
@@ -452,7 +480,11 @@ const INITIAL_EVENTS = [
       "archiveUrl": "",
       "password": "",
       "notes": ""
-    }
+    },
+    "images": [
+      "images/S__2687068.jpg",
+      "images/S__2687069.jpg"
+    ]
   },
   {
     "id": "event-20261018-remiko",
@@ -480,7 +512,8 @@ const INITIAL_EVENTS = [
       "archiveUrl": "https://us06web.zoom.us/rec/share/example-remiko",
       "password": "remiko1018",
       "notes": "れみこ先生説明会の録画アーカイブです。"
-    }
+    },
+    "images": []
   },
   {
     "id": "event-20261018-bengyo-ginger-yukari",
@@ -508,7 +541,10 @@ const INITIAL_EVENTS = [
       "archiveUrl": "",
       "password": "",
       "notes": ""
-    }
+    },
+    "images": [
+      "images/S__178249735.jpg"
+    ]
   },
   {
     "id": "event-20261019-mohatsu-1",
@@ -536,7 +572,10 @@ const INITIAL_EVENTS = [
       "archiveUrl": "https://us06web.zoom.us/rec/share/example-mohatsu1",
       "password": "hair1019",
       "notes": "毛髪セミナー第1回のアーカイブ録画です。"
-    }
+    },
+    "images": [
+      "images/S__603512837.jpg"
+    ]
   },
   {
     "id": "event-20261022-osakana",
@@ -564,7 +603,8 @@ const INITIAL_EVENTS = [
       "archiveUrl": "https://us06web.zoom.us/rec/share/example-osakana",
       "password": "fish1022",
       "notes": "お魚プロジェクト事業説明会のアーカイブ録画です。"
-    }
+    },
+    "images": []
   },
   {
     "id": "event-20261022-machinohokenshitsu",
@@ -592,7 +632,8 @@ const INITIAL_EVENTS = [
       "archiveUrl": "",
       "password": "",
       "notes": ""
-    }
+    },
+    "images": []
   },
   {
     "id": "event-20261023-kaicho-online",
@@ -620,7 +661,10 @@ const INITIAL_EVENTS = [
       "archiveUrl": "https://us06web.zoom.us/rec/share/example-kaicho1023",
       "password": "kaicho1023",
       "notes": "ぶった斬り会長オンライントークショーの録画アーカイブです。"
-    }
+    },
+    "images": [
+      "images/S__36356128.jpg"
+    ]
   },
   {
     "id": "event-20261023-snack-aki",
@@ -648,7 +692,10 @@ const INITIAL_EVENTS = [
       "archiveUrl": "",
       "password": "",
       "notes": ""
-    }
+    },
+    "images": [
+      "images/S__3580032.jpg"
+    ]
   },
   {
     "id": "event-20261024-meiji-retreat",
@@ -677,7 +724,10 @@ const INITIAL_EVENTS = [
       "archiveUrl": "",
       "password": "",
       "notes": ""
-    }
+    },
+    "images": [
+      "images/92301.jpg"
+    ]
   },
   {
     "id": "event-20261026-biyo-joukiyeki",
@@ -705,7 +755,8 @@ const INITIAL_EVENTS = [
       "archiveUrl": "https://us06web.zoom.us/rec/share/example-joukiyeki",
       "password": "biyo7777",
       "notes": "上清液セールストーク勉強会のアーカイブ録画です。"
-    }
+    },
+    "images": []
   },
   {
     "id": "event-20261030-livecommerce",
@@ -733,7 +784,8 @@ const INITIAL_EVENTS = [
       "archiveUrl": "https://vimeo.com/example-livecommerce",
       "password": "live1030",
       "notes": "ライブコマーサー無料セミナーのアーカイブです。"
-    }
+    },
+    "images": []
   },
   {
     "id": "event-20261030-night-study",
@@ -761,7 +813,8 @@ const INITIAL_EVENTS = [
       "archiveUrl": "",
       "password": "",
       "notes": ""
-    }
+    },
+    "images": []
   },
   {
     "id": "event-20261102-fukuoka-teirei",
@@ -789,7 +842,8 @@ const INITIAL_EVENTS = [
       "archiveUrl": "",
       "password": "",
       "notes": ""
-    }
+    },
+    "images": []
   },
   {
     "id": "event-20261104-mohatsu-2",
@@ -817,7 +871,10 @@ const INITIAL_EVENTS = [
       "archiveUrl": "",
       "password": "",
       "notes": ""
-    }
+    },
+    "images": [
+      "images/S__603512837.jpg"
+    ]
   },
   {
     "id": "event-20261105-joukiyeki-2",
@@ -845,7 +902,8 @@ const INITIAL_EVENTS = [
       "archiveUrl": "",
       "password": "",
       "notes": ""
-    }
+    },
+    "images": []
   },
   {
     "id": "event-20261107-kamaishi",
@@ -873,7 +931,11 @@ const INITIAL_EVENTS = [
       "archiveUrl": "",
       "password": "",
       "notes": ""
-    }
+    },
+    "images": [
+      "images/S__12903041.jpg",
+      "images/S__13713537.jpg"
+    ]
   },
   {
     "id": "event-20261111-nagano",
@@ -901,7 +963,10 @@ const INITIAL_EVENTS = [
       "archiveUrl": "",
       "password": "",
       "notes": ""
-    }
+    },
+    "images": [
+      "images/S__339189766.jpg"
+    ]
   },
   {
     "id": "event-20261115-kochi",
@@ -929,7 +994,10 @@ const INITIAL_EVENTS = [
       "archiveUrl": "",
       "password": "",
       "notes": ""
-    }
+    },
+    "images": [
+      "images/S__14016545.jpg"
+    ]
   },
   {
     "id": "event-20261116-ehime",
@@ -957,7 +1025,10 @@ const INITIAL_EVENTS = [
       "archiveUrl": "",
       "password": "",
       "notes": ""
-    }
+    },
+    "images": [
+      "images/S__14016551.jpg"
+    ]
   },
   {
     "id": "event-20261118-soba-to-yu",
@@ -985,7 +1056,11 @@ const INITIAL_EVENTS = [
       "archiveUrl": "",
       "password": "",
       "notes": ""
-    }
+    },
+    "images": [
+      "images/S__58441764.jpg",
+      "images/S__58458252.jpg"
+    ]
   },
   {
     "id": "event-20261119-joukiyeki-3",
@@ -1013,7 +1088,8 @@ const INITIAL_EVENTS = [
       "archiveUrl": "",
       "password": "",
       "notes": ""
-    }
+    },
+    "images": []
   },
   {
     "id": "event-20261128-nagoya-marche",
@@ -1041,7 +1117,10 @@ const INITIAL_EVENTS = [
       "archiveUrl": "",
       "password": "",
       "notes": ""
-    }
+    },
+    "images": [
+      "images/S__5799969.jpg"
+    ]
   },
   {
     "id": "event-20261202-xmas-party",
@@ -1069,7 +1148,10 @@ const INITIAL_EVENTS = [
       "archiveUrl": "",
       "password": "",
       "notes": ""
-    }
+    },
+    "images": [
+      "images/S__21381128.jpg"
+    ]
   },
   {
     "id": "event-20261204-mohatsu-3",
@@ -1097,6 +1179,9 @@ const INITIAL_EVENTS = [
       "archiveUrl": "",
       "password": "",
       "notes": ""
-    }
+    },
+    "images": [
+      "images/S__603512837.jpg"
+    ]
   }
 ];
