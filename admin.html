@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>管理者ダッシュボード | NEO FAMILY カレンダー</title>
+  <meta name="description" content="NEO FAMILY イベントカレンダー & アーカイブ 管理者コンソール">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans JP"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', '"Noto Sans JP"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#fff1f2',
+              100: '#ffe4e6',
+              500: '#f43f5e',
+              600: '#e11d48',
+              700: '#be123c',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="text-slate-800 antialiased bg-slate-50 min-h-screen pb-20">
+
+  <!-- Admin Top Navigation Header -->
+  <header class="glass-header sticky top-0 z-30 border-b border-slate-200/80 bg-white/95">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-18">
+        
+        <!-- Brand Title with Official Logo & Admin Badge -->
+        <div class="flex items-center gap-3">
+          <a href="index.html" class="flex items-center gap-3 group">
+            <img src="images/logo.png" alt="NEO FAMILY Logo" class="w-9 h-9 md:w-10 md:h-10 object-contain rounded-xl shadow-xs group-hover:scale-105 transition">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-base md:text-lg font-black tracking-tight text-slate-900 group-hover:text-rose-600 transition">NEO FAMILY</span>
+                <span class="px-2 py-0.5 text-[10px] font-extrabold rounded-md bg-slate-900 text-white tracking-wide shadow-xs">ADMIN</span>
+              </div>
+              <p class="text-[11px] text-slate-400 font-medium">管理者コントロールパネル</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Header Actions -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <a href="index.html" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 transition shadow-xs">
+            <i class="fa-solid fa-calendar-days text-slate-500"></i>
+            <span>カレンダーを見る</span>
+          </a>
+          <button id="nav-btn-logout" onclick="adminLogout()" class="hidden inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold text-rose-600 bg-rose-50 hover:bg-rose-100 border border-rose-100 transition shadow-xs">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span class="hidden sm:inline">ログアウト</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== AUTHENTICATION GATE (LOGIN SCREEN) ==================== -->
+  <main id="admin-auth-container" class="max-w-md mx-auto px-4 pt-16 sm:pt-24">
+    <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-200 text-center">
+      <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-tr from-slate-900 to-slate-700 text-amber-400 flex items-center justify-center text-2xl shadow-lg">
+        <i class="fa-solid fa-lock"></i>
+      </div>
+      <h1 class="text-xl font-black text-slate-900 mb-1">管理者ログイン</h1>
+      <p class="text-xs text-slate-500 mb-6">視聴ログ分析やイベント管理を利用するには管理者パスコードを入力してください。</p>
+
+      <form id="admin-login-form" onsubmit="handleAdminLogin(event)" class="space-y-4 text-left">
+        <div>
+          <label for="admin-passcode-input" class="block text-xs font-bold text-slate-700 mb-1.5">管理者パスコード</label>
+          <div class="relative">
+            <input type="password" id="admin-passcode-input" required autofocus placeholder="パスコードを入力" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 text-sm font-semibold tracking-wider">
+            <button type="button" onclick="togglePasscodeVisibility()" class="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-sm">
+              <i id="passcode-eye-icon" class="fa-regular fa-eye"></i>
+            </button>
+          </div>
+          <p id="admin-login-error" class="hidden text-xs text-rose-600 font-bold mt-2 flex items-center gap-1">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <span>パスコードが正しくありません。</span>
+          </p>
+        </div>
+
+        <button type="submit" class="w-full py-3 bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-700 hover:to-rose-800 text-white font-bold rounded-xl shadow-md transition flex items-center justify-center gap-2 text-sm">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i>
+          <span>ダッシュボードを開く</span>
+        </button>
+
+        <div class="text-center pt-2">
+          <a href="index.html" class="text-xs text-slate-400 hover:text-slate-600 font-medium">
+            ← 一般カレンダー画面に戻る
+          </a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- ==================== MAIN ADMIN DASHBOARD ==================== -->
+  <main id="admin-main-container" class="hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+
+    <!-- Dashboard Title Banner -->
+    <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200 mb-6">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div class="flex items-start sm:items-center gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-slate-900 to-slate-800 text-amber-400 flex items-center justify-center text-xl shadow-md shrink-0">
+            <i class="fa-solid fa-crown"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <h1 class="text-xl sm:text-2xl font-black text-slate-900">管理者ダッシュボード</h1>
+              <span id="firestore-status-badge" class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-700 flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> クラウド同期中
+              </span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">アーカイブ動画の閲覧統計（動画別集計・アクセスログ）およびイベント全体の登録・編集</p>
+          </div>
+        </div>
+
+        <!-- Quick Top Actions -->
+        <div class="flex items-center gap-2 sm:gap-3 flex-wrap">
+          <button onclick="loadDashboardData()" title="データを最新に更新" class="px-3.5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition flex items-center gap-1.5 shadow-xs">
+            <i class="fa-solid fa-arrows-rotate"></i>
+            <span>再読込</span>
+          </button>
+          <button onclick="openCreateEventModal()" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-700 hover:to-rose-800 text-white text-xs font-bold transition shadow-sm flex items-center gap-1.5">
+            <i class="fa-solid fa-plus"></i>
+            <span>新規イベント作成</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="flex items-center gap-2 border-b border-slate-200 mt-6 -mb-2 overflow-x-auto">
+        <button id="tab-btn-analytics" onclick="switchAdminTab('analytics')" class="px-4 py-3 text-xs sm:text-sm font-bold border-b-2 border-rose-600 text-rose-600 flex items-center gap-2 whitespace-nowrap transition">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>動画別 再生統計 & 視聴ログ</span>
+        </button>
+        <button id="tab-btn-events" onclick="switchAdminTab('events')" class="px-4 py-3 text-xs sm:text-sm font-bold border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-2 whitespace-nowrap transition">
+          <i class="fa-regular fa-calendar-check"></i>
+          <span>イベント一覧・管理 (<span id="tab-event-count">0</span>)</span>
+        </button>
+        <button id="tab-btn-settings" onclick="switchAdminTab('settings')" class="px-4 py-3 text-xs sm:text-sm font-bold border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-2 whitespace-nowrap transition">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>設定 & パスコード変更</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ==================== TAB 1: ANALYTICS & LOGS ==================== -->
+    <div id="tab-content-analytics" class="space-y-6">
+
+      <!-- KPI Overview Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <!-- KPI 1: Active Archive Videos -->
+        <div class="bg-white rounded-3xl p-5 border border-slate-200 shadow-xs flex items-center gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center text-xl shrink-0">
+            <i class="fa-brands fa-youtube"></i>
+          </div>
+          <div>
+            <span class="text-[11px] font-bold text-slate-400 block uppercase tracking-wider">公開中アーカイブ</span>
+            <div class="flex items-baseline gap-1 mt-0.5">
+              <span id="kpi-active-archives" class="text-2xl font-black text-slate-900">0</span>
+              <span class="text-xs text-slate-500 font-bold">件</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- KPI 2: Calendar Total Plays -->
+        <div class="bg-white rounded-3xl p-5 border border-slate-200 shadow-xs flex items-center gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl shrink-0">
+            <i class="fa-solid fa-play"></i>
+          </div>
+          <div>
+            <span class="text-[11px] font-bold text-slate-400 block uppercase tracking-wider">カレンダー経由 総視聴数</span>
+            <div class="flex items-baseline gap-1 mt-0.5">
+              <span id="kpi-total-views" class="text-2xl font-black text-slate-900">0</span>
+              <span class="text-xs text-slate-500 font-bold">回</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- KPI 3: Unique Devices -->
+        <div class="bg-white rounded-3xl p-5 border border-slate-200 shadow-xs flex items-center gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl shrink-0">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <div>
+            <span class="text-[11px] font-bold text-slate-400 block uppercase tracking-wider">ユニーク視聴端末数</span>
+            <div class="flex items-baseline gap-1 mt-0.5">
+              <span id="kpi-unique-visitors" class="text-2xl font-black text-slate-900">0</span>
+              <span class="text-xs text-slate-500 font-bold">台</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- KPI 4: Top Video -->
+        <div class="bg-white rounded-3xl p-5 border border-slate-200 shadow-xs flex items-center gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl shrink-0">
+            <i class="fa-solid fa-trophy"></i>
+          </div>
+          <div class="min-w-0 flex-1">
+            <span class="text-[11px] font-bold text-slate-400 block uppercase tracking-wider">最多視聴アーカイブ</span>
+            <p id="kpi-top-video" class="text-xs font-black text-slate-900 mt-0.5 truncate">--</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Explanatory Insight Banner (Clear Explanation of 2 vs 400+ YouTube Views) -->
+      <div class="bg-amber-50/90 border border-amber-200/80 rounded-3xl p-5 sm:p-6 shadow-xs flex flex-col sm:flex-row items-start gap-4">
+        <div class="w-10 h-10 rounded-2xl bg-amber-200/60 text-amber-800 flex items-center justify-center text-lg shrink-0">
+          <i class="fa-solid fa-lightbulb"></i>
+        </div>
+        <div class="text-xs text-amber-950 space-y-1.5 flex-1">
+          <h2 class="text-sm font-black text-amber-900 flex items-center gap-2">
+            視聴回数の集計仕様について（YouTube上の表示との違い）
+          </h2>
+          <p class="leading-relaxed">
+            当ダッシュボードに表示されている数値は、<strong class="font-bold underline decoration-amber-400 decoration-2">「このNEO FAMILYカレンダーサイト経由で動画リンクが開かれたアクセス回数・端末数」</strong>です。
+          </p>
+          <p class="text-[11px] text-amber-800 leading-relaxed">
+            ※ YouTubeのアナリティクスや動画ページ上で表示される総再生回数（400回以上など）は、LINEグループに直接貼られたリンクからの再生や、YouTubeアプリ等で直接閲覧されたものを含む全世界での合算値です。当カレンダーのログは「カレンダーからどれだけ動画が見られているか（カレンダー経由の活用度）」の指標としてご活用ください。
+          </p>
+        </div>
+      </div>
+
+      <!-- Section: Per-Video View Analytics Table -->
+      <div class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-200 shadow-xs">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+          <div>
+            <h2 class="text-base font-black text-slate-900 flex items-center gap-2">
+              <i class="fa-solid fa-chart-column text-rose-600"></i>
+              <span>アーカイブ動画ごとの再生状況</span>
+            </h2>
+            <p class="text-xs text-slate-500">現在「録画あり」として公開されている動画ごとのカレンダー経由視聴回数・端末数一覧</p>
+          </div>
+          <span class="self-start sm:self-center px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-700">
+            登録済み: <span id="video-stats-count" class="text-rose-600">0</span> 本
+          </span>
+        </div>
+
+        <div class="overflow-x-auto rounded-2xl border border-slate-200">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr class="bg-slate-50 border-b border-slate-200 text-slate-600 font-bold text-[11px]">
+                <th class="p-3.5">動画 / イベント名</th>
+                <th class="p-3.5">カテゴリ</th>
+                <th class="p-3.5">配信URL</th>
+                <th class="p-3.5 text-center">カレンダー経由 再生数</th>
+                <th class="p-3.5 text-center">ユニーク端末</th>
+                <th class="p-3.5">最終視聴日時</th>
+                <th class="p-3.5 text-right">操作</th>
+              </tr>
+            </thead>
+            <tbody id="admin-video-stats-tbody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Section: Detailed Access History Log -->
+      <div class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-200 shadow-xs">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+          <div>
+            <h2 class="text-base font-black text-slate-900 flex items-center gap-2">
+              <i class="fa-solid fa-list-check text-slate-700"></i>
+              <span>詳細アクセスログ（カレンダー経由の視聴履歴）</span>
+            </h2>
+            <p class="text-xs text-slate-500">現在公開中のアーカイブ動画に対して発生したアクセスを時系列で記録しています。</p>
+          </div>
+
+          <!-- Controls: Search, CSV, and Clean legacy logs -->
+          <div class="flex items-center gap-2 flex-wrap">
+            <input type="text" id="log-search-input" oninput="filterAdminLogs()" placeholder="イベント名や端末で絞り込み..." class="px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs w-full sm:w-56 focus:outline-none focus:ring-2 focus:ring-rose-500 font-medium">
+            <button onclick="downloadLogsCSV()" class="px-3.5 py-2 bg-slate-900 hover:bg-black text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-xs">
+              <i class="fa-solid fa-file-csv"></i>
+              <span>CSV出力</span>
+            </button>
+            <button onclick="cleanupLegacyLogs()" title="無効な過去のテストリンクや削除済みイベントのログを整理します" class="px-3 py-2 bg-slate-100 hover:bg-rose-50 text-slate-600 hover:text-rose-600 rounded-xl text-xs font-bold transition flex items-center gap-1 border border-slate-200">
+              <i class="fa-solid fa-broom"></i>
+              <span>ログ整理</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto rounded-2xl border border-slate-200 max-h-[500px] overflow-y-auto">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead class="sticky top-0 bg-slate-50 z-10 border-b border-slate-200 shadow-2xs">
+              <tr class="text-slate-600 font-bold text-[11px]">
+                <th class="p-3.5">閲覧日時</th>
+                <th class="p-3.5">イベント名</th>
+                <th class="p-3.5">端末 / 環境</th>
+                <th class="p-3.5">訪問者ID</th>
+                <th class="p-3.5">リンク先</th>
+              </tr>
+            </thead>
+            <tbody id="admin-logs-tbody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ==================== TAB 2: EVENTS MANAGEMENT ==================== -->
+    <div id="tab-content-events" class="hidden space-y-6">
+      <div class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-200 shadow-xs">
+        
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+          <div>
+            <h2 class="text-base font-black text-slate-900 flex items-center gap-2">
+              <i class="fa-regular fa-calendar-check text-rose-600"></i>
+              <span>登録イベント一覧 & 編集</span>
+            </h2>
+            <p class="text-xs text-slate-500">カレンダーに掲載されている全イベントの編集、アーカイブ動画URLの登録、新規追加が可能です。</p>
+          </div>
+
+          <div class="flex items-center gap-2 flex-wrap">
+            <input type="text" id="event-search-input" oninput="filterAdminEvents()" placeholder="イベント名や登壇者で検索..." class="px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs w-full sm:w-56 focus:outline-none focus:ring-2 focus:ring-rose-500 font-medium">
+            <select id="event-category-filter" onchange="filterAdminEvents()" class="px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-rose-500">
+              <option value="all">すべてのカテゴリ</option>
+              <option value="定例会">定例会</option>
+              <option value="説明会">説明会</option>
+              <option value="勉強会">勉強会</option>
+              <option value="その他">その他</option>
+            </select>
+            <button onclick="openCreateEventModal()" class="px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
+              <i class="fa-solid fa-plus text-xs"></i>
+              <span>新規作成</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto rounded-2xl border border-slate-200 max-h-[600px] overflow-y-auto">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead class="sticky top-0 bg-slate-50 z-10 border-b border-slate-200 shadow-2xs">
+              <tr class="text-slate-600 font-bold text-[11px]">
+                <th class="p-3.5">開催日</th>
+                <th class="p-3.5">カテゴリ</th>
+                <th class="p-3.5">イベント名</th>
+                <th class="p-3.5 text-center">形式</th>
+                <th class="p-3.5 text-center">録画アーカイブ</th>
+                <th class="p-3.5 text-right">操作</th>
+              </tr>
+            </thead>
+            <tbody id="admin-events-tbody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ==================== TAB 3: SETTINGS ==================== -->
+    <div id="tab-content-settings" class="hidden space-y-6">
+      
+      <!-- Security Card: Passcode Change -->
+      <div class="max-w-xl bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+        <h2 class="text-base font-black text-slate-900 flex items-center gap-2 mb-1">
+          <i class="fa-solid fa-key text-rose-600"></i>
+          <span>管理者パスコードの変更</span>
+        </h2>
+        <p class="text-xs text-slate-500 mb-5">運営管理者のログインに使用する共通パスコードを変更します。</p>
+
+        <form onsubmit="handlePasscodeChange(event)" class="space-y-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">現在のパスコード</label>
+            <input type="password" id="current-passcode-input" required placeholder="現在のパスコードを入力" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 text-xs font-semibold">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">新しいパスコード（4文字以上）</label>
+            <input type="password" id="new-passcode-input" required minlength="4" placeholder="新しいパスコードを入力" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 text-xs font-semibold">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">新しいパスコード（確認のため再入力）</label>
+            <input type="password" id="confirm-passcode-input" required minlength="4" placeholder="もう一度入力" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 text-xs font-semibold">
+          </div>
+
+          <div class="pt-2 flex items-center gap-3">
+            <button type="submit" class="px-5 py-2.5 bg-slate-900 hover:bg-black text-white text-xs font-bold rounded-xl transition shadow-xs">
+              パスコードを更新する
+            </button>
+            <button type="button" onclick="resetPasscodeForm()" class="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-xl transition">
+              クリア
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- System Status Card -->
+      <div class="max-w-xl bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xs space-y-4">
+        <h2 class="text-base font-black text-slate-900 flex items-center gap-2">
+          <i class="fa-solid fa-server text-slate-700"></i>
+          <span>システム稼働状況</span>
+        </h2>
+        
+        <div class="space-y-2 text-xs divide-y divide-slate-100">
+          <div class="flex items-center justify-between py-2">
+            <span class="text-slate-500">Firebase Firestore</span>
+            <span id="sys-firestore-status" class="font-bold text-slate-800">接続確認中...</span>
+          </div>
+          <div class="flex items-center justify-between py-2">
+            <span class="text-slate-500">プロジェクトID</span>
+            <span class="font-mono text-slate-700">neofamily-calendar</span>
+          </div>
+          <div class="flex items-center justify-between py-2">
+            <span class="text-slate-500">総登録イベント数</span>
+            <span id="sys-total-events" class="font-bold text-slate-800">0 件</span>
+          </div>
+          <div class="flex items-center justify-between py-2">
+            <span class="text-slate-500">端末内ログキャッシュ</span>
+            <span id="sys-local-logs" class="font-bold text-slate-800">0 件</span>
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-slate-200 flex items-center justify-between">
+          <button onclick="adminLogout()" class="px-4 py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 rounded-xl text-xs font-bold transition flex items-center gap-2">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>管理者からログアウト</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ==================== MODAL 1: ARCHIVE ADMIN SETTINGS MODAL ==================== -->
+  <div id="archive-admin-modal" onclick="if(event.target === this) closeArchiveAdminModal()" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm cursor-pointer overflow-y-auto">
+    <div class="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl p-6 md:p-8 modal-enter my-8 cursor-default">
+      <button onclick="closeArchiveAdminModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition">
+        <i class="fa-solid fa-xmark text-xs"></i>
+      </button>
+
+      <div class="mb-5">
+        <h3 class="text-lg font-black text-slate-900 flex items-center gap-2">
+          <i class="fa-solid fa-film text-rose-600"></i> アーカイブ動画の登録・管理
+        </h3>
+        <p id="admin-event-title" class="text-xs text-rose-600 font-bold mt-1 line-clamp-1"></p>
+        <p class="text-xs text-slate-500 mt-1">動画URL（YouTubeなど）を登録すると、カレンダー利用者が視聴できるようになります。</p>
+      </div>
+
+      <form onsubmit="saveArchiveSettings(event)" class="space-y-4 text-xs">
+        <!-- Has Archive Switch -->
+        <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-2xl border border-slate-200">
+          <input type="checkbox" id="admin-has-archive" class="w-4 h-4 rounded text-rose-600 focus:ring-rose-500">
+          <label for="admin-has-archive" class="font-bold text-slate-900 cursor-pointer">このイベントのアーカイブ動画を公開する</label>
+        </div>
+
+        <!-- Archive URL -->
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">アーカイブ動画URL（YouTube / Zoom等）</label>
+          <input type="url" id="admin-archive-url" placeholder="例: https://youtu.be/... または Zoom録画URL" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 font-medium">
+          <p class="text-[11px] text-slate-400 mt-1">※ YouTubeのURLを入力すると、詳細画面でインライン再生プレビューが表示されます。</p>
+        </div>
+
+        <!-- Archive Notes -->
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">視聴案内メモ（任意）</label>
+          <textarea id="admin-archive-notes" rows="2" placeholder="例: 10/2 東京定例会のYouTube録画アーカイブです。" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500"></textarea>
+        </div>
+
+        <div class="flex items-center gap-3 pt-3">
+          <button type="submit" class="flex-1 py-3 bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-700 hover:to-rose-800 text-white font-bold rounded-xl shadow-md transition flex items-center justify-center gap-1.5 text-xs">
+            <i class="fa-solid fa-check"></i> 設定を保存する
+          </button>
+          <button type="button" onclick="closeArchiveAdminModal()" class="px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl transition text-xs">
+            キャンセル
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 2: CREATE / EDIT EVENT MODAL ==================== -->
+  <div id="create-event-modal" onclick="if(event.target === this) closeCreateEventModal()" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm cursor-pointer overflow-y-auto">
+    <div class="relative w-full max-w-xl bg-white rounded-3xl shadow-2xl p-6 md:p-8 modal-enter my-8 max-h-[90vh] overflow-y-auto cursor-default">
+      <button onclick="closeCreateEventModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition">
+        <i class="fa-solid fa-xmark text-xs"></i>
+      </button>
+
+      <div class="mb-5">
+        <h3 id="create-event-modal-title" class="text-lg font-black text-slate-900 flex items-center gap-2">
+          <i class="fa-solid fa-calendar-plus text-rose-600"></i> 新規イベント作成
+        </h3>
+        <p id="create-event-modal-desc" class="text-xs text-slate-500 mt-1">イベント情報を入力して登録します。</p>
+      </div>
+
+      <form id="create-event-form" onsubmit="handleCreateEvent(event)" class="space-y-4 text-xs">
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">イベント名 <span class="text-rose-600">*</span></label>
+          <input type="text" id="new-event-title" required placeholder="例: NEO FAMILY 11月 定例会" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 font-bold">
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">サブタイトル・キャッチコピー</label>
+          <input type="text" id="new-event-subtitle" placeholder="例: 最新マーケティング戦略共有" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">カテゴリ</label>
+            <select id="new-event-category" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500">
+              <option value="定例会">定例会</option>
+              <option value="説明会">説明会</option>
+              <option value="勉強会">勉強会</option>
+              <option value="その他">その他</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">開催形式</label>
+            <select id="new-event-location-type" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500">
+              <option value="online">オンライン (Zoom)</option>
+              <option value="offline">現地開催</option>
+              <option value="hybrid">ハイブリッド</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">開催日 <span class="text-rose-600">*</span></label>
+            <input type="date" id="new-event-date" required class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">開始時間</label>
+            <input type="time" id="new-event-start-time" value="13:00" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">終了時間</label>
+            <input type="time" id="new-event-end-time" value="15:00" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500">
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">開催場所・会場名</label>
+          <input type="text" id="new-event-location" placeholder="例: Zoom オンライン / 東京都渋谷区..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">登壇者・講師</label>
+            <input type="text" id="new-event-presenter" placeholder="例: 大塚 / NEOファミリー事務局" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">参加費</label>
+            <input type="text" id="new-event-fee" placeholder="例: 無料（会員限定）" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500">
+          </div>
+        </div>
+
+        <!-- Zoom Details -->
+        <div class="p-3 bg-blue-50/60 rounded-2xl border border-blue-200 space-y-2">
+          <label class="block font-bold text-blue-900">Zoom情報（オンライン参加用）</label>
+          <input type="url" id="new-event-zoom-url" placeholder="Zoom参加URL (https://zoom.us/j/...)" class="w-full px-3 py-1.5 rounded-lg border border-blue-200 bg-white">
+          <div class="grid grid-cols-2 gap-2">
+            <input type="text" id="new-event-zoom-id" placeholder="ミーティングID" class="px-3 py-1.5 rounded-lg border border-blue-200 bg-white">
+            <input type="text" id="new-event-zoom-pass" placeholder="パスコード" class="px-3 py-1.5 rounded-lg border border-blue-200 bg-white">
+          </div>
+        </div>
+
+        <!-- Flyer Upload -->
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">イベントチラシ・告知画像</label>
+          <div class="flex items-center gap-2">
+            <label class="flex-1 flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl border-2 border-dashed border-slate-300 hover:border-rose-500 bg-slate-50 hover:bg-rose-50/30 cursor-pointer transition">
+              <i class="fa-solid fa-cloud-arrow-up text-slate-400"></i>
+              <span class="text-xs text-slate-600 font-semibold">画像を選択（複数可）</span>
+              <input type="file" id="new-event-flyers" accept="image/*" multiple onchange="handleFlyerUpload(event)" class="hidden">
+            </label>
+          </div>
+          <div id="image-preview-container" class="grid grid-cols-3 gap-2 mt-2 hidden"></div>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">イベント詳細説明</label>
+          <textarea id="new-event-description" rows="3" placeholder="イベント内容や注意事項を入力" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500"></textarea>
+        </div>
+
+        <!-- Archive Option -->
+        <div class="p-3 bg-rose-50 rounded-2xl border border-rose-200 space-y-2">
+          <div class="flex items-center gap-2">
+            <input type="checkbox" id="new-event-has-archive" class="w-4 h-4 rounded text-rose-600">
+            <label for="new-event-has-archive" class="font-bold text-rose-900">録画アーカイブ（YouTube等）を設定する</label>
+          </div>
+          <div>
+            <input type="url" id="new-event-archive-url" placeholder="アーカイブ動画URL（YouTubeなど）" class="w-full px-3 py-1.5 rounded-lg border border-rose-200 bg-white">
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-3">
+          <button type="submit" id="create-event-submit-btn" class="flex-1 py-3 bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-700 hover:to-rose-800 text-white font-bold rounded-xl shadow-md transition flex items-center justify-center gap-1.5 text-xs">
+            <i class="fa-solid fa-check"></i> <span id="create-event-submit-text">イベントを登録する</span>
+          </button>
+          <button type="button" onclick="closeCreateEventModal()" class="px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl transition text-xs">
+            キャンセル
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Firebase SDK (v10 compat) -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+
+  <!-- Application Scripts -->
+  <script src="js/events-data.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

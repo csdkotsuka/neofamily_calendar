@@ -1472,8 +1472,7 @@ function handleAdminLogin(e) {
     localStorage.setItem("neofamily_admin_auth", "true");
     closeAdminLoginModal();
     updateAdminUI();
-    renderApp();
-    openAdminDashboardModal();
+    window.location.href = "admin.html";
   } else {
     if (err) {
       err.textContent = "パスコードが正しくありません。";
@@ -1513,24 +1512,12 @@ function changeAdminPasscode() {
   alert("管理者パスコードを更新しました。");
 }
 
-// ==================== ADMIN DASHBOARD MODAL ====================
-
-// Open Admin Dashboard Modal
+// Open Admin Dashboard (Redirects to standalone admin.html)
 function openAdminDashboardModal() {
-  if (!isAdmin) {
-    openAdminLoginModal();
-    return;
-  }
-  const modal = document.getElementById("admin-dashboard-modal");
-  if (!modal) return;
-  modal.classList.remove("hidden");
-  modal.classList.add("flex");
-  switchAdminTab("logs");
-  refreshAdminLogs();
-  renderAdminEventsTable();
+  window.location.href = "admin.html";
 }
 
-// Close Admin Dashboard Modal
+// Close Admin Dashboard Modal (Stub)
 function closeAdminDashboardModal() {
   const modal = document.getElementById("admin-dashboard-modal");
   if (modal) {
@@ -1539,28 +1526,9 @@ function closeAdminDashboardModal() {
   }
 }
 
-// Switch between dashboard tabs
+// Switch between dashboard tabs (Stub)
 function switchAdminTab(tabName) {
-  const tabs = ["logs", "events", "settings"];
-  tabs.forEach(t => {
-    const btn = document.getElementById(`admin-tab-${t}-btn`);
-    const content = document.getElementById(`admin-tab-${t}`);
-    if (t === tabName) {
-      if (btn) {
-        btn.className = "px-4 py-2.5 text-xs font-bold border-b-2 border-rose-600 text-rose-600 flex items-center gap-1.5 transition";
-      }
-      if (content) content.classList.remove("hidden");
-    } else {
-      if (btn) {
-        btn.className = "px-4 py-2.5 text-xs font-bold border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition";
-      }
-      if (content) content.classList.add("hidden");
-    }
-  });
-
-  if (tabName === "events") {
-    renderAdminEventsTable();
-  }
+  if (typeof renderAdminEventsTable === "function") renderAdminEventsTable();
 }
 
 // ==================== DASHBOARD TAB 1: ARCHIVE LOGS & ANALYTICS ====================
@@ -1596,23 +1564,37 @@ async function refreshAdminLogs() {
     }
   }
 
+  // Active archive events filter
+  const activeArchiveEvents = allEvents.filter(e => {
+    return !!(
+      e.archive &&
+      e.archive.hasArchive &&
+      e.archive.archiveUrl &&
+      !e.archive.archiveUrl.includes("zoom.us/rec/share/example")
+    );
+  });
+  const activeIdSet = new Set(activeArchiveEvents.map(e => e.id));
+  const activeTitleSet = new Set(activeArchiveEvents.map(e => (e.title || "").trim()));
+
+  // Sanitize and strictly filter logs
+  logs = logs.filter(l => {
+    if (l.archiveUrl && (l.archiveUrl.includes("zoom.us/rec/share/example") || l.archiveUrl.includes("vimeo.com"))) {
+      return false;
+    }
+    if (l.eventTitle && l.eventTitle.includes("RAYTUS group") && (!l.archiveUrl || l.archiveUrl.includes("zoom.us"))) {
+      return false;
+    }
+    const matchesId = l.eventId && activeIdSet.has(l.eventId);
+    const matchesTitle = l.eventTitle && activeTitleSet.has((l.eventTitle || "").trim());
+    return matchesId || matchesTitle;
+  });
+
   // Sort by date desc
   logs.sort((a, b) => new Date(b.viewedAt || 0) - new Date(a.viewedAt || 0));
 
-  // Sanitize any legacy Vimeo dummy URLs in logs
-  let logsCleaned = false;
-  logs = logs.map(l => {
-    if (l.archiveUrl && (l.archiveUrl.includes("vimeo.com/example/tokyo-teirei-1002") || l.eventId === "event-20261002-tokyo-teirei" && l.archiveUrl.includes("vimeo.com"))) {
-      logsCleaned = true;
-      return { ...l, archiveUrl: "https://youtu.be/SnXEDtNAThA" };
-    }
-    return l;
-  });
-  if (logsCleaned) {
-    try {
-      localStorage.setItem("neofamily_archive_logs", JSON.stringify(logs));
-    } catch (e) {}
-  }
+  try {
+    localStorage.setItem("neofamily_archive_logs", JSON.stringify(logs));
+  } catch (e) {}
 
   cachedArchiveLogs = logs;
 
