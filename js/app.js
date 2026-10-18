@@ -73,6 +73,28 @@ function applyEvents(baseEvents) {
   const customArchives = JSON.parse(localStorage.getItem("neofamily_custom_archives") || "{}");
   const localCreatedEvents = JSON.parse(localStorage.getItem("neofamily_created_events") || "[]");
 
+  // Clean up any legacy dummy vimeo URLs in localStorage customArchives
+  let customArchivesChanged = false;
+  for (const k of Object.keys(customArchives)) {
+    if (customArchives[k] && typeof customArchives[k].archiveUrl === "string") {
+      if (customArchives[k].archiveUrl.includes("vimeo.com/example/tokyo-teirei-1002") || k === "event-20261002-tokyo-teirei") {
+        if (!customArchives[k].archiveUrl || customArchives[k].archiveUrl.includes("vimeo.com")) {
+          customArchives[k].hasArchive = true;
+          customArchives[k].archiveUrl = "https://youtu.be/SnXEDtNAThA";
+          customArchives[k].notes = "10/2 東京定例会のYouTube録画アーカイブです。";
+          customArchivesChanged = true;
+        }
+      } else if (customArchives[k].archiveUrl.includes("vimeo.com/example")) {
+        customArchives[k].hasArchive = false;
+        customArchives[k].archiveUrl = "";
+        customArchivesChanged = true;
+      }
+    }
+  }
+  if (customArchivesChanged) {
+    localStorage.setItem("neofamily_custom_archives", JSON.stringify(customArchives));
+  }
+
   const combined = [...baseEvents];
   // Avoid duplicates
   const existingIds = new Set(baseEvents.map(e => e.id));
@@ -83,13 +105,32 @@ function applyEvents(baseEvents) {
   }
 
   allEvents = combined.map(ev => {
+    // Ensure Tokyo regular meeting has its real YouTube URL
+    if (ev.id === "event-20261002-tokyo-teirei") {
+      if (!ev.archive || !ev.archive.archiveUrl || ev.archive.archiveUrl.includes("vimeo.com")) {
+        ev.archive = {
+          hasArchive: true,
+          archiveUrl: "https://youtu.be/SnXEDtNAThA",
+          password: "",
+          notes: "10/2 東京定例会のYouTube録画アーカイブです。"
+        };
+      }
+    }
+
     if (customArchives[ev.id]) {
+      const arch = { ...ev.archive, ...customArchives[ev.id] };
+      // Prevent dummy vimeo from overriding
+      if (arch.archiveUrl && arch.archiveUrl.includes("vimeo.com/example")) {
+        if (ev.id === "event-20261002-tokyo-teirei") {
+          arch.archiveUrl = "https://youtu.be/SnXEDtNAThA";
+        } else {
+          arch.hasArchive = false;
+          arch.archiveUrl = "";
+        }
+      }
       return {
         ...ev,
-        archive: {
-          ...ev.archive,
-          ...customArchives[ev.id]
-        }
+        archive: arch
       };
     }
     return ev;
@@ -957,8 +998,8 @@ function openEventDetail(eventId) {
           <i class="fa-solid fa-film text-rose-600"></i> 録画アーカイブ・動画
         </h4>
         ${isAdmin ? `
-          <button onclick="openArchiveAdminModal('${ev.id}')" class="text-xs text-slate-400 hover:text-slate-600">
-            <i class="fa-solid fa-gear"></i> 管理
+          <button onclick="openArchiveAdminModal('${ev.id}')" class="text-xs font-bold text-rose-600 hover:text-rose-700 bg-rose-50 hover:bg-rose-100 border border-rose-200 px-3 py-1 rounded-xl transition flex items-center gap-1.5 shadow-xs">
+            <i class="fa-solid fa-gear"></i> アーカイブ設定
           </button>
         ` : ''}
       </div>
@@ -993,8 +1034,13 @@ function openEventDetail(eventId) {
           })()}
         </div>
       ` : `
-        <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-center text-xs text-slate-400">
-          現在このイベントのアーカイブ動画は公開されていません。
+        <div class="p-5 bg-slate-50 rounded-2xl border border-slate-200 text-center text-xs text-slate-500">
+          <p>現在このイベントのアーカイブ動画は公開されていません。</p>
+          ${isAdmin ? `
+            <button onclick="openArchiveAdminModal('${ev.id}')" class="mt-2.5 px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold shadow-xs inline-flex items-center gap-1.5 transition">
+              <i class="fa-solid fa-film text-[10px]"></i> アーカイブURLを登録する
+            </button>
+          ` : ''}
         </div>
       `}
     </div>
@@ -1005,6 +1051,9 @@ function openEventDetail(eventId) {
           <i class="fa-solid fa-shield-halved text-rose-600"></i> 管理者メニュー
         </span>
         <div class="flex items-center gap-2">
+          <button onclick="openArchiveAdminModal('${ev.id}')" class="px-3.5 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold rounded-xl border border-rose-200 transition flex items-center gap-1.5 shadow-xs">
+            <i class="fa-solid fa-film text-[10px]"></i> 動画URL登録
+          </button>
           <button onclick="openEditEventModal('${ev.id}')" class="px-3.5 py-1.5 bg-slate-900 hover:bg-black text-white text-xs font-bold rounded-xl transition flex items-center gap-1.5 shadow-xs">
             <i class="fa-solid fa-pen text-[10px]"></i> 編集
           </button>
@@ -1118,16 +1167,25 @@ function openArchiveAdminModal(eventId) {
   if (!ev) return;
 
   const modal = document.getElementById("archive-admin-modal");
-  if (!modal) return;
+  if (!modal) {
+    console.error("archive-admin-modal element not found");
+    return;
+  }
 
   modal.dataset.eventId = eventId;
-  document.getElementById("admin-event-title").textContent = ev.title;
-  document.getElementById("admin-has-archive").checked = !!(ev.archive && ev.archive.hasArchive);
-  document.getElementById("admin-archive-url").value = (ev.archive && ev.archive.archiveUrl) || "";
-  document.getElementById("admin-archive-notes").value = (ev.archive && ev.archive.notes) || "";
+  const titleEl = document.getElementById("admin-event-title");
+  const chkEl = document.getElementById("admin-has-archive");
+  const urlEl = document.getElementById("admin-archive-url");
+  const notesEl = document.getElementById("admin-archive-notes");
+
+  if (titleEl) titleEl.textContent = ev.title;
+  if (chkEl) chkEl.checked = !!(ev.archive && ev.archive.hasArchive);
+  if (urlEl) urlEl.value = (ev.archive && ev.archive.archiveUrl) || "";
+  if (notesEl) notesEl.value = (ev.archive && ev.archive.notes) || "";
 
   modal.classList.remove("hidden");
   modal.classList.add("flex");
+  setTimeout(() => urlEl && urlEl.focus(), 100);
 }
 
 function closeArchiveAdminModal() {
@@ -1138,7 +1196,7 @@ function closeArchiveAdminModal() {
   }
 }
 
-function saveArchiveAdminSettings() {
+async function saveArchiveAdminSettings() {
   const modal = document.getElementById("archive-admin-modal");
   if (!modal) return;
   const eventId = modal.dataset.eventId;
@@ -1149,19 +1207,48 @@ function saveArchiveAdminSettings() {
   const archiveUrl = document.getElementById("admin-archive-url").value.trim();
   const notes = document.getElementById("admin-archive-notes").value.trim();
 
+  // 1. Update in-memory event archive
+  if (!ev.archive) ev.archive = {};
+  ev.archive.hasArchive = hasArchive;
+  ev.archive.archiveUrl = archiveUrl;
+  ev.archive.password = "";
+  ev.archive.notes = notes || (hasArchive ? "録画アーカイブが登録されています。" : "");
+
+  // 2. Save to localStorage custom archives
   const customArchives = JSON.parse(localStorage.getItem("neofamily_custom_archives") || "{}");
   customArchives[eventId] = {
     hasArchive: hasArchive,
     archiveUrl: archiveUrl,
     password: "",
-    notes: notes
+    notes: ev.archive.notes
   };
   localStorage.setItem("neofamily_custom_archives", JSON.stringify(customArchives));
 
-  loadEvents();
+  // 3. Update localStorage created events if this is one
+  const localCreated = JSON.parse(localStorage.getItem("neofamily_created_events") || "[]");
+  const cIdx = localCreated.findIndex(e => e.id === eventId);
+  if (cIdx >= 0) {
+    localCreated[cIdx] = ev;
+    localStorage.setItem("neofamily_created_events", JSON.stringify(localCreated));
+  }
+
+  // 4. Save to Firestore if available
+  if (typeof saveEventToFirestore === "function" && isFirebaseConfigured()) {
+    try {
+      await saveEventToFirestore(ev);
+      console.log(`[NEO FAMILY] Archive settings synced to Firestore for ${eventId}`);
+    } catch (err) {
+      console.warn("Firestore save failed:", err);
+    }
+  }
+
   closeArchiveAdminModal();
   renderApp();
+  if (isAdmin) {
+    renderAdminEventsTable();
+  }
   openEventDetail(eventId);
+  alert(`「${ev.title}」のアーカイブ動画URLを保存しました。`);
 }
 
 // Generate single event ICS string
@@ -1454,6 +1541,22 @@ async function refreshAdminLogs() {
 
   // Sort by date desc
   logs.sort((a, b) => new Date(b.viewedAt || 0) - new Date(a.viewedAt || 0));
+
+  // Sanitize any legacy Vimeo dummy URLs in logs
+  let logsCleaned = false;
+  logs = logs.map(l => {
+    if (l.archiveUrl && (l.archiveUrl.includes("vimeo.com/example/tokyo-teirei-1002") || l.eventId === "event-20261002-tokyo-teirei" && l.archiveUrl.includes("vimeo.com"))) {
+      logsCleaned = true;
+      return { ...l, archiveUrl: "https://youtu.be/SnXEDtNAThA" };
+    }
+    return l;
+  });
+  if (logsCleaned) {
+    try {
+      localStorage.setItem("neofamily_archive_logs", JSON.stringify(logs));
+    } catch (e) {}
+  }
+
   cachedArchiveLogs = logs;
 
   // Calculate KPIs
@@ -1625,6 +1728,9 @@ function renderAdminEventsTable() {
         </td>
         <td class="p-3 whitespace-nowrap text-center">${archBadge}</td>
         <td class="p-3 text-right whitespace-nowrap space-x-1">
+          <button onclick="openArchiveAdminModal('${ev.id}')" title="アーカイブ動画URLの登録・管理" class="px-2.5 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded-lg text-xs font-bold transition">
+            <i class="fa-solid fa-film text-[10px]"></i> 動画設定
+          </button>
           <button onclick="openEditEventModal('${ev.id}')" class="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-bold transition">
             <i class="fa-solid fa-pen text-[10px]"></i> 編集
           </button>

@@ -445,10 +445,10 @@ const INITIAL_EVENTS = [
     "zoomMeetingId": "",
     "zoomPasscode": "",
     "archive": {
-      "hasArchive": true,
-      "archiveUrl": "https://vimeo.com/example-nougyo-taidan",
+      "hasArchive": false,
+      "archiveUrl": "",
       "password": "",
-      "notes": "しの夫婦×武ちゃんの安全安心対談アーカイブです。"
+      "notes": ""
     },
     "images": [
       "images/S__58589208.jpg"
@@ -780,10 +780,10 @@ const INITIAL_EVENTS = [
     "zoomMeetingId": "",
     "zoomPasscode": "",
     "archive": {
-      "hasArchive": true,
-      "archiveUrl": "https://vimeo.com/example-livecommerce",
+      "hasArchive": false,
+      "archiveUrl": "",
       "password": "",
-      "notes": "ライブコマーサー無料セミナーのアーカイブです。"
+      "notes": ""
     },
     "images": []
   },
