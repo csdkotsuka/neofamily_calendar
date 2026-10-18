@@ -60,9 +60,12 @@
           </div>
         </div>
 
-        <!-- Global Calendar Action Buttons -->
+        <!-- Header Action Buttons -->
         <div class="flex items-center gap-2 md:gap-3">
-          <!-- Optional quick action or clean space -->
+          <button onclick="openCreateEventModal()" class="inline-flex items-center gap-1.5 px-3.5 py-2 md:px-4 md:py-2 rounded-xl text-xs md:text-sm font-bold text-white bg-slate-900 hover:bg-black transition shadow-sm">
+            <i class="fa-solid fa-plus text-xs"></i>
+            <span>イベント作成</span>
+          </button>
         </div>
       </div>
     </div>
@@ -314,6 +317,122 @@
           </button>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Modal 4: Create / Edit Event Modal -->
+  <div id="create-event-modal" onclick="if(event.target === this) closeCreateEventModal()" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm cursor-pointer overflow-y-auto">
+    <div class="relative w-full max-w-xl bg-white rounded-3xl shadow-2xl p-6 md:p-8 modal-enter my-8 max-h-[90vh] overflow-y-auto cursor-default">
+      <button onclick="closeCreateEventModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition">
+        <i class="fa-solid fa-xmark text-xs"></i>
+      </button>
+
+      <div class="mb-5">
+        <h3 class="text-lg font-black text-slate-900 flex items-center gap-2">
+          <i class="fa-solid fa-calendar-plus text-rose-600"></i> 新規イベント登録
+        </h3>
+        <p class="text-xs text-slate-500 mt-1">イベント情報を入力して登録します。Firestore設定時は自動でクラウド同期されます。</p>
+      </div>
+
+      <form id="create-event-form" onsubmit="handleCreateEventSubmit(event)" class="space-y-4 text-xs">
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">イベント名 <span class="text-rose-500">*</span></label>
+          <input type="text" id="new-event-title" required placeholder="例: 11月度 福岡定例会" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 font-medium">
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">サブタイトル / キャッチコピー</label>
+          <input type="text" id="new-event-subtitle" placeholder="例: リアル体感でネオの熱量を浴びる！" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">カテゴリ</label>
+            <select id="new-event-category" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 bg-white font-medium">
+              <option value="定例会">🍜 定例会</option>
+              <option value="トークショー">🎤 会長トークショー</option>
+              <option value="事業説明会">📢 事業説明会</option>
+              <option value="セミナー・勉強会">⛩️ 勉強会・セミナー</option>
+              <option value="リアルイベント">🌿 リアル・体験・マルシェ</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">開催形式</label>
+            <select id="new-event-location-type" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 bg-white font-medium">
+              <option value="online">💻 Zoom / オンライン</option>
+              <option value="offline">📍 現地開催</option>
+              <option value="hybrid">🌐 リアル＆配信 (ハイブリッド)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">開催日 <span class="text-rose-500">*</span></label>
+            <input type="date" id="new-event-date" required class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 font-medium">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">開始時刻 <span class="text-rose-500">*</span></label>
+            <input type="time" id="new-event-start-time" required value="13:00" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 font-medium">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">終了時刻 <span class="text-rose-500">*</span></label>
+            <input type="time" id="new-event-end-time" required value="15:00" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 font-medium">
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">開催場所（または配信プラットフォーム）</label>
+          <input type="text" id="new-event-location" placeholder="例: Zoom オンライン / 福岡市内会場" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">登壇者 / ゲスト</label>
+            <input type="text" id="new-event-presenter" placeholder="例: ぶった斬り会長" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">参加費 / 定員</label>
+            <input type="text" id="new-event-fee" placeholder="例: 無料 / 1,500円 (定員30名)" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500">
+          </div>
+        </div>
+
+        <!-- Zoom Details -->
+        <div class="p-3 bg-sky-50 rounded-2xl border border-sky-200 space-y-2">
+          <span class="font-bold text-sky-900 block"><i class="fa-solid fa-video text-sky-600"></i> Zoom情報 (任意)</span>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <input type="url" id="new-event-zoom-url" placeholder="Zoom参加URL" class="w-full px-3 py-1.5 rounded-lg border border-sky-200 bg-white">
+            <input type="text" id="new-event-zoom-id" placeholder="ミーティングID" class="w-full px-3 py-1.5 rounded-lg border border-sky-200 bg-white">
+          </div>
+          <input type="text" id="new-event-zoom-pass" placeholder="パスコード" class="w-full px-3 py-1.5 rounded-lg border border-sky-200 bg-white">
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">イベント詳細説明</label>
+          <textarea id="new-event-description" rows="3" placeholder="イベント内容や注意事項を入力" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500"></textarea>
+        </div>
+
+        <!-- Archive Option -->
+        <div class="p-3 bg-rose-50 rounded-2xl border border-rose-200 space-y-2">
+          <div class="flex items-center gap-2">
+            <input type="checkbox" id="new-event-has-archive" class="w-4 h-4 rounded text-rose-600">
+            <label for="new-event-has-archive" class="font-bold text-rose-900">Zoom録画アーカイブを設定する</label>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <input type="url" id="new-event-archive-url" placeholder="録画動画URL" class="w-full px-3 py-1.5 rounded-lg border border-rose-200 bg-white">
+            <input type="text" id="new-event-archive-pass" placeholder="閲覧パスワード" class="w-full px-3 py-1.5 rounded-lg border border-rose-200 bg-white">
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-3">
+          <button type="submit" class="flex-1 py-3 bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-700 hover:to-rose-800 text-white font-bold rounded-xl shadow-md transition flex items-center justify-center gap-1.5 text-xs">
+            <i class="fa-solid fa-check"></i> イベントを登録する
+          </button>
+          <button type="button" onclick="closeCreateEventModal()" class="px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl transition text-xs">
+            キャンセル
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 

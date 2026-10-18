@@ -39,7 +39,18 @@ function loadEventsFromLocal() {
 // Apply event list with localStorage overrides
 function applyEvents(baseEvents) {
   const customArchives = JSON.parse(localStorage.getItem("neofamily_custom_archives") || "{}");
-  allEvents = baseEvents.map(ev => {
+  const localCreatedEvents = JSON.parse(localStorage.getItem("neofamily_created_events") || "[]");
+
+  const combined = [...baseEvents];
+  // Avoid duplicates
+  const existingIds = new Set(baseEvents.map(e => e.id));
+  for (const created of localCreatedEvents) {
+    if (!existingIds.has(created.id)) {
+      combined.push(created);
+    }
+  }
+
+  allEvents = combined.map(ev => {
     if (customArchives[ev.id]) {
       return {
         ...ev,
@@ -886,11 +897,12 @@ function initEventListeners() {
       closeEventDetail();
       closeArchivePasswordModal();
       closeArchiveAdminModal();
+      closeCreateEventModal();
     }
   });
 
   // Close modals when clicking backdrop
-  ["event-detail-modal", "archive-password-modal", "archive-admin-modal"].forEach(id => {
+  ["event-detail-modal", "archive-password-modal", "archive-admin-modal", "create-event-modal"].forEach(id => {
     const el = document.getElementById(id);
     if (el) {
       el.addEventListener("click", (e) => {
@@ -898,8 +910,121 @@ function initEventListeners() {
           closeEventDetail();
           closeArchivePasswordModal();
           closeArchiveAdminModal();
+          closeCreateEventModal();
         }
       });
     }
   });
+}
+
+// Open Create Event Modal
+function openCreateEventModal() {
+  const modal = document.getElementById("create-event-modal");
+  if (!modal) return;
+  const form = document.getElementById("create-event-form");
+  if (form) form.reset();
+
+  // Default date to today or selectedDate
+  const dateInput = document.getElementById("new-event-date");
+  if (dateInput) {
+    dateInput.value = selectedDate || "2026-10-18";
+  }
+
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+}
+
+// Close Create Event Modal
+function closeCreateEventModal() {
+  const modal = document.getElementById("create-event-modal");
+  if (modal) {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+  }
+}
+
+// Handle Create Event Form Submit
+async function handleCreateEventSubmit(e) {
+  e.preventDefault();
+
+  const title = document.getElementById("new-event-title").value.trim();
+  const subtitle = document.getElementById("new-event-subtitle").value.trim();
+  const category = document.getElementById("new-event-category").value;
+  const locationType = document.getElementById("new-event-location-type").value;
+  const date = document.getElementById("new-event-date").value;
+  const startTime = document.getElementById("new-event-start-time").value;
+  const endTime = document.getElementById("new-event-end-time").value;
+  const location = document.getElementById("new-event-location").value.trim() || (locationType === "online" ? "Zoom オンライン" : "会場未定");
+  const presenter = document.getElementById("new-event-presenter").value.trim();
+  const fee = document.getElementById("new-event-fee").value.trim();
+  const zoomUrl = document.getElementById("new-event-zoom-url").value.trim();
+  const zoomId = document.getElementById("new-event-zoom-id").value.trim();
+  const zoomPass = document.getElementById("new-event-zoom-pass").value.trim();
+  const description = document.getElementById("new-event-description").value.trim();
+
+  const hasArchive = document.getElementById("new-event-has-archive").checked;
+  const archiveUrl = document.getElementById("new-event-archive-url").value.trim();
+  const archivePass = document.getElementById("new-event-archive-pass").value.trim();
+
+  // Category Colors
+  const colorMap = {
+    "定例会": "#e11d48",
+    "トークショー": "#2563eb",
+    "事業説明会": "#7c3aed",
+    "セミナー・勉強会": "#d97706",
+    "リアルイベント": "#059669"
+  };
+
+  const id = `event-${date.replace(/-/g, "")}-${Date.now().toString().slice(-4)}`;
+
+  const newEvent = {
+    id: id,
+    title: title,
+    subtitle: subtitle,
+    category: category,
+    categoryColor: colorMap[category] || "#e11d48",
+    startDate: date,
+    startTime: startTime,
+    endDate: date,
+    endTime: endTime,
+    isAllDay: false,
+    location: location,
+    locationType: locationType,
+    fee: fee,
+    capacity: "",
+    presenter: presenter,
+    image: "",
+    description: description,
+    registrationUrl: "",
+    zoomUrl: zoomUrl,
+    zoomMeetingId: zoomId,
+    zoomPasscode: zoomPass,
+    archive: {
+      hasArchive: hasArchive,
+      archiveUrl: archiveUrl,
+      password: archivePass,
+      notes: hasArchive ? "新規登録されたアーカイブです。" : ""
+    }
+  };
+
+  // Try saving to Firestore if available
+  if (typeof saveEventToFirestore === "function" && isFirebaseConfigured()) {
+    try {
+      await saveEventToFirestore(newEvent);
+    } catch (err) {
+      alert("Firestoreへの保存中にエラーが発生しました（ローカルには保存されます）: " + err.message);
+    }
+  }
+
+  // Save to LocalStorage custom events
+  const localCustomEvents = JSON.parse(localStorage.getItem("neofamily_created_events") || "[]");
+  localCustomEvents.push(newEvent);
+  localStorage.setItem("neofamily_created_events", JSON.stringify(localCustomEvents));
+
+  // Add to active state
+  allEvents.push(newEvent);
+
+  closeCreateEventModal();
+  renderApp();
+  openEventDetail(newEvent.id);
 }
