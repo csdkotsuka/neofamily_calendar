@@ -1346,5 +1346,35 @@ const INITIAL_EVENTS = [
     "images": [
       "images/S__603512837.jpg"
     ]
+  },
+  {
+    "id": "event-20270105-nagoya-teirei",
+    "title": "🏯 NEO FAMILY 1月 名古屋定例会",
+    "subtitle": "【2027年 新春幕開け！】新年一発目の熱量を浴びる名古屋定例会🔥",
+    "category": "定例会",
+    "categoryColor": "#e11d48",
+    "startDate": "2027-01-05",
+    "startTime": "13:00",
+    "endDate": "2027-01-05",
+    "endTime": "16:00",
+    "isAllDay": false,
+    "location": "名古屋市内 会場 / Zoom配信",
+    "locationType": "hybrid",
+    "fee": "会員無料",
+    "capacity": "大人数収容",
+    "presenter": "ぶった斬り会長 / NEO FAMILY 事務局",
+    "image": "",
+    "images": [],
+    "description": "【2027年 年明け最初の定例会は名古屋で開催決定！】\n新年の熱量を浴びる1月定例会は、1月5日（火）に名古屋にて開催いたします🔥\n新年一発目の熱量と最新情報を掴みに、ぜひ名古屋会場またはオンライン（Zoom）でご参加ください。今からスケジュールを確保しておきましょう！",
+    "registrationUrl": "",
+    "zoomUrl": "",
+    "zoomMeetingId": "",
+    "zoomPasscode": "",
+    "archive": {
+      "hasArchive": false,
+      "archiveUrl": "",
+      "password": "",
+      "notes": ""
+    }
   }
 ];

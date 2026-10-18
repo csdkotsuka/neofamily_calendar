@@ -713,4 +713,18 @@ DESCRIPTION:知識までフサフサに！ようへい先生による毛髪セ�
 LOCATION:Zoom オンライン
 STATUS:CONFIRMED
 END:VEVENT
+BEGIN:VEVENT
+UID:event-20270105-nagoya-teirei@neofamily.jp
+DTSTAMP:20261018T000000Z
+DTSTART;TZID=Asia/Tokyo:20270105T130000
+DTEND;TZID=Asia/Tokyo:20270105T160000
+SUMMARY:🏯 NEO FAMILY 1月 名古屋定例会
+DESCRIPTION:【2027年 新春幕開け！】新年一発目の熱量を浴びる名古屋定例会🔥
+
+【2027年 年明け最初の定例会は名古屋で開催決定！】
+新年の熱量を浴びる1月定例会は、1月5日（火）に名古屋にて開催いたします🔥
+新年一発目の熱量と最新情報を掴みに、ぜひ名古屋会場またはオンライン（Zoom）でご参加ください。今からスケジュールを確保しておきましょう！
+LOCATION:名古屋市内 会場 / Zoom配信
+STATUS:CONFIRMED
+END:VEVENT
 END:VCALENDAR
