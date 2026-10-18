@@ -97,3 +97,50 @@ async function saveEventToFirestore(eventData) {
     throw err;
   }
 }
+
+// Delete an event from Firestore
+async function deleteEventFromFirestore(eventId) {
+  if (!isFirebaseConfigured() || typeof firebase === "undefined") {
+    return false;
+  }
+  try {
+    if (!firebase.apps.length) {
+      firebase.initializeApp(FIREBASE_CONFIG);
+    }
+    const db = firebase.firestore();
+    await db.collection("events").doc(eventId).delete();
+    console.log(`[NEO FAMILY] Event ${eventId} deleted from Firestore successfully.`);
+    return true;
+  } catch (err) {
+    console.error("[NEO FAMILY] Failed to delete event from Firestore:", err);
+    throw err;
+  }
+}
+
+// Fetch archive view logs from Firestore
+async function fetchArchiveLogsFromFirestore() {
+  if (!isFirebaseConfigured() || typeof firebase === "undefined") {
+    return null;
+  }
+  try {
+    if (!firebase.apps.length) {
+      firebase.initializeApp(FIREBASE_CONFIG);
+    }
+    const db = firebase.firestore();
+    const snapshot = await db.collection("archive_views").orderBy("timestamp", "desc").limit(300).get();
+    const logs = [];
+    snapshot.forEach(doc => {
+      const data = doc.data();
+      logs.push({
+        id: doc.id,
+        ...data,
+        viewedAt: data.viewedAt || (data.timestamp && data.timestamp.toDate ? data.timestamp.toDate().toISOString() : new Date().toISOString())
+      });
+    });
+    return logs;
+  } catch (err) {
+    console.error("[NEO FAMILY] Failed to fetch archive logs from Firestore:", err);
+    return null;
+  }
+}
+

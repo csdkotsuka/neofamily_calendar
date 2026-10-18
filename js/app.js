@@ -15,6 +15,13 @@ let currentViewMode = "cards"; // "cards" | "week" | "calendar"
 let currentSearch = "";
 let unlockedArchives = new Set(); // Stores event IDs that have been unlocked in this session
 
+// Admin Authentication & Edit State
+const DEFAULT_ADMIN_PASSCODE = "neo2026";
+let isAdmin = localStorage.getItem("neofamily_admin_auth") === "true";
+let editingEventId = null; // null = create mode; string = edit mode
+let cachedArchiveLogs = [];
+let currentLogFilter = "";
+
 // Week calendar state
 let currentWeekStartDate = (function() {
   const today = new Date(2026, 9, 18);
@@ -25,10 +32,22 @@ let currentWeekStartDate = (function() {
   return start;
 })();
 
+// Helper to escape HTML safely
+function escapeHtml(str) {
+  if (str === null || str === undefined) return "";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 // Initialize App
 document.addEventListener("DOMContentLoaded", async () => {
   loadEventsFromLocal();
   initEventListeners();
+  updateAdminUI();
   renderApp();
 
   // If Firebase is configured, fetch latest events from Firestore
@@ -37,6 +56,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (remoteEvents && remoteEvents.length > 0) {
       applyEvents(remoteEvents);
       renderApp();
+      if (isAdmin) {
+        renderAdminEventsTable();
+      }
     }
   }
 });
@@ -952,9 +974,11 @@ function openEventDetail(eventId) {
         <h4 class="text-sm font-bold text-slate-900 flex items-center gap-2">
           <i class="fa-solid fa-film text-rose-600"></i> 録画アーカイブ・動画
         </h4>
-        <button onclick="openArchiveAdminModal('${ev.id}')" class="text-xs text-slate-400 hover:text-slate-600">
-          <i class="fa-solid fa-gear"></i> 管理
-        </button>
+        ${isAdmin ? `
+          <button onclick="openArchiveAdminModal('${ev.id}')" class="text-xs text-slate-400 hover:text-slate-600">
+            <i class="fa-solid fa-gear"></i> 管理
+          </button>
+        ` : ''}
       </div>
 
       ${hasArchive && ev.archive && ev.archive.archiveUrl ? `
@@ -992,6 +1016,22 @@ function openEventDetail(eventId) {
         </div>
       `}
     </div>
+
+    ${isAdmin ? `
+      <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between flex-wrap gap-2 bg-slate-50 -mx-6 -mb-6 sm:-mx-8 sm:-mb-8 p-4 sm:px-8 rounded-b-3xl">
+        <span class="text-xs font-bold text-slate-700 flex items-center gap-1.5">
+          <i class="fa-solid fa-shield-halved text-rose-600"></i> 管理者メニュー
+        </span>
+        <div class="flex items-center gap-2">
+          <button onclick="openEditEventModal('${ev.id}')" class="px-3.5 py-1.5 bg-slate-900 hover:bg-black text-white text-xs font-bold rounded-xl transition flex items-center gap-1.5 shadow-xs">
+            <i class="fa-solid fa-pen text-[10px]"></i> 編集
+          </button>
+          <button onclick="deleteEvent('${ev.id}')" class="px-3.5 py-1.5 bg-rose-100 hover:bg-rose-200 text-rose-700 text-xs font-bold rounded-xl transition flex items-center gap-1.5">
+            <i class="fa-solid fa-trash text-[10px]"></i> 削除
+          </button>
+        </div>
+      </div>
+    ` : ''}
   `;
 
   modal.classList.remove("hidden");
@@ -1248,11 +1288,13 @@ function initEventListeners() {
       closeArchivePasswordModal();
       closeArchiveAdminModal();
       closeCreateEventModal();
+      closeAdminLoginModal();
+      closeAdminDashboardModal();
     }
   });
 
   // Close modals when clicking backdrop
-  ["event-detail-modal", "archive-password-modal", "archive-admin-modal", "create-event-modal"].forEach(id => {
+  ["event-detail-modal", "archive-password-modal", "archive-admin-modal", "create-event-modal", "admin-login-modal", "admin-dashboard-modal"].forEach(id => {
     const el = document.getElementById(id);
     if (el) {
       el.addEventListener("click", (e) => {
@@ -1261,10 +1303,478 @@ function initEventListeners() {
           closeArchivePasswordModal();
           closeArchiveAdminModal();
           closeCreateEventModal();
+          closeAdminLoginModal();
+          closeAdminDashboardModal();
         }
       });
     }
   });
+}
+
+// ==================== ADMIN STATE & AUTHENTICATION ====================
+
+// Update UI based on admin login state
+function updateAdminUI() {
+  const loginBtn = document.getElementById("btn-admin-login");
+  const actionsBar = document.getElementById("admin-actions-bar");
+
+  if (isAdmin) {
+    if (loginBtn) loginBtn.classList.add("hidden");
+    if (actionsBar) {
+      actionsBar.classList.remove("hidden");
+      actionsBar.classList.add("flex");
+    }
+  } else {
+    if (loginBtn) loginBtn.classList.remove("hidden");
+    if (actionsBar) {
+      actionsBar.classList.add("hidden");
+      actionsBar.classList.remove("flex");
+    }
+  }
+}
+
+// Open Admin Login Modal
+function openAdminLoginModal() {
+  const modal = document.getElementById("admin-login-modal");
+  const input = document.getElementById("admin-passcode-input");
+  const err = document.getElementById("admin-login-error");
+  if (!modal) return;
+  if (input) input.value = "";
+  if (err) err.classList.add("hidden");
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+  setTimeout(() => input && input.focus(), 100);
+}
+
+// Close Admin Login Modal
+function closeAdminLoginModal() {
+  const modal = document.getElementById("admin-login-modal");
+  if (modal) {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+  }
+}
+
+// Handle Admin Login Submission
+function handleAdminLogin(e) {
+  e.preventDefault();
+  const input = document.getElementById("admin-passcode-input");
+  const err = document.getElementById("admin-login-error");
+  const val = (input ? input.value : "").trim();
+  const currentPasscode = localStorage.getItem("neofamily_admin_passcode") || DEFAULT_ADMIN_PASSCODE;
+
+  if (val === currentPasscode) {
+    isAdmin = true;
+    localStorage.setItem("neofamily_admin_auth", "true");
+    closeAdminLoginModal();
+    updateAdminUI();
+    renderApp();
+    openAdminDashboardModal();
+  } else {
+    if (err) err.classList.remove("hidden");
+    if (input) {
+      input.select();
+      input.focus();
+    }
+  }
+}
+
+// Logout Admin
+function adminLogout() {
+  isAdmin = false;
+  localStorage.removeItem("neofamily_admin_auth");
+  closeAdminDashboardModal();
+  updateAdminUI();
+  renderApp();
+  alert("管理者からログアウトしました。");
+}
+
+// Change Admin Passcode (Settings Tab)
+function changeAdminPasscode() {
+  const input = document.getElementById("admin-new-passcode");
+  const newPass = (input ? input.value : "").trim();
+  if (!newPass) {
+    alert("新しいパスコードを入力してください。");
+    return;
+  }
+  if (newPass.length < 4) {
+    alert("パスコードは4文字以上で設定してください。");
+    return;
+  }
+  localStorage.setItem("neofamily_admin_passcode", newPass);
+  if (input) input.value = "";
+  alert("管理者パスコードを更新しました。");
+}
+
+// ==================== ADMIN DASHBOARD MODAL ====================
+
+// Open Admin Dashboard Modal
+function openAdminDashboardModal() {
+  if (!isAdmin) {
+    openAdminLoginModal();
+    return;
+  }
+  const modal = document.getElementById("admin-dashboard-modal");
+  if (!modal) return;
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+  switchAdminTab("logs");
+  refreshAdminLogs();
+  renderAdminEventsTable();
+}
+
+// Close Admin Dashboard Modal
+function closeAdminDashboardModal() {
+  const modal = document.getElementById("admin-dashboard-modal");
+  if (modal) {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+  }
+}
+
+// Switch between dashboard tabs
+function switchAdminTab(tabName) {
+  const tabs = ["logs", "events", "settings"];
+  tabs.forEach(t => {
+    const btn = document.getElementById(`admin-tab-${t}-btn`);
+    const content = document.getElementById(`admin-tab-${t}`);
+    if (t === tabName) {
+      if (btn) {
+        btn.className = "px-4 py-2.5 text-xs font-bold border-b-2 border-rose-600 text-rose-600 flex items-center gap-1.5 transition";
+      }
+      if (content) content.classList.remove("hidden");
+    } else {
+      if (btn) {
+        btn.className = "px-4 py-2.5 text-xs font-bold border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition";
+      }
+      if (content) content.classList.add("hidden");
+    }
+  });
+
+  if (tabName === "events") {
+    renderAdminEventsTable();
+  }
+}
+
+// ==================== DASHBOARD TAB 1: ARCHIVE LOGS & ANALYTICS ====================
+
+// Refresh archive view logs from Firestore or LocalStorage buffer
+async function refreshAdminLogs() {
+  let logs = [];
+
+  // Try Firestore first if available
+  if (typeof fetchArchiveLogsFromFirestore === "function" && isFirebaseConfigured()) {
+    try {
+      const remoteLogs = await fetchArchiveLogsFromFirestore();
+      if (remoteLogs && remoteLogs.length > 0) {
+        logs = remoteLogs;
+      }
+    } catch (e) {
+      console.warn("Could not fetch remote logs:", e);
+    }
+  }
+
+  // Fallback or merge with local storage logs
+  const localLogs = JSON.parse(localStorage.getItem("neofamily_archive_logs") || "[]");
+  if (logs.length === 0) {
+    logs = localLogs;
+  } else {
+    const seen = new Set(logs.map(l => l.id || (l.viewedAt + "_" + l.eventId)));
+    for (const l of localLogs) {
+      const key = l.id || (l.viewedAt + "_" + l.eventId);
+      if (!seen.has(key)) {
+        logs.push(l);
+        seen.add(key);
+      }
+    }
+  }
+
+  // Sort by date desc
+  logs.sort((a, b) => new Date(b.viewedAt || 0) - new Date(a.viewedAt || 0));
+  cachedArchiveLogs = logs;
+
+  // Calculate KPIs
+  const totalViews = logs.length;
+  const uniqueVisitors = new Set(logs.map(l => l.visitorId).filter(Boolean)).size;
+
+  const eventCounts = {};
+  logs.forEach(l => {
+    const t = l.eventTitle || "不明なイベント";
+    eventCounts[t] = (eventCounts[t] || 0) + 1;
+  });
+  let topEvent = "--";
+  let maxCount = 0;
+  for (const [title, count] of Object.entries(eventCounts)) {
+    if (count > maxCount) {
+      maxCount = count;
+      topEvent = `${title} (${count}回)`;
+    }
+  }
+
+  const totalEl = document.getElementById("log-total-views");
+  const uniqueEl = document.getElementById("log-unique-visitors");
+  const topEl = document.getElementById("log-top-event");
+  if (totalEl) totalEl.textContent = totalViews;
+  if (uniqueEl) uniqueEl.textContent = uniqueVisitors;
+  if (topEl) topEl.textContent = topEvent;
+
+  renderAdminLogsTable(logs);
+}
+
+// Filter logs table by search query
+function filterAdminLogs() {
+  const input = document.getElementById("log-search-input");
+  currentLogFilter = (input ? input.value : "").trim().toLowerCase();
+
+  if (!currentLogFilter) {
+    renderAdminLogsTable(cachedArchiveLogs);
+    return;
+  }
+  const filtered = cachedArchiveLogs.filter(l => {
+    return (
+      (l.eventTitle && l.eventTitle.toLowerCase().includes(currentLogFilter)) ||
+      (l.device && l.device.toLowerCase().includes(currentLogFilter)) ||
+      (l.userAgent && l.userAgent.toLowerCase().includes(currentLogFilter)) ||
+      (l.viewedAt && l.viewedAt.toLowerCase().includes(currentLogFilter))
+    );
+  });
+  renderAdminLogsTable(filtered);
+}
+
+// Render the logs table body
+function renderAdminLogsTable(logs) {
+  const tbody = document.getElementById("admin-logs-tbody");
+  if (!tbody) return;
+
+  if (!logs || logs.length === 0) {
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="4" class="p-8 text-center text-slate-400 text-xs">
+          まだアーカイブの視聴ログはありません。
+        </td>
+      </tr>
+    `;
+    return;
+  }
+
+  tbody.innerHTML = logs.map(l => {
+    const dateStr = l.viewedAt ? new Date(l.viewedAt).toLocaleString("ja-JP", {
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit"
+    }) : "--";
+
+    const isMobile = l.device === "Mobile" || /Mobi|Android|iPhone|iPad/i.test(l.userAgent || "");
+    const deviceIcon = isMobile ? '<i class="fa-solid fa-mobile-screen text-slate-400 mr-1"></i> Mobile' : '<i class="fa-solid fa-laptop text-slate-400 mr-1"></i> PC';
+
+    return `
+      <tr class="border-b border-slate-100 hover:bg-slate-50/70 transition">
+        <td class="p-3 font-mono text-[11px] text-slate-500 whitespace-nowrap">${dateStr}</td>
+        <td class="p-3 font-bold text-slate-800 line-clamp-1 max-w-[220px]">${escapeHtml(l.eventTitle || '不明')}</td>
+        <td class="p-3 text-[11px] text-slate-600 whitespace-nowrap">${deviceIcon}</td>
+        <td class="p-3 whitespace-nowrap">
+          ${l.archiveUrl ? `
+            <a href="${l.archiveUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[11px] font-bold text-rose-600 hover:underline">
+              開く <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+            </a>
+          ` : '<span class="text-slate-300">-</span>'}
+        </td>
+      </tr>
+    `;
+  }).join("");
+}
+
+// Download archive logs as CSV
+function downloadLogsCSV() {
+  if (!cachedArchiveLogs || cachedArchiveLogs.length === 0) {
+    alert("出力できる視聴ログがありません。");
+    return;
+  }
+  const headers = ["閲覧日時 (ISO)", "閲覧日時 (日本時間)", "イベント名", "端末種別", "訪問者ID", "URL", "UserAgent"];
+  const rows = cachedArchiveLogs.map(l => {
+    const jst = l.viewedAt ? new Date(l.viewedAt).toLocaleString("ja-JP") : "";
+    return [
+      `"${(l.viewedAt || '').replace(/"/g, '""')}"`,
+      `"${jst.replace(/"/g, '""')}"`,
+      `"${(l.eventTitle || '').replace(/"/g, '""')}"`,
+      `"${(l.device || '').replace(/"/g, '""')}"`,
+      `"${(l.visitorId || '').replace(/"/g, '""')}"`,
+      `"${(l.archiveUrl || '').replace(/"/g, '""')}"`,
+      `"${(l.userAgent || '').replace(/"/g, '""')}"`
+    ].join(",");
+  });
+
+  const csvContent = "\uFEFF" + [headers.join(","), ...rows].join("\r\n");
+  const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `neofamily_archive_logs_${new Date().toISOString().slice(0, 10)}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+// ==================== DASHBOARD TAB 2: EVENT MANAGEMENT ====================
+
+// Render all events in admin table
+function renderAdminEventsTable() {
+  const countEl = document.getElementById("admin-event-count");
+  const tbody = document.getElementById("admin-events-tbody");
+  if (countEl) countEl.textContent = allEvents.length;
+  if (!tbody) return;
+
+  if (allEvents.length === 0) {
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="5" class="p-8 text-center text-slate-400 text-xs">
+          登録されているイベントはありません。
+        </td>
+      </tr>
+    `;
+    return;
+  }
+
+  // Sort events by startDate desc
+  const sorted = [...allEvents].sort((a, b) => (b.startDate + b.startTime).localeCompare(a.startDate + a.startTime));
+
+  tbody.innerHTML = sorted.map(ev => {
+    const hasArch = ev.archive && ev.archive.hasArchive && ev.archive.archiveUrl;
+    const archBadge = hasArch
+      ? '<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-100 text-rose-700"><i class="fa-brands fa-youtube"></i> あり</span>'
+      : '<span class="text-slate-300 text-[10px]">-</span>';
+
+    return `
+      <tr class="border-b border-slate-100 hover:bg-slate-50/70 transition">
+        <td class="p-3 font-mono text-slate-600 whitespace-nowrap text-[11px]">${ev.startDate}</td>
+        <td class="p-3 whitespace-nowrap">
+          <span class="px-2 py-0.5 rounded-full text-[10px] font-bold" style="background-color: ${ev.categoryColor}15; color: ${ev.categoryColor}">
+            ${escapeHtml(ev.category)}
+          </span>
+        </td>
+        <td class="p-3 font-bold text-slate-800">
+          <div class="line-clamp-1 max-w-[200px] sm:max-w-xs cursor-pointer hover:text-rose-600" onclick="openEventDetail('${ev.id}')">
+            ${escapeHtml(ev.title)}
+          </div>
+        </td>
+        <td class="p-3 whitespace-nowrap text-center">${archBadge}</td>
+        <td class="p-3 text-right whitespace-nowrap space-x-1">
+          <button onclick="openEditEventModal('${ev.id}')" class="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-bold transition">
+            <i class="fa-solid fa-pen text-[10px]"></i> 編集
+          </button>
+          <button onclick="deleteEvent('${ev.id}')" class="px-2.5 py-1 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg text-xs font-bold transition">
+            <i class="fa-solid fa-trash text-[10px]"></i> 削除
+          </button>
+        </td>
+      </tr>
+    `;
+  }).join("");
+}
+
+// Open modal in edit mode
+function openEditEventModal(eventId) {
+  const ev = allEvents.find(e => e.id === eventId);
+  if (!ev) return;
+
+  editingEventId = eventId;
+
+  // Title & description in modal
+  const titleEl = document.getElementById("create-event-modal-title");
+  const descEl = document.getElementById("create-event-modal-desc");
+  const submitText = document.getElementById("create-event-submit-text");
+
+  if (titleEl) {
+    titleEl.innerHTML = '<i class="fa-solid fa-pen-to-square text-rose-600"></i> イベント編集';
+  }
+  if (descEl) {
+    descEl.textContent = '登録済みイベントの内容を変更します。保存するとカレンダーに反映されます。';
+  }
+  if (submitText) {
+    submitText.textContent = '変更を保存する';
+  }
+
+  // Populate form fields
+  document.getElementById("new-event-title").value = ev.title || "";
+  document.getElementById("new-event-subtitle").value = ev.subtitle || "";
+  document.getElementById("new-event-category").value = ev.category || "定例会";
+  document.getElementById("new-event-location-type").value = ev.locationType || "online";
+  document.getElementById("new-event-date").value = ev.startDate || "";
+  document.getElementById("new-event-start-time").value = ev.startTime || "13:00";
+  document.getElementById("new-event-end-time").value = ev.endTime || "15:00";
+  document.getElementById("new-event-location").value = ev.location || "";
+  document.getElementById("new-event-presenter").value = ev.presenter || "";
+  document.getElementById("new-event-fee").value = ev.fee || "";
+  document.getElementById("new-event-zoom-url").value = ev.zoomUrl || "";
+  document.getElementById("new-event-zoom-id").value = ev.zoomMeetingId || "";
+  document.getElementById("new-event-zoom-pass").value = ev.zoomPasscode || "";
+  document.getElementById("new-event-description").value = ev.description || "";
+
+  // Archive
+  const hasArchive = !!(ev.archive && ev.archive.hasArchive);
+  document.getElementById("new-event-has-archive").checked = hasArchive;
+  document.getElementById("new-event-archive-url").value = (ev.archive && ev.archive.archiveUrl) || "";
+
+  // Images
+  selectedEventImages = Array.isArray(ev.images) && ev.images.length > 0
+    ? [...ev.images]
+    : (ev.image ? [ev.image] : []);
+  renderImagePreviews();
+
+  // Close admin dashboard or detail modal if open
+  closeAdminDashboardModal();
+  closeEventDetail();
+
+  const modal = document.getElementById("create-event-modal");
+  if (modal) {
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+  }
+}
+
+// Delete an event
+async function deleteEvent(eventId) {
+  const ev = allEvents.find(e => e.id === eventId);
+  const title = ev ? ev.title : eventId;
+  if (!confirm(`「${title}」を本当に削除しますか？\nこの操作は取り消せません。`)) {
+    return;
+  }
+
+  // 1. Delete from Firestore if configured
+  if (typeof deleteEventFromFirestore === "function" && isFirebaseConfigured()) {
+    try {
+      await deleteEventFromFirestore(eventId);
+    } catch (err) {
+      console.warn("Firestore delete failed:", err);
+    }
+  }
+
+  // 2. Remove from LocalStorage neofamily_created_events
+  try {
+    let localCustomEvents = JSON.parse(localStorage.getItem("neofamily_created_events") || "[]");
+    localCustomEvents = localCustomEvents.filter(e => e.id !== eventId);
+    localStorage.setItem("neofamily_created_events", JSON.stringify(localCustomEvents));
+
+    // Also remove from custom archives if present
+    const customArchives = JSON.parse(localStorage.getItem("neofamily_custom_archives") || "{}");
+    if (customArchives[eventId]) {
+      delete customArchives[eventId];
+      localStorage.setItem("neofamily_custom_archives", JSON.stringify(customArchives));
+    }
+  } catch (e) {
+    console.warn("Local storage delete failed:", e);
+  }
+
+  // 3. Remove from allEvents
+  allEvents = allEvents.filter(e => e.id !== eventId);
+
+  // Close modals & re-render
+  closeEventDetail();
+  renderApp();
+  renderAdminEventsTable();
+  alert(`「${title}」を削除しました。`);
 }
 
 // Flyer image upload state
@@ -1332,8 +1842,29 @@ function removeSelectedImage(index) {
   renderImagePreviews();
 }
 
-// Open Create Event Modal
+// Open Create Event Modal (Admin Only)
 function openCreateEventModal() {
+  if (!isAdmin) {
+    openAdminLoginModal();
+    return;
+  }
+
+  editingEventId = null;
+
+  const titleEl = document.getElementById("create-event-modal-title");
+  const descEl = document.getElementById("create-event-modal-desc");
+  const submitText = document.getElementById("create-event-submit-text");
+
+  if (titleEl) {
+    titleEl.innerHTML = '<i class="fa-solid fa-calendar-plus text-rose-600"></i> 新規イベント登録';
+  }
+  if (descEl) {
+    descEl.textContent = 'イベント情報を入力して登録します。Firestore設定時は自動でクラウド同期されます。';
+  }
+  if (submitText) {
+    submitText.textContent = 'イベントを登録する';
+  }
+
   const modal = document.getElementById("create-event-modal");
   if (!modal) return;
   const form = document.getElementById("create-event-form");
@@ -1361,9 +1892,10 @@ function closeCreateEventModal() {
     modal.classList.add("hidden");
     modal.classList.remove("flex");
   }
+  editingEventId = null;
 }
 
-// Handle Create Event Form Submit
+// Handle Create / Edit Event Form Submit
 async function handleCreateEventSubmit(e) {
   e.preventDefault();
 
@@ -1394,9 +1926,9 @@ async function handleCreateEventSubmit(e) {
     "リアルイベント": "#059669"
   };
 
-  const id = `event-${date.replace(/-/g, "")}-${Date.now().toString().slice(-4)}`;
+  const id = editingEventId ? editingEventId : `event-${date.replace(/-/g, "")}-${Date.now().toString().slice(-4)}`;
 
-  const newEvent = {
+  const savedEvent = {
     id: id,
     title: title,
     subtitle: subtitle,
@@ -1430,21 +1962,50 @@ async function handleCreateEventSubmit(e) {
   // Try saving to Firestore if available
   if (typeof saveEventToFirestore === "function" && isFirebaseConfigured()) {
     try {
-      await saveEventToFirestore(newEvent);
+      await saveEventToFirestore(savedEvent);
     } catch (err) {
       alert("Firestoreへの保存中にエラーが発生しました（ローカルには保存されます）: " + err.message);
     }
   }
 
-  // Save to LocalStorage custom events
-  const localCustomEvents = JSON.parse(localStorage.getItem("neofamily_created_events") || "[]");
-  localCustomEvents.push(newEvent);
+  // Update or save to LocalStorage custom events
+  let localCustomEvents = JSON.parse(localStorage.getItem("neofamily_created_events") || "[]");
+  const existingIdx = localCustomEvents.findIndex(e => e.id === id);
+  if (existingIdx >= 0) {
+    localCustomEvents[existingIdx] = savedEvent;
+  } else {
+    localCustomEvents.push(savedEvent);
+  }
   localStorage.setItem("neofamily_created_events", JSON.stringify(localCustomEvents));
 
-  // Add to active state
-  allEvents.push(newEvent);
+  // Update state in allEvents
+  const stateIdx = allEvents.findIndex(e => e.id === id);
+  if (stateIdx >= 0) {
+    allEvents[stateIdx] = savedEvent;
+  } else {
+    allEvents.push(savedEvent);
+  }
 
+  // Custom archives sync
+  const customArchives = JSON.parse(localStorage.getItem("neofamily_custom_archives") || "{}");
+  if (hasArchive) {
+    customArchives[id] = {
+      hasArchive: true,
+      archiveUrl: archiveUrl,
+      password: "",
+      notes: "録画アーカイブが登録されています。"
+    };
+    localStorage.setItem("neofamily_custom_archives", JSON.stringify(customArchives));
+  } else if (customArchives[id]) {
+    delete customArchives[id];
+    localStorage.setItem("neofamily_custom_archives", JSON.stringify(customArchives));
+  }
+
+  editingEventId = null;
   closeCreateEventModal();
   renderApp();
-  openEventDetail(newEvent.id);
+  if (isAdmin) {
+    renderAdminEventsTable();
+  }
+  openEventDetail(savedEvent.id);
 }
