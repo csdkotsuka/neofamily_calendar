@@ -1,28 +1,26 @@
 # NEO FAMILY イベントカレンダー & アーカイブポータル
 
-ネオファミリーのグループLINEや公式アナウンスで共有されたイベント情報を一覧・カレンダー表示し、ワンクリックでGoogleカレンダーやiPhone/スマホカレンダーに登録できるWebアプリケーションです。  
+ネオファミリーのグループLINEや公式アナウンスで共有されたイベント情報を一覧・カレンダー表示し、ワンクリックでGoogleカレンダーやiPhone/スマホカレンダーに登録できるWebポータルです。  
 また、一部のイベントでは限定Zoom録画アーカイブをパスワード保護付きで安全に閲覧・管理できます。
 
 ---
 
 ## 🌟 主な機能
 
-### 1. 📅 3つのビュー切り替え
+### 1. 📅 2つのビュー切り替え
 - **カード一覧ビュー**: フライヤー画像、日時、会場/Zoom情報、参加費、定員、詳細をスタイリッシュにカード表示。
-- **月間カレンダービュー**: 2026年10月・11月・12月の月別カレンダー。日付セルをタップすると、その日の予定へスムーズにフォーカス。
-- **公式Googleカレンダー埋め込み**: ネオファミリー公式Googleカレンダーをiframeでリアルタイム埋め込み表示。
+- **月間カレンダービュー**: 2026年10月・11月・12月の月別カレンダー。
+  - **イベントをクリック（またはダブルクリック）すると直接イベント詳細モーダルが開きます。**
+  - 日付セルをクリックしても画面が勝手にスクロールしたりジャンプすることなく、その場で選択日の予定を確認できます。
 
 ### 2. 📲 スマホカレンダー登録＆ダウンロード
-- **個別の予定登録**:
-  - **Googleカレンダーに追加**: タイトル、日時、場所、Zoomリンク、パスコードが自動入力されたGoogleカレンダー登録画面が開きます。
-  - **スマホに登録 (.ics)**: iPhone、Mac、Android、Outlookで即取り込めるiCalendar形式（.ics）をダウンロード。
-- **全件一括登録**:
-  - ヘッダーの「**一括登録 (.ics)**」ボタンから、全イベントを一括でスマホやPCのカレンダーにインポート可能。
-  - 「**Googleカレンダー登録**」ボタンから、Googleアカウントに公式カレンダーをワンクリックで追加・購読可能。
+- **Googleカレンダーに追加**: タイトル、日時、場所、Zoomリンク、パスコードが自動入力されたGoogleカレンダー登録画面が開きます。
+- **スマホに登録 (.ics)**: iPhone、Mac、Android、Outlookで即取り込めるiCalendar形式（.ics）をダウンロード。
 
 ### 3. 🔒 パスワード保護付き Zoomアーカイブ閲覧機能
 - 開催済みの定例会や各種事業説明会、トークショーなどの録画アーカイブを保護付きで掲載。
 - 「**パスワードを入力して視聴**」をクリックし、暗証コードを入力することでアンロックされ、動画リンクや視聴ノートが表示されます。
+- **モーダルは「ESCキー」または「外側（背景）をクリック」で即座に閉じられます。**
 - **管理者モード（設定機能）**:
   - 各イベントカード詳細右上の歯車アイコン（管理ボタン）から、ブラウザ上で新しいアーカイブURLや閲覧パスワードを追加・更新・保存（LocalStorage）できます。
 
@@ -37,40 +35,117 @@
 
 ---
 
-## 📌 カレンダーID
-```text
-c_5a885f7923e2170ff9b443b58c3612f4ff58809d0287730da1c1d6680bd8fa20@group.calendar.google.com
-```
+## ❓ Googleカレンダーに予定が表示されない理由と登録手順
 
-- **Googleカレンダー登録URL**:
-  [Googleカレンダーに追加する](https://calendar.google.com/calendar/r?cid=c_5a885f7923e2170ff9b443b58c3612f4ff58809d0287730da1c1d6680bd8fa20@group.calendar.google.com)
-- **Googleカレンダー埋め込みURL**:
-  `https://calendar.google.com/calendar/embed?src=c_5a885f7923e2170ff9b443b58c3612f4ff58809d0287730da1c1d6680bd8fa20%40group.calendar.google.com&ctz=Asia%2FTokyo`
+指定いただいたカレンダーID（`c_5a885f7923e2170ff9b443b58c3612f4ff58809d0287730da1c1d6680bd8fa20@group.calendar.google.com`）は、まだGoogleカレンダー本体側に予定データが投入されていないため空の表示になっています。
+
+### Googleカレンダーに全予定を一発で登録（インポート）する手順:
+1. PCのブラウザで [Google カレンダー](https://calendar.google.com/) を開きます。
+2. 右上の **歯車マーク（設定）** ＞ **「設定」** をクリック。
+3. 左メニューの **「インポート / エクスポート」** をクリック。
+4. 「パソコンからファイルを選択」で、リポジトリ内にある **`neofamily_all_events.ics`** を選択。
+5. **「カレンダーに追加」** のプルダウンで、ネオファミリー用のカレンダーを選択。
+6. **「インポート」** ボタンをクリック。
+   👉 これで、全39件のイベントが一瞬で該当Googleカレンダーに登録され、共有している全メンバーのカレンダーにも反映されます！
 
 ---
 
-## 🚀 GitHub Pagesでの公開手順
-このリポジトリはHTML/CSS/JavaScriptのみの静的サイト構成のため、GitHub Pagesですぐに全世界・会員向けに公開できます。
+## 🔥 Firebase（Firestore & Storage）登録とCloudflareでの連携手順
 
-1. GitHubリポジトリの設定（Settings）を開きます。
-2. 左メニューの **Pages** を選択します。
-3. **Build and deployment** の Source で **Deploy from a branch** を選択。
-4. Branch に **main**（または master）、Folder に **/ (root)** を指定して **Save** をクリック。
-5. 数分後に公開URL（例: `https://csdkotsuka.github.io/neofamily_calendar/`）が発行されます。
+Webアプリは **Cloudflare（Cloudflare Pagesなど）** でホストしたまま、イベントのテキストや画像を **Firebase（Firestore & Firebase Storage）** で管理できます。
+
+### 1. Firebase プロジェクトの作成
+1. [Firebase Console](https://console.firebase.google.com/) を開きます。
+2. 「プロジェクトを追加」をクリック（例: `neofamily-calendar`）。
+3. プロジェクト概要の画面で「**ウェブ（</> アイコン）**」をクリックし、Webアプリを登録します。
+4. 表示された `firebaseConfig`（以下の7項目）をコピーします:
+   ```javascript
+   const firebaseConfig = {
+     apiKey: "AIzaSy...",
+     authDomain: "neofamily-calendar.firebaseapp.com",
+     projectId: "neofamily-calendar",
+     storageBucket: "neofamily-calendar.appspot.com",
+     messagingSenderId: "123456789012",
+     appId: "1:123456789012:web:abcdef..."
+   };
+   ```
+5. 本プロジェクトの `js/firebase-config.js` の `FIREBASE_CONFIG` に貼り付けます。
+
+### 2. Firestore Database の有効化
+1. Firebase Console 左メニュー > **構築** > **Firestore Database** を選択。
+2. 「データベースの作成」をクリック（ロケーションは `asia-northeast1 (東京)` 推奨）。
+3. 「テストモード」または以下のルールを設定:
+   ```javascript
+   rules_version = '2';
+   service cloud.firestore {
+     match /databases/{database}/documents {
+       match /events/{eventId} {
+         allow read: if true; // Web閲覧者は誰でも読み取り可能
+         allow write: if request.auth != null; // 管理者のみ書き込み可能
+       }
+     }
+   }
+   ```
+
+### 3. Firebase Storage の有効化（画像用）
+1. 左メニュー > **構築** > **Storage** を選択。
+2. 「使ってみる」をクリックし、バケットを作成。
+3. ルール設定:
+   ```javascript
+   rules_version = '2';
+   service firebase.storage {
+     match /b/{bucket}/o {
+       match /{allPaths=**} {
+         allow read: if true;
+         allow write: if request.auth != null;
+       }
+     }
+   }
+   ```
+
+### 4. 既存データの一括流し込み（シード実行）
+作成したスクリプトを使えば、全39件のデータを一撃でFirestoreに登録できます。
+
+1. Firebase Console > **プロジェクトの設定** > **サービスアカウント** タブを開く。
+2. **「新しい秘密鍵の生成」** をクリックし、ダウンロードされたJSONファイルを本リポジトリのルートに `serviceAccountKey.json` というファイル名で配置。
+3. 以下のいずれかを実行:
+   ```bash
+   # Pythonの場合
+   pip install firebase-admin
+   python3 scripts/seed_to_firebase.py
+
+   # Node.jsの場合
+   npm install firebase-admin
+   node scripts/seed_to_firebase.js
+   ```
+4. これでFirestoreの `events` コレクションに全データが登録され、Webアプリを開くとFirestoreから自動的にイベント一覧が取得されるようになります！
+
+### 5. Cloudflare Pages へのデプロイ
+1. Cloudflare Dashboard > **Workers & Pages** > **Create application** > **Pages**。
+2. GitHubリポジトリ（`csdkotsuka/neofamily_calendar`）を連携。
+3. ビルド設定:
+   - **Framework preset**: None
+   - **Build command**: (空のままでOK)
+   - **Build output directory**: `/` (ルートのままでOK)
+4. 「Save and Deploy」をクリックするだけで、Cloudflareの爆速CDN経由で世界中に配信されます。
 
 ---
 
 ## 📁 ディレクトリ構成
 ```text
-├── index.html                  # メインページ
+├── index.html                  # メインページ（Tailwind CSS / 2ビュー切り替え / モーダル）
 ├── css/
 │   └── style.css              # カスタムスタイル
 ├── js/
-│   ├── events-data.js         # 抽出済みイベントデータ（39件）
+│   ├── firebase-config.js     # Firebase連携モジュール（Firestore非同期ローダー）
+│   ├── events-data.js         # ローカル抽出済みイベントデータ（フォールバック用 39件）
 │   └── app.js                 # アプリケーションロジック（カレンダー描画、ics生成、アーカイブ認証）
+├── scripts/
+│   ├── seed_to_firebase.py    # Firestore一括登録スクリプト (Python)
+│   └── seed_to_firebase.js    # Firestore一括登録スクリプト (Node.js)
 ├── images/                    # イベントチラシ・フライヤー画像
-├── neofamily_all_events.ics   # 全イベント入りiCalendarファイル
+├── neofamily_all_events.ics   # Googleカレンダー / スマホ一括インポート用.icsファイル
 ├── events.json                # 生JSONデータ
 ├── generate_events.py         # イベントデータ生成スクリプト
-└── prvided data/              # 元データ（LINEテキスト・画像）
+└── prvided data/              # LINEチャット元テキスト & 画像元データ
 ```

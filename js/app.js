@@ -16,17 +16,30 @@ let currentSearch = "";
 let unlockedArchives = new Set(); // Stores event IDs that have been unlocked in this session
 
 // Initialize App
-document.addEventListener("DOMContentLoaded", () => {
-  loadEvents();
+document.addEventListener("DOMContentLoaded", async () => {
+  loadEventsFromLocal();
   initEventListeners();
   renderApp();
-  renderGoogleCalendar();
+
+  // If Firebase is configured, fetch latest events from Firestore
+  if (typeof fetchEventsFromFirestore === "function" && isFirebaseConfigured()) {
+    const remoteEvents = await fetchEventsFromFirestore();
+    if (remoteEvents && remoteEvents.length > 0) {
+      applyEvents(remoteEvents);
+      renderApp();
+    }
+  }
 });
 
-// Load events combining initial data and local storage customizations
-function loadEvents() {
+// Load events from local data & custom archives in localStorage
+function loadEventsFromLocal() {
+  applyEvents(INITIAL_EVENTS);
+}
+
+// Apply event list with localStorage overrides
+function applyEvents(baseEvents) {
   const customArchives = JSON.parse(localStorage.getItem("neofamily_custom_archives") || "{}");
-  allEvents = INITIAL_EVENTS.map(ev => {
+  allEvents = baseEvents.map(ev => {
     if (customArchives[ev.id]) {
       return {
         ...ev,
@@ -38,6 +51,10 @@ function loadEvents() {
     }
     return ev;
   });
+}
+
+function loadEvents() {
+  loadEventsFromLocal();
 }
 
 // Render the application based on state
@@ -342,12 +359,16 @@ function renderCalendarView() {
         
         <div class="flex-1 overflow-hidden mt-1 flex flex-col gap-1">
           ${daysEvents.slice(0, 2).map(ev => `
-            <div class="truncate text-[10px] md:text-xs font-semibold px-1 rounded text-white" style="background-color: ${ev.categoryColor || '#e11d48'};" title="${ev.title}">
+            <div class="truncate text-[10px] md:text-xs font-semibold px-1.5 py-0.5 rounded text-white cursor-pointer hover:brightness-110 active:scale-95 transition shadow-xs" 
+                 style="background-color: ${ev.categoryColor || '#e11d48'};" 
+                 title="${ev.title} (クリックで詳細)" 
+                 onclick="event.stopPropagation(); openEventDetail('${ev.id}');"
+                 ondblclick="event.stopPropagation(); openEventDetail('${ev.id}');">
               ${ev.title}
             </div>
           `).join("")}
           ${daysEvents.length > 2 ? `
-            <span class="text-[9px] font-bold text-slate-500 self-end">+他${daysEvents.length - 2}件</span>
+            <span class="text-[9px] font-bold text-slate-500 self-end cursor-pointer" onclick="event.stopPropagation(); selectDate('${dateStr}');">+他${daysEvents.length - 2}件</span>
           ` : ""}
         </div>
       </div>
@@ -368,7 +389,7 @@ function renderCalendarView() {
   grid.innerHTML = html;
 }
 
-// Select a date on calendar
+// Select a date on calendar (does NOT scroll or jump elsewhere)
 function selectDate(dateStr) {
   if (selectedDate === dateStr) {
     selectedDate = null;
@@ -376,11 +397,6 @@ function selectDate(dateStr) {
     selectedDate = dateStr;
   }
   renderApp();
-  // Scroll to events list smoothly
-  const listEl = document.getElementById("events-section");
-  if (listEl) {
-    listEl.scrollIntoView({ behavior: "smooth" });
-  }
 }
 
 // Clear selected date
@@ -402,38 +418,24 @@ function changeMonth(delta) {
   renderCalendarView();
 }
 
-// Render Google Calendar Embed
-function renderGoogleCalendar() {
-  const iframeContainer = document.getElementById("google-calendar-iframe-container");
-  if (!iframeContainer) return;
-
-  const embedUrl = `https://calendar.google.com/calendar/embed?src=${encodeURIComponent(GOOGLE_CALENDAR_ID)}&ctz=Asia%2FTokyo&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=0&showTz=0&mode=MONTH&hl=ja`;
-  
-  iframeContainer.innerHTML = `
-    <iframe src="${embedUrl}" style="border: 0; width: 100%; height: 650px;" frameborder="0" scrolling="no" class="rounded-2xl shadow-inner bg-white"></iframe>
-  `;
-}
-
 // Handle switching tabs
 function switchViewMode(mode) {
   currentViewMode = mode;
   
   const cardsBtn = document.getElementById("btn-view-cards");
   const calendarBtn = document.getElementById("btn-view-calendar");
-  const googleBtn = document.getElementById("btn-view-google");
 
   const cardsView = document.getElementById("cards-view-section");
   const calendarView = document.getElementById("calendar-view-section");
-  const googleView = document.getElementById("google-view-section");
 
-  [cardsBtn, calendarBtn, googleBtn].forEach(b => {
+  [cardsBtn, calendarBtn].forEach(b => {
     if (b) {
       b.classList.remove("bg-rose-600", "text-white", "shadow-md");
       b.classList.add("bg-white", "text-slate-700", "hover:bg-slate-100");
     }
   });
 
-  [cardsView, calendarView, googleView].forEach(v => {
+  [cardsView, calendarView].forEach(v => {
     if (v) v.classList.add("hidden");
   });
 
@@ -450,12 +452,6 @@ function switchViewMode(mode) {
     }
     if (calendarView) calendarView.classList.remove("hidden");
     renderCalendarView();
-  } else if (mode === "google") {
-    if (googleBtn) {
-      googleBtn.classList.add("bg-rose-600", "text-white", "shadow-md");
-      googleBtn.classList.remove("bg-white", "text-slate-700");
-    }
-    if (googleView) googleView.classList.remove("hidden");
   }
 }
 
@@ -890,6 +886,20 @@ function initEventListeners() {
       closeEventDetail();
       closeArchivePasswordModal();
       closeArchiveAdminModal();
+    }
+  });
+
+  // Close modals when clicking backdrop
+  ["event-detail-modal", "archive-password-modal", "archive-admin-modal"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener("click", (e) => {
+        if (e.target === el) {
+          closeEventDetail();
+          closeArchivePasswordModal();
+          closeArchiveAdminModal();
+        }
+      });
     }
   });
 }
