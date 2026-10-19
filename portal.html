@@ -1162,7 +1162,7 @@
               </div>
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 py-2">
                 <span class="text-slate-500 font-bold">拠点</span>
-                <span class="sm:col-span-2 text-slate-300">山口県防府市（本部） / 全国各支部（東京・福岡・大阪他）およびオンライン</span>
+                <span class="sm:col-span-2 text-slate-300">全国各支部（東京・福岡・大阪他）およびオンライン / 寺子屋プロジェクト拠点：山口県防府市台道（2027年開校）</span>
               </div>
             </div>
           </div>
@@ -3101,6 +3101,10 @@
 
     // タブ切替
     function switchTab(tabId) {
+      if (tabId === 'schedule') {
+        tabId = 'hub';
+        setTimeout(() => scrollToSection('schedule-section'), 150);
+      }
       if (tabId === 'archive') {
         tabId = 'raytus';
         setTimeout(() => scrollToSection('raytus-services-section'), 150);
@@ -3506,7 +3510,7 @@
                 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> 公式HPで確認
               </a>
             </div>
-            <button onclick="closeRaytusServiceModal(); switchTab('schedule');" class="px-4 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold transition flex items-center gap-1.5 text-xs">
+            <button onclick="closeRaytusServiceModal(); switchTab('hub'); scrollToSection('schedule-section');" class="px-4 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold transition flex items-center gap-1.5 text-xs">
               <i class="fa-regular fa-calendar-check"></i> 定例会・説明会に参加する
             </button>
           </div>
