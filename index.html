@@ -167,7 +167,7 @@
       <nav class="flex items-center gap-1 overflow-x-auto no-scrollbar py-2 border-t border-slate-100 text-xs font-bold">
         <button onclick="switchTab('hub')" id="tab-btn-hub" class="tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 bg-slate-900 text-white shadow-xs">
           <i class="fa-solid fa-compass"></i>
-          <span>総合ハブ & ガイド</span>
+          <span>総合スタートガイド</span>
         </button>
         <button onclick="switchTab('raytus')" id="tab-btn-raytus" class="tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-solid fa-globe text-slate-400"></i>
@@ -180,10 +180,6 @@
         <button onclick="switchTab('calendar')" id="tab-btn-calendar" class="tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-regular fa-calendar-days text-rose-500"></i>
           <span>イベントカレンダー</span>
-        </button>
-        <button onclick="switchTab('schedule')" id="tab-btn-schedule" class="tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
-          <i class="fa-regular fa-calendar-check text-blue-500"></i>
-          <span>参加ガイド & フロー</span>
         </button>
         <button onclick="switchTab('sns')" id="tab-btn-sns" class="tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-solid fa-share-nodes text-pink-500"></i>
@@ -285,7 +281,7 @@
                 食・美容・教育・事業・事務など、どの説明会や作業会に参加すべきか迷ったらフローチャートで一発診断！
               </p>
             </div>
-            <button onclick="switchTab('schedule'); scrollToSection('flowchart-section');" class="mt-4 text-xs font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1">
+            <button onclick="scrollToSection('flowchart-section');" class="mt-4 text-xs font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1">
               <span>フローチャートで診断</span>
               <i class="fa-solid fa-arrow-right text-[10px]"></i>
             </button>
@@ -303,7 +299,7 @@
                 全日共通Zoom（ID: 811 1315 2898）での事業説明会や、月1回の合同定例会（次回11/2福岡）に参加してみましょう。
               </p>
             </div>
-            <button onclick="switchTab('schedule')" class="mt-4 text-xs font-bold text-amber-600 hover:text-amber-700 flex items-center gap-1">
+            <button onclick="scrollToSection('schedule-section')" class="mt-4 text-xs font-bold text-amber-600 hover:text-amber-700 flex items-center gap-1">
               <span>日程と参加リンクを見る</span>
               <i class="fa-solid fa-arrow-right text-[10px]"></i>
             </button>
@@ -358,6 +354,182 @@
           </div>
         </div>
       </section>
+
+      <!-- ========================================== -->
+      <!-- 🌱 新入生ファーストステップ 3箇条（やること最小化 & プログレス） -->
+      <!-- ========================================== -->
+      <section id="onboarding-steps-section" class="bg-gradient-to-br from-indigo-950 via-slate-900 to-slate-950 text-white rounded-3xl p-6 sm:p-8 border border-indigo-800/60 shadow-xl space-y-5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-indigo-800/40">
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-2xl bg-amber-400 text-slate-950 flex items-center justify-center font-black text-lg shadow-md shrink-0">
+              🌱
+            </span>
+            <div>
+              <h3 class="text-lg sm:text-xl font-black text-white flex items-center gap-2">
+                <span>新入生ファーストステップ：最初の1週間はこれだけでOK！</span>
+              </h3>
+              <p class="text-xs text-indigo-200 mt-0.5">事業やイベントが多くて迷ったら、まずこの3つだけ完了させましょう✨</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 bg-indigo-900/60 px-3 py-1.5 rounded-xl border border-indigo-700/50 text-xs font-bold shrink-0">
+            <span class="text-indigo-300">達成度:</span>
+            <span id="onboarding-progress-text" class="text-amber-300 font-extrabold text-sm">0 / 3 完了</span>
+          </div>
+        </div>
+
+        <!-- プログレスバー -->
+        <div class="w-full bg-slate-800/80 rounded-full h-2.5 overflow-hidden">
+          <div id="onboarding-progress-bar" class="bg-gradient-to-r from-amber-400 to-emerald-400 h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+          <!-- Step 1 -->
+          <div class="bg-white/5 border border-white/10 hover:border-amber-400/50 p-4 rounded-2xl transition flex flex-col justify-between space-y-3">
+            <label class="flex items-start gap-3 cursor-pointer">
+              <input type="checkbox" id="check-step-1" onchange="updateOnboardingProgress()" class="mt-1 w-4 h-4 rounded text-amber-500 focus:ring-amber-400 accent-amber-400 shrink-0">
+              <div class="space-y-1">
+                <span class="text-[10px] px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold">STEP 1</span>
+                <p class="text-sm font-bold text-white">全日共通Zoom情報をメモ</p>
+                <p class="text-xs text-slate-300 leading-relaxed">事業説明会は毎日共通のZoomで開催。IDとパスワードを保存しておきましょう。</p>
+              </div>
+            </label>
+            <div class="pt-2 border-t border-white/10 flex items-center justify-between">
+              <button onclick="copyZoomInfo()" class="text-xs text-amber-300 hover:underline font-bold flex items-center gap-1">
+                <i class="fa-solid fa-copy text-[10px]"></i> Zoom情報をコピー
+              </button>
+              <span class="text-[11px] font-mono text-slate-400">ID: 811 1315 2898</span>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="bg-white/5 border border-white/10 hover:border-amber-400/50 p-4 rounded-2xl transition flex flex-col justify-between space-y-3">
+            <label class="flex items-start gap-3 cursor-pointer">
+              <input type="checkbox" id="check-step-2" onchange="updateOnboardingProgress()" class="mt-1 w-4 h-4 rounded text-amber-500 focus:ring-amber-400 accent-amber-400 shrink-0">
+              <div class="space-y-1">
+                <span class="text-[10px] px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 font-bold">STEP 2</span>
+                <p class="text-sm font-bold text-white">次回合同定例会に参加表明</p>
+                <p class="text-xs text-slate-300 leading-relaxed">月1回の最重要イベント（11/2福岡）。調整さんで所属会名を入れて送信します。</p>
+              </div>
+            </label>
+            <div class="pt-2 border-t border-white/10 flex items-center justify-between">
+              <a href="https://chouseisan.com/s?h=2733ccd431d846f8bccd9c3061c0bca3" target="_blank" class="text-xs text-rose-300 hover:underline font-bold flex items-center gap-1">
+                <i class="fa-solid fa-pen-to-square text-[10px]"></i> 調整さんを開く
+              </a>
+              <span class="text-[11px] text-slate-400">11/2(月) 13:00〜</span>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="bg-white/5 border border-white/10 hover:border-amber-400/50 p-4 rounded-2xl transition flex flex-col justify-between space-y-3">
+            <label class="flex items-start gap-3 cursor-pointer">
+              <input type="checkbox" id="check-step-3" onchange="updateOnboardingProgress()" class="mt-1 w-4 h-4 rounded text-amber-500 focus:ring-amber-400 accent-amber-400 shrink-0">
+              <div class="space-y-1">
+                <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">STEP 3</span>
+                <p class="text-sm font-bold text-white">困ったときのサポート窓口確認</p>
+                <p class="text-xs text-slate-300 leading-relaxed">LINEやZoom、イベント参加で不安なことがあれば専任サポート一覧から相談可能です。</p>
+              </div>
+            </label>
+            <div class="pt-2 border-t border-white/10 flex items-center justify-between">
+              <button onclick="scrollToSection('flowchart-section')" class="text-xs text-emerald-300 hover:underline font-bold flex items-center gap-1">
+                <i class="fa-solid fa-arrow-down text-[10px]"></i> サポート一覧画像を見る
+              </button>
+              <span class="text-[11px] text-slate-400">相談無料</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- 🧭 目的別・スタートコンパス（あなたは何がしたい？） -->
+      <!-- ========================================== -->
+      <section id="purpose-compass-section" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold mb-1">
+              <i class="fa-solid fa-compass text-amber-600"></i> あなたの「やりたいこと」から選ぶ
+            </span>
+            <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+              目的別・スタートコンパス
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-500 mt-1">「グループに入ったけれど何から動けばいい？」という方は、気になる目的をタップしてください。最適な最初の一歩をご案内します。</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- 目的 1: 仲間づくり・交流 -->
+          <div onclick="selectPurpose('community')" id="purpose-card-community" class="purpose-card cursor-pointer p-5 rounded-2xl border-2 border-slate-200 hover:border-amber-400 hover:bg-amber-50/30 transition flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition">
+                🤝
+              </div>
+              <h4 class="font-black text-slate-900 text-base mb-1">仲間と交流したい</h4>
+              <p class="text-xs text-slate-500 leading-relaxed">
+                まずはグループの雰囲気になじみたい、横のつながりや同期の仲間をつくりたい方。
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-bold text-amber-700 flex items-center justify-between">
+              <span>おすすめのアクション</span>
+              <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </div>
+          </div>
+
+          <!-- 目的 2: 出品・マルシェ出店 -->
+          <div onclick="selectPurpose('shop')" id="purpose-card-shop" class="purpose-card cursor-pointer p-5 rounded-2xl border-2 border-slate-200 hover:border-rose-400 hover:bg-rose-50/30 transition flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition">
+                🛍️
+              </div>
+              <h4 class="font-black text-slate-900 text-base mb-1">商品を出品・販売したい</h4>
+              <p class="text-xs text-slate-500 leading-relaxed">
+                自分の商品やスキル・鑑定を「Iyasaka宮マルシェ」やリアルマルシェで販売したい方。
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-bold text-rose-700 flex items-center justify-between">
+              <span>おすすめのアクション</span>
+              <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </div>
+          </div>
+
+          <!-- 目的 3: RAYTUS事業・共育参画 -->
+          <div onclick="selectPurpose('business')" id="purpose-card-business" class="purpose-card cursor-pointer p-5 rounded-2xl border-2 border-slate-200 hover:border-blue-400 hover:bg-blue-50/30 transition flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition">
+                🏫
+              </div>
+              <h4 class="font-black text-slate-900 text-base mb-1">事業やプロジェクトに参入</h4>
+              <p class="text-xs text-slate-500 leading-relaxed">
+                寺子屋や子育て・食・美容など、31の公式事業チームに関わって力を発揮したい方。
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-bold text-blue-700 flex items-center justify-between">
+              <span>おすすめのアクション</span>
+              <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </div>
+          </div>
+
+          <!-- 目的 4: ビジネスマインド・稼ぐ力を学ぶ -->
+          <div onclick="selectPurpose('study')" id="purpose-card-study" class="purpose-card cursor-pointer p-5 rounded-2xl border-2 border-slate-200 hover:border-emerald-400 hover:bg-emerald-50/30 transition flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition">
+                🔥
+              </div>
+              <h4 class="font-black text-slate-900 text-base mb-1">起業・稼ぐ力を学びたい</h4>
+              <p class="text-xs text-slate-500 leading-relaxed">
+                ぶった斬り会長の思考法や特別勉強会を通じて、自立した収入とビジネス力を身につけたい方。
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-bold text-emerald-700 flex items-center justify-between">
+              <span>おすすめのアクション</span>
+              <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- 診断結果パネル（選択された目的のアクションを表示） -->
+        <div id="purpose-result-panel" class="hidden p-6 rounded-2xl border transition duration-300">
+        </div>
+      </section>
+
 
       <!-- 主要なポータル機能カードグリッド（各コンテンツへのダイレクト入口） -->
       <section>
@@ -443,7 +615,7 @@
               </p>
             </div>
             <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
-              <button onclick="switchTab('schedule')" class="text-xs font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1.5">
+              <button onclick="scrollToSection('schedule-section')" class="text-xs font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1.5">
                 <span>詳細と日程を確認</span>
                 <i class="fa-solid fa-arrow-right text-[10px]"></i>
               </button>
@@ -521,10 +693,10 @@
                 <span class="text-[10px] px-2 py-0.5 rounded-full bg-slate-900 text-white font-bold">SNS</span>
               </div>
               <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-rose-600 transition">
-                公式Instagram & ぶった斬り会長TikTok
+                公式YouTube・TikTok・Instagram
               </h3>
               <p class="text-xs text-slate-600 leading-relaxed mb-4">
-                RAYTUS公式Instagram（活動スナップ・ハイライト）と、大人気のぶった斬り会長公式TikTok（@buttagiri888）をまとめてチェック。
+                「ぶった斬りCHANNEL」公式YouTube、TikTok（@buttagiri888）、RAYTUS公式Instagramをワンストップでチェック。
               </p>
             </div>
             <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
@@ -533,12 +705,16 @@
                 <i class="fa-solid fa-arrow-right text-[10px]"></i>
               </button>
               <div class="flex items-center gap-2 text-[11px]">
-                <a href="https://www.instagram.com/raytus_group.official" target="_blank" class="text-pink-600 hover:underline flex items-center gap-0.5" title="Instagram">
-                  <i class="fa-brands fa-instagram"></i>
+                <a href="https://www.youtube.com/@buttagirichannel" target="_blank" class="text-red-600 hover:underline flex items-center gap-0.5" title="YouTube">
+                  <i class="fa-brands fa-youtube"></i>
                 </a>
                 <span class="text-slate-300">|</span>
                 <a href="https://www.tiktok.com/@buttagiri888?_r=1&_t=ZS-9AgCrWXIl6a" target="_blank" class="text-slate-900 hover:underline flex items-center gap-0.5" title="TikTok">
                   <i class="fa-brands fa-tiktok"></i>
+                </a>
+                <span class="text-slate-300">|</span>
+                <a href="https://www.instagram.com/raytus_group.official" target="_blank" class="text-pink-600 hover:underline flex items-center gap-0.5" title="Instagram">
+                  <i class="fa-brands fa-instagram"></i>
                 </a>
               </div>
             </div>
@@ -567,13 +743,206 @@
               <i class="fa-solid fa-ticket"></i>
               <span>チケット購入はこちら</span>
             </a>
-            <button onclick="switchTab('schedule'); scrollToSection('xmas-section');" class="px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition border border-white/20">
+            <button onclick="scrollToSection('xmas-section');" class="px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition border border-white/20">
               詳細案内を見る
             </button>
           </div>
         </div>
       </section>
 
+
+      <!-- ========================================== -->
+      <!-- 📅 直近の重要予定・参加フローチャート・全体スケジュール（旧参加ガイド統合） -->
+      <!-- ========================================== -->
+      <div id="schedule-section" class="space-y-8 pt-6 border-t border-slate-200">
+        <div class="flex items-center justify-between">
+          <div>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold mb-1">
+              <i class="fa-regular fa-calendar-check text-blue-600"></i> スケジュール & アクション
+            </span>
+            <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+              直近の定例会・説明会参加フロー & 年間予定
+            </h2>
+            <p class="text-xs text-slate-500 mt-1">次回定例会への参加表明や共通Zoom、説明会フローチャートをまとめて確認できます</p>
+          </div>
+        </div>
+
+        <!-- 次回合同定例会 情報カード -->
+      <div class="bg-gradient-to-br from-amber-500/10 via-white to-rose-500/10 rounded-3xl p-6 sm:p-8 border border-amber-200 shadow-sm">
+        <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+          <div class="space-y-2">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-600 text-white text-xs font-bold">
+              <i class="fa-solid fa-star"></i> 重要：次回合同定例会
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+              11月2日（月）13:00〜16:00 【福岡開催】
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-600">
+              会場：決まり次第ご案内します✨（※定例会開催地域：10月東京、11月福岡へと変更されました）
+            </p>
+            <div class="p-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs font-medium space-y-1">
+              <p class="font-bold">⚠️ 調整さんコメント欄のルール:</p>
+              <p>コメント欄には【所属会名のみ】ご入力ください。「よろしくお願いします」「アーカイブで見ます」等の表明は不要です‼️</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center gap-3 shrink-0">
+            <a href="https://chouseisan.com/s?h=2733ccd431d846f8bccd9c3061c0bca3" target="_blank" class="px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm transition shadow-sm flex items-center gap-2">
+              <i class="fa-solid fa-pen-to-square"></i>
+              <span>参加表明する（調整さん）</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 合同事業説明会（共通Zoom）カード -->
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div class="space-y-2 max-w-xl">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-emerald-500 animate-ping"></span>
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">ALL DAYS COMMON ZOOM</span>
+          </div>
+          <h3 class="text-xl font-black text-slate-900">
+            合同事業説明会 当日のZoom情報（全日共通）
+          </h3>
+          <p class="text-xs text-slate-600">
+            全日程で共通のミーティングルームを使用します。ワンクリックでZoomアプリを起動、またはIDをコピーできます。
+          </p>
+          <div class="flex flex-wrap items-center gap-2 pt-1 font-mono text-xs">
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-200 font-bold text-slate-800">
+              ID: 811 1315 2898
+            </span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-200 font-bold text-slate-800">
+              PW: 2026
+            </span>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-3 shrink-0">
+          <button onclick="copyZoomInfo()" class="px-4 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition border border-slate-200 flex items-center gap-2">
+            <i class="fa-solid fa-copy"></i>
+            <span>Zoom情報をコピー</span>
+          </button>
+          <a href="https://us06web.zoom.us/j/81113152898?pwd=rnUDogc0paequYOxCnvXYaSs3WngG3.1" target="_blank" class="px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs transition shadow-sm flex items-center gap-2">
+            <i class="fa-solid fa-video"></i>
+            <span>Zoomを開く</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- フローチャート セクション -->
+      <section id="flowchart-section" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+        <div>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold mb-2">
+            <i class="fa-solid fa-arrows-split-up-and-left"></i> 迷ったらまずここ！
+          </span>
+          <h3 class="text-xl font-black text-slate-900">
+            🏹 説明会 / 作業会 参加フローチャート & サポート一覧
+          </h3>
+          <p class="text-xs text-slate-500 mt-1">※画像をタップすると全画面で拡大表示されます</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- フローチャート画像 -->
+          <div class="border border-slate-200 rounded-2xl p-3 bg-slate-50 cursor-pointer group" onclick="openLightbox('images/notion-event-flow.jpg', 'イベント参加フローチャート')">
+            <div class="flex items-center justify-between text-xs font-bold text-slate-600 mb-2">
+              <span>イベント参加フロー</span>
+              <span class="text-blue-600 group-hover:underline flex items-center gap-1 text-[11px]">
+                <i class="fa-solid fa-magnifying-glass-plus"></i> タップで拡大
+              </span>
+            </div>
+            <div class="rounded-xl overflow-hidden bg-white shadow-2xs">
+              <img src="images/notion-event-flow.jpg" alt="イベント参加フロー" class="w-full h-auto object-contain group-hover:scale-102 transition duration-300">
+            </div>
+          </div>
+
+          <!-- サポート一覧画像 -->
+          <div class="border border-slate-200 rounded-2xl p-3 bg-slate-50 cursor-pointer group" onclick="openLightbox('images/notion-support-list.jpg', 'サポート一覧')">
+            <div class="flex items-center justify-between text-xs font-bold text-slate-600 mb-2">
+              <span>サポート一覧</span>
+              <span class="text-blue-600 group-hover:underline flex items-center gap-1 text-[11px]">
+                <i class="fa-solid fa-magnifying-glass-plus"></i> タップで拡大
+              </span>
+            </div>
+            <div class="rounded-xl overflow-hidden bg-white shadow-2xs">
+              <img src="images/notion-support-list.jpg" alt="サポート一覧" class="w-full h-auto object-contain group-hover:scale-102 transition duration-300">
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 年間スケジュール & 10月スケジュール画像 -->
+      <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <h3 class="text-xl font-black text-slate-900">
+              📅 年間 & 10月全体スケジュール
+            </h3>
+            <p class="text-xs text-slate-500 mt-1">※画像をタップすると拡大表示されます</p>
+          </div>
+          <button onclick="switchTab('calendar')" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-bold transition flex items-center gap-1.5 shadow-xs w-fit">
+            <i class="fa-regular fa-calendar-days text-amber-400"></i>
+            <span>月間カレンダービューで予定を確認</span>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- 年間スケジュール -->
+          <div class="border border-slate-200 rounded-2xl p-3 bg-slate-50 cursor-pointer group" onclick="openLightbox('images/notion-annual-schedule.png', '年間スケジュール')">
+            <div class="flex items-center justify-between text-xs font-bold text-slate-600 mb-2">
+              <span>年間スケジュール（2026年公開版）</span>
+              <span class="text-blue-600 group-hover:underline flex items-center gap-1 text-[11px]">
+                <i class="fa-solid fa-magnifying-glass-plus"></i> タップで拡大
+              </span>
+            </div>
+            <div class="rounded-xl overflow-hidden bg-white shadow-2xs">
+              <img src="images/notion-annual-schedule.png" alt="年間スケジュール" class="w-full h-auto object-contain group-hover:scale-102 transition duration-300">
+            </div>
+          </div>
+
+          <!-- 10月全体スケジュール -->
+          <div class="border border-slate-200 rounded-2xl p-3 bg-slate-50 cursor-pointer group" onclick="openLightbox('images/notion-october-schedule.jpg', '10月全体スケジュール')">
+            <div class="flex items-center justify-between text-xs font-bold text-slate-600 mb-2">
+              <span>10月全体スケジュール</span>
+              <span class="text-blue-600 group-hover:underline flex items-center gap-1 text-[11px]">
+                <i class="fa-solid fa-magnifying-glass-plus"></i> タップで拡大
+              </span>
+            </div>
+            <div class="rounded-xl overflow-hidden bg-white shadow-2xs">
+              <img src="images/notion-october-schedule.jpg" alt="10月全体スケジュール" class="w-full h-auto object-contain group-hover:scale-102 transition duration-300">
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- クリスマスパーティー2026 特設セクション -->
+      <section id="xmas-section" class="bg-gradient-to-br from-red-950 via-slate-900 to-slate-950 text-white rounded-3xl p-6 sm:p-8 border border-red-800/60 shadow-lg space-y-6">
+        <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+          <div>
+            <span class="px-2.5 py-1 rounded bg-amber-400 text-slate-950 text-xs font-bold">12月2日（水）開催</span>
+            <h3 class="text-2xl font-black text-white mt-2">
+              ✨🎄 NEO FAMILY. Christmas Party 2026 🎄✨
+            </h3>
+            <p class="text-xs text-rose-200 mt-1">ハイアット リージェンシー 東京（12:00開演予定 / コース料理＆飲み放題）</p>
+          </div>
+          <a href="https://shopping.community-iyasakagu.jp/vendor/officialeventaccount/" target="_blank" class="px-5 py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-sm transition shadow-lg flex items-center gap-2">
+            <i class="fa-solid fa-ticket"></i>
+            <span>チケット購入（10月中なら17,000円）</span>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="rounded-2xl overflow-hidden border border-white/10 cursor-pointer" onclick="openLightbox('images/notion_3b89c8ef-5670-8019-8017-da798a0a320a_15977.jpg', 'クリスマスパーティー詳細 1')">
+            <img src="images/notion_3b89c8ef-5670-8019-8017-da798a0a320a_15977.jpg" alt="クリスマスフライヤー 1" class="w-full h-auto object-contain">
+          </div>
+          <div class="rounded-2xl overflow-hidden border border-white/10 cursor-pointer" onclick="openLightbox('images/notion_3f39c8ef-5670-809c-a625-d42e2a39e316_S__21381128.jpg', 'クリスマスパーティー詳細 2')">
+            <img src="images/notion_3f39c8ef-5670-809c-a625-d42e2a39e316_S__21381128.jpg" alt="クリスマスフライヤー 2" class="w-full h-auto object-contain">
+          </div>
+        </div>
+      </section>
+      </div>
     </div>
 
 
@@ -867,7 +1236,22 @@
     <!-- ======================================================== -->
     <!-- TAB 3: Iyasaka宮 コミュニティ & EC 複製 (IYASAKA) -->
     <!-- ======================================================== -->
-    <div id="tab-content-iyasaka" class="tab-content">
+    <div id="tab-content-iyasaka" class="tab-content space-y-4">
+      <!-- 体験用デモ画面・シミュレーション注記 -->
+      <div class="bg-amber-500/10 border border-amber-300/40 rounded-2xl p-4 text-xs text-amber-950 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
+        <div class="flex items-center gap-2.5">
+          <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-amber-400 text-slate-950 font-black text-[10px] shrink-0">DEMO</span>
+          <span>
+            <strong>【体験用シミュレーション画面】</strong> 
+            当ページはポータル統合イメージのデモ画面です。掲載内容は本家サイトの再現であり、実際の決済や注文処理は発生しません。
+          </span>
+        </div>
+        <a href="https://community-iyasakagu.jp" target="_blank" class="shrink-0 px-3 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-700 text-white font-bold transition flex items-center gap-1.5 text-xs w-fit">
+          <span>本家「Iyasaka宮」を開く</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+        </a>
+      </div>
+
       <!-- Iyasaka宮 コンテナ -->
       <div class="bg-white rounded-3xl overflow-hidden border border-amber-200/80 shadow-md">
         
@@ -885,11 +1269,7 @@
                 新規登録
               </a>
             </div>
-            <button onclick="openModal('cart-modal')" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-amber-200 text-amber-800 text-xs font-bold shadow-2xs hover:bg-amber-50 transition">
-              <img src="images/hd_cart_icon.png" alt="カゴ" class="w-4 h-4 object-contain">
-              <span>買い物カゴ</span>
-              <span id="iyasaka-cart-badge" class="px-1.5 py-0.2 rounded-full bg-rose-600 text-white text-[10px]">0</span>
-            </button>
+
           </div>
         </div>
 
@@ -1250,189 +1630,6 @@
           <p class="text-xs text-slate-400 mt-4 text-center">
             ※ イベントをクリックすると詳細が開きます。Googleカレンダー登録やZoom録画アーカイブを視聴できます。
           </p>
-        </div>
-      </section>
-
-    </div>
-
-
-    <!-- ======================================================== -->
-    <!-- TAB 5: スケジュール & 参加ガイド (Notion 1 複製 & 洗練) -->
-    <!-- ======================================================== -->
-    <div id="tab-content-schedule" class="tab-content space-y-6">
-      <!-- 次回合同定例会 情報カード -->
-      <div class="bg-gradient-to-br from-amber-500/10 via-white to-rose-500/10 rounded-3xl p-6 sm:p-8 border border-amber-200 shadow-sm">
-        <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-          <div class="space-y-2">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-600 text-white text-xs font-bold">
-              <i class="fa-solid fa-star"></i> 重要：次回合同定例会
-            </span>
-            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-              11月2日（月）13:00〜16:00 【福岡開催】
-            </h2>
-            <p class="text-xs sm:text-sm text-slate-600">
-              会場：決まり次第ご案内します✨（※定例会開催地域：10月東京、11月福岡へと変更されました）
-            </p>
-            <div class="p-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs font-medium space-y-1">
-              <p class="font-bold">⚠️ 調整さんコメント欄のルール:</p>
-              <p>コメント欄には【所属会名のみ】ご入力ください。「よろしくお願いします」「アーカイブで見ます」等の表明は不要です‼️</p>
-            </div>
-          </div>
-          <div class="flex flex-wrap items-center gap-3 shrink-0">
-            <a href="https://chouseisan.com/s?h=2733ccd431d846f8bccd9c3061c0bca3" target="_blank" class="px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm transition shadow-sm flex items-center gap-2">
-              <i class="fa-solid fa-pen-to-square"></i>
-              <span>参加表明する（調整さん）</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 合同事業説明会（共通Zoom）カード -->
-      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <div class="space-y-2 max-w-xl">
-          <div class="flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full bg-emerald-500 animate-ping"></span>
-            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">ALL DAYS COMMON ZOOM</span>
-          </div>
-          <h3 class="text-xl font-black text-slate-900">
-            合同事業説明会 当日のZoom情報（全日共通）
-          </h3>
-          <p class="text-xs text-slate-600">
-            全日程で共通のミーティングルームを使用します。ワンクリックでZoomアプリを起動、またはIDをコピーできます。
-          </p>
-          <div class="flex flex-wrap items-center gap-2 pt-1 font-mono text-xs">
-            <span class="px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-200 font-bold text-slate-800">
-              ID: 811 1315 2898
-            </span>
-            <span class="px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-200 font-bold text-slate-800">
-              PW: 2026
-            </span>
-          </div>
-        </div>
-        <div class="flex flex-wrap items-center gap-3 shrink-0">
-          <button onclick="copyZoomInfo()" class="px-4 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition border border-slate-200 flex items-center gap-2">
-            <i class="fa-solid fa-copy"></i>
-            <span>Zoom情報をコピー</span>
-          </button>
-          <a href="https://us06web.zoom.us/j/81113152898?pwd=rnUDogc0paequYOxCnvXYaSs3WngG3.1" target="_blank" class="px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs transition shadow-sm flex items-center gap-2">
-            <i class="fa-solid fa-video"></i>
-            <span>Zoomを開く</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- フローチャート セクション -->
-      <section id="flowchart-section" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
-        <div>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold mb-2">
-            <i class="fa-solid fa-arrows-split-up-and-left"></i> 迷ったらまずここ！
-          </span>
-          <h3 class="text-xl font-black text-slate-900">
-            🏹 説明会 / 作業会 参加フローチャート & サポート一覧
-          </h3>
-          <p class="text-xs text-slate-500 mt-1">※画像をタップすると全画面で拡大表示されます</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          
-          <!-- フローチャート画像 -->
-          <div class="border border-slate-200 rounded-2xl p-3 bg-slate-50 cursor-pointer group" onclick="openLightbox('images/notion-event-flow.jpg', 'イベント参加フローチャート')">
-            <div class="flex items-center justify-between text-xs font-bold text-slate-600 mb-2">
-              <span>イベント参加フロー</span>
-              <span class="text-blue-600 group-hover:underline flex items-center gap-1 text-[11px]">
-                <i class="fa-solid fa-magnifying-glass-plus"></i> タップで拡大
-              </span>
-            </div>
-            <div class="rounded-xl overflow-hidden bg-white shadow-2xs">
-              <img src="images/notion-event-flow.jpg" alt="イベント参加フロー" class="w-full h-auto object-contain group-hover:scale-102 transition duration-300">
-            </div>
-          </div>
-
-          <!-- サポート一覧画像 -->
-          <div class="border border-slate-200 rounded-2xl p-3 bg-slate-50 cursor-pointer group" onclick="openLightbox('images/notion-support-list.jpg', 'サポート一覧')">
-            <div class="flex items-center justify-between text-xs font-bold text-slate-600 mb-2">
-              <span>サポート一覧</span>
-              <span class="text-blue-600 group-hover:underline flex items-center gap-1 text-[11px]">
-                <i class="fa-solid fa-magnifying-glass-plus"></i> タップで拡大
-              </span>
-            </div>
-            <div class="rounded-xl overflow-hidden bg-white shadow-2xs">
-              <img src="images/notion-support-list.jpg" alt="サポート一覧" class="w-full h-auto object-contain group-hover:scale-102 transition duration-300">
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- 年間スケジュール & 10月スケジュール画像 -->
-      <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <div>
-            <h3 class="text-xl font-black text-slate-900">
-              📅 年間 & 10月全体スケジュール
-            </h3>
-            <p class="text-xs text-slate-500 mt-1">※画像をタップすると拡大表示されます</p>
-          </div>
-          <button onclick="switchTab('calendar')" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-bold transition flex items-center gap-1.5 shadow-xs w-fit">
-            <i class="fa-regular fa-calendar-days text-amber-400"></i>
-            <span>月間カレンダービューで予定を確認</span>
-          </button>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          
-          <!-- 年間スケジュール -->
-          <div class="border border-slate-200 rounded-2xl p-3 bg-slate-50 cursor-pointer group" onclick="openLightbox('images/notion-annual-schedule.png', '年間スケジュール')">
-            <div class="flex items-center justify-between text-xs font-bold text-slate-600 mb-2">
-              <span>年間スケジュール（2026年公開版）</span>
-              <span class="text-blue-600 group-hover:underline flex items-center gap-1 text-[11px]">
-                <i class="fa-solid fa-magnifying-glass-plus"></i> タップで拡大
-              </span>
-            </div>
-            <div class="rounded-xl overflow-hidden bg-white shadow-2xs">
-              <img src="images/notion-annual-schedule.png" alt="年間スケジュール" class="w-full h-auto object-contain group-hover:scale-102 transition duration-300">
-            </div>
-          </div>
-
-          <!-- 10月全体スケジュール -->
-          <div class="border border-slate-200 rounded-2xl p-3 bg-slate-50 cursor-pointer group" onclick="openLightbox('images/notion-october-schedule.jpg', '10月全体スケジュール')">
-            <div class="flex items-center justify-between text-xs font-bold text-slate-600 mb-2">
-              <span>10月全体スケジュール</span>
-              <span class="text-blue-600 group-hover:underline flex items-center gap-1 text-[11px]">
-                <i class="fa-solid fa-magnifying-glass-plus"></i> タップで拡大
-              </span>
-            </div>
-            <div class="rounded-xl overflow-hidden bg-white shadow-2xs">
-              <img src="images/notion-october-schedule.jpg" alt="10月全体スケジュール" class="w-full h-auto object-contain group-hover:scale-102 transition duration-300">
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- クリスマスパーティー2026 特設セクション -->
-      <section id="xmas-section" class="bg-gradient-to-br from-red-950 via-slate-900 to-slate-950 text-white rounded-3xl p-6 sm:p-8 border border-red-800/60 shadow-lg space-y-6">
-        <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
-          <div>
-            <span class="px-2.5 py-1 rounded bg-amber-400 text-slate-950 text-xs font-bold">12月2日（水）開催</span>
-            <h3 class="text-2xl font-black text-white mt-2">
-              ✨🎄 NEO FAMILY. Christmas Party 2026 🎄✨
-            </h3>
-            <p class="text-xs text-rose-200 mt-1">ハイアット リージェンシー 東京（12:00開演予定 / コース料理＆飲み放題）</p>
-          </div>
-          <a href="https://shopping.community-iyasakagu.jp/vendor/officialeventaccount/" target="_blank" class="px-5 py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-sm transition shadow-lg flex items-center gap-2">
-            <i class="fa-solid fa-ticket"></i>
-            <span>チケット購入（10月中なら17,000円）</span>
-          </a>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div class="rounded-2xl overflow-hidden border border-white/10 cursor-pointer" onclick="openLightbox('images/notion_3b89c8ef-5670-8019-8017-da798a0a320a_15977.jpg', 'クリスマスパーティー詳細 1')">
-            <img src="images/notion_3b89c8ef-5670-8019-8017-da798a0a320a_15977.jpg" alt="クリスマスフライヤー 1" class="w-full h-auto object-contain">
-          </div>
-          <div class="rounded-2xl overflow-hidden border border-white/10 cursor-pointer" onclick="openLightbox('images/notion_3f39c8ef-5670-809c-a625-d42e2a39e316_S__21381128.jpg', 'クリスマスパーティー詳細 2')">
-            <img src="images/notion_3f39c8ef-5670-809c-a625-d42e2a39e316_S__21381128.jpg" alt="クリスマスフライヤー 2" class="w-full h-auto object-contain">
-          </div>
         </div>
       </section>
 
@@ -2071,13 +2268,17 @@
           <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">SELECT MEDIA:</span>
           <div class="flex items-center gap-1 bg-slate-100 p-0.5 rounded-xl border border-slate-200 text-xs font-bold">
             <button onclick="setSnsFilter('all')" id="sns-filter-all" class="px-3 py-1.5 rounded-lg bg-white text-slate-900 shadow-2xs transition">すべて表示</button>
-            <button onclick="setSnsFilter('instagram')" id="sns-filter-instagram" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition flex items-center gap-1">
-              <i class="fa-brands fa-instagram text-pink-600"></i>
-              <span>Instagram</span>
+            <button onclick="setSnsFilter('youtube')" id="sns-filter-youtube" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition flex items-center gap-1">
+              <i class="fa-brands fa-youtube text-red-600"></i>
+              <span>YouTube</span>
             </button>
             <button onclick="setSnsFilter('tiktok')" id="sns-filter-tiktok" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition flex items-center gap-1">
               <i class="fa-brands fa-tiktok text-slate-900"></i>
               <span>TikTok (会長)</span>
+            </button>
+            <button onclick="setSnsFilter('instagram')" id="sns-filter-instagram" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition flex items-center gap-1">
+              <i class="fa-brands fa-instagram text-pink-600"></i>
+              <span>Instagram</span>
             </button>
           </div>
         </div>
@@ -2088,6 +2289,233 @@
 
       <!-- SNS コンテンツグリッド -->
       <div class="space-y-10">
+
+        <!-- ==================== 0. 公式YouTube (ぶった斬りCHANNEL主婦界のヒーロー @buttagirichannel) ==================== -->
+        <div id="sns-section-youtube" class="sns-card bg-white rounded-3xl p-6 sm:p-8 border border-red-100 shadow-lg relative overflow-hidden space-y-8">
+          <div class="absolute -right-10 -top-10 w-60 h-60 bg-red-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+          <!-- YouTube チャンネルヘッダー -->
+          <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 pb-6 border-b border-slate-100">
+            <!-- アバター -->
+            <div class="relative shrink-0">
+              <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 bg-gradient-to-tr from-red-600 via-rose-500 to-amber-500 shadow-md">
+                <img src="images/logo.png" alt="ぶった斬りCHANNEL" class="w-full h-full rounded-full object-contain bg-white p-1">
+              </div>
+              <span class="absolute bottom-1 right-1 w-7 h-7 rounded-full bg-red-600 text-white flex items-center justify-center text-sm shadow-md">
+                <i class="fa-brands fa-youtube"></i>
+              </span>
+            </div>
+
+            <!-- 情報 -->
+            <div class="space-y-3 text-center sm:text-left flex-1">
+              <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+                <div>
+                  <h3 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center justify-center sm:justify-start gap-2">
+                    <span>ぶった斬りCHANNEL主婦界のヒーロー</span>
+                    <i class="fa-solid fa-circle-check text-red-600 text-base" title="公式チャンネル"></i>
+                  </h3>
+                  <p class="text-xs font-mono text-slate-500">@buttagirichannel</p>
+                </div>
+                <div class="flex items-center justify-center sm:justify-start gap-2 sm:ml-auto">
+                  <a href="https://www.youtube.com/@buttagirichannel?sub_confirmation=1" target="_blank" class="px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-bold transition shadow-md flex items-center gap-2">
+                    <i class="fa-brands fa-youtube text-base"></i>
+                    <span>チャンネル登録</span>
+                  </a>
+                  <a href="https://www.youtube.com/@buttagirichannel" target="_blank" class="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center text-xs transition border border-slate-200" title="YouTubeで開く">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- スタッツ -->
+              <div class="flex items-center justify-center sm:justify-start gap-6 text-xs sm:text-sm text-slate-700">
+                <div><strong class="font-black text-slate-900 text-base">600+</strong> 本の動画</div>
+                <div><strong class="font-black text-slate-900 text-base">毎日</strong> 配信中</div>
+                <div><span class="px-2 py-0.5 rounded-full bg-red-100 text-red-700 text-[11px] font-bold">主婦層・女性起業家から絶大な支持</span></div>
+              </div>
+
+              <!-- 説明文 -->
+              <div class="text-xs text-slate-600 leading-relaxed max-w-2xl">
+                <p>🔥 夫婦問題・モラハラ・熟年離婚・ワンオペのリアルな悩みを、100億稼ぐ会長が痛快かつ本質からぶった斬る！</p>
+                <p class="text-slate-500 mt-1">「傷の舐め合いはいらない、自立して未来を変えたい」すべての女性のための人生変革チャンネル。</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 最近の注目・人気動画グリッド -->
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
+                <i class="fa-brands fa-youtube text-red-600 text-sm"></i> 最近の注目動画（タップでその場で再生）
+              </span>
+              <a href="https://www.youtube.com/@buttagirichannel/videos" target="_blank" class="text-xs text-red-600 hover:underline flex items-center gap-1 font-bold">
+                <span>YouTubeですべて見る</span>
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              
+              <!-- Video 1 -->
+              <div class="group bg-slate-50 border border-slate-200/80 rounded-2xl overflow-hidden hover:border-red-400 hover:shadow-md transition flex flex-col justify-between">
+                <div class="aspect-video relative bg-slate-900 overflow-hidden cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/EK-xR3McLHc', '【58歳熟年離婚】を迫られた夫はパンツも洗えん。飯も作れん。｜妻は急に冷めたんじゃない。')">
+                  <img src="https://i.ytimg.com/vi/EK-xR3McLHc/hqdefault.jpg" alt="動画サムネイル" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                  <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-red-600/90 text-white flex items-center justify-center text-lg shadow-lg group-hover:scale-110 transition">
+                      <i class="fa-solid fa-play ml-0.5"></i>
+                    </span>
+                  </div>
+                  <span class="absolute bottom-2 right-2 px-1.5 py-0.5 rounded bg-black/80 text-white text-[10px] font-mono">YouTube</span>
+                </div>
+                <div class="p-3.5 space-y-2 flex-1 flex flex-col justify-between">
+                  <h4 class="text-xs font-bold text-slate-900 line-clamp-2 group-hover:text-red-600 transition">
+                    【58歳熟年離婚】を迫られた夫はパンツも洗えん。飯も作れん。｜妻は急に冷めたんじゃない。
+                  </h4>
+                  <div class="flex items-center justify-between pt-2 border-t border-slate-200 text-[11px]">
+                    <button onclick="openVideoModal('https://www.youtube.com/embed/EK-xR3McLHc', '【58歳熟年離婚】を迫られた夫はパンツも洗えん。飯も作れん。｜妻は急に冷めたんじゃない。')" class="text-red-600 font-bold hover:underline flex items-center gap-1">
+                      <i class="fa-solid fa-circle-play text-[10px]"></i> その場で再生
+                    </button>
+                    <a href="https://www.youtube.com/watch?v=EK-xR3McLHc" target="_blank" class="text-slate-400 hover:text-slate-700" title="YouTubeで開く">
+                      <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Video 2 -->
+              <div class="group bg-slate-50 border border-slate-200/80 rounded-2xl overflow-hidden hover:border-red-400 hover:shadow-md transition flex flex-col justify-between">
+                <div class="aspect-video relative bg-slate-900 overflow-hidden cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/3sPl_bbEaiE', '【夫の浮気】妻がやるべきことは1つだけ｜100億稼ぐ会長が本音で語る')">
+                  <img src="https://i.ytimg.com/vi/3sPl_bbEaiE/hqdefault.jpg" alt="動画サムネイル" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                  <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-red-600/90 text-white flex items-center justify-center text-lg shadow-lg group-hover:scale-110 transition">
+                      <i class="fa-solid fa-play ml-0.5"></i>
+                    </span>
+                  </div>
+                  <span class="absolute bottom-2 right-2 px-1.5 py-0.5 rounded bg-black/80 text-white text-[10px] font-mono">YouTube</span>
+                </div>
+                <div class="p-3.5 space-y-2 flex-1 flex flex-col justify-between">
+                  <h4 class="text-xs font-bold text-slate-900 line-clamp-2 group-hover:text-red-600 transition">
+                    【夫の浮気】妻がやるべきことは1つだけ｜100億稼ぐ会長が本音で語る
+                  </h4>
+                  <div class="flex items-center justify-between pt-2 border-t border-slate-200 text-[11px]">
+                    <button onclick="openVideoModal('https://www.youtube.com/embed/3sPl_bbEaiE', '【夫の浮気】妻がやるべきことは1つだけ｜100億稼ぐ会長が本音で語る')" class="text-red-600 font-bold hover:underline flex items-center gap-1">
+                      <i class="fa-solid fa-circle-play text-[10px]"></i> その場で再生
+                    </button>
+                    <a href="https://www.youtube.com/watch?v=3sPl_bbEaiE" target="_blank" class="text-slate-400 hover:text-slate-700" title="YouTubeで開く">
+                      <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Video 3 -->
+              <div class="group bg-slate-50 border border-slate-200/80 rounded-2xl overflow-hidden hover:border-red-400 hover:shadow-md transition flex flex-col justify-between">
+                <div class="aspect-video relative bg-slate-900 overflow-hidden cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/KApFWKM2QEU', '【16年間モラハラ】もう男なんていらない')">
+                  <img src="https://i.ytimg.com/vi/KApFWKM2QEU/hqdefault.jpg" alt="動画サムネイル" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                  <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-red-600/90 text-white flex items-center justify-center text-lg shadow-lg group-hover:scale-110 transition">
+                      <i class="fa-solid fa-play ml-0.5"></i>
+                    </span>
+                  </div>
+                  <span class="absolute bottom-2 right-2 px-1.5 py-0.5 rounded bg-black/80 text-white text-[10px] font-mono">YouTube</span>
+                </div>
+                <div class="p-3.5 space-y-2 flex-1 flex flex-col justify-between">
+                  <h4 class="text-xs font-bold text-slate-900 line-clamp-2 group-hover:text-red-600 transition">
+                    【16年間モラハラ】もう男なんていらない
+                  </h4>
+                  <div class="flex items-center justify-between pt-2 border-t border-slate-200 text-[11px]">
+                    <button onclick="openVideoModal('https://www.youtube.com/embed/KApFWKM2QEU', '【16年間モラハラ】もう男なんていらない')" class="text-red-600 font-bold hover:underline flex items-center gap-1">
+                      <i class="fa-solid fa-circle-play text-[10px]"></i> その場で再生
+                    </button>
+                    <a href="https://www.youtube.com/watch?v=KApFWKM2QEU" target="_blank" class="text-slate-400 hover:text-slate-700" title="YouTubeで開く">
+                      <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Video 4 -->
+              <div class="group bg-slate-50 border border-slate-200/80 rounded-2xl overflow-hidden hover:border-red-400 hover:shadow-md transition flex flex-col justify-between">
+                <div class="aspect-video relative bg-slate-900 overflow-hidden cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/J7tFe7x3_cs', '【モラハラ夫と離婚】→子連れ再婚したら人生が激変した話')">
+                  <img src="https://i.ytimg.com/vi/J7tFe7x3_cs/hqdefault.jpg" alt="動画サムネイル" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                  <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-red-600/90 text-white flex items-center justify-center text-lg shadow-lg group-hover:scale-110 transition">
+                      <i class="fa-solid fa-play ml-0.5"></i>
+                    </span>
+                  </div>
+                  <span class="absolute bottom-2 right-2 px-1.5 py-0.5 rounded bg-black/80 text-white text-[10px] font-mono">YouTube</span>
+                </div>
+                <div class="p-3.5 space-y-2 flex-1 flex flex-col justify-between">
+                  <h4 class="text-xs font-bold text-slate-900 line-clamp-2 group-hover:text-red-600 transition">
+                    【モラハラ夫と離婚】→子連れ再婚したら人生が激変した話
+                  </h4>
+                  <div class="flex items-center justify-between pt-2 border-t border-slate-200 text-[11px]">
+                    <button onclick="openVideoModal('https://www.youtube.com/embed/J7tFe7x3_cs', '【モラハラ夫と離婚】→子連れ再婚したら人生が激変した話')" class="text-red-600 font-bold hover:underline flex items-center gap-1">
+                      <i class="fa-solid fa-circle-play text-[10px]"></i> その場で再生
+                    </button>
+                    <a href="https://www.youtube.com/watch?v=J7tFe7x3_cs" target="_blank" class="text-slate-400 hover:text-slate-700" title="YouTubeで開く">
+                      <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Video 5 -->
+              <div class="group bg-slate-50 border border-slate-200/80 rounded-2xl overflow-hidden hover:border-red-400 hover:shadow-md transition flex flex-col justify-between">
+                <div class="aspect-video relative bg-slate-900 overflow-hidden cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/ANth1mJ8YNw', '【我慢の限界突破】ワンオペ地獄｜その家、ブラック家族です')">
+                  <img src="https://i.ytimg.com/vi/ANth1mJ8YNw/hqdefault.jpg" alt="動画サムネイル" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                  <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-red-600/90 text-white flex items-center justify-center text-lg shadow-lg group-hover:scale-110 transition">
+                      <i class="fa-solid fa-play ml-0.5"></i>
+                    </span>
+                  </div>
+                  <span class="absolute bottom-2 right-2 px-1.5 py-0.5 rounded bg-black/80 text-white text-[10px] font-mono">YouTube</span>
+                </div>
+                <div class="p-3.5 space-y-2 flex-1 flex flex-col justify-between">
+                  <h4 class="text-xs font-bold text-slate-900 line-clamp-2 group-hover:text-red-600 transition">
+                    【我慢の限界突破】ワンオペ地獄｜その家、ブラック家族です
+                  </h4>
+                  <div class="flex items-center justify-between pt-2 border-t border-slate-200 text-[11px]">
+                    <button onclick="openVideoModal('https://www.youtube.com/embed/ANth1mJ8YNw', '【我慢の限界突破】ワンオペ地獄｜その家、ブラック家族です')" class="text-red-600 font-bold hover:underline flex items-center gap-1">
+                      <i class="fa-solid fa-circle-play text-[10px]"></i> その場で再生
+                    </button>
+                    <a href="https://www.youtube.com/watch?v=ANth1mJ8YNw" target="_blank" class="text-slate-400 hover:text-slate-700" title="YouTubeで開く">
+                      <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Video 6 -->
+              <div class="group bg-slate-50 border border-slate-200/80 rounded-2xl overflow-hidden hover:border-red-400 hover:shadow-md transition flex flex-col justify-between">
+                <div class="aspect-video relative bg-slate-900 overflow-hidden cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/fjkadO1_OYs', '【経営者必見】ドブに捨てるお金の使い方と事業拡大するお金の使い方の違い')">
+                  <img src="https://i.ytimg.com/vi/fjkadO1_OYs/hqdefault.jpg" alt="動画サムネイル" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                  <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition flex items-center justify-center">
+                    <span class="w-12 h-12 rounded-full bg-red-600/90 text-white flex items-center justify-center text-lg shadow-lg group-hover:scale-110 transition">
+                      <i class="fa-solid fa-play ml-0.5"></i>
+                    </span>
+                  </div>
+                  <span class="absolute bottom-2 right-2 px-1.5 py-0.5 rounded bg-black/80 text-white text-[10px] font-mono">YouTube</span>
+                </div>
+                <div class="p-3.5 space-y-2 flex-1 flex flex-col justify-between">
+                  <h4 class="text-xs font-bold text-slate-900 line-clamp-2 group-hover:text-red-600 transition">
+                    【経営者必見】ドブに捨てるお金の使い方と事業拡大するお金の使い方の違い
+                  </h4>
+                  <div class="flex items-center justify-between pt-2 border-t border-slate-200 text-[11px]">
+                    <button onclick="openVideoModal('https://www.youtube.com/embed/fjkadO1_OYs', '【経営者必見】ドブに捨てるお金の使い方と事業拡大するお金の使い方の違い')" class="text-red-600 font-bold hover:underline flex items-center gap-1">
+                      <i class="fa-solid fa-circle-play text-[10px]"></i> その場で再生
+                    </button>
+                    <a href="https://www.youtube.com/watch?v=fjkadO1_OYs" target="_blank" class="text-slate-400 hover:text-slate-700" title="YouTubeで開く">
+                      <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
 
         <!-- ==================== 1. 公式TikTok (ぶった斬り会長 @buttagiri888) ==================== -->
         <div id="sns-section-tiktok" class="sns-card bg-slate-950 text-white rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-xl relative overflow-hidden">
@@ -3097,28 +3525,38 @@
     // SNSフィルター切替
     function setSnsFilter(type) {
       const btnAll = document.getElementById('sns-filter-all');
-      const btnInsta = document.getElementById('sns-filter-instagram');
+      const btnYoutube = document.getElementById('sns-filter-youtube');
       const btnTiktok = document.getElementById('sns-filter-tiktok');
+      const btnInsta = document.getElementById('sns-filter-instagram');
+      const secYoutube = document.getElementById('sns-section-youtube');
       const secTiktok = document.getElementById('sns-section-tiktok');
       const secInsta = document.getElementById('sns-section-instagram');
 
       // リセット
-      [btnAll, btnInsta, btnTiktok].forEach(b => {
+      [btnAll, btnYoutube, btnTiktok, btnInsta].filter(Boolean).forEach(b => {
         b.className = 'px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition flex items-center gap-1';
       });
 
       if (type === 'all') {
-        btnAll.className = 'px-3 py-1.5 rounded-lg bg-white text-slate-900 shadow-2xs transition';
-        secTiktok.style.display = 'block';
-        secInsta.style.display = 'block';
-      } else if (type === 'instagram') {
-        btnInsta.className = 'px-3 py-1.5 rounded-lg bg-white text-slate-900 shadow-2xs transition flex items-center gap-1';
-        secTiktok.style.display = 'none';
-        secInsta.style.display = 'block';
+        if (btnAll) btnAll.className = 'px-3 py-1.5 rounded-lg bg-white text-slate-900 shadow-2xs transition';
+        if (secYoutube) secYoutube.style.display = 'block';
+        if (secTiktok) secTiktok.style.display = 'block';
+        if (secInsta) secInsta.style.display = 'block';
+      } else if (type === 'youtube') {
+        if (btnYoutube) btnYoutube.className = 'px-3 py-1.5 rounded-lg bg-white text-slate-900 shadow-2xs transition flex items-center gap-1';
+        if (secYoutube) secYoutube.style.display = 'block';
+        if (secTiktok) secTiktok.style.display = 'none';
+        if (secInsta) secInsta.style.display = 'none';
       } else if (type === 'tiktok') {
-        btnTiktok.className = 'px-3 py-1.5 rounded-lg bg-white text-slate-900 shadow-2xs transition flex items-center gap-1';
-        secTiktok.style.display = 'block';
-        secInsta.style.display = 'none';
+        if (btnTiktok) btnTiktok.className = 'px-3 py-1.5 rounded-lg bg-white text-slate-900 shadow-2xs transition flex items-center gap-1';
+        if (secYoutube) secYoutube.style.display = 'none';
+        if (secTiktok) secTiktok.style.display = 'block';
+        if (secInsta) secInsta.style.display = 'none';
+      } else if (type === 'instagram') {
+        if (btnInsta) btnInsta.className = 'px-3 py-1.5 rounded-lg bg-white text-slate-900 shadow-2xs transition flex items-center gap-1';
+        if (secYoutube) secYoutube.style.display = 'none';
+        if (secTiktok) secTiktok.style.display = 'none';
+        if (secInsta) secInsta.style.display = 'block';
       }
     }
 
@@ -3133,6 +3571,7 @@
 
     // 初期化
     document.addEventListener('DOMContentLoaded', () => {
+      restoreOnboardingProgress();
       renderRaytusServices();
       updateCartUI();
     });
