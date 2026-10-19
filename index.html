@@ -108,29 +108,6 @@
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-rose-500 selection:text-white">
 
-  <!-- ========================================== -->
-  <!-- 💡 上層部・運営向け UI/UX改善提案バナー -->
-  <!-- ========================================== -->
-  <div id="proposal-banner" class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white border-b border-indigo-800/40 py-2.5 px-4 text-xs font-medium">
-    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
-      <div class="flex items-center gap-2.5">
-        <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-amber-400 text-slate-950 font-bold text-[10px] shadow-sm animate-pulse">💡</span>
-        <span>
-          <strong class="text-amber-300 font-bold">上層部・運営プレゼン用プロトタイプ:</strong> 
-          各サイト（HP・Notion・WordPress・SNS）を1ページに統合し、<span class="underline underline-offset-2 decoration-amber-400">「新人の迷子防止」</span>と<span class="underline underline-offset-2 decoration-amber-400">「ベテランの業務効率化」</span>を両立する配置提案です。
-        </span>
-      </div>
-      <div class="flex items-center gap-2">
-        <button onclick="openModal('proposal-modal')" class="px-2.5 py-1 rounded-md bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold transition flex items-center gap-1 shadow-xs">
-          <i class="fa-solid fa-file-lines text-[10px]"></i>
-          <span>改善提案の要点を見る</span>
-        </button>
-        <button onclick="document.getElementById('proposal-banner').style.display='none'" class="text-slate-400 hover:text-white px-1.5 py-0.5 rounded transition" title="閉じる">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
-    </div>
-  </div>
 
   <!-- ========================================== -->
   <!-- メイン グローバルヘッダー -->
@@ -195,7 +172,6 @@
         <button onclick="switchTab('raytus')" id="tab-btn-raytus" class="tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-solid fa-globe text-slate-400"></i>
           <span>RAYTUS 公式 & 事業紹介</span>
-          <span class="text-[9px] px-1 py-0.2 rounded bg-amber-100 text-amber-800 font-bold">SERVICE統合</span>
         </button>
         <button onclick="switchTab('iyasaka')" id="tab-btn-iyasaka" class="tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-solid fa-torii-gate text-amber-600"></i>
@@ -204,18 +180,14 @@
         <button onclick="switchTab('calendar')" id="tab-btn-calendar" class="tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-regular fa-calendar-days text-rose-500"></i>
           <span>イベントカレンダー</span>
-          <span class="text-[9px] px-1 py-0.2 rounded bg-rose-100 text-rose-700 font-bold">カレンダー</span>
         </button>
         <button onclick="switchTab('schedule')" id="tab-btn-schedule" class="tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-regular fa-calendar-check text-blue-500"></i>
           <span>参加ガイド & フロー</span>
         </button>
         <button onclick="switchTab('sns')" id="tab-btn-sns" class="tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
-          <span class="flex items-center gap-1">
-            <i class="fa-brands fa-instagram text-pink-500"></i>
-            <i class="fa-brands fa-tiktok text-slate-900"></i>
-          </span>
-          <span>公式SNS (Insta & TikTok)</span>
+          <i class="fa-solid fa-share-nodes text-pink-500"></i>
+          <span>公式SNS</span>
         </button>
       </nav>
     </div>
@@ -533,10 +505,7 @@
                 <span>カレンダーを開く</span>
                 <i class="fa-solid fa-arrow-right text-[10px]"></i>
               </button>
-              <a href="calendar.html" target="_blank" class="text-[11px] text-slate-400 hover:text-slate-600 flex items-center gap-0.5" title="別タブで単体カレンダーを開く">
-                <span>単体別窓</span>
-                <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
-              </a>
+
             </div>
           </div>
 
@@ -612,16 +581,6 @@
     <!-- TAB 2: RAYTUS group 公式HP & 全事業紹介・アーカイブ (RAYTUS) -->
     <!-- ======================================================== -->
     <div id="tab-content-raytus" class="tab-content space-y-8">
-      
-      <!-- 提案ポイントバー -->
-      <div class="bg-amber-500/10 border border-amber-300/40 rounded-2xl p-4 text-xs text-amber-900 flex items-start gap-3">
-        <i class="fa-solid fa-lightbulb text-amber-600 text-sm mt-0.5"></i>
-        <div>
-          <span class="font-bold">【上層部への提案ポイント】公式サイト（raytus-group.com）の再現と全事業のグループ分け統合:</span><br>
-          元の高級感・シネマティックな動画背景の世界観はそのままに、30を超える多種多様な事業を「5つのカテゴリ（子育て、食・ウェルネス、美容、暮らし、ビジネス）」にグループ分け。埋もれがちだった各事業の詳細とNotion公式動画アーカイブを直結させ、見やすく探しやすい構成に進化させました。
-        </div>
-      </div>
-
       <!-- RAYTUS 公式ページ コンテナ（本家のダーク世界観を完全再現） -->
       <div class="bg-raytus-dark text-white rounded-3xl overflow-hidden border border-slate-800 shadow-2xl relative">
         
@@ -650,34 +609,18 @@
 
           <!-- ナビゲーションリスト (ページ内スムーズスクロール) -->
           <div class="relative z-20">
-            <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-3 text-center">
-              <button onclick="scrollToSection('raytus-about-section')" class="p-3 rounded-xl bg-black/40 backdrop-blur-sm border border-white/10 hover:border-amber-400/60 hover:bg-black/60 transition group">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
+              <button onclick="scrollToSection('raytus-about-section')" class="p-3.5 rounded-xl bg-black/40 backdrop-blur-sm border border-white/10 hover:border-amber-400/60 hover:bg-black/60 transition group">
                 <p class="text-xs font-serif font-bold tracking-widest text-white group-hover:text-amber-300">ABOUT</p>
-                <p class="text-[10px] text-slate-400">企業理念・概要</p>
+                <p class="text-[10px] text-slate-400 mt-0.5">企業理念・概要</p>
               </button>
-              <button onclick="scrollToSection('raytus-services-section')" class="p-3 rounded-xl bg-amber-500/20 backdrop-blur-sm border border-amber-400/60 hover:bg-black/60 transition group shadow-sm">
+              <button onclick="scrollToSection('raytus-services-section')" class="p-3.5 rounded-xl bg-amber-500/20 backdrop-blur-sm border border-amber-400/60 hover:bg-black/60 transition group shadow-sm">
                 <p class="text-xs font-serif font-bold tracking-widest text-amber-300">SERVICE</p>
-                <p class="text-[10px] text-amber-200/80">全事業・動画集</p>
+                <p class="text-[10px] text-amber-200/80 mt-0.5">全事業・動画集</p>
               </button>
-              <button onclick="switchTab('iyasaka')" class="p-3 rounded-xl bg-black/40 backdrop-blur-sm border border-white/10 hover:border-amber-400/60 hover:bg-black/60 transition group">
-                <p class="text-xs font-serif font-bold tracking-widest text-white group-hover:text-amber-300">COMMUNITY</p>
-                <p class="text-[10px] text-slate-400">Iyasaka宮</p>
-              </button>
-              <button onclick="switchTab('iyasaka')" class="p-3 rounded-xl bg-black/40 backdrop-blur-sm border border-white/10 hover:border-amber-400/60 hover:bg-black/60 transition group">
-                <p class="text-xs font-serif font-bold tracking-widest text-white group-hover:text-amber-300">SHOP</p>
-                <p class="text-[10px] text-slate-400">マルシェ・EC</p>
-              </button>
-              <button onclick="scrollToSection('raytus-projects-section')" class="p-3 rounded-xl bg-black/40 backdrop-blur-sm border border-white/10 hover:border-amber-400/60 hover:bg-black/60 transition group">
+              <button onclick="scrollToSection('raytus-projects-section')" class="p-3.5 rounded-xl bg-black/40 backdrop-blur-sm border border-white/10 hover:border-amber-400/60 hover:bg-black/60 transition group">
                 <p class="text-xs font-serif font-bold tracking-widest text-white group-hover:text-amber-300">PROJECTS</p>
-                <p class="text-[10px] text-slate-400">寺子屋・バスタ</p>
-              </button>
-              <button onclick="switchTab('calendar')" class="p-3 rounded-xl bg-black/40 backdrop-blur-sm border border-white/10 hover:border-amber-400/60 hover:bg-black/60 transition group">
-                <p class="text-xs font-serif font-bold tracking-widest text-white group-hover:text-amber-300">SCHEDULE</p>
-                <p class="text-[10px] text-slate-400">イベント日程</p>
-              </button>
-              <button onclick="switchTab('sns')" class="p-3 rounded-xl bg-black/40 backdrop-blur-sm border border-white/10 hover:border-amber-400/60 hover:bg-black/60 transition group">
-                <p class="text-xs font-serif font-bold tracking-widest text-white group-hover:text-amber-300">SNS</p>
-                <p class="text-[10px] text-slate-400">Insta & TikTok</p>
+                <p class="text-[10px] text-slate-400 mt-0.5">寺子屋・バスタ</p>
               </button>
             </div>
           </div>
@@ -925,16 +868,6 @@
     <!-- TAB 3: Iyasaka宮 コミュニティ & EC 複製 (IYASAKA) -->
     <!-- ======================================================== -->
     <div id="tab-content-iyasaka" class="tab-content">
-      
-      <!-- 提案ポイントバー -->
-      <div class="bg-amber-500/10 border border-amber-300/40 rounded-2xl p-4 mb-6 text-xs text-amber-900 flex items-start gap-3">
-        <i class="fa-solid fa-lightbulb text-amber-600 text-sm mt-0.5"></i>
-        <div>
-          <span class="font-bold">【上層部への提案ポイント】Iyasaka宮（community-iyasakagu.jp）の配信とEC統合:</span><br>
-          本家サイトの配信スケジュール・イヤスタ限定商品・会員検索をそのまま再現。ECの買い物カゴ機能（ダミー決済シミュレーション）を実装し、「この商品を買いたい・出店したい」という熱量をポータル内で体験できるようにしました。
-        </div>
-      </div>
-
       <!-- Iyasaka宮 コンテナ -->
       <div class="bg-white rounded-3xl overflow-hidden border border-amber-200/80 shadow-md">
         
@@ -1168,16 +1101,6 @@
     <!-- TAB 4: イベントカレンダー & アーカイブ (CALENDAR) -->
     <!-- ======================================================== -->
     <div id="tab-content-calendar" class="tab-content space-y-6">
-      
-      <!-- 提案ポイントバー -->
-      <div class="bg-rose-500/10 border border-rose-300/40 rounded-2xl p-4 text-xs text-rose-900 flex items-start gap-3">
-        <i class="fa-solid fa-lightbulb text-rose-600 text-sm mt-0.5"></i>
-        <div>
-          <span class="font-bold">【上層部への提案ポイント】イベントカレンダーのポータル内統合:</span><br>
-          別ページに飛ぶことなく、月間カレンダー・週間タイムテーブル・カード一覧をこのタブ内で直接操作・検索できます。GoogleカレンダーやiPhoneへのワンクリック登録、Zoom録画アーカイブの視聴までシームレスに完結します。
-        </div>
-      </div>
-
       <!-- カレンダー トップコントロールバー -->
       <div class="bg-white rounded-3xl p-5 border border-slate-200 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
@@ -1191,12 +1114,7 @@
           <p class="text-xs text-slate-500 mt-1">定例会・会長トークショー・事業説明会・勉強会・全国マルシェの最新日程</p>
         </div>
 
-        <div class="flex items-center gap-2.5 flex-wrap">
-          <a href="calendar.html" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 transition shadow-2xs" title="別タブで単体カレンダーを開く">
-            <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-500"></i>
-            <span>単体カレンダーを開く</span>
-          </a>
-        </div>
+
       </div>
 
       <!-- Controls Bar: View Switcher, Search & Categories -->
@@ -1342,16 +1260,6 @@
     <!-- TAB 5: スケジュール & 参加ガイド (Notion 1 複製 & 洗練) -->
     <!-- ======================================================== -->
     <div id="tab-content-schedule" class="tab-content space-y-6">
-      
-      <!-- 提案ポイントバー -->
-      <div class="bg-blue-500/10 border border-blue-300/40 rounded-2xl p-4 text-xs text-blue-900 flex items-start gap-3">
-        <i class="fa-solid fa-lightbulb text-blue-600 text-sm mt-0.5"></i>
-        <div>
-          <span class="font-bold">【上層部への提案ポイント】Notionスケジュール・参加案内のUI最適化:</span><br>
-          Notionの長文ページで埋もれがちだった「フローチャート」「次回定例会の調整さんリンク」「共通Zoom ID」をカード化し、画像をタップすると高解像度で拡大できるライトボックスを追加。スマホからでも一瞬で参加表明やZoom接続ができるよう改善しました。
-        </div>
-      </div>
-
       <!-- 次回合同定例会 情報カード -->
       <div class="bg-gradient-to-br from-amber-500/10 via-white to-rose-500/10 rounded-3xl p-6 sm:p-8 border border-amber-200 shadow-sm">
         <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
@@ -1428,7 +1336,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           
           <!-- フローチャート画像 -->
-          <div class="border border-slate-200 rounded-2xl p-3 bg-slate-50 cursor-pointer group" onclick="openLightbox('images/notion_3709c8ef-5670-8046-b68f-d987572fd923_イベント参加フロー_(2).jpg', 'イベント参加フローチャート')">
+          <div class="border border-slate-200 rounded-2xl p-3 bg-slate-50 cursor-pointer group" onclick="openLightbox('images/notion-event-flow.jpg', 'イベント参加フローチャート')">
             <div class="flex items-center justify-between text-xs font-bold text-slate-600 mb-2">
               <span>イベント参加フロー</span>
               <span class="text-blue-600 group-hover:underline flex items-center gap-1 text-[11px]">
@@ -1436,12 +1344,12 @@
               </span>
             </div>
             <div class="rounded-xl overflow-hidden bg-white shadow-2xs">
-              <img src="images/notion_3709c8ef-5670-8046-b68f-d987572fd923_イベント参加フロー_(2).jpg" alt="イベント参加フロー" class="w-full h-auto object-contain group-hover:scale-102 transition duration-300">
+              <img src="images/notion-event-flow.jpg" alt="イベント参加フロー" class="w-full h-auto object-contain group-hover:scale-102 transition duration-300">
             </div>
           </div>
 
           <!-- サポート一覧画像 -->
-          <div class="border border-slate-200 rounded-2xl p-3 bg-slate-50 cursor-pointer group" onclick="openLightbox('images/notion_3889c8ef-5670-805c-b650-f074c5a9ca2c_サポート一覧_0722.jpg', 'サポート一覧')">
+          <div class="border border-slate-200 rounded-2xl p-3 bg-slate-50 cursor-pointer group" onclick="openLightbox('images/notion-support-list.jpg', 'サポート一覧')">
             <div class="flex items-center justify-between text-xs font-bold text-slate-600 mb-2">
               <span>サポート一覧</span>
               <span class="text-blue-600 group-hover:underline flex items-center gap-1 text-[11px]">
@@ -1449,7 +1357,7 @@
               </span>
             </div>
             <div class="rounded-xl overflow-hidden bg-white shadow-2xs">
-              <img src="images/notion_3889c8ef-5670-805c-b650-f074c5a9ca2c_サポート一覧_0722.jpg" alt="サポート一覧" class="w-full h-auto object-contain group-hover:scale-102 transition duration-300">
+              <img src="images/notion-support-list.jpg" alt="サポート一覧" class="w-full h-auto object-contain group-hover:scale-102 transition duration-300">
             </div>
           </div>
 
@@ -1474,7 +1382,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           
           <!-- 年間スケジュール -->
-          <div class="border border-slate-200 rounded-2xl p-3 bg-slate-50 cursor-pointer group" onclick="openLightbox('images/notion_3599c8ef-5670-80ea-bc7d-f4d7a72c0d34_20260804公開版.png', '年間スケジュール')">
+          <div class="border border-slate-200 rounded-2xl p-3 bg-slate-50 cursor-pointer group" onclick="openLightbox('images/notion-annual-schedule.png', '年間スケジュール')">
             <div class="flex items-center justify-between text-xs font-bold text-slate-600 mb-2">
               <span>年間スケジュール（2026年公開版）</span>
               <span class="text-blue-600 group-hover:underline flex items-center gap-1 text-[11px]">
@@ -1482,12 +1390,12 @@
               </span>
             </div>
             <div class="rounded-xl overflow-hidden bg-white shadow-2xs">
-              <img src="images/notion_3599c8ef-5670-80ea-bc7d-f4d7a72c0d34_20260804公開版.png" alt="年間スケジュール" class="w-full h-auto object-contain group-hover:scale-102 transition duration-300">
+              <img src="images/notion-annual-schedule.png" alt="年間スケジュール" class="w-full h-auto object-contain group-hover:scale-102 transition duration-300">
             </div>
           </div>
 
           <!-- 10月全体スケジュール -->
-          <div class="border border-slate-200 rounded-2xl p-3 bg-slate-50 cursor-pointer group" onclick="openLightbox('images/notion_3309c8ef-5670-80e1-8516-c957af487368_10月全体.jpg', '10月全体スケジュール')">
+          <div class="border border-slate-200 rounded-2xl p-3 bg-slate-50 cursor-pointer group" onclick="openLightbox('images/notion-october-schedule.jpg', '10月全体スケジュール')">
             <div class="flex items-center justify-between text-xs font-bold text-slate-600 mb-2">
               <span>10月全体スケジュール</span>
               <span class="text-blue-600 group-hover:underline flex items-center gap-1 text-[11px]">
@@ -1495,7 +1403,7 @@
               </span>
             </div>
             <div class="rounded-xl overflow-hidden bg-white shadow-2xs">
-              <img src="images/notion_3309c8ef-5670-80e1-8516-c957af487368_10月全体.jpg" alt="10月全体スケジュール" class="w-full h-auto object-contain group-hover:scale-102 transition duration-300">
+              <img src="images/notion-october-schedule.jpg" alt="10月全体スケジュール" class="w-full h-auto object-contain group-hover:scale-102 transition duration-300">
             </div>
           </div>
 
@@ -1535,16 +1443,6 @@
     <!-- TAB 5: 事業紹介 & アーカイブ集 (Notion 2 複製 & 洗練) -->
     <!-- ======================================================== -->
     <div id="tab-content-archive" class="tab-content space-y-6">
-      
-      <!-- 提案ポイントバー -->
-      <div class="bg-rose-500/10 border border-rose-300/40 rounded-2xl p-4 text-xs text-rose-900 flex items-start gap-3">
-        <i class="fa-solid fa-lightbulb text-rose-600 text-sm mt-0.5"></i>
-        <div>
-          <span class="font-bold">【上層部への提案ポイント】Notionアーカイブ集の動画プレイヤー化:</span><br>
-          Notion内ではリンクを踏んでYouTubeへ飛ぶ必要がありましたが、本提案ではカードをクリックするとその場でYouTubeモーダル再生が開きます。カテゴリ絞り込みやキーワード検索も備え、気になる事業の動画を一瞬で探せます。
-        </div>
-      </div>
-
       <!-- 検索・フィルターバー -->
       <div class="bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col sm:flex-row items-center justify-between gap-3">
         <div class="relative w-full sm:w-72">
@@ -2167,16 +2065,6 @@
     <!-- TAB 6: 公式SNSメディア (Instagram & TikTok) -->
     <!-- ======================================================== -->
     <div id="tab-content-sns" class="tab-content space-y-8">
-      
-      <!-- 提案ポイントバー -->
-      <div class="bg-gradient-to-r from-pink-500/10 via-purple-500/10 to-slate-900/10 border border-pink-300/40 rounded-2xl p-4 text-xs text-slate-800 flex items-start gap-3">
-        <i class="fa-solid fa-lightbulb text-pink-600 text-sm mt-0.5"></i>
-        <div>
-          <span class="font-bold text-slate-900">【上層部への提案ポイント】公式SNSメディアハブ（Instagram & TikTok）の統合:</span><br>
-          ブランディングや活動スナップを伝える「公式Instagram」と、爆発的な発信力で主婦層・起業志望者に絶大な人気を誇る「ぶった斬り会長 公式TikTok（@buttagiri888）」をワンストップで配置。新メンバーがグループの熱量や会長の生の声に即座に触れられるファン化動線を実現しました。
-        </div>
-      </div>
-
       <!-- SNS 表示切り替えサブバー -->
       <div class="flex items-center justify-between border-b border-slate-200 pb-3">
         <div class="flex items-center gap-2">
@@ -2194,7 +2082,7 @@
           </div>
         </div>
         <div class="hidden sm:flex items-center gap-3 text-xs text-slate-500">
-          <span>公式SNS総フォロワー数: <strong class="text-slate-900 font-bold">10万人超</strong></span>
+          <span>公式SNS総フォロワー数: <strong class="text-slate-900 font-bold">24万人超</strong> <span class="text-[11px] text-slate-400">(TikTok・Instagram・YouTube・X 総合)</span></span>
         </div>
       </div>
 
@@ -2271,7 +2159,7 @@
                 
                 <!-- TikTok Card 1 -->
                 <a href="https://www.tiktok.com/@buttagiri888?_r=1&_t=ZS-9AgCrWXIl6a" target="_blank" class="group aspect-[9/16] rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 hover:border-cyan-400 transition relative flex flex-col justify-between p-3 shadow-md">
-                  <img src="images/notion_3599c8ef-5670-80ea-bc7d-f4d7a72c0d34_20260804公開版.png" alt="TikTok 1" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 group-hover:opacity-75 transition duration-300">
+                  <img src="images/notion-annual-schedule.png" alt="TikTok 1" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 group-hover:opacity-75 transition duration-300">
                   <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
                   
                   <div class="relative z-10 flex items-center justify-between">
@@ -2393,7 +2281,7 @@
             
             <div class="flex flex-col items-center gap-1.5 shrink-0 cursor-pointer group">
               <div class="w-16 h-16 rounded-full p-0.5 border-2 border-slate-200 group-hover:border-rose-400 transition">
-                <img src="images/notion_3599c8ef-5670-80ea-bc7d-f4d7a72c0d34_20260804公開版.png" alt="定例会" class="w-full h-full rounded-full object-cover">
+                <img src="images/notion-annual-schedule.png" alt="定例会" class="w-full h-full rounded-full object-cover">
               </div>
               <span class="text-[11px] font-bold text-slate-600">合同定例会</span>
             </div>
@@ -2421,7 +2309,7 @@
 
             <div class="flex flex-col items-center gap-1.5 shrink-0 cursor-pointer group">
               <div class="w-16 h-16 rounded-full p-0.5 border-2 border-slate-200 group-hover:border-emerald-400 transition">
-                <img src="images/notion_3709c8ef-5670-8046-b68f-d987572fd923_イベント参加フロー_(2).jpg" alt="事業説明会" class="w-full h-full rounded-full object-cover">
+                <img src="images/notion-event-flow.jpg" alt="事業説明会" class="w-full h-full rounded-full object-cover">
               </div>
               <span class="text-[11px] font-bold text-slate-600">事業説明会</span>
             </div>
@@ -2459,21 +2347,21 @@
               </a>
 
               <a href="https://www.instagram.com/raytus_group.official" target="_blank" class="aspect-square bg-slate-100 rounded-lg overflow-hidden group relative">
-                <img src="images/notion_3599c8ef-5670-80ea-bc7d-f4d7a72c0d34_20260804公開版.png" alt="Post 4" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                <img src="images/notion-annual-schedule.png" alt="Post 4" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
                 <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-3">
                   <span><i class="fa-solid fa-heart mr-1"></i>305</span>
                 </div>
               </a>
 
               <a href="https://www.instagram.com/raytus_group.official" target="_blank" class="aspect-square bg-slate-100 rounded-lg overflow-hidden group relative">
-                <img src="images/notion_3709c8ef-5670-8046-b68f-d987572fd923_イベント参加フロー_(2).jpg" alt="Post 5" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                <img src="images/notion-event-flow.jpg" alt="Post 5" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
                 <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-3">
                   <span><i class="fa-solid fa-heart mr-1"></i>164</span>
                 </div>
               </a>
 
               <a href="https://www.instagram.com/raytus_group.official" target="_blank" class="aspect-square bg-slate-100 rounded-lg overflow-hidden group relative">
-                <img src="images/notion_3309c8ef-5670-80e1-8516-c957af487368_10月全体.jpg" alt="Post 6" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                <img src="images/notion-october-schedule.jpg" alt="Post 6" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
                 <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-3">
                   <span><i class="fa-solid fa-heart mr-1"></i>277</span>
                 </div>
