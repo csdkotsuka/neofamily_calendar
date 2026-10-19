@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEO FAMILY イベントカレンダー & アーカイブ</title>
+  <meta name="description" content="ネオファミリー会員向けイベント案内、Googleカレンダー登録、スマホカレンダー一括ダウンロード、Zoomアーカイブ閲覧ポータル">
+  <meta property="og:title" content="NEO FAMILY イベントカレンダー & アーカイブ">
+  <meta property="og:description" content="ネオファミリー公式イベントスケジュール、Googleカレンダー登録、Zoomアーカイブ閲覧ポータル">
+  <meta property="og:image" content="images/logo.png">
+  <meta property="og:type" content="website">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+
+  <!-- PWA Web App Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#f43f5e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="NEOカレンダー">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans JP"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', '"Noto Sans JP"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#fff1f2',
+              100: '#ffe4e6',
+              500: '#f43f5e',
+              600: '#e11d48',
+              700: '#be123c',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="text-slate-800 antialiased pb-24">
+
+  <!-- Top Navigation (Not Sticky) -->
+  <header class="glass-header border-b border-slate-200/80 bg-white/90">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-18">
+        <!-- Brand Title with Official Logo -->
+        <div class="flex items-center gap-3 cursor-pointer" onclick="resetFilters()">
+          <img src="images/logo.png" alt="NEO FAMILY Logo" class="w-10 h-10 md:w-11 md:h-11 rounded-full object-contain shadow-xs border border-amber-200/50 bg-white">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-display font-extrabold text-base md:text-lg tracking-tight text-slate-900">NEO FAMILY</span>
+              <span class="px-1.5 py-0.2 text-[9px] font-extrabold rounded bg-rose-100 text-rose-700">CALENDAR</span>
+            </div>
+            <p class="text-[11px] text-slate-400 font-medium">イベント & アーカイブ</p>
+          </div>
+        </div>
+
+        <!-- Header Action Buttons -->
+        <div id="header-actions" class="flex items-center gap-2 md:gap-3">
+          <!-- Portal Link Button -->
+          <a href="./" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold text-amber-900 bg-amber-100/80 hover:bg-amber-200 border border-amber-300/60 transition shadow-xs">
+            <i class="fa-solid fa-compass text-amber-600"></i>
+            <span>総合ポータル</span>
+            <span class="text-[9px] px-1 py-0.2 rounded bg-amber-200 text-amber-800 font-extrabold hidden sm:inline">NEW</span>
+          </a>
+
+          <!-- Notification Toggle Button (PWA & Web Push) -->
+          <button id="btn-notification-toggle" onclick="handleNotificationToggleClick()" title="新着イベントのプッシュ通知設定" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition shadow-xs bg-slate-100 hover:bg-slate-200 text-slate-700">
+            <i id="notification-icon" class="fa-regular fa-bell text-slate-500"></i>
+            <span id="notification-label" class="hidden sm:inline">通知を受け取る</span>
+          </button>
+
+          <!-- Button shown when NOT admin -->
+          <a id="btn-admin-login" href="admin.html" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 transition shadow-xs">
+            <i class="fa-solid fa-lock text-xs text-slate-500"></i>
+            <span>管理者</span>
+          </a>
+
+          <!-- Group shown when ADMIN -->
+          <div id="admin-actions-bar" class="hidden items-center gap-2">
+            <a href="admin.html" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold text-white bg-slate-900 hover:bg-black transition shadow-sm">
+              <i class="fa-solid fa-chart-line text-amber-400"></i>
+              <span>管理ダッシュボード</span>
+            </a>
+            <button onclick="openCreateEventModal()" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold text-white bg-rose-600 hover:bg-rose-700 transition shadow-sm">
+              <i class="fa-solid fa-plus text-xs"></i>
+              <span class="hidden sm:inline">イベント作成</span>
+            </button>
+            <button onclick="adminLogout()" title="ログアウト" class="w-8 h-8 rounded-xl bg-slate-100 hover:bg-rose-50 text-slate-500 hover:text-rose-600 flex items-center justify-center text-xs transition">
+              <i class="fa-solid fa-right-from-bracket"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Controls Bar: View Switcher, Search & Categories -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 pb-2">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+      
+      <!-- View Switcher Tabs (3 modes: Cards, Week, and Month Calendar) -->
+      <div class="flex items-center p-1 bg-slate-200/80 rounded-2xl w-full md:w-auto shadow-inner">
+        <button id="btn-view-cards" onclick="switchViewMode('cards')" class="flex-1 md:flex-initial px-4 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 bg-rose-600 text-white shadow-md">
+          <i class="fa-solid fa-grip"></i>
+          <span>カード一覧</span>
+        </button>
+        <button id="btn-view-week" onclick="switchViewMode('week')" class="flex-1 md:flex-initial px-4 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 bg-white text-slate-700 hover:bg-slate-100">
+          <i class="fa-solid fa-calendar-week"></i>
+          <span>週間カレンダー</span>
+        </button>
+        <button id="btn-view-calendar" onclick="switchViewMode('calendar')" class="flex-1 md:flex-initial px-4 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 bg-white text-slate-700 hover:bg-slate-100">
+          <i class="fa-regular fa-calendar-days"></i>
+          <span>月間カレンダー</span>
+        </button>
+      </div>
+
+      <!-- Search Input -->
+      <div class="relative w-full md:w-72">
+        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+        <input type="text" id="search-input" placeholder="イベント名、登壇者、場所を検索..." class="w-full pl-9 pr-4 py-2 bg-white rounded-xl text-xs font-medium border border-slate-200 focus:outline-none focus:ring-2 focus:ring-rose-500 shadow-sm">
+      </div>
+    </div>
+
+    <!-- Category Filter Pills -->
+    <div class="flex items-center gap-2 overflow-x-auto py-2.5 mt-2 no-scrollbar">
+      <button data-category="all" onclick="selectCategory('all')" class="category-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-rose-600 text-white shadow-sm">
+        すべて表示
+      </button>
+      <button data-category="定例会" onclick="selectCategory('定例会')" class="category-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+        🍜 定例会
+      </button>
+      <button data-category="トークショー" onclick="selectCategory('トークショー')" class="category-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+        🎤 会長トークショー
+      </button>
+      <button data-category="事業説明会" onclick="selectCategory('事業説明会')" class="category-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+        📢 事業説明会
+      </button>
+      <button data-category="セミナー・勉強会" onclick="selectCategory('セミナー・勉強会')" class="category-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+        ⛩️ 勉強会・セミナー
+      </button>
+      <button data-category="リアルイベント" onclick="selectCategory('リアルイベント')" class="category-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+        🌿 リアル・マルシェ・体験
+      </button>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+
+    <!-- View Mode 1: Cards View -->
+    <section id="cards-view-section">
+      <!-- Selected date indicator if active -->
+      <div id="selected-date-indicator" class="hidden"></div>
+
+      <!-- Event Cards Grid -->
+      <div id="events-list-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Rendered dynamically via app.js -->
+      </div>
+    </section>
+
+    <!-- View Mode 2: Week Timetable View -->
+    <section id="week-view-section" class="hidden">
+      <div class="glass-card rounded-3xl p-4 sm:p-6 md:p-8 border border-slate-200 mb-8">
+        <!-- Week Header -->
+        <div class="flex items-center justify-between mb-4 flex-wrap gap-3">
+          <div class="flex items-center gap-3">
+            <h2 id="week-range-title" class="text-xl md:text-2xl font-black text-slate-900 tracking-tight">
+              2026年 10月18日(日) 〜 10月24日(土)
+            </h2>
+            <button onclick="goToCurrentWeek()" class="text-xs font-bold px-2.5 py-1 bg-rose-50 text-rose-700 border border-rose-200 rounded-lg hover:bg-rose-100 transition">
+              今週
+            </button>
+          </div>
+          <div class="flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl">
+            <button onclick="changeWeek(-1)" title="前の週" class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-600 hover:bg-white hover:shadow-sm transition">
+              <i class="fa-solid fa-chevron-left text-xs"></i>
+            </button>
+            <button onclick="changeWeek(1)" title="次の週" class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-600 hover:bg-white hover:shadow-sm transition">
+              <i class="fa-solid fa-chevron-right text-xs"></i>
+            </button>
+          </div>
+        </div>
+
+        <p class="text-xs text-slate-500 mb-4 flex items-center gap-1">
+          <i class="fa-regular fa-clock text-rose-500"></i>
+          時間帯ごとのスケジュールを確認できます。イベントをクリックすると詳細が開きます。
+        </p>
+
+        <!-- Week Timetable Grid -->
+        <div id="week-timetable-container" class="overflow-x-auto rounded-2xl border border-slate-200/90 bg-white shadow-xs">
+          <!-- Rendered dynamically via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- View Mode 2: Native Month Calendar View -->
+    <section id="calendar-view-section" class="hidden">
+      <div class="glass-card rounded-3xl p-4 sm:p-6 md:p-8 border border-slate-200 mb-8">
+        <!-- Calendar Header -->
+        <div class="flex items-center justify-between mb-6">
+          <div class="flex items-center gap-3">
+            <h2 id="calendar-month-title" class="text-xl md:text-2xl font-black text-slate-900 tracking-tight">
+              2026年 10月
+            </h2>
+            <button onclick="selectDate('2026-10-18')" class="text-xs font-bold px-2.5 py-1 bg-rose-50 text-rose-700 border border-rose-200 rounded-lg hover:bg-rose-100 transition">
+              今日
+            </button>
+          </div>
+          <div class="flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl">
+            <button onclick="changeMonth(-1)" class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-600 hover:bg-white hover:shadow-sm transition">
+              <i class="fa-solid fa-chevron-left text-xs"></i>
+            </button>
+            <button onclick="changeMonth(1)" class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-600 hover:bg-white hover:shadow-sm transition">
+              <i class="fa-solid fa-chevron-right text-xs"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Weekday Headers -->
+        <div class="grid grid-cols-7 gap-1 md:gap-2 mb-2 text-center text-xs font-bold">
+          <div class="text-rose-600 py-1">日</div>
+          <div class="text-slate-600 py-1">月</div>
+          <div class="text-slate-600 py-1">火</div>
+          <div class="text-slate-600 py-1">水</div>
+          <div class="text-slate-600 py-1">木</div>
+          <div class="text-slate-600 py-1">金</div>
+          <div class="text-blue-600 py-1">土</div>
+        </div>
+
+        <!-- Days Grid -->
+        <div id="calendar-days-grid" class="calendar-grid">
+          <!-- Rendered dynamically via app.js -->
+        </div>
+
+        <!-- Calendar helper note -->
+        <p class="text-xs text-slate-400 mt-4 text-center">
+          ※ イベントをクリックすると詳細が開きます（同日に複数ある日は週間カレンダーで時間帯を表示します）。
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- Modal 1: Event Detail Modal -->
+  <div id="event-detail-modal" onclick="if(event.target === this) closeEventDetail()" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm overflow-y-auto cursor-pointer">
+    <div class="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl p-6 md:p-8 modal-enter my-8 max-h-[90vh] overflow-y-auto cursor-default">
+      <button onclick="closeEventDetail()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition z-10">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+      <div id="event-detail-content">
+        <!-- Injected via app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Archive Admin Modal (Direct Archive URL Registration) -->
+  <div id="archive-admin-modal" onclick="if(event.target === this) closeArchiveAdminModal()" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm cursor-pointer overflow-y-auto">
+    <div class="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl p-6 md:p-8 modal-enter max-h-[90vh] overflow-y-auto cursor-default">
+      <button onclick="closeArchiveAdminModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+
+      <div class="mb-5">
+        <h3 class="text-base font-black text-slate-900 flex items-center gap-2">
+          <i class="fa-solid fa-film text-rose-600"></i> アーカイブ動画URLの登録・管理
+        </h3>
+        <p id="admin-event-title" class="text-xs text-rose-600 font-bold mt-1 line-clamp-1"></p>
+        <p class="text-xs text-slate-500 mt-1">YouTubeまたはZoom録画のURLを登録すると、カレンダーに動画が公開されます。</p>
+      </div>
+
+      <div class="space-y-4 text-xs">
+        <div class="flex items-center gap-2.5 p-3.5 bg-rose-50/70 rounded-2xl border border-rose-200">
+          <input type="checkbox" id="admin-has-archive" class="w-4 h-4 rounded text-rose-600 focus:ring-rose-500">
+          <label for="admin-has-archive" class="font-bold text-slate-900 cursor-pointer">このイベントのアーカイブ動画を公開する</label>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">
+            <i class="fa-brands fa-youtube text-red-600 mr-1"></i> アーカイブURL (YouTube / Zoom録画等)
+          </label>
+          <input type="url" id="admin-archive-url" placeholder="例: https://youtu.be/... または Zoom録画URL" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 font-medium">
+          <p class="text-[11px] text-slate-400 mt-1">※ YouTubeのURLを入力すると、詳細画面でインライン再生プレイヤーが表示されます。</p>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">補足メモ・案内文（任意）</label>
+          <textarea id="admin-archive-notes" rows="2" placeholder="例: 10/2 東京定例会のYouTube録画アーカイブです。" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500"></textarea>
+        </div>
+
+        <div class="flex items-center gap-3 pt-3">
+          <button type="button" onclick="saveArchiveAdminSettings()" class="flex-1 py-3 bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-700 hover:to-rose-800 text-white font-bold rounded-xl shadow-md transition flex items-center justify-center gap-1.5 text-xs">
+            <i class="fa-solid fa-check"></i> 設定を保存する
+          </button>
+          <button type="button" onclick="closeArchiveAdminModal()" class="px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl transition text-xs">
+            キャンセル
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Admin Login Modal -->
+  <div id="admin-login-modal" onclick="if(event.target === this) closeAdminLoginModal()" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm cursor-pointer">
+    <div class="relative w-full max-w-sm bg-white rounded-3xl shadow-2xl p-6 md:p-8 modal-enter cursor-default">
+      <button onclick="closeAdminLoginModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition">
+        <i class="fa-solid fa-xmark text-xs"></i>
+      </button>
+
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 mx-auto mb-3 bg-gradient-to-tr from-slate-900 to-slate-700 rounded-2xl flex items-center justify-center text-white text-xl shadow-md">
+          <i class="fa-solid fa-shield-halved text-amber-400"></i>
+        </div>
+        <h3 class="text-lg font-black text-slate-900">管理者ログイン</h3>
+        <p class="text-xs text-slate-500 mt-1">運営管理者用のパスコードを入力してください。</p>
+      </div>
+
+      <form onsubmit="handleAdminLogin(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">管理者パスコード</label>
+          <input type="password" id="admin-passcode-input" required placeholder="パスコードを入力" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 text-sm font-semibold">
+          <p id="admin-login-error" class="hidden text-xs text-rose-600 font-bold mt-1.5"></p>
+        </div>
+
+        <button type="submit" class="w-full py-2.5 bg-slate-900 hover:bg-black text-white font-bold rounded-xl text-xs shadow-md transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i> ログイン
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- Modal: Notification Settings & Guide Modal -->
+  <div id="notification-modal" onclick="if(event.target === this) closeNotificationModal()" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm cursor-pointer">
+    <div class="relative w-full max-w-sm bg-white rounded-3xl shadow-2xl p-6 modal-enter text-center cursor-default">
+      <button onclick="closeNotificationModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition">
+        <i class="fa-solid fa-xmark text-xs"></i>
+      </button>
+
+      <div class="w-14 h-14 mx-auto mb-3.5 rounded-2xl bg-gradient-to-tr from-rose-500 to-rose-600 text-white flex items-center justify-center text-2xl shadow-md">
+        <i class="fa-solid fa-bell"></i>
+      </div>
+      <h3 class="text-base font-black text-slate-900 mb-1">新着イベント通知</h3>
+      <p class="text-xs text-slate-500 mb-4">新しい定例会やマルシェ情報が追加された際に端末へ通知します。</p>
+
+      <!-- Status indicator -->
+      <div id="notification-current-status" class="p-3 rounded-2xl bg-slate-50 border border-slate-200 text-xs mb-4 flex items-center justify-center gap-2">
+        <span class="text-slate-500">現在の設定:</span>
+        <span id="notification-status-text" class="font-bold text-slate-800">未設定</span>
+      </div>
+
+      <!-- iOS PWA Home Screen Guide (shown when on iOS Safari outside standalone) -->
+      <div id="ios-pwa-guide" class="hidden text-left p-4 bg-amber-50 rounded-2xl border border-amber-200/90 text-xs text-amber-950 space-y-2 mb-4">
+        <p class="font-bold flex items-center gap-1.5 text-amber-900">
+          <i class="fa-brands fa-apple text-base"></i> iPhoneでの通知設定手順
+        </p>
+        <p class="text-[11px] text-amber-800 leading-relaxed">
+          iPhone（iOS）でプッシュ通知を受け取るには、ホーム画面に追加する必要があります：
+        </p>
+        <ol class="list-decimal list-inside space-y-1 text-[11px] text-amber-900 font-medium leading-relaxed pl-1">
+          <li>画面下の <strong>共有ボタン</strong> <i class="fa-solid fa-arrow-up-from-bracket mx-0.5"></i> をタップ</li>
+          <li>メニューの <strong>「ホーム画面に追加」</strong> を選択</li>
+          <li>追加されたアイコンから開いて、再度このボタンを押すと通知が有効になります！</li>
+        </ol>
+      </div>
+
+      <div class="space-y-2">
+        <button id="btn-request-permission" onclick="requestNotificationPermission()" class="w-full py-3 bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-700 hover:to-rose-800 text-white font-bold rounded-xl text-xs shadow-md transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-bell"></i> <span>通知をONにする</span>
+        </button>
+        <button id="btn-test-notification" onclick="sendTestNotification()" class="hidden w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl text-xs transition flex items-center justify-center gap-1.5 border border-slate-200">
+          <i class="fa-solid fa-paper-plane text-[10px]"></i> <span>テスト通知を送信して確認</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4: Create / Edit Event Modal -->
+  <div id="create-event-modal" onclick="if(event.target === this) closeCreateEventModal()" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm cursor-pointer overflow-y-auto">
+    <div class="relative w-full max-w-xl bg-white rounded-3xl shadow-2xl p-6 md:p-8 modal-enter my-8 max-h-[90vh] overflow-y-auto cursor-default">
+      <button onclick="closeCreateEventModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition">
+        <i class="fa-solid fa-xmark text-xs"></i>
+      </button>
+
+      <div class="mb-5">
+        <h3 id="create-event-modal-title" class="text-lg font-black text-slate-900 flex items-center gap-2">
+          <i class="fa-solid fa-calendar-plus text-rose-600"></i> 新規イベント登録
+        </h3>
+        <p id="create-event-modal-desc" class="text-xs text-slate-500 mt-1">イベント情報を入力して登録します。Firestore設定時は自動でクラウド同期されます。</p>
+      </div>
+
+      <form id="create-event-form" onsubmit="handleCreateEventSubmit(event)" class="space-y-4 text-xs">
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">イベント名 <span class="text-rose-500">*</span></label>
+          <input type="text" id="new-event-title" required placeholder="例: 11月度 福岡定例会" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 font-medium">
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">サブタイトル / キャッチコピー</label>
+          <input type="text" id="new-event-subtitle" placeholder="例: リアル体感でネオの熱量を浴びる！" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">カテゴリ</label>
+            <select id="new-event-category" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 bg-white font-medium">
+              <option value="定例会">🍜 定例会</option>
+              <option value="トークショー">🎤 会長トークショー</option>
+              <option value="事業説明会">📢 事業説明会</option>
+              <option value="セミナー・勉強会">⛩️ 勉強会・セミナー</option>
+              <option value="リアルイベント">🌿 リアル・体験・マルシェ</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">開催形式</label>
+            <select id="new-event-location-type" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 bg-white font-medium">
+              <option value="online">💻 Zoom / オンライン</option>
+              <option value="offline">📍 現地開催</option>
+              <option value="hybrid">🌐 リアル＆配信 (ハイブリッド)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">開催日 <span class="text-rose-500">*</span></label>
+            <input type="date" id="new-event-date" required class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 font-medium">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">開始時刻 <span class="text-rose-500">*</span></label>
+            <input type="time" id="new-event-start-time" required value="13:00" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 font-medium">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">終了時刻 <span class="text-rose-500">*</span></label>
+            <input type="time" id="new-event-end-time" required value="15:00" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 font-medium">
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">開催場所（または配信プラットフォーム）</label>
+          <input type="text" id="new-event-location" placeholder="例: Zoom オンライン / 福岡市内会場" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">登壇者 / ゲスト</label>
+            <input type="text" id="new-event-presenter" placeholder="例: ぶった斬り会長" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">参加費 / 定員</label>
+            <input type="text" id="new-event-fee" placeholder="例: 無料 / 1,500円 (定員30名)" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500">
+          </div>
+        </div>
+
+        <!-- Zoom Details -->
+        <div class="p-3 bg-sky-50 rounded-2xl border border-sky-200 space-y-2">
+          <span class="font-bold text-sky-900 block"><i class="fa-solid fa-video text-sky-600"></i> Zoom情報 (任意)</span>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <input type="url" id="new-event-zoom-url" placeholder="Zoom参加URL" class="w-full px-3 py-1.5 rounded-lg border border-sky-200 bg-white">
+            <input type="text" id="new-event-zoom-id" placeholder="ミーティングID" class="w-full px-3 py-1.5 rounded-lg border border-sky-200 bg-white">
+          </div>
+          <input type="text" id="new-event-zoom-pass" placeholder="パスコード" class="w-full px-3 py-1.5 rounded-lg border border-sky-200 bg-white">
+        </div>
+
+        <!-- Flyer Image Upload -->
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">
+            <i class="fa-regular fa-image text-rose-500 mr-1"></i> チラシ・告知画像 (複数選択可)
+          </label>
+          <div class="border-2 border-dashed border-slate-300 hover:border-rose-400 rounded-2xl p-4 text-center cursor-pointer bg-slate-50 hover:bg-rose-50/40 transition" onclick="document.getElementById('new-event-images').click()">
+            <input type="file" id="new-event-images" accept="image/*" multiple class="hidden" onchange="handleImageSelection(this)">
+            <i class="fa-solid fa-cloud-arrow-up text-2xl text-slate-400 mb-1"></i>
+            <p class="text-xs font-bold text-slate-600">クリックしてチラシ画像をアップロード</p>
+            <p class="text-[10px] text-slate-400 mt-0.5">JPG / PNG / WEBP（複数選択可能）</p>
+          </div>
+          <!-- Preview container -->
+          <div id="image-preview-container" class="grid grid-cols-3 gap-2 mt-2 hidden"></div>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">イベント詳細説明</label>
+          <textarea id="new-event-description" rows="3" placeholder="イベント内容や注意事項を入力" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500"></textarea>
+        </div>
+
+        <!-- Archive Option -->
+        <div class="p-3 bg-rose-50 rounded-2xl border border-rose-200 space-y-2">
+          <div class="flex items-center gap-2">
+            <input type="checkbox" id="new-event-has-archive" class="w-4 h-4 rounded text-rose-600">
+            <label for="new-event-has-archive" class="font-bold text-rose-900">Zoom / YouTube 録画アーカイブを設定する</label>
+          </div>
+          <div>
+            <input type="url" id="new-event-archive-url" placeholder="アーカイブ動画URL（YouTube / Zoom等）" class="w-full px-3 py-1.5 rounded-lg border border-rose-200 bg-white">
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-3">
+          <button type="submit" id="create-event-submit-btn" class="flex-1 py-3 bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-700 hover:to-rose-800 text-white font-bold rounded-xl shadow-md transition flex items-center justify-center gap-1.5 text-xs">
+            <i class="fa-solid fa-check"></i> <span id="create-event-submit-text">イベントを登録する</span>
+          </button>
+          <button type="button" onclick="closeCreateEventModal()" class="px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl transition text-xs">
+            キャンセル
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Firebase SDK (v10 compat) -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+
+  <!-- Application Scripts -->
+  <script src="js/events-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

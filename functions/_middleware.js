@@ -1,22 +1,16 @@
 /**
  * Cloudflare Pages Functions: _middleware.js
- * ルート (/) へのアクセスを /portal へリダイレクト
- * /portal へのアクセスは portal.html のコンテンツを返却
+ * ルート (/) が総合ポータル（index.html）のエントリーポイント
+ * /portal へのアクセスは ルート (/) へリダイレクト
  */
 export async function onRequest(context) {
   const url = new URL(context.request.url);
 
-  // ルートへのアクセスを /portal へリダイレクト
-  if (url.pathname === '/' || url.pathname === '') {
-    return Response.redirect(`${url.origin}/portal`, 302);
-  }
-
-  // /portal へのアクセスは /portal.html を読み込んで返す
-  if (url.pathname === '/portal') {
-    const portalUrl = new URL(context.request.url);
-    portalUrl.pathname = '/portal.html';
-    return context.env.ASSETS ? context.env.ASSETS.fetch(portalUrl) : context.next();
+  // /portal へのアクセスは ルート (/) へリダイレクトして正規化
+  if (url.pathname === '/portal' || url.pathname === '/portal.html') {
+    return Response.redirect(`${url.origin}/`, 301);
   }
 
   return context.next();
 }
+

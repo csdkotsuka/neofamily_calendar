@@ -533,7 +533,7 @@
                 <span>カレンダーを開く</span>
                 <i class="fa-solid fa-arrow-right text-[10px]"></i>
               </button>
-              <a href="index.html?stay=1&view=calendar" target="_blank" class="text-[11px] text-slate-400 hover:text-slate-600 flex items-center gap-0.5" title="別タブで単体カレンダーを開く">
+              <a href="calendar.html" target="_blank" class="text-[11px] text-slate-400 hover:text-slate-600 flex items-center gap-0.5" title="別タブで単体カレンダーを開く">
                 <span>単体別窓</span>
                 <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
               </a>
@@ -1192,7 +1192,7 @@
         </div>
 
         <div class="flex items-center gap-2.5 flex-wrap">
-          <a href="index.html?stay=1&view=calendar" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 transition shadow-2xs" title="別タブで単体カレンダーを開く">
+          <a href="calendar.html" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 transition shadow-2xs" title="別タブで単体カレンダーを開く">
             <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-500"></i>
             <span>単体カレンダーを開く</span>
           </a>
@@ -1465,10 +1465,10 @@
             </h3>
             <p class="text-xs text-slate-500 mt-1">※画像をタップすると拡大表示されます</p>
           </div>
-          <a href="index.html" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-bold transition flex items-center gap-1.5 shadow-xs w-fit">
+          <button onclick="switchTab('calendar')" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-bold transition flex items-center gap-1.5 shadow-xs w-fit">
             <i class="fa-regular fa-calendar-days text-amber-400"></i>
             <span>月間カレンダービューで予定を確認</span>
-          </a>
+          </button>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -2500,7 +2500,8 @@
         <span class="font-bold text-slate-800">NEO FAMILY × RAYTUS group 統合ポータル</span>
       </div>
       <div class="flex items-center gap-4 text-slate-600">
-        <a href="index.html" class="hover:text-rose-600 font-medium">イベントカレンダー</a>
+        <button onclick="switchTab('calendar')" class="hover:text-rose-600 font-medium">イベントカレンダー</button>
+        <a href="calendar.html" target="_blank" class="hover:text-rose-600 font-medium">単体カレンダー</a>
         <a href="https://raytus-group.com" target="_blank" class="hover:text-slate-900">RAYTUS公式</a>
         <a href="https://community-iyasakagu.jp" target="_blank" class="hover:text-slate-900">Iyasaka宮</a>
         <a href="https://www.instagram.com/raytus_group.official" target="_blank" class="hover:text-slate-900">Instagram</a>
