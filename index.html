@@ -3,6 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    // ルートまたはindex.htmlアクセス時に総合ポータル(/portal)へ自動遷移
+    (function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (!urlParams.has('stay') && !urlParams.has('view')) {
+        window.location.replace('/portal');
+      }
+    })();
+  </script>
   <title>NEO FAMILY イベントカレンダー & アーカイブ</title>
   <meta name="description" content="ネオファミリー会員向けイベント案内、Googleカレンダー登録、スマホカレンダー一括ダウンロード、Zoomアーカイブ閲覧ポータル">
   <meta property="og:title" content="NEO FAMILY イベントカレンダー & アーカイブ">

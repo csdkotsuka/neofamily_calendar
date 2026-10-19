@@ -15,6 +15,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&family=Zen+Old+Mincho:wght@500;700&display=swap" rel="stylesheet">
   
+  <!-- Custom Styles for Calendar and Transitions -->
+  <link rel="stylesheet" href="css/style.css">
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
@@ -167,18 +170,17 @@
             </button>
           </div>
 
-          <!-- カレンダーページへのリンク -->
-          <a href="index.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200/80 transition shadow-xs">
+          <!-- カレンダータブへの切り替えボタン -->
+          <button onclick="switchTab('calendar')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200/80 transition shadow-xs">
             <i class="fa-regular fa-calendar-days text-rose-500"></i>
-            <span class="hidden lg:inline">イベントカレンダー</span>
-            <span class="lg:hidden">カレンダー</span>
-          </a>
-
-          <!-- カートボタン（EC連携） -->
-          <button onclick="openModal('cart-modal')" class="relative inline-flex items-center justify-center w-9 h-9 rounded-xl bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-800 transition">
-            <i class="fa-solid fa-cart-shopping text-sm"></i>
-            <span id="header-cart-count" class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-rose-600 text-white text-[10px] font-bold flex items-center justify-center shadow-xs">0</span>
+            <span class="hidden sm:inline">カレンダー</span>
           </button>
+
+          <!-- 管理者ログイン -->
+          <a href="admin.html" class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-bold text-slate-500 hover:text-slate-800 transition">
+            <i class="fa-solid fa-lock text-[10px]"></i>
+            <span class="hidden sm:inline">管理</span>
+          </a>
         </div>
       </div>
 
@@ -188,27 +190,25 @@
       <nav class="flex items-center gap-1 overflow-x-auto no-scrollbar py-2 border-t border-slate-100 text-xs font-bold">
         <button onclick="switchTab('hub')" id="tab-btn-hub" class="tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 bg-slate-900 text-white shadow-xs">
           <i class="fa-solid fa-compass"></i>
-          <span>総合ハブ & スタートガイド</span>
+          <span>総合ハブ & ガイド</span>
         </button>
         <button onclick="switchTab('raytus')" id="tab-btn-raytus" class="tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-solid fa-globe text-slate-400"></i>
-          <span>RAYTUS 公式HP</span>
-          <span class="text-[9px] px-1 py-0.2 rounded bg-slate-200 text-slate-600 font-normal">HP複製</span>
+          <span>RAYTUS 公式 & 事業紹介</span>
+          <span class="text-[9px] px-1 py-0.2 rounded bg-amber-100 text-amber-800 font-bold">SERVICE統合</span>
         </button>
         <button onclick="switchTab('iyasaka')" id="tab-btn-iyasaka" class="tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-solid fa-torii-gate text-amber-600"></i>
           <span>Iyasaka宮 (配信 & EC)</span>
-          <span class="text-[9px] px-1 py-0.2 rounded bg-amber-100 text-amber-700 font-normal">コミュニティ</span>
+        </button>
+        <button onclick="switchTab('calendar')" id="tab-btn-calendar" class="tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+          <i class="fa-regular fa-calendar-days text-rose-500"></i>
+          <span>イベントカレンダー</span>
+          <span class="text-[9px] px-1 py-0.2 rounded bg-rose-100 text-rose-700 font-bold">カレンダー</span>
         </button>
         <button onclick="switchTab('schedule')" id="tab-btn-schedule" class="tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-regular fa-calendar-check text-blue-500"></i>
-          <span>スケジュール & 参加ガイド</span>
-          <span class="text-[9px] px-1 py-0.2 rounded bg-blue-100 text-blue-700 font-normal">Notion 1</span>
-        </button>
-        <button onclick="switchTab('archive')" id="tab-btn-archive" class="tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
-          <i class="fa-solid fa-video text-rose-500"></i>
-          <span>事業紹介 & アーカイブ集</span>
-          <span class="text-[9px] px-1 py-0.2 rounded bg-rose-100 text-rose-700 font-normal">Notion 2</span>
+          <span>参加ガイド & フロー</span>
         </button>
         <button onclick="switchTab('sns')" id="tab-btn-sns" class="tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <span class="flex items-center gap-1">
@@ -344,13 +344,13 @@
                 <span class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-600 font-extrabold text-sm flex items-center justify-center">4</span>
                 <span class="text-[11px] font-bold text-slate-400">事業・仲間と繋がる</span>
               </div>
-              <h3 class="font-bold text-slate-900 text-base mb-1">事業アーカイブ & EC</h3>
+              <h3 class="font-bold text-slate-900 text-base mb-1">事業紹介 & アーカイブ</h3>
               <p class="text-xs text-slate-500 leading-relaxed">
-                18の事業紹介動画をいつでも視聴可能。Iyasaka宮で仲間の商品を買ったり、出店したりして経済を循環させます。
+                全31事業をカテゴリ別に整理。理念・想い・対象者と、公式YouTube紹介動画をその場でチェックできます。
               </p>
             </div>
-            <button onclick="switchTab('archive')" class="mt-4 text-xs font-bold text-emerald-600 hover:text-emerald-700 flex items-center gap-1">
-              <span>事業アーカイブを見る</span>
+            <button onclick="switchTab('raytus'); scrollToSection('raytus-services-section');" class="mt-4 text-xs font-bold text-emerald-600 hover:text-emerald-700 flex items-center gap-1">
+              <span>全事業紹介 & 動画を見る</span>
               <i class="fa-solid fa-arrow-right text-[10px]"></i>
             </button>
           </div>
@@ -364,20 +364,23 @@
                 <i class="fa-solid fa-wand-magic-sparkles text-amber-500"></i>
                 <span>あなたの関心から探す：おすすめ事業クイック診断</span>
               </h4>
-              <p class="text-xs text-slate-500">ボタンをタップすると該当する事業動画アーカイブに直接ジャンプします</p>
+              <p class="text-xs text-slate-500">ボタンをタップすると該当する事業グループに直接ジャンプして表示します</p>
             </div>
             <div class="flex flex-wrap gap-1.5">
               <button onclick="filterAndJumpArchive('care')" class="px-3 py-1.5 rounded-lg bg-white hover:bg-rose-50 border border-slate-200 text-xs font-bold text-slate-700 transition">
-                👶 産後・子育て・教育
+                👶 子育て・女性・ファミリー
               </button>
               <button onclick="filterAndJumpArchive('food')" class="px-3 py-1.5 rounded-lg bg-white hover:bg-amber-50 border border-slate-200 text-xs font-bold text-slate-700 transition">
-                🍙 食・おむすび・農業
+                🍙 食・農業・ウェルネス
               </button>
               <button onclick="filterAndJumpArchive('beauty')" class="px-3 py-1.5 rounded-lg bg-white hover:bg-purple-50 border border-slate-200 text-xs font-bold text-slate-700 transition">
-                💅 美容・ネイル・フェムケア
+                💄 美容・ジュエリー・フェムケア
+              </button>
+              <button onclick="filterAndJumpArchive('life')" class="px-3 py-1.5 rounded-lg bg-white hover:bg-emerald-50 border border-slate-200 text-xs font-bold text-slate-700 transition">
+                🤝 暮らし・シニア・パートナー
               </button>
               <button onclick="filterAndJumpArchive('business')" class="px-3 py-1.5 rounded-lg bg-white hover:bg-blue-50 border border-slate-200 text-xs font-bold text-slate-700 transition">
-                💼 事務局・確定申告・クリエイティブ
+                💼 ビジネス・クリエイティブ・事務
               </button>
             </div>
           </div>
@@ -479,26 +482,26 @@
             </div>
           </div>
 
-          <!-- Card 4: 公式事業 & アーカイブ集 (Notion 2) -->
+          <!-- Card 4: 公式事業 & アーカイブ集 (全31事業) -->
           <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex flex-col justify-between group hover:border-rose-400 transition">
             <div>
               <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center gap-2">
-                  <i class="fa-solid fa-circle-play text-rose-600"></i>
-                  <span class="text-xs font-bold text-rose-600">VIDEO ARCHIVES</span>
+                  <i class="fa-solid fa-shapes text-rose-600"></i>
+                  <span class="text-xs font-bold text-rose-600">RAYTUS 31事業 & 動画</span>
                 </div>
-                <span class="text-[10px] px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 font-bold">動画集</span>
+                <span class="text-[10px] px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 font-bold">5大グループ</span>
               </div>
               <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-rose-600 transition">
-                RAYTUS 18事業 & 特別勉強会
+                全事業紹介 & 公式動画アーカイブ
               </h3>
               <p class="text-xs text-slate-600 leading-relaxed mb-4">
-                食・健康・美容・クリエイティブ・事務局など各事業の公式説明動画（YouTube）をその場で再生してチェック。
+                子育て・食・美容・暮らし・ビジネスの全事業をグループ分け。理念・責任者・対象者と紹介動画をワンストップ閲覧。
               </p>
             </div>
             <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
-              <button onclick="switchTab('archive')" class="text-xs font-bold text-rose-600 hover:text-rose-700 flex items-center gap-1.5">
-                <span>動画アーカイブを見る</span>
+              <button onclick="switchTab('raytus'); scrollToSection('raytus-services-section');" class="text-xs font-bold text-rose-600 hover:text-rose-700 flex items-center gap-1.5">
+                <span>全事業紹介 & 動画を見る</span>
                 <i class="fa-solid fa-arrow-right text-[10px]"></i>
               </button>
               <a href="https://canary-people-eb2.notion.site/3509c8ef567080c9b6cdd584172797e9" target="_blank" class="text-[11px] text-slate-400 hover:text-slate-700 flex items-center gap-1">
@@ -516,21 +519,24 @@
                   <i class="fa-regular fa-calendar-days text-indigo-600"></i>
                   <span class="text-xs font-bold text-indigo-600">CALENDAR SYSTEM</span>
                 </div>
-                <span class="text-[10px] px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 font-bold">本システム連携</span>
+                <span class="text-[10px] px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 font-bold">タブ内完結</span>
               </div>
               <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-indigo-600 transition">
                 イベントカレンダー & スマホ登録
               </h3>
               <p class="text-xs text-slate-600 leading-relaxed mb-4">
-                GoogleカレンダーやiPhoneへの一括登録、Zoomパスワード保護付きの過去イベント録画アーカイブを閲覧。
+                GoogleカレンダーやiPhoneへの一括登録、Zoomパスワード保護付きの過去イベント録画アーカイブをタブ内で閲覧。
               </p>
             </div>
             <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
-              <a href="index.html" class="text-xs font-bold text-indigo-600 hover:text-indigo-700 flex items-center gap-1.5">
+              <button onclick="switchTab('calendar')" class="text-xs font-bold text-indigo-600 hover:text-indigo-700 flex items-center gap-1.5">
                 <span>カレンダーを開く</span>
                 <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </button>
+              <a href="index.html?stay=1&view=calendar" target="_blank" class="text-[11px] text-slate-400 hover:text-slate-600 flex items-center gap-0.5" title="別タブで単体カレンダーを開く">
+                <span>単体別窓</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
               </a>
-              <span class="text-[11px] text-slate-400">ワンクリック登録</span>
             </div>
           </div>
 
@@ -603,16 +609,16 @@
 
 
     <!-- ======================================================== -->
-    <!-- TAB 2: RAYTUS group 公式HP 複製 & 洗練 (RAYTUS) -->
+    <!-- TAB 2: RAYTUS group 公式HP & 全事業紹介・アーカイブ (RAYTUS) -->
     <!-- ======================================================== -->
-    <div id="tab-content-raytus" class="tab-content">
+    <div id="tab-content-raytus" class="tab-content space-y-8">
       
       <!-- 提案ポイントバー -->
-      <div class="bg-amber-500/10 border border-amber-300/40 rounded-2xl p-4 mb-6 text-xs text-amber-900 flex items-start gap-3">
+      <div class="bg-amber-500/10 border border-amber-300/40 rounded-2xl p-4 text-xs text-amber-900 flex items-start gap-3">
         <i class="fa-solid fa-lightbulb text-amber-600 text-sm mt-0.5"></i>
         <div>
-          <span class="font-bold">【上層部への提案ポイント】公式サイト（raytus-group.com）の再現と改良:</span><br>
-          元の高級感・シネマティックな動画背景の世界観は100%維持しながら、コミュニティや各事業への動線を直結させました。訪問者が「見るだけ」で終わらず、「参加する」「事業を知る」へと繋がる導線設計です。
+          <span class="font-bold">【上層部への提案ポイント】公式サイト（raytus-group.com）の再現と全事業のグループ分け統合:</span><br>
+          元の高級感・シネマティックな動画背景の世界観はそのままに、30を超える多種多様な事業を「5つのカテゴリ（子育て、食・ウェルネス、美容、暮らし、ビジネス）」にグループ分け。埋もれがちだった各事業の詳細とNotion公式動画アーカイブを直結させ、見やすく探しやすい構成に進化させました。
         </div>
       </div>
 
@@ -636,42 +642,42 @@
         </div>
 
         <!-- ヒーローセクション（本家動画背景付き） -->
-        <div class="relative min-h-[460px] md:min-h-[540px] flex flex-col justify-between p-6 sm:p-12 overflow-hidden">
+        <div class="relative min-h-[460px] md:min-h-[520px] flex flex-col justify-between p-6 sm:p-12 overflow-hidden">
           
           <!-- 背景動画 -->
           <video class="raytus-video-bg" playsinline loop autoplay muted src="https://raytus-group.com/wp-content/themes/raytus-theme/video/1130-2.mp4" poster="images/banners-raytus-terakoya.jpg"></video>
           <div class="absolute inset-0 bg-gradient-to-t from-raytus-dark via-transparent to-raytus-dark/60 z-10 pointer-events-none"></div>
 
-          <!-- ナビゲーションリスト -->
+          <!-- ナビゲーションリスト (ページ内スムーズスクロール) -->
           <div class="relative z-20">
             <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-3 text-center">
-              <a href="https://raytus-group.com/about/" target="_blank" class="p-3 rounded-xl bg-black/40 backdrop-blur-sm border border-white/10 hover:border-amber-400/60 hover:bg-black/60 transition group">
+              <button onclick="scrollToSection('raytus-about-section')" class="p-3 rounded-xl bg-black/40 backdrop-blur-sm border border-white/10 hover:border-amber-400/60 hover:bg-black/60 transition group">
                 <p class="text-xs font-serif font-bold tracking-widest text-white group-hover:text-amber-300">ABOUT</p>
-                <p class="text-[10px] text-slate-400">企業情報</p>
-              </a>
-              <a href="https://raytus-group.com/service/" target="_blank" class="p-3 rounded-xl bg-black/40 backdrop-blur-sm border border-white/10 hover:border-amber-400/60 hover:bg-black/60 transition group">
-                <p class="text-xs font-serif font-bold tracking-widest text-white group-hover:text-amber-300">SERVICE</p>
-                <p class="text-[10px] text-slate-400">事業内容</p>
-              </a>
+                <p class="text-[10px] text-slate-400">企業理念・概要</p>
+              </button>
+              <button onclick="scrollToSection('raytus-services-section')" class="p-3 rounded-xl bg-amber-500/20 backdrop-blur-sm border border-amber-400/60 hover:bg-black/60 transition group shadow-sm">
+                <p class="text-xs font-serif font-bold tracking-widest text-amber-300">SERVICE</p>
+                <p class="text-[10px] text-amber-200/80">全事業・動画集</p>
+              </button>
               <button onclick="switchTab('iyasaka')" class="p-3 rounded-xl bg-black/40 backdrop-blur-sm border border-white/10 hover:border-amber-400/60 hover:bg-black/60 transition group">
                 <p class="text-xs font-serif font-bold tracking-widest text-white group-hover:text-amber-300">COMMUNITY</p>
-                <p class="text-[10px] text-slate-400">コミュニティ</p>
+                <p class="text-[10px] text-slate-400">Iyasaka宮</p>
               </button>
               <button onclick="switchTab('iyasaka')" class="p-3 rounded-xl bg-black/40 backdrop-blur-sm border border-white/10 hover:border-amber-400/60 hover:bg-black/60 transition group">
                 <p class="text-xs font-serif font-bold tracking-widest text-white group-hover:text-amber-300">SHOP</p>
-                <p class="text-[10px] text-slate-400">加盟店紹介</p>
+                <p class="text-[10px] text-slate-400">マルシェ・EC</p>
               </button>
-              <a href="https://raytus-group.com/news/" target="_blank" class="p-3 rounded-xl bg-black/40 backdrop-blur-sm border border-white/10 hover:border-amber-400/60 hover:bg-black/60 transition group">
-                <p class="text-xs font-serif font-bold tracking-widest text-white group-hover:text-amber-300">NEWS</p>
-                <p class="text-[10px] text-slate-400">お知らせ</p>
-              </a>
-              <a href="https://raytus-group.com/blog/" target="_blank" class="p-3 rounded-xl bg-black/40 backdrop-blur-sm border border-white/10 hover:border-amber-400/60 hover:bg-black/60 transition group">
-                <p class="text-xs font-serif font-bold tracking-widest text-white group-hover:text-amber-300">BLOG</p>
-                <p class="text-[10px] text-slate-400">ブログ</p>
-              </a>
-              <button onclick="switchTab('instagram')" class="p-3 rounded-xl bg-black/40 backdrop-blur-sm border border-white/10 hover:border-amber-400/60 hover:bg-black/60 transition group">
-                <p class="text-xs font-serif font-bold tracking-widest text-white group-hover:text-amber-300">INSTAGRAM</p>
-                <p class="text-[10px] text-slate-400">インスタ</p>
+              <button onclick="scrollToSection('raytus-projects-section')" class="p-3 rounded-xl bg-black/40 backdrop-blur-sm border border-white/10 hover:border-amber-400/60 hover:bg-black/60 transition group">
+                <p class="text-xs font-serif font-bold tracking-widest text-white group-hover:text-amber-300">PROJECTS</p>
+                <p class="text-[10px] text-slate-400">寺子屋・バスタ</p>
+              </button>
+              <button onclick="switchTab('calendar')" class="p-3 rounded-xl bg-black/40 backdrop-blur-sm border border-white/10 hover:border-amber-400/60 hover:bg-black/60 transition group">
+                <p class="text-xs font-serif font-bold tracking-widest text-white group-hover:text-amber-300">SCHEDULE</p>
+                <p class="text-[10px] text-slate-400">イベント日程</p>
+              </button>
+              <button onclick="switchTab('sns')" class="p-3 rounded-xl bg-black/40 backdrop-blur-sm border border-white/10 hover:border-amber-400/60 hover:bg-black/60 transition group">
+                <p class="text-xs font-serif font-bold tracking-widest text-white group-hover:text-amber-300">SNS</p>
+                <p class="text-[10px] text-slate-400">Insta & TikTok</p>
               </button>
             </div>
           </div>
@@ -686,11 +692,20 @@
             <p class="mt-4 text-xs sm:text-sm text-slate-300 font-serif leading-relaxed">
               仲間の未来の夢をプロデュースするコミュニティ RAYTUS group.
             </p>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <button onclick="scrollToSection('raytus-services-section')" class="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs font-serif tracking-wider transition shadow-lg flex items-center gap-2">
+                <i class="fa-solid fa-shapes"></i>
+                <span>事業一覧・動画アーカイブを見る</span>
+              </button>
+              <a href="https://raytus-group.com" target="_blank" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-serif text-xs transition border border-white/20 flex items-center gap-1.5">
+                <span>公式サイト原本</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+              </a>
+            </div>
           </div>
 
           <!-- 公式プロジェクトバナー -->
           <div class="relative z-20 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            
             <!-- 寺子屋プロジェクト -->
             <a href="https://raytus-group.com/news/2026/10/08/terakoya-open-hofu-2027/" target="_blank" class="group rounded-2xl overflow-hidden border border-slate-700/80 bg-slate-900/80 hover:border-amber-400 transition shadow-lg flex items-center gap-4 p-3">
               <img src="images/banners-raytus-terakoya.jpg" alt="寺子屋プロジェクト" class="w-24 h-16 object-cover rounded-xl shrink-0 group-hover:scale-105 transition duration-300">
@@ -700,7 +715,6 @@
                 <p class="text-[10px] text-slate-400 mt-0.5">次世代のための教育と共育の拠点づくり</p>
               </div>
             </a>
-
             <!-- バスタ高校プロジェクト -->
             <a href="https://raytus-group.com/news/2026/10/08/basta-school-building-construction-project/" target="_blank" class="group rounded-2xl overflow-hidden border border-slate-700/80 bg-slate-900/80 hover:border-amber-400 transition shadow-lg flex items-center gap-4 p-3">
               <img src="images/banners-raytus-basta.jpg" alt="バスタ高校 新校舎建設プロジェクト" class="w-24 h-16 object-cover rounded-xl shrink-0 group-hover:scale-105 transition duration-300">
@@ -710,14 +724,198 @@
                 <p class="text-[10px] text-slate-400 mt-0.5">自立と挑戦を応援する未来の学校創造</p>
               </div>
             </a>
-
           </div>
 
         </div>
 
+        <!-- ============================================== -->
+        <!-- SERVICE セクション（全31事業・5大カテゴリ分類 & 動画アーカイブ連動） -->
+        <!-- ============================================== -->
+        <div id="raytus-services-section" class="p-6 sm:p-10 border-t border-slate-800 bg-[#0f1217]">
+          
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+            <div>
+              <span class="text-xs font-serif font-bold tracking-widest text-amber-400 uppercase">SERVICE & ARCHIVES (31 PROJECTS)</span>
+              <h3 class="text-2xl sm:text-3xl font-serif font-bold text-white mt-1 flex items-center gap-3">
+                <span>RAYTUS 全事業紹介 & 動画アーカイブ</span>
+              </h3>
+              <p class="text-xs text-slate-400 mt-2 max-w-3xl leading-relaxed">
+                事業数が多く埋もれてしまいがちな課題を解決するため、ライフステージや目的に応じた5つのグループに整理しました。カードをクリックすると理念・責任者・対象者と、Notionに収録されていた公式YouTube紹介動画をその場でチェックできます。
+              </p>
+            </div>
+            
+            <!-- 検索入力 -->
+            <div class="relative w-full md:w-80 shrink-0">
+              <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
+              <input type="text" id="raytus-service-search" oninput="filterRaytusServices()" placeholder="事業名・責任者・キーワード検索..." class="w-full pl-9 pr-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition">
+            </div>
+          </div>
+
+          <!-- カテゴリ分類 切り替えピルバー (5大グループ) -->
+          <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-3 mb-6 text-xs font-bold">
+            <button onclick="setRaytusCategory('all')" id="raytus-cat-all" class="raytus-cat-btn px-4 py-2 rounded-xl transition bg-amber-400 text-slate-950 shadow-md whitespace-nowrap">
+              🌟 すべて表示 (<span id="count-all">31</span>)
+            </button>
+            <button onclick="setRaytusCategory('care')" id="raytus-cat-care" class="raytus-cat-btn px-4 py-2 rounded-xl transition bg-slate-900 text-slate-300 hover:text-white border border-slate-800 hover:border-slate-700 whitespace-nowrap">
+              👶 子育て・女性・ファミリー (<span id="count-care">5</span>)
+            </button>
+            <button onclick="setRaytusCategory('food')" id="raytus-cat-food" class="raytus-cat-btn px-4 py-2 rounded-xl transition bg-slate-900 text-slate-300 hover:text-white border border-slate-800 hover:border-slate-700 whitespace-nowrap">
+              🍙 食・農業・ウェルネス (<span id="count-food">4</span>)
+            </button>
+            <button onclick="setRaytusCategory('beauty')" id="raytus-cat-beauty" class="raytus-cat-btn px-4 py-2 rounded-xl transition bg-slate-900 text-slate-300 hover:text-white border border-slate-800 hover:border-slate-700 whitespace-nowrap">
+              💄 美容・ジュエリー・フェムケア (<span id="count-beauty">5</span>)
+            </button>
+            <button onclick="setRaytusCategory('life')" id="raytus-cat-life" class="raytus-cat-btn px-4 py-2 rounded-xl transition bg-slate-900 text-slate-300 hover:text-white border border-slate-800 hover:border-slate-700 whitespace-nowrap">
+              🤝 暮らし・シニア・パートナー (<span id="count-life">7</span>)
+            </button>
+            <button onclick="setRaytusCategory('business')" id="raytus-cat-business" class="raytus-cat-btn px-4 py-2 rounded-xl transition bg-slate-900 text-slate-300 hover:text-white border border-slate-800 hover:border-slate-700 whitespace-nowrap">
+              💼 ビジネス・事務・クリエイティブ (<span id="count-business">10</span>)
+            </button>
+          </div>
+
+          <!-- 事業カード グリッド（JavaScriptで動的生成） -->
+          <div id="raytus-services-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <!-- Injected via renderRaytusServices() -->
+          </div>
+
+          <!-- 0件ヒット時のプレースホルダー -->
+          <div id="raytus-no-results" class="hidden py-16 text-center border border-slate-800 rounded-3xl bg-slate-900/50">
+            <i class="fa-solid fa-shapes text-3xl text-slate-600 mb-3"></i>
+            <h4 class="text-sm font-bold text-slate-300">該当する事業が見つかりませんでした</h4>
+            <p class="text-xs text-slate-500 mt-1">検索条件を変更するか、カテゴリーを「すべて表示」に戻してください。</p>
+            <button onclick="setRaytusCategory('all'); document.getElementById('raytus-service-search').value = ''; filterRaytusServices();" class="mt-4 px-4 py-2 rounded-xl bg-amber-400 text-slate-950 text-xs font-bold">
+              条件をリセット
+            </button>
+          </div>
+
+        </div>
+
+        <!-- ============================================== -->
+        <!-- ABOUT セクション（企業理念・メッセージ・概要） -->
+        <!-- ============================================== -->
+        <div id="raytus-about-section" class="p-6 sm:p-10 border-t border-slate-800 bg-raytus-dark">
+          <div class="max-w-4xl mx-auto space-y-8">
+            <div class="text-center">
+              <span class="text-xs font-serif font-bold tracking-widest text-amber-400 uppercase">ABOUT US</span>
+              <h3 class="text-2xl sm:text-3xl font-serif font-bold text-white mt-1">RAYTUS group. について</h3>
+              <p class="text-xs text-slate-400 mt-2">仲間の未来の夢をプロデュースし、共に歩む共創コミュニティ</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+              <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 text-center">
+                <div class="w-12 h-12 rounded-2xl bg-amber-400/10 text-amber-300 flex items-center justify-center mx-auto mb-4 text-xl">
+                  <i class="fa-solid fa-sun"></i>
+                </div>
+                <h4 class="font-serif font-bold text-base text-white mb-2">理念 (PHILOSOPHY)</h4>
+                <p class="text-xs text-slate-300 leading-relaxed">
+                  「あなたの人生に光（RAY）を足す（TUS）」<br>
+                  一人ひとりの可能性を引き出し、生きがいと経済的自立を両立します。
+                </p>
+              </div>
+
+              <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 text-center">
+                <div class="w-12 h-12 rounded-2xl bg-amber-400/10 text-amber-300 flex items-center justify-center mx-auto mb-4 text-xl">
+                  <i class="fa-solid fa-people-roof"></i>
+                </div>
+                <h4 class="font-serif font-bold text-base text-white mb-2">コミュニティ (ECOSYSTEM)</h4>
+                <p class="text-xs text-slate-300 leading-relaxed">
+                  子育て世代からシニアまで、あらゆる世代が互いに支え合い、事業を育てる循環型社会を構築します。
+                </p>
+              </div>
+
+              <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 text-center">
+                <div class="w-12 h-12 rounded-2xl bg-amber-400/10 text-amber-300 flex items-center justify-center mx-auto mb-4 text-xl">
+                  <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <h4 class="font-serif font-bold text-base text-white mb-2">未来創造 (FUTURE)</h4>
+                <p class="text-xs text-slate-300 leading-relaxed">
+                  寺子屋プロジェクトやバスタ高校など、次世代の子供たちと若者の可能性を拓く教育事業を推進します。
+                </p>
+              </div>
+            </div>
+
+            <!-- 企業概要 テーブル風 -->
+            <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 text-xs text-slate-300 space-y-3">
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 py-2 border-b border-slate-800">
+                <span class="text-slate-500 font-bold">グループ名</span>
+                <span class="sm:col-span-2 text-white font-serif">RAYTUS® group.</span>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 py-2 border-b border-slate-800">
+                <span class="text-slate-500 font-bold">理念</span>
+                <span class="sm:col-span-2 text-amber-300 font-serif">あなたの人生に光（RAY）を足す（TUS）。</span>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 py-2 border-b border-slate-800">
+                <span class="text-slate-500 font-bold">主要事業</span>
+                <span class="sm:col-span-2 text-slate-300">コミュニティプロデュース、教育・寺子屋運営、スクール、ウェルネス・食・美容事業、ビジネスコンサルティング、イベント・マルシェ企画運営</span>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 py-2">
+                <span class="text-slate-500 font-bold">拠点</span>
+                <span class="sm:col-span-2 text-slate-300">山口県防府市（本部） / 全国各支部（東京・福岡・大阪他）およびオンライン</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- PROJECTS セクション（寺子屋・バスタ高校） -->
+        <!-- ============================================== -->
+        <div id="raytus-projects-section" class="p-6 sm:p-10 border-t border-slate-800 bg-[#0d0f12]">
+          <div class="max-w-6xl mx-auto space-y-6">
+            <div class="text-center mb-8">
+              <span class="text-xs font-serif font-bold tracking-widest text-amber-400 uppercase">OFFICIAL PROJECTS</span>
+              <h3 class="text-2xl sm:text-3xl font-serif font-bold text-white mt-1">次世代育成・未来創造プロジェクト</h3>
+              <p class="text-xs text-slate-400 mt-2">RAYTUS groupが全力で取り組む注目の教育・社会支援プロジェクト</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- Project 1 -->
+              <div class="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden p-6 flex flex-col justify-between group hover:border-amber-400/60 transition shadow-xl">
+                <div>
+                  <img src="images/banners-raytus-terakoya.jpg" alt="寺子屋プロジェクト" class="w-full h-48 object-cover rounded-2xl mb-4 group-hover:scale-[1.02] transition duration-300">
+                  <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold">2027年開校予定</span>
+                  <h4 class="text-lg font-serif font-bold text-white mt-2 group-hover:text-amber-300 transition">寺子屋プロジェクト 防府開校 2027</h4>
+                  <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                    子供たちが自分の「好き」や「得意」を伸ばし、社会で生き抜く力を育む新たな学びの場。地域社会と連携しながら、山口県防府市に2027年開校を目指して建設・準備が進められています。
+                  </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
+                  <a href="https://raytus-group.com/news/2026/10/08/terakoya-open-hofu-2027/" target="_blank" class="text-xs font-bold text-amber-300 hover:text-amber-200 flex items-center gap-1.5">
+                    <span>詳細プロジェクト記事を見る</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                  </a>
+                  <span class="text-[11px] text-slate-500">防府市</span>
+                </div>
+              </div>
+
+              <!-- Project 2 -->
+              <div class="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden p-6 flex flex-col justify-between group hover:border-blue-400/60 transition shadow-xl">
+                <div>
+                  <img src="images/banners-raytus-basta.jpg" alt="バスタ高校" class="w-full h-48 object-cover rounded-2xl mb-4 group-hover:scale-[1.02] transition duration-300">
+                  <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-300 font-bold">新校舎建設</span>
+                  <h4 class="text-lg font-serif font-bold text-white mt-2 group-hover:text-blue-300 transition">バスタ高校 新校舎建設プロジェクト</h4>
+                  <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                    従来の教育の枠にとらわれず、生徒一人ひとりの個性を最大限に生かし自立を支援する学校創り。次世代のリーダーやクリエイターが育つ拠点として新校舎の建設が進んでいます。
+                  </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
+                  <a href="https://raytus-group.com/news/2026/10/08/basta-school-building-construction-project/" target="_blank" class="text-xs font-bold text-blue-300 hover:text-blue-200 flex items-center gap-1.5">
+                    <span>新校舎建設ニュースを見る</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                  </a>
+                  <span class="text-[11px] text-slate-500">学校創造</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- フッター -->
-        <div class="p-6 border-t border-slate-800/80 text-center text-[11px] text-slate-500 font-serif">
-          COPYRIGHT. RAYTUS® group. ALL RIGHTS RESERVED.
+        <div class="p-6 border-t border-slate-800/80 text-center text-[11px] text-slate-500 font-serif flex items-center justify-between flex-wrap gap-2">
+          <span>COPYRIGHT. RAYTUS® group. ALL RIGHTS RESERVED.</span>
+          <div class="flex items-center gap-4">
+            <a href="https://raytus-group.com" target="_blank" class="text-slate-400 hover:text-white transition">raytus-group.com</a>
+            <a href="https://raytus-group.com/privacy-policy/" target="_blank" class="text-slate-400 hover:text-white transition">プライバシーポリシー</a>
+          </div>
         </div>
       </div>
     </div>
@@ -967,7 +1165,181 @@
 
 
     <!-- ======================================================== -->
-    <!-- TAB 4: スケジュール & 参加ガイド (Notion 1 複製 & 洗練) -->
+    <!-- TAB 4: イベントカレンダー & アーカイブ (CALENDAR) -->
+    <!-- ======================================================== -->
+    <div id="tab-content-calendar" class="tab-content space-y-6">
+      
+      <!-- 提案ポイントバー -->
+      <div class="bg-rose-500/10 border border-rose-300/40 rounded-2xl p-4 text-xs text-rose-900 flex items-start gap-3">
+        <i class="fa-solid fa-lightbulb text-rose-600 text-sm mt-0.5"></i>
+        <div>
+          <span class="font-bold">【上層部への提案ポイント】イベントカレンダーのポータル内統合:</span><br>
+          別ページに飛ぶことなく、月間カレンダー・週間タイムテーブル・カード一覧をこのタブ内で直接操作・検索できます。GoogleカレンダーやiPhoneへのワンクリック登録、Zoom録画アーカイブの視聴までシームレスに完結します。
+        </div>
+      </div>
+
+      <!-- カレンダー トップコントロールバー -->
+      <div class="bg-white rounded-3xl p-5 border border-slate-200 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <h2 class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
+              <i class="fa-regular fa-calendar-days text-rose-600"></i>
+              <span>NEO FAMILY 公式イベントカレンダー</span>
+            </h2>
+            <span class="px-2 py-0.5 text-[10px] font-extrabold rounded-full bg-rose-100 text-rose-700">LIVE</span>
+          </div>
+          <p class="text-xs text-slate-500 mt-1">定例会・会長トークショー・事業説明会・勉強会・全国マルシェの最新日程</p>
+        </div>
+
+        <div class="flex items-center gap-2.5 flex-wrap">
+          <a href="index.html?stay=1&view=calendar" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 transition shadow-2xs" title="別タブで単体カレンダーを開く">
+            <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-500"></i>
+            <span>単体カレンダーを開く</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Controls Bar: View Switcher, Search & Categories -->
+      <div class="space-y-3">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+          
+          <!-- View Switcher Tabs (3 modes: Cards, Week, and Month Calendar) -->
+          <div class="flex items-center p-1 bg-slate-200/80 rounded-2xl w-full md:w-auto shadow-inner">
+            <button id="btn-view-cards" onclick="switchViewMode('cards')" class="flex-1 md:flex-initial px-4 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 bg-rose-600 text-white shadow-md">
+              <i class="fa-solid fa-grip"></i>
+              <span>カード一覧</span>
+            </button>
+            <button id="btn-view-week" onclick="switchViewMode('week')" class="flex-1 md:flex-initial px-4 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 bg-white text-slate-700 hover:bg-slate-100">
+              <i class="fa-solid fa-calendar-week"></i>
+              <span>週間カレンダー</span>
+            </button>
+            <button id="btn-view-calendar" onclick="switchViewMode('calendar')" class="flex-1 md:flex-initial px-4 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 bg-white text-slate-700 hover:bg-slate-100">
+              <i class="fa-regular fa-calendar-days"></i>
+              <span>月間カレンダー</span>
+            </button>
+          </div>
+
+          <!-- Search Input -->
+          <div class="relative w-full md:w-72">
+            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+            <input type="text" id="search-input" placeholder="イベント名、登壇者、場所を検索..." class="w-full pl-9 pr-4 py-2 bg-white rounded-xl text-xs font-medium border border-slate-200 focus:outline-none focus:ring-2 focus:ring-rose-500 shadow-sm">
+          </div>
+        </div>
+
+        <!-- Category Filter Pills -->
+        <div class="flex items-center gap-2 overflow-x-auto py-1 no-scrollbar">
+          <button data-category="all" onclick="selectCategory('all')" class="category-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-rose-600 text-white shadow-sm">
+            すべて表示
+          </button>
+          <button data-category="定例会" onclick="selectCategory('定例会')" class="category-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+            🍜 定例会
+          </button>
+          <button data-category="トークショー" onclick="selectCategory('トークショー')" class="category-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+            🎤 会長トークショー
+          </button>
+          <button data-category="事業説明会" onclick="selectCategory('事業説明会')" class="category-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+            📢 事業説明会
+          </button>
+          <button data-category="セミナー・勉強会" onclick="selectCategory('セミナー・勉強会')" class="category-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+            ⛩️ 勉強会・セミナー
+          </button>
+          <button data-category="リアルイベント" onclick="selectCategory('リアルイベント')" class="category-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+            🌿 リアル・マルシェ・体験
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Calendar Content Sections -->
+      <!-- View Mode 1: Cards View -->
+      <section id="cards-view-section">
+        <div id="selected-date-indicator" class="hidden"></div>
+        <div id="events-list-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Rendered dynamically via app.js -->
+        </div>
+      </section>
+
+      <!-- View Mode 2: Week Timetable View -->
+      <section id="week-view-section" class="hidden">
+        <div class="glass-card rounded-3xl p-4 sm:p-6 md:p-8 border border-slate-200 mb-8">
+          <div class="flex items-center justify-between mb-4 flex-wrap gap-3">
+            <div class="flex items-center gap-3">
+              <h2 id="week-range-title" class="text-xl md:text-2xl font-black text-slate-900 tracking-tight">
+                2026年 10月18日(日) 〜 10月24日(土)
+              </h2>
+              <button onclick="goToCurrentWeek()" class="text-xs font-bold px-2.5 py-1 bg-rose-50 text-rose-700 border border-rose-200 rounded-lg hover:bg-rose-100 transition">
+                今週
+              </button>
+            </div>
+            <div class="flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl">
+              <button onclick="changeWeek(-1)" title="前の週" class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-600 hover:bg-white hover:shadow-sm transition">
+                <i class="fa-solid fa-chevron-left text-xs"></i>
+              </button>
+              <button onclick="changeWeek(1)" title="次の週" class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-600 hover:bg-white hover:shadow-sm transition">
+                <i class="fa-solid fa-chevron-right text-xs"></i>
+              </button>
+            </div>
+          </div>
+
+          <p class="text-xs text-slate-500 mb-4 flex items-center gap-1">
+            <i class="fa-regular fa-clock text-rose-500"></i>
+            時間帯ごとのスケジュールを確認できます。イベントをクリックすると詳細が開きます。
+          </p>
+
+          <div id="week-timetable-container" class="overflow-x-auto rounded-2xl border border-slate-200/90 bg-white shadow-xs">
+            <!-- Rendered dynamically via app.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- View Mode 3: Native Month Calendar View -->
+      <section id="calendar-view-section" class="hidden">
+        <div class="glass-card rounded-3xl p-4 sm:p-6 md:p-8 border border-slate-200 mb-8">
+          <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center gap-3">
+              <h2 id="calendar-month-title" class="text-xl md:text-2xl font-black text-slate-900 tracking-tight">
+                2026年 10月
+              </h2>
+              <button onclick="selectDate('2026-10-18')" class="text-xs font-bold px-2.5 py-1 bg-rose-50 text-rose-700 border border-rose-200 rounded-lg hover:bg-rose-100 transition">
+                今日
+              </button>
+            </div>
+            <div class="flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl">
+              <button onclick="changeMonth(-1)" class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-600 hover:bg-white hover:shadow-sm transition">
+                <i class="fa-solid fa-chevron-left text-xs"></i>
+              </button>
+              <button onclick="changeMonth(1)" class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-600 hover:bg-white hover:shadow-sm transition">
+                <i class="fa-solid fa-chevron-right text-xs"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Weekday Headers -->
+          <div class="grid grid-cols-7 gap-1 md:gap-2 mb-2 text-center text-xs font-bold">
+            <div class="text-rose-600 py-1">日</div>
+            <div class="text-slate-600 py-1">月</div>
+            <div class="text-slate-600 py-1">火</div>
+            <div class="text-slate-600 py-1">水</div>
+            <div class="text-slate-600 py-1">木</div>
+            <div class="text-slate-600 py-1">金</div>
+            <div class="text-blue-600 py-1">土</div>
+          </div>
+
+          <!-- Days Grid -->
+          <div id="calendar-days-grid" class="calendar-grid">
+            <!-- Rendered dynamically via app.js -->
+          </div>
+
+          <p class="text-xs text-slate-400 mt-4 text-center">
+            ※ イベントをクリックすると詳細が開きます。Googleカレンダー登録やZoom録画アーカイブを視聴できます。
+          </p>
+        </div>
+      </section>
+
+    </div>
+
+
+    <!-- ======================================================== -->
+    <!-- TAB 5: スケジュール & 参加ガイド (Notion 1 複製 & 洗練) -->
     <!-- ======================================================== -->
     <div id="tab-content-schedule" class="tab-content space-y-6">
       
@@ -2289,6 +2661,96 @@
     </div>
   </div>
 
+  <!-- 6. RAYTUS 事業詳細 & YouTube再生モーダル -->
+  <div id="raytus-service-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4" onclick="if(event.target === this) closeRaytusServiceModal()">
+    <div class="relative w-full max-w-3xl bg-[#11141a] border border-amber-500/40 rounded-3xl p-6 sm:p-8 text-white max-h-[92vh] overflow-y-auto shadow-2xl modal-enter">
+      <button onclick="closeRaytusServiceModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white flex items-center justify-center transition z-20">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+      <div id="raytus-service-modal-content">
+        <!-- Injected via openRaytusServiceModal -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. イベント詳細モーダル (カレンダー用) -->
+  <div id="event-detail-modal" onclick="if(event.target === this) closeEventDetail()" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm overflow-y-auto cursor-pointer">
+    <div class="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl p-6 md:p-8 modal-enter my-8 max-h-[90vh] overflow-y-auto cursor-default">
+      <button onclick="closeEventDetail()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition z-10">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+      <div id="event-detail-content">
+        <!-- Injected via app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. アーカイブ管理モーダル -->
+  <div id="archive-admin-modal" onclick="if(event.target === this) closeArchiveAdminModal()" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm cursor-pointer overflow-y-auto">
+    <div class="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl p-6 md:p-8 modal-enter max-h-[90vh] overflow-y-auto cursor-default">
+      <button onclick="closeArchiveAdminModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+      <div class="mb-5">
+        <h3 class="text-base font-black text-slate-900 flex items-center gap-2">
+          <i class="fa-solid fa-film text-rose-600"></i> アーカイブ動画URLの登録・管理
+        </h3>
+        <p id="admin-event-title" class="text-xs text-rose-600 font-bold mt-1 line-clamp-1"></p>
+        <p class="text-xs text-slate-500 mt-1">YouTubeまたはZoom録画のURLを登録すると、カレンダーに動画が公開されます。</p>
+      </div>
+      <div class="space-y-4 text-xs">
+        <div class="flex items-center gap-2.5 p-3.5 bg-rose-50/70 rounded-2xl border border-rose-200">
+          <input type="checkbox" id="admin-has-archive" class="w-4 h-4 rounded text-rose-600 focus:ring-rose-500">
+          <label for="admin-has-archive" class="font-bold text-slate-900 cursor-pointer">このイベントのアーカイブ動画を公開する</label>
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">
+            <i class="fa-brands fa-youtube text-red-600 mr-1"></i> アーカイブURL (YouTube / Zoom録画等)
+          </label>
+          <input type="url" id="admin-archive-url" placeholder="例: https://youtu.be/... または Zoom録画URL" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 font-medium">
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">補足メモ・案内文（任意）</label>
+          <textarea id="admin-archive-notes" rows="2" placeholder="例: 10/2 東京定例会のYouTube録画アーカイブです。" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500"></textarea>
+        </div>
+        <div class="flex items-center gap-3 pt-3">
+          <button type="button" onclick="saveArchiveAdminSettings()" class="flex-1 py-3 bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-700 hover:to-rose-800 text-white font-bold rounded-xl shadow-md transition flex items-center justify-center gap-1.5 text-xs">
+            <i class="fa-solid fa-check"></i> 設定を保存する
+          </button>
+          <button type="button" onclick="closeArchiveAdminModal()" class="px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl transition text-xs">
+            キャンセル
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9. 管理者ログインモーダル -->
+  <div id="admin-login-modal" onclick="if(event.target === this) closeAdminLoginModal()" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm cursor-pointer">
+    <div class="relative w-full max-w-sm bg-white rounded-3xl shadow-2xl p-6 md:p-8 modal-enter cursor-default">
+      <button onclick="closeAdminLoginModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition">
+        <i class="fa-solid fa-xmark text-xs"></i>
+      </button>
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 mx-auto mb-3 bg-gradient-to-tr from-slate-900 to-slate-700 rounded-2xl flex items-center justify-center text-white text-xl shadow-md">
+          <i class="fa-solid fa-shield-halved text-amber-400"></i>
+        </div>
+        <h3 class="text-lg font-black text-slate-900">管理者ログイン</h3>
+        <p class="text-xs text-slate-500 mt-1">運営管理者用のパスコードを入力してください。</p>
+      </div>
+      <form onsubmit="handleAdminLogin(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">管理者パスコード</label>
+          <input type="password" id="admin-passcode-input" required placeholder="パスコードを入力" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 text-sm font-semibold">
+          <p id="admin-login-error" class="hidden text-xs text-rose-600 font-bold mt-1.5"></p>
+        </div>
+        <button type="submit" class="w-full py-2.5 bg-slate-900 hover:bg-black text-white font-bold rounded-xl text-xs shadow-md transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i> ログイン
+        </button>
+      </form>
+    </div>
+  </div>
+
   <!-- トースト通知コンテナ -->
   <div id="toast-container" class="fixed bottom-5 right-5 z-50 pointer-events-none space-y-2"></div>
 
@@ -2322,6 +2784,11 @@
 
     // タブ切替
     function switchTab(tabId) {
+      if (tabId === 'archive') {
+        tabId = 'raytus';
+        setTimeout(() => scrollToSection('raytus-services-section'), 150);
+      }
+
       // 全コンテンツを非アクティブ
       document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
       // 対象コンテンツを表示
@@ -2335,6 +2802,13 @@
       const activeBtn = document.getElementById(`tab-btn-${tabId}`);
       if (activeBtn) {
         activeBtn.className = 'tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 bg-slate-900 text-white shadow-xs';
+      }
+
+      if (tabId === 'calendar' && typeof renderApp === 'function') {
+        renderApp();
+      }
+      if (tabId === 'raytus') {
+        renderRaytusServices();
       }
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -2506,19 +2980,229 @@
       });
     }
 
-    // クイック診断からアーカイブへジャンプ
+    // クイック診断から事業へジャンプ
     function filterAndJumpArchive(cat) {
-      switchTab('archive');
-      const cards = document.querySelectorAll('.archive-card');
-      cards.forEach(card => {
-        const cardCat = card.getAttribute('data-category') || '';
-        if (cardCat.includes(cat)) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
+      switchTab('raytus');
+      setRaytusCategory(cat);
+      scrollToSection('raytus-services-section');
+      showToast(`🎯 「${CATEGORY_NAMES[cat] || cat}」の事業を表示しました`);
+    }
+
+    // ============================================
+    // RAYTUS Services Logic (Grouping, Filter, Modal)
+    // ============================================
+    let currentRaytusCategory = 'all';
+
+    const CATEGORY_NAMES = {
+      care: '子育て・女性・ファミリー',
+      food: '食・農業・ウェルネス',
+      beauty: '美容・ジュエリー・フェムケア',
+      life: '暮らし・シニア・パートナー',
+      business: 'ビジネス・事務・クリエイティブ'
+    };
+
+    const CATEGORY_COLORS = {
+      care: 'bg-rose-500/20 text-rose-300 border border-rose-500/30',
+      food: 'bg-amber-500/20 text-amber-300 border border-amber-500/30',
+      beauty: 'bg-pink-500/20 text-pink-300 border border-pink-500/30',
+      life: 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30',
+      business: 'bg-blue-500/20 text-blue-300 border border-blue-500/30'
+    };
+
+    function renderRaytusServices() {
+      const container = document.getElementById('raytus-services-grid');
+      if (!container || typeof RAYTUS_SERVICES === 'undefined') return;
+
+      const searchVal = (document.getElementById('raytus-service-search')?.value || '').toLowerCase().trim();
+      const noResults = document.getElementById('raytus-no-results');
+
+      const filtered = RAYTUS_SERVICES.filter((item) => {
+        if (currentRaytusCategory !== 'all' && item.category !== currentRaytusCategory) {
+          return false;
         }
+        if (searchVal) {
+          const matchText = `${item.businessName} ${item.companyName} ${item.manager} ${item.tagline} ${item.target}`.toLowerCase();
+          if (!matchText.includes(searchVal)) return false;
+        }
+        return true;
       });
-      showToast(`🎯 「${cat}」関連の事業を表示しました`);
+
+      if (filtered.length === 0) {
+        container.innerHTML = '';
+        if (noResults) noResults.classList.remove('hidden');
+        return;
+      }
+
+      if (noResults) noResults.classList.add('hidden');
+
+      container.innerHTML = filtered.map(item => {
+        const originalIndex = RAYTUS_SERVICES.indexOf(item);
+        const catLabel = CATEGORY_NAMES[item.category] || '事業';
+        const catColor = CATEGORY_COLORS[item.category] || 'bg-slate-800 text-slate-300';
+        const hasVideo = !!item.videoId;
+
+        return `
+          <div onclick="openRaytusServiceModal(${originalIndex})" class="raytus-service-card bg-[#141820] hover:bg-[#1c222e] border border-slate-800 hover:border-amber-400/60 rounded-2xl p-4 transition-all duration-300 flex flex-col justify-between group shadow-lg cursor-pointer">
+            <div>
+              <div class="aspect-video w-full rounded-xl overflow-hidden mb-3.5 relative bg-slate-900 border border-slate-700/60">
+                <img src="${item.bgImage}" alt="${item.businessName}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+                
+                <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md text-[10px] font-bold ${catColor}">
+                  ${catLabel}
+                </span>
+
+                ${hasVideo ? `
+                <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-600 text-white flex items-center gap-1 shadow-md">
+                  <i class="fa-brands fa-youtube"></i> 動画あり
+                </span>
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                  <div class="w-11 h-11 rounded-full bg-rose-600 text-white flex items-center justify-center shadow-xl">
+                    <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                  </div>
+                </div>
+                ` : ''}
+
+                <span class="absolute bottom-2 left-2.5 text-[11px] font-serif text-amber-300 tracking-wider">
+                  ${item.companyName}
+                </span>
+              </div>
+
+              <h4 class="text-base font-serif font-bold text-white group-hover:text-amber-300 transition line-clamp-1">
+                ${item.businessName}
+              </h4>
+
+              <p class="text-xs text-slate-400 mt-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-user-tie text-[10px] text-amber-400"></i>
+                <span>責任者: <strong class="text-slate-200">${item.manager}</strong></span>
+              </p>
+
+              <p class="text-xs text-slate-300/90 mt-2.5 line-clamp-2 leading-relaxed">
+                ${item.tagline.replace(/\n/g, ' ')}
+              </p>
+
+              <div class="mt-3 pt-2.5 border-t border-slate-800">
+                <p class="text-[11px] text-slate-400 line-clamp-1">
+                  <span class="text-amber-400 font-bold">対象:</span> ${item.target.replace(/\n/g, ' ')}
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
+              <button type="button" class="text-xs font-bold text-amber-300 group-hover:text-amber-200 flex items-center gap-1">
+                <span>詳細を見る</span>
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </button>
+              ${hasVideo ? `
+              <span class="text-[11px] font-bold text-rose-400 flex items-center gap-1">
+                <i class="fa-brands fa-youtube"></i> 公式動画
+              </span>
+              ` : `
+              <span class="text-[10px] text-slate-500">事業詳細</span>
+              `}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function setRaytusCategory(cat) {
+      currentRaytusCategory = cat;
+      document.querySelectorAll('.raytus-cat-btn').forEach(btn => {
+        btn.className = 'raytus-cat-btn px-4 py-2 rounded-xl transition bg-slate-900 text-slate-300 hover:text-white border border-slate-800 hover:border-slate-700 whitespace-nowrap';
+      });
+      const activeBtn = document.getElementById(`raytus-cat-${cat}`);
+      if (activeBtn) {
+        activeBtn.className = 'raytus-cat-btn px-4 py-2 rounded-xl transition bg-amber-400 text-slate-950 shadow-md whitespace-nowrap';
+      }
+      renderRaytusServices();
+    }
+
+    function filterRaytusServices() {
+      renderRaytusServices();
+    }
+
+    function openRaytusServiceModal(index) {
+      if (typeof RAYTUS_SERVICES === 'undefined' || !RAYTUS_SERVICES[index]) return;
+      const item = RAYTUS_SERVICES[index];
+      const catLabel = CATEGORY_NAMES[item.category] || '事業';
+      const catColor = CATEGORY_COLORS[item.category] || 'bg-slate-800 text-slate-300';
+
+      const content = document.getElementById('raytus-service-modal-content');
+      if (!content) return;
+
+      content.innerHTML = `
+        <div class="flex items-start justify-between gap-4 mb-4 pr-8">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold ${catColor}">${catLabel}</span>
+              <span class="text-xs font-serif text-amber-300 tracking-wider">${item.companyName}</span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-serif font-bold text-white">${item.businessName}</h3>
+            <p class="text-xs text-slate-400 mt-1 flex items-center gap-1.5">
+              <i class="fa-solid fa-user-tie text-amber-400"></i>
+              <span>事業責任者: <strong class="text-white">${item.manager}</strong></span>
+            </p>
+          </div>
+        </div>
+
+        ${item.videoId ? `
+        <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-2xl bg-black mb-5 border border-slate-700">
+          <iframe src="https://www.youtube.com/embed/${item.videoId}?autoplay=1" title="${item.businessName}" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        ` : `
+        <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-xl bg-slate-900 mb-5 relative border border-slate-700">
+          <img src="${item.bgImage}" alt="${item.businessName}" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+            <span class="text-xs text-slate-300">${item.companyName} 公式紹介</span>
+          </div>
+        </div>
+        `}
+
+        <div class="space-y-4 text-xs text-slate-200">
+          <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <h4 class="text-xs font-serif font-bold text-amber-300 mb-1 flex items-center gap-1.5">
+              <i class="fa-solid fa-quote-left"></i> 理念・コンセプト
+            </h4>
+            <div class="leading-relaxed whitespace-pre-line text-slate-300 text-xs sm:text-sm">
+              ${item.tagline}
+            </div>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-400/20">
+            <h4 class="text-xs font-serif font-bold text-amber-300 mb-1 flex items-center gap-1.5">
+              <i class="fa-solid fa-bullseye"></i> こんな方へ / 参画対象
+            </h4>
+            <div class="leading-relaxed whitespace-pre-line text-slate-200">
+              ${item.target}
+            </div>
+          </div>
+
+          <div class="pt-2 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-2">
+              ${item.videoId ? `
+              <a href="https://youtu.be/${item.videoId}" target="_blank" class="px-3.5 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold transition flex items-center gap-1.5 text-xs">
+                <i class="fa-brands fa-youtube"></i> YouTubeで開く
+              </a>
+              ` : ''}
+              <a href="https://raytus-group.com/service/" target="_blank" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white font-serif transition flex items-center gap-1.5 text-xs border border-white/20">
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> 公式HPで確認
+              </a>
+            </div>
+            <button onclick="closeRaytusServiceModal(); switchTab('schedule');" class="px-4 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold transition flex items-center gap-1.5 text-xs">
+              <i class="fa-regular fa-calendar-check"></i> 定例会・説明会に参加する
+            </button>
+          </div>
+        </div>
+      `;
+
+      openModal('raytus-service-modal');
+    }
+
+    function closeRaytusServiceModal() {
+      const content = document.getElementById('raytus-service-modal-content');
+      if (content) content.innerHTML = '';
+      closeModal('raytus-service-modal');
     }
 
     // SNSフィルター切替
@@ -2552,13 +3236,27 @@
     // ESCキーでモーダルを閉じる
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        ['proposal-modal', 'structure-modal', 'video-modal', 'lightbox-modal', 'cart-modal'].forEach(closeModal);
+        ['proposal-modal', 'structure-modal', 'video-modal', 'lightbox-modal', 'cart-modal', 'raytus-service-modal', 'event-detail-modal', 'archive-admin-modal', 'admin-login-modal'].forEach(closeModal);
         closeVideoModal();
+        closeRaytusServiceModal();
       }
     });
 
     // 初期化
-    updateCartUI();
+    document.addEventListener('DOMContentLoaded', () => {
+      renderRaytusServices();
+      updateCartUI();
+    });
   </script>
+
+  <!-- Firebase SDK (v10 compat) -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+
+  <!-- RAYTUS Services Data & Calendar Data & App Scripts -->
+  <script src="js/raytus-services-data.js"></script>
+  <script src="js/events-data.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
