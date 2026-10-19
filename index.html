@@ -77,6 +77,13 @@
 
         <!-- Header Action Buttons -->
         <div id="header-actions" class="flex items-center gap-2 md:gap-3">
+          <!-- Portal Link Button -->
+          <a href="portal.html" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold text-amber-900 bg-amber-100/80 hover:bg-amber-200 border border-amber-300/60 transition shadow-xs">
+            <i class="fa-solid fa-compass text-amber-600"></i>
+            <span>総合ポータル</span>
+            <span class="text-[9px] px-1 py-0.2 rounded bg-amber-200 text-amber-800 font-extrabold hidden sm:inline">NEW</span>
+          </a>
+
           <!-- Notification Toggle Button (PWA & Web Push) -->
           <button id="btn-notification-toggle" onclick="handleNotificationToggleClick()" title="新着イベントのプッシュ通知設定" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition shadow-xs bg-slate-100 hover:bg-slate-200 text-slate-700">
             <i id="notification-icon" class="fa-regular fa-bell text-slate-500"></i>
