@@ -155,7 +155,17 @@ async function loadDashboardData() {
       events = await fetchEventsFromFirestore();
     }
     if (events && events.length > 0) {
-      allEvents = events;
+      const existingIds = new Set(events.map(e => e.id));
+      const mergedEvents = [...events];
+      if (typeof INITIAL_EVENTS !== "undefined" && Array.isArray(INITIAL_EVENTS)) {
+        for (const initEv of INITIAL_EVENTS) {
+          if (initEv && initEv.id && !existingIds.has(initEv.id)) {
+            mergedEvents.push(initEv);
+            existingIds.add(initEv.id);
+          }
+        }
+      }
+      allEvents = mergedEvents;
       if (statusBadge) {
         statusBadge.className = "px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-700 flex items-center gap-1";
         statusBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> クラウド同期 (Firestore)';
@@ -1670,6 +1680,17 @@ function setBlocklistUserEdits(edits) {
   return normalized;
 }
 
+function assignBlocklistSerialNumbers(list) {
+  if (!Array.isArray(list)) return [];
+  const chronological = [...list].sort((a, b) => {
+    return (a.date || "").localeCompare(b.date || "") || (a.id || "").localeCompare(b.id || "");
+  });
+  chronological.forEach((item, idx) => {
+    item.serialNo = idx + 1;
+  });
+  return list;
+}
+
 function applyBlocklistUserEditsToBase(baseList, edits) {
   const delMap = normalizeDeletedMap(edits && edits.deleted);
   const updMap = (edits && edits.updated && typeof edits.updated === "object") ? edits.updated : {};
@@ -1684,7 +1705,9 @@ function applyBlocklistUserEditsToBase(baseList, edits) {
   });
   const existingIds = new Set(list.map(x => x.id));
   const createdValid = createdArr.filter(item => item && item.id && !delMap[item.id] && !existingIds.has(item.id));
-  return [...createdValid, ...list];
+  const merged = [...createdValid, ...list];
+  assignBlocklistSerialNumbers(merged);
+  return merged;
 }
 
 /**
@@ -1816,6 +1839,8 @@ function renderAdminBlocklistTable() {
   const tbody = document.getElementById("blk-table-body");
   if (!tbody) return;
 
+  assignBlocklistSerialNumbers(allBlocklist);
+
   const searchInput = document.getElementById("blk-search-input");
   const platformFilter = document.getElementById("blk-platform-filter");
   const sortFilter = document.getElementById("blk-sort-filter");
@@ -1838,13 +1863,15 @@ function renderAdminBlocklistTable() {
     }
 
     if (query) {
+      const serialStr = item.serialNo ? String(item.serialNo).padStart(3, "0") : "";
+      const matchSerial = serialStr.includes(query.replace(/^#|^no\.?/i, "")) || (`#${serialStr}`).includes(query);
       const matchName = (item.name || "").toLowerCase().includes(query);
       const matchUrl = (item.url || "").toLowerCase().includes(query);
       const matchUrl2 = (item.secondary_url || "").toLowerCase().includes(query);
       const matchReason = (item.reason || "").toLowerCase().includes(query);
       const matchReporter = (item.reporter || "").toLowerCase().includes(query);
       const matchDate = (item.date || "").toLowerCase().includes(query);
-      if (!matchName && !matchUrl && !matchUrl2 && !matchReason && !matchReporter && !matchDate) {
+      if (!matchSerial && !matchName && !matchUrl && !matchUrl2 && !matchReason && !matchReporter && !matchDate) {
         return false;
       }
     }
@@ -1855,9 +1882,9 @@ function renderAdminBlocklistTable() {
   // 2. ソート
   filtered.sort((a, b) => {
     if (sortBy === "date-desc") {
-      return (b.date || "").localeCompare(a.date || "");
+      return (b.date || "").localeCompare(a.date || "") || ((b.serialNo || 0) - (a.serialNo || 0));
     } else if (sortBy === "date-asc") {
-      return (a.date || "").localeCompare(b.date || "");
+      return (a.date || "").localeCompare(b.date || "") || ((a.serialNo || 0) - (b.serialNo || 0));
     } else if (sortBy === "name-asc") {
       return (a.name || "").localeCompare(b.name || "", "ja");
     }
@@ -1882,7 +1909,7 @@ function renderAdminBlocklistTable() {
   if (pageItems.length === 0) {
     tbody.innerHTML = `
       <tr>
-        <td colspan="6" class="py-12 text-center text-slate-400">
+        <td colspan="7" class="py-12 text-center text-slate-400">
           <i class="fa-solid fa-magnifying-glass text-3xl mb-3 block text-slate-300"></i>
           <p class="font-bold text-sm">該当するブロック対象は見つかりませんでした</p>
           <p class="text-xs text-slate-400 mt-1">検索条件を変更するか、新規登録を行ってください。</p>
@@ -1896,6 +1923,7 @@ function renderAdminBlocklistTable() {
   const edits = getBlocklistUserEdits();
   let html = "";
   pageItems.forEach(item => {
+    const serialBadge = `#${String(item.serialNo || 0).padStart(3, "0")}`;
     const platformBadges = getPlatformBadgesHtml(item.platform, item.url, item.secondary_url, item.url_warning);
     const safeReason = item.reason ? escapeHtml(item.reason) : '<span class="text-slate-300">-</span>';
     const isJustEdited = window.lastEditedBlocklistId && window.lastEditedBlocklistId === item.id;
@@ -1947,6 +1975,11 @@ function renderAdminBlocklistTable() {
 
     html += `
       <tr data-blk-id="${escapeHtml(item.id)}" class="${rowBgClass}">
+        <!-- シリアル番号 (No.) -->
+        <td class="py-3 px-2 whitespace-nowrap text-center shrink-0 w-16">
+          <span class="inline-flex items-center justify-center px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-mono font-black text-[11px] border border-slate-200/80">${serialBadge}</span>
+        </td>
+
         <!-- 登録日時（改行表示） -->
         <td class="py-3 px-3 whitespace-nowrap text-center shrink-0 w-24">
           ${dateHtml}
