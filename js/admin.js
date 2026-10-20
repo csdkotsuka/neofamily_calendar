@@ -212,6 +212,9 @@ async function loadDashboardData() {
 
   // 6. Render Events Management Table
   renderAdminEventsTable();
+
+  // 7. Load & Render Blocklist
+  loadBlocklistData();
 }
 
 // Update KPI cards
@@ -618,7 +621,7 @@ function renderAdminEventsTable() {
 // ==================== TAB SWITCHING ====================
 
 function switchAdminTab(tabName) {
-  const tabs = ["analytics", "events", "members", "settings"];
+  const tabs = ["analytics", "events", "members", "blocklist", "settings"];
   tabs.forEach(t => {
     const btn = document.getElementById(`tab-btn-${t}`);
     const content = document.getElementById(`tab-content-${t}`);
@@ -640,6 +643,9 @@ function switchAdminTab(tabName) {
   }
   if (tabName === "members") {
     loadMembersProgressData();
+  }
+  if (tabName === "blocklist") {
+    renderAdminBlocklistTable();
   }
 }
 
@@ -1500,3 +1506,633 @@ function closeModal(id) {
     document.body.style.overflow = '';
   }
 }
+
+// =========================================================================
+// ==================== BLOCKLIST MANAGEMENT (入会不適合者リスト) ====================
+// =========================================================================
+
+let allBlocklist = [];
+let blocklistCurrentPage = 1;
+let blocklistPerPage = 50;
+let blocklistDeleteTargetId = null;
+
+/**
+ * ブロックリストデータの読み込み
+ * LocalStorage -> INITIAL_BLOCKLIST -> Firestore (利用可能な場合)
+ */
+async function loadBlocklistData() {
+  const cached = localStorage.getItem("neofamily_blocklist");
+  if (cached) {
+    try {
+      allBlocklist = JSON.parse(cached);
+    } catch (e) {
+      console.warn("[Blocklist] Failed to parse cached blocklist:", e);
+      allBlocklist = [];
+    }
+  }
+
+  // 初期データがない場合は INITIAL_BLOCKLIST からロード
+  if (!allBlocklist || allBlocklist.length === 0) {
+    if (typeof INITIAL_BLOCKLIST !== "undefined" && Array.isArray(INITIAL_BLOCKLIST)) {
+      allBlocklist = [...INITIAL_BLOCKLIST];
+      localStorage.setItem("neofamily_blocklist", JSON.stringify(allBlocklist));
+    } else {
+      allBlocklist = [];
+    }
+  }
+
+  // Firestore が利用可能な場合は同期を試行
+  if (typeof firebase !== "undefined" && firebase.apps.length) {
+    try {
+      const db = firebase.firestore();
+      const snap = await db.collection("blocklist").get();
+      if (!snap.empty) {
+        const firestoreList = [];
+        snap.forEach(doc => {
+          firestoreList.push({ id: doc.id, ...doc.data() });
+        });
+        if (firestoreList.length > 0) {
+          allBlocklist = firestoreList;
+          localStorage.setItem("neofamily_blocklist", JSON.stringify(allBlocklist));
+        }
+      }
+    } catch (err) {
+      console.warn("[Blocklist] Firestore read warning (using local dataset):", err);
+    }
+  }
+
+  renderBlocklistKPI();
+  renderAdminBlocklistTable();
+}
+
+/**
+ * ブロックリストのKPI集計・表示
+ */
+function renderBlocklistKPI() {
+  const total = allBlocklist.length;
+  let igCount = 0;
+  let threadsCount = 0;
+  let fbCount = 0;
+  let otherCount = 0;
+
+  allBlocklist.forEach(item => {
+    const p = (item.platform || "").toLowerCase();
+    if (p.includes("instagram")) igCount++;
+    if (p.includes("threads")) threadsCount++;
+    if (p.includes("facebook")) fbCount++;
+    if (!p.includes("instagram") && !p.includes("threads") && !p.includes("facebook")) otherCount++;
+  });
+
+  const tabCountEl = document.getElementById("tab-blocklist-count");
+  if (tabCountEl) tabCountEl.textContent = total;
+
+  const totalEl = document.getElementById("blk-kpi-total");
+  const igEl = document.getElementById("blk-kpi-instagram");
+  const thEl = document.getElementById("blk-kpi-threads");
+  const fbEl = document.getElementById("blk-kpi-facebook");
+  const otEl = document.getElementById("blk-kpi-other");
+
+  if (totalEl) totalEl.textContent = total.toLocaleString();
+  if (igEl) igEl.textContent = igCount.toLocaleString();
+  if (thEl) thEl.textContent = threadsCount.toLocaleString();
+  if (fbEl) fbEl.textContent = fbCount.toLocaleString();
+  if (otEl) otEl.textContent = otherCount.toLocaleString();
+}
+
+/**
+ * 検索・絞り込み・ソート・ページネーション付きテーブル描画
+ */
+function renderAdminBlocklistTable() {
+  const tbody = document.getElementById("blk-table-body");
+  if (!tbody) return;
+
+  const searchInput = document.getElementById("blk-search-input");
+  const platformFilter = document.getElementById("blk-platform-filter");
+  const sortFilter = document.getElementById("blk-sort-filter");
+
+  const query = (searchInput ? searchInput.value : "").trim().toLowerCase();
+  const selectedPlatform = platformFilter ? platformFilter.value : "all";
+  const sortBy = sortFilter ? sortFilter.value : "date-desc";
+
+  // 1. フィルタリング
+  let filtered = allBlocklist.filter(item => {
+    // プラットフォーム絞り込み
+    if (selectedPlatform !== "all") {
+      const p = (item.platform || "").toLowerCase();
+      if (!p.includes(selectedPlatform.toLowerCase())) {
+        return false;
+      }
+    }
+
+    // 検索クエリ絞り込み
+    if (query) {
+      const matchName = (item.name || "").toLowerCase().includes(query);
+      const matchUrl = (item.url || "").toLowerCase().includes(query);
+      const matchUrl2 = (item.secondary_url || "").toLowerCase().includes(query);
+      const matchReason = (item.reason || "").toLowerCase().includes(query);
+      const matchReporter = (item.reporter || "").toLowerCase().includes(query);
+      const matchDate = (item.date || "").toLowerCase().includes(query);
+      if (!matchName && !matchUrl && !matchUrl2 && !matchReason && !matchReporter && !matchDate) {
+        return false;
+      }
+    }
+
+    return true;
+  });
+
+  // 2. ソート
+  filtered.sort((a, b) => {
+    if (sortBy === "date-desc") {
+      return (b.date || "").localeCompare(a.date || "");
+    } else if (sortBy === "date-asc") {
+      return (a.date || "").localeCompare(b.date || "");
+    } else if (sortBy === "name-asc") {
+      return (a.name || "").localeCompare(b.name || "", "ja");
+    }
+    return 0;
+  });
+
+  // 件数表示の更新
+  const filteredCountEl = document.getElementById("blk-filtered-count");
+  if (filteredCountEl) filteredCountEl.textContent = filtered.length.toLocaleString();
+
+  // 3. ページネーション計算
+  const totalItems = filtered.length;
+  const maxPages = Math.max(1, Math.ceil(totalItems / blocklistPerPage));
+  if (blocklistCurrentPage > maxPages) blocklistCurrentPage = maxPages;
+  if (blocklistCurrentPage < 1) blocklistCurrentPage = 1;
+
+  const startIndex = (blocklistCurrentPage - 1) * blocklistPerPage;
+  const endIndex = Math.min(startIndex + blocklistPerPage, totalItems);
+  const pageItems = filtered.slice(startIndex, endIndex);
+
+  // 4. テーブルHTMLの構築
+  if (pageItems.length === 0) {
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="6" class="py-12 text-center text-slate-400">
+          <i class="fa-solid fa-magnifying-glass text-3xl mb-3 block text-slate-300"></i>
+          <p class="font-bold text-sm">該当するブロック対象は見つかりませんでした</p>
+          <p class="text-xs text-slate-400 mt-1">検索条件を変更するか、新規登録を行ってください。</p>
+        </td>
+      </tr>
+    `;
+    renderBlocklistPagination(0, 0, 0, 1, 1);
+    return;
+  }
+
+  let html = "";
+  pageItems.forEach(item => {
+    const platformBadges = getPlatformBadgesHtml(item.platform, item.url, item.secondary_url);
+    const safeReason = item.reason ? escapeHtml(item.reason) : '<span class="text-slate-300">-</span>';
+    const safeName = item.name ? escapeHtml(item.name) : '<span class="text-slate-400">（名称未記載）</span>';
+    const safeReporter = item.reporter ? escapeHtml(item.reporter) : '<span class="text-slate-400">-</span>';
+    const safeDate = item.date ? escapeHtml(item.date) : '<span class="text-slate-400">-</span>';
+
+    html += `
+      <tr class="hover:bg-slate-50/80 transition group">
+        <!-- 登録日時 -->
+        <td class="py-3 px-4 whitespace-nowrap">
+          <div class="text-[11px] font-bold text-slate-700 flex items-center gap-1.5">
+            <i class="fa-regular fa-clock text-slate-400"></i>
+            <span>${safeDate}</span>
+          </div>
+        </td>
+
+        <!-- 氏名 / 表示名 -->
+        <td class="py-3 px-4">
+          <div class="font-bold text-slate-900 group-hover:text-rose-600 transition break-words">
+            ${safeName}
+          </div>
+        </td>
+
+        <!-- プラットフォーム & URL -->
+        <td class="py-3 px-4">
+          ${platformBadges}
+        </td>
+
+        <!-- 理由・備考メモ -->
+        <td class="py-3 px-4 max-w-xs">
+          <div class="text-xs text-slate-600 line-clamp-2 hover:line-clamp-none transition cursor-pointer font-medium" title="${escapeHtml(item.reason || '')}">
+            ${safeReason}
+          </div>
+        </td>
+
+        <!-- 報告者 -->
+        <td class="py-3 px-4 whitespace-nowrap">
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-bold bg-slate-100 text-slate-700">
+            <i class="fa-solid fa-user-pen text-slate-400"></i>
+            ${safeReporter}
+          </span>
+        </td>
+
+        <!-- アクション -->
+        <td class="py-3 px-4 text-right whitespace-nowrap">
+          <div class="flex items-center justify-end gap-1.5">
+            <button onclick="openBlocklistModal('${item.id}')" title="編集" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition">
+              <i class="fa-solid fa-pen-to-square text-xs"></i>
+            </button>
+            <button onclick="openBlocklistDeleteModal('${item.id}')" title="削除" class="w-7 h-7 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-600 flex items-center justify-center transition">
+              <i class="fa-solid fa-trash text-xs"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    `;
+  });
+
+  tbody.innerHTML = html;
+  renderBlocklistPagination(startIndex + 1, endIndex, totalItems, blocklistCurrentPage, maxPages);
+}
+
+/**
+ * プラットフォームバッジとURLリンクのHTML生成
+ */
+function getPlatformBadgesHtml(platformStr, url1, url2) {
+  let html = '<div class="space-y-1.5">';
+
+  if (url1) {
+    html += renderSingleUrlBadge(url1, platformStr);
+  }
+  if (url2) {
+    html += renderSingleUrlBadge(url2, "Threads / Instagram");
+  }
+
+  if (!url1 && !url2) {
+    html += '<span class="text-slate-400 text-xs">URLなし</span>';
+  }
+
+  html += '</div>';
+  return html;
+}
+
+function renderSingleUrlBadge(url, defaultPlatform) {
+  const uLower = url.toLowerCase();
+  let badgeColor = "bg-slate-100 text-slate-700 border-slate-200";
+  let icon = '<i class="fa-solid fa-globe text-slate-500"></i>';
+  let label = "Web";
+
+  if (uLower.includes("instagram.com")) {
+    badgeColor = "bg-pink-50 text-pink-700 border-pink-200";
+    icon = '<i class="fa-brands fa-instagram text-pink-600"></i>';
+    label = "Instagram";
+  } else if (uLower.includes("threads.net") || uLower.includes("threads.com")) {
+    badgeColor = "bg-slate-900 text-white border-slate-900";
+    icon = '<i class="fa-brands fa-threads text-white"></i>';
+    label = "Threads";
+  } else if (uLower.includes("facebook.com")) {
+    badgeColor = "bg-blue-50 text-blue-700 border-blue-200";
+    icon = '<i class="fa-brands fa-facebook text-blue-600"></i>';
+    label = "Facebook";
+  }
+
+  // URL末尾のIDやパスを短縮して表示
+  let displayUrl = url.replace(/^https?:\/\/(www\.)?/, "");
+  if (displayUrl.length > 28) {
+    displayUrl = displayUrl.substring(0, 26) + "...";
+  }
+
+  return `
+    <div class="flex items-center gap-1.5 flex-wrap">
+      <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-black border ${badgeColor}">
+        ${icon}
+        <span>${label}</span>
+      </span>
+      <a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" class="text-rose-600 hover:text-rose-700 hover:underline font-mono text-[11px] font-semibold inline-flex items-center gap-1" title="${escapeHtml(url)}">
+        <span>${escapeHtml(displayUrl)}</span>
+        <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+      </a>
+      <button onclick="copyBlocklistUrl('${escapeHtml(url)}')" title="URLをコピー" class="text-slate-400 hover:text-slate-700 transition text-[11px] ml-0.5">
+        <i class="fa-regular fa-copy"></i>
+      </button>
+    </div>
+  `;
+}
+
+/**
+ * ページネーションコントロールの描画
+ */
+function renderBlocklistPagination(from, to, total, currPage, maxPages) {
+  const pageInfoEl = document.getElementById("blk-page-info");
+  const buttonsEl = document.getElementById("blk-pagination-buttons");
+  if (!pageInfoEl || !buttonsEl) return;
+
+  if (total === 0) {
+    pageInfoEl.textContent = "全 0 件";
+    buttonsEl.innerHTML = "";
+    return;
+  }
+
+  pageInfoEl.innerHTML = `全 <span class="text-slate-900 font-black">${total.toLocaleString()}</span> 件中 <span class="text-slate-900 font-black">${from}〜${to}</span> 件を表示 (ページ ${currPage} / ${maxPages})`;
+
+  let btnHtml = "";
+
+  // 「前へ」ボタン
+  btnHtml += `
+    <button onclick="goToBlocklistPage(${currPage - 1})" ${currPage <= 1 ? "disabled" : ""} class="px-2.5 py-1.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-100 disabled:opacity-40 disabled:hover:bg-white text-slate-700 transition">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+  `;
+
+  // ページ番号ボタン（近隣のページのみ表示）
+  const startP = Math.max(1, currPage - 2);
+  const endP = Math.min(maxPages, currPage + 2);
+
+  if (startP > 1) {
+    btnHtml += `<button onclick="goToBlocklistPage(1)" class="px-2.5 py-1 rounded-lg border border-slate-200 bg-white hover:bg-slate-100 text-slate-700 text-xs">1</button>`;
+    if (startP > 2) btnHtml += `<span class="px-1 text-slate-400">...</span>`;
+  }
+
+  for (let p = startP; p <= endP; p++) {
+    const isCurrent = p === currPage;
+    btnHtml += `
+      <button onclick="goToBlocklistPage(${p})" class="px-2.5 py-1 rounded-lg border text-xs font-bold transition ${isCurrent ? "bg-rose-600 text-white border-rose-600 shadow-2xs" : "border-slate-200 bg-white hover:bg-slate-100 text-slate-700"}">
+        ${p}
+      </button>
+    `;
+  }
+
+  if (endP < maxPages) {
+    if (endP < maxPages - 1) btnHtml += `<span class="px-1 text-slate-400">...</span>`;
+    btnHtml += `<button onclick="goToBlocklistPage(${maxPages})" class="px-2.5 py-1 rounded-lg border border-slate-200 bg-white hover:bg-slate-100 text-slate-700 text-xs">${maxPages}</button>`;
+  }
+
+  // 「次へ」ボタン
+  btnHtml += `
+    <button onclick="goToBlocklistPage(${currPage + 1})" ${currPage >= maxPages ? "disabled" : ""} class="px-2.5 py-1.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-100 disabled:opacity-40 disabled:hover:bg-white text-slate-700 transition">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+  `;
+
+  buttonsEl.innerHTML = btnHtml;
+}
+
+function goToBlocklistPage(pageNum) {
+  blocklistCurrentPage = pageNum;
+  renderAdminBlocklistTable();
+  const tableEl = document.getElementById("blk-table-body");
+  if (tableEl) {
+    tableEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+}
+
+function filterBlocklist() {
+  blocklistCurrentPage = 1;
+  renderAdminBlocklistTable();
+}
+
+function changeBlocklistPerPage(val) {
+  blocklistPerPage = val === "all" ? 999999 : parseInt(val);
+  blocklistCurrentPage = 1;
+  renderAdminBlocklistTable();
+}
+
+/**
+ * 新規追加・編集モーダルのオープン
+ */
+function openBlocklistModal(id = null) {
+  const modalTitle = document.getElementById("blk-modal-title");
+  const formId = document.getElementById("blk-form-id");
+  const formName = document.getElementById("blk-form-name");
+  const formUrl = document.getElementById("blk-form-url");
+  const formUrl2 = document.getElementById("blk-form-url2");
+  const formPlatform = document.getElementById("blk-form-platform");
+  const formReason = document.getElementById("blk-form-reason");
+  const formReporter = document.getElementById("blk-form-reporter");
+  const formDate = document.getElementById("blk-form-date");
+
+  if (id) {
+    // 編集モード
+    const item = allBlocklist.find(b => b.id === id);
+    if (!item) return;
+
+    if (modalTitle) modalTitle.textContent = "ブロック対象の編集";
+    if (formId) formId.value = item.id;
+    if (formName) formName.value = item.name || "";
+    if (formUrl) formUrl.value = item.url || "";
+    if (formUrl2) formUrl2.value = item.secondary_url || "";
+    if (formPlatform) formPlatform.value = item.platform || "Instagram";
+    if (formReason) formReason.value = item.reason || "";
+    if (formReporter) formReporter.value = item.reporter || "管理部";
+    if (formDate) formDate.value = item.date || "";
+  } else {
+    // 新規登録モード
+    if (modalTitle) modalTitle.textContent = "ブロック対象の登録";
+    if (formId) formId.value = "";
+    if (formName) formName.value = "";
+    if (formUrl) formUrl.value = "";
+    if (formUrl2) formUrl2.value = "";
+    if (formPlatform) formPlatform.value = "Instagram";
+    if (formReason) formReason.value = "";
+    if (formReporter) formReporter.value = "管理部/秘書課";
+    
+    // 現在日時をフォーマット設定
+    const now = new Date();
+    const y = now.getFullYear();
+    const m = String(now.getMonth() + 1).padStart(2, '0');
+    const d = String(now.getDate()).padStart(2, '0');
+    const h = String(now.getHours()).padStart(2, '0');
+    const min = String(now.getMinutes()).padStart(2, '0');
+    if (formDate) formDate.value = `${y}-${m}-${d} ${h}:${min}`;
+  }
+
+  openModal("blocklist-modal");
+  if (formName) setTimeout(() => formName.focus(), 100);
+}
+
+/**
+ * URL入力時にプラットフォームを自動判定
+ */
+function autoDetectPlatform(url) {
+  const sel = document.getElementById("blk-form-platform");
+  if (!sel || !url) return;
+  const u = url.toLowerCase();
+  if (u.includes("instagram.com")) {
+    sel.value = "Instagram";
+  } else if (u.includes("threads.net") || u.includes("threads.com")) {
+    sel.value = "Threads";
+  } else if (u.includes("facebook.com")) {
+    sel.value = "Facebook";
+  } else {
+    sel.value = "その他";
+  }
+}
+
+/**
+ * ブロックリスト登録・更新の送信ハンドラ
+ */
+async function handleBlocklistSubmit(e) {
+  e.preventDefault();
+
+  const id = document.getElementById("blk-form-id").value;
+  const name = document.getElementById("blk-form-name").value.trim();
+  const url = document.getElementById("blk-form-url").value.trim();
+  const url2 = document.getElementById("blk-form-url2").value.trim();
+  const platform = document.getElementById("blk-form-platform").value;
+  const reason = document.getElementById("blk-form-reason").value.trim();
+  const reporter = document.getElementById("blk-form-reporter").value.trim() || "管理部";
+  const date = document.getElementById("blk-form-date").value.trim();
+
+  if (!name) {
+    showToast("対象者名を入力してください");
+    return;
+  }
+
+  if (id) {
+    // 既存更新
+    const idx = allBlocklist.findIndex(b => b.id === id);
+    if (idx !== -1) {
+      allBlocklist[idx] = {
+        ...allBlocklist[idx],
+        name,
+        url,
+        secondary_url: url2,
+        platform,
+        reason,
+        reporter,
+        date
+      };
+      await saveBlocklistData(allBlocklist[idx], "update");
+      showToast(`「${name}」の情報を更新しました`);
+    }
+  } else {
+    // 新規追加
+    const newId = `blk_${Date.now()}`;
+    const newEntry = {
+      id: newId,
+      name,
+      url,
+      secondary_url: url2,
+      platform,
+      reason,
+      reporter,
+      date: date || new Date().toISOString().replace('T', ' ').substring(0, 16)
+    };
+    allBlocklist.unshift(newEntry);
+    await saveBlocklistData(newEntry, "create");
+    showToast(`「${name}」をブロックリストに登録しました`);
+  }
+
+  closeModal("blocklist-modal");
+  renderBlocklistKPI();
+  renderAdminBlocklistTable();
+}
+
+/**
+ * 削除確認モーダルを開く
+ */
+function openBlocklistDeleteModal(id) {
+  const item = allBlocklist.find(b => b.id === id);
+  if (!item) return;
+
+  blocklistDeleteTargetId = id;
+  const nameEl = document.getElementById("blk-delete-name");
+  if (nameEl) nameEl.textContent = item.name || item.url || "この対象";
+
+  const confirmBtn = document.getElementById("blk-delete-confirm-btn");
+  if (confirmBtn) {
+    confirmBtn.onclick = async () => {
+      await executeBlocklistDelete(id);
+    };
+  }
+
+  openModal("blocklist-delete-modal");
+}
+
+/**
+ * 削除実行
+ */
+async function executeBlocklistDelete(id) {
+  const idx = allBlocklist.findIndex(b => b.id === id);
+  if (idx === -1) return;
+
+  const deletedName = allBlocklist[idx].name;
+  allBlocklist.splice(idx, 1);
+
+  await saveBlocklistData({ id }, "delete");
+
+  closeModal("blocklist-delete-modal");
+  blocklistDeleteTargetId = null;
+
+  showToast(`「${deletedName}」をブロックリストから削除しました`);
+  renderBlocklistKPI();
+  renderAdminBlocklistTable();
+}
+
+/**
+ * データの永続化 (LocalStorage & Firestore)
+ */
+async function saveBlocklistData(entry, action) {
+  // LocalStorage に即座に保存
+  localStorage.setItem("neofamily_blocklist", JSON.stringify(allBlocklist));
+
+  // Firestore があれば非同期で同期
+  if (typeof firebase !== "undefined" && firebase.apps.length) {
+    try {
+      const db = firebase.firestore();
+      if (action === "create" || action === "update") {
+        await db.collection("blocklist").doc(entry.id).set(entry, { merge: true });
+      } else if (action === "delete") {
+        await db.collection("blocklist").doc(entry.id).delete();
+      }
+    } catch (err) {
+      console.warn("[Blocklist] Firestore sync error:", err);
+    }
+  }
+}
+
+/**
+ * ブロックリストのCSVエクスポート
+ */
+function exportBlocklistCSV() {
+  if (allBlocklist.length === 0) {
+    showToast("エクスポートするデータがありません");
+    return;
+  }
+
+  const headers = ["ID", "登録日時", "氏名/屋号", "プラットフォーム", "URL", "予備URL", "ブロック理由・詳細メモ", "報告者"];
+  const rows = allBlocklist.map(b => [
+    b.id || "",
+    b.date || "",
+    b.name || "",
+    b.platform || "",
+    b.url || "",
+    b.secondary_url || "",
+    b.reason || "",
+    b.reporter || ""
+  ]);
+
+  const csvContent = "\uFEFF" + [
+    headers.map(h => `"${h.replace(/"/g, '""')}"`).join(","),
+    ...rows.map(r => r.map(c => `"${String(c).replace(/"/g, '""')}"`).join(","))
+  ].join("\r\n");
+
+  const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  const today = new Date().toISOString().slice(0, 10);
+  a.href = url;
+  a.download = `neofamily_blocklist_${today}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+
+  showToast("ブロックリストCSVをダウンロードしました");
+}
+
+/**
+ * URLコピー用ヘルパー
+ */
+function copyBlocklistUrl(url) {
+  if (!navigator.clipboard) {
+    showToast("クリップボード機能が利用できません");
+    return;
+  }
+  navigator.clipboard.writeText(url).then(() => {
+    showToast("URLをクリップボードにコピーしました");
+  }).catch(() => {
+    showToast("URLのコピーに失敗しました");
+  });
+}
+
