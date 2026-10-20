@@ -305,10 +305,6 @@
             <i class="fa-solid fa-arrows-rotate"></i>
             <span>再読込</span>
           </button>
-          <button onclick="openCreateEventModal()" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-700 hover:to-rose-800 text-white text-xs font-bold transition shadow-sm flex items-center gap-1.5">
-            <i class="fa-solid fa-plus"></i>
-            <span>新規イベント作成</span>
-          </button>
         </div>
       </div>
 
@@ -645,6 +641,63 @@
               <span id="kpi-members-active" class="text-2xl font-black text-slate-900">0</span>
               <span class="text-xs text-slate-500 font-bold">名</span>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🎬 新人向け必須動画の指定エリア（総合ポータル内動画一覧と完全連動） -->
+      <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden p-5 sm:p-6 space-y-4">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+          <div class="flex items-start sm:items-center gap-3">
+            <div class="w-10 h-10 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center text-lg font-bold shrink-0">
+              <i class="fa-solid fa-circle-play"></i>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 flex-wrap">
+                <h3 class="text-base font-black text-slate-900">新人向け必須動画の指定（総合ポータル連動）</h3>
+                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-rose-100 text-rose-700">
+                  現在 <span id="required-videos-count-badge">0</span> 本指定中
+                </span>
+              </div>
+              <p class="text-xs text-slate-500 mt-0.5">
+                総合ポータル内に掲載されている動画一覧からチェックを入れるだけで新人必須動画に指定できます。新人がポータル内で再生すると自動で「視聴済」として判定されます。
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 shrink-0">
+            <button type="button" onclick="toggleRequiredVideosSelector()" id="btn-toggle-required-videos" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-xs cursor-pointer">
+              <i class="fa-solid fa-list-check text-amber-400"></i>
+              <span id="btn-toggle-required-videos-label">ポータル動画一覧から選ぶ</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 現在指定中の必須動画ピル一覧（常時表示） -->
+        <div id="selected-required-videos-summary" class="flex flex-wrap gap-2 pt-1">
+          <!-- JSで動的描画 -->
+        </div>
+
+        <!-- 折りたたみ可能なポータル動画チェックリスト -->
+        <div id="required-videos-selector-panel" class="hidden pt-4 border-t border-slate-100 space-y-3">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <!-- カテゴリ絞り込みボタン -->
+            <div class="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs font-bold">
+              <button type="button" onclick="setRequiredVideoFilter('all')" id="req-vid-tab-all" class="req-vid-tab px-3 py-1.5 rounded-lg bg-slate-900 text-white transition whitespace-nowrap cursor-pointer">すべて</button>
+              <button type="button" onclick="setRequiredVideoFilter('selected')" id="req-vid-tab-selected" class="req-vid-tab px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition whitespace-nowrap cursor-pointer">✅ 指定中のみ</button>
+              <button type="button" onclick="setRequiredVideoFilter('study')" id="req-vid-tab-study" class="req-vid-tab px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition whitespace-nowrap cursor-pointer">特別勉強会 (6)</button>
+              <button type="button" onclick="setRequiredVideoFilter('neo')" id="req-vid-tab-neo" class="req-vid-tab px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition whitespace-nowrap cursor-pointer">NEO・関連事業 (4)</button>
+              <button type="button" onclick="setRequiredVideoFilter('youtube')" id="req-vid-tab-youtube" class="req-vid-tab px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition whitespace-nowrap cursor-pointer">ぶった斬りYouTube (6)</button>
+              <button type="button" onclick="setRequiredVideoFilter('raytus')" id="req-vid-tab-raytus" class="req-vid-tab px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition whitespace-nowrap cursor-pointer">RAYTUS事業紹介 (18)</button>
+            </div>
+            <div class="relative w-full sm:w-60 shrink-0">
+              <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+              <input type="text" id="req-vid-search-input" oninput="renderRequiredVideosChecklist()" placeholder="動画タイトルで検索..." class="w-full pl-8 pr-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200 text-xs focus:outline-none focus:ring-2 focus:ring-rose-500">
+            </div>
+          </div>
+
+          <div id="required-videos-checklist-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 max-h-80 overflow-y-auto pr-1">
+            <!-- JSで動的描画 -->
           </div>
         </div>
       </div>
@@ -1230,7 +1283,7 @@
   <!-- ========================================== -->
   <!-- 会員 閲覧ログ詳細モーダル -->
   <!-- ========================================== -->
-  <div id="member-detail-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
+  <div id="member-detail-modal" onclick="if (event.target === this) closeModal('member-detail-modal')" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
     <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl border border-slate-200 relative animate-scaleUp max-h-[85vh] flex flex-col justify-between">
       <div>
         <div class="flex items-center justify-between pb-4 border-b border-slate-100">
@@ -1248,10 +1301,19 @@
           </button>
         </div>
 
-        <div class="py-4 space-y-4 overflow-y-auto max-h-[50vh]">
+        <div class="py-4 space-y-4 overflow-y-auto max-h-[55vh]">
           <div>
             <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">ファーストステップ達成状況</h4>
             <div id="detail-modal-steps" class="space-y-1.5">
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold text-rose-600 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-play"></i>
+              <span>新人向け必須動画の視聴チェック</span>
+            </h4>
+            <div id="detail-modal-required-videos" class="space-y-1.5">
             </div>
           </div>
 
@@ -1307,12 +1369,12 @@
   <!-- Firebase SDK (v10 compat) -->
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-  <script src="js/firebase-config.js?v=20261020_11"></script>
+  <script src="js/firebase-config.js?v=20261020_12"></script>
 
   <!-- Application Scripts (with Cache Busting) -->
-  <script src="js/events-data.js?v=20261020_11"></script>
-  <script src="js/blocklist-data.js?v=20261020_11"></script>
-  <script src="js/admin.js?v=20261020_11"></script>
+  <script src="js/events-data.js?v=20261020_12"></script>
+  <script src="js/blocklist-data.js?v=20261020_12"></script>
+  <script src="js/admin.js?v=20261020_12"></script>
   <script>
     // インライン保証：キャッシュ環境に関わらずブロックリストの手動編集・保存・永続化を100%確実に動作させる
     window.currentEditingBlocklistId = "";

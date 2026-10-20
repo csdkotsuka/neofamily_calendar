@@ -1204,8 +1204,226 @@ const INITIAL_SAMPLE_MEMBERS = [
   }
 ];
 
+// ============================================================
+// 🎬 新人向け必須動画カタログ（総合ポータル内動画一覧と完全連動）
+// ============================================================
+const PORTAL_VIDEO_CATALOG = [
+  // NEO FAMILY 特別勉強会 (6本)
+  { url: "https://www.youtube.com/embed/zTGEDq3kAjI", videoId: "zTGEDq3kAjI", title: "特別編｜第一夜：Ablaze代表＆Re:Spark+代表", category: "study", categoryLabel: "特別勉強会" },
+  { url: "https://www.youtube.com/embed/YmARyoWu5gU", videoId: "YmARyoWu5gU", title: "特別編｜第二夜：tidy.shin代表＆L’Ohana代表", category: "study", categoryLabel: "特別勉強会" },
+  { url: "https://www.youtube.com/embed/Wlsup7qmy88", videoId: "Wlsup7qmy88", title: "特別編｜第三夜：K-pays Fellow代表＆∞mico group代表", category: "study", categoryLabel: "特別勉強会" },
+  { url: "https://www.youtube.com/embed/a379lr1GxgI", videoId: "a379lr1GxgI", title: "特別編｜第四夜：RAYTUS group.理事長&REALISE代表", category: "study", categoryLabel: "特別勉強会" },
+  { url: "https://www.youtube.com/embed/n2kR7sXx5tM", videoId: "n2kR7sXx5tM", title: "特別編｜第五夜：RAYTUS group.代表&Dynamite L代表", category: "study", categoryLabel: "特別勉強会" },
+  { url: "https://www.youtube.com/embed/BX1EA7QhLj8", videoId: "BX1EA7QhLj8", title: "特別編｜第六夜：常勝会HD.代表 & Say-A's One代表 & SHINO organic代表", category: "study", categoryLabel: "特別勉強会" },
+
+  // NEO FAMILY・関連事業紹介 (4本)
+  { url: "https://www.youtube.com/embed/B6m8mOEsw84", videoId: "B6m8mOEsw84", title: "事務事業：NEO FAMILY.事務局", category: "neo", categoryLabel: "NEO・関連事業" },
+  { url: "https://www.youtube.com/embed/iLH7fKyP1Hw", videoId: "iLH7fKyP1Hw", title: "IDIO JAPAN協会", category: "neo", categoryLabel: "NEO・関連事業" },
+  { url: "https://www.youtube.com/embed/bir0V33Rol8", videoId: "bir0V33Rol8", title: "BKレーベル", category: "neo", categoryLabel: "NEO・関連事業" },
+  { url: "https://www.youtube.com/embed/xj3e86mFEMo", videoId: "xj3e86mFEMo", title: "確定申告事業：ラクシン", category: "neo", categoryLabel: "NEO・関連事業" },
+
+  // ぶった斬りCHANNEL 注目YouTube (6本)
+  { url: "https://www.youtube.com/embed/fjkadO1_OYs", videoId: "fjkadO1_OYs", title: "【経営者必見】ドブに捨てるお金の使い方と事業拡大するお金の使い方の違い", category: "youtube", categoryLabel: "ぶった斬りYouTube" },
+  { url: "https://www.youtube.com/embed/3sPl_bbEaiE", videoId: "3sPl_bbEaiE", title: "【夫の浮気】妻がやるべきことは1つだけ｜100億稼ぐ会長が本音で語る", category: "youtube", categoryLabel: "ぶった斬りYouTube" },
+  { url: "https://www.youtube.com/embed/KApFWKM2QEU", videoId: "KApFWKM2QEU", title: "【16年間モラハラ】もう男なんていらない", category: "youtube", categoryLabel: "ぶった斬りYouTube" },
+  { url: "https://www.youtube.com/embed/EK-xR3McLHc", videoId: "EK-xR3McLHc", title: "【58歳熟年離婚】を迫られた夫はパンツも洗えん。飯も作れん。", category: "youtube", categoryLabel: "ぶった斬りYouTube" },
+  { url: "https://www.youtube.com/embed/J7tFe7x3_cs", videoId: "J7tFe7x3_cs", title: "【モラハラ夫と離婚】→子連れ再婚したら人生が激変した話", category: "youtube", categoryLabel: "ぶった斬りYouTube" },
+  { url: "https://www.youtube.com/embed/ANth1mJ8YNw", videoId: "ANth1mJ8YNw", title: "【我慢の限界突破】ワンオペ地獄｜その家、ブラック家族です", category: "youtube", categoryLabel: "ぶった斬りYouTube" },
+
+  // RAYTUS 事業紹介動画 (18本)
+  { url: "https://www.youtube.com/embed/x8XJCSYZzp0", videoId: "x8XJCSYZzp0", title: "産前産後ケア事業：ensemble", category: "raytus", categoryLabel: "RAYTUS事業" },
+  { url: "https://www.youtube.com/embed/rRPdgC6p5WE", videoId: "rRPdgC6p5WE", title: "食事業：RAY和おむすび", category: "raytus", categoryLabel: "RAYTUS事業" },
+  { url: "https://www.youtube.com/embed/SUcNAq4RaPE", videoId: "SUcNAq4RaPE", title: "こころ事業：cocotoro.", category: "raytus", categoryLabel: "RAYTUS事業" },
+  { url: "https://www.youtube.com/embed/PFbYFr9PMEw", videoId: "PFbYFr9PMEw", title: "オーダーメイドジュエリー事業：jewelry Aru", category: "raytus", categoryLabel: "RAYTUS事業" },
+  { url: "https://www.youtube.com/embed/XRWrVBTuF6U", videoId: "XRWrVBTuF6U", title: "ライフパートナーマッチング事業：Raysring", category: "raytus", categoryLabel: "RAYTUS事業" },
+  { url: "https://www.youtube.com/embed/CkEcsUg_Y3s", videoId: "CkEcsUg_Y3s", title: "おとな世代〜シニア事業：ViVid days", category: "raytus", categoryLabel: "RAYTUS事業" },
+  { url: "https://www.youtube.com/embed/f7EScf-aVak", videoId: "f7EScf-aVak", title: "ママ&ベビースクール事業：ままゆね", category: "raytus", categoryLabel: "RAYTUS事業" },
+  { url: "https://www.youtube.com/embed/qVvtNAyYQKk", videoId: "qVvtNAyYQKk", title: "ネイル総合事業：NailLAND", category: "raytus", categoryLabel: "RAYTUS事業" },
+  { url: "https://www.youtube.com/embed/he4Lcckduvw", videoId: "he4Lcckduvw", title: "韓国コミュニティ事業：ノワナスクール", category: "raytus", categoryLabel: "RAYTUS事業" },
+  { url: "https://www.youtube.com/embed/gw-bwyLDV4c", videoId: "gw-bwyLDV4c", title: "フェムケア事業：Femine", category: "raytus", categoryLabel: "RAYTUS事業" },
+  { url: "https://www.youtube.com/embed/eKTUbn63_qc", videoId: "eKTUbn63_qc", title: "総合美容事業：Ligare（リガーレ）", category: "raytus", categoryLabel: "RAYTUS事業" },
+  { url: "https://www.youtube.com/embed/K3bSbmq-_Gc", videoId: "K3bSbmq-_Gc", title: "総合食事業：稲環（いなわ）", category: "raytus", categoryLabel: "RAYTUS事業" },
+  { url: "https://www.youtube.com/embed/5xOAhgqME6s", videoId: "5xOAhgqME6s", title: "スポーツリカバリー事業：Re.Co Lab（リコラボ）", category: "raytus", categoryLabel: "RAYTUS事業" },
+  { url: "https://www.youtube.com/embed/CnTqMBOdvz0", videoId: "CnTqMBOdvz0", title: "クリエイティブ事業：CORECreativeStudio", category: "raytus", categoryLabel: "RAYTUS事業" },
+  { url: "https://www.youtube.com/embed/WLTNPtndUPk", videoId: "WLTNPtndUPk", title: "薬局事業：このまち薬局", category: "raytus", categoryLabel: "RAYTUS事業" },
+  { url: "https://www.youtube.com/embed/xpGunQNr4tE", videoId: "xpGunQNr4tE", title: "セクシャルウェルネス事業：セクシャルLABO", category: "raytus", categoryLabel: "RAYTUS事業" },
+  { url: "https://www.youtube.com/embed/WO3j5E_98Go", videoId: "WO3j5E_98Go", title: "おやこの爪事業：nail hug", category: "raytus", categoryLabel: "RAYTUS事業" },
+  { url: "https://www.youtube.com/embed/pUvEZ-U4tnw", videoId: "pUvEZ-U4tnw", title: "お片付け事業：片付けの窓口", category: "raytus", categoryLabel: "RAYTUS事業" }
+];
+
+const DEFAULT_REQUIRED_VIDEO_URLS = [
+  "https://www.youtube.com/embed/B6m8mOEsw84",
+  "https://www.youtube.com/embed/zTGEDq3kAjI",
+  "https://www.youtube.com/embed/fjkadO1_OYs"
+];
+
+let requiredOnboardingVideos = [...DEFAULT_REQUIRED_VIDEO_URLS];
+let currentRequiredVideoFilter = "all";
+
+async function loadRequiredOnboardingVideos() {
+  try {
+    const localRaw = localStorage.getItem("neofamily_required_videos_v1");
+    if (localRaw) {
+      const parsed = JSON.parse(localRaw);
+      if (Array.isArray(parsed)) {
+        requiredOnboardingVideos = parsed;
+      }
+    }
+  } catch (e) {}
+
+  renderRequiredVideosSummary();
+  renderRequiredVideosChecklist();
+
+  if (typeof firebase !== "undefined" && firebase.apps.length) {
+    try {
+      const db = firebase.firestore();
+      const doc = await db.collection("events").doc("_onboarding_required_videos_v1").get();
+      if (doc.exists && Array.isArray(doc.data()?.urls)) {
+        requiredOnboardingVideos = doc.data().urls;
+        localStorage.setItem("neofamily_required_videos_v1", JSON.stringify(requiredOnboardingVideos));
+        renderRequiredVideosSummary();
+        renderRequiredVideosChecklist();
+        renderMembersTable();
+      }
+    } catch (e) {
+      console.warn("[Admin] Failed to load required videos from Firestore:", e);
+    }
+  }
+}
+
+async function saveRequiredOnboardingVideos() {
+  try {
+    localStorage.setItem("neofamily_required_videos_v1", JSON.stringify(requiredOnboardingVideos));
+  } catch (e) {}
+
+  if (typeof firebase !== "undefined" && firebase.apps.length) {
+    try {
+      const db = firebase.firestore();
+      await db.collection("events").doc("_onboarding_required_videos_v1").set({
+        urls: requiredOnboardingVideos,
+        updatedAt: new Date().toISOString()
+      });
+    } catch (e) {
+      console.warn("[Admin] Failed to save required videos to Firestore:", e);
+    }
+  }
+}
+
+function toggleRequiredVideosSelector() {
+  const panel = document.getElementById("required-videos-selector-panel");
+  const label = document.getElementById("btn-toggle-required-videos-label");
+  if (!panel) return;
+  const isHidden = panel.classList.contains("hidden");
+  if (isHidden) {
+    panel.classList.remove("hidden");
+    if (label) label.textContent = "一覧を閉じる";
+    renderRequiredVideosChecklist();
+  } else {
+    panel.classList.add("hidden");
+    if (label) label.textContent = "ポータル動画一覧から選ぶ";
+  }
+}
+
+function setRequiredVideoFilter(cat) {
+  currentRequiredVideoFilter = cat;
+  document.querySelectorAll(".req-vid-tab").forEach(btn => {
+    btn.className = "req-vid-tab px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition whitespace-nowrap cursor-pointer";
+  });
+  const activeBtn = document.getElementById("req-vid-tab-" + cat);
+  if (activeBtn) {
+    activeBtn.className = "req-vid-tab px-3 py-1.5 rounded-lg bg-slate-900 text-white transition whitespace-nowrap cursor-pointer";
+  }
+  renderRequiredVideosChecklist();
+}
+
+function toggleRequiredVideoItem(url) {
+  const idx = requiredOnboardingVideos.indexOf(url);
+  if (idx >= 0) {
+    requiredOnboardingVideos.splice(idx, 1);
+  } else {
+    requiredOnboardingVideos.push(url);
+  }
+  saveRequiredOnboardingVideos();
+  renderRequiredVideosSummary();
+  renderRequiredVideosChecklist();
+  renderMembersTable();
+}
+
+function renderRequiredVideosSummary() {
+  const countBadge = document.getElementById("required-videos-count-badge");
+  if (countBadge) countBadge.textContent = requiredOnboardingVideos.length;
+
+  const container = document.getElementById("selected-required-videos-summary");
+  if (!container) return;
+
+  if (requiredOnboardingVideos.length === 0) {
+    container.innerHTML = `<span class="text-xs text-slate-400">現在指定されている必須動画はありません。「ポータル動画一覧から選ぶ」を押してチェックを入れてください。</span>`;
+    return;
+  }
+
+  container.innerHTML = requiredOnboardingVideos.map(url => {
+    const v = PORTAL_VIDEO_CATALOG.find(item => item.url === url) || { title: url, categoryLabel: "動画" };
+    return `
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-rose-50 border border-rose-200 text-xs font-bold text-slate-800 shadow-2xs">
+        <i class="fa-brands fa-youtube text-rose-600"></i>
+        <span class="max-w-xs truncate">${v.title}</span>
+        <button type="button" onclick="toggleRequiredVideoItem('${url}')" class="text-slate-400 hover:text-rose-600 ml-1 cursor-pointer" title="指定を解除">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    `;
+  }).join("");
+}
+
+function renderRequiredVideosChecklist() {
+  const grid = document.getElementById("required-videos-checklist-grid");
+  if (!grid) return;
+
+  const q = (document.getElementById("req-vid-search-input")?.value || "").toLowerCase().trim();
+  const selectedSet = new Set(requiredOnboardingVideos);
+
+  const list = PORTAL_VIDEO_CATALOG.filter(item => {
+    if (currentRequiredVideoFilter === "selected" && !selectedSet.has(item.url)) return false;
+    if (currentRequiredVideoFilter !== "all" && currentRequiredVideoFilter !== "selected" && item.category !== currentRequiredVideoFilter) return false;
+    if (q && !item.title.toLowerCase().includes(q) && !item.categoryLabel.toLowerCase().includes(q)) return false;
+    return true;
+  });
+
+  if (list.length === 0) {
+    grid.innerHTML = `<div class="col-span-full py-6 text-center text-xs text-slate-400">該当する動画がありません</div>`;
+    return;
+  }
+
+  grid.innerHTML = list.map(item => {
+    const checked = selectedSet.has(item.url);
+    return `
+      <label class="flex items-start gap-2.5 p-2.5 rounded-xl border ${checked ? 'bg-rose-50/70 border-rose-300 ring-1 ring-rose-200' : 'bg-slate-50/60 border-slate-200 hover:bg-slate-100/70'} cursor-pointer transition select-none">
+        <input type="checkbox" ${checked ? 'checked' : ''} onchange="toggleRequiredVideoItem('${item.url}')" class="mt-0.5 w-4 h-4 rounded text-rose-600 focus:ring-rose-500 accent-rose-600 shrink-0 cursor-pointer">
+        <img src="https://img.youtube.com/vi/${item.videoId}/default.jpg" alt="" class="w-12 h-9 rounded-lg object-cover bg-slate-900 shrink-0">
+        <div class="min-w-0 flex-1">
+          <span class="inline-block text-[9px] font-extrabold px-1.5 py-0.2 rounded ${checked ? 'bg-rose-600 text-white' : 'bg-slate-200 text-slate-600'} mb-0.5">${item.categoryLabel}</span>
+          <p class="text-xs font-bold text-slate-800 line-clamp-2 leading-snug">${item.title}</p>
+        </div>
+      </label>
+    `;
+  }).join("");
+}
+
+function hasMemberWatchedVideo(member, videoUrl) {
+  const viewed = member?.viewedContents || {};
+  if (viewed[videoUrl]) return viewed[videoUrl];
+  const catalogItem = PORTAL_VIDEO_CATALOG.find(v => v.url === videoUrl);
+  const vid = catalogItem ? catalogItem.videoId : (videoUrl.split("/embed/")[1] || "").split("?")[0];
+  if (!vid) return null;
+  for (const [k, val] of Object.entries(viewed)) {
+    if (k.includes(vid)) return val;
+  }
+  return null;
+}
+
 // 会員進捗データの読み込み
 async function loadMembersProgressData() {
+  await loadRequiredOnboardingVideos();
   let loaded = false;
   if (typeof firebase !== "undefined" && firebase.apps.length) {
     try {
@@ -1384,8 +1602,24 @@ function renderMembersTable() {
       </div>
     `;
 
-    // 閲覧ログ数
+    // 閲覧ログ数 & 必須動画視聴カウント
     const viewedCount = Object.keys(m.viewedContents || {}).length;
+    const reqTotal = requiredOnboardingVideos.length;
+    let reqWatched = 0;
+    requiredOnboardingVideos.forEach(url => {
+      if (hasMemberWatchedVideo(m, url)) reqWatched++;
+    });
+
+    let reqVideoBadge = "";
+    if (reqTotal > 0) {
+      if (reqWatched === reqTotal) {
+        reqVideoBadge = `<span class="px-2 py-0.5 rounded-lg bg-emerald-100 text-emerald-800 font-bold text-[11px] inline-flex items-center gap-1"><i class="fa-solid fa-circle-check"></i> 必須動画 ${reqWatched}/${reqTotal} 完了</span>`;
+      } else if (reqWatched > 0) {
+        reqVideoBadge = `<span class="px-2 py-0.5 rounded-lg bg-amber-100 text-amber-800 font-bold text-[11px] inline-flex items-center gap-1"><i class="fa-solid fa-circle-play"></i> 必須動画 ${reqWatched}/${reqTotal} 視聴</span>`;
+      } else {
+        reqVideoBadge = `<span class="px-2 py-0.5 rounded-lg bg-rose-50 text-rose-700 border border-rose-200 font-bold text-[11px] inline-flex items-center gap-1"><i class="fa-regular fa-circle-play"></i> 必須動画 0/${reqTotal} 未視聴</span>`;
+      }
+    }
 
     // 最終アクセス
     let lastActiveText = "未アクセス";
@@ -1424,9 +1658,12 @@ function renderMembersTable() {
           ${stepIcons}
         </td>
         <td class="py-3 px-4">
-          <span class="px-2 py-0.5 rounded-lg bg-slate-100 text-slate-700 font-bold text-[11px]">
-            ${viewedCount} 件閲覧
-          </span>
+          <div class="flex flex-col gap-1 items-start">
+            ${reqVideoBadge}
+            <span class="px-2 py-0.5 rounded-lg bg-slate-100 text-slate-600 font-bold text-[10px]">
+              全 ${viewedCount} 件閲覧
+            </span>
+          </div>
         </td>
         <td class="py-3 px-4 text-slate-500 text-[11px] font-mono">${lastActiveText}</td>
         <td class="py-3 px-4 text-right">
@@ -1499,6 +1736,34 @@ function openMemberDetailModal(memberId) {
       <span class="text-[10px] font-bold">${s.support ? '完了' : '未完了'}</span>
     </div>
   `;
+
+  // 新人向け必須動画の視聴チェック描画
+  const reqContainer = document.getElementById("detail-modal-required-videos");
+  if (reqContainer) {
+    if (requiredOnboardingVideos.length === 0) {
+      reqContainer.innerHTML = `<p class="text-xs text-slate-400 py-2">現在指定されている必須動画はありません。</p>`;
+    } else {
+      reqContainer.innerHTML = requiredOnboardingVideos.map(url => {
+        const v = PORTAL_VIDEO_CATALOG.find(item => item.url === url) || { title: url };
+        const watchLog = hasMemberWatchedVideo(member, url);
+        let statusHtml = `<span class="text-[10px] font-bold text-rose-600 bg-rose-100 px-2 py-0.5 rounded-full shrink-0">未視聴</span>`;
+        if (watchLog) {
+          const d = watchLog.viewedAt ? new Date(watchLog.viewedAt) : null;
+          const tStr = d ? `${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}` : "";
+          statusHtml = `<span class="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full shrink-0">✅ 視聴済 ${tStr}</span>`;
+        }
+        return `
+          <div class="flex items-center justify-between gap-2 p-2 rounded-xl border ${watchLog ? 'bg-emerald-50/60 border-emerald-200 text-emerald-900' : 'bg-slate-50 border-slate-200 text-slate-600'}">
+            <span class="text-xs font-bold flex items-center gap-1.5 truncate">
+              <i class="fa-brands fa-youtube ${watchLog ? 'text-emerald-600' : 'text-rose-500'} shrink-0"></i>
+              <span class="truncate">${v.title}</span>
+            </span>
+            ${statusHtml}
+          </div>
+        `;
+      }).join("");
+    }
+  }
 
   // 閲覧ログ描画
   const logsContainer = document.getElementById("detail-modal-logs");

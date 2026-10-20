@@ -19,8 +19,137 @@ let currentProgressData = {
   deviceInfo: ''
 };
 
+const PORTAL_VIDEO_CATALOG_MAP = {
+  "https://www.youtube.com/embed/zTGEDq3kAjI": { title: "特別編｜第一夜：Ablaze代表＆Re:Spark+代表", categoryLabel: "特別勉強会", videoId: "zTGEDq3kAjI" },
+  "https://www.youtube.com/embed/YmARyoWu5gU": { title: "特別編｜第二夜：tidy.shin代表＆L’Ohana代表", categoryLabel: "特別勉強会", videoId: "YmARyoWu5gU" },
+  "https://www.youtube.com/embed/Wlsup7qmy88": { title: "特別編｜第三夜：K-pays Fellow代表＆∞mico group代表", categoryLabel: "特別勉強会", videoId: "Wlsup7qmy88" },
+  "https://www.youtube.com/embed/a379lr1GxgI": { title: "特別編｜第四夜：RAYTUS group.理事長&REALISE代表", categoryLabel: "特別勉強会", videoId: "a379lr1GxgI" },
+  "https://www.youtube.com/embed/n2kR7sXx5tM": { title: "特別編｜第五夜：RAYTUS group.代表&Dynamite L代表", categoryLabel: "特別勉強会", videoId: "n2kR7sXx5tM" },
+  "https://www.youtube.com/embed/BX1EA7QhLj8": { title: "特別編｜第六夜：常勝会HD.代表 & Say-A's One代表 & SHINO organic代表", categoryLabel: "特別勉強会", videoId: "BX1EA7QhLj8" },
+  "https://www.youtube.com/embed/B6m8mOEsw84": { title: "事務事業：NEO FAMILY.事務局", categoryLabel: "NEO・関連事業", videoId: "B6m8mOEsw84" },
+  "https://www.youtube.com/embed/iLH7fKyP1Hw": { title: "IDIO JAPAN協会", categoryLabel: "NEO・関連事業", videoId: "iLH7fKyP1Hw" },
+  "https://www.youtube.com/embed/bir0V33Rol8": { title: "BKレーベル", categoryLabel: "NEO・関連事業", videoId: "bir0V33Rol8" },
+  "https://www.youtube.com/embed/xj3e86mFEMo": { title: "確定申告事業：ラクシン", categoryLabel: "NEO・関連事業", videoId: "xj3e86mFEMo" },
+  "https://www.youtube.com/embed/fjkadO1_OYs": { title: "【経営者必見】ドブに捨てるお金の使い方と事業拡大するお金の使い方の違い", categoryLabel: "ぶった斬りYouTube", videoId: "fjkadO1_OYs" },
+  "https://www.youtube.com/embed/3sPl_bbEaiE": { title: "【夫の浮気】妻がやるべきことは1つだけ｜100億稼ぐ会長が本音で語る", categoryLabel: "ぶった斬りYouTube", videoId: "3sPl_bbEaiE" },
+  "https://www.youtube.com/embed/KApFWKM2QEU": { title: "【16年間モラハラ】もう男なんていらない", categoryLabel: "ぶった斬りYouTube", videoId: "KApFWKM2QEU" },
+  "https://www.youtube.com/embed/EK-xR3McLHc": { title: "【58歳熟年離婚】を迫られた夫はパンツも洗えん。飯も作れん。", categoryLabel: "ぶった斬りYouTube", videoId: "EK-xR3McLHc" },
+  "https://www.youtube.com/embed/J7tFe7x3_cs": { title: "【モラハラ夫と離婚】→子連れ再婚したら人生が激変した話", categoryLabel: "ぶった斬りYouTube", videoId: "J7tFe7x3_cs" },
+  "https://www.youtube.com/embed/ANth1mJ8YNw": { title: "【我慢の限界突破】ワンオペ地獄｜その家、ブラック家族です", categoryLabel: "ぶった斬りYouTube", videoId: "ANth1mJ8YNw" },
+  "https://www.youtube.com/embed/x8XJCSYZzp0": { title: "産前産後ケア事業：ensemble", categoryLabel: "RAYTUS事業", videoId: "x8XJCSYZzp0" },
+  "https://www.youtube.com/embed/rRPdgC6p5WE": { title: "食事業：RAY和おむすび", categoryLabel: "RAYTUS事業", videoId: "rRPdgC6p5WE" },
+  "https://www.youtube.com/embed/SUcNAq4RaPE": { title: "こころ事業：cocotoro.", categoryLabel: "RAYTUS事業", videoId: "SUcNAq4RaPE" },
+  "https://www.youtube.com/embed/PFbYFr9PMEw": { title: "オーダーメイドジュエリー事業：jewelry Aru", categoryLabel: "RAYTUS事業", videoId: "PFbYFr9PMEw" },
+  "https://www.youtube.com/embed/XRWrVBTuF6U": { title: "ライフパートナーマッチング事業：Raysring", categoryLabel: "RAYTUS事業", videoId: "XRWrVBTuF6U" },
+  "https://www.youtube.com/embed/CkEcsUg_Y3s": { title: "おとな世代〜シニア事業：ViVid days", categoryLabel: "RAYTUS事業", videoId: "CkEcsUg_Y3s" },
+  "https://www.youtube.com/embed/f7EScf-aVak": { title: "ママ&ベビースクール事業：ままゆね", categoryLabel: "RAYTUS事業", videoId: "f7EScf-aVak" },
+  "https://www.youtube.com/embed/qVvtNAyYQKk": { title: "ネイル総合事業：NailLAND", categoryLabel: "RAYTUS事業", videoId: "qVvtNAyYQKk" },
+  "https://www.youtube.com/embed/he4Lcckduvw": { title: "韓国コミュニティ事業：ノワナスクール", categoryLabel: "RAYTUS事業", videoId: "he4Lcckduvw" },
+  "https://www.youtube.com/embed/gw-bwyLDV4c": { title: "フェムケア事業：Femine", categoryLabel: "RAYTUS事業", videoId: "gw-bwyLDV4c" },
+  "https://www.youtube.com/embed/eKTUbn63_qc": { title: "総合美容事業：Ligare（リガーレ）", categoryLabel: "RAYTUS事業", videoId: "eKTUbn63_qc" },
+  "https://www.youtube.com/embed/K3bSbmq-_Gc": { title: "総合食事業：稲環（いなわ）", categoryLabel: "RAYTUS事業", videoId: "K3bSbmq-_Gc" },
+  "https://www.youtube.com/embed/5xOAhgqME6s": { title: "スポーツリカバリー事業：Re.Co Lab（リコラボ）", categoryLabel: "RAYTUS事業", videoId: "5xOAhgqME6s" },
+  "https://www.youtube.com/embed/CnTqMBOdvz0": { title: "クリエイティブ事業：CORECreativeStudio", categoryLabel: "RAYTUS事業", videoId: "CnTqMBOdvz0" },
+  "https://www.youtube.com/embed/WLTNPtndUPk": { title: "薬局事業：このまち薬局", categoryLabel: "RAYTUS事業", videoId: "WLTNPtndUPk" },
+  "https://www.youtube.com/embed/xpGunQNr4tE": { title: "セクシャルウェルネス事業：セクシャルLABO", categoryLabel: "RAYTUS事業", videoId: "xpGunQNr4tE" },
+  "https://www.youtube.com/embed/WO3j5E_98Go": { title: "おやこの爪事業：nail hug", categoryLabel: "RAYTUS事業", videoId: "WO3j5E_98Go" },
+  "https://www.youtube.com/embed/pUvEZ-U4tnw": { title: "お片付け事業：片付けの窓口", categoryLabel: "RAYTUS事業", videoId: "pUvEZ-U4tnw" }
+};
+
+let portalRequiredVideoUrls = [
+  "https://www.youtube.com/embed/B6m8mOEsw84",
+  "https://www.youtube.com/embed/zTGEDq3kAjI",
+  "https://www.youtube.com/embed/fjkadO1_OYs"
+];
+
+async function loadPortalRequiredVideos() {
+  try {
+    const raw = localStorage.getItem("neofamily_required_videos_v1");
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed)) portalRequiredVideoUrls = parsed;
+    }
+  } catch (e) {}
+  renderPortalRequiredVideos();
+
+  try {
+    if (typeof firebase !== "undefined" && firebase.apps.length) {
+      const db = firebase.firestore();
+      const doc = await db.collection("events").doc("_onboarding_required_videos_v1").get();
+      if (doc.exists && Array.isArray(doc.data()?.urls)) {
+        portalRequiredVideoUrls = doc.data().urls;
+        localStorage.setItem("neofamily_required_videos_v1", JSON.stringify(portalRequiredVideoUrls));
+        renderPortalRequiredVideos();
+      }
+    }
+  } catch (e) {}
+}
+
+function isPortalVideoWatched(url) {
+  const viewed = currentProgressData?.viewedContents || {};
+  if (viewed[url]) return true;
+  const info = PORTAL_VIDEO_CATALOG_MAP[url];
+  const vid = info ? info.videoId : (url.split("/embed/")[1] || "").split("?")[0];
+  if (!vid) return false;
+  return Object.keys(viewed).some(k => k.includes(vid));
+}
+
+function renderPortalRequiredVideos() {
+  const wrapper = document.getElementById("portal-required-videos-wrapper");
+  const grid = document.getElementById("portal-required-videos-grid");
+  const badge = document.getElementById("portal-required-videos-badge");
+  if (!wrapper || !grid) return;
+
+  if (!portalRequiredVideoUrls || portalRequiredVideoUrls.length === 0) {
+    wrapper.classList.add("hidden");
+    return;
+  }
+  wrapper.classList.remove("hidden");
+
+  let watchedCount = 0;
+  portalRequiredVideoUrls.forEach(u => {
+    if (isPortalVideoWatched(u)) watchedCount++;
+  });
+
+  if (badge) {
+    badge.textContent = `${watchedCount} / ${portalRequiredVideoUrls.length} 視聴済`;
+  }
+
+  grid.innerHTML = portalRequiredVideoUrls.map(url => {
+    const info = PORTAL_VIDEO_CATALOG_MAP[url] || { title: url, categoryLabel: "必須動画", videoId: "" };
+    const watched = isPortalVideoWatched(url);
+    const safeTitle = info.title.replace(/'/g, "\\'");
+    return `
+      <div onclick="openVideoModal('${url}', '${safeTitle}')" class="bg-white/5 hover:bg-white/10 border ${watched ? 'border-emerald-400/60 bg-emerald-950/30' : 'border-white/15 hover:border-amber-400/60'} p-3 rounded-2xl transition cursor-pointer flex items-center gap-3 group">
+        <div class="relative w-16 h-11 rounded-lg overflow-hidden bg-slate-900 shrink-0">
+          ${info.videoId ? `<img src="https://img.youtube.com/vi/${info.videoId}/default.jpg" alt="" class="w-full h-full object-cover">` : ''}
+          <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+            <i class="fa-solid ${watched ? 'fa-circle-check text-emerald-400' : 'fa-play text-white'} text-xs"></i>
+          </div>
+        </div>
+        <div class="min-w-0 flex-1">
+          <div class="flex items-center gap-1.5 mb-0.5">
+            <span class="text-[9px] px-1.5 py-0.2 rounded font-bold ${watched ? 'bg-emerald-500/30 text-emerald-300' : 'bg-rose-500/30 text-rose-300'}">${watched ? '✅ 視聴済' : '🎬 必須動画'}</span>
+            <span class="text-[9px] text-slate-400 truncate">${info.categoryLabel}</span>
+          </div>
+          <p class="text-xs font-bold text-white group-hover:text-amber-300 transition line-clamp-1">${info.title}</p>
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
 // 初期化
 async function initMemberTracker() {
+  try {
+    const localViewed = localStorage.getItem("neofamily_guest_viewed_contents");
+    if (localViewed) {
+      currentProgressData.viewedContents = JSON.parse(localViewed) || {};
+    }
+  } catch (e) {}
+
+  await loadPortalRequiredVideos();
+
   // 1. URLパラメータから ?uid=... または ?memberId=... をチェック
   const urlParams = new URLSearchParams(window.location.search);
   const paramId = urlParams.get('uid') || urlParams.get('memberId');
@@ -39,6 +168,7 @@ async function initMemberTracker() {
 
   updateHeaderMemberUI(currentMemberId);
   updateOnboardingProgressUI();
+  renderPortalRequiredVideos();
 }
 
 // 会員IDの設定
@@ -153,6 +283,7 @@ function applyProgressToUI(data) {
   if (document.getElementById('check-step-3')) document.getElementById('check-step-3').checked = !!steps.support;
 
   updateOnboardingProgressUI();
+  renderPortalRequiredVideos();
 }
 
 // クラウドへ進捗・アクションを保存
@@ -227,14 +358,35 @@ function updateOnboardingProgressUI() {
 
 // コンテンツ閲覧ログの記録（動画、フロー、事業紹介など）
 function trackContentView(contentId, contentTitle) {
-  if (!currentMemberId) return;
-
   const now = new Date().toISOString();
   if (!currentProgressData.viewedContents) currentProgressData.viewedContents = {};
   currentProgressData.viewedContents[contentId] = {
     title: contentTitle,
     viewedAt: now
   };
+
+  try {
+    localStorage.setItem("neofamily_guest_viewed_contents", JSON.stringify(currentProgressData.viewedContents));
+  } catch (e) {}
+
+  renderPortalRequiredVideos();
+
+  if (!currentMemberId) return;
+
+  try {
+    const rawMembers = localStorage.getItem("neofamily_cached_members");
+    if (rawMembers) {
+      const members = JSON.parse(rawMembers);
+      if (Array.isArray(members)) {
+        const m = members.find(x => x && x.memberId === currentMemberId);
+        if (m) {
+          m.viewedContents = { ...(m.viewedContents || {}), ...currentProgressData.viewedContents };
+          m.lastActiveAt = now;
+          localStorage.setItem("neofamily_cached_members", JSON.stringify(members));
+        }
+      }
+    }
+  } catch (e) {}
 
   saveMemberProgressToCloud({
     viewedContents: currentProgressData.viewedContents

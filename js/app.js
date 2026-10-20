@@ -11,7 +11,7 @@ let currentYear = 2026;
 let currentMonth = 9; // 0-indexed: 9 = October
 let selectedDate = null;
 let currentCategory = "all";
-let currentViewMode = "calendar"; // "cards" | "week" | "calendar"
+let currentViewMode = "cards"; // "cards" | "week" | "calendar"
 let currentSearch = "";
 let unlockedArchives = new Set(); // Stores event IDs that have been unlocked in this session
 
@@ -48,7 +48,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   loadEventsFromLocal();
   initEventListeners();
   updateAdminUI();
-  switchViewMode("calendar");
   renderApp();
   registerServiceWorker();
   updateNotificationUI();
@@ -101,20 +100,11 @@ function applyEvents(baseEvents) {
   }
 
   const combined = [...baseEvents];
-  // Avoid duplicates and ensure all INITIAL_EVENTS are included
+  // Avoid duplicates
   const existingIds = new Set(baseEvents.map(e => e.id));
-  if (typeof INITIAL_EVENTS !== "undefined" && Array.isArray(INITIAL_EVENTS)) {
-    for (const initEv of INITIAL_EVENTS) {
-      if (initEv && initEv.id && !existingIds.has(initEv.id)) {
-        combined.push(initEv);
-        existingIds.add(initEv.id);
-      }
-    }
-  }
   for (const created of localCreatedEvents) {
     if (!existingIds.has(created.id)) {
       combined.push(created);
-      existingIds.add(created.id);
     }
   }
 

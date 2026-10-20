@@ -423,6 +423,22 @@
             </div>
           </div>
         </div>
+
+        <!-- 🎬 新人向け必須動画リスト（管理画面でチェック指定されたポータル動画を自動表示） -->
+        <div id="portal-required-videos-wrapper" class="pt-4 border-t border-indigo-800/40 space-y-3">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <h4 class="text-xs sm:text-sm font-black text-white flex items-center gap-2">
+              <i class="fa-solid fa-circle-play text-rose-400"></i>
+              <span>新人向け必須動画（タップで再生 → 自動で視聴済になります）</span>
+            </h4>
+            <span id="portal-required-videos-badge" class="text-[11px] font-extrabold px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-200 border border-rose-400/30">
+              0 / 3 視聴済
+            </span>
+          </div>
+          <div id="portal-required-videos-grid" class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <!-- JSで自動描画 -->
+          </div>
+        </div>
       </section>
 
       <!-- ========================================== -->
@@ -3573,6 +3589,9 @@
       `;
 
       openModal('raytus-service-modal');
+      if (item.videoId && typeof trackContentView === 'function') {
+        trackContentView('https://www.youtube.com/embed/' + item.videoId, item.businessName + '：' + item.companyName);
+      }
     }
 
     function closeRaytusServiceModal() {
@@ -3643,9 +3662,9 @@
   <script src="js/firebase-config.js"></script>
 
   <!-- RAYTUS Services Data & Calendar Data & App Scripts -->
-  <script src="js/raytus-services-data.js?v=20261020_10"></script>
-  <script src="js/events-data.js?v=20261020_10"></script>
-  <script src="js/member-tracker.js?v=20261020_10"></script>
-  <script src="js/app.js?v=20261020_10"></script>
+  <script src="js/raytus-services-data.js?v=20261020_12"></script>
+  <script src="js/events-data.js?v=20261020_12"></script>
+  <script src="js/member-tracker.js?v=20261020_12"></script>
+  <script src="js/app.js?v=20261020_12"></script>
 </body>
 </html>
