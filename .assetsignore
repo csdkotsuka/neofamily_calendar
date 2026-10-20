@@ -1,0 +1,18 @@
+# Cloudflare Static Assets Ignore
+.git
+.git/**
+.github
+.github/**
+.DS_Store
+.wrangler
+.wrangler/**
+prvided data
+prvided data/**
+provided data
+provided data/**
+scripts
+scripts/**
+*.py
+*.swift
+*.md
+functions/**
