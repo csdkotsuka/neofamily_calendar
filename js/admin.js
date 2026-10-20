@@ -5,7 +5,7 @@
  * event CRUD, and system settings.
  */
 
-const DEFAULT_ADMIN_PASSCODE = "neo2026";
+var DEFAULT_ADMIN_PASSCODE = "neo2026";
 let allEvents = [];
 let cachedArchiveLogs = [];
 let currentLogFilter = "";
@@ -128,6 +128,25 @@ function adminLogout() {
 async function loadDashboardData() {
   const statusBadge = document.getElementById("firestore-status-badge");
   const sysFirestoreStatus = document.getElementById("sys-firestore-status");
+
+  // 0. ブロックリストを最優先・即時同期描画（Firestore通信待ちでブロックしない）
+  try {
+    loadBlocklistData();
+  } catch (e) {
+    console.warn("[Admin] Initial loadBlocklistData error:", e);
+  }
+
+  // 初期ローカルイベントで即座にテーブルと件数を描画
+  if ((!allEvents || allEvents.length === 0) && typeof INITIAL_EVENTS !== "undefined") {
+    allEvents = [...INITIAL_EVENTS];
+    const totalEventsEl = document.getElementById("sys-total-events");
+    const tabEventCountEl = document.getElementById("tab-event-count");
+    if (totalEventsEl) totalEventsEl.textContent = `${allEvents.length} 件`;
+    if (tabEventCountEl) tabEventCountEl.textContent = allEvents.length;
+    try {
+      renderAdminEventsTable();
+    } catch (e) {}
+  }
 
   // 1. Load Events (Firestore or INITIAL_EVENTS)
   try {
@@ -1568,6 +1587,30 @@ function closeModal(id) {
   }
 }
 
+function showToast(message) {
+  try {
+    let container = document.getElementById("toast-container");
+    if (!container) {
+      container = document.createElement("div");
+      container.id = "toast-container";
+      container.className = "fixed bottom-5 right-5 z-50 pointer-events-none space-y-2";
+      document.body.appendChild(container);
+    }
+    const toast = document.createElement("div");
+    toast.className = "px-4 py-3 rounded-2xl bg-slate-900 text-white text-xs font-bold shadow-xl border border-slate-700 flex items-center gap-2 transition-all duration-300";
+    toast.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400"></i><span>${escapeHtml(String(message || ""))}</span>`;
+    container.appendChild(toast);
+    setTimeout(() => {
+      toast.style.opacity = "0";
+      setTimeout(() => {
+        if (toast.parentNode) toast.parentNode.removeChild(toast);
+      }, 300);
+    }, 2800);
+  } catch (e) {
+    console.log("[Toast]", message);
+  }
+}
+
 // =========================================================================
 // ==================== BLOCKLIST MANAGEMENT (入会不適合者リスト) ====================
 // =========================================================================
@@ -1606,7 +1649,11 @@ async function loadBlocklistData() {
     }
   }
 
-  // Firestore が利用可能な場合は同期を試行
+  // まずローカル/初期データで即座に画面を描画（通信待ちゼロ）
+  renderBlocklistKPI();
+  renderAdminBlocklistTable();
+
+  // Firestore が利用可能な場合はバックグラウンドで同期を試行
   if (typeof firebase !== "undefined" && firebase.apps.length) {
     try {
       const db = firebase.firestore();
@@ -1619,15 +1666,14 @@ async function loadBlocklistData() {
         if (firestoreList.length > 0) {
           allBlocklist = firestoreList;
           localStorage.setItem("neofamily_blocklist", JSON.stringify(allBlocklist));
+          renderBlocklistKPI();
+          renderAdminBlocklistTable();
         }
       }
     } catch (err) {
       console.warn("[Blocklist] Firestore read warning (using local dataset):", err);
     }
   }
-
-  renderBlocklistKPI();
-  renderAdminBlocklistTable();
 }
 
 /**

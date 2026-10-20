@@ -3,11 +3,10 @@
  * Handles PWA lifecycle, notifications, and offline caching.
  */
 
-const CACHE_NAME = "neofamily-cache-v20261020_02";
+const CACHE_NAME = "neofamily-cache-v20261020_07";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
-  "./admin.html",
   "./css/style.css",
   "./js/events-data.js",
   "./js/app.js",
@@ -48,6 +47,15 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   // Only handle GET requests for our origin
   if (event.request.method !== "GET" || !event.request.url.startsWith(self.location.origin)) {
+    return;
+  }
+
+  // Never cache admin console or blocklist data — always fetch fresh from network
+  if (
+    event.request.url.includes("admin") ||
+    event.request.url.includes("blocklist")
+  ) {
+    event.respondWith(fetch(event.request, { cache: "no-store" }).catch(() => fetch(event.request)));
     return;
   }
 

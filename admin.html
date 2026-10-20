@@ -53,7 +53,27 @@
     }
   </script>
   <script>
-    const DEFAULT_ADMIN_PASSCODE = "neo2026";
+    var DEFAULT_ADMIN_PASSCODE = "neo2026";
+
+    // 古いService Workerキャッシュを即時破棄して常に最新スクリプトを保証
+    try {
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(regs) {
+          for (var i = 0; i < regs.length; i++) {
+            regs[i].update();
+          }
+        }).catch(function() {});
+      }
+      if ("caches" in window) {
+        caches.keys().then(function(names) {
+          for (var i = 0; i < names.length; i++) {
+            if (names[i] !== "neofamily-cache-v20261020_07") {
+              caches.delete(names[i]);
+            }
+          }
+        }).catch(function() {});
+      }
+    } catch(e) {}
 
     // パスコード正規化（全角英数→半角、大文字→小文字、全角半角空白除去）
     function normalizePasscode(str) {
@@ -166,9 +186,11 @@
       } catch(e) {}
     })();
 
-    // DOM構築完了時に即時認証チェック
+    // フォールバック：万一外部スクリプト読込に失敗した場合のみ head 側で認証表示切替を実行
     document.addEventListener("DOMContentLoaded", function() {
-      checkAdminAuth();
+      if (typeof setupEscapeKeyHandler !== "function") {
+        checkAdminAuth();
+      }
     });
   </script>
 </head>
@@ -1293,9 +1315,9 @@
   <script src="js/firebase-config.js"></script>
 
   <!-- Application Scripts (with Cache Busting) -->
-  <script src="js/events-data.js?v=20261020_06"></script>
-  <script src="js/blocklist-data.js?v=20261020_06"></script>
-  <script src="js/admin.js?v=20261020_06"></script>
+  <script src="js/events-data.js?v=20261020_07"></script>
+  <script src="js/blocklist-data.js?v=20261020_07"></script>
+  <script src="js/admin.js?v=20261020_07"></script>
 
 </body>
 </html>

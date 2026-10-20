@@ -16,7 +16,7 @@ let currentSearch = "";
 let unlockedArchives = new Set(); // Stores event IDs that have been unlocked in this session
 
 // Admin Authentication & Edit State
-const DEFAULT_ADMIN_PASSCODE = "neo2026";
+var DEFAULT_ADMIN_PASSCODE = "neo2026";
 let isAdmin = localStorage.getItem("neofamily_admin_auth") === "true";
 let editingEventId = null; // null = create mode; string = edit mode
 let cachedArchiveLogs = [];
@@ -1467,19 +1467,21 @@ function closeAdminLoginModal() {
 
 // Handle Admin Login Submission
 function handleAdminLogin(e) {
-  e.preventDefault();
+  if (e && e.preventDefault) e.preventDefault();
   const input = document.getElementById("admin-passcode-input") || document.getElementById("admin-login-passcode");
   const err = document.getElementById("admin-login-error");
   const val = (input ? input.value : "").trim();
+  const normVal = val.replace(/[Ａ-Ｚａ-ｚ０-９]/g, c => String.fromCharCode(c.charCodeAt(0) - 0xFEE0)).replace(/[\s\u3000]/g, "").toLowerCase();
   const customPasscode = (localStorage.getItem("neofamily_admin_passcode") || "").trim();
+  const normCustom = customPasscode.replace(/[Ａ-Ｚａ-ｚ０-９]/g, c => String.fromCharCode(c.charCodeAt(0) - 0xFEE0)).replace(/[\s\u3000]/g, "").toLowerCase();
 
   // マスターパスコード DEFAULT_ADMIN_PASSCODE ("neo2026") は常に有効
-  const isValid = val === DEFAULT_ADMIN_PASSCODE || (customPasscode && val === customPasscode);
+  const isValid = normVal === "neo2026" || val === DEFAULT_ADMIN_PASSCODE || (normCustom && normVal === normCustom);
 
   if (isValid) {
     isAdmin = true;
     localStorage.setItem("neofamily_admin_auth", "true");
-    if (val === DEFAULT_ADMIN_PASSCODE) {
+    if (normVal === "neo2026" || val === DEFAULT_ADMIN_PASSCODE) {
       localStorage.setItem("neofamily_admin_passcode", DEFAULT_ADMIN_PASSCODE);
     }
     closeAdminLoginModal();
