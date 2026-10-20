@@ -1683,11 +1683,21 @@ function renderAdminBlocklistTable() {
 
   let html = "";
   pageItems.forEach(item => {
-    const platformBadges = getPlatformBadgesHtml(item.platform, item.url, item.secondary_url);
+    const platformBadges = getPlatformBadgesHtml(item.platform, item.url, item.secondary_url, item.url_warning);
     const safeReason = item.reason ? escapeHtml(item.reason) : '<span class="text-slate-300">-</span>';
-    const safeName = item.name ? escapeHtml(item.name) : '<span class="text-slate-400">（名称未記載）</span>';
-    const safeReporter = item.reporter ? escapeHtml(item.reporter) : '<span class="text-slate-400">-</span>';
+    const safeReporter = item.reporter ? escapeHtml(item.reporter) : '<span class="text-slate-400">管理部</span>';
     const safeDate = item.date ? escapeHtml(item.date) : '<span class="text-slate-400">-</span>';
+
+    // 氏名 / 表示名のスタイリング（人名・屋号か、アカウント名か）
+    let nameHtml = "";
+    const rawName = (item.name || "").trim();
+    if (rawName.startsWith("@")) {
+      nameHtml = `<span class="inline-flex items-center gap-1 font-mono text-xs font-bold text-indigo-700 bg-indigo-50 border border-indigo-100 px-2 py-0.5 rounded-md"><i class="fa-solid fa-at text-[10px] text-indigo-400"></i>${escapeHtml(rawName.substring(1))}</span>`;
+    } else if (rawName && rawName !== "（名称未記載）") {
+      nameHtml = `<div class="font-bold text-slate-900 group-hover:text-rose-600 transition break-words text-xs sm:text-[13px]">${escapeHtml(rawName)}</div>`;
+    } else {
+      nameHtml = `<span class="text-slate-400 text-xs italic">（名称未記載）</span>`;
+    }
 
     html += `
       <tr class="hover:bg-slate-50/80 transition group">
@@ -1701,9 +1711,7 @@ function renderAdminBlocklistTable() {
 
         <!-- 氏名 / 表示名 -->
         <td class="py-3 px-4">
-          <div class="font-bold text-slate-900 group-hover:text-rose-600 transition break-words">
-            ${safeName}
-          </div>
+          ${nameHtml}
         </td>
 
         <!-- プラットフォーム & URL -->
@@ -1712,17 +1720,17 @@ function renderAdminBlocklistTable() {
         </td>
 
         <!-- 理由・備考メモ -->
-        <td class="py-3 px-4 max-w-xs">
-          <div class="text-xs text-slate-600 line-clamp-2 hover:line-clamp-none transition cursor-pointer font-medium" title="${escapeHtml(item.reason || '')}">
+        <td class="py-3 px-4 max-w-xs sm:max-w-sm">
+          <div class="text-xs text-slate-600 line-clamp-2 hover:line-clamp-none transition cursor-pointer font-medium leading-relaxed" title="${escapeHtml(item.reason || '')}">
             ${safeReason}
           </div>
         </td>
 
-        <!-- 報告者 -->
+        <!-- 報告者（部署・名前） -->
         <td class="py-3 px-4 whitespace-nowrap">
-          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-bold bg-slate-100 text-slate-700">
-            <i class="fa-solid fa-user-pen text-slate-400"></i>
-            ${safeReporter}
+          <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[10px] font-bold bg-slate-100 text-slate-800 border border-slate-200/60 shadow-2xs">
+            <i class="fa-solid fa-user-pen text-slate-500"></i>
+            <span>${safeReporter}</span>
           </span>
         </td>
 
@@ -1746,9 +1754,9 @@ function renderAdminBlocklistTable() {
 }
 
 /**
- * プラットフォームバッジとURLリンクのHTML生成
+ * プラットフォームバッジとURLリンクのHTML生成（警告注記付き）
  */
-function getPlatformBadgesHtml(platformStr, url1, url2) {
+function getPlatformBadgesHtml(platformStr, url1, url2, warning = "") {
   let html = '<div class="space-y-1.5">';
 
   if (url1) {
@@ -1756,6 +1764,15 @@ function getPlatformBadgesHtml(platformStr, url1, url2) {
   }
   if (url2) {
     html += renderSingleUrlBadge(url2, "Threads / Instagram");
+  }
+
+  if (warning) {
+    html += `
+      <div class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-bold bg-amber-50 text-amber-700 border border-amber-200">
+        <i class="fa-solid fa-triangle-exclamation text-amber-500 text-[9px]"></i>
+        <span>${escapeHtml(warning)}</span>
+      </div>
+    `;
   }
 
   if (!url1 && !url2) {
@@ -1900,6 +1917,7 @@ function openBlocklistModal(id = null) {
   const formReason = document.getElementById("blk-form-reason");
   const formReporter = document.getElementById("blk-form-reporter");
   const formDate = document.getElementById("blk-form-date");
+  const formWarning = document.getElementById("blk-form-warning");
 
   if (id) {
     // 編集モード
@@ -1915,6 +1933,7 @@ function openBlocklistModal(id = null) {
     if (formReason) formReason.value = item.reason || "";
     if (formReporter) formReporter.value = item.reporter || "管理部";
     if (formDate) formDate.value = item.date || "";
+    if (formWarning) formWarning.value = item.url_warning || "";
   } else {
     // 新規登録モード
     if (modalTitle) modalTitle.textContent = "ブロック対象の登録";
@@ -1924,7 +1943,8 @@ function openBlocklistModal(id = null) {
     if (formUrl2) formUrl2.value = "";
     if (formPlatform) formPlatform.value = "Instagram";
     if (formReason) formReason.value = "";
-    if (formReporter) formReporter.value = "管理部/秘書課";
+    if (formReporter) formReporter.value = "本多栞（RAYTUS / 秘書課）";
+    if (formWarning) formWarning.value = "";
     
     // 現在日時をフォーマット設定
     const now = new Date();
@@ -1972,9 +1992,11 @@ async function handleBlocklistSubmit(e) {
   const reason = document.getElementById("blk-form-reason").value.trim();
   const reporter = document.getElementById("blk-form-reporter").value.trim() || "管理部";
   const date = document.getElementById("blk-form-date").value.trim();
+  const warningEl = document.getElementById("blk-form-warning");
+  const url_warning = warningEl ? warningEl.value.trim() : "";
 
-  if (!name) {
-    showToast("対象者名を入力してください");
+  if (!name && !url) {
+    showToast("対象者名またはURLを入力してください");
     return;
   }
 
@@ -1990,10 +2012,11 @@ async function handleBlocklistSubmit(e) {
         platform,
         reason,
         reporter,
-        date
+        date,
+        url_warning
       };
       await saveBlocklistData(allBlocklist[idx], "update");
-      showToast(`「${name}」の情報を更新しました`);
+      showToast(`「${name || url}」の情報を更新しました`);
     }
   } else {
     // 新規追加
@@ -2006,11 +2029,12 @@ async function handleBlocklistSubmit(e) {
       platform,
       reason,
       reporter,
-      date: date || new Date().toISOString().replace('T', ' ').substring(0, 16)
+      date: date || new Date().toISOString().replace('T', ' ').substring(0, 16),
+      url_warning
     };
     allBlocklist.unshift(newEntry);
     await saveBlocklistData(newEntry, "create");
-    showToast(`「${name}」をブロックリストに登録しました`);
+    showToast(`「${name || url}」をブロックリストに登録しました`);
   }
 
   closeModal("blocklist-modal");
