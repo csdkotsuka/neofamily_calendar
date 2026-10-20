@@ -1093,6 +1093,7 @@ function setupEscapeKeyHandler() {
       closeModal('add-member-modal');
       closeModal('blocklist-modal');
       closeModal('blocklist-delete-modal');
+      closeModal('ocr-transcription-modal');
     }
   });
 }
@@ -1621,57 +1622,110 @@ let blocklistPerPage = 50;
 let blocklistDeleteTargetId = null;
 
 /**
+ * ユーザーによる手動編集・追加・削除の差分データを取得・保存
+ * INITIAL_BLOCKLIST が更新されても、管理者が手動編集した内容は100%保持される
+ */
+function getBlocklistUserEdits() {
+  try {
+    const raw = localStorage.getItem("neofamily_blocklist_user_edits_v5");
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (parsed && typeof parsed === "object") {
+        return {
+          updated: parsed.updated || {},
+          created: Array.isArray(parsed.created) ? parsed.created : [],
+          deleted: parsed.deleted || {}
+        };
+      }
+    }
+  } catch (e) {}
+  return { updated: {}, created: [], deleted: {} };
+}
+
+function setBlocklistUserEdits(edits) {
+  try {
+    localStorage.setItem("neofamily_blocklist_user_edits_v5", JSON.stringify(edits));
+  } catch (e) {}
+}
+
+function applyBlocklistUserEditsToBase(baseList, edits) {
+  let list = baseList.filter(item => !edits.deleted[item.id]);
+  list = list.map(item => {
+    if (edits.updated[item.id]) {
+      return { ...item, ...edits.updated[item.id] };
+    }
+    return { ...item };
+  });
+  const existingIds = new Set(list.map(x => x.id));
+  const createdValid = (edits.created || []).filter(item => item && item.id && !edits.deleted[item.id] && !existingIds.has(item.id));
+  return [...createdValid, ...list];
+}
+
+/**
  * ブロックリストデータの読み込み
- * LocalStorage -> INITIAL_BLOCKLIST -> Firestore (利用可能な場合)
+ * INITIAL_BLOCKLIST + LocalStorage差分 + Firestore差分 (古いデータで上書きしない)
  */
 async function loadBlocklistData() {
-  const currentVersion = "v4";
-  const storedVersion = localStorage.getItem("neofamily_blocklist_version");
-  const cached = localStorage.getItem("neofamily_blocklist");
+  const currentVersion = "v5";
+  const base = (typeof INITIAL_BLOCKLIST !== "undefined" && Array.isArray(INITIAL_BLOCKLIST))
+    ? INITIAL_BLOCKLIST
+    : [];
+  const edits = getBlocklistUserEdits();
 
-  if (cached && storedVersion === currentVersion) {
-    try {
-      allBlocklist = JSON.parse(cached);
-    } catch (e) {
-      console.warn("[Blocklist] Failed to parse cached blocklist:", e);
-      allBlocklist = [];
-    }
-  }
+  allBlocklist = applyBlocklistUserEditsToBase(base, edits);
 
-  // 初期データがない、またはデータセットが更新された場合は INITIAL_BLOCKLIST から最新をロード
-  if (!allBlocklist || allBlocklist.length === 0 || storedVersion !== currentVersion) {
-    if (typeof INITIAL_BLOCKLIST !== "undefined" && Array.isArray(INITIAL_BLOCKLIST)) {
-      allBlocklist = [...INITIAL_BLOCKLIST];
-      localStorage.setItem("neofamily_blocklist", JSON.stringify(allBlocklist));
-      localStorage.setItem("neofamily_blocklist_version", currentVersion);
-    } else {
-      allBlocklist = [];
-    }
-  }
+  try {
+    localStorage.setItem("neofamily_blocklist", JSON.stringify(allBlocklist));
+    localStorage.setItem("neofamily_blocklist_version", currentVersion);
+  } catch (e) {}
 
-  // まずローカル/初期データで即座に画面を描画（通信待ちゼロ）
+  // まずローカル/初期データ＋手動編集差分で即座に画面を描画（通信待ちゼロ）
   renderBlocklistKPI();
   renderAdminBlocklistTable();
 
-  // Firestore が利用可能な場合はバックグラウンドで同期を試行
+  // Firestore の手動編集差分コレクション（blocklist_user_edits_v5）をバックグラウンドでマージ
   if (typeof firebase !== "undefined" && firebase.apps.length) {
     try {
       const db = firebase.firestore();
-      const snap = await db.collection("blocklist").get();
+      const snap = await db.collection("blocklist_user_edits_v5").get();
       if (!snap.empty) {
-        const firestoreList = [];
+        let changed = false;
+        const latestEdits = getBlocklistUserEdits();
         snap.forEach(doc => {
-          firestoreList.push({ id: doc.id, ...doc.data() });
+          const data = doc.data();
+          if (!data || !data.action) return;
+          const id = doc.id;
+          if (data.action === "delete") {
+            if (!latestEdits.deleted[id]) {
+              latestEdits.deleted[id] = true;
+              delete latestEdits.updated[id];
+              changed = true;
+            }
+          } else if (data.action === "update" && data.entry) {
+            const localEntry = latestEdits.updated[id];
+            const remoteTime = data.updatedAt || 0;
+            const localTime = localEntry && localEntry._savedAt ? localEntry._savedAt : 0;
+            if (!localEntry || remoteTime > localTime) {
+              latestEdits.updated[id] = { ...data.entry, _savedAt: remoteTime };
+              changed = true;
+            }
+          } else if (data.action === "create" && data.entry) {
+            if (!latestEdits.deleted[id] && !latestEdits.created.some(c => c.id === id)) {
+              latestEdits.created.unshift(data.entry);
+              changed = true;
+            }
+          }
         });
-        if (firestoreList.length > 0) {
-          allBlocklist = firestoreList;
+        if (changed) {
+          setBlocklistUserEdits(latestEdits);
+          allBlocklist = applyBlocklistUserEditsToBase(base, latestEdits);
           localStorage.setItem("neofamily_blocklist", JSON.stringify(allBlocklist));
           renderBlocklistKPI();
           renderAdminBlocklistTable();
         }
       }
     } catch (err) {
-      console.warn("[Blocklist] Firestore read warning (using local dataset):", err);
+      console.warn("[Blocklist] Firestore delta sync skipped:", err);
     }
   }
 }
@@ -1730,7 +1784,12 @@ function renderAdminBlocklistTable() {
     // プラットフォーム絞り込み
     if (selectedPlatform !== "all") {
       const p = (item.platform || "").toLowerCase();
-      if (!p.includes(selectedPlatform.toLowerCase())) {
+      if (selectedPlatform === "その他") {
+        // KPIの「その他/Web」と同じ条件（Instagram / Threads / Facebook を含まないもの）
+        if (p.includes("instagram") || p.includes("threads") || p.includes("facebook")) {
+          return false;
+        }
+      } else if (!p.includes(selectedPlatform.toLowerCase())) {
         return false;
       }
     }
@@ -1839,42 +1898,44 @@ function renderAdminBlocklistTable() {
     html += `
       <tr class="hover:bg-slate-50/80 transition group">
         <!-- 登録日時（改行表示） -->
-        <td class="py-2.5 px-3 whitespace-nowrap text-center shrink-0 w-24">
+        <td class="py-3 px-3 whitespace-nowrap text-center shrink-0 w-24">
           ${dateHtml}
         </td>
 
-        <!-- 氏名 / 表示名（幅狭・コンパクト） -->
-        <td class="py-2.5 px-3 w-32 max-w-[130px] shrink-0">
+        <!-- 氏名 / 表示名（幅広・見やすく） -->
+        <td class="py-3 px-3 w-64 min-w-[200px] max-w-[280px] shrink-0">
           ${nameHtml}
         </td>
 
         <!-- プラットフォーム & URL -->
-        <td class="py-2.5 px-3 w-56 min-w-[190px] shrink-0">
+        <td class="py-3 px-3 w-60 min-w-[195px] max-w-[250px] shrink-0">
           ${platformBadges}
         </td>
 
-        <!-- 理由・備考メモ（全文そのまま） -->
-        <td class="py-2.5 px-3 min-w-[200px]">
+        <!-- 理由・備考メモ（バランス調整） -->
+        <td class="py-3 px-3 min-w-[190px] max-w-[320px]">
           <div class="text-xs text-slate-700 font-medium leading-relaxed break-words whitespace-pre-line" title="${escapeHtml(item.reason || '')}">
             ${safeReason}
           </div>
         </td>
 
         <!-- 報告者（部署と名前改行） -->
-        <td class="py-2.5 px-2.5 w-28 max-w-[115px] shrink-0 text-center">
-          <div class="bg-slate-100/90 py-1 px-1.5 rounded-lg border border-slate-200/50">
+        <td class="py-3 px-2.5 w-36 min-w-[125px] max-w-[160px] shrink-0 text-center">
+          <div class="bg-slate-100/90 py-1.5 px-2 rounded-lg border border-slate-200/50">
             ${repHtml}
           </div>
         </td>
 
-        <!-- アクション（縦並び配置・極小幅） -->
-        <td class="py-2 px-1 text-center whitespace-nowrap w-12 shrink-0">
-          <div class="flex flex-col items-center justify-center gap-1">
-            <button onclick="openBlocklistModal('${item.id}')" title="編集" class="w-6 h-6 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition">
-              <i class="fa-solid fa-pen-to-square text-[10px]"></i>
+        <!-- アクション（大きめで見やすい縦並びボタン） -->
+        <td class="py-2.5 px-2 text-center whitespace-nowrap w-24 min-w-[92px] shrink-0">
+          <div class="flex flex-col items-center justify-center gap-1.5">
+            <button type="button" onclick="openBlocklistModal('${item.id}')" title="編集" class="w-full px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs flex items-center justify-center gap-1.5 transition shadow-2xs border border-slate-200/80 cursor-pointer">
+              <i class="fa-solid fa-pen-to-square text-[11px]"></i>
+              <span>編集</span>
             </button>
-            <button onclick="openBlocklistDeleteModal('${item.id}')" title="削除" class="w-6 h-6 rounded-md bg-rose-50 hover:bg-rose-100 text-rose-600 flex items-center justify-center transition">
-              <i class="fa-solid fa-trash text-[10px]"></i>
+            <button type="button" onclick="openBlocklistDeleteModal('${item.id}')" title="削除" class="w-full px-2.5 py-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-xs flex items-center justify-center gap-1.5 transition shadow-2xs border border-rose-200/70 cursor-pointer">
+              <i class="fa-solid fa-trash text-[11px]"></i>
+              <span>削除</span>
             </button>
           </div>
         </td>
@@ -1938,8 +1999,8 @@ function renderSingleUrlBadge(url, defaultPlatform) {
 
   // URL短縮（コンパクト表示）
   let displayUrl = url.replace(/^https?:\/\/(www\.)?/, "");
-  if (displayUrl.length > 24) {
-    displayUrl = displayUrl.substring(0, 22) + "...";
+  if (displayUrl.length > 26) {
+    displayUrl = displayUrl.substring(0, 24) + "...";
   }
 
   return `
@@ -1952,7 +2013,7 @@ function renderSingleUrlBadge(url, defaultPlatform) {
         <span>${escapeHtml(displayUrl)}</span>
         <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i>
       </a>
-      <button onclick="copyBlocklistUrl('${escapeHtml(url)}')" title="URLをコピー" class="text-slate-400 hover:text-slate-700 transition text-[10px] ml-0.5">
+      <button type="button" onclick="copyBlocklistUrl('${escapeHtml(url)}')" title="URLをコピー" class="text-slate-400 hover:text-slate-700 transition text-[10px] ml-0.5">
         <i class="fa-regular fa-copy"></i>
       </button>
     </div>
@@ -2065,10 +2126,20 @@ function openBlocklistModal(id = null) {
 
     if (modalTitle) modalTitle.textContent = "ブロック対象の編集";
     if (formId) formId.value = item.id;
-    if (formName) formName.value = item.name || "";
+    if (formName) formName.value = item.name === "（名称未記載）" ? "" : (item.name || "");
     if (formUrl) formUrl.value = item.url || "";
     if (formUrl2) formUrl2.value = item.secondary_url || "";
-    if (formPlatform) formPlatform.value = item.platform || "Instagram";
+    if (formPlatform) {
+      const platVal = item.platform || "Instagram";
+      // 選択肢にないプラットフォームの場合は動的に追加
+      if (!Array.from(formPlatform.options).some(opt => opt.value === platVal)) {
+        const opt = document.createElement("option");
+        opt.value = platVal;
+        opt.textContent = platVal;
+        formPlatform.appendChild(opt);
+      }
+      formPlatform.value = platVal;
+    }
     if (formReason) formReason.value = item.reason || "";
     if (formReporter) formReporter.value = item.reporter || "管理部";
     if (formDate) formDate.value = item.date || "";
@@ -2134,47 +2205,48 @@ function filterByPlatformCard(platform) {
 async function handleBlocklistSubmit(e) {
   if (e) e.preventDefault();
 
+  const id = (document.getElementById("blk-form-id")?.value || "").trim();
+  const name = (document.getElementById("blk-form-name")?.value || "").trim();
+  const url = (document.getElementById("blk-form-url")?.value || "").trim();
+  const url2 = (document.getElementById("blk-form-url2")?.value || "").trim();
+  const platform = document.getElementById("blk-form-platform")?.value || "その他";
+  const reason = (document.getElementById("blk-form-reason")?.value || "").trim();
+  const reporter = (document.getElementById("blk-form-reporter")?.value || "").trim() || "本多栞（RAYTUS / 秘書課）";
+  const date = (document.getElementById("blk-form-date")?.value || "").trim();
+  const warningEl = document.getElementById("blk-form-warning");
+  const url_warning = warningEl ? warningEl.value.trim() : "";
+
+  if (!id && !name && !url && !reason) {
+    showToast("対象者名、URL、または理由を入力してください");
+    return;
+  }
+
   try {
-    const id = (document.getElementById("blk-form-id")?.value || "").trim();
-    const name = (document.getElementById("blk-form-name")?.value || "").trim();
-    const url = (document.getElementById("blk-form-url")?.value || "").trim();
-    const url2 = (document.getElementById("blk-form-url2")?.value || "").trim();
-    const platform = document.getElementById("blk-form-platform")?.value || "その他";
-    const reason = (document.getElementById("blk-form-reason")?.value || "").trim();
-    const reporter = (document.getElementById("blk-form-reporter")?.value || "").trim() || "本多栞（RAYTUS / 秘書課）";
-    const date = (document.getElementById("blk-form-date")?.value || "").trim();
-    const warningEl = document.getElementById("blk-form-warning");
-    const url_warning = warningEl ? warningEl.value.trim() : "";
-
-    if (!name && !url) {
-      showToast("対象者名またはURLを入力してください");
-      return;
-    }
-
     if (id) {
-      // 既存更新
+      // 既存更新（氏名欄を空にした場合も元の値に戻さず反映）
       const idx = allBlocklist.findIndex(b => b.id === id);
       if (idx !== -1) {
-        allBlocklist[idx] = {
+        const updatedEntry = {
           ...allBlocklist[idx],
-          name: name || allBlocklist[idx].name || "（名称未記載）",
+          name: name || "（名称未記載）",
           url,
           secondary_url: url2,
           platform,
           reason,
           reporter,
-          date,
+          date: date || allBlocklist[idx].date || "",
           url_warning
         };
-        saveBlocklistData(allBlocklist[idx], "update");
-        showToast(`「${name || url}」の情報を更新しました`);
+        allBlocklist[idx] = updatedEntry;
+        saveBlocklistData(updatedEntry, "update");
+        showToast(`「${name || url || '対象項目'}」の情報を保存しました`);
       }
     } else {
       // 新規追加
       const newId = `blk_${Date.now()}`;
       const newEntry = {
         id: newId,
-        name: name || (url ? "（名称未記載）" : "新規登録"),
+        name: name || "（名称未記載）",
         url,
         secondary_url: url2,
         platform,
@@ -2185,16 +2257,16 @@ async function handleBlocklistSubmit(e) {
       };
       allBlocklist.unshift(newEntry);
       saveBlocklistData(newEntry, "create");
-      showToast(`「${name || url}」をブロックリストに登録しました`);
+      showToast(`「${name || url || '新規対象'}」をブロックリストに登録しました`);
     }
   } catch (err) {
     console.error("[Blocklist] Error in submit handler:", err);
     showToast("保存処理中にエラーが発生しました");
-  } finally {
-    closeModal("blocklist-modal");
-    renderBlocklistKPI();
-    renderAdminBlocklistTable();
   }
+
+  closeModal("blocklist-modal");
+  renderBlocklistKPI();
+  renderAdminBlocklistTable();
 }
 
 /**
@@ -2240,35 +2312,180 @@ async function executeBlocklistDelete(id) {
 }
 
 /**
- * データの永続化 (LocalStorage & Firestore)
- * LocalStorageへ即座に反映し、Firestore同期はバックグラウンド非同期実行
+ * データの永続化 (LocalStorage 差分 + フルキャッシュ & Firestore 差分コレクション)
+ * リロードしても初期データや古いFirestoreデータで上書きされないよう差分を永続化
  */
 function saveBlocklistData(entry, action) {
-  // LocalStorage に即座に保存
   try {
+    const edits = getBlocklistUserEdits();
+    if (!edits.updated) edits.updated = {};
+    if (!Array.isArray(edits.created)) edits.created = [];
+    if (!Array.isArray(edits.deleted)) edits.deleted = [];
+
+    if (action === "update" && entry && entry.id) {
+      const createdIdx = edits.created.findIndex(c => c && c.id === entry.id);
+      if (createdIdx !== -1) {
+        edits.created[createdIdx] = { ...entry };
+      } else {
+        edits.updated[entry.id] = { ...entry };
+      }
+      edits.deleted = edits.deleted.filter(dId => dId !== entry.id);
+    } else if (action === "create" && entry && entry.id) {
+      edits.created = edits.created.filter(c => c && c.id !== entry.id);
+      edits.created.unshift({ ...entry });
+      edits.deleted = edits.deleted.filter(dId => dId !== entry.id);
+    } else if (action === "delete" && entry && entry.id) {
+      if (!edits.deleted.includes(entry.id)) {
+        edits.deleted.push(entry.id);
+      }
+      delete edits.updated[entry.id];
+      edits.created = edits.created.filter(c => c && c.id !== entry.id);
+    }
+
+    setBlocklistUserEdits(edits);
     localStorage.setItem("neofamily_blocklist", JSON.stringify(allBlocklist));
-    localStorage.setItem("neofamily_blocklist_version", "v4");
+    localStorage.setItem("neofamily_blocklist_version", "v5");
   } catch (err) {
     console.error("[Blocklist] LocalStorage save error:", err);
   }
 
-  // Firestore があれば非同期バックグラウンドで同期
-  if (typeof firebase !== "undefined" && firebase.apps.length) {
+  // Firestore の専用差分コレクション (blocklist_user_edits_v5) に非同期同期
+  if (typeof firebase !== "undefined" && firebase.apps.length && entry && entry.id) {
     try {
       const db = firebase.firestore();
+      const docRef = db.collection("blocklist_user_edits_v5").doc(entry.id);
       if (action === "create" || action === "update") {
-        db.collection("blocklist").doc(entry.id).set(entry, { merge: true }).catch(err => {
-          console.warn("[Blocklist] Firestore sync error:", err);
+        docRef.set({
+          action,
+          id: entry.id,
+          entry: { ...entry },
+          updatedAt: new Date().toISOString()
+        }, { merge: true }).catch(err => {
+          console.warn("[Blocklist] Firestore edit sync error:", err);
         });
       } else if (action === "delete") {
-        db.collection("blocklist").doc(entry.id).delete().catch(err => {
-          console.warn("[Blocklist] Firestore delete error:", err);
+        docRef.set({
+          action: "delete",
+          id: entry.id,
+          updatedAt: new Date().toISOString()
+        }).catch(err => {
+          console.warn("[Blocklist] Firestore delete sync error:", err);
         });
       }
     } catch (err) {
       console.warn("[Blocklist] Firestore error:", err);
     }
   }
+}
+
+/**
+ * スクリーンショット純粋文字起こし（全97枚）モーダル制御
+ */
+function openOcrTranscriptionModal() {
+  const searchEl = document.getElementById("ocr-transcription-search");
+  if (searchEl) searchEl.value = "";
+  renderOcrTranscriptionList();
+  openModal("ocr-transcription-modal");
+}
+
+function renderOcrTranscriptionList() {
+  const bodyEl = document.getElementById("ocr-transcription-body");
+  const countEl = document.getElementById("ocr-transcription-count");
+  const searchEl = document.getElementById("ocr-transcription-search");
+  if (!bodyEl) return;
+
+  const list = typeof RAW_OCR_TRANSCRIPTIONS !== "undefined" && Array.isArray(RAW_OCR_TRANSCRIPTIONS)
+    ? RAW_OCR_TRANSCRIPTIONS
+    : [];
+  const keyword = (searchEl?.value || "").trim().toLowerCase();
+
+  const filtered = list.filter(item => {
+    if (!keyword) return true;
+    return (
+      String(item.index).includes(keyword) ||
+      (item.file || "").toLowerCase().includes(keyword) ||
+      (item.text || "").toLowerCase().includes(keyword)
+    );
+  });
+
+  if (countEl) {
+    countEl.textContent = `全 ${list.length} 枚中 ${filtered.length} 枚を表示`;
+  }
+
+  if (filtered.length === 0) {
+    bodyEl.innerHTML = `
+      <div class="py-12 text-center text-slate-400">
+        <p class="font-bold text-sm">一致するスクリーンショットが見つかりませんでした</p>
+      </div>
+    `;
+    return;
+  }
+
+  let html = "";
+  filtered.forEach(item => {
+    const idxZero = item.index - 1;
+    const numStr = String(item.index).padStart(2, "0");
+    html += `
+      <div class="bg-white rounded-xl border border-slate-200 shadow-2xs overflow-hidden">
+        <div class="px-4 py-2.5 bg-slate-100/80 border-b border-slate-200 flex items-center justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded-md bg-slate-800 text-white font-mono text-xs font-bold">#${numStr} / 97</span>
+            <span class="font-mono text-xs font-bold text-slate-700">${escapeHtml(item.file || "")}</span>
+          </div>
+          <button type="button" onclick="copySingleOcrText(${idxZero})" class="px-2.5 py-1 rounded-md bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-[11px] font-bold flex items-center gap-1 transition cursor-pointer">
+            <i class="fa-regular fa-copy"></i>
+            <span>原文をコピー</span>
+          </button>
+        </div>
+        <pre class="p-4 text-xs text-slate-800 font-mono whitespace-pre-wrap break-all leading-relaxed m-0 select-all bg-white">${escapeHtml(item.text || "")}</pre>
+      </div>
+    `;
+  });
+
+  bodyEl.innerHTML = html;
+}
+
+function copySingleOcrText(idx) {
+  const list = typeof RAW_OCR_TRANSCRIPTIONS !== "undefined" && Array.isArray(RAW_OCR_TRANSCRIPTIONS)
+    ? RAW_OCR_TRANSCRIPTIONS
+    : [];
+  const item = list[idx];
+  if (!item || !navigator.clipboard) return;
+  navigator.clipboard.writeText(item.text || "").then(() => {
+    showToast(`#${String(item.index).padStart(2, "0")} (${item.file}) の文字起こしをコピーしました`);
+  });
+}
+
+function downloadOcrTranscriptionText() {
+  const list = typeof RAW_OCR_TRANSCRIPTIONS !== "undefined" && Array.isArray(RAW_OCR_TRANSCRIPTIONS)
+    ? RAW_OCR_TRANSCRIPTIONS
+    : [];
+  if (list.length === 0) {
+    showToast("文字起こしデータがありません");
+    return;
+  }
+  const lines = [
+    "LINEノート スクリーンショット純粋文字起こし（全97枚・要約/改変なし）",
+    "======================================================================",
+    ""
+  ];
+  list.forEach(item => {
+    const numStr = String(item.index).padStart(2, "0");
+    lines.push(`■ [${numStr}/97] ${item.file}`);
+    lines.push("----------------------------------------------------------------------");
+    lines.push(item.text || "");
+    lines.push("");
+  });
+  const blob = new Blob([lines.join("\r\n")], { type: "text/plain;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "blocklist_raw_transcription_97.txt";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showToast("全97枚の純粋文字起こしテキストをダウンロードしました");
 }
 
 /**
