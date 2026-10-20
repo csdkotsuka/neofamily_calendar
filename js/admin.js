@@ -239,19 +239,39 @@ async function loadDashboardData() {
   if (localLogsEl) localLogsEl.textContent = `${sanitizedLogs.length} 件`;
 
   // 3. Compute and Render KPIs
-  updateDashboardKPIs(activeArchiveEvents, sanitizedLogs);
+  try {
+    updateDashboardKPIs(activeArchiveEvents, sanitizedLogs);
+  } catch (e) {
+    console.warn("[Admin] updateDashboardKPIs error:", e);
+  }
 
   // 4. Render Per-Video Analytics Table
-  renderPerVideoAnalyticsTable(activeArchiveEvents, sanitizedLogs);
+  try {
+    renderPerVideoAnalyticsTable(activeArchiveEvents, sanitizedLogs);
+  } catch (e) {
+    console.warn("[Admin] renderPerVideoAnalyticsTable error:", e);
+  }
 
   // 5. Render Detailed Access Logs Table
-  renderAdminLogsTable(sanitizedLogs);
+  try {
+    renderAdminLogsTable(sanitizedLogs);
+  } catch (e) {
+    console.warn("[Admin] renderAdminLogsTable error:", e);
+  }
 
   // 6. Render Events Management Table
-  renderAdminEventsTable();
+  try {
+    renderAdminEventsTable();
+  } catch (e) {
+    console.warn("[Admin] renderAdminEventsTable error:", e);
+  }
 
   // 7. Load & Render Blocklist
-  loadBlocklistData();
+  try {
+    loadBlocklistData();
+  } catch (e) {
+    console.warn("[Admin] loadBlocklistData error:", e);
+  }
 }
 
 // Update KPI cards
@@ -1889,9 +1909,6 @@ function renderSingleUrlBadge(url, defaultPlatform) {
       <button onclick="copyBlocklistUrl('${escapeHtml(url)}')" title="URLをコピー" class="text-slate-400 hover:text-slate-700 transition text-[10px] ml-0.5">
         <i class="fa-regular fa-copy"></i>
       </button>
-    </div>
-  `;
-}
     </div>
   `;
 }

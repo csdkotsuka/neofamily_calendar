@@ -53,17 +53,123 @@
     }
   </script>
   <script>
+    const DEFAULT_ADMIN_PASSCODE = "neo2026";
+
+    // パスコード正規化（全角英数→半角、大文字→小文字、全角半角空白除去）
+    function normalizePasscode(str) {
+      if (!str) return "";
+      var s = String(str).trim();
+      s = s.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function(c) { return String.fromCharCode(c.charCodeAt(0) - 0xFEE0); });
+      s = s.replace(/[\s\u3000]/g, "");
+      return s.toLowerCase();
+    }
+
+    // 認証状態のチェック＆表示切替
+    function checkAdminAuth() {
+      var isAuth = localStorage.getItem("neofamily_admin_auth") === "true";
+      var authContainer = document.getElementById("admin-auth-container");
+      var mainContainer = document.getElementById("admin-main-container");
+      var logoutBtn = document.getElementById("nav-btn-logout");
+
+      if (isAuth) {
+        if (authContainer) authContainer.classList.add("hidden");
+        if (mainContainer) mainContainer.classList.remove("hidden");
+        if (logoutBtn) logoutBtn.classList.remove("hidden");
+        if (typeof loadDashboardData === "function") {
+          try {
+            loadDashboardData();
+          } catch(e) {
+            console.error("[Admin] loadDashboardData error:", e);
+          }
+        }
+      } else {
+        if (authContainer) authContainer.classList.remove("hidden");
+        if (mainContainer) mainContainer.classList.add("hidden");
+        if (logoutBtn) logoutBtn.classList.add("hidden");
+      }
+    }
+
+    // パスワード表示切替
+    function togglePasscodeVisibility() {
+      var input = document.getElementById("admin-passcode-input");
+      var icon = document.getElementById("passcode-eye-icon");
+      if (!input) return;
+      if (input.type === "password") {
+        input.type = "text";
+        if (icon) icon.className = "fa-regular fa-eye-slash";
+      } else {
+        input.type = "password";
+        if (icon) icon.className = "fa-regular fa-eye";
+      }
+    }
+
+    // ログイン処理（確実なクライアントサイド判定）
+    function handleAdminLogin(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      var input = document.getElementById("admin-passcode-input");
+      var errorEl = document.getElementById("admin-login-error");
+      var entered = input ? input.value : "";
+      var normEntered = normalizePasscode(entered);
+      var normDefault = normalizePasscode(DEFAULT_ADMIN_PASSCODE);
+      var customPasscode = localStorage.getItem("neofamily_admin_passcode") || "";
+      var normCustom = normalizePasscode(customPasscode);
+
+      var isValid = (normEntered === normDefault) || (normEntered === "neo2026") || (normCustom && normEntered === normCustom);
+
+      if (isValid) {
+        localStorage.setItem("neofamily_admin_auth", "true");
+        localStorage.setItem("neofamily_admin_passcode", DEFAULT_ADMIN_PASSCODE);
+        if (errorEl) errorEl.classList.add("hidden");
+        checkAdminAuth();
+        return false;
+      } else {
+        if (errorEl) {
+          errorEl.classList.remove("hidden");
+          errorEl.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> パスコードが正しくありません。（初期設定: neo2026）';
+        }
+        if (input) {
+          input.select();
+          input.focus();
+        }
+        return false;
+      }
+    }
+
+    // ワンクリックログイン（neo2026）
+    function quickLoginWithNeo2026() {
+      var input = document.getElementById("admin-passcode-input");
+      if (input) input.value = "neo2026";
+      localStorage.setItem("neofamily_admin_auth", "true");
+      localStorage.setItem("neofamily_admin_passcode", "neo2026");
+      var errorEl = document.getElementById("admin-login-error");
+      if (errorEl) errorEl.classList.add("hidden");
+      checkAdminAuth();
+    }
+
+    // ログアウト処理
+    function adminLogout() {
+      if (confirm("管理者ダッシュボードからログアウトしますか？")) {
+        localStorage.removeItem("neofamily_admin_auth");
+        checkAdminAuth();
+      }
+    }
+
     // 即時パラメータ認証（URLに ?auth=1 または ?pass=neo2026 があれば即時認証）
     (function() {
       try {
         var params = new URLSearchParams(window.location.search);
-        var p = (params.get("pass") || "").toLowerCase().trim();
+        var p = normalizePasscode(params.get("pass") || "");
         if (params.get("auth") === "1" || params.get("auth") === "true" || p === "neo2026") {
           localStorage.setItem("neofamily_admin_auth", "true");
           localStorage.setItem("neofamily_admin_passcode", "neo2026");
         }
       } catch(e) {}
     })();
+
+    // DOM構築完了時に即時認証チェック
+    document.addEventListener("DOMContentLoaded", function() {
+      checkAdminAuth();
+    });
   </script>
 </head>
 <body class="text-slate-800 antialiased bg-slate-50 min-h-screen pb-20">
@@ -116,11 +222,11 @@
       <h1 class="text-xl font-black text-slate-900 mb-1">管理者ログイン</h1>
       <p class="text-xs text-slate-500 mb-6">視聴ログ分析やイベント管理を利用するには管理者パスコードを入力してください。</p>
 
-      <form id="admin-login-form" onsubmit="handleAdminLogin(event)" class="space-y-4 text-left">
+      <form id="admin-login-form" onsubmit="event.preventDefault(); handleAdminLogin(event); return false;" class="space-y-4 text-left">
         <div>
           <label for="admin-passcode-input" class="block text-xs font-bold text-slate-700 mb-1.5">管理者パスコード</label>
           <div class="relative">
-            <input type="password" id="admin-passcode-input" required autofocus placeholder="パスコードを入力" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 text-sm font-semibold tracking-wider">
+            <input type="password" id="admin-passcode-input" required autofocus placeholder="パスコードを入力" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 text-sm font-semibold tracking-wider" onkeydown="if(event.key==='Enter'){event.preventDefault();handleAdminLogin(event);}">
             <button type="button" onclick="togglePasscodeVisibility()" class="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-sm">
               <i id="passcode-eye-icon" class="fa-regular fa-eye"></i>
             </button>
@@ -131,7 +237,7 @@
           </p>
         </div>
 
-        <button type="submit" class="w-full py-3 bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-700 hover:to-rose-800 text-white font-bold rounded-xl shadow-md transition flex items-center justify-center gap-2 text-sm">
+        <button type="button" onclick="handleAdminLogin(event)" class="w-full py-3 bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-700 hover:to-rose-800 text-white font-bold rounded-xl shadow-md transition flex items-center justify-center gap-2 text-sm">
           <i class="fa-solid fa-arrow-right-to-bracket"></i>
           <span>ダッシュボードを開く</span>
         </button>
@@ -1104,15 +1210,6 @@
     </div>
   </div>
 
-  <!-- Firebase SDK (v10 compat) -->
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-  <script src="js/firebase-config.js"></script>
-
-  <!-- Application Scripts (with Cache Busting) -->
-  <script src="js/events-data.js?v=20261020_05"></script>
-  <script src="js/blocklist-data.js?v=20261020_05"></script>
-  <script src="js/admin.js?v=20261020_05"></script>
   <!-- ========================================== -->
   <!-- 会員 閲覧ログ詳細モーダル -->
   <!-- ========================================== -->
@@ -1189,6 +1286,16 @@
       </form>
     </div>
   </div>
+
+  <!-- Firebase SDK (v10 compat) -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+
+  <!-- Application Scripts (with Cache Busting) -->
+  <script src="js/events-data.js?v=20261020_06"></script>
+  <script src="js/blocklist-data.js?v=20261020_06"></script>
+  <script src="js/admin.js?v=20261020_06"></script>
 
 </body>
 </html>
