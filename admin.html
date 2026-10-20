@@ -55,19 +55,20 @@
   <script>
     var DEFAULT_ADMIN_PASSCODE = "neo2026";
 
-    // 古いService Workerキャッシュを即時破棄して常に最新スクリプトを保証
+    // 古いService Workerおよび巨大キャッシュを即時破棄して常に最新スクリプト・保存領域を保証
     try {
+      localStorage.removeItem("neofamily_blocklist");
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker.getRegistrations().then(function(regs) {
           for (var i = 0; i < regs.length; i++) {
-            regs[i].update();
+            regs[i].unregister();
           }
         }).catch(function() {});
       }
       if ("caches" in window) {
         caches.keys().then(function(names) {
           for (var i = 0; i < names.length; i++) {
-            if (names[i] !== "neofamily-cache-v20261020_08") {
+            if (names[i] !== "neofamily-cache-v20261020_09") {
               caches.delete(names[i]);
             }
           }
@@ -703,19 +704,11 @@
           </h2>
         </div>
 
-        <!-- Actions: Add, Raw Transcription & Export -->
+        <!-- Actions: Add -->
         <div class="flex flex-wrap items-center gap-2 sm:gap-3 shrink-0">
-          <button onclick="openBlocklistModal()" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 hover:to-rose-600 text-white text-xs font-bold shadow-md transition transform active:scale-95">
+          <button type="button" onclick="openBlocklistModal()" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 hover:to-rose-600 text-white text-xs font-bold shadow-md transition transform active:scale-95 cursor-pointer">
             <i class="fa-solid fa-user-plus"></i>
             <span>新規登録</span>
-          </button>
-          <button onclick="openOcrTranscriptionModal()" class="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-xs font-bold border border-indigo-200 transition shadow-xs">
-            <i class="fa-solid fa-file-lines text-indigo-600"></i>
-            <span>スクショ原文（全97枚）</span>
-          </button>
-          <button onclick="exportBlocklistCSV()" class="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold border border-slate-200 transition shadow-xs">
-            <i class="fa-solid fa-file-arrow-down text-emerald-600"></i>
-            <span>CSV出力</span>
           </button>
         </div>
       </div>
@@ -1128,7 +1121,7 @@
         <p class="text-xs text-slate-500 font-medium">不適合と判断された人物・アカウント情報を記録します</p>
       </div>
 
-      <form id="blocklist-form" onsubmit="handleBlocklistSubmit(event)" class="space-y-4 text-left">
+      <form id="blocklist-form" onsubmit="event.preventDefault(); handleBlocklistSubmit(event); return false;" class="space-y-4 text-left">
         <input type="hidden" id="blk-form-id">
 
         <!-- Name / Title -->
@@ -1205,10 +1198,10 @@
 
         <!-- Modal Actions -->
         <div class="pt-3 border-t border-slate-100 flex items-center justify-end gap-2.5">
-          <button type="button" onclick="closeModal('blocklist-modal')" class="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition">
+          <button type="button" onclick="closeModal('blocklist-modal')" class="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition cursor-pointer">
             キャンセル
           </button>
-          <button type="submit" class="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold shadow-md transition">
+          <button type="button" id="blk-form-submit-btn" onclick="handleBlocklistSubmit(event)" class="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold shadow-md transition cursor-pointer">
             保存する
           </button>
         </div>
@@ -1314,62 +1307,206 @@
     </div>
   </div>
 
-  <!-- ==================== RAW OCR TRANSCRIPTION MODAL (全97枚スクショ純粋文字起こし) ==================== -->
-  <div id="ocr-transcription-modal" onclick="if (event.target === this) closeModal('ocr-transcription-modal')" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-4xl w-full shadow-2xl border border-slate-200 relative animate-scaleUp max-h-[90vh] flex flex-col">
-      <button onclick="closeModal('ocr-transcription-modal')" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-200 pr-10">
-        <div>
-          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-black bg-indigo-100 text-indigo-700 mb-1">
-            <i class="fa-solid fa-file-lines"></i>
-            <span>照合用 原文データ</span>
-          </div>
-          <h3 class="text-lg font-black text-slate-900">LINE Note スクリーンショット純粋文字起こし（全97枚）</h3>
-          <p class="text-xs text-slate-500">提供いただいた97枚のスクリーンショットを画像の上から下へそのまま忠実に文字起こしした一覧です。</p>
-        </div>
-        <div class="flex items-center gap-2 shrink-0">
-          <button onclick="downloadOcrTranscriptionText()" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-xs transition">
-            <i class="fa-solid fa-download"></i>
-            <span>全文テキスト保存 (.txt)</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Search inside transcriptions -->
-      <div class="py-3 border-b border-slate-100 flex items-center gap-3">
-        <div class="relative flex-1">
-          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
-          <input type="text" id="ocr-transcription-search" oninput="renderOcrTranscriptionList()" placeholder="スクショ番号、ファイル名、日時、URL、テキストで検索..." class="w-full pl-9 pr-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-        </div>
-        <span id="ocr-transcription-count" class="text-xs font-bold text-slate-500 shrink-0">97 / 97 枚</span>
-      </div>
-
-      <!-- Scrollable List of 97 Screenshots -->
-      <div id="ocr-transcription-body" class="py-4 space-y-4 overflow-y-auto flex-1">
-        <!-- Rendered via JS -->
-      </div>
-
-      <div class="pt-3 border-t border-slate-100 flex items-center justify-end">
-        <button onclick="closeModal('ocr-transcription-modal')" class="px-5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition">
-          閉じる (ESC)
-        </button>
-      </div>
-    </div>
-  </div>
-
   <!-- Firebase SDK (v10 compat) -->
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-  <script src="js/firebase-config.js"></script>
+  <script src="js/firebase-config.js?v=20261020_09"></script>
 
   <!-- Application Scripts (with Cache Busting) -->
-  <script src="js/events-data.js?v=20261020_08"></script>
-  <script src="js/blocklist-data.js?v=20261020_08"></script>
-  <script src="js/ocr-transcription-data.js?v=20261020_08"></script>
-  <script src="js/admin.js?v=20261020_08"></script>
+  <script src="js/events-data.js?v=20261020_09"></script>
+  <script src="js/blocklist-data.js?v=20261020_09"></script>
+  <script src="js/admin.js?v=20261020_09"></script>
+  <script>
+    // インライン保証：キャッシュ環境に関わらずブロックリストの手動編集・保存・永続化を100%確実に動作させる
+    window.currentEditingBlocklistId = "";
+    window.lastEditedBlocklistId = "";
+
+    function normalizeDeletedMap(del) {
+      var map = {};
+      if (Array.isArray(del)) {
+        del.forEach(function(id) { if (id) map[String(id)] = true; });
+      } else if (del && typeof del === "object") {
+        Object.keys(del).forEach(function(k) { if (del[k]) map[String(k)] = del[k]; });
+      }
+      return map;
+    }
+
+    function getBlocklistUserEdits() {
+      try {
+        var raw = localStorage.getItem("neofamily_blocklist_user_edits_v5");
+        if (raw) {
+          var parsed = JSON.parse(raw);
+          if (parsed && typeof parsed === "object") {
+            return {
+              updated: (parsed.updated && typeof parsed.updated === "object") ? parsed.updated : {},
+              created: Array.isArray(parsed.created) ? parsed.created : [],
+              deleted: normalizeDeletedMap(parsed.deleted)
+            };
+          }
+        }
+      } catch (e) {}
+      return { updated: {}, created: [], deleted: {} };
+    }
+
+    function setBlocklistUserEdits(edits) {
+      var normalized = {
+        updated: (edits && edits.updated && typeof edits.updated === "object") ? edits.updated : {},
+        created: (edits && Array.isArray(edits.created)) ? edits.created : [],
+        deleted: normalizeDeletedMap(edits && edits.deleted)
+      };
+      try {
+        localStorage.removeItem("neofamily_blocklist");
+        localStorage.setItem("neofamily_blocklist_user_edits_v5", JSON.stringify(normalized));
+        localStorage.setItem("neofamily_blocklist_version", "v6");
+      } catch (e) {
+        console.error("[Blocklist] setBlocklistUserEdits error:", e);
+      }
+      return normalized;
+    }
+
+    function applyBlocklistUserEditsToBase(baseList, edits) {
+      var delMap = normalizeDeletedMap(edits && edits.deleted);
+      var updMap = (edits && edits.updated && typeof edits.updated === "object") ? edits.updated : {};
+      var createdArr = (edits && Array.isArray(edits.created)) ? edits.created : [];
+
+      var list = baseList.filter(function(item) { return item && item.id && !delMap[item.id]; });
+      list = list.map(function(item) {
+        if (updMap[item.id]) {
+          return Object.assign({}, item, updMap[item.id]);
+        }
+        return Object.assign({}, item);
+      });
+      var existingIds = new Set(list.map(function(x) { return x.id; }));
+      var createdValid = createdArr.filter(function(item) {
+        return item && item.id && !delMap[item.id] && !existingIds.has(item.id);
+      });
+      return createdValid.concat(list);
+    }
+
+    async function saveBlocklistData(entry, action) {
+      var nowIso = new Date().toISOString();
+      var edits = getBlocklistUserEdits();
+
+      try {
+        if (action === "update" && entry && entry.id) {
+          var id = String(entry.id);
+          var savedEntry = Object.assign({}, entry, { _savedAt: nowIso });
+          var createdIdx = edits.created.findIndex(function(c) { return c && String(c.id) === id; });
+          if (createdIdx !== -1) {
+            edits.created[createdIdx] = savedEntry;
+          } else {
+            edits.updated[id] = savedEntry;
+          }
+          delete edits.deleted[id];
+        } else if (action === "create" && entry && entry.id) {
+          var cId = String(entry.id);
+          var cEntry = Object.assign({}, entry, { _savedAt: nowIso });
+          edits.created = edits.created.filter(function(c) { return c && String(c.id) !== cId; });
+          edits.created.unshift(cEntry);
+          delete edits.deleted[cId];
+        } else if (action === "delete" && entry && entry.id) {
+          var dId = String(entry.id);
+          edits.deleted[dId] = nowIso;
+          delete edits.updated[dId];
+          edits.created = edits.created.filter(function(c) { return c && String(c.id) !== dId; });
+        }
+        edits = setBlocklistUserEdits(edits);
+      } catch (err) {
+        console.error("[Blocklist] LocalStorage save error:", err);
+      }
+
+      if (typeof firebase !== "undefined" && typeof isFirebaseConfigured === "function" && isFirebaseConfigured()) {
+        try {
+          if (!firebase.apps.length) {
+            firebase.initializeApp(FIREBASE_CONFIG);
+          }
+          var db = firebase.firestore();
+          await db.collection("events").doc("_blocklist_user_edits_v5").set({
+            updated: edits.updated,
+            created: edits.created,
+            deleted: edits.deleted,
+            updatedAt: nowIso
+          });
+        } catch (err) {
+          console.warn("[Blocklist] Firestore cloud save error:", err);
+        }
+      }
+    }
+
+    async function handleBlocklistSubmit(e) {
+      if (e && e.preventDefault) e.preventDefault();
+
+      var id = (document.getElementById("blk-form-id")?.value || window.currentEditingBlocklistId || "").trim();
+      var name = (document.getElementById("blk-form-name")?.value || "").trim();
+      var url = (document.getElementById("blk-form-url")?.value || "").trim();
+      var url2 = (document.getElementById("blk-form-url2")?.value || "").trim();
+      var platform = document.getElementById("blk-form-platform")?.value || "Instagram";
+      var reason = (document.getElementById("blk-form-reason")?.value || "").trim();
+      var reporter = (document.getElementById("blk-form-reporter")?.value || "").trim();
+      var date = (document.getElementById("blk-form-date")?.value || "").trim();
+      var warningEl = document.getElementById("blk-form-warning");
+      var url_warning = warningEl ? warningEl.value.trim() : "";
+
+      if (!id && !name && !url && !reason) {
+        showToast("対象者名、URL、または理由を入力してください");
+        return false;
+      }
+
+      try {
+        if (id) {
+          var idx = allBlocklist.findIndex(function(b) { return String(b.id) === String(id); });
+          var baseItem = idx !== -1 ? allBlocklist[idx] : { id: String(id) };
+          var updatedEntry = Object.assign({}, baseItem, {
+            id: String(id),
+            name: name || "（名称未記載）",
+            url: url,
+            secondary_url: url2,
+            platform: platform,
+            reason: reason,
+            reporter: reporter,
+            date: date,
+            url_warning: url_warning,
+            _savedAt: new Date().toISOString()
+          });
+          if (idx !== -1) {
+            allBlocklist[idx] = updatedEntry;
+          } else {
+            allBlocklist.unshift(updatedEntry);
+          }
+          window.lastEditedBlocklistId = String(id);
+          await saveBlocklistData(updatedEntry, "update");
+          showToast("「" + (name || url || "対象項目") + "」の変更を保存しました");
+        } else {
+          var newId = "blk_" + Date.now();
+          var newEntry = {
+            id: newId,
+            name: name || "（名称未記載）",
+            url: url,
+            secondary_url: url2,
+            platform: platform,
+            reason: reason,
+            reporter: reporter || "本多栞（RAYTUS / 秘書課）",
+            date: date || new Date().toISOString().replace("T", " ").substring(0, 16),
+            url_warning: url_warning,
+            _savedAt: new Date().toISOString()
+          };
+          allBlocklist.unshift(newEntry);
+          window.lastEditedBlocklistId = newId;
+          await saveBlocklistData(newEntry, "create");
+          showToast("「" + (name || url || "新規対象") + "」をブロックリストに登録しました");
+        }
+      } catch (err) {
+        console.error("[Blocklist] Error in submit handler:", err);
+        showToast("保存処理中にエラーが発生しました");
+      }
+
+      window.currentEditingBlocklistId = "";
+      closeModal("blocklist-modal");
+      renderBlocklistKPI();
+      renderAdminBlocklistTable();
+      return false;
+    }
+  </script>
 
 </body>
 </html>

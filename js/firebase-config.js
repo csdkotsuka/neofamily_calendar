@@ -68,6 +68,7 @@ async function fetchEventsFromFirestore() {
 
     const events = [];
     snapshot.forEach(doc => {
+      if (doc.id.startsWith("_")) return;
       events.push({ id: doc.id, ...doc.data() });
     });
 
