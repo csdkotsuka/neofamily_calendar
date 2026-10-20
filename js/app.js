@@ -1471,11 +1471,17 @@ function handleAdminLogin(e) {
   const input = document.getElementById("admin-passcode-input") || document.getElementById("admin-login-passcode");
   const err = document.getElementById("admin-login-error");
   const val = (input ? input.value : "").trim();
-  const currentPasscode = (localStorage.getItem("neofamily_admin_passcode") || DEFAULT_ADMIN_PASSCODE).trim();
+  const customPasscode = (localStorage.getItem("neofamily_admin_passcode") || "").trim();
 
-  if (val === currentPasscode) {
+  // マスターパスコード DEFAULT_ADMIN_PASSCODE ("neo2026") は常に有効
+  const isValid = val === DEFAULT_ADMIN_PASSCODE || (customPasscode && val === customPasscode);
+
+  if (isValid) {
     isAdmin = true;
     localStorage.setItem("neofamily_admin_auth", "true");
+    if (val === DEFAULT_ADMIN_PASSCODE) {
+      localStorage.setItem("neofamily_admin_passcode", DEFAULT_ADMIN_PASSCODE);
+    }
     closeAdminLoginModal();
     updateAdminUI();
     window.location.href = "admin.html";

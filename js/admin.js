@@ -60,10 +60,16 @@ function handleAdminLogin(e) {
   const input = document.getElementById("admin-passcode-input");
   const errorEl = document.getElementById("admin-login-error");
   const entered = (input ? input.value : "").trim();
-  const currentPasscode = (localStorage.getItem("neofamily_admin_passcode") || DEFAULT_ADMIN_PASSCODE).trim();
+  const customPasscode = (localStorage.getItem("neofamily_admin_passcode") || "").trim();
 
-  if (entered === currentPasscode) {
+  // マスターパスコード DEFAULT_ADMIN_PASSCODE ("neo2026") は常に有効
+  const isValid = entered === DEFAULT_ADMIN_PASSCODE || (customPasscode && entered === customPasscode);
+
+  if (isValid) {
     localStorage.setItem("neofamily_admin_auth", "true");
+    if (entered === DEFAULT_ADMIN_PASSCODE) {
+      localStorage.setItem("neofamily_admin_passcode", DEFAULT_ADMIN_PASSCODE);
+    }
     if (errorEl) errorEl.classList.add("hidden");
     checkAdminAuth();
   } else {
@@ -964,7 +970,9 @@ function handlePasscodeChange(e) {
   const newPass = (newInput ? newInput.value : "").trim();
   const confirmPass = (confirmInput ? confirmInput.value : "").trim();
 
-  if (enteredCur !== curPass) {
+  const isCurValid = enteredCur === DEFAULT_ADMIN_PASSCODE || enteredCur === curPass;
+
+  if (!isCurValid) {
     alert("現在のパスコードが一致しません。");
     currentInput.focus();
     return;
