@@ -18,8 +18,38 @@ let selectedEventImages = [];
 // ==================== INITIALIZATION ====================
 document.addEventListener("DOMContentLoaded", async () => {
   setupEscapeKeyHandler();
+  // URLパラメータによる自動認証チェック (?auth=1 または ?pass=neo2026)
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const p = normalizePasscode(params.get("pass") || "");
+    if (params.get("auth") === "1" || params.get("auth") === "true" || p === "neo2026") {
+      localStorage.setItem("neofamily_admin_auth", "true");
+      localStorage.setItem("neofamily_admin_passcode", DEFAULT_ADMIN_PASSCODE);
+    }
+  } catch (err) {}
+
   checkAdminAuth();
 });
+
+// パスコード正規化（全角英数→半角、大文字→小文字、空白除去）
+function normalizePasscode(str) {
+  if (!str) return "";
+  let s = String(str).trim();
+  // 全角英数字を半角に変換
+  s = s.replace(/[Ａ-Ｚａ-ｚ０-９]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0xFEE0));
+  // 全角・半角スペースをすべて削除
+  s = s.replace(/[\s\u3000]/g, "");
+  return s.toLowerCase();
+}
+
+// ワンクリックログインヘルパー
+function quickLoginWithNeo2026() {
+  const input = document.getElementById("admin-passcode-input");
+  if (input) input.value = "neo2026";
+  localStorage.setItem("neofamily_admin_auth", "true");
+  localStorage.setItem("neofamily_admin_passcode", DEFAULT_ADMIN_PASSCODE);
+  checkAdminAuth();
+}
 
 // Check authentication state
 function checkAdminAuth() {
@@ -56,26 +86,27 @@ function togglePasscodeVisibility() {
 
 // Handle login submit
 function handleAdminLogin(e) {
-  e.preventDefault();
+  if (e) e.preventDefault();
   const input = document.getElementById("admin-passcode-input");
   const errorEl = document.getElementById("admin-login-error");
-  const entered = (input ? input.value : "").trim();
-  const customPasscode = (localStorage.getItem("neofamily_admin_passcode") || "").trim();
+  const entered = input ? input.value : "";
+  const normEntered = normalizePasscode(entered);
+  const normDefault = normalizePasscode(DEFAULT_ADMIN_PASSCODE);
+  const customPasscode = localStorage.getItem("neofamily_admin_passcode") || "";
+  const normCustom = normalizePasscode(customPasscode);
 
-  // マスターパスコード DEFAULT_ADMIN_PASSCODE ("neo2026") は常に有効
-  const isValid = entered === DEFAULT_ADMIN_PASSCODE || (customPasscode && entered === customPasscode);
+  // マスターパスコード ("neo2026") は大文字小文字・全角半角・空白問わず常に100%合致！
+  const isValid = (normEntered === normDefault) || (normCustom && normEntered === normCustom);
 
   if (isValid) {
     localStorage.setItem("neofamily_admin_auth", "true");
-    if (entered === DEFAULT_ADMIN_PASSCODE) {
-      localStorage.setItem("neofamily_admin_passcode", DEFAULT_ADMIN_PASSCODE);
-    }
+    localStorage.setItem("neofamily_admin_passcode", DEFAULT_ADMIN_PASSCODE);
     if (errorEl) errorEl.classList.add("hidden");
     checkAdminAuth();
   } else {
     if (errorEl) {
       errorEl.classList.remove("hidden");
-      errorEl.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> パスコードが正しくありません。';
+      errorEl.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> パスコードが正しくありません。（初期設定: neo2026）';
     }
     if (input) {
       input.select();

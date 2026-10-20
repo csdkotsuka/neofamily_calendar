@@ -52,6 +52,19 @@
       }
     }
   </script>
+  <script>
+    // 即時パラメータ認証（URLに ?auth=1 または ?pass=neo2026 があれば即時認証）
+    (function() {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var p = (params.get("pass") || "").toLowerCase().trim();
+        if (params.get("auth") === "1" || params.get("auth") === "true" || p === "neo2026") {
+          localStorage.setItem("neofamily_admin_auth", "true");
+          localStorage.setItem("neofamily_admin_passcode", "neo2026");
+        }
+      } catch(e) {}
+    })();
+  </script>
 </head>
 <body class="text-slate-800 antialiased bg-slate-50 min-h-screen pb-20">
 
@@ -122,6 +135,14 @@
           <i class="fa-solid fa-arrow-right-to-bracket"></i>
           <span>ダッシュボードを開く</span>
         </button>
+
+        <!-- Quick Login Helper for Admins -->
+        <div class="pt-2 text-center">
+          <button type="button" onclick="quickLoginWithNeo2026()" class="text-xs text-rose-600 hover:text-rose-700 font-bold underline inline-flex items-center gap-1.5 transition">
+            <i class="fa-solid fa-key text-[10px]"></i>
+            <span>neo2026 でワンクリックログイン</span>
+          </button>
+        </div>
 
         <div class="text-center pt-2">
           <a href="index.html" class="text-xs text-slate-400 hover:text-slate-600 font-medium">
@@ -545,49 +566,35 @@
     <!-- ==================== TAB 4: BLOCKLIST (入会不適合者リスト) ==================== -->
     <div id="tab-content-blocklist" class="hidden space-y-6">
 
-      <!-- Blocklist Header & Security Notice -->
-      <div class="bg-gradient-to-r from-rose-950 via-slate-900 to-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl border border-rose-900/30 relative overflow-hidden">
-        <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-rose-600/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div class="space-y-2">
-            <div class="flex items-center gap-2">
-              <span class="px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-rose-600 text-white flex items-center gap-1.5 tracking-wider uppercase shadow-xs">
-                <i class="fa-solid fa-shield-halved"></i>
-                機密セキュリティデータ
-              </span>
-              <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-white/10 text-rose-200 border border-white/10">
-                <i class="fa-solid fa-lock text-rose-400 mr-1"></i>パスコード保護中
-              </span>
-            </div>
-            <h2 class="text-xl sm:text-2xl font-black tracking-tight text-white flex items-center gap-3">
-              <span>入会案内 接触禁止リスト（ブロックリスト）</span>
-            </h2>
-            <p class="text-xs sm:text-sm text-slate-300 max-w-2xl font-medium leading-relaxed">
-              過去の勧誘トラブル、悪質営業・MLM勧誘、モラハラ、即日退会、誹謗中傷等により「NEOグループに合わない」と判断された対象者の統合リストです。メンバーによる再アプローチやトラブルを未然に防ぐため厳重に管理されます。
-            </p>
-          </div>
+      <!-- Blocklist Header -->
+      <div class="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-black tracking-tight text-slate-900 flex items-center gap-3">
+            <span class="w-2.5 h-6 rounded-full bg-rose-600 inline-block"></span>
+            <span>入会案内 接触禁止リスト（ブロックリスト）</span>
+          </h2>
+        </div>
 
-          <!-- Actions: Add & Export -->
-          <div class="flex flex-wrap items-center gap-2 sm:gap-3 shrink-0">
-            <button onclick="openBlocklistModal()" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 hover:to-rose-600 text-white text-xs font-bold shadow-md transition transform active:scale-95">
-              <i class="fa-solid fa-user-plus"></i>
-              <span>新規登録</span>
-            </button>
-            <button onclick="exportBlocklistCSV()" class="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold border border-white/15 transition shadow-xs">
-              <i class="fa-solid fa-file-arrow-down text-emerald-400"></i>
-              <span>CSV出力</span>
-            </button>
-          </div>
+        <!-- Actions: Add & Export -->
+        <div class="flex flex-wrap items-center gap-2 sm:gap-3 shrink-0">
+          <button onclick="openBlocklistModal()" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 hover:to-rose-600 text-white text-xs font-bold shadow-md transition transform active:scale-95">
+            <i class="fa-solid fa-user-plus"></i>
+            <span>新規登録</span>
+          </button>
+          <button onclick="exportBlocklistCSV()" class="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold border border-slate-200 transition shadow-xs">
+            <i class="fa-solid fa-file-arrow-down text-emerald-600"></i>
+            <span>CSV出力</span>
+          </button>
         </div>
       </div>
 
       <!-- KPI Summary Cards -->
       <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
         <!-- Total -->
-        <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-xs">
+        <div onclick="filterByPlatformCard('all')" class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-xs cursor-pointer hover:border-rose-400 hover:shadow-md hover:-translate-y-0.5 transition active:scale-98 group" title="クリックしてすべてのプラットフォームを表示">
           <div class="flex items-center justify-between text-slate-400 mb-2">
-            <span class="text-xs font-bold text-slate-500">登録総数</span>
-            <div class="w-7 h-7 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center text-xs">
+            <span class="text-xs font-bold text-slate-500 group-hover:text-rose-600 transition">登録総数（すべて）</span>
+            <div class="w-7 h-7 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center text-xs group-hover:bg-rose-100 transition">
               <i class="fa-solid fa-user-slash"></i>
             </div>
           </div>
@@ -598,10 +605,10 @@
         </div>
 
         <!-- Instagram -->
-        <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-xs">
+        <div onclick="filterByPlatformCard('Instagram')" class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-xs cursor-pointer hover:border-pink-400 hover:shadow-md hover:-translate-y-0.5 transition active:scale-98 group" title="クリックしてInstagramのみに絞り込み">
           <div class="flex items-center justify-between text-slate-400 mb-2">
-            <span class="text-xs font-bold text-slate-500">Instagram</span>
-            <div class="w-7 h-7 rounded-lg bg-pink-50 text-pink-600 flex items-center justify-center text-xs">
+            <span class="text-xs font-bold text-slate-500 group-hover:text-pink-600 transition">Instagram</span>
+            <div class="w-7 h-7 rounded-lg bg-pink-50 text-pink-600 flex items-center justify-center text-xs group-hover:bg-pink-100 transition">
               <i class="fa-brands fa-instagram"></i>
             </div>
           </div>
@@ -612,10 +619,10 @@
         </div>
 
         <!-- Threads -->
-        <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-xs">
+        <div onclick="filterByPlatformCard('Threads')" class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-xs cursor-pointer hover:border-slate-600 hover:shadow-md hover:-translate-y-0.5 transition active:scale-98 group" title="クリックしてThreadsのみに絞り込み">
           <div class="flex items-center justify-between text-slate-400 mb-2">
-            <span class="text-xs font-bold text-slate-500">Threads</span>
-            <div class="w-7 h-7 rounded-lg bg-slate-100 text-slate-900 flex items-center justify-center text-xs">
+            <span class="text-xs font-bold text-slate-500 group-hover:text-slate-900 transition">Threads</span>
+            <div class="w-7 h-7 rounded-lg bg-slate-100 text-slate-900 flex items-center justify-center text-xs group-hover:bg-slate-200 transition">
               <i class="fa-brands fa-threads"></i>
             </div>
           </div>
@@ -626,10 +633,10 @@
         </div>
 
         <!-- Facebook -->
-        <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-xs">
+        <div onclick="filterByPlatformCard('Facebook')" class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-xs cursor-pointer hover:border-blue-400 hover:shadow-md hover:-translate-y-0.5 transition active:scale-98 group" title="クリックしてFacebookのみに絞り込み">
           <div class="flex items-center justify-between text-slate-400 mb-2">
-            <span class="text-xs font-bold text-slate-500">Facebook</span>
-            <div class="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-xs">
+            <span class="text-xs font-bold text-slate-500 group-hover:text-blue-600 transition">Facebook</span>
+            <div class="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-xs group-hover:bg-blue-100 transition">
               <i class="fa-brands fa-facebook"></i>
             </div>
           </div>
@@ -640,13 +647,19 @@
         </div>
 
         <!-- Others -->
-        <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-xs col-span-2 sm:col-span-1">
+        <div onclick="filterByPlatformCard('その他')" class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-xs col-span-2 sm:col-span-1 cursor-pointer hover:border-amber-400 hover:shadow-md hover:-translate-y-0.5 transition active:scale-98 group" title="クリックしてその他/Webのみに絞り込み">
           <div class="flex items-center justify-between text-slate-400 mb-2">
-            <span class="text-xs font-bold text-slate-500">その他/Web</span>
-            <div class="w-7 h-7 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center text-xs">
+            <span class="text-xs font-bold text-slate-500 group-hover:text-amber-600 transition">その他/Web</span>
+            <div class="w-7 h-7 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center text-xs group-hover:bg-amber-100 transition">
               <i class="fa-solid fa-globe"></i>
             </div>
           </div>
+          <div class="flex items-baseline gap-2">
+            <span id="blk-kpi-other" class="text-2xl sm:text-3xl font-black text-amber-600">0</span>
+            <span class="text-xs text-slate-400 font-bold">件</span>
+          </div>
+        </div>
+      </div>
           <div class="flex items-baseline gap-2">
             <span id="blk-kpi-other" class="text-2xl sm:text-3xl font-black text-amber-600">0</span>
             <span class="text-xs text-slate-400 font-bold">件</span>
@@ -697,12 +710,12 @@
           <table class="w-full text-left text-xs">
             <thead class="bg-slate-50/80 border-b border-slate-200/80 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
               <tr>
-                <th scope="col" class="py-3 px-4 w-32">登録日時</th>
-                <th scope="col" class="py-3 px-4 min-w-[160px]">氏名 / 屋号 / 表示名</th>
-                <th scope="col" class="py-3 px-4 min-w-[200px]">URL / アカウント</th>
-                <th scope="col" class="py-3 px-4 min-w-[240px]">理由・備考メモ</th>
-                <th scope="col" class="py-3 px-4 w-36">報告者</th>
-                <th scope="col" class="py-3 px-4 text-right w-24">操作</th>
+                <th scope="col" class="py-2.5 px-3 w-24 text-center shrink-0">登録日時</th>
+                <th scope="col" class="py-2.5 px-3 w-32 max-w-[130px] shrink-0">氏名 / 表示名</th>
+                <th scope="col" class="py-2.5 px-3 w-56 min-w-[190px] shrink-0">URL / アカウント</th>
+                <th scope="col" class="py-2.5 px-3 min-w-[200px]">理由・備考メモ</th>
+                <th scope="col" class="py-2.5 px-3 w-28 max-w-[115px] text-center shrink-0">報告者</th>
+                <th scope="col" class="py-2.5 px-2 text-center w-12 shrink-0">操作</th>
               </tr>
             </thead>
             <tbody id="blk-table-body" class="divide-y divide-slate-100 font-medium text-slate-700">
@@ -974,7 +987,7 @@
   </div>
 
   <!-- ==================== BLOCKLIST ENTRY (ADD/EDIT) MODAL ==================== -->
-  <div id="blocklist-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
+  <div id="blocklist-modal" onclick="if (event.target === this) closeModal('blocklist-modal')" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
     <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl border border-slate-200 relative animate-scaleUp max-h-[90vh] overflow-y-auto">
       <button onclick="closeModal('blocklist-modal')" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center transition">
         <i class="fa-solid fa-xmark"></i>
@@ -995,9 +1008,9 @@
         <!-- Name / Title -->
         <div>
           <label class="block text-xs font-bold text-slate-700 mb-1">
-            対象者名 / 屋号 / 表示名 <span class="text-rose-500">*</span>
+            対象者名 / 屋号 / 表示名
           </label>
-          <input type="text" id="blk-form-name" required placeholder="例: 山田花子 / @yamada_hanako" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-rose-500">
+          <input type="text" id="blk-form-name" placeholder="例: 山田花子 / @yamada_hanako" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-rose-500">
         </div>
 
         <!-- URL & Platform -->
@@ -1040,13 +1053,21 @@
         <!-- Reporter & Date -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">報告者</label>
-            <input type="text" id="blk-form-reporter" placeholder="例: 本多栞/RAYTUS/秘書課" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-rose-500">
+            <label class="block text-xs font-bold text-slate-700 mb-1">報告者（氏名・所属部署）</label>
+            <input type="text" id="blk-form-reporter" placeholder="例: 本多栞（RAYTUS / 秘書課）" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-rose-500">
           </div>
           <div>
             <label class="block text-xs font-bold text-slate-700 mb-1">記録・報告日時</label>
             <input type="text" id="blk-form-date" placeholder="2026-10-20 12:00" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-rose-500">
           </div>
+        </div>
+
+        <!-- Warning / Status Note (Optional) -->
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">
+            ステータス注記 / URL警告メモ（任意）
+          </label>
+          <input type="text" id="blk-form-warning" placeholder="例: ⚠️ リンク切れの可能性あり、プロトコル修復済み など" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-rose-500">
         </div>
 
         <!-- Modal Actions -->
@@ -1063,7 +1084,7 @@
   </div>
 
   <!-- ==================== BLOCKLIST DELETE CONFIRM MODAL ==================== -->
-  <div id="blocklist-delete-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
+  <div id="blocklist-delete-modal" onclick="if (event.target === this) closeModal('blocklist-delete-modal')" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
     <div class="bg-white rounded-3xl p-6 max-w-sm w-full shadow-2xl border border-slate-200 text-center relative animate-scaleUp">
       <div class="w-12 h-12 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center mx-auto mb-4 text-xl">
         <i class="fa-solid fa-triangle-exclamation"></i>
@@ -1088,10 +1109,10 @@
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
   <script src="js/firebase-config.js"></script>
 
-  <!-- Application Scripts -->
-  <script src="js/events-data.js"></script>
-  <script src="js/blocklist-data.js"></script>
-  <script src="js/admin.js"></script>
+  <!-- Application Scripts (with Cache Busting) -->
+  <script src="js/events-data.js?v=20261020_05"></script>
+  <script src="js/blocklist-data.js?v=20261020_05"></script>
+  <script src="js/admin.js?v=20261020_05"></script>
   <!-- ========================================== -->
   <!-- 会員 閲覧ログ詳細モーダル -->
   <!-- ========================================== -->
