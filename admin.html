@@ -545,39 +545,25 @@
     <!-- ==================== TAB 4: BLOCKLIST (入会不適合者リスト) ==================== -->
     <div id="tab-content-blocklist" class="hidden space-y-6">
 
-      <!-- Blocklist Header & Security Notice -->
-      <div class="bg-gradient-to-r from-rose-950 via-slate-900 to-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl border border-rose-900/30 relative overflow-hidden">
-        <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-rose-600/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div class="space-y-2">
-            <div class="flex items-center gap-2">
-              <span class="px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-rose-600 text-white flex items-center gap-1.5 tracking-wider uppercase shadow-xs">
-                <i class="fa-solid fa-shield-halved"></i>
-                機密セキュリティデータ
-              </span>
-              <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-white/10 text-rose-200 border border-white/10">
-                <i class="fa-solid fa-lock text-rose-400 mr-1"></i>パスコード保護中
-              </span>
-            </div>
-            <h2 class="text-xl sm:text-2xl font-black tracking-tight text-white flex items-center gap-3">
-              <span>入会案内 接触禁止リスト（ブロックリスト）</span>
-            </h2>
-            <p class="text-xs sm:text-sm text-slate-300 max-w-2xl font-medium leading-relaxed">
-              過去の勧誘トラブル、悪質営業・MLM勧誘、モラハラ、即日退会、誹謗中傷等により「NEOグループに合わない」と判断された対象者の統合リストです。メンバーによる再アプローチやトラブルを未然に防ぐため厳重に管理されます。
-            </p>
-          </div>
+      <!-- Blocklist Header -->
+      <div class="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-black tracking-tight text-slate-900 flex items-center gap-3">
+            <span class="w-2.5 h-6 rounded-full bg-rose-600 inline-block"></span>
+            <span>入会案内 接触禁止リスト（ブロックリスト）</span>
+          </h2>
+        </div>
 
-          <!-- Actions: Add & Export -->
-          <div class="flex flex-wrap items-center gap-2 sm:gap-3 shrink-0">
-            <button onclick="openBlocklistModal()" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 hover:to-rose-600 text-white text-xs font-bold shadow-md transition transform active:scale-95">
-              <i class="fa-solid fa-user-plus"></i>
-              <span>新規登録</span>
-            </button>
-            <button onclick="exportBlocklistCSV()" class="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold border border-white/15 transition shadow-xs">
-              <i class="fa-solid fa-file-arrow-down text-emerald-400"></i>
-              <span>CSV出力</span>
-            </button>
-          </div>
+        <!-- Actions: Add & Export -->
+        <div class="flex flex-wrap items-center gap-2 sm:gap-3 shrink-0">
+          <button onclick="openBlocklistModal()" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 hover:to-rose-600 text-white text-xs font-bold shadow-md transition transform active:scale-95">
+            <i class="fa-solid fa-user-plus"></i>
+            <span>新規登録</span>
+          </button>
+          <button onclick="exportBlocklistCSV()" class="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold border border-slate-200 transition shadow-xs">
+            <i class="fa-solid fa-file-arrow-down text-emerald-600"></i>
+            <span>CSV出力</span>
+          </button>
         </div>
       </div>
 

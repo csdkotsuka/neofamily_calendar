@@ -1521,8 +1521,11 @@ let blocklistDeleteTargetId = null;
  * LocalStorage -> INITIAL_BLOCKLIST -> Firestore (利用可能な場合)
  */
 async function loadBlocklistData() {
+  const currentVersion = "v3";
+  const storedVersion = localStorage.getItem("neofamily_blocklist_version");
   const cached = localStorage.getItem("neofamily_blocklist");
-  if (cached) {
+
+  if (cached && storedVersion === currentVersion) {
     try {
       allBlocklist = JSON.parse(cached);
     } catch (e) {
@@ -1531,11 +1534,12 @@ async function loadBlocklistData() {
     }
   }
 
-  // 初期データがない場合は INITIAL_BLOCKLIST からロード
-  if (!allBlocklist || allBlocklist.length === 0) {
+  // 初期データがない、またはデータセットが更新された場合は INITIAL_BLOCKLIST から最新をロード
+  if (!allBlocklist || allBlocklist.length === 0 || storedVersion !== currentVersion) {
     if (typeof INITIAL_BLOCKLIST !== "undefined" && Array.isArray(INITIAL_BLOCKLIST)) {
       allBlocklist = [...INITIAL_BLOCKLIST];
       localStorage.setItem("neofamily_blocklist", JSON.stringify(allBlocklist));
+      localStorage.setItem("neofamily_blocklist_version", currentVersion);
     } else {
       allBlocklist = [];
     }
@@ -1887,9 +1891,15 @@ function renderBlocklistPagination(from, to, total, currPage, maxPages) {
 function goToBlocklistPage(pageNum) {
   blocklistCurrentPage = pageNum;
   renderAdminBlocklistTable();
-  const tableEl = document.getElementById("blk-table-body");
-  if (tableEl) {
-    tableEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  const targetEl = document.getElementById("blk-search-input") || document.getElementById("tab-content-blocklist");
+  if (targetEl) {
+    const headerOffset = 90;
+    const elementPosition = targetEl.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    window.scrollTo({
+      top: Math.max(0, offsetPosition),
+      behavior: "smooth"
+    });
   }
 }
 
