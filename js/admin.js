@@ -1696,9 +1696,13 @@ function applyBlocklistUserEditsToBase(baseList, edits) {
   const updMap = (edits && edits.updated && typeof edits.updated === "object") ? edits.updated : {};
   const createdArr = (edits && Array.isArray(edits.created)) ? edits.created : [];
 
+  const refreshedBaseIds = new Set(["blk_640","blk_641","blk_642","blk_643","blk_644","blk_645","blk_646","blk_647","blk_648","blk_649","blk_650","blk_651"]);
   let list = baseList.filter(item => item && item.id && !delMap[item.id]);
   list = list.map(item => {
     if (updMap[item.id]) {
+      if (refreshedBaseIds.has(item.id) && (!updMap[item.id]._savedAt || updMap[item.id]._savedAt < "2026-10-20T13:50:00Z")) {
+        return { ...item };
+      }
       return { ...item, ...updMap[item.id] };
     }
     return { ...item };

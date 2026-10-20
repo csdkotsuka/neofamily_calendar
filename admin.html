@@ -1307,12 +1307,12 @@
   <!-- Firebase SDK (v10 compat) -->
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-  <script src="js/firebase-config.js?v=20261020_10"></script>
+  <script src="js/firebase-config.js?v=20261020_11"></script>
 
   <!-- Application Scripts (with Cache Busting) -->
-  <script src="js/events-data.js?v=20261020_10"></script>
-  <script src="js/blocklist-data.js?v=20261020_10"></script>
-  <script src="js/admin.js?v=20261020_10"></script>
+  <script src="js/events-data.js?v=20261020_11"></script>
+  <script src="js/blocklist-data.js?v=20261020_11"></script>
+  <script src="js/admin.js?v=20261020_11"></script>
   <script>
     // インライン保証：キャッシュ環境に関わらずブロックリストの手動編集・保存・永続化を100%確実に動作させる
     window.currentEditingBlocklistId = "";
@@ -1377,9 +1377,13 @@
       var updMap = (edits && edits.updated && typeof edits.updated === "object") ? edits.updated : {};
       var createdArr = (edits && Array.isArray(edits.created)) ? edits.created : [];
 
+      var refreshedBaseIds = new Set(["blk_640","blk_641","blk_642","blk_643","blk_644","blk_645","blk_646","blk_647","blk_648","blk_649","blk_650","blk_651"]);
       var list = baseList.filter(function(item) { return item && item.id && !delMap[item.id]; });
       list = list.map(function(item) {
         if (updMap[item.id]) {
+          if (refreshedBaseIds.has(item.id) && (!updMap[item.id]._savedAt || updMap[item.id]._savedAt < "2026-10-20T13:50:00Z")) {
+            return Object.assign({}, item);
+          }
           return Object.assign({}, item, updMap[item.id]);
         }
         return Object.assign({}, item);

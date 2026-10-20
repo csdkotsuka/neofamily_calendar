@@ -119,19 +119,19 @@
   <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 pb-2">
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
       
-      <!-- View Switcher Tabs (3 modes: Month Calendar, Week, and Cards) -->
+      <!-- View Switcher Tabs (3 modes: Cards, Week, and Month Calendar) -->
       <div class="flex items-center p-1 bg-slate-200/80 rounded-2xl w-full md:w-auto shadow-inner">
-        <button id="btn-view-calendar" onclick="switchViewMode('calendar')" class="flex-1 md:flex-initial px-4 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 bg-rose-600 text-white shadow-md">
-          <i class="fa-regular fa-calendar-days"></i>
-          <span>月間カレンダー</span>
+        <button id="btn-view-cards" onclick="switchViewMode('cards')" class="flex-1 md:flex-initial px-4 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 bg-rose-600 text-white shadow-md">
+          <i class="fa-solid fa-grip"></i>
+          <span>カード一覧</span>
         </button>
         <button id="btn-view-week" onclick="switchViewMode('week')" class="flex-1 md:flex-initial px-4 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 bg-white text-slate-700 hover:bg-slate-100">
           <i class="fa-solid fa-calendar-week"></i>
           <span>週間カレンダー</span>
         </button>
-        <button id="btn-view-cards" onclick="switchViewMode('cards')" class="flex-1 md:flex-initial px-4 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 bg-white text-slate-700 hover:bg-slate-100">
-          <i class="fa-solid fa-grip"></i>
-          <span>カード一覧</span>
+        <button id="btn-view-calendar" onclick="switchViewMode('calendar')" class="flex-1 md:flex-initial px-4 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 bg-white text-slate-700 hover:bg-slate-100">
+          <i class="fa-regular fa-calendar-days"></i>
+          <span>月間カレンダー</span>
         </button>
       </div>
 
@@ -169,7 +169,7 @@
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3">
 
     <!-- View Mode 1: Cards View -->
-    <section id="cards-view-section" class="hidden">
+    <section id="cards-view-section">
       <!-- Selected date indicator if active -->
       <div id="selected-date-indicator" class="hidden"></div>
 
@@ -214,8 +214,8 @@
       </div>
     </section>
 
-    <!-- View Mode 3: Native Month Calendar View (Default) -->
-    <section id="calendar-view-section">
+    <!-- View Mode 2: Native Month Calendar View -->
+    <section id="calendar-view-section" class="hidden">
       <div class="glass-card rounded-3xl p-4 sm:p-6 md:p-8 border border-slate-200 mb-8">
         <!-- Calendar Header -->
         <div class="flex items-center justify-between mb-6">
@@ -533,7 +533,7 @@
   <script src="js/firebase-config.js"></script>
 
   <!-- Application Scripts -->
-  <script src="js/events-data.js?v=20261020_10"></script>
-  <script src="js/app.js?v=20261020_10"></script>
+  <script src="js/events-data.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

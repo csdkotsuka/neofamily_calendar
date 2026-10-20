@@ -578,38 +578,6 @@ const INITIAL_EVENTS = [
     ]
   },
   {
-    "id": "event-20261020-iyasuta-mimola",
-    "title": "📣✨【会長コマース❣️イヤスタのお知らせ】Mimolaグループ特別編",
-    "subtitle": "発見！IYASUTA 特別編✨ Mimolaグループの4名が登場＆それぞれの想いや商品が破格の価格で紹介される特別な回🥰",
-    "category": "セミナー・勉強会",
-    "categoryColor": "#d97706",
-    "startDate": "2026-10-20",
-    "startTime": "21:00",
-    "endDate": "2026-10-20",
-    "endTime": "22:00",
-    "isAllDay": false,
-    "location": "LIVEPARK オンライン配信（発見！IYASUTA）",
-    "locationType": "online",
-    "fee": "視聴無料",
-    "capacity": "",
-    "presenter": "Mimola理事長 岩崎ゆか / 坂本有莉菜・太田美穂・園田美緒・山本瑛子",
-    "image": "images/event-20261020-iyasuta-mimola.jpg",
-    "images": [
-      "images/event-20261020-iyasuta-mimola.jpg"
-    ],
-    "description": "📣✨【会長コマース❣️\n　イヤスタのお知らせ】✨\n\n今回のイヤスタは\nMimolaグループ特別編❣️\n\nみなさん、こんにちは☺️💕\nMimola理事長の岩崎ゆかです✨\n\n10/20(火) 21:00～\n\n今回はなんと、会長コマース‼️\nMimolaグループの4名が登場します✨\n\n💚 坂本有莉菜\n女性専門「身体を育てる整体」\n\n🍪 太田美穂さん\nhttps://www.instagram.com/mamyu.seitai_kuumuus?srtk=dmI0M29rMG5lbXhs&utm_source=qr\nhttps://www.instagram.com/cafe_and_cake_yui_niigata?srtk=cGc3amhubTVkMWd0\nみんな大好き♡おいしいアレが登場！\n\n🎁 園田美緒さん\nhttps://www.instagram.com/mimimade_108?psln=cDVkNDZvY2JmZm93\n大切な思い出をカタチにするアイテム✨\n\n☕️ 山本瑛子さん\nhttps://www.instagram.com/suuha_1121?rpxt=MjNvaHdkazNwZXpm\n毎日の暮らしに取り入れたい、\nほっこり癒やされるアイテム♡\n\nそれぞれの想いや商品が\n破格の価格で紹介される特別な回です🥰\n\nぜひみなさんにも見ていただけたら嬉しいです💚\n\n🕘 配信：10/20（火）21:00〜\n\n📺 視聴はこちら👇\nhttps://events.livepark.jp/videos/cZGBlCyhHEU\n\nどんな特別な内容になっているのか、\n楽しみに観にきてください〜😆✨",
-    "registrationUrl": "https://events.livepark.jp/videos/cZGBlCyhHEU",
-    "zoomUrl": "",
-    "zoomMeetingId": "",
-    "zoomPasscode": "",
-    "archive": {
-      "hasArchive": false,
-      "archiveUrl": "",
-      "password": "",
-      "notes": ""
-    }
-  },
-  {
     "id": "event-20261022-machinohokenshitsu",
     "title": "まちのほけんしつ 事業説明会",
     "subtitle": "地域に「ちょっと相談できる場所」をつくりたい仲間へ",
@@ -853,38 +821,6 @@ const INITIAL_EVENTS = [
       "notes": ""
     },
     "images": []
-  },
-  {
-    "id": "event-20261029-bengyo-ginger-shinkawa",
-    "title": "⛩️勉強ジンジャー⛩️ セルフ小顔メンテナンス＆歪みセルフチェックと整え",
-    "subtitle": "パーソナルトレーナー兼整体師の新川が独自で作った『顔骨小顔メソッド』※全額定例会会場費の補填💕",
-    "category": "セミナー・勉強会",
-    "categoryColor": "#d97706",
-    "startDate": "2026-10-29",
-    "startTime": "21:30",
-    "endDate": "2026-10-29",
-    "endTime": "22:30",
-    "isAllDay": false,
-    "location": "オンライン配信（⛩️勉強ジンジャー⛩️）",
-    "locationType": "online",
-    "fee": "定例会会場費補填チケット",
-    "capacity": "",
-    "presenter": "shAdow理事長 新川晶子（パーソナルトレーナー＆整体師）",
-    "image": "images/event-20261029-bengyo-ginger-shinkawa.jpg",
-    "images": [
-      "images/event-20261029-bengyo-ginger-shinkawa.jpg"
-    ],
-    "description": "⛩️勉強ジンジャー⛩️\n\n【shAdow理事長 新川晶子】\n\n10月29日 21時30〜\n\n✴︎✴︎✴︎✴︎✴︎✴︎✴︎✴︎✴︎✴︎\n\nセルフ小顔メンテナンス‼️\n　　　　&\n歪みセルフチェックと整え‼️\n\n✴︎✴︎✴︎✴︎✴︎✴︎✴︎✴︎✴︎✴︎\n\n◼︎顔のむくみが気になる方\n◼︎歪みに悩んでいる方　など\n\n身体の仕組みも学びながら\nセルフでできる\nプチケア方法をお届けします☺️\n\nパーソナルトレーナー兼\n整体師の新川が\n独自で作った『顔骨小顔メソッド』\n\n－－－－－－－\n\n⛩️勉強ジンジャー⛩️\n\n🗓️10月29日(木)\n⏰21:30〜22:30\n\n※みなさんのご参加が\n【全額定例会会場費】の補填💕\nありがとう\n\nhttps://community-iyasakagu.jp/subschool/course/school_course1265/",
-    "registrationUrl": "https://community-iyasakagu.jp/subschool/course/school_course1265/",
-    "zoomUrl": "",
-    "zoomMeetingId": "",
-    "zoomPasscode": "",
-    "archive": {
-      "hasArchive": false,
-      "archiveUrl": "",
-      "password": "",
-      "notes": ""
-    }
   },
   {
     "id": "event-20261030-livecommerce",
