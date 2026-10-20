@@ -1013,6 +1013,8 @@ function setupEscapeKeyHandler() {
       closeCreateEventModal();
       closeModal('member-detail-modal');
       closeModal('add-member-modal');
+      closeModal('blocklist-modal');
+      closeModal('blocklist-delete-modal');
     }
   });
 }
@@ -1521,7 +1523,7 @@ let blocklistDeleteTargetId = null;
  * LocalStorage -> INITIAL_BLOCKLIST -> Firestore (利用可能な場合)
  */
 async function loadBlocklistData() {
-  const currentVersion = "v3";
+  const currentVersion = "v4";
   const storedVersion = localStorage.getItem("neofamily_blocklist_version");
   const cached = localStorage.getItem("neofamily_blocklist");
 
@@ -1689,63 +1691,85 @@ function renderAdminBlocklistTable() {
   pageItems.forEach(item => {
     const platformBadges = getPlatformBadgesHtml(item.platform, item.url, item.secondary_url, item.url_warning);
     const safeReason = item.reason ? escapeHtml(item.reason) : '<span class="text-slate-300">-</span>';
-    const safeReporter = item.reporter ? escapeHtml(item.reporter) : '<span class="text-slate-400">管理部</span>';
-    const safeDate = item.date ? escapeHtml(item.date) : '<span class="text-slate-400">-</span>';
+
+    // 登録日時の改行表示
+    let dateHtml = '<span class="text-slate-400 text-[10px]">-</span>';
+    if (item.date) {
+      const parts = item.date.trim().split(" ");
+      const dPart = parts[0];
+      const tPart = parts.slice(1).join(" ");
+      dateHtml = `
+        <div class="text-[11px] font-bold text-slate-800 leading-tight">${escapeHtml(dPart)}</div>
+        ${tPart ? `<div class="text-[10px] text-slate-400 font-mono mt-0.5 leading-tight">${escapeHtml(tPart)}</div>` : ''}
+      `;
+    }
 
     // 氏名 / 表示名のスタイリング（人名・屋号か、アカウント名か）
     let nameHtml = "";
     const rawName = (item.name || "").trim();
     if (rawName.startsWith("@")) {
-      nameHtml = `<span class="inline-flex items-center gap-1 font-mono text-xs font-bold text-indigo-700 bg-indigo-50 border border-indigo-100 px-2 py-0.5 rounded-md"><i class="fa-solid fa-at text-[10px] text-indigo-400"></i>${escapeHtml(rawName.substring(1))}</span>`;
+      nameHtml = `<span class="inline-flex items-center gap-0.5 font-mono text-[11px] font-bold text-indigo-700 bg-indigo-50 border border-indigo-100 px-1.5 py-0.5 rounded break-all leading-tight"><i class="fa-solid fa-at text-[9px] text-indigo-400 shrink-0"></i>${escapeHtml(rawName.substring(1))}</span>`;
     } else if (rawName && rawName !== "（名称未記載）") {
-      nameHtml = `<div class="font-bold text-slate-900 group-hover:text-rose-600 transition break-words text-xs sm:text-[13px]">${escapeHtml(rawName)}</div>`;
+      nameHtml = `<div class="font-bold text-slate-900 group-hover:text-rose-600 transition break-words text-xs leading-snug">${escapeHtml(rawName)}</div>`;
     } else {
-      nameHtml = `<span class="text-slate-400 text-xs italic">（名称未記載）</span>`;
+      nameHtml = `<span class="text-slate-400 text-[11px] italic">（未記載）</span>`;
+    }
+
+    // 報告者の改行表示（氏名と部署）
+    let repHtml = "";
+    if (item.reporter) {
+      const m = item.reporter.match(/^(.+?)[（\(](.+?)[）\)]$/);
+      if (m) {
+        repHtml = `
+          <div class="text-[11px] font-bold text-slate-900 leading-tight truncate">${escapeHtml(m[1])}</div>
+          <div class="text-[9px] text-slate-500 font-medium truncate mt-0.5 leading-tight" title="${escapeHtml(m[2])}">${escapeHtml(m[2])}</div>
+        `;
+      } else {
+        repHtml = `<div class="text-[11px] font-bold text-slate-900 leading-tight truncate">${escapeHtml(item.reporter)}</div>`;
+      }
+    } else {
+      repHtml = '<span class="text-slate-400 text-[10px]">-</span>';
     }
 
     html += `
       <tr class="hover:bg-slate-50/80 transition group">
-        <!-- 登録日時 -->
-        <td class="py-3 px-4 whitespace-nowrap">
-          <div class="text-[11px] font-bold text-slate-700 flex items-center gap-1.5">
-            <i class="fa-regular fa-clock text-slate-400"></i>
-            <span>${safeDate}</span>
-          </div>
+        <!-- 登録日時（改行表示） -->
+        <td class="py-2.5 px-3 whitespace-nowrap text-center shrink-0 w-24">
+          ${dateHtml}
         </td>
 
-        <!-- 氏名 / 表示名 -->
-        <td class="py-3 px-4">
+        <!-- 氏名 / 表示名（幅狭・コンパクト） -->
+        <td class="py-2.5 px-3 w-32 max-w-[130px] shrink-0">
           ${nameHtml}
         </td>
 
         <!-- プラットフォーム & URL -->
-        <td class="py-3 px-4">
+        <td class="py-2.5 px-3 w-56 min-w-[190px] shrink-0">
           ${platformBadges}
         </td>
 
-        <!-- 理由・備考メモ -->
-        <td class="py-3 px-4 max-w-xs sm:max-w-sm">
-          <div class="text-xs text-slate-600 line-clamp-2 hover:line-clamp-none transition cursor-pointer font-medium leading-relaxed" title="${escapeHtml(item.reason || '')}">
+        <!-- 理由・備考メモ（全文そのまま） -->
+        <td class="py-2.5 px-3 min-w-[200px]">
+          <div class="text-xs text-slate-700 font-medium leading-relaxed break-words whitespace-pre-line" title="${escapeHtml(item.reason || '')}">
             ${safeReason}
           </div>
         </td>
 
-        <!-- 報告者（部署・名前） -->
-        <td class="py-3 px-4 whitespace-nowrap">
-          <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[10px] font-bold bg-slate-100 text-slate-800 border border-slate-200/60 shadow-2xs">
-            <i class="fa-solid fa-user-pen text-slate-500"></i>
-            <span>${safeReporter}</span>
-          </span>
+        <!-- 報告者（部署と名前改行） -->
+        <td class="py-2.5 px-2.5 w-28 max-w-[115px] shrink-0 text-center">
+          <div class="bg-slate-100/90 py-1 px-1.5 rounded-lg border border-slate-200/50">
+            ${repHtml}
+          </div>
         </td>
 
-        <!-- アクション -->
-        <td class="py-3 px-4 text-right whitespace-nowrap">
-          <div class="flex items-center justify-end gap-1.5">
-            <button onclick="openBlocklistModal('${item.id}')" title="編集" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition">
-              <i class="fa-solid fa-pen-to-square text-xs"></i>
+        <!-- アクション（縦並び配置・極小幅） -->
+        <td class="py-2 px-1 text-center whitespace-nowrap w-12 shrink-0">
+          <div class="flex flex-col items-center justify-center gap-1">
+            <button onclick="openBlocklistModal('${item.id}')" title="編集" class="w-6 h-6 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition">
+              <i class="fa-solid fa-pen-to-square text-[10px]"></i>
             </button>
-            <button onclick="openBlocklistDeleteModal('${item.id}')" title="削除" class="w-7 h-7 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-600 flex items-center justify-center transition">
-              <i class="fa-solid fa-trash text-xs"></i>
+            <button onclick="openBlocklistDeleteModal('${item.id}')" title="削除" class="w-6 h-6 rounded-md bg-rose-50 hover:bg-rose-100 text-rose-600 flex items-center justify-center transition">
+              <i class="fa-solid fa-trash text-[10px]"></i>
             </button>
           </div>
         </td>
@@ -1758,10 +1782,10 @@ function renderAdminBlocklistTable() {
 }
 
 /**
- * プラットフォームバッジとURLリンクのHTML生成（警告注記付き）
+ * プラットフォームバッジとURLリンクのHTML生成（警告注記シンプル版）
  */
 function getPlatformBadgesHtml(platformStr, url1, url2, warning = "") {
-  let html = '<div class="space-y-1.5">';
+  let html = '<div class="space-y-1">';
 
   if (url1) {
     html += renderSingleUrlBadge(url1, platformStr);
@@ -1772,8 +1796,8 @@ function getPlatformBadgesHtml(platformStr, url1, url2, warning = "") {
 
   if (warning) {
     html += `
-      <div class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-bold bg-amber-50 text-amber-700 border border-amber-200">
-        <i class="fa-solid fa-triangle-exclamation text-amber-500 text-[9px]"></i>
+      <div class="inline-flex items-center gap-0.5 px-1 py-0.2 rounded text-[9px] font-bold bg-amber-50 text-amber-700 border border-amber-200">
+        <i class="fa-solid fa-triangle-exclamation text-[8px] text-amber-500"></i>
         <span>${escapeHtml(warning)}</span>
       </div>
     `;
@@ -1796,7 +1820,7 @@ function renderSingleUrlBadge(url, defaultPlatform) {
   if (uLower.includes("instagram.com")) {
     badgeColor = "bg-pink-50 text-pink-700 border-pink-200";
     icon = '<i class="fa-brands fa-instagram text-pink-600"></i>';
-    label = "Instagram";
+    label = "IG";
   } else if (uLower.includes("threads.net") || uLower.includes("threads.com")) {
     badgeColor = "bg-slate-900 text-white border-slate-900";
     icon = '<i class="fa-brands fa-threads text-white"></i>';
@@ -1804,28 +1828,31 @@ function renderSingleUrlBadge(url, defaultPlatform) {
   } else if (uLower.includes("facebook.com")) {
     badgeColor = "bg-blue-50 text-blue-700 border-blue-200";
     icon = '<i class="fa-brands fa-facebook text-blue-600"></i>';
-    label = "Facebook";
+    label = "FB";
   }
 
-  // URL末尾のIDやパスを短縮して表示
+  // URL短縮（コンパクト表示）
   let displayUrl = url.replace(/^https?:\/\/(www\.)?/, "");
-  if (displayUrl.length > 28) {
-    displayUrl = displayUrl.substring(0, 26) + "...";
+  if (displayUrl.length > 24) {
+    displayUrl = displayUrl.substring(0, 22) + "...";
   }
 
   return `
-    <div class="flex items-center gap-1.5 flex-wrap">
-      <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-black border ${badgeColor}">
+    <div class="flex items-center gap-1 flex-wrap">
+      <span class="inline-flex items-center gap-0.5 px-1 py-0.2 rounded text-[9px] font-black border ${badgeColor}">
         ${icon}
         <span>${label}</span>
       </span>
-      <a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" class="text-rose-600 hover:text-rose-700 hover:underline font-mono text-[11px] font-semibold inline-flex items-center gap-1" title="${escapeHtml(url)}">
+      <a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" class="text-rose-600 hover:text-rose-700 hover:underline font-mono text-[11px] font-semibold inline-flex items-center gap-0.5" title="${escapeHtml(url)}">
         <span>${escapeHtml(displayUrl)}</span>
-        <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+        <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i>
       </a>
-      <button onclick="copyBlocklistUrl('${escapeHtml(url)}')" title="URLをコピー" class="text-slate-400 hover:text-slate-700 transition text-[11px] ml-0.5">
+      <button onclick="copyBlocklistUrl('${escapeHtml(url)}')" title="URLをコピー" class="text-slate-400 hover:text-slate-700 transition text-[10px] ml-0.5">
         <i class="fa-regular fa-copy"></i>
       </button>
+    </div>
+  `;
+}
     </div>
   `;
 }
@@ -1989,67 +2016,83 @@ function autoDetectPlatform(url) {
 }
 
 /**
+ * プラットフォームカード（KPI）クリック時の絞り込み
+ */
+function filterByPlatformCard(platform) {
+  const filterSelect = document.getElementById("blk-platform-filter");
+  if (filterSelect) {
+    filterSelect.value = platform;
+    filterBlocklist();
+  }
+}
+
+/**
  * ブロックリスト登録・更新の送信ハンドラ
  */
 async function handleBlocklistSubmit(e) {
-  e.preventDefault();
+  if (e) e.preventDefault();
 
-  const id = document.getElementById("blk-form-id").value;
-  const name = document.getElementById("blk-form-name").value.trim();
-  const url = document.getElementById("blk-form-url").value.trim();
-  const url2 = document.getElementById("blk-form-url2").value.trim();
-  const platform = document.getElementById("blk-form-platform").value;
-  const reason = document.getElementById("blk-form-reason").value.trim();
-  const reporter = document.getElementById("blk-form-reporter").value.trim() || "管理部";
-  const date = document.getElementById("blk-form-date").value.trim();
-  const warningEl = document.getElementById("blk-form-warning");
-  const url_warning = warningEl ? warningEl.value.trim() : "";
+  try {
+    const id = (document.getElementById("blk-form-id")?.value || "").trim();
+    const name = (document.getElementById("blk-form-name")?.value || "").trim();
+    const url = (document.getElementById("blk-form-url")?.value || "").trim();
+    const url2 = (document.getElementById("blk-form-url2")?.value || "").trim();
+    const platform = document.getElementById("blk-form-platform")?.value || "その他";
+    const reason = (document.getElementById("blk-form-reason")?.value || "").trim();
+    const reporter = (document.getElementById("blk-form-reporter")?.value || "").trim() || "本多栞（RAYTUS / 秘書課）";
+    const date = (document.getElementById("blk-form-date")?.value || "").trim();
+    const warningEl = document.getElementById("blk-form-warning");
+    const url_warning = warningEl ? warningEl.value.trim() : "";
 
-  if (!name && !url) {
-    showToast("対象者名またはURLを入力してください");
-    return;
-  }
+    if (!name && !url) {
+      showToast("対象者名またはURLを入力してください");
+      return;
+    }
 
-  if (id) {
-    // 既存更新
-    const idx = allBlocklist.findIndex(b => b.id === id);
-    if (idx !== -1) {
-      allBlocklist[idx] = {
-        ...allBlocklist[idx],
-        name,
+    if (id) {
+      // 既存更新
+      const idx = allBlocklist.findIndex(b => b.id === id);
+      if (idx !== -1) {
+        allBlocklist[idx] = {
+          ...allBlocklist[idx],
+          name: name || allBlocklist[idx].name || "（名称未記載）",
+          url,
+          secondary_url: url2,
+          platform,
+          reason,
+          reporter,
+          date,
+          url_warning
+        };
+        saveBlocklistData(allBlocklist[idx], "update");
+        showToast(`「${name || url}」の情報を更新しました`);
+      }
+    } else {
+      // 新規追加
+      const newId = `blk_${Date.now()}`;
+      const newEntry = {
+        id: newId,
+        name: name || (url ? "（名称未記載）" : "新規登録"),
         url,
         secondary_url: url2,
         platform,
         reason,
         reporter,
-        date,
+        date: date || new Date().toISOString().replace('T', ' ').substring(0, 16),
         url_warning
       };
-      await saveBlocklistData(allBlocklist[idx], "update");
-      showToast(`「${name || url}」の情報を更新しました`);
+      allBlocklist.unshift(newEntry);
+      saveBlocklistData(newEntry, "create");
+      showToast(`「${name || url}」をブロックリストに登録しました`);
     }
-  } else {
-    // 新規追加
-    const newId = `blk_${Date.now()}`;
-    const newEntry = {
-      id: newId,
-      name,
-      url,
-      secondary_url: url2,
-      platform,
-      reason,
-      reporter,
-      date: date || new Date().toISOString().replace('T', ' ').substring(0, 16),
-      url_warning
-    };
-    allBlocklist.unshift(newEntry);
-    await saveBlocklistData(newEntry, "create");
-    showToast(`「${name || url}」をブロックリストに登録しました`);
+  } catch (err) {
+    console.error("[Blocklist] Error in submit handler:", err);
+    showToast("保存処理中にエラーが発生しました");
+  } finally {
+    closeModal("blocklist-modal");
+    renderBlocklistKPI();
+    renderAdminBlocklistTable();
   }
-
-  closeModal("blocklist-modal");
-  renderBlocklistKPI();
-  renderAdminBlocklistTable();
 }
 
 /**
@@ -2081,9 +2124,10 @@ async function executeBlocklistDelete(id) {
   if (idx === -1) return;
 
   const deletedName = allBlocklist[idx].name;
+  const deletedItem = allBlocklist[idx];
   allBlocklist.splice(idx, 1);
 
-  await saveBlocklistData({ id }, "delete");
+  saveBlocklistData(deletedItem, "delete");
 
   closeModal("blocklist-delete-modal");
   blocklistDeleteTargetId = null;
@@ -2095,22 +2139,32 @@ async function executeBlocklistDelete(id) {
 
 /**
  * データの永続化 (LocalStorage & Firestore)
+ * LocalStorageへ即座に反映し、Firestore同期はバックグラウンド非同期実行
  */
-async function saveBlocklistData(entry, action) {
+function saveBlocklistData(entry, action) {
   // LocalStorage に即座に保存
-  localStorage.setItem("neofamily_blocklist", JSON.stringify(allBlocklist));
+  try {
+    localStorage.setItem("neofamily_blocklist", JSON.stringify(allBlocklist));
+    localStorage.setItem("neofamily_blocklist_version", "v4");
+  } catch (err) {
+    console.error("[Blocklist] LocalStorage save error:", err);
+  }
 
-  // Firestore があれば非同期で同期
+  // Firestore があれば非同期バックグラウンドで同期
   if (typeof firebase !== "undefined" && firebase.apps.length) {
     try {
       const db = firebase.firestore();
       if (action === "create" || action === "update") {
-        await db.collection("blocklist").doc(entry.id).set(entry, { merge: true });
+        db.collection("blocklist").doc(entry.id).set(entry, { merge: true }).catch(err => {
+          console.warn("[Blocklist] Firestore sync error:", err);
+        });
       } else if (action === "delete") {
-        await db.collection("blocklist").doc(entry.id).delete();
+        db.collection("blocklist").doc(entry.id).delete().catch(err => {
+          console.warn("[Blocklist] Firestore delete error:", err);
+        });
       }
     } catch (err) {
-      console.warn("[Blocklist] Firestore sync error:", err);
+      console.warn("[Blocklist] Firestore error:", err);
     }
   }
 }

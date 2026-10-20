@@ -1,5 +1,5 @@
 /**
- * NEO FAMILY Calendar - Blocklist Data (v3 Verified Cleaned)
+ * NEO FAMILY Calendar - Blocklist Data (v4 Chronological)
  * Total items: 704
  */
 const INITIAL_BLOCKLIST = [
@@ -31,11 +31,11 @@ const INITIAL_BLOCKLIST = [
     "date": "2026-06-05 11:27 AM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@aozora.iyashi",
-    "url": "https://www.threads.net/@aozora.iyashi?igsh=MXhIN3hhaHRIc3Nrcw%3D%3D",
+    "url": "https://www.threads.net/@aozora.iyashi?igsh=MXhIN3hhaHRIc3Nrcw%3D%3D&igshid=NTC4MTIwNjQ2YQ%3D%3D",
     "secondary_url": "https://www.instagram.com/aozora.iyashi",
     "platform": "Threads / Instagram",
     "url_warning": "",
-    "reason": "つわたしのあおぞらの ？ igshid=NTC4MTIwNjQ2YQ%3D%3D",
+    "reason": "つわたしのあおぞらの",
     "image": "Screenshot 2026-10-20 at 9.12.28.png",
     "id": "blk_003"
   },
@@ -94,7 +94,7 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/mocha_de_sanctuary?igsh=MTV6MDgWNDFTY2UwOQ%3D%3D",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "mocha_de_sanctuary",
     "image": "Screenshot 2026-10-20 at 9.12.28.png",
     "id": "blk_008"
@@ -139,11 +139,11 @@ const INITIAL_BLOCKLIST = [
     "date": "2026-06-05 11:29 AM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@kurumi_172",
-    "url": "https://www.instagram.com/kurumi_172",
+    "url": "https://www.instagram.com/kurumi_172?igSh=MWKOY2RyajRZMWCxOQ==",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igSh=MWKOY2RyajRZMWCxOQ==",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.12.35.png",
     "id": "blk_012"
   },
@@ -187,11 +187,11 @@ const INITIAL_BLOCKLIST = [
     "date": "2026-06-05 11:33 AM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@ai.sao_ch",
-    "url": "https://www.instagram.com/ai.sao_ch",
+    "url": "https://www.instagram.com/ai.sao_ch?IgSh=Z3R4YXJqN2",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ IgSh=Z3R4YXJqN2|5d2Zr",
+    "reason": "|5d2Zr",
     "image": "Screenshot 2026-10-20 at 9.12.35.png",
     "id": "blk_016"
   },
@@ -203,7 +203,7 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ Iigsh=MTZnaGIneHdpNDN6",
+    "reason": "Iigsh=MTZnaGIneHdpNDN6",
     "image": "Screenshot 2026-10-20 at 9.12.35.png",
     "id": "blk_017"
   },
@@ -220,18 +220,6 @@ const INITIAL_BLOCKLIST = [
     "id": "blk_018"
   },
   {
-    "date": "",
-    "reporter": "本多栞（RAYTUS / 秘書課）",
-    "name": "@miraisha_aki",
-    "url": "https://www.threads.net/@miraisha_aki",
-    "secondary_url": "",
-    "platform": "Threads",
-    "url_warning": "",
-    "reason": "JUNI C II.O4 AIVI",
-    "image": "Screenshot 2026-10-20 at 9.12.45.png",
-    "id": "blk_019"
-  },
-  {
     "date": "2026-06-05 12:51 PM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "FB: hiroko.wakaume",
@@ -241,7 +229,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "会には「自分のタイミングで」と言いながら自分の宣伝ガンガンし てくる人なので、こちらからお断りしましたい",
     "image": "Screenshot 2026-10-20 at 9.12.45.png",
-    "id": "blk_020"
+    "id": "blk_019"
   },
   {
     "date": "2026-06-05 12:51 PM",
@@ -253,7 +241,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "お話聞いた方と思われます！ わざわざスレッズに書いてあり、送らないようにしましょう！",
     "image": "Screenshot 2026-10-20 at 9.12.45.png",
-    "id": "blk_021"
+    "id": "blk_020"
   },
   {
     "date": "2026-06-05 12:52 PM",
@@ -265,7 +253,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "コミュニティ勧誘を目として、かなり変わった人ですのでお声か けないようにお願いします人",
     "image": "Screenshot 2026-10-20 at 9.12.45.png",
-    "id": "blk_022"
+    "id": "blk_021"
   },
   {
     "date": "2026-06-05 12:52 PM",
@@ -277,7 +265,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "2026/4/5畠山尚美ちゃん繋ぎで草アドアポしましたが、会長の 大ファンだと言いながら泣いて喜んで会長と30分後にzoomしま しょーと言ってたらグループライン退会してました（ ちなみに会社員と自己紹介しますが無職で失業手当と親のお金で生 きてます。",
     "image": "Screenshot 2026-10-20 at 9.12.45.png",
-    "id": "blk_023"
+    "id": "blk_022"
   },
   {
     "date": "2026-06-05 12:52 PM",
@@ -289,7 +277,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "ここの話、2回目で入る気ないので、二度とお声かけしないでくだ さい！！",
     "image": "Screenshot 2026-10-20 at 9.12.45.png",
-    "id": "blk_024"
+    "id": "blk_023"
   },
   {
     "date": "2026-06-05 12:52 PM",
@@ -301,7 +289,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.12.45.png",
-    "id": "blk_025"
+    "id": "blk_024"
   },
   {
     "date": "2026-06-05 12:52 PM",
@@ -313,7 +301,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.12.45.png",
-    "id": "blk_026"
+    "id": "blk_025"
   },
   {
     "date": "2026-06-05 12:52 PM",
@@ -325,7 +313,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.12.45.png",
-    "id": "blk_027"
+    "id": "blk_026"
   },
   {
     "date": "2026-06-05 12:53 PM",
@@ -334,10 +322,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.threads.net/@yossy_hadou",
     "secondary_url": "",
     "platform": "Threads",
-    "url_warning": "ドメイン誤記修復 (threaas→threads.net)",
+    "url_warning": "修復済",
     "reason": "2回もリスケして、3回目のお約束の時間にZoom来られませんで した。 メッセージも既読つきません。 お声掛けしないようにしてください&",
     "image": "Screenshot 2026-10-20 at 9.12.51.png",
-    "id": "blk_028"
+    "id": "blk_027"
   },
   {
     "date": "2026-06-05 12:53 PM",
@@ -349,7 +337,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "●マウント、モラハラ系、営業慣れしてます。お気をつけくださ い）。",
     "image": "Screenshot 2026-10-20 at 9.12.51.png",
-    "id": "blk_029"
+    "id": "blk_028"
   },
   {
     "date": "2026-06-05 12:53 PM",
@@ -358,10 +346,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/keita.fujishima",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "かなり前に送ったDMに対して煽るような文面でメッセージを送っ て来た後、何度もInstagramから音声着信をかけてくるような方で す・・ まともな人ではないです",
     "image": "Screenshot 2026-10-20 at 9.12.51.png",
-    "id": "blk_030"
+    "id": "blk_029"
   },
   {
     "date": "2026-06-05 12:53 PM",
@@ -371,9 +359,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "https://www.threads.net/@motohiromiyahara",
     "platform": "Instagram / Threads",
     "url_warning": "",
-    "reason": "メンバーの、モラハラ旦那らしいので声かけないでと。 ？ igsh=MXBjeHUwcXYyaG960A==",
+    "reason": "メンバーの、モラハラ旦那らしいので声かけないでと。",
     "image": "Screenshot 2026-10-20 at 9.12.51.png",
-    "id": "blk_031"
+    "id": "blk_030"
   },
   {
     "date": "2026-06-05 12:53 PM",
@@ -385,19 +373,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "私たちから何度もお誘いの連絡がきて不信感があるという方がい らっしゃるので、お誘いしないようにお願いします。",
     "image": "Screenshot 2026-10-20 at 9.12.51.png",
-    "id": "blk_032"
-  },
-  {
-    "date": "",
-    "reporter": "本多栞（RAYTUS / 秘書課）",
-    "name": "@trueselfkakuseimama",
-    "url": "https://www.threads.net/@trueselfkakuseimama",
-    "secondary_url": "",
-    "platform": "Threads",
-    "url_warning": "",
-    "reason": "以前お話聞いてお断りしたそうです！",
-    "image": "Screenshot 2026-10-20 at 9.12.59.png",
-    "id": "blk_033"
+    "id": "blk_031"
   },
   {
     "date": "2026-06-05 12:54 PM",
@@ -409,7 +385,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "この方、入会翌日に退会しているので、声かけないようにお願いし ます（ ？ IgShid=NTC4MTIwNjQ2YQ",
     "image": "Screenshot 2026-10-20 at 9.12.59.png",
-    "id": "blk_034"
+    "id": "blk_032"
   },
   {
     "date": "2026-06-05 12:54 PM",
@@ -421,7 +397,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.12.59.png",
-    "id": "blk_035"
+    "id": "blk_033"
   },
   {
     "date": "2026-06-05 12:54 PM",
@@ -433,7 +409,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "すでに該当投稿削除されてますが、RAYTUSの名前出してのネガ ティブ投稿されてました・ お声がけしないようお願いします！",
     "image": "Screenshot 2026-10-20 at 9.12.59.png",
-    "id": "blk_036"
+    "id": "blk_034"
   },
   {
     "date": "2026-06-05 12:54 PM",
@@ -445,31 +421,31 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.12.59.png",
-    "id": "blk_037"
+    "id": "blk_035"
   },
   {
     "date": "2026-06-05 12:54 PM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@rina.jpd",
-    "url": "https://www.instagram.com/rina.jpd",
+    "url": "https://www.instagram.com/rina.jpd?IgShid=NTC4MTIwNjQ2YQ==&igsh=MXNqMTEyeWd4NzVkdQ==",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "IgShid=NTC4MTIwNjQ2YQ== ？ igsh=MXNqMTEyeWd4NzVkdQ== この方、入会後1週間で退会になりました。 クリエイティブ事業で追加料金がかかるなど、事実でないことを理 田に。",
+    "reason": "この方、入会後1週間で退会になりました。 クリエイティブ事業で追加料金がかかるなど、事実でないことを理 田に。",
     "image": "Screenshot 2026-10-20 at 9.12.59.png",
-    "id": "blk_038"
+    "id": "blk_036"
   },
   {
     "date": "2026-06-05 8:01 PM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@atelier_arte_2021",
-    "url": "https://www.instagram.com/atelier_arte_2021",
+    "url": "https://www.instagram.com/atelier_arte_2021?igsh=MWs3MmQxcmtwY",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "おせっかいしないでください！！ 」？ igsh=MWs3MmQxcmtwY✕R3cw==",
+    "reason": "おせっかいしないでください！！ 」✕R3cw==",
     "image": "Screenshot 2026-10-20 at 9.12.59.png",
-    "id": "blk_039"
+    "id": "blk_037"
   },
   {
     "date": "2026-06-05 8:01 PM",
@@ -481,7 +457,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "お金がない、アブレイズにも話をきいている！おせっかいしないで ください® ？ Igshid=NTc4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.12.59.png",
-    "id": "blk_040"
+    "id": "blk_038"
   },
   {
     "date": "2026-06-05 8:01 PM",
@@ -490,10 +466,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/kasumin_minworld?igsh=MTBqa2ZsbGdiMXdrcQ==",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "ままゆねのお話を聞いて、愚痴満載だったので、声掛けないでくだ さい。",
     "image": "Screenshot 2026-10-20 at 9.13.08.png",
-    "id": "blk_041"
+    "id": "blk_039"
   },
   {
     "date": "2026-06-05 8:01 PM",
@@ -505,7 +481,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.13.08.png",
-    "id": "blk_042"
+    "id": "blk_040"
   },
   {
     "date": "2026-06-05 8:02 PM",
@@ -517,7 +493,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "何度か話を聞いているようでネオファミリーの事を伝える連絡が取 れなくなりました",
     "image": "Screenshot 2026-10-20 at 9.13.08.png",
-    "id": "blk_043"
+    "id": "blk_041"
   },
   {
     "date": "2026-06-05 8:02 PM",
@@ -529,7 +505,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "お声かけしないようにお願いしますい",
     "image": "Screenshot 2026-10-20 at 9.13.08.png",
-    "id": "blk_044"
+    "id": "blk_042"
   },
   {
     "date": "2026-06-05 8:02 PM",
@@ -541,7 +517,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "お声掛けしないようにお願い致します。",
     "image": "Screenshot 2026-10-20 at 9.13.08.png",
-    "id": "blk_045"
+    "id": "blk_043"
   },
   {
     "date": "2026-06-05 8:02 PM",
@@ -553,7 +529,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "zOom時間に来ず、連絡したらブロックされたので、お声かけしな いでください。",
     "image": "Screenshot 2026-10-20 at 9.13.08.png",
-    "id": "blk_046"
+    "id": "blk_044"
   },
   {
     "date": "2026-06-05 8:02 PM",
@@ -565,19 +541,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "2回目Zoomでも「魅力を感じません」と入会せず。お声がけ不要 です。",
     "image": "Screenshot 2026-10-20 at 9.13.08.png",
-    "id": "blk_047"
-  },
-  {
-    "date": "",
-    "reporter": "本多栞（RAYTUS / 秘書課）",
-    "name": "@tetsuniro_photographer",
-    "url": "https://www.instagram.com/tetsuniro_photographer/",
-    "secondary_url": "",
-    "platform": "Instagram",
-    "url_warning": "",
-    "reason": "2回目Zoomでも「魅力を感じません」と入会せず。お声がけ不要 です。",
-    "image": "Screenshot 2026-10-20 at 9.13.16.png",
-    "id": "blk_048"
+    "id": "blk_045"
   },
   {
     "date": "2026-06-05 8:02 PM",
@@ -589,7 +553,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.13.16.png",
-    "id": "blk_049"
+    "id": "blk_046"
   },
   {
     "date": "2026-06-06 3:04 PM",
@@ -601,7 +565,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.13.16.png",
-    "id": "blk_050"
+    "id": "blk_047"
   },
   {
     "date": "2026-06-06 3:04 PM",
@@ -613,7 +577,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.13.16.png",
-    "id": "blk_051"
+    "id": "blk_048"
   },
   {
     "date": "2026-06-06 3:04 PM",
@@ -625,7 +589,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.13.16.png",
-    "id": "blk_052"
+    "id": "blk_049"
   },
   {
     "date": "2026-06-06 3:05 PM",
@@ -637,7 +601,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.13.16.png",
-    "id": "blk_053"
+    "id": "blk_050"
   },
   {
     "date": "2026-06-06 3:05 PM",
@@ -649,7 +613,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.13.16.png",
-    "id": "blk_054"
+    "id": "blk_051"
   },
   {
     "date": "2026-06-06 3:06 PM",
@@ -661,7 +625,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.13.16.png",
-    "id": "blk_055"
+    "id": "blk_052"
   },
   {
     "date": "2026-06-06 3:06 PM",
@@ -673,7 +637,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.13.16.png",
-    "id": "blk_056"
+    "id": "blk_053"
   },
   {
     "date": "2026-06-07 7:54 PM",
@@ -685,7 +649,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.13.16.png",
-    "id": "blk_057"
+    "id": "blk_054"
   },
   {
     "date": "2026-06-11 9:09 AM",
@@ -694,10 +658,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/yougata_kubota",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.13.22.png",
-    "id": "blk_058"
+    "id": "blk_055"
   },
   {
     "date": "2026-06-13 11:48 PM",
@@ -709,7 +673,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "しこの方、返金対応してます！声かけないでください。",
     "image": "Screenshot 2026-10-20 at 9.13.22.png",
-    "id": "blk_059"
+    "id": "blk_056"
   },
   {
     "date": "2026-06-14 12:18 AM",
@@ -721,7 +685,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "ファーストzoomする約束をしていましたが、 無断キャンセルで来ませんでした。 ？ IgShid=NTC4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.13.22.png",
-    "id": "blk_060"
+    "id": "blk_057"
   },
   {
     "date": "2026-06-17 4:14 PM",
@@ -733,7 +697,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "筋肉男、感情、思想強め、コンプレックス強めのネチネチ。お気 をつけください（",
     "image": "Screenshot 2026-10-20 at 9.13.22.png",
-    "id": "blk_061"
+    "id": "blk_058"
   },
   {
     "date": "2026-06-17 4:26 PM",
@@ -745,7 +709,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "妖怪でした（笑）会長に興味持てないそうです！",
     "image": "Screenshot 2026-10-20 at 9.13.22.png",
-    "id": "blk_062"
+    "id": "blk_059"
   },
   {
     "date": "2026-06-19 9:57 PM",
@@ -757,7 +721,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "中国人です。 通報してきたので 声掛けないでください！ ？ IgShid=NTC4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.13.22.png",
-    "id": "blk_063"
+    "id": "blk_060"
   },
   {
     "date": "2026-06-20 9:50 AM",
@@ -769,19 +733,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.13.22.png",
-    "id": "blk_064"
-  },
-  {
-    "date": "",
-    "reporter": "杉山ななみ（RAYTUS）",
-    "name": "@sharemee_official",
-    "url": "https://www.threads.net/@sharemee_official?igshid=NTc4MTIwNjQ2YQ==",
-    "secondary_url": "",
-    "platform": "Threads",
-    "url_warning": "",
-    "reason": "私で8回目のお断りだそうです。 情報共有はどうなっているんだと言われました。 お誘いしないようお願いします。",
-    "image": "Screenshot 2026-10-20 at 9.13.29.png",
-    "id": "blk_065"
+    "id": "blk_061"
   },
   {
     "date": "2026-06-22 12:18 AM",
@@ -793,7 +745,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "お話し2回目でした。 もう、声掛けはしないで欲しいとのことつ、ブロックお願い致しま す",
     "image": "Screenshot 2026-10-20 at 9.13.29.png",
-    "id": "blk_066"
+    "id": "blk_062"
   },
   {
     "date": "2026-06-22 4:42 PM",
@@ -805,7 +757,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "絶対に声をかけないでください！！必ずブロックを！！",
     "image": "Screenshot 2026-10-20 at 9.13.29.png",
-    "id": "blk_067"
+    "id": "blk_063"
   },
   {
     "date": "2026-06-23 11:58 AM",
@@ -817,7 +769,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "話を聞くのは5回目。会長の見た目がキライ。お声がけしないでく ださい♪",
     "image": "Screenshot 2026-10-20 at 9.13.29.png",
-    "id": "blk_068"
+    "id": "blk_064"
   },
   {
     "date": "2026-06-23 2:36 PM",
@@ -829,7 +781,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "この方、2回目でした。 精神疾患者。 よくわからないブラックな仕事をしているそう。 1回目断った理由は、 会長のインスタ見て 嫌だと思ったのと ロコミが悪口だったと。 でも、終わる時に 3回目声かけられたら次はご縁かな！ と言うてたので もう、次はなしです！",
     "image": "Screenshot 2026-10-20 at 9.13.29.png",
-    "id": "blk_069"
+    "id": "blk_065"
   },
   {
     "date": "2026-06-23 2:54 PM",
@@ -841,7 +793,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "私の店のことまで悪口書かれました。 報告もしていただけるとありがたいです® よろしくお願いいたします♪",
     "image": "Screenshot 2026-10-20 at 9.13.36.png",
-    "id": "blk_070"
+    "id": "blk_066"
   },
   {
     "date": "2026-06-23 4:08 PM",
@@ -853,7 +805,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "お話ししましたが、別のコミュニティに入っているためお断りされ た方々です。 おせっかいしないよう、お願いします。",
     "image": "Screenshot 2026-10-20 at 9.13.36.png",
-    "id": "blk_071"
+    "id": "blk_067"
   },
   {
     "date": "2026-06-23 4:08 PM",
@@ -865,7 +817,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "お話ししましたが、別のコミュニティに入っているためお断りされ た方々です。 おせっかいしないよう、お願いします。",
     "image": "Screenshot 2026-10-20 at 9.13.36.png",
-    "id": "blk_072"
+    "id": "blk_068"
   },
   {
     "date": "2026-06-23 4:08 PM",
@@ -877,7 +829,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "お話ししましたが、別のコミュニティに入っているためお断りされ た方々です。 おせっかいしないよう、お願いします。",
     "image": "Screenshot 2026-10-20 at 9.13.36.png",
-    "id": "blk_073"
+    "id": "blk_069"
   },
   {
     "date": "2026-06-23 4:08 PM",
@@ -889,7 +841,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "お話ししましたが、別のコミュニティに入っているためお断りされ た方々です。 おせっかいしないよう、お願いします。",
     "image": "Screenshot 2026-10-20 at 9.13.36.png",
-    "id": "blk_074"
+    "id": "blk_070"
   },
   {
     "date": "2026-06-23 4:08 PM",
@@ -901,7 +853,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "お話ししましたが、別のコミュニティに入っているためお断りされ た方々です。 おせっかいしないよう、お願いします。",
     "image": "Screenshot 2026-10-20 at 9.13.36.png",
-    "id": "blk_075"
+    "id": "blk_071"
   },
   {
     "date": "2026-06-23 9:56 PM",
@@ -911,9 +863,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "ネオファミリーと会長の名前を出して批判中のスレで盛り上がって いた皆様 ？ igshid=NTc4MTIwNjQ2YQ== ？ IgShid=NTC4MTIWNjQ2YQ==",
+    "reason": "ネオファミリーと会長の名前を出して批判中のスレで盛り上がって いた皆様  ？ IgShid=NTC4MTIWNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.13.36.png",
-    "id": "blk_076"
+    "id": "blk_072"
   },
   {
     "date": "2026-06-23 9:56 PM",
@@ -922,10 +874,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.threads.net/@yumemiru.syoujoja.irarenai?igshid=NTc4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
-    "reason": "ネオファミリーと会長の名前を出して批判中のスレで盛り上がって いた皆様 ？ igshid=NTc4MTIwNjQ2YQ== ？ IgShid=NTC4MTIWNjQ2YQ==",
+    "url_warning": "修復済",
+    "reason": "ネオファミリーと会長の名前を出して批判中のスレで盛り上がって いた皆様  ？ IgShid=NTC4MTIWNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.13.36.png",
-    "id": "blk_077"
+    "id": "blk_073"
   },
   {
     "date": "2026-06-23 9:56 PM",
@@ -935,9 +887,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "ネオファミリーと会長の名前を出して批判中のスレで盛り上がって いた皆様 ？ igshid=NTc4MTIwNjQ2YQ== ？ IgShid=NTC4MTIWNjQ2YQ==",
+    "reason": "ネオファミリーと会長の名前を出して批判中のスレで盛り上がって いた皆様  ？ IgShid=NTC4MTIWNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.13.36.png",
-    "id": "blk_078"
+    "id": "blk_074"
   },
   {
     "date": "2026-06-24 5:52 AM",
@@ -949,7 +901,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "誰かのDM晒してます・・・・・・ ？ xmt=AQGOMyyiKbHONn4tvEVOKUInu4pUWOxdD9IDTI5EPh3 -3QOuoDOOiyGLRTyryOe9DIA7XhE&slof=1",
     "image": "Screenshot 2026-10-20 at 9.13.36.png",
-    "id": "blk_079"
+    "id": "blk_075"
   },
   {
     "date": "2026-06-24 6:01 AM",
@@ -961,7 +913,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "ネオに入ってる人ですがネオをディスっています",
     "image": "Screenshot 2026-10-20 at 9.13.36.png",
-    "id": "blk_080"
+    "id": "blk_076"
   },
   {
     "date": "2026-06-24 6:01 AM",
@@ -973,7 +925,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "ネオに入ってる人ですがネオをディスっています",
     "image": "Screenshot 2026-10-20 at 9.13.43.png",
-    "id": "blk_081"
+    "id": "blk_077"
   },
   {
     "date": "2026-06-24 6:13 AM",
@@ -985,7 +937,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "リスケしたのに、当日来ませんでした。 おせっかいしないでください&",
     "image": "Screenshot 2026-10-20 at 9.13.43.png",
-    "id": "blk_082"
+    "id": "blk_078"
   },
   {
     "date": "2026-06-24 10:29 AM",
@@ -997,7 +949,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "固くお断りしますとのことです。",
     "image": "Screenshot 2026-10-20 at 9.13.43.png",
-    "id": "blk_083"
+    "id": "blk_079"
   },
   {
     "date": "2026-06-25 1:21 PM",
@@ -1009,7 +961,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "どんなコミュニティ？と聞いてきたのに、聞くだけ聞いて、他のに 入ってるから終わりましょうと嫌な感じ",
     "image": "Screenshot 2026-10-20 at 9.13.43.png",
-    "id": "blk_084"
+    "id": "blk_080"
   },
   {
     "date": "2026-06-25 3:32 PM",
@@ -1019,9 +971,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ 1gShia=NTC4MTIwNjQ2YQ== 一度お声がけさせていただきましたがお断りされたのち、他の方か らおせっかいされるたびにこちらに報告がきます おせっかいしないようよろしくお願いします。",
+    "reason": "1gShia=NTC4MTIwNjQ2YQ== 一度お声がけさせていただきましたがお断りされたのち、他の方か らおせっかいされるたびにこちらに報告がきます おせっかいしないようよろしくお願いします。",
     "image": "Screenshot 2026-10-20 at 9.13.43.png",
-    "id": "blk_085"
+    "id": "blk_081"
   },
   {
     "date": "2026-06-26 10:43 AM",
@@ -1033,19 +985,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "ここのお話3回目だそうです！ お声かけしないでください（",
     "image": "Screenshot 2026-10-20 at 9.13.43.png",
-    "id": "blk_086"
-  },
-  {
-    "date": "",
-    "reporter": "林味タ（Mimola）",
-    "name": "@ponkotsu_dekae",
-    "url": "https://www.instagram.com/ponkotsu_dekae",
-    "secondary_url": "",
-    "platform": "Instagram",
-    "url_warning": "",
-    "reason": "1stからアポに繋がったがそこから既読スルー4回。返信する気も ないみたいなので、絶対にお声がけしないでください。 ？ IgSh=bTZkcGtweWM2bGNi",
-    "image": "Screenshot 2026-10-20 at 9.13.50.png",
-    "id": "blk_087"
+    "id": "blk_082"
   },
   {
     "date": "2026-06-28 11:47 AM",
@@ -1057,7 +997,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "入会したけど難癖つけて返金対応までさせた人なので、 絶対お声がけしないようお願いします。",
     "image": "Screenshot 2026-10-20 at 9.13.50.png",
-    "id": "blk_088"
+    "id": "blk_083"
   },
   {
     "date": "2026-06-28 11:54 AM",
@@ -1069,7 +1009,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "MLMにブロックありますか？うちはげますよ！…しずる。",
     "image": "Screenshot 2026-10-20 at 9.13.50.png",
-    "id": "blk_089"
+    "id": "blk_084"
   },
   {
     "date": "2026-06-28 2:55 PM",
@@ -1078,10 +1018,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/kodomo_mirai_ouentai?igsh=MITITYWZvYnNqM3ZIZQ==",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.13.50.png",
-    "id": "blk_090"
+    "id": "blk_085"
   },
   {
     "date": "2026-06-29 2:46 PM",
@@ -1093,19 +1033,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "お声かけしないでください（ ？ 1gsh=MWVkenVaN2pvZ2Nndw==",
     "image": "Screenshot 2026-10-20 at 9.13.50.png",
-    "id": "blk_091"
+    "id": "blk_086"
   },
   {
     "date": "2026-06-29 6:40 PM",
     "reporter": "畑ゆかり（yuima-ru理事長）",
     "name": "@aitoluna_ai",
-    "url": "https://www.threads.net/@aitoluna_ai",
+    "url": "https://www.threads.net/@aitoluna_ai?igshid=NTc4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "アイコンAI女性だけど、男の方です！ 実績ないのに自信満々で俺はできるータイプ ？ igshid=NTc4MTIwNjQ2YQ== お声がけしないでください",
+    "reason": "アイコンAI女性だけど、男の方です！ 実績ないのに自信満々で俺はできるータイプ  お声がけしないでください",
     "image": "Screenshot 2026-10-20 at 9.13.50.png",
-    "id": "blk_092"
+    "id": "blk_087"
   },
   {
     "date": "2026-06-29 9:30 PM",
@@ -1117,7 +1057,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "キャリコンでゆくゆくは大きくやっていきたいと言いながら33万 が出せないことを「自分のタイミングで・・・」と言う人なので、 お声がけしないようにお願いします！",
     "image": "Screenshot 2026-10-20 at 9.13.50.png",
-    "id": "blk_093"
+    "id": "blk_088"
   },
   {
     "date": "2026-06-29 9:35 PM",
@@ -1129,19 +1069,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "手",
     "image": "Screenshot 2026-10-20 at 9.13.50.png",
-    "id": "blk_094"
+    "id": "blk_089"
   },
   {
     "date": "2026-06-29 9:36 PM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@kokowa55.sapporo39",
-    "url": "https://www.threads.net/@kokowa55.sapporo39",
+    "url": "https://www.threads.net/@kokowa55.sapporo39?igshid=NTc4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
-    "reason": "？ igshid=NTc4MTIwNjQ2YQ== 嫌なそうなのと、タイミングをみて抜けた方が良い、詐欺ですよ NGOも存在しないですよね お気をつけて とメッセージいただきました。 お声がけしないでください。",
+    "url_warning": "修復済",
+    "reason": "嫌なそうなのと、タイミングをみて抜けた方が良い、詐欺ですよ NGOも存在しないですよね お気をつけて とメッセージいただきました。 お声がけしないでください。",
     "image": "Screenshot 2026-10-20 at 9.13.55.png",
-    "id": "blk_095"
+    "id": "blk_090"
   },
   {
     "date": "2026-06-30 7:40 PM",
@@ -1153,7 +1093,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.13.55.png",
-    "id": "blk_096"
+    "id": "blk_091"
   },
   {
     "date": "2026-06-30 8:02 PM",
@@ -1165,7 +1105,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "スレッズでたくさんの方から、DMくるって、送らない方がいいか ？ xmt=AQGOFKUFnfguRhinYKnZgbDKnZyEtlyyVtAarsjLOYZVN MxPBV25YLIw82bJyUXjaKazfwA&slof=1",
     "image": "Screenshot 2026-10-20 at 9.13.55.png",
-    "id": "blk_097"
+    "id": "blk_092"
   },
   {
     "date": "2026-07-01 8:29 PM",
@@ -1177,7 +1117,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "何度もお声掛けされているそうなので、 おせっかいしないで下さい。",
     "image": "Screenshot 2026-10-20 at 9.13.55.png",
-    "id": "blk_098"
+    "id": "blk_093"
   },
   {
     "date": "2026-07-01 9:47 PM",
@@ -1189,7 +1129,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "この人、投稿にNEOのこと言ってるので声かけないでください＆",
     "image": "Screenshot 2026-10-20 at 9.13.55.png",
-    "id": "blk_099"
+    "id": "blk_094"
   },
   {
     "date": "2026-07-01 10:15 PM",
@@ -1201,7 +1141,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "ファースト約束していましたが、ブロックされて来ませんでした。",
     "image": "Screenshot 2026-10-20 at 9.13.55.png",
-    "id": "blk_100"
+    "id": "blk_095"
   },
   {
     "date": "2026-07-01 11:02 PM",
@@ -1213,7 +1153,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "ファーストアポしましたが、商材売り込んできました！！",
     "image": "Screenshot 2026-10-20 at 9.13.55.png",
-    "id": "blk_101"
+    "id": "blk_096"
   },
   {
     "date": "2026-07-02 3:21 PM",
@@ -1225,7 +1165,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "いいように言われてないので プラックリスト追加します",
     "image": "Screenshot 2026-10-20 at 9.14.03.png",
-    "id": "blk_102"
+    "id": "blk_097"
   },
   {
     "date": "2026-07-02 10:53 PM",
@@ -1237,7 +1177,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "入会手続き直前にキャンセル、お金をためて別のところに参加した そうです。",
     "image": "Screenshot 2026-10-20 at 9.14.03.png",
-    "id": "blk_103"
+    "id": "blk_098"
   },
   {
     "date": "2026-07-03 8:59 AM",
@@ -1249,7 +1189,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "何回かお話してるみたいです お声掛けしないようお願いします",
     "image": "Screenshot 2026-10-20 at 9.14.03.png",
-    "id": "blk_104"
+    "id": "blk_099"
   },
   {
     "date": "2026-07-03 12:45 PM",
@@ -1261,7 +1201,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "話を聞きたいとファースト約束してましたが、来ませんでした。",
     "image": "Screenshot 2026-10-20 at 9.14.03.png",
-    "id": "blk_105"
+    "id": "blk_100"
   },
   {
     "date": "2026-07-03 4:44 PM",
@@ -1273,7 +1213,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "このお2人おせっかいしない方が良さそうです IO1zMJEdfa42fSJRQZQNyTIJBM7uhcGbx0g&slof=1",
     "image": "Screenshot 2026-10-20 at 9.14.03.png",
-    "id": "blk_106"
+    "id": "blk_101"
   },
   {
     "date": "2026-07-04 2:20 PM",
@@ -1285,7 +1225,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "この方もやめましょう",
     "image": "Screenshot 2026-10-20 at 9.14.03.png",
-    "id": "blk_107"
+    "id": "blk_102"
   },
   {
     "date": "2026-07-05 8:11 AM",
@@ -1295,9 +1235,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ igShia=NTC4MTIWNJQ2YQ==",
+    "reason": "igShia=NTC4MTIWNJQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.14.03.png",
-    "id": "blk_108"
+    "id": "blk_103"
   },
   {
     "date": "2026-07-05 1:51 PM",
@@ -1309,7 +1249,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "報告してブロックを！",
     "image": "Screenshot 2026-10-20 at 9.14.11.png",
-    "id": "blk_109"
+    "id": "blk_104"
   },
   {
     "date": "2026-07-05 11:25 PM",
@@ -1321,7 +1261,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.14.11.png",
-    "id": "blk_110"
+    "id": "blk_105"
   },
   {
     "date": "2026-07-06 7:42 AM",
@@ -1333,7 +1273,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.14.11.png",
-    "id": "blk_111"
+    "id": "blk_106"
   },
   {
     "date": "2026-07-06 8:01 AM",
@@ -1345,19 +1285,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "結構な人数から声かけられて迷惑してるそうです",
     "image": "Screenshot 2026-10-20 at 9.14.11.png",
-    "id": "blk_112"
+    "id": "blk_107"
   },
   {
     "date": "2026-07-06 9:38 AM",
     "reporter": "草踴亜希（RAYTUSgroup.代表）",
     "name": "@mizuki_megaminavi",
-    "url": "https://www.instagram.com/mizuki_megaminavi",
+    "url": "https://www.instagram.com/mizuki_megaminavi?igsh=Z3pOeWF3bmRtY2N4",
     "secondary_url": "https://www.threads.net/@mizuki_megaminavi",
     "platform": "Instagram / Threads",
     "url_warning": "",
-    "reason": "既出だったらごめんなさい♪ 見かけたので貼っときます◎ ブロックしましょー ？ igsh=Z3pOeWF3bmRtY2N4 ？ IgShid=NTC4MTIWNjQ2YQ==",
+    "reason": "既出だったらごめんなさい♪ 見かけたので貼っときます◎ ブロックしましょー  ？ IgShid=NTC4MTIWNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.14.11.png",
-    "id": "blk_113"
+    "id": "blk_108"
   },
   {
     "date": "2026-07-06 12:11 PM",
@@ -1369,7 +1309,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.14.11.png",
-    "id": "blk_114"
+    "id": "blk_109"
   },
   {
     "date": "2026-07-06 8:49 PM",
@@ -1381,19 +1321,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.14.11.png",
-    "id": "blk_115"
-  },
-  {
-    "date": "",
-    "reporter": "岩楯八重子（Lumiere.）",
-    "name": "@pazuru2025",
-    "url": "https://www.threads.net/@pazuru2025",
-    "secondary_url": "",
-    "platform": "Threads",
-    "url_warning": "",
-    "reason": "・被害者1号になるところでした。 ・目を覚ましましょう。 ・時間を返して。 ・本当にビジネスパートナーを探してるんです、ふざけないで。 ・離婚調停の事だって、本当かどうか.薄っぺらい などなどまだまだボロカスに言われました。 ？ IgShid=NTC4MTIWNjQ2YQ==",
-    "image": "Screenshot 2026-10-20 at 9.14.18.png",
-    "id": "blk_116"
+    "id": "blk_110"
   },
   {
     "date": "2026-07-07 8:25 AM",
@@ -1405,7 +1333,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "もう数回聞いてるそうです",
     "image": "Screenshot 2026-10-20 at 9.14.18.png",
-    "id": "blk_117"
+    "id": "blk_111"
   },
   {
     "date": "2026-07-07 11:07 AM",
@@ -1417,7 +1345,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "何回もお話をネオの方から聞いてますとの事でした★",
     "image": "Screenshot 2026-10-20 at 9.14.18.png",
-    "id": "blk_118"
+    "id": "blk_112"
   },
   {
     "date": "2026-07-07 11:49 AM",
@@ -1429,7 +1357,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.14.18.png",
-    "id": "blk_119"
+    "id": "blk_113"
   },
   {
     "date": "2026-07-07 2:33 PM",
@@ -1438,10 +1366,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.threads.net/@ty?igsh=MWs4cnJ2NmdtM29uYQ==",
     "secondary_url": "https://www.instagram.com/ty__375",
     "platform": "Threads / Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "2回アポ無断キャンセル",
     "image": "Screenshot 2026-10-20 at 9.14.18.png",
-    "id": "blk_120"
+    "id": "blk_114"
   },
   {
     "date": "2026-07-07 10:49 PM",
@@ -1451,9 +1379,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "https://www.threads.net/@mura_ai",
     "platform": "Instagram / Threads",
     "url_warning": "",
-    "reason": "以前お話聞いて、お断りされているそうです。 ？ igsh=MXhOaWJzODA3MGVyMQ==",
+    "reason": "以前お話聞いて、お断りされているそうです。",
     "image": "Screenshot 2026-10-20 at 9.14.18.png",
-    "id": "blk_121"
+    "id": "blk_115"
   },
   {
     "date": "2026-07-07 11:59 PM",
@@ -1462,34 +1390,22 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/turn_around_branding?igshid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "https://www.threads.net/@turn_around_branding",
     "platform": "Instagram / Threads",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
-    "reason": "皆さんかかわらないでください！ ？ igsh=OGdocWxpeGpvaxV6",
+    "url_warning": "修復済",
+    "reason": "皆さんかかわらないでください！",
     "image": "Screenshot 2026-10-20 at 9.14.18.png",
-    "id": "blk_122"
-  },
-  {
-    "date": "",
-    "reporter": "松島巧（MAARUKU.NEO）",
-    "name": "@hana__901",
-    "url": "https://www.instagram.com/hana__901",
-    "secondary_url": "",
-    "platform": "Instagram",
-    "url_warning": "",
-    "reason": "JUI O IU.44 HIVI 当日どころか、zoom開始してから怪しいからzoomできないとか で 文章で送ってきます。 めっちゃネガティブやばいです ？ igsh=MmZnY2.5cDYwoniv",
-    "image": "Screenshot 2026-10-20 at 9.14.29.png",
-    "id": "blk_123"
+    "id": "blk_116"
   },
   {
     "date": "2026-07-08 1:11 PM",
     "reporter": "平松志乃（MURA）",
     "name": "Facebookユーザー",
-    "url": "https://www.facebook.com/share/INW9bALsyi/",
+    "url": "https://www.facebook.com/share/1NW9bALsyi/",
     "secondary_url": "",
     "platform": "Facebook",
     "url_warning": "",
     "reason": "今回2回目のお話みたいで、あきさんと会長にゲスト対応していた だきましたが、断られました。 ブロックお願いします。",
     "image": "Screenshot 2026-10-20 at 9.14.29.png",
-    "id": "blk_124"
+    "id": "blk_117"
   },
   {
     "date": "2026-07-08 1:15 PM",
@@ -1501,7 +1417,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "情報取集しているだけの人で 何度もお話し聞いてるそうです。",
     "image": "Screenshot 2026-10-20 at 9.14.29.png",
-    "id": "blk_125"
+    "id": "blk_118"
   },
   {
     "date": "2026-07-08 2:09 PM",
@@ -1513,7 +1429,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "おそらくここのことを言ってるのかと思うので、ブロックお願いし ます",
     "image": "Screenshot 2026-10-20 at 9.14.29.png",
-    "id": "blk_126"
+    "id": "blk_119"
   },
   {
     "date": "2026-07-08 4:43 PM",
@@ -1525,7 +1441,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "5人から連絡来て迷惑とのこと",
     "image": "Screenshot 2026-10-20 at 9.14.29.png",
-    "id": "blk_127"
+    "id": "blk_120"
   },
   {
     "date": "2026-07-09 12:54 PM",
@@ -1537,7 +1453,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.14.29.png",
-    "id": "blk_128"
+    "id": "blk_121"
   },
   {
     "date": "2026-07-09 1:59 PM",
@@ -1549,19 +1465,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.14.29.png",
-    "id": "blk_129"
+    "id": "blk_122"
   },
   {
     "date": "2026-07-09 4:02 PM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@mr.fxlab",
-    "url": "https://www.threads.net/@mr.fxlab",
+    "url": "https://www.threads.net/@mr.fxlab?IgShid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ IgShid=NTC4MTIwNjQ2YQ==",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.14.38.png",
-    "id": "blk_130"
+    "id": "blk_123"
   },
   {
     "date": "2026-07-09 5:50 PM",
@@ -1573,7 +1489,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "入会してその日に退会しました",
     "image": "Screenshot 2026-10-20 at 9.14.38.png",
-    "id": "blk_131"
+    "id": "blk_124"
   },
   {
     "date": "2026-07-09 7:40 PM",
@@ -1585,7 +1501,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "会長と面談して入会しなかった方みたいです！",
     "image": "Screenshot 2026-10-20 at 9.14.38.png",
-    "id": "blk_132"
+    "id": "blk_125"
   },
   {
     "date": "2026-07-09 8:24 PM",
@@ -1597,7 +1513,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "出資目当てです",
     "image": "Screenshot 2026-10-20 at 9.14.38.png",
-    "id": "blk_133"
+    "id": "blk_126"
   },
   {
     "date": "2026-07-09 8:50 PM",
@@ -1606,10 +1522,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/me_do.design?igsh=Z2Y3Ynh1d3lyb2Fl",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "お声がしないであげてください③",
     "image": "Screenshot 2026-10-20 at 9.14.38.png",
-    "id": "blk_134"
+    "id": "blk_127"
   },
   {
     "date": "2026-07-09 9:03 PM",
@@ -1621,19 +1537,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "夢は壮大ですがたった33万が出せない、自分のペースで、と断り 方もとてもきつかったです！",
     "image": "Screenshot 2026-10-20 at 9.14.38.png",
-    "id": "blk_135"
+    "id": "blk_128"
   },
   {
     "date": "2026-07-09 9:18 PM",
     "reporter": "畑ゆかり（yuima-ru理事長）",
     "name": "@hapiplus_",
-    "url": "https://www.threads.net/@hapiplus_",
+    "url": "https://www.threads.net/@hapiplus_?igshid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "JUI IU I.CO HIVI この方々、ネオのこと悪く言って盛り上がってました。 報告＆ブロックお願いします！ ？ 1gShid=NTC4MTIWNjQ2YQ== ？ igshid=NTC4MTIwNjQ2YQ== ？ igshid=NTc4MTIwNjQ2YQ== ？ igshid=NTC4MTIwNjQ2YQ== ？ 1gShia=NTC4MTIwNjQ2YQ== ？ Igshid=NTc4MTIwNjQ2YQ== ？ igShid=NTc4MTIwNjQ2YQ==",
+    "reason": "JUI IU I.CO HIVI この方々、ネオのこと悪く言って盛り上がってました。 報告＆ブロックお願いします！ ？ 1gShid=NTC4MTIWNjQ2YQ==  ？ igshid=NTc4MTIwNjQ2YQ==  ？ 1gShia=NTC4MTIwNjQ2YQ== ？ Igshid=NTc4MTIwNjQ2YQ== ？ igShid=NTc4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.14.38.png",
-    "id": "blk_136"
+    "id": "blk_129"
   },
   {
     "date": "2026-07-09 9:29 PM",
@@ -1645,7 +1561,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "人の時間を無駄にする人です ブロックお願いします。",
     "image": "Screenshot 2026-10-20 at 9.14.38.png",
-    "id": "blk_137"
+    "id": "blk_130"
   },
   {
     "date": "2026-07-09 11:00 PM",
@@ -1657,7 +1573,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "Jui 9 11:54 PM",
     "image": "Screenshot 2026-10-20 at 9.14.47.png",
-    "id": "blk_138"
+    "id": "blk_131"
   },
   {
     "date": "2026-07-09 11:00 PM",
@@ -1669,7 +1585,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.14.47.png",
-    "id": "blk_139"
+    "id": "blk_132"
   },
   {
     "date": "2026-07-10 7:15 AM",
@@ -1681,91 +1597,79 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "この方も同じくです",
     "image": "Screenshot 2026-10-20 at 9.14.47.png",
-    "id": "blk_140"
+    "id": "blk_133"
   },
   {
     "date": "2026-07-10 7:23 AM",
     "reporter": "） 中川美雪（yuima-ru）",
     "name": "@hapiplus",
-    "url": "https://www.threads.net/@hapiplus",
+    "url": "https://www.threads.net/@hapiplus?igshid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "この方々、ネオのこと悪く言って盛り上がってました。 報告＆ブロックお願いします！ ？ igshid=NTC4MTIwNjQ2YQ== ？ IgShid=NTC4MTIwNjQ2YQ== ？ igshid=NTC4MTIwNjQ2YQ== ？ igshid=NTC4MTIWNjQ2YQ== ？ igshid=NTC4MTIwNjQ2YQ== ？ igShid=NTc4MTIwNjQ2YQ==",
+    "reason": "この方々、ネオのこと悪く言って盛り上がってました。 報告＆ブロックお願いします！  ？ IgShid=NTC4MTIwNjQ2YQ==  ？ igshid=NTC4MTIWNjQ2YQ==  ？ igShid=NTc4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.14.47.png",
-    "id": "blk_141"
+    "id": "blk_134"
   },
   {
     "date": "2026-07-10 7:23 AM",
     "reporter": "） 中川美雪（yuima-ru）",
     "name": "@nail.tinkerbell",
-    "url": "https://www.threads.net/@nail.tinkerbell",
+    "url": "https://www.threads.net/@nail.tinkerbell?igshid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "JUI IU I.CO HIVI この方々、ネオのこと悪く言って盛り上がってました。 報告＆ブロックお願いします！ ？ 1gShid=NTC4MTIWNjQ2YQ== ？ igshid=NTC4MTIwNjQ2YQ== ？ igshid=NTc4MTIwNjQ2YQ== ？ igshid=NTC4MTIwNjQ2YQ== ？ 1gShia=NTC4MTIwNjQ2YQ== ？ Igshid=NTc4MTIwNjQ2YQ== ？ igShid=NTc4MTIwNjQ2YQ==",
+    "reason": "JUI IU I.CO HIVI この方々、ネオのこと悪く言って盛り上がってました。 報告＆ブロックお願いします！ ？ 1gShid=NTC4MTIWNjQ2YQ==  ？ igshid=NTc4MTIwNjQ2YQ==  ？ 1gShia=NTC4MTIwNjQ2YQ== ？ Igshid=NTc4MTIwNjQ2YQ== ？ igShid=NTc4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.14.47.png",
-    "id": "blk_142"
+    "id": "blk_135"
   },
   {
     "date": "2026-07-10 7:23 AM",
     "reporter": "） 中川美雪（yuima-ru）",
     "name": "@mia_teacher_ceo",
-    "url": "https://www.threads.net/@mia_teacher_ceo",
+    "url": "https://www.threads.net/@mia_teacher_ceo?igshid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "JUI IU I.CO HIVI この方々、ネオのこと悪く言って盛り上がってました。 報告＆ブロックお願いします！ ？ 1gShid=NTC4MTIWNjQ2YQ== ？ igshid=NTC4MTIwNjQ2YQ== ？ igshid=NTc4MTIwNjQ2YQ== ？ igshid=NTC4MTIwNjQ2YQ== ？ 1gShia=NTC4MTIwNjQ2YQ== ？ Igshid=NTc4MTIwNjQ2YQ== ？ igShid=NTc4MTIwNjQ2YQ==",
+    "reason": "JUI IU I.CO HIVI この方々、ネオのこと悪く言って盛り上がってました。 報告＆ブロックお願いします！ ？ 1gShid=NTC4MTIWNjQ2YQ==  ？ igshid=NTc4MTIwNjQ2YQ==  ？ 1gShia=NTC4MTIwNjQ2YQ== ？ Igshid=NTc4MTIwNjQ2YQ== ？ igShid=NTc4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.14.47.png",
-    "id": "blk_143"
+    "id": "blk_136"
   },
   {
     "date": "2026-07-10 7:23 AM",
     "reporter": "） 中川美雪（yuima-ru）",
     "name": "@yuzurikko_hiroba",
-    "url": "https://www.threads.net/@yuzurikko_hiroba",
+    "url": "https://www.threads.net/@yuzurikko_hiroba?igshid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "JUI IU I.CO HIVI この方々、ネオのこと悪く言って盛り上がってました。 報告＆ブロックお願いします！ ？ 1gShid=NTC4MTIWNjQ2YQ== ？ igshid=NTC4MTIwNjQ2YQ== ？ igshid=NTc4MTIwNjQ2YQ== ？ igshid=NTC4MTIwNjQ2YQ== ？ 1gShia=NTC4MTIwNjQ2YQ== ？ Igshid=NTc4MTIwNjQ2YQ== ？ igShid=NTc4MTIwNjQ2YQ==",
+    "reason": "JUI IU I.CO HIVI この方々、ネオのこと悪く言って盛り上がってました。 報告＆ブロックお願いします！ ？ 1gShid=NTC4MTIWNjQ2YQ==  ？ igshid=NTc4MTIwNjQ2YQ==  ？ 1gShia=NTC4MTIwNjQ2YQ== ？ Igshid=NTc4MTIwNjQ2YQ== ？ igShid=NTc4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.14.47.png",
-    "id": "blk_144"
+    "id": "blk_137"
   },
   {
     "date": "2026-07-10 7:23 AM",
     "reporter": "） 中川美雪（yuima-ru）",
     "name": "@hayatapb",
-    "url": "https://www.threads.net/@hayatapb",
+    "url": "https://www.threads.net/@hayatapb?igshid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "JUI IU I.CO HIVI この方々、ネオのこと悪く言って盛り上がってました。 報告＆ブロックお願いします！ ？ 1gShid=NTC4MTIWNjQ2YQ== ？ igshid=NTC4MTIwNjQ2YQ== ？ igshid=NTc4MTIwNjQ2YQ== ？ igshid=NTC4MTIwNjQ2YQ== ？ 1gShia=NTC4MTIwNjQ2YQ== ？ Igshid=NTc4MTIwNjQ2YQ== ？ igShid=NTc4MTIwNjQ2YQ==",
+    "reason": "JUI IU I.CO HIVI この方々、ネオのこと悪く言って盛り上がってました。 報告＆ブロックお願いします！ ？ 1gShid=NTC4MTIWNjQ2YQ==  ？ igshid=NTc4MTIwNjQ2YQ==  ？ 1gShia=NTC4MTIwNjQ2YQ== ？ Igshid=NTc4MTIwNjQ2YQ== ？ igShid=NTc4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.14.47.png",
-    "id": "blk_145"
+    "id": "blk_138"
   },
   {
     "date": "2026-07-10 7:23 AM",
     "reporter": "） 中川美雪（yuima-ru）",
     "name": "@ponrink",
-    "url": "https://www.threads.net/@ponrink",
+    "url": "https://www.threads.net/@ponrink?igshid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "JUI IU I.CO HIVI この方々、ネオのこと悪く言って盛り上がってました。 報告＆ブロックお願いします！ ？ 1gShid=NTC4MTIWNjQ2YQ== ？ igshid=NTC4MTIwNjQ2YQ== ？ igshid=NTc4MTIwNjQ2YQ== ？ igshid=NTC4MTIwNjQ2YQ== ？ 1gShia=NTC4MTIwNjQ2YQ== ？ Igshid=NTc4MTIwNjQ2YQ== ？ igShid=NTc4MTIwNjQ2YQ==",
+    "reason": "JUI IU I.CO HIVI この方々、ネオのこと悪く言って盛り上がってました。 報告＆ブロックお願いします！ ？ 1gShid=NTC4MTIWNjQ2YQ==  ？ igshid=NTc4MTIwNjQ2YQ==  ？ 1gShia=NTC4MTIwNjQ2YQ== ？ Igshid=NTc4MTIwNjQ2YQ== ？ igShid=NTc4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.14.47.png",
-    "id": "blk_146"
-  },
-  {
-    "date": "",
-    "reporter": "中川美雪（yuima-ru）",
-    "name": "@michiko_skrg",
-    "url": "https://www.threads.net/@michiko_skrg",
-    "secondary_url": "",
-    "platform": "Threads",
-    "url_warning": "",
-    "reason": "JUI IU I.CO HIVI この方々、ネオのこと悪く言って盛り上がってました。 報告＆ブロックお願いします！ ？ 1gShid=NTC4MTIWNjQ2YQ== ？ igshid=NTC4MTIwNjQ2YQ== ？ igshid=NTc4MTIwNjQ2YQ== ？ igshid=NTC4MTIwNjQ2YQ== ？ 1gShia=NTC4MTIwNjQ2YQ== ？ Igshid=NTc4MTIwNjQ2YQ== ？ igShid=NTc4MTIwNjQ2YQ==",
-    "image": "Screenshot 2026-10-20 at 9.14.54.png",
-    "id": "blk_147"
+    "id": "blk_139"
   },
   {
     "date": "2026-07-10 8:39 AM",
@@ -1777,7 +1681,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.14.54.png",
-    "id": "blk_148"
+    "id": "blk_140"
   },
   {
     "date": "2026-07-10 11:58 AM",
@@ -1789,7 +1693,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "今後お声がけなしでお願いします（ ？ Igshid=NTc4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.14.54.png",
-    "id": "blk_149"
+    "id": "blk_141"
   },
   {
     "date": "2026-07-10 3:29 PM",
@@ -1798,10 +1702,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.threads.net/@enjoy.dddance.m",
     "secondary_url": "",
     "platform": "Threads",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "話を聞くのが3回目だそうです。 ？ igShia=NTC4MTIWNJQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.14.54.png",
-    "id": "blk_150"
+    "id": "blk_142"
   },
   {
     "date": "2026-07-10 10:25 PM",
@@ -1811,9 +1715,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ 1gShia=NTC4MTIwNjQ2YQ==",
+    "reason": "1gShia=NTC4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.14.54.png",
-    "id": "blk_151"
+    "id": "blk_143"
   },
   {
     "date": "2026-07-12 11:45 AM",
@@ -1825,19 +1729,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.14.54.png",
-    "id": "blk_152"
-  },
-  {
-    "date": "",
-    "reporter": "畑ゆかり（yuima-ru理事長）",
-    "name": "@cellocafe_wanko_care",
-    "url": "https://www.threads.net/@cellocafe_wanko_care?igshid=NTc4MTIwNjQ2YQ==",
-    "secondary_url": "",
-    "platform": "Threads",
-    "url_warning": "",
-    "reason": "",
-    "image": "Screenshot 2026-10-20 at 9.15.02.png",
-    "id": "blk_153"
+    "id": "blk_144"
   },
   {
     "date": "2026-07-12 4:46 PM",
@@ -1849,19 +1741,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.15.02.png",
-    "id": "blk_154"
+    "id": "blk_145"
   },
   {
     "date": "2026-07-12 11:54 PM",
     "reporter": "石川真央（MURA）",
     "name": "@_Ko_213",
-    "url": "https://www.threads.net/@_Ko_213",
+    "url": "https://www.threads.net/@_Ko_213?IgShid=NTC4MTIWNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ IgShid=NTC4MTIWNjQ2YQ==",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.15.02.png",
-    "id": "blk_155"
+    "id": "blk_146"
   },
   {
     "date": "2026-07-13 3:51 PM",
@@ -1871,21 +1763,21 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ 1gShia=NTC4MTIwNjQ2YQ== 入会後、即返金希望。 こちらが言ってもないことをメールにて送ってきたのでなかなかの クセモノです。 即ブロックお願いします！",
+    "reason": "1gShia=NTC4MTIwNjQ2YQ== 入会後、即返金希望。 こちらが言ってもないことをメールにて送ってきたのでなかなかの クセモノです。 即ブロックお願いします！",
     "image": "Screenshot 2026-10-20 at 9.15.02.png",
-    "id": "blk_156"
+    "id": "blk_147"
   },
   {
     "date": "2026-07-13 11:39 PM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@luzhoufu_scalptattoo",
-    "url": "https://www.threads.net/@luzhoufu_scalptattoo",
+    "url": "https://www.threads.net/@luzhoufu_scalptattoo?igshid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ igshid=NTC4MTIwNjQ2YQ== 事業の話は聞く気はなく、情報だけは取ろうとしてきます。山口に 怪しい寺子屋が増えてきている、と投稿あり、要注意です。",
+    "reason": "事業の話は聞く気はなく、情報だけは取ろうとしてきます。山口に 怪しい寺子屋が増えてきている、と投稿あり、要注意です。",
     "image": "Screenshot 2026-10-20 at 9.15.02.png",
-    "id": "blk_157"
+    "id": "blk_148"
   },
   {
     "date": "2026-07-14 12:29 PM",
@@ -1894,10 +1786,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/ukiuki_4655?igsh=MWxyaWFiZTJ5eDkOcg==",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.15.02.png",
-    "id": "blk_158"
+    "id": "blk_149"
   },
   {
     "date": "2026-07-14 2:17 PM",
@@ -1909,7 +1801,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.15.02.png",
-    "id": "blk_159"
+    "id": "blk_150"
   },
   {
     "date": "2026-07-15 10:52 AM",
@@ -1921,7 +1813,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "興味ありません！とのこと",
     "image": "Screenshot 2026-10-20 at 9.15.02.png",
-    "id": "blk_160"
+    "id": "blk_151"
   },
   {
     "date": "2026-07-15 4:21 PM",
@@ -1930,22 +1822,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/llmamano?igsh=ZHF4aHAwdWNzOXcy",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "他の方にも声かけられていて、今後もお声かけ必要ないですし",
     "image": "Screenshot 2026-10-20 at 9.15.02.png",
-    "id": "blk_161"
-  },
-  {
-    "date": "",
-    "reporter": "畑ゆかり（yuima-ru理事長）",
-    "name": "@hitomil024_chia0202",
-    "url": "https://www.threads.net/@hitomil024_chia0202/post/DalkvUBkaYu?xmt=AQGOhzTPbK9WfkAHSIX_KR8ZPOdbiGil6OZrPe-5aFKZe",
-    "secondary_url": "",
-    "platform": "Threads",
-    "url_warning": "",
-    "reason": "スレッズでつぶやいていたので、報告＆ブロックしましょう！ 7_PhWrr5L8HLnDIrFRnHfkVOt5K&slof=1",
-    "image": "Screenshot 2026-10-20 at 9.15.10.png",
-    "id": "blk_162"
+    "id": "blk_152"
   },
   {
     "date": "2026-07-16 1:19 PM",
@@ -1957,7 +1837,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "↑ アカウントこっちです",
     "image": "Screenshot 2026-10-20 at 9.15.10.png",
-    "id": "blk_163"
+    "id": "blk_153"
   },
   {
     "date": "2026-07-16 1:22 PM",
@@ -1967,9 +1847,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "https://www.threads.net/@odachihiro_",
     "platform": "Instagram / Threads",
     "url_warning": "",
-    "reason": "直接お声がけしたわけではないですが、明らかにここのことを話し 「騙されるな！」と発信しているので、やめた ていて、定期に、 方が良いと思います ？ igsh=MWVjNHRhZG1rM3MIZW==",
+    "reason": "直接お声がけしたわけではないですが、明らかにここのことを話し 「騙されるな！」と発信しているので、やめた ていて、定期に、 方が良いと思います",
     "image": "Screenshot 2026-10-20 at 9.15.10.png",
-    "id": "blk_164"
+    "id": "blk_154"
   },
   {
     "date": "2026-07-16 5:29 PM",
@@ -1981,7 +1861,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.15.10.png",
-    "id": "blk_165"
+    "id": "blk_155"
   },
   {
     "date": "2026-07-16 6:17 PM",
@@ -1990,22 +1870,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/kibou_academy2024?igsh=MTgzanJwMWFqb2huNA==",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.15.10.png",
-    "id": "blk_166"
-  },
-  {
-    "date": "",
-    "reporter": "本多栞（RAYTUS / 秘書課）",
-    "name": "@sato19870914",
-    "url": "https://www.threads.net/@sato19870914",
-    "secondary_url": "",
-    "platform": "Threads",
-    "url_warning": "",
-    "reason": "居場所づくりしたいですと言う割には保育士として働きたいと言っ ていたので趣旨が違うかなと思います。",
-    "image": "Screenshot 2026-10-20 at 9.15.17.png",
-    "id": "blk_167"
+    "id": "blk_156"
   },
   {
     "date": "2026-07-17 11:42 AM",
@@ -2017,19 +1885,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.15.17.png",
-    "id": "blk_168"
+    "id": "blk_157"
   },
   {
     "date": "2026-07-17 11:42 AM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@kazu.pon2",
-    "url": "https://www.threads.net/@kazu.pon2",
+    "url": "https://www.threads.net/@kazu.pon2?igshid=NTc4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ 1gShid=NTC4MTIwNjQ2YQ== ？ igshid=NTc4MTIwNjQ2YQ== ？ igshid=NTC4MTIwNjQ2YQ== ファースト無断キャンセル、金銭等でのキャンセル",
+    "reason": "1gShid=NTC4MTIwNjQ2YQ==  ？ igshid=NTC4MTIwNjQ2YQ== ファースト無断キャンセル、金銭等でのキャンセル",
     "image": "Screenshot 2026-10-20 at 9.15.17.png",
-    "id": "blk_169"
+    "id": "blk_158"
   },
   {
     "date": "2026-07-17 12:28 PM",
@@ -2039,9 +1907,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ 1gShid=NTC4MTIWNQ2YQ==",
+    "reason": "1gShid=NTC4MTIWNQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.15.17.png",
-    "id": "blk_170"
+    "id": "blk_159"
   },
   {
     "date": "2026-07-19 11:52 AM",
@@ -2053,7 +1921,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.15.17.png",
-    "id": "blk_171"
+    "id": "blk_160"
   },
   {
     "date": "2026-07-20 7:18 PM",
@@ -2065,7 +1933,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "DM送った後に投稿されたので、うちの事を言ってると思います！ ？ IgShid=NTC4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.15.17.png",
-    "id": "blk_172"
+    "id": "blk_161"
   },
   {
     "date": "2026-07-20 11:17 PM",
@@ -2077,7 +1945,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "この書き込みの人たち33万てかいてる aNWbprArNiyxYEVNaZmC1H-U7VVFLL&slof=1",
     "image": "Screenshot 2026-10-20 at 9.15.17.png",
-    "id": "blk_173"
+    "id": "blk_162"
   },
   {
     "date": "2026-07-21 12:15 AM",
@@ -2089,7 +1957,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "89YYK9M×BjXqx900TmcpDdlQLos3Y&slof=1",
     "image": "Screenshot 2026-10-20 at 9.15.17.png",
-    "id": "blk_174"
+    "id": "blk_163"
   },
   {
     "date": "2026-07-21 5:39 AM",
@@ -2101,19 +1969,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.15.48.png",
-    "id": "blk_175"
+    "id": "blk_164"
   },
   {
     "date": "2026-07-21 9:51 AM",
     "reporter": "畑ゆかり（yuima-ru理事長）",
     "name": "@risa.ins.sp",
-    "url": "https://www.threads.net/@risa.ins.sp",
+    "url": "https://www.threads.net/@risa.ins.sp?Igshid=NTc4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ Igshid=NTc4MTIwNjQ2YQ==",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.15.48.png",
-    "id": "blk_176"
+    "id": "blk_165"
   },
   {
     "date": "2026-07-22 9:42 AM",
@@ -2125,19 +1993,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.15.48.png",
-    "id": "blk_177"
+    "id": "blk_166"
   },
   {
     "date": "2026-07-23 9:34 AM",
     "reporter": "北御門祥子（Ablaze）",
     "name": "@pastel_aco",
-    "url": "https://www.threads.net/@pastel_aco",
+    "url": "https://www.threads.net/@pastel_aco?igshid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ igshid=NTC4MTIwNjQ2YQ== お声がけたくさんされてるみたいですが、ネオファミリーはお断り されているみたいです！！",
+    "reason": "お声がけたくさんされてるみたいですが、ネオファミリーはお断り されているみたいです！！",
     "image": "Screenshot 2026-10-20 at 9.15.48.png",
-    "id": "blk_178"
+    "id": "blk_167"
   },
   {
     "date": "2026-07-23 9:39 AM",
@@ -2149,7 +2017,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.15.48.png",
-    "id": "blk_179"
+    "id": "blk_168"
   },
   {
     "date": "2026-07-23 11:18 AM",
@@ -2158,10 +2026,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.threads.net/@yuta_yomiuri19980217",
     "secondary_url": "",
     "platform": "Threads",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
-    "reason": "？ igShia=NTC4MTIWNJQ2YQ==",
+    "url_warning": "修復済",
+    "reason": "igShia=NTC4MTIWNJQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.15.48.png",
-    "id": "blk_180"
+    "id": "blk_169"
   },
   {
     "date": "2026-07-23 11:24 AM",
@@ -2173,7 +2041,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.15.48.png",
-    "id": "blk_181"
+    "id": "blk_170"
   },
   {
     "date": "2026-07-23 11:26 AM",
@@ -2185,7 +2053,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "最初に費用がかかる ビジネスは、したくない。 お声かけしないように ブロック願います（ ？ Igshid=NTC4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.15.48.png",
-    "id": "blk_182"
+    "id": "blk_171"
   },
   {
     "date": "2026-07-23 1:12 PM",
@@ -2197,79 +2065,79 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.15.48.png",
-    "id": "blk_183"
+    "id": "blk_172"
   },
   {
     "date": "2026-07-23 1:26 PM",
     "reporter": "安田連（やっすん）（CHOICE）",
     "name": "@taso_walks",
-    "url": "https://www.threads.net/@taso_walks",
+    "url": "https://www.threads.net/@taso_walks?igshid=NTc4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ 1gShid=NTC4MTIwNjQ2YQ== ？ igshid=NTc4MTIwNjQ2YQ== ？ igshid=NTC4MTIwNjQ2YQ== ファースト無断キャンセル、金銭等でのキャンセル",
+    "reason": "1gShid=NTC4MTIwNjQ2YQ==  ？ igshid=NTC4MTIwNjQ2YQ== ファースト無断キャンセル、金銭等でのキャンセル",
     "image": "Screenshot 2026-10-20 at 9.15.56.png",
-    "id": "blk_184"
+    "id": "blk_173"
   },
   {
     "date": "2026-07-23 1:26 PM",
     "reporter": "安田連（やっすん）（CHOICE）",
     "name": "@c__2123",
-    "url": "https://www.threads.net/@c__2123",
+    "url": "https://www.threads.net/@c__2123?igshid=NTc4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ 1gShid=NTC4MTIwNjQ2YQ== ？ igshid=NTc4MTIwNjQ2YQ== ？ igshid=NTC4MTIwNjQ2YQ== ファースト無断キャンセル、金銭等でのキャンセル",
+    "reason": "1gShid=NTC4MTIwNjQ2YQ==  ？ igshid=NTC4MTIwNjQ2YQ== ファースト無断キャンセル、金銭等でのキャンセル",
     "image": "Screenshot 2026-10-20 at 9.15.56.png",
-    "id": "blk_185"
+    "id": "blk_174"
   },
   {
     "date": "2026-07-23 1:26 PM",
     "reporter": "安田連（やっすん）（CHOICE）",
     "name": "@aiueo__desu",
-    "url": "https://www.threads.net/@aiueo__desu",
+    "url": "https://www.threads.net/@aiueo__desu?igshid=NTc4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ 1gShid=NTC4MTIwNjQ2YQ== ？ igshid=NTc4MTIwNjQ2YQ== ？ igshid=NTC4MTIwNjQ2YQ== ファースト無断キャンセル、金銭等でのキャンセル",
+    "reason": "1gShid=NTC4MTIwNjQ2YQ==  ？ igshid=NTC4MTIwNjQ2YQ== ファースト無断キャンセル、金銭等でのキャンセル",
     "image": "Screenshot 2026-10-20 at 9.15.56.png",
-    "id": "blk_186"
+    "id": "blk_175"
   },
   {
     "date": "2026-07-23 1:26 PM",
     "reporter": "安田連（やっすん）（CHOICE）",
     "name": "@ri._.ku3588",
-    "url": "https://www.threads.net/@ri._.ku3588",
+    "url": "https://www.threads.net/@ri._.ku3588?igshid=NTc4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ 1gShid=NTC4MTIwNjQ2YQ== ？ igshid=NTc4MTIwNjQ2YQ== ？ igshid=NTC4MTIwNjQ2YQ== ファースト無断キャンセル、金銭等でのキャンセル",
+    "reason": "1gShid=NTC4MTIwNjQ2YQ==  ？ igshid=NTC4MTIwNjQ2YQ== ファースト無断キャンセル、金銭等でのキャンセル",
     "image": "Screenshot 2026-10-20 at 9.15.56.png",
-    "id": "blk_187"
+    "id": "blk_176"
   },
   {
     "date": "2026-07-23 1:26 PM",
     "reporter": "安田連（やっすん）（CHOICE）",
     "name": "@toru_kubo19891019",
-    "url": "https://www.threads.net/@toru_kubo19891019",
+    "url": "https://www.threads.net/@toru_kubo19891019?igshid=NTc4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ 1gShid=NTC4MTIwNjQ2YQ== ？ igshid=NTc4MTIwNjQ2YQ== ？ igshid=NTC4MTIwNjQ2YQ== ファースト無断キャンセル、金銭等でのキャンセル",
+    "reason": "1gShid=NTC4MTIwNjQ2YQ==  ？ igshid=NTC4MTIwNjQ2YQ== ファースト無断キャンセル、金銭等でのキャンセル",
     "image": "Screenshot 2026-10-20 at 9.15.56.png",
-    "id": "blk_188"
+    "id": "blk_177"
   },
   {
     "date": "2026-07-23 1:50 PM",
     "reporter": "大葉美穂（CHOICE代表）",
     "name": "@yuki_work721",
-    "url": "https://www.instagram.com/yuki_work721",
+    "url": "https://www.instagram.com/yuki_work721?igSh=MTRKMDV1Y3J6NGE1ZW==",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igSh=MTRKMDV1Y3J6NGE1ZW==",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.15.56.png",
-    "id": "blk_189"
+    "id": "blk_178"
   },
   {
     "date": "2026-07-23 4:20 PM",
@@ -2281,7 +2149,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "アンケート送ったらブロックされる。色んな投稿に一緒にやりた ？ IgShid=NTc4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.15.56.png",
-    "id": "blk_190"
+    "id": "blk_179"
   },
   {
     "date": "2026-07-23 5:57 PM",
@@ -2293,7 +2161,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.15.56.png",
-    "id": "blk_191"
+    "id": "blk_180"
   },
   {
     "date": "2026-07-23 7:30 PM",
@@ -2305,7 +2173,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.15.56.png",
-    "id": "blk_192"
+    "id": "blk_181"
   },
   {
     "date": "2026-07-24 12:36 AM",
@@ -2317,7 +2185,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "2．3回お話し聞いてるそうです® ？ igShid=NTc4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.15.56.png",
-    "id": "blk_193"
+    "id": "blk_182"
   },
   {
     "date": "2026-07-24 12:40 AM",
@@ -2329,7 +2197,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "H50yi-ee3oqNhdHh731rSYCTNB&slof=1",
     "image": "Screenshot 2026-10-20 at 9.15.56.png",
-    "id": "blk_194"
+    "id": "blk_183"
   },
   {
     "date": "2026-07-24 7:03 PM",
@@ -2341,7 +2209,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "何度かお誘いされてるそうです。",
     "image": "Screenshot 2026-10-20 at 9.16.02.png",
-    "id": "blk_195"
+    "id": "blk_184"
   },
   {
     "date": "2026-07-24 8:54 PM",
@@ -2353,7 +2221,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.16.02.png",
-    "id": "blk_196"
+    "id": "blk_185"
   },
   {
     "date": "2026-07-24 9:48 PM",
@@ -2365,7 +2233,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.16.02.png",
-    "id": "blk_197"
+    "id": "blk_186"
   },
   {
     "date": "2026-07-24 10:19 PM",
@@ -2377,31 +2245,31 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "知らない方からの勧誘は全てお断りされているそうです。",
     "image": "Screenshot 2026-10-20 at 9.16.02.png",
-    "id": "blk_198"
+    "id": "blk_187"
   },
   {
     "date": "2026-07-25 11:40 AM",
     "reporter": "赤尾あざみ（RAYTUS）",
     "name": "@irie_masahiro",
-    "url": "https://www.instagram.com/irie_masahiro",
+    "url": "https://www.instagram.com/irie_masahiro?igsh=aWipZThpdzV6CHUz",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "この方一緒にと言ってくれたのですが、 沖縄のトークショーの広告出したら、やらないです。 とお返事きたのでお声掛け無しでお願いします。 ？ igsh=aWipZThpdzV6CHUz JuI 25 12:09 PM",
+    "reason": "この方一緒にと言ってくれたのですが、 沖縄のトークショーの広告出したら、やらないです。 とお返事きたのでお声掛け無しでお願いします。  JuI 25 12:09 PM",
     "image": "Screenshot 2026-10-20 at 9.16.02.png",
-    "id": "blk_199"
+    "id": "blk_188"
   },
   {
     "date": "2026-07-25 11:40 AM",
     "reporter": "相良沙織（Meguria理事長）",
     "name": "@hiroshi_yamauchi_55",
-    "url": "https://www.threads.net/@hiroshi_yamauchi_55?igsh=MWVqYTQ2a3Z0czJmcQ==",
+    "url": "https://www.threads.net/@hiroshi_yamauchi_55?igsh=MWVqYTQ2a3Z0czJmcQ==&igshid=NTc4MTIWNjQ2YQ==",
     "secondary_url": "https://www.instagram.com/kenken.sensee",
     "platform": "Threads / Instagram",
     "url_warning": "",
-    "reason": "たまたま見かけた方々 おそらくネオファミリーのこと言ってるかな？と推測されます。 ？ igshid=NTc4MTIWNjQ2YQ==",
+    "reason": "たまたま見かけた方々 おそらくネオファミリーのこと言ってるかな？と推測されます。",
     "image": "Screenshot 2026-10-20 at 9.16.02.png",
-    "id": "blk_200"
+    "id": "blk_189"
   },
   {
     "date": "2026-07-25 3:38 PM",
@@ -2413,7 +2281,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "会員さんかもしれませんが、ネガティヴな書き込みしてる方です。 ？ 1gSh=YWtleDQ3cTJZN2F4",
     "image": "Screenshot 2026-10-20 at 9.16.08.png",
-    "id": "blk_201"
+    "id": "blk_190"
   },
   {
     "date": "2026-07-25 3:49 PM",
@@ -2425,7 +2293,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.16.08.png",
-    "id": "blk_202"
+    "id": "blk_191"
   },
   {
     "date": "2026-07-25 5:31 PM",
@@ -2437,7 +2305,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.16.08.png",
-    "id": "blk_203"
+    "id": "blk_192"
   },
   {
     "date": "2026-07-25 11:40 PM",
@@ -2449,7 +2317,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "MLM頑張るからお声がけ不要です！",
     "image": "Screenshot 2026-10-20 at 9.16.08.png",
-    "id": "blk_204"
+    "id": "blk_193"
   },
   {
     "date": "2026-07-26 6:16 PM",
@@ -2461,19 +2329,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.16.08.png",
-    "id": "blk_205"
+    "id": "blk_194"
   },
   {
     "date": "2026-07-27 6:49 AM",
     "reporter": "畑ゆかり（yuima-ru理事長）",
     "name": "@tossy_3588",
-    "url": "https://www.instagram.com/tossy_3588",
+    "url": "https://www.instagram.com/tossy_3588?igSh=bmZobHE1biNqcjQ5",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igSh=bmZobHE1biNqcjQ5",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.16.08.png",
-    "id": "blk_206"
+    "id": "blk_195"
   },
   {
     "date": "2026-07-27 10:35 AM",
@@ -2483,9 +2351,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ xmt=AQGOQbQkZdkCCN9GeTstZ-C-dtsiTq-jL GeNe- ajHxHLu83xn 1fG3ZcdOhSasuSdkXmlHzV&slof=1",
+    "reason": "xmt=AQGOQbQkZdkCCN9GeTstZ-C-dtsiTq-jL GeNe- ajHxHLu83xn 1fG3ZcdOhSasuSdkXmlHzV&slof=1",
     "image": "Screenshot 2026-10-20 at 9.16.08.png",
-    "id": "blk_207"
+    "id": "blk_196"
   },
   {
     "date": "2026-07-27 12:23 PM",
@@ -2497,19 +2365,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.16.08.png",
-    "id": "blk_208"
-  },
-  {
-    "date": "",
-    "reporter": "本多栞（RAYTUS / 秘書課）",
-    "name": "@serapisto.ai",
-    "url": "https://www.threads.net/@serapisto.ai",
-    "secondary_url": "",
-    "platform": "Threads",
-    "url_warning": "",
-    "reason": "何度かおせっかいされているそうです。。",
-    "image": "Screenshot 2026-10-20 at 9.16.15.png",
-    "id": "blk_209"
+    "id": "blk_197"
   },
   {
     "date": "2026-07-27 5:31 PM",
@@ -2521,7 +2377,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.16.15.png",
-    "id": "blk_210"
+    "id": "blk_198"
   },
   {
     "date": "2026-07-27 6:02 PM",
@@ -2533,7 +2389,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.16.15.png",
-    "id": "blk_211"
+    "id": "blk_199"
   },
   {
     "date": "2026-07-28 3:43 AM",
@@ -2545,7 +2401,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "永井麻里香AND coco. 岐阜県",
     "image": "Screenshot 2026-10-20 at 9.16.15.png",
-    "id": "blk_212"
+    "id": "blk_200"
   },
   {
     "date": "2026-07-28 10:16 AM",
@@ -2557,7 +2413,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.16.15.png",
-    "id": "blk_213"
+    "id": "blk_201"
   },
   {
     "date": "2026-07-28 11:55 AM",
@@ -2569,7 +2425,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "pMACaPiOPKMHWuhJxVURUCR-XpsFrA9q&slof=1",
     "image": "Screenshot 2026-10-20 at 9.16.15.png",
-    "id": "blk_214"
+    "id": "blk_202"
   },
   {
     "date": "2026-07-28 12:36 PM",
@@ -2581,7 +2437,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.16.15.png",
-    "id": "blk_215"
+    "id": "blk_203"
   },
   {
     "date": "2026-07-28 12:36 PM",
@@ -2593,7 +2449,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.16.15.png",
-    "id": "blk_216"
+    "id": "blk_204"
   },
   {
     "date": "2026-07-28 1:23 PM",
@@ -2605,19 +2461,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "BVCMdMqoxI6kTKZHXIEU_FTSHVUCO39ZOVRitN3L&slof=1 •• スレット @ Threads amu.hama_diving 3日",
     "image": "Screenshot 2026-10-20 at 9.16.15.png",
-    "id": "blk_217"
-  },
-  {
-    "date": "",
-    "reporter": "北御門祥子（Ablaze）",
-    "name": "@amu.nama_diving",
-    "url": "https://www.threads.net/@amu.nama_diving/post/DbN_6YWk&JR?xmt=AQGOni2CJ7KrzucTUnw-OPYuttejj-",
-    "secondary_url": "",
-    "platform": "Threads",
-    "url_warning": "",
-    "reason": "BVcMdMqoxI6kTKZHXIEU_FTSHVUCO39ZOVRitN3L&slof=1",
-    "image": "Screenshot 2026-10-20 at 9.16.20.png",
-    "id": "blk_218"
+    "id": "blk_205"
   },
   {
     "date": "2026-07-28 1:35 PM",
@@ -2629,7 +2473,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "この方やばいです。",
     "image": "Screenshot 2026-10-20 at 9.16.20.png",
-    "id": "blk_219"
+    "id": "blk_206"
   },
   {
     "date": "2026-07-28 2:21 PM",
@@ -2641,7 +2485,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "ファースト後、アボ日程調整中にブロックされてました",
     "image": "Screenshot 2026-10-20 at 9.16.20.png",
-    "id": "blk_220"
+    "id": "blk_207"
   },
   {
     "date": "2026-07-28 3:30 PM",
@@ -2653,19 +2497,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "何度かお話し聞いたことあるそうです！",
     "image": "Screenshot 2026-10-20 at 9.16.20.png",
-    "id": "blk_221"
+    "id": "blk_208"
   },
   {
     "date": "2026-07-28 7:47 PM",
     "reporter": "坂井照子（AMATERAS）",
     "name": "@seinoowari",
-    "url": "https://www.instagram.com/seinoowari",
+    "url": "https://www.instagram.com/seinoowari?igsh=NnYwYjlhNXI0b3k4",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igsh=NnYwYjlhNXI0b3k4 JuI 28 8:27 PM",
+    "reason": "JuI 28 8:27 PM",
     "image": "Screenshot 2026-10-20 at 9.16.20.png",
-    "id": "blk_222"
+    "id": "blk_209"
   },
   {
     "date": "2026-07-28 7:47 PM",
@@ -2674,10 +2518,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.threads.net/@minnacreater/post/",
     "secondary_url": "",
     "platform": "Threads",
-    "url_warning": "ドメイン誤記修復 (threaas→threads.net)",
+    "url_warning": "修復済",
     "reason": "DbuugHumX7K？ xmt=AQGoUDeqwjpuCgiy2BqLkgtSu9YSm79kpWinB6BSErfis FoP3BJQKtxIDgJpmxyV9uNyzbrp&slof=1",
     "image": "Screenshot 2026-10-20 at 9.16.20.png",
-    "id": "blk_223"
+    "id": "blk_210"
   },
   {
     "date": "2026-07-28 11:02 PM",
@@ -2689,7 +2533,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.16.20.png",
-    "id": "blk_224"
+    "id": "blk_211"
   },
   {
     "date": "2026-07-29 10:40 PM",
@@ -2701,7 +2545,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.16.20.png",
-    "id": "blk_225"
+    "id": "blk_212"
   },
   {
     "date": "2026-07-29 11:26 PM",
@@ -2713,7 +2557,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.16.29.png",
-    "id": "blk_226"
+    "id": "blk_213"
   },
   {
     "date": "2026-07-29 11:34 PM",
@@ -2725,19 +2569,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "自分の入っているコミュニティで頑張るとのことでお声がけ不要で す！",
     "image": "Screenshot 2026-10-20 at 9.16.29.png",
-    "id": "blk_227"
+    "id": "blk_214"
   },
   {
     "date": "2026-07-30 7:16 PM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@mocharin512",
-    "url": "https://www.threads.net/@mocharin512?igsh=N3c2cDR1Y2xtam1g",
+    "url": "https://www.threads.net/@mocharin512?igsh=N3c2cDR1Y2xtam1g&igshid=NTc4MTIwNjQ2YQ==",
     "secondary_url": "https://www.instagram.com/mocharin512",
     "platform": "Threads / Instagram",
     "url_warning": "",
-    "reason": "おせっかいしないでください ？ igshid=NTc4MTIwNjQ2YQ==",
+    "reason": "おせっかいしないでください",
     "image": "Screenshot 2026-10-20 at 9.16.29.png",
-    "id": "blk_228"
+    "id": "blk_215"
   },
   {
     "date": "2026-07-30 9:14 PM",
@@ -2749,19 +2593,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "ファーストした後に書き込みしてましたC",
     "image": "Screenshot 2026-10-20 at 9.16.29.png",
-    "id": "blk_229"
+    "id": "blk_216"
   },
   {
     "date": "2026-07-30 9:20 PM",
     "reporter": "古見梨亜（enchant+）",
     "name": "@brain_aroma_",
-    "url": "https://www.instagram.com/brain_aroma_",
+    "url": "https://www.instagram.com/brain_aroma_?igsh=MTd4cmNkeXR4ZjFwaw==",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "何度もお話聞いていて ツクツクに入ってる方 毛内先生が絡んでいるブレインアナリスト協会？に入っているとの こと。 ネオファミリーはMLMですよね？とか嫌味なことを沢山言われた のでブロックお願いいたします（® ？ igsh=MTd4cmNkeXR4ZjFwaw== JuI 30 9:25 PM",
+    "reason": "何度もお話聞いていて ツクツクに入ってる方 毛内先生が絡んでいるブレインアナリスト協会？に入っているとの こと。 ネオファミリーはMLMですよね？とか嫌味なことを沢山言われた のでブロックお願いいたします（®  JuI 30 9:25 PM",
     "image": "Screenshot 2026-10-20 at 9.16.29.png",
-    "id": "blk_230"
+    "id": "blk_217"
   },
   {
     "date": "2026-07-30 9:20 PM",
@@ -2770,10 +2614,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/michiko_spirit?igsh=MXB5Z2UzM252axVxMg==",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.16.29.png",
-    "id": "blk_231"
+    "id": "blk_218"
   },
   {
     "date": "2026-07-30 11:23 PM",
@@ -2785,19 +2629,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "直前で、やむを得ない事情ならまだしも、調整可能な予定を入れて きてのキャンセルだったので、一緒に仲間として出来ないと判断し ました！ ？",
     "image": "Screenshot 2026-10-20 at 9.16.29.png",
-    "id": "blk_232"
-  },
-  {
-    "date": "",
-    "reporter": "岩崎七菜子（tEaM_S.）",
-    "name": "Facebookユーザー",
-    "url": "https://www.facebook.com/profile.php?id=100005481338536",
-    "secondary_url": "",
-    "platform": "Facebook",
-    "url_warning": "",
-    "reason": "直前で、やむを得ない事情ならまだしも、調整可能な予定を入れて さてのキャンセルだったので、一緒に仲間として出来ないと判断し ました！",
-    "image": "Screenshot 2026-10-20 at 9.16.37.png",
-    "id": "blk_233"
+    "id": "blk_219"
   },
   {
     "date": "2026-07-30 11:28 PM",
@@ -2809,7 +2641,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.16.37.png",
-    "id": "blk_234"
+    "id": "blk_220"
   },
   {
     "date": "2026-07-30 11:35 PM",
@@ -2821,7 +2653,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "何度か話を聞いた事があって、方向性が合わないそうです♪",
     "image": "Screenshot 2026-10-20 at 9.16.37.png",
-    "id": "blk_235"
+    "id": "blk_221"
   },
   {
     "date": "2026-07-31 4:05 PM",
@@ -2833,7 +2665,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.16.37.png",
-    "id": "blk_236"
+    "id": "blk_222"
   },
   {
     "date": "2026-07-31 9:00 PM",
@@ -2845,7 +2677,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.16.37.png",
-    "id": "blk_237"
+    "id": "blk_223"
   },
   {
     "date": "2026-07-31 9:07 PM",
@@ -2857,7 +2689,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "今回2回目の話を聞きにきた人です 自分に酔いしれてる系のやばいAOのAの独身男性です おせっかいしないでください",
     "image": "Screenshot 2026-10-20 at 9.16.37.png",
-    "id": "blk_238"
+    "id": "blk_224"
   },
   {
     "date": "2026-07-31 10:25 PM",
@@ -2869,7 +2701,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.16.37.png",
-    "id": "blk_239"
+    "id": "blk_225"
   },
   {
     "date": "2026-07-31 11:59 PM",
@@ -2881,19 +2713,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "過去話きいたことありお声がけしないであげてください",
     "image": "Screenshot 2026-10-20 at 9.16.37.png",
-    "id": "blk_240"
-  },
-  {
-    "date": "",
-    "reporter": "岩嶋麻由美（Blooming）",
-    "name": "@yuzu_pooonn",
-    "url": "https://www.instagram.com/yuzu_pooonn?igsh=MW54cDh5MWt6bTd3cQ==",
-    "secondary_url": "",
-    "platform": "Instagram",
-    "url_warning": "",
-    "reason": "2度もドタキャンでその後連絡なし。とても失礼な方ですので、ブ ロックリスト入りです。",
-    "image": "Screenshot 2026-10-20 at 9.16.43.png",
-    "id": "blk_241"
+    "id": "blk_226"
   },
   {
     "date": "2026-08-01 3:24 PM",
@@ -2905,7 +2725,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "こことは関われません！とのことです",
     "image": "Screenshot 2026-10-20 at 9.16.43.png",
-    "id": "blk_242"
+    "id": "blk_227"
   },
   {
     "date": "2026-08-01 9:32 PM",
@@ -2917,19 +2737,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.16.43.png",
-    "id": "blk_243"
+    "id": "blk_228"
   },
   {
     "date": "2026-08-01 10:18 PM",
     "reporter": "古見梨亜（enchant+）",
     "name": "@mackey.mk_",
-    "url": "https://www.instagram.com/mackey.mk_",
+    "url": "https://www.instagram.com/mackey.mk_?igsh=MTExYng",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igsh=MTExYng 1bDk4Z28xNQ== なんかいも聞いているそうです@",
+    "reason": "1bDk4Z28xNQ== なんかいも聞いているそうです@",
     "image": "Screenshot 2026-10-20 at 9.16.43.png",
-    "id": "blk_244"
+    "id": "blk_229"
   },
   {
     "date": "2026-08-02 6:56 AM",
@@ -2941,79 +2761,67 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.16.43.png",
-    "id": "blk_245"
+    "id": "blk_230"
   },
   {
     "date": "2026-08-02 8:30 AM",
     "reporter": "安田連（やっすん）（CHOICE）",
     "name": "@novasyndcatecarteam.power",
-    "url": "https://www.threads.net/@novasyndcatecarteam.power",
+    "url": "https://www.threads.net/@novasyndcatecarteam.power?igshid=NTc4MTIWNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ igshid=NTc4MTIWNjQ2YQ== ファーストした後に投稿に詐欺とかかれてます novasyndcatecarteam.power 7分 新しい詐欺に引っかかりそうやった笑 + 僕と一緒に事業しませんか。年商100億2回作った 人のコミュニティに入ってください。 入会費33万円です。ってやつ 気をつけて",
+    "reason": "ファーストした後に投稿に詐欺とかかれてます novasyndcatecarteam.power 7分 新しい詐欺に引っかかりそうやった笑 + 僕と一緒に事業しませんか。年商100億2回作った 人のコミュニティに入ってください。 入会費33万円です。ってやつ 気をつけて",
     "image": "Screenshot 2026-10-20 at 9.16.43.png",
-    "id": "blk_246"
+    "id": "blk_231"
   },
   {
     "date": "2026-08-02 6:34 PM",
     "reporter": "森純江（ensemble）",
     "name": "@selflove.producer_misa",
-    "url": "https://www.instagram.com/selflove.producer_misa",
+    "url": "https://www.instagram.com/selflove.producer_misa?igsh=ZWOxeWxuMG81eDA2",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igsh=ZWOxeWxuMG81eDA2 元々ネオの方だそうです。 ？ igsh=MTNiMHhzdGI2MzJueQ== 今日アドバイザーzoomの際に会長の事を何様と言われました。 ご自身の力だけでされたいようなので、おせっかい不要です（",
+    "reason": "元々ネオの方だそうです。  今日アドバイザーzoomの際に会長の事を何様と言われました。 ご自身の力だけでされたいようなので、おせっかい不要です（",
     "image": "Screenshot 2026-10-20 at 9.16.43.png",
-    "id": "blk_247"
+    "id": "blk_232"
   },
   {
     "date": "2026-08-02 6:34 PM",
     "reporter": "森純江（ensemble）",
     "name": "@yukie_lovelife",
-    "url": "https://www.instagram.com/yukie_lovelife",
+    "url": "https://www.instagram.com/yukie_lovelife?igsh=ZWOxeWxuMG81eDA2",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igsh=ZWOxeWxuMG81eDA2 元々ネオの方だそうです。 ？ igsh=MTNiMHhzdGI2MzJueQ== 今日アドバイザーzoomの際に会長の事を何様と言われました。 ご自身の力だけでされたいようなので、おせっかい不要です（",
+    "reason": "元々ネオの方だそうです。  今日アドバイザーzoomの際に会長の事を何様と言われました。 ご自身の力だけでされたいようなので、おせっかい不要です（",
     "image": "Screenshot 2026-10-20 at 9.16.43.png",
-    "id": "blk_248"
-  },
-  {
-    "date": "",
-    "reporter": "相良織（Meguria理事長）",
-    "name": "@hitsujino.nami",
-    "url": "https://www.instagram.com/hitsujino.nami?utm_source=ig_web_button_share_sheet&igsh=ZDNIZDCOMzlxNw==",
-    "secondary_url": "",
-    "platform": "Instagram",
-    "url_warning": "",
-    "reason": "LEONコミュニティのひと。 いろいろ話しましたが、全然夢がない人だったのでzoomする時間",
-    "image": "Screenshot 2026-10-20 at 9.16.50.png",
-    "id": "blk_249"
+    "id": "blk_233"
   },
   {
     "date": "2026-08-02 9:24 PM",
     "reporter": "草間真衣（MURA）",
     "name": "@dearmom.sayaka.33",
-    "url": "https://www.threads.net/@dearmom.sayaka.33",
+    "url": "https://www.threads.net/@dearmom.sayaka.33?Igshid=NTc4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
-    "reason": "？ Igshid=NTc4MTIwNjQ2YQ==",
+    "url_warning": "修復済",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.16.50.png",
-    "id": "blk_250"
+    "id": "blk_234"
   },
   {
     "date": "2026-08-03 12:34 AM",
     "reporter": "杉山ななみ（RAYTUS）",
     "name": "@ether_etherether",
-    "url": "https://www.threads.net/@ether_etherether",
+    "url": "https://www.threads.net/@ether_etherether?IgShid=NTC4MTIWNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ IgShid=NTC4MTIWNjQ2YQ==",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.16.50.png",
-    "id": "blk_251"
+    "id": "blk_235"
   },
   {
     "date": "2026-08-03 11:39 AM",
@@ -3025,7 +2833,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "やり取り後にブロックされました！",
     "image": "Screenshot 2026-10-20 at 9.16.50.png",
-    "id": "blk_252"
+    "id": "blk_236"
   },
   {
     "date": "2026-08-03 11:56 AM",
@@ -3037,7 +2845,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "高額コミュニティに全く興味ないです。と言われました お誘いNGです！",
     "image": "Screenshot 2026-10-20 at 9.16.50.png",
-    "id": "blk_253"
+    "id": "blk_237"
   },
   {
     "date": "2026-08-03 12:11 PM",
@@ -3046,34 +2854,22 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/binbou.himanasi?igsh=MW45ZXppZnROMjQwMQ==",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "MLM臭いと言われましたブロックお願い致します！",
     "image": "Screenshot 2026-10-20 at 9.16.50.png",
-    "id": "blk_254"
+    "id": "blk_238"
   },
   {
     "date": "2026-08-03 1:29 PM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@myrtus55.13",
-    "url": "https://www.instagram.com/myrtus55.13",
+    "url": "https://www.instagram.com/myrtus55.13?igsh=MWpka2VkMGZIY304ZQ==",
     "secondary_url": "https://www.threads.net/@myrtus55.13",
     "platform": "Instagram / Threads",
     "url_warning": "",
-    "reason": "コミュニティに入るつもりはないとのことです＠ ？ igsh=MWpka2VkMGZIY304ZQ== ？ igshid=NTc4MTIwNjQ2YQ== Aug 32:13 PM",
+    "reason": "コミュニティに入るつもりはないとのことです＠  ？ igshid=NTc4MTIwNjQ2YQ== Aug 32:13 PM",
     "image": "Screenshot 2026-10-20 at 9.16.50.png",
-    "id": "blk_255"
-  },
-  {
-    "date": "",
-    "reporter": "本多栞（RAYTUS / 秘書課）",
-    "name": "@satomi.joan",
-    "url": "https://www.instagram.com/satomi.joan",
-    "secondary_url": "https://www.threads.net/@satomi.joan",
-    "platform": "Instagram / Threads",
-    "url_warning": "",
-    "reason": "MLM頑張ってる、入会金すごすぎて絶対入らないので話聞かな い、とのことですい） ？ igsh=d3NjeWv1na3F0b2Fr ？ igShia=NTC4MTIWNJQ2YQ==",
-    "image": "Screenshot 2026-10-20 at 9.16.56.png",
-    "id": "blk_256"
+    "id": "blk_239"
   },
   {
     "date": "2026-08-03 2:15 PM",
@@ -3085,19 +2881,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.16.56.png",
-    "id": "blk_257"
+    "id": "blk_240"
   },
   {
     "date": "2026-08-03 2:46 PM",
     "reporter": "速見祥子（ensemble理事長）",
     "name": "@hanakun_eiyo_support",
-    "url": "https://www.instagram.com/hanakun_eiyo_support",
+    "url": "https://www.instagram.com/hanakun_eiyo_support?igsh=MXJzb",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igsh=MXJzb TalcGNoNTF3Ng== お声がけ3回目だった 怒ったりはされていないが、中の仕組みはよいが入会金は払えない とのこと。",
+    "reason": "TalcGNoNTF3Ng== お声がけ3回目だった 怒ったりはされていないが、中の仕組みはよいが入会金は払えない とのこと。",
     "image": "Screenshot 2026-10-20 at 9.16.56.png",
-    "id": "blk_258"
+    "id": "blk_241"
   },
   {
     "date": "2026-08-03 5:44 PM",
@@ -3106,10 +2902,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/chifumi_grace_days?igsh=aGRuZmalNHZON2pn",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "以前ビジネスご一緒していてこの方には入ってほしくないなと思う かたです。 誠実さがない・・・（",
     "image": "Screenshot 2026-10-20 at 9.16.56.png",
-    "id": "blk_259"
+    "id": "blk_242"
   },
   {
     "date": "2026-08-03 11:47 PM",
@@ -3121,19 +2917,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "アポ入った瞬間から喧嘩腰で会話にならず。お声がけなしでお願い します。",
     "image": "Screenshot 2026-10-20 at 9.17.03.png",
-    "id": "blk_260"
+    "id": "blk_243"
   },
   {
     "date": "2026-08-04 12:58 AM",
     "reporter": "石崎七菜子（tEaM_S.）",
     "name": "（名称未記載）",
-    "url": "https://www.facepook.com/share/17nm6FnCvG/",
+    "url": "https://www.facebook.com/share/17nm6FnCvG/",
     "secondary_url": "",
-    "platform": "Web",
+    "platform": "Facebook",
     "url_warning": "",
     "reason": "DMの時点で「仲間をお探しなら私は合わない」とハッキリ伝えてく れました",
     "image": "Screenshot 2026-10-20 at 9.17.03.png",
-    "id": "blk_261"
+    "id": "blk_244"
   },
   {
     "date": "2026-08-04 9:11 AM",
@@ -3142,10 +2938,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/happy_fam888sera",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "お誘いしたら「もう既に話は聞いている」と言われ逆に怪しい儲け 話に誘おうとしてきました。断ると「そういう思考だからげない んですよ」だと... ブロックです！",
     "image": "Screenshot 2026-10-20 at 9.17.03.png",
-    "id": "blk_262"
+    "id": "blk_245"
   },
   {
     "date": "2026-08-04 9:27 AM",
@@ -3154,10 +2950,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/nozomi._.fumi?igsh=MWVnMDNiN3NvYTjdA==",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.17.03.png",
-    "id": "blk_263"
+    "id": "blk_246"
   },
   {
     "date": "2026-08-04 12:31 PM",
@@ -3166,34 +2962,34 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/sallybibi94?igsh=MTAxc3Q1dHFkeW5vcg==",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "やりたいやりたい詐欺です。 人の時間奪って、自分の利になるような提案をしてきます。サ消質 者思考です。話も3回ほど聞いたようです。",
     "image": "Screenshot 2026-10-20 at 9.17.03.png",
-    "id": "blk_264"
+    "id": "blk_247"
   },
   {
     "date": "2026-08-04 9:22 PM",
     "reporter": "片岡哉江かなえ（シャンブルカーサ）",
     "name": "Facebookユーザー",
-    "url": "https://www.facebook.com/share/1En2ndXELY/",
+    "url": "https://www.facebook.com/share/1En2ndXELY/?mibextid=wwXifr",
     "secondary_url": "",
     "platform": "Facebook",
     "url_warning": "",
-    "reason": "？ mibextid=wwXifr",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.17.03.png",
-    "id": "blk_265"
+    "id": "blk_248"
   },
   {
     "date": "2026-08-04 9:25 PM",
     "reporter": "片岡哉江かなえ（シャンブルカーサ）",
     "name": "@happiness_design251220",
-    "url": "https://www.instagram.com/happiness_design251220",
+    "url": "https://www.instagram.com/happiness_design251220?igsh=MWd3bDFvanoycGc",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igsh=MWd3bDFvanoycGc 2dA== あるコミュニティで知り合い ネオファミリーを伝えたら 是非ききたいです。 と言ったあと しばらく音信不通。 が、その間 どなたから聞いたネオファミリーの話が 圧があり自分を否定された と言ってます。 なにはともあれ ネオファミリーを誤解されているので お話されないのがよいかと思います。",
+    "reason": "2dA== あるコミュニティで知り合い ネオファミリーを伝えたら 是非ききたいです。 と言ったあと しばらく音信不通。 が、その間 どなたから聞いたネオファミリーの話が 圧があり自分を否定された と言ってます。 なにはともあれ ネオファミリーを誤解されているので お話されないのがよいかと思います。",
     "image": "Screenshot 2026-10-20 at 9.17.03.png",
-    "id": "blk_266"
+    "id": "blk_249"
   },
   {
     "date": "2026-08-04 9:45 PM",
@@ -3205,7 +3001,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "ネオは違う、とのことでお声がけしないであげてください。 ？ igShia=NTC4MTIWNJQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.17.10.png",
-    "id": "blk_267"
+    "id": "blk_250"
   },
   {
     "date": "2026-08-04 11:19 PM",
@@ -3214,10 +3010,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/fuhril125?igsh=MWcObjA2eW5tdzVhNw==",
     "secondary_url": "https://www.facebook.com/share/18RFF7cBiY/",
     "platform": "Instagram / Facebook",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "3回も話し聞いて断ってきたので、お声がけの必要はないかと！",
     "image": "Screenshot 2026-10-20 at 9.17.10.png",
-    "id": "blk_268"
+    "id": "blk_251"
   },
   {
     "date": "2026-08-05 9:07 AM",
@@ -3229,7 +3025,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.17.10.png",
-    "id": "blk_269"
+    "id": "blk_252"
   },
   {
     "date": "2026-08-05 1:46 PM",
@@ -3241,7 +3037,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.17.10.png",
-    "id": "blk_270"
+    "id": "blk_253"
   },
   {
     "date": "2026-08-05 3:44 PM",
@@ -3253,7 +3049,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.17.10.png",
-    "id": "blk_271"
+    "id": "blk_254"
   },
   {
     "date": "2026-08-05 6:39 PM",
@@ -3265,7 +3061,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "とにかくメールでしつこく聞いてきて、33万払うやつですね！ 興味ないです！と終了しました！",
     "image": "Screenshot 2026-10-20 at 9.17.10.png",
-    "id": "blk_272"
+    "id": "blk_255"
   },
   {
     "date": "2026-08-05 10:42 PM",
@@ -3277,7 +3073,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.17.21.png",
-    "id": "blk_273"
+    "id": "blk_256"
   },
   {
     "date": "2026-08-06 12:17 AM",
@@ -3289,7 +3085,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.17.21.png",
-    "id": "blk_274"
+    "id": "blk_257"
   },
   {
     "date": "2026-08-06 8:54 AM",
@@ -3301,7 +3097,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.17.21.png",
-    "id": "blk_275"
+    "id": "blk_258"
   },
   {
     "date": "2026-08-06 11:40 AM",
@@ -3310,22 +3106,22 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/totonoe_maki?igsh=dzJmOHB6eDRqb3Bp",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "何度も声がかかっていて断っているようです！",
     "image": "Screenshot 2026-10-20 at 9.17.21.png",
-    "id": "blk_276"
+    "id": "blk_259"
   },
   {
     "date": "2026-08-06 6:33 PM",
     "reporter": "畑ゆかり（yuima-ru理事長）",
     "name": "@56turi",
-    "url": "https://www.threads.net/@56turi?igshid=NTc4MTIwNjQ2YQ==",
+    "url": "https://www.threads.net/@56turi?igshid=NTc4MTIwNjQ2YQ==&igShid=NTC4MTIWNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ igShid=NTC4MTIWNjQ2YQ==",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.17.21.png",
-    "id": "blk_277"
+    "id": "blk_260"
   },
   {
     "date": "2026-08-07 9:16 AM",
@@ -3337,19 +3133,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "以前にもzoomしたことあり、金銭的な部分と合わないとのことで お断り",
     "image": "Screenshot 2026-10-20 at 9.17.21.png",
-    "id": "blk_278"
+    "id": "blk_261"
   },
   {
     "date": "2026-08-07 6:23 PM",
     "reporter": "北御門祥子（Ablaze）",
     "name": "@naoko.baby.kagoshima",
-    "url": "https://www.instagram.com/naoko.baby.kagoshima",
+    "url": "https://www.instagram.com/naoko.baby.kagoshima?igsh=MXdtOHcOeGU2NmMxdQ==",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
-    "reason": "？ igsh=MXdtOHcOeGU2NmMxdQ== 何度か話を聞いてあまりいい印象ではないから全て断ってるそうで",
+    "url_warning": "修復済",
+    "reason": "何度か話を聞いてあまりいい印象ではないから全て断ってるそうで",
     "image": "Screenshot 2026-10-20 at 9.17.21.png",
-    "id": "blk_279"
+    "id": "blk_262"
   },
   {
     "date": "2026-08-07 8:13 PM",
@@ -3361,7 +3157,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "何度もお話し頂いているようです。",
     "image": "Screenshot 2026-10-20 at 9.17.21.png",
-    "id": "blk_280"
+    "id": "blk_263"
   },
   {
     "date": "2026-08-07 11:08 PM",
@@ -3373,31 +3169,31 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.17.21.png",
-    "id": "blk_281"
+    "id": "blk_264"
   },
   {
     "date": "2026-08-07 11:51 PM",
     "reporter": "中嶋春菜（yuima-ru）",
     "name": "@myself_bloom_mpb",
-    "url": "https://www.threads.net/@myself_bloom_mpb",
+    "url": "https://www.threads.net/@myself_bloom_mpb?Igshid=NTc4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ Igshid=NTc4MTIwNjQ2YQ== アドアポ無断キャンセル",
+    "reason": "アドアポ無断キャンセル",
     "image": "Screenshot 2026-10-20 at 9.17.21.png",
-    "id": "blk_282"
+    "id": "blk_265"
   },
   {
     "date": "2026-08-08 10:10 AM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@at.home_kanami",
-    "url": "https://www.instagram.com/at.home_kanami",
+    "url": "https://www.instagram.com/at.home_kanami?igsh=ZjxMnZkNiRjYmFp",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igsh=ZjxMnZkNiRjYmFp 2回別路線から話し聞いていて、 会長合わないと言ってきましたの で、声かけなくて良いと思います",
+    "reason": "2回別路線から話し聞いていて、 会長合わないと言ってきましたの で、声かけなくて良いと思います",
     "image": "Screenshot 2026-10-20 at 9.17.27.png",
-    "id": "blk_283"
+    "id": "blk_266"
   },
   {
     "date": "2026-08-10 9:26 PM",
@@ -3406,10 +3202,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/misako._.beauty?igsh=dGJ6ZDBtbml2d242",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "話し聞いたこともあり、自分で作ってるコミュニティがあり、他の ところには入る気がないそうです。",
     "image": "Screenshot 2026-10-20 at 9.17.27.png",
-    "id": "blk_284"
+    "id": "blk_267"
   },
   {
     "date": "2026-08-10 10:45 PM",
@@ -3418,10 +3214,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/paku_shoku?igsh=MWJINWd5cmFxcmJyNg==",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "お話を聞いた事があり、30万円の入会金に残念なおもいをしたと のことです！そのお誘いしないであげてください（",
     "image": "Screenshot 2026-10-20 at 9.17.27.png",
-    "id": "blk_285"
+    "id": "blk_268"
   },
   {
     "date": "2026-08-11 3:22 PM",
@@ -3433,7 +3229,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "たまたま threads開いたらこの投稿ありました。 ブロック対象で良いかと（",
     "image": "Screenshot 2026-10-20 at 9.17.27.png",
-    "id": "blk_286"
+    "id": "blk_269"
   },
   {
     "date": "2026-08-11 5:34 PM",
@@ -3445,7 +3241,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "お声掛けしたんですが、興味ないと断られました。 ？ IgShid=NTC4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.17.27.png",
-    "id": "blk_287"
+    "id": "blk_270"
   },
   {
     "date": "2026-08-11 10:52 PM",
@@ -3457,7 +3253,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "同じようなDMがきているので不要とのことですぐ",
     "image": "Screenshot 2026-10-20 at 9.17.27.png",
-    "id": "blk_288"
+    "id": "blk_271"
   },
   {
     "date": "2026-08-12 12:10 AM",
@@ -3469,19 +3265,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.17.33.png",
-    "id": "blk_289"
+    "id": "blk_272"
   },
   {
     "date": "2026-08-12 12:19 AM",
     "reporter": "上野美寿々（ensemble）",
     "name": "@beweliness_kiyomi",
-    "url": "https://www.instagram.com/beweliness_kiyomi",
+    "url": "https://www.instagram.com/beweliness_kiyomi?igsh=OHNlajlIZWw3YTkI",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
-    "reason": "？ igsh=OHNlajlIZWw3YTkI 以前、話しを聞いたことがあり33万払うよりMLMのが可能性を感 じるからとお断り。",
+    "url_warning": "修復済",
+    "reason": "以前、話しを聞いたことがあり33万払うよりMLMのが可能性を感 じるからとお断り。",
     "image": "Screenshot 2026-10-20 at 9.17.33.png",
-    "id": "blk_290"
+    "id": "blk_273"
   },
   {
     "date": "2026-08-12 12:33 AM",
@@ -3493,7 +3289,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "話を聞いたことはあるけど入る気はないとの事なので お声かけ不要です",
     "image": "Screenshot 2026-10-20 at 9.17.33.png",
-    "id": "blk_291"
+    "id": "blk_274"
   },
   {
     "date": "2026-08-12 7:22 AM",
@@ -3505,7 +3301,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "ブロック通報でお願いします DewrIKW7POWWVBpn VjyibfJpdz3DEn&slof=1",
     "image": "Screenshot 2026-10-20 at 9.17.33.png",
-    "id": "blk_292"
+    "id": "blk_275"
   },
   {
     "date": "2026-08-12 8:57 AM",
@@ -3515,9 +3311,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ 1gShia=NTC4MTIwNjQ2YQ==",
+    "reason": "1gShia=NTC4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.17.33.png",
-    "id": "blk_293"
+    "id": "blk_276"
   },
   {
     "date": "2026-08-12 8:56 PM",
@@ -3526,10 +3322,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/parfum1114?igsh=MTZubW9qdXI6cGZpaA==",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "こちらからお断りしました！",
     "image": "Screenshot 2026-10-20 at 9.17.33.png",
-    "id": "blk_294"
+    "id": "blk_277"
   },
   {
     "date": "2026-08-13 12:20 PM",
@@ -3541,7 +3337,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "こちらの方もこちらからお断りしています！",
     "image": "Screenshot 2026-10-20 at 9.17.33.png",
-    "id": "blk_295"
+    "id": "blk_278"
   },
   {
     "date": "2026-08-13 12:23 PM",
@@ -3550,22 +3346,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/pe_haruna_18?igsh=MTBVYXNuN3duN3RnNg==",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "何度もお誘いされ、お話を聞いているそうです◎ お誘いは不要とのことです。",
     "image": "Screenshot 2026-10-20 at 9.17.33.png",
-    "id": "blk_296"
-  },
-  {
-    "date": "",
-    "reporter": "本多栞（RAYTUS / 秘書課）",
-    "name": "@tomomi_mama.therapistmaster",
-    "url": "https://www.instagram.com/tomomi_mama.therapistmaster?igsh=NmRta3Z6bHJ2MDBj",
-    "secondary_url": "",
-    "platform": "Instagram",
-    "url_warning": "",
-    "reason": "",
-    "image": "Screenshot 2026-10-20 at 9.17.39.png",
-    "id": "blk_297"
+    "id": "blk_279"
   },
   {
     "date": "2026-08-14 9:35 PM",
@@ -3577,7 +3361,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.17.39.png",
-    "id": "blk_298"
+    "id": "blk_280"
   },
   {
     "date": "2026-08-14 10:43 PM",
@@ -3589,7 +3373,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.17.39.png",
-    "id": "blk_299"
+    "id": "blk_281"
   },
   {
     "date": "2026-08-14 10:50 PM",
@@ -3601,19 +3385,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "「以前、ネオファミリーの話は何度かききました。 今所属しているコミュニティがあるので十分です。』 とのことでした。",
     "image": "Screenshot 2026-10-20 at 9.17.39.png",
-    "id": "blk_300"
+    "id": "blk_282"
   },
   {
     "date": "2026-08-14 11:12 PM",
     "reporter": "小池康子（MURA）",
     "name": "@yurikago.chuo",
-    "url": "https://www.instagram.com/yurikago.chuo",
+    "url": "https://www.instagram.com/yurikago.chuo?igsh=MTh4Z3UwNHQwb280cw==",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igsh=MTh4Z3UwNHQwb280cw== 旦那さんが出て来られます。2年前も聞いたようで何も変わってな いとのことで会長さんの経歴で判断されておりました。",
+    "reason": "旦那さんが出て来られます。2年前も聞いたようで何も変わってな いとのことで会長さんの経歴で判断されておりました。",
     "image": "Screenshot 2026-10-20 at 9.17.39.png",
-    "id": "blk_301"
+    "id": "blk_283"
   },
   {
     "date": "2026-08-15 10:42 AM",
@@ -3625,7 +3409,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "会長zoomまでして入会断ってきました",
     "image": "Screenshot 2026-10-20 at 9.17.39.png",
-    "id": "blk_302"
+    "id": "blk_284"
   },
   {
     "date": "2026-08-15 3:33 PM",
@@ -3637,19 +3421,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.17.39.png",
-    "id": "blk_303"
+    "id": "blk_285"
   },
   {
     "date": "2026-08-15 4:20 PM",
     "reporter": "森崎江里（愛知県 / RAYTUS）",
     "name": "@salon_de_linon",
-    "url": "https://www.instagram.com/salon_de_linon",
+    "url": "https://www.instagram.com/salon_de_linon?igsh=Y3RkNmE5bmpqMXJz",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igsh=Y3RkNmE5bmpqMXJz 逆に自分のコミュニティに誘ってきました。",
+    "reason": "逆に自分のコミュニティに誘ってきました。",
     "image": "Screenshot 2026-10-20 at 9.17.39.png",
-    "id": "blk_304"
+    "id": "blk_286"
   },
   {
     "date": "2026-08-15 7:05 PM",
@@ -3658,22 +3442,22 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/e_hiro_hiro_0809",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "もう4回話を聞いておられます。 ？ iash=MTZob2sxc272c205Ma==",
     "image": "Screenshot 2026-10-20 at 9.17.39.png",
-    "id": "blk_305"
+    "id": "blk_287"
   },
   {
     "date": "2026-08-15 8:35 PM",
     "reporter": "上野美寿々（ensemble）",
     "name": "@hiroco_herbs3846",
-    "url": "https://www.instagram.com/hiroco_herbs3846",
+    "url": "https://www.instagram.com/hiroco_herbs3846?igsh=MWdzaDdpaTEZNDNxag==",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igsh=MWdzaDdpaTEZNDNxag== 強い口調で意見をしてくる人でした。",
+    "reason": "強い口調で意見をしてくる人でした。",
     "image": "Screenshot 2026-10-20 at 9.17.45.png",
-    "id": "blk_306"
+    "id": "blk_288"
   },
   {
     "date": "2026-08-16 1:40 AM",
@@ -3685,7 +3469,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "お話を聞いたことがあり、今後も入る気はないそうです ？ MLMがっつりの方です！何度もネオのお話は聞いているそうで MyZA==",
     "image": "Screenshot 2026-10-20 at 9.17.45.png",
-    "id": "blk_307"
+    "id": "blk_289"
   },
   {
     "date": "2026-08-16 11:34 AM",
@@ -3694,10 +3478,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.threads.net/@otani_colortype?igshid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
-    "url_warning": "ドメイン誤記修復 (threaas→threads.net)",
+    "url_warning": "修復済",
     "reason": "す！",
     "image": "Screenshot 2026-10-20 at 9.17.45.png",
-    "id": "blk_308"
+    "id": "blk_290"
   },
   {
     "date": "2026-08-16 1:19 PM",
@@ -3709,19 +3493,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.17.45.png",
-    "id": "blk_309"
+    "id": "blk_291"
   },
   {
     "date": "2026-08-16 7:15 PM",
     "reporter": "上野美々（ensemble）",
     "name": "@shizu_hakkosweets",
-    "url": "https://www.instagram.com/shizu_hakkosweets",
+    "url": "https://www.instagram.com/shizu_hakkosweets?igsh=MXg",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igsh=MXg 1aGZSMzFtaXo2Zw== 一度お話し聞いて違うと思ったとお断りです。",
+    "reason": "1aGZSMzFtaXo2Zw== 一度お話し聞いて違うと思ったとお断りです。",
     "image": "Screenshot 2026-10-20 at 9.17.45.png",
-    "id": "blk_310"
+    "id": "blk_292"
   },
   {
     "date": "2026-08-17 8:55 AM",
@@ -3733,7 +3517,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.17.45.png",
-    "id": "blk_311"
+    "id": "blk_293"
   },
   {
     "date": "2026-08-17 8:14 PM",
@@ -3745,7 +3529,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "勘違いしてるおじいさん",
     "image": "Screenshot 2026-10-20 at 9.17.53.png",
-    "id": "blk_312"
+    "id": "blk_294"
   },
   {
     "date": "2026-08-17 8:16 PM",
@@ -3757,31 +3541,31 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "定款読み中にいなくなり、グループラインも退会しました。 もう誘わないで下さい",
     "image": "Screenshot 2026-10-20 at 9.17.53.png",
-    "id": "blk_313"
+    "id": "blk_295"
   },
   {
     "date": "2026-08-18 12:32 PM",
     "reporter": "片岡哉江かなえ（シャンブルカーサ）",
     "name": "@lumia.bake",
-    "url": "https://www.instagram.com/lumia.bake",
+    "url": "https://www.instagram.com/lumia.bake?igsh=MWdoaDRnaTVndnY1dQ==",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igsh=MWdoaDRnaTVndnY1dQ== ML M推し メラルーカをすごい勢いで すすめてきました。",
+    "reason": "ML M推し メラルーカをすごい勢いで すすめてきました。",
     "image": "Screenshot 2026-10-20 at 9.17.53.png",
-    "id": "blk_314"
+    "id": "blk_296"
   },
   {
     "date": "2026-08-18 4:32 PM",
     "reporter": "北御門祥子（Ablaze）",
     "name": "@hiron777",
-    "url": "https://www.threads.net/@hiron777",
+    "url": "https://www.threads.net/@hiron777?igshid=NTc4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ igshid=NTc4MTIwNjQ2YQ== 興味ないとのこと",
+    "reason": "興味ないとのこと",
     "image": "Screenshot 2026-10-20 at 9.17.53.png",
-    "id": "blk_315"
+    "id": "blk_297"
   },
   {
     "date": "2026-08-18 10:14 PM",
@@ -3793,7 +3577,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.17.53.png",
-    "id": "blk_316"
+    "id": "blk_298"
   },
   {
     "date": "2026-08-18 11:05 PM",
@@ -3802,10 +3586,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.threads.net/@babycare_erint_nanae?igsh=bHRICTIpOW12cmRt",
     "secondary_url": "https://www.instagram.com/babycare_erint_nanae",
     "platform": "Threads / Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "投稿で呟いてたから ？ Igshid=NTc4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.17.53.png",
-    "id": "blk_317"
+    "id": "blk_299"
   },
   {
     "date": "2026-08-19 10:20 AM",
@@ -3817,7 +3601,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.17.53.png",
-    "id": "blk_318"
+    "id": "blk_300"
   },
   {
     "date": "2026-08-19 10:48 AM",
@@ -3829,7 +3613,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "ひねくれぽんち",
     "image": "Screenshot 2026-10-20 at 9.18.00.png",
-    "id": "blk_319"
+    "id": "blk_301"
   },
   {
     "date": "2026-08-19 2:29 PM",
@@ -3841,19 +3625,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "わざわざその後に悪口を書いてるため（赤尾あざみより）",
     "image": "Screenshot 2026-10-20 at 9.18.00.png",
-    "id": "blk_320"
+    "id": "blk_302"
   },
   {
     "date": "2026-08-19 3:31 PM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@okatte_fujiko",
-    "url": "https://www.threads.net/@okatte_fujiko",
+    "url": "https://www.threads.net/@okatte_fujiko?Igshid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ Igshid=NTC4MTIwNjQ2YQ== 8/18アボ実施。先程の悪口投稿に悪口コメントされていました。",
+    "reason": "8/18アボ実施。先程の悪口投稿に悪口コメントされていました。",
     "image": "Screenshot 2026-10-20 at 9.18.00.png",
-    "id": "blk_321"
+    "id": "blk_303"
   },
   {
     "date": "2026-08-19 4:14 PM",
@@ -3865,7 +3649,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "すでに3回お話聞かれてます。 おせっかいしないでください。 ？ IgSi=MWN3d25id✕B5Zmlmaw==",
     "image": "Screenshot 2026-10-20 at 9.18.00.png",
-    "id": "blk_322"
+    "id": "blk_304"
   },
   {
     "date": "2026-08-19 4:51 PM",
@@ -3877,7 +3661,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "2度目の提案だったようで、お断りでしたので、以後提案対象外の ためブロックします＆",
     "image": "Screenshot 2026-10-20 at 9.18.00.png",
-    "id": "blk_323"
+    "id": "blk_305"
   },
   {
     "date": "2026-08-19 4:54 PM",
@@ -3889,7 +3673,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "もう何度もお話聞かれているそうです。自分には合わないと言われ ていますので、お誘いしないでください。 ？ igSh=MXNIMXprZXQ503YxZW==&igSIMXNIMXprZXQ503Yx ZW==",
     "image": "Screenshot 2026-10-20 at 9.18.00.png",
-    "id": "blk_324"
+    "id": "blk_306"
   },
   {
     "date": "2026-08-19 7:41 PM",
@@ -3901,19 +3685,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "ネットで書かれていることを鵜呑みにしている方です。 何度もお誘い受けていて、今後もはいるつもりはないとの事です",
     "image": "Screenshot 2026-10-20 at 9.18.00.png",
-    "id": "blk_325"
-  },
-  {
-    "date": "",
-    "reporter": "榎原慈（ensemble）",
-    "name": "@chiharu3201",
-    "url": "https://www.instagram.com/chiharu3201?igsh=MWszZWJ2bTZiNGFsaQ==&igsi=MWszZWJ2bTZiNGFsaQ==",
-    "secondary_url": "",
-    "platform": "Instagram",
-    "url_warning": "",
-    "reason": "ネットで書かれていることを鵜呑みにしている方です。 何度もお誘い受けていて、今後もはいるつもりはないとの事です",
-    "image": "Screenshot 2026-10-20 at 9.18.10.png",
-    "id": "blk_326"
+    "id": "blk_307"
   },
   {
     "date": "2026-08-19 9:14 PM",
@@ -3925,7 +3697,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "何回もお話が来ているのと、 自分たちでもう寺子屋やママのやりたい事叶えているので大丈夫で す！お声がけしないでください！ ？ igsi=MWNjc293MGZxZTJqaA==",
     "image": "Screenshot 2026-10-20 at 9.18.10.png",
-    "id": "blk_327"
+    "id": "blk_308"
   },
   {
     "date": "2026-08-20 12:00 AM",
@@ -3934,10 +3706,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/takehiro.ishikawa.301?igshid=NTc4MTIwNjQ2YQ==",
     "secondary_url": "https://www.threads.net/@takehiro.ishikawa.301",
     "platform": "Instagram / Threads",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
-    "reason": "勢いよく仲間になりましょう！！と連絡きましたが 以前話を聞いていてお金のかかることは遠慮してるとのことです （そしてあまり会話が噛み合わない） ？ igsh=MXVhMmpvNzBOMHNOMW==",
+    "url_warning": "修復済",
+    "reason": "勢いよく仲間になりましょう！！と連絡きましたが 以前話を聞いていてお金のかかることは遠慮してるとのことです （そしてあまり会話が噛み合わない）",
     "image": "Screenshot 2026-10-20 at 9.18.10.png",
-    "id": "blk_328"
+    "id": "blk_309"
   },
   {
     "date": "2026-08-20 1:43 AM",
@@ -3949,7 +3721,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "何度も誘われていて、一律でお断りしているそうです",
     "image": "Screenshot 2026-10-20 at 9.18.10.png",
-    "id": "blk_329"
+    "id": "blk_310"
   },
   {
     "date": "2026-08-20 10:01 AM",
@@ -3961,7 +3733,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "ブロック、通報しました！！",
     "image": "Screenshot 2026-10-20 at 9.18.10.png",
-    "id": "blk_330"
+    "id": "blk_311"
   },
   {
     "date": "2026-08-20 5:15 PM",
@@ -3971,9 +3743,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "https://www.threads.net/@akahana.lab",
     "platform": "Instagram / Threads",
     "url_warning": "",
-    "reason": "おそらくNEOのお話を聞いている 費用がかかることと 内容が乖離（？）してると感じたとのことでお断りされてるのでお声 がけしないでください♪ ？ igsh=MWY4Ym 1IMmZ5bzVkZg==",
+    "reason": "おそらくNEOのお話を聞いている 費用がかかることと 内容が乖離（？）してると感じたとのことでお断りされてるのでお声 がけしないでください♪  1IMmZ5bzVkZg==",
     "image": "Screenshot 2026-10-20 at 9.18.10.png",
-    "id": "blk_331"
+    "id": "blk_312"
   },
   {
     "date": "2026-08-20 6:27 PM",
@@ -3983,9 +3755,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ 1gShid=NTC4MTIWNQ2YQ==",
+    "reason": "1gShid=NTC4MTIWNQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.18.16.png",
-    "id": "blk_332"
+    "id": "blk_313"
   },
   {
     "date": "2026-08-20 7:28 PM",
@@ -3994,10 +3766,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.threads.net/@nailartistalice",
     "secondary_url": "",
     "platform": "Threads",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "33万払って、入る意味が分からないと言っていました！",
     "image": "Screenshot 2026-10-20 at 9.18.16.png",
-    "id": "blk_333"
+    "id": "blk_314"
   },
   {
     "date": "2026-08-20 8:44 PM",
@@ -4009,7 +3781,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "入会手続きした直後に退会した人です ？ igSi=CDVtOHE3MWMOdml=",
     "image": "Screenshot 2026-10-20 at 9.18.16.png",
-    "id": "blk_334"
+    "id": "blk_315"
   },
   {
     "date": "2026-08-21 1:02 AM",
@@ -4021,7 +3793,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "DM_送ったら「33万です？」と返信きました",
     "image": "Screenshot 2026-10-20 at 9.18.16.png",
-    "id": "blk_335"
+    "id": "blk_316"
   },
   {
     "date": "2026-08-21 1:04 AM",
@@ -4033,7 +3805,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.18.16.png",
-    "id": "blk_336"
+    "id": "blk_317"
   },
   {
     "date": "2026-08-21 1:04 AM",
@@ -4045,7 +3817,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "詐欺だのなんだの言うて、こちらが送ったお声かけのDMをストー リーズに晒して批判していましたご",
     "image": "Screenshot 2026-10-20 at 9.18.16.png",
-    "id": "blk_337"
+    "id": "blk_318"
   },
   {
     "date": "2026-08-21 1:06 AM",
@@ -4057,7 +3829,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "通報＆ブロックお願いします＆",
     "image": "Screenshot 2026-10-20 at 9.18.16.png",
-    "id": "blk_338"
+    "id": "blk_319"
   },
   {
     "date": "2026-08-21 9:53 AM",
@@ -4066,10 +3838,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/hachi.120113",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "必要ないとのことですのでお声かけしないでください ？ IgSINTI3MDNrcmZmZTV3",
     "image": "Screenshot 2026-10-20 at 9.18.22.png",
-    "id": "blk_339"
+    "id": "blk_320"
   },
   {
     "date": "2026-08-21 10:38 AM",
@@ -4081,7 +3853,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "MLMは手段と言いながらも なんだかんだでガチ勢 お金と時間は避けないお断りだったのでお声がけしないでください ？ igsi=MWV6M210Y2MwY✕JOaA== ？ 1gShid=NTC4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.18.22.png",
-    "id": "blk_340"
+    "id": "blk_321"
   },
   {
     "date": "2026-08-21 12:04 PM",
@@ -4093,7 +3865,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "アンチ知った上で根掘り葉掘りここの情報を知りたいだけの人でし",
     "image": "Screenshot 2026-10-20 at 9.18.22.png",
-    "id": "blk_341"
+    "id": "blk_322"
   },
   {
     "date": "2026-08-21 2:43 PM",
@@ -4105,7 +3877,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "今の活動だけで充実しています。とのことです。 ？ igsi=MTEOCjBtZDd6M3Zjbg==",
     "image": "Screenshot 2026-10-20 at 9.18.22.png",
-    "id": "blk_342"
+    "id": "blk_323"
   },
   {
     "date": "2026-08-21 2:51 PM",
@@ -4117,7 +3889,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.18.22.png",
-    "id": "blk_343"
+    "id": "blk_324"
   },
   {
     "date": "2026-08-21 6:31 PM",
@@ -4129,7 +3901,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.18.28.png",
-    "id": "blk_344"
+    "id": "blk_325"
   },
   {
     "date": "2026-08-21 6:31 PM",
@@ -4141,7 +3913,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.18.28.png",
-    "id": "blk_345"
+    "id": "blk_326"
   },
   {
     "date": "2026-08-21 6:33 PM",
@@ -4151,9 +3923,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igSi=Y2pjY2UzMig5bHgz ごはん食べながら話していいですよーっていう失礼さと、すごく偏 屈です。 話さない方がいいです",
+    "reason": "igSi=Y2pjY2UzMig5bHgz ごはん食べながら話していいですよーっていう失礼さと、すごく偏 屈です。 話さない方がいいです",
     "image": "Screenshot 2026-10-20 at 9.18.28.png",
-    "id": "blk_346"
+    "id": "blk_327"
   },
   {
     "date": "2026-08-22 1:14 PM",
@@ -4165,7 +3937,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "ご夫婦でMLM（グランド）に 集中されています。 ？ IgSIOW04ZzIOMnFnaGt4",
     "image": "Screenshot 2026-10-20 at 9.18.28.png",
-    "id": "blk_347"
+    "id": "blk_328"
   },
   {
     "date": "2026-08-22 3:53 PM",
@@ -4177,7 +3949,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "ネガ投稿にネガが集まってました 全員ブロックでお願いします（ ？ Igshid=NTC4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.18.28.png",
-    "id": "blk_348"
+    "id": "blk_329"
   },
   {
     "date": "2026-08-22 3:53 PM",
@@ -4189,7 +3961,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "ネガ投稿にネガが集まってました 全員ブロックでお願いします（ ？ Igshid=NTC4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.18.28.png",
-    "id": "blk_349"
+    "id": "blk_330"
   },
   {
     "date": "2026-08-22 8:00 PM",
@@ -4201,7 +3973,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "私の投稿のコメントに30万のやつですか？ と入れてきた人ですい",
     "image": "Screenshot 2026-10-20 at 9.18.35.png",
-    "id": "blk_350"
+    "id": "blk_331"
   },
   {
     "date": "2026-08-22 11:32 PM",
@@ -4211,9 +3983,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ IgSI=MTZ4NnZOMTIldXVIcQ== MLMをされています。 何度かお話しきているようなので、おすっかい不必要です",
+    "reason": "IgSI=MTZ4NnZOMTIldXVIcQ== MLMをされています。 何度かお話しきているようなので、おすっかい不必要です",
     "image": "Screenshot 2026-10-20 at 9.18.35.png",
-    "id": "blk_351"
+    "id": "blk_332"
   },
   {
     "date": "2026-08-23 9:19 AM",
@@ -4225,7 +3997,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "思っている構想と違うのと、今は個人で情報収集したいそうです",
     "image": "Screenshot 2026-10-20 at 9.18.35.png",
-    "id": "blk_352"
+    "id": "blk_333"
   },
   {
     "date": "2026-08-23 11:20 AM",
@@ -4235,9 +4007,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igsi=bjdldDUON2I|MGOy 二度、話を聞いたが入会するつもりがないので、お声がけしないで ください人",
+    "reason": "igsi=bjdldDUON2I|MGOy 二度、話を聞いたが入会するつもりがないので、お声がけしないで ください人",
     "image": "Screenshot 2026-10-20 at 9.18.35.png",
-    "id": "blk_353"
+    "id": "blk_334"
   },
   {
     "date": "2026-08-23 3:04 PM",
@@ -4247,9 +4019,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igsi=MTQ3c2syNWhIcTQ2cg==",
+    "reason": "igsi=MTQ3c2syNWhIcTQ2cg==",
     "image": "Screenshot 2026-10-20 at 9.18.35.png",
-    "id": "blk_354"
+    "id": "blk_335"
   },
   {
     "date": "2026-08-24 12:37 AM",
@@ -4261,7 +4033,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.18.35.png",
-    "id": "blk_355"
+    "id": "blk_336"
   },
   {
     "date": "2026-08-24 4:16 PM",
@@ -4273,7 +4045,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "何回も声をかけられているそうです ？ igsi=ZXU4azZwM3ImbjB2",
     "image": "Screenshot 2026-10-20 at 9.18.35.png",
-    "id": "blk_356"
+    "id": "blk_337"
   },
   {
     "date": "2026-08-24 4:45 PM",
@@ -4282,10 +4054,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/harumi_okinawa",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "警戒心あるんかしらんけど、めっちゃ、失礼な人 ？ igsi=MTh5andoaXhtNTlucg==",
     "image": "Screenshot 2026-10-20 at 9.18.35.png",
-    "id": "blk_357"
+    "id": "blk_338"
   },
   {
     "date": "2026-08-24 6:48 PM",
@@ -4295,9 +4067,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igsi-MXMleGtlcmtmNHFjdg==",
+    "reason": "igsi-MXMleGtlcmtmNHFjdg==",
     "image": "Screenshot 2026-10-20 at 9.18.41.png",
-    "id": "blk_358"
+    "id": "blk_339"
   },
   {
     "date": "2026-08-24 9:24 PM",
@@ -4309,7 +4081,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "入会金かかる゠ねずみ講と決めつけられました（",
     "image": "Screenshot 2026-10-20 at 9.18.41.png",
-    "id": "blk_359"
+    "id": "blk_340"
   },
   {
     "date": "2026-08-25 6:01 PM",
@@ -4318,10 +4090,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/_meg.yoga_",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "すぐにzoomに繋げるのは信用できないとのことです！ ？ igsi=NWJ6eWQOZ3RpMWwz",
     "image": "Screenshot 2026-10-20 at 9.18.41.png",
-    "id": "blk_360"
+    "id": "blk_341"
   },
   {
     "date": "2026-08-25 7:52 PM",
@@ -4333,7 +4105,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "絶対におせっかいしないで、 ブロックお願いです！！ 会長にz0om、リアルで会って納得して入ったのに、勝手な理由で 退会した人なので、、、",
     "image": "Screenshot 2026-10-20 at 9.18.41.png",
-    "id": "blk_361"
+    "id": "blk_342"
   },
   {
     "date": "2026-08-26 8:30 AM",
@@ -4345,7 +4117,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "お金が全てではないが借金してまでコミュニティに入る気はないと お金への執着がすごそうな方でした品 ？ IgShid=NTC4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.18.41.png",
-    "id": "blk_362"
+    "id": "blk_343"
   },
   {
     "date": "2026-08-26 10:12 AM",
@@ -4357,7 +4129,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "何度もお話し聞いてるそうです。絶対やらないとのことで、お声が けしないようお願いします！",
     "image": "Screenshot 2026-10-20 at 9.18.41.png",
-    "id": "blk_363"
+    "id": "blk_344"
   },
   {
     "date": "2026-08-26 2:16 PM",
@@ -4366,10 +4138,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/miraito.kids",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "何度か聞いて、合わないとお断りしているそうです。 ？ igsi=ajFyMmwOd2Z4dmOy",
     "image": "Screenshot 2026-10-20 at 9.18.41.png",
-    "id": "blk_364"
+    "id": "blk_345"
   },
   {
     "date": "2026-08-26 2:19 PM",
@@ -4378,10 +4150,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/furikake777",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "入る気全くないようで、私で4度目（未遂）だったようです。お声 掛けしないでください。 ？ igsi=bTR3eDhjanp5d3Zp",
     "image": "Screenshot 2026-10-20 at 9.18.48.png",
-    "id": "blk_365"
+    "id": "blk_346"
   },
   {
     "date": "2026-08-26 6:53 PM",
@@ -4390,10 +4162,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.threads.net/@ku_hime_rui_azuki_miya_hikar?igshid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
-    "url_warning": "ドメイン誤記修復 (threaas→threads.net)",
+    "url_warning": "修復済",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.18.48.png",
-    "id": "blk_366"
+    "id": "blk_347"
   },
   {
     "date": "2026-08-26 6:53 PM",
@@ -4402,10 +4174,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/naruha.life",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
-    "reason": "？ igsi=MTZkMnY4aG9pb TBjaA==",
+    "url_warning": "修復済",
+    "reason": "igsi=MTZkMnY4aG9pb TBjaA==",
     "image": "Screenshot 2026-10-20 at 9.18.48.png",
-    "id": "blk_367"
+    "id": "blk_348"
   },
   {
     "date": "2026-08-26 8:36 PM",
@@ -4417,7 +4189,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "自分の力でやる、 誰かの力はいまは必要ない と言ってます。 ？ IgSi=MTIzem4xYjc1ZTI4ZQ==",
     "image": "Screenshot 2026-10-20 at 9.18.48.png",
-    "id": "blk_368"
+    "id": "blk_349"
   },
   {
     "date": "2026-08-26 10:44 PM",
@@ -4429,7 +4201,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "LEONでがんばるそうです！",
     "image": "Screenshot 2026-10-20 at 9.18.48.png",
-    "id": "blk_369"
+    "id": "blk_350"
   },
   {
     "date": "2026-08-26 11:10 PM",
@@ -4439,9 +4211,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igsi=MXA0OWpsMXN4anlyYg== ？ IgSi=NWNKd3RhOWM0Y2NI アドバイザーzoom後にMLMのお誘い受けました。",
+    "reason": "igsi=MXA0OWpsMXN4anlyYg== ？ IgSi=NWNKd3RhOWM0Y2NI アドバイザーzoom後にMLMのお誘い受けました。",
     "image": "Screenshot 2026-10-20 at 9.18.48.png",
-    "id": "blk_370"
+    "id": "blk_351"
   },
   {
     "date": "2026-08-26 11:10 PM",
@@ -4451,9 +4223,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igsi=MXA0OWpsMXN4anlyYg== ？ IgSi=NWNKd3RhOWM0Y2NI アドバイザーzoom後にMLMのお誘い受けました。",
+    "reason": "igsi=MXA0OWpsMXN4anlyYg== ？ IgSi=NWNKd3RhOWM0Y2NI アドバイザーzoom後にMLMのお誘い受けました。",
     "image": "Screenshot 2026-10-20 at 9.18.48.png",
-    "id": "blk_371"
+    "id": "blk_352"
   },
   {
     "date": "2026-08-26 11:35 PM",
@@ -4463,21 +4235,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ IgSi=ZXYzcm5pN252cjV3",
+    "reason": "IgSi=ZXYzcm5pN252cjV3",
     "image": "Screenshot 2026-10-20 at 9.18.48.png",
-    "id": "blk_372"
-  },
-  {
-    "date": "",
-    "reporter": "複原慈（ensemble）",
-    "name": "@takarafulcare_japan",
-    "url": "https://www.instagram.com/takarafulcare_japan",
-    "secondary_url": "",
-    "platform": "Instagram",
-    "url_warning": "",
-    "reason": "？ IgSi=ZXYzcm5pN252cjV3 会長と面談しても心が動かなかった方です",
-    "image": "Screenshot 2026-10-20 at 9.18.54.png",
-    "id": "blk_373"
+    "id": "blk_353"
   },
   {
     "date": "2026-08-27 8:44 AM",
@@ -4487,9 +4247,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ igShia=NTC4MTIWNJQ2YQ== ↑既に出てるこちらの方 インスタからDM送ってきたので、報告もあわせてお願いします",
+    "reason": "igShia=NTC4MTIWNJQ2YQ== ↑既に出てるこちらの方 インスタからDM送ってきたので、報告もあわせてお願いします",
     "image": "Screenshot 2026-10-20 at 9.18.54.png",
-    "id": "blk_374"
+    "id": "blk_354"
   },
   {
     "date": "2026-08-27 8:46 AM",
@@ -4499,21 +4259,21 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igsi=MWQ20GttMGw4MmdrYw==",
+    "reason": "igsi=MWQ20GttMGw4MmdrYw==",
     "image": "Screenshot 2026-10-20 at 9.18.54.png",
-    "id": "blk_375"
+    "id": "blk_355"
   },
   {
     "date": "2026-08-27 10:11 AM",
     "reporter": "井明香奈（shAdow）",
     "name": "@marumamio",
-    "url": "https://www.threads.net/@marumamio",
+    "url": "https://www.threads.net/@marumamio?IgShid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ IgShid=NTC4MTIwNjQ2YQ==",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.18.54.png",
-    "id": "blk_376"
+    "id": "blk_356"
   },
   {
     "date": "2026-08-27 3:14 PM",
@@ -4525,7 +4285,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "会長にゲスト対応していただきましたが、ネオには合わない方で す…・・！",
     "image": "Screenshot 2026-10-20 at 9.18.54.png",
-    "id": "blk_377"
+    "id": "blk_357"
   },
   {
     "date": "2026-08-27 4:24 PM",
@@ -4535,33 +4295,21 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igsi-MWpuNzh4NndpZmpycQ==",
+    "reason": "igsi-MWpuNzh4NndpZmpycQ==",
     "image": "Screenshot 2026-10-20 at 9.18.54.png",
-    "id": "blk_378"
+    "id": "blk_358"
   },
   {
     "date": "2026-08-27 10:34 PM",
     "reporter": "澤木優里（RAYTUS）",
     "name": "@smsmkuto",
-    "url": "https://www.threads.net/@smsmkuto",
+    "url": "https://www.threads.net/@smsmkuto?igshid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ igshid=NTC4MTIwNjQ2YQ== 4回も聞いたそうです。 質問した時の方の対応が悪く逆ギレされたので、話す気が失せたと のことです。",
+    "reason": "4回も聞いたそうです。 質問した時の方の対応が悪く逆ギレされたので、話す気が失せたと のことです。",
     "image": "Screenshot 2026-10-20 at 9.18.54.png",
-    "id": "blk_379"
-  },
-  {
-    "date": "",
-    "reporter": "片岡哉江かなえ（シャンブルカーサ）",
-    "name": "Facebookユーザー",
-    "url": "https://www.facebook.com/profile.php",
-    "secondary_url": "",
-    "platform": "Facebook",
-    "url_warning": "",
-    "reason": "LINK BNIで活動。 今で十分です、とのことです。 ？ 10=100076368546204&mibextia=wwXifr",
-    "image": "Screenshot 2026-10-20 at 9.19.00.png",
-    "id": "blk_380"
+    "id": "blk_359"
   },
   {
     "date": "2026-08-28 6:17 PM",
@@ -4571,9 +4319,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igsi-dnFibWd2cGpvYmFy ？ IgSI=MTFhZ2IZCHItMHIxaA== 会長面談予約後、すぐお断りされました。",
+    "reason": "igsi-dnFibWd2cGpvYmFy ？ IgSI=MTFhZ2IZCHItMHIxaA== 会長面談予約後、すぐお断りされました。",
     "image": "Screenshot 2026-10-20 at 9.19.00.png",
-    "id": "blk_381"
+    "id": "blk_360"
   },
   {
     "date": "2026-08-28 6:17 PM",
@@ -4582,10 +4330,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/comorebi530",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
-    "reason": "？ igsi-dnFibWd2cGpvYmFy ？ IgSI=MTFhZ2IZCHItMHIxaA== 会長面談予約後、すぐお断りされました。",
+    "url_warning": "修復済",
+    "reason": "igsi-dnFibWd2cGpvYmFy ？ IgSI=MTFhZ2IZCHItMHIxaA== 会長面談予約後、すぐお断りされました。",
     "image": "Screenshot 2026-10-20 at 9.19.00.png",
-    "id": "blk_382"
+    "id": "blk_361"
   },
   {
     "date": "2026-08-28 7:34 PM",
@@ -4597,7 +4345,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "会長をtaker、お金の亡者と呼ぶ アポ後DMでものすごい長文が来ました（ ？ igsi=djB3NDFtMWROZ3kx",
     "image": "Screenshot 2026-10-20 at 9.19.00.png",
-    "id": "blk_383"
+    "id": "blk_362"
   },
   {
     "date": "2026-08-28 8:00 PM",
@@ -4606,10 +4354,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.threads.net/@chaba_sapporo_seitai",
     "secondary_url": "",
     "platform": "Threads",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "まゆまゆ ？ Igshid=NTC4MTIWNjQ2YQ== すごい書き込みで盛り上がってます",
     "image": "Screenshot 2026-10-20 at 9.19.00.png",
-    "id": "blk_384"
+    "id": "blk_363"
   },
   {
     "date": "2026-08-28 8:37 PM",
@@ -4619,9 +4367,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igsi=MW53ejQ1ZW12dDk5cQ==",
+    "reason": "igsi=MW53ejQ1ZW12dDk5cQ==",
     "image": "Screenshot 2026-10-20 at 9.19.00.png",
-    "id": "blk_385"
+    "id": "blk_364"
   },
   {
     "date": "2026-08-28 9:16 PM",
@@ -4633,7 +4381,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.19.00.png",
-    "id": "blk_386"
+    "id": "blk_365"
   },
   {
     "date": "2026-08-28 11:14 PM",
@@ -4643,9 +4391,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igsi=MTcyODVOYmluejNvMA== 既に話しを聞いている。失礼なDM送ってくる人です。",
+    "reason": "igsi=MTcyODVOYmluejNvMA== 既に話しを聞いている。失礼なDM送ってくる人です。",
     "image": "Screenshot 2026-10-20 at 9.19.00.png",
-    "id": "blk_387"
+    "id": "blk_366"
   },
   {
     "date": "2026-08-29 8:06 AM",
@@ -4655,9 +4403,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "https://www.threads.net/@rienakagawapharma",
     "platform": "Instagram / Threads",
     "url_warning": "",
-    "reason": "？ igsi=MWdnaxVoNXBzYnJmNA==",
+    "reason": "igsi=MWdnaxVoNXBzYnJmNA==",
     "image": "Screenshot 2026-10-20 at 9.19.07.png",
-    "id": "blk_388"
+    "id": "blk_367"
   },
   {
     "date": "2026-08-29 9:58 AM",
@@ -4669,7 +4417,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "畠山尚美 ？ igsi=MXRmaHg 3NTFuMHRWZA==",
     "image": "Screenshot 2026-10-20 at 9.19.07.png",
-    "id": "blk_389"
+    "id": "blk_368"
   },
   {
     "date": "2026-08-29 5:29 PM",
@@ -4681,7 +4429,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "全て無料にこだわられていて他人から頂きたいばかりなので、会に 合わない人なので、、 ？ IgSi=ZzliNnI40DNuYXNn",
     "image": "Screenshot 2026-10-20 at 9.19.07.png",
-    "id": "blk_390"
+    "id": "blk_369"
   },
   {
     "date": "2026-08-30 12:11 AM",
@@ -4690,10 +4438,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/rinyuupanda",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "既に数回、話をきいている、 でも内容覚えていません。 と言っている人です。 ？ igsi=MWY3bDRhaTN3d3Zw",
     "image": "Screenshot 2026-10-20 at 9.19.07.png",
-    "id": "blk_391"
+    "id": "blk_370"
   },
   {
     "date": "2026-08-30 12:38 AM",
@@ -4705,7 +4453,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "入会手続き後入金待ちの際に音信不通。https://",
     "image": "Screenshot 2026-10-20 at 9.19.07.png",
-    "id": "blk_392"
+    "id": "blk_371"
   },
   {
     "date": "2026-08-30 12:57 AM",
@@ -4717,31 +4465,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "zoom直前でブロックされたので、声かけないでください！",
     "image": "Screenshot 2026-10-20 at 9.19.07.png",
-    "id": "blk_393"
+    "id": "blk_372"
   },
   {
     "date": "2026-08-30 11:34 AM",
     "reporter": "井明香奈（shAdow）",
     "name": "@dekoboko__tochan",
-    "url": "https://www.threads.net/@dekoboko__tochan",
+    "url": "https://www.threads.net/@dekoboko__tochan?igshid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ igshid=NTC4MTIwNjQ2YQ== アドアボ後、zoomの内容などを書面で欲しいと要求され、 文面のみでここの事など間違って認識してして欲しくないので、疑",
+    "reason": "アドアボ後、zoomの内容などを書面で欲しいと要求され、 文面のみでここの事など間違って認識してして欲しくないので、疑",
     "image": "Screenshot 2026-10-20 at 9.19.07.png",
-    "id": "blk_394"
-  },
-  {
-    "date": "",
-    "reporter": "井明香奈（shAdow）",
-    "name": "@aekopoko_tochan",
-    "url": "https://www.threads.net/@aekopoko_tochan",
-    "secondary_url": "",
-    "platform": "Threads",
-    "url_warning": "ドメイン誤記修復 (threaas→threads.net)",
-    "reason": "AUg 30 11:34 AMI ？ igshid=NTC4MTIwNjQ2YQ== アドアボ後、zoomの内容などを書面で欲しいと要求され、 文面のみでここの事など間違って認識してして欲しくないので、疑 問があればzoomで話して解消していく事を提案しても書面が欲し いと何度も言われたり等、こちらからお断りしてます♪",
-    "image": "Screenshot 2026-10-20 at 9.19.14.png",
-    "id": "blk_395"
+    "id": "blk_373"
   },
   {
     "date": "2026-08-30 3:06 PM",
@@ -4753,7 +4489,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "MLM（ナチュラリープラス）に尽力されています。 ？ igsi=MXh5Mjg INW9iNWd3bw==",
     "image": "Screenshot 2026-10-20 at 9.19.14.png",
-    "id": "blk_396"
+    "id": "blk_374"
   },
   {
     "date": "2026-08-30 4:33 PM",
@@ -4762,10 +4498,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.threads.net/@miria_earjewelry.care",
     "secondary_url": "",
     "platform": "Threads",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "失礼な方+1円も出したくないのでお声がけ不要です ？ 1gShid=NTC4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.19.14.png",
-    "id": "blk_397"
+    "id": "blk_375"
   },
   {
     "date": "2026-08-30 7:54 PM",
@@ -4775,9 +4511,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igsi-MWZ2cWh2MTNjbGNn",
+    "reason": "igsi-MWZ2cWh2MTNjbGNn",
     "image": "Screenshot 2026-10-20 at 9.19.14.png",
-    "id": "blk_398"
+    "id": "blk_376"
   },
   {
     "date": "2026-08-30 9:41 PM",
@@ -4787,9 +4523,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igsi=ZHFldmpiZHJlamo3 自分はすごい。会長のビジョンがないとのこと",
+    "reason": "igsi=ZHFldmpiZHJlamo3 自分はすごい。会長のビジョンがないとのこと",
     "image": "Screenshot 2026-10-20 at 9.19.14.png",
-    "id": "blk_399"
+    "id": "blk_377"
   },
   {
     "date": "2026-08-31 7:04 AM",
@@ -4799,21 +4535,21 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igSimeHBidHc3MmJwcW05 LINKで自分の夢も仲間の夢も叶えられる、とLINKまっしぐら。",
+    "reason": "igSimeHBidHc3MmJwcW05 LINKで自分の夢も仲間の夢も叶えられる、とLINKまっしぐら。",
     "image": "Screenshot 2026-10-20 at 9.19.14.png",
-    "id": "blk_400"
+    "id": "blk_378"
   },
   {
     "date": "2026-08-31 9:50 AM",
     "reporter": "松尾 虎次郎（Ablaze代表）",
     "name": "@tuneart0315",
-    "url": "https://www.threads.net/@tuneart0315",
+    "url": "https://www.threads.net/@tuneart0315?IgShid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ IgShid=NTC4MTIwNjQ2YQ==",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.19.20.png",
-    "id": "blk_401"
+    "id": "blk_379"
   },
   {
     "date": "2026-08-31 4:54 PM",
@@ -4825,19 +4561,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "一度良くない情報を目にしてお断りしたそうで、頑張ってください ど）とブロックされました！mlm頑張るそうです",
     "image": "Screenshot 2026-10-20 at 9.19.20.png",
-    "id": "blk_402"
+    "id": "blk_380"
   },
   {
     "date": "2026-08-31 5:09 PM",
     "reporter": "大野紗弥加（MURA）",
     "name": "@ama1332132",
-    "url": "https://www.threads.net/@ama1332132",
+    "url": "https://www.threads.net/@ama1332132?igshid=NTc4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ igshid=NTc4MTIwNjQ2YQ== こんな事引用されました ブロックお願いします。",
+    "reason": "こんな事引用されました ブロックお願いします。",
     "image": "Screenshot 2026-10-20 at 9.19.20.png",
-    "id": "blk_403"
+    "id": "blk_381"
   },
   {
     "date": "2026-08-31 11:53 PM",
@@ -4849,7 +4585,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "9/1 入会後すぐに彼氏さんからの反対で退会希望の連絡あり",
     "image": "Screenshot 2026-10-20 at 9.19.20.png",
-    "id": "blk_404"
+    "id": "blk_382"
   },
   {
     "date": "2026-09-01 8:38 PM",
@@ -4858,10 +4594,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/b.aroma",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
-    "reason": "？ igsi=MWg3eTBdnRheWho 話し聞くの2回目でした。 会長が合わないとのことなのでお声がけしないでください♪",
+    "url_warning": "修復済",
+    "reason": "igsi=MWg3eTBdnRheWho 話し聞くの2回目でした。 会長が合わないとのことなのでお声がけしないでください♪",
     "image": "Screenshot 2026-10-20 at 9.19.20.png",
-    "id": "blk_405"
+    "id": "blk_383"
   },
   {
     "date": "2026-09-02 12:03 AM",
@@ -4873,7 +4609,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "既に声かけされており、ご自身には合わないとのことでした@ ？ IgSi=MXExeWZ2ejFOeHJ1MQ== ？ Igshid=NTc4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.19.20.png",
-    "id": "blk_406"
+    "id": "blk_384"
   },
   {
     "date": "2026-09-02 4:43 PM",
@@ -4885,7 +4621,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "いろいろ聞くだけ聞いて、アポはしょうとしない方です。 ？ IgSI=MWV6NnhpamZkOXhINQ==",
     "image": "Screenshot 2026-10-20 at 9.19.27.png",
-    "id": "blk_407"
+    "id": "blk_385"
   },
   {
     "date": "2026-09-03 9:42 AM",
@@ -4897,7 +4633,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "アドアポからの会長zoom入れたが、ドタキャンでその後返信なし ？ igSi=MW15bWJtOW1weG05cA==",
     "image": "Screenshot 2026-10-20 at 9.19.27.png",
-    "id": "blk_408"
+    "id": "blk_386"
   },
   {
     "date": "2026-09-03 9:00 PM",
@@ -4906,10 +4642,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/wakuwakukitchen1221",
     "secondary_url": "https://toushireview.com/articles/buttagiri-kaicho-iida-fc-",
     "platform": "Instagram / Web",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
-    "reason": "？ vrfl=aGQxHazgjM4amao 何回もお誘いを受けているようで、 こちらのサイトを添付し、",
+    "url_warning": "修復済",
+    "reason": "vrfl=aGQxHazgjM4amao 何回もお誘いを受けているようで、 こちらのサイトを添付し、",
     "image": "Screenshot 2026-10-20 at 9.19.27.png",
-    "id": "blk_409"
+    "id": "blk_387"
   },
   {
     "date": "2026-09-03 9:04 PM",
@@ -4921,7 +4657,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "数回聞いてるそうです ？ IgSI=MWNoMTk4anloMWImOQ==",
     "image": "Screenshot 2026-10-20 at 9.19.27.png",
-    "id": "blk_410"
+    "id": "blk_388"
   },
   {
     "date": "2026-09-03 9:28 PM",
@@ -4933,7 +4669,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "ネオ名指しで投稿してるの発見しました。 ？ igShia=NTC4MTIWNJQ2YQ== Sep 49:26 AM",
     "image": "Screenshot 2026-10-20 at 9.19.27.png",
-    "id": "blk_411"
+    "id": "blk_389"
   },
   {
     "date": "2026-09-03 9:28 PM",
@@ -4943,9 +4679,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igsi=Z3BwbWFvcXhqczBv 何度も聞かれているようです",
+    "reason": "igsi=Z3BwbWFvcXhqczBv 何度も聞かれているようです",
     "image": "Screenshot 2026-10-20 at 9.19.27.png",
-    "id": "blk_412"
+    "id": "blk_390"
   },
   {
     "date": "2026-09-04 2:41 PM",
@@ -4955,9 +4691,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igsi=aHI6NjJ6eGJ5Y3Fw",
+    "reason": "igsi=aHI6NjJ6eGJ5Y3Fw",
     "image": "Screenshot 2026-10-20 at 9.19.27.png",
-    "id": "blk_413"
+    "id": "blk_391"
   },
   {
     "date": "2026-09-05 12:13 PM",
@@ -4969,7 +4705,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.19.33.png",
-    "id": "blk_414"
+    "id": "blk_392"
   },
   {
     "date": "2026-09-05 4:36 PM",
@@ -4979,9 +4715,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "https://www.threads.net/@rinpakeasalon.cocoro",
     "platform": "Instagram / Threads",
     "url_warning": "",
-    "reason": "？ igsi=MWitankOcTIwa2NjYg==",
+    "reason": "igsi=MWitankOcTIwa2NjYg==",
     "image": "Screenshot 2026-10-20 at 9.19.33.png",
-    "id": "blk_415"
+    "id": "blk_393"
   },
   {
     "date": "2026-09-05 6:51 PM",
@@ -4993,7 +4729,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.19.33.png",
-    "id": "blk_416"
+    "id": "blk_394"
   },
   {
     "date": "2026-09-05 10:20 PM",
@@ -5003,9 +4739,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ igsi=ODkxd3RmeDJpN2hm",
+    "reason": "igsi=ODkxd3RmeDJpN2hm",
     "image": "Screenshot 2026-10-20 at 9.19.33.png",
-    "id": "blk_417"
+    "id": "blk_395"
   },
   {
     "date": "2026-09-05 10:40 PM",
@@ -5014,10 +4750,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/mille_sweet_nest?stkn=MXBleDZoNWNsdXVncg==",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "自分のペースでやります。 必要ありません、と。",
     "image": "Screenshot 2026-10-20 at 9.19.33.png",
-    "id": "blk_418"
+    "id": "blk_396"
   },
   {
     "date": "2026-09-05 10:54 PM",
@@ -5029,19 +4765,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "アポ中に突然消えました",
     "image": "Screenshot 2026-10-20 at 9.19.33.png",
-    "id": "blk_419"
-  },
-  {
-    "date": "",
-    "reporter": "片岡哉江かなえ（シャンブルカーサ）",
-    "name": "Facebookユーザー",
-    "url": "https://www.facebook.com/share/1BuiYdQFGy/",
-    "secondary_url": "",
-    "platform": "Facebook",
-    "url_warning": "",
-    "reason": "知人で 『会長に200万円費やしたが なにもしてくれなかった。』という人の話を信じています。 ？ mibextid=wwXifr",
-    "image": "Screenshot 2026-10-20 at 9.19.39.png",
-    "id": "blk_420"
+    "id": "blk_397"
   },
   {
     "date": "2026-09-05 11:09 PM",
@@ -5053,7 +4777,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "色々調べて警戒してました。",
     "image": "Screenshot 2026-10-20 at 9.19.39.png",
-    "id": "blk_421"
+    "id": "blk_398"
   },
   {
     "date": "2026-09-06 12:00 AM",
@@ -5065,79 +4789,79 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "B型さんと話せると楽しみにしていたら、zoom始まって早々 「ネットワークのお誘いですか？」超ネガティヴおばさんでした",
     "image": "Screenshot 2026-10-20 at 9.19.39.png",
-    "id": "blk_422"
+    "id": "blk_399"
   },
   {
     "date": "2026-09-06 3:20 PM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@kiyoka.rc",
-    "url": "https://www.instagram.com/kiyoka.rc",
+    "url": "https://www.instagram.com/kiyoka.rc?stkn=dWgwYmk5dDZmamFp",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
-    "reason": "？ stkn=dWgwYmk5dDZmamFp メールのやり取りだけですが、興味の無い方です",
+    "url_warning": "修復済",
+    "reason": "メールのやり取りだけですが、興味の無い方です",
     "image": "Screenshot 2026-10-20 at 9.19.39.png",
-    "id": "blk_423"
+    "id": "blk_400"
   },
   {
     "date": "2026-09-06 7:00 PM",
     "reporter": "森崎江里（愛知県 / RAYTUS）",
     "name": "@nagaokashi_seitai_geofu",
-    "url": "https://www.threads.net/@nagaokashi_seitai_geofu",
+    "url": "https://www.threads.net/@nagaokashi_seitai_geofu?Igshid=NTc4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ Igshid=NTc4MTIwNjQ2YQ== なにか誤解があるのかなあ？書き込みもしていてタチが悪いです",
+    "reason": "なにか誤解があるのかなあ？書き込みもしていてタチが悪いです",
     "image": "Screenshot 2026-10-20 at 9.19.39.png",
-    "id": "blk_424"
+    "id": "blk_401"
   },
   {
     "date": "2026-09-06 7:48 PM",
     "reporter": "畑ゆかり（yuima-ru理事長）",
     "name": "@rie7linsta",
-    "url": "https://www.threads.net/@rie7linsta?igshid=NTC4MTIwNjQ2YQ==",
+    "url": "https://www.threads.net/@rie7linsta?igshid=NTC4MTIwNjQ2YQ==&IgShid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ IgShid=NTC4MTIwNjQ2YQ== ？ igshid=NTC4MTIwNjQ2YQ== ？ IgShid=NTC4MTIwNjQ2YQ==",
+    "reason": "IgShid=NTC4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.19.39.png",
-    "id": "blk_425"
+    "id": "blk_402"
   },
   {
     "date": "2026-09-06 7:48 PM",
     "reporter": "畑ゆかり（yuima-ru理事長）",
     "name": "@yuca.masaki",
-    "url": "https://www.threads.net/@yuca.masaki?igshid=NTC4MTIwNjQ2YQ==",
+    "url": "https://www.threads.net/@yuca.masaki?igshid=NTC4MTIwNjQ2YQ==&IgShid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ IgShid=NTC4MTIwNjQ2YQ== ？ igshid=NTC4MTIwNjQ2YQ== ？ IgShid=NTC4MTIwNjQ2YQ==",
+    "reason": "IgShid=NTC4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.19.39.png",
-    "id": "blk_426"
+    "id": "blk_403"
   },
   {
     "date": "2026-09-06 7:48 PM",
     "reporter": "畑ゆかり（yuima-ru理事長）",
     "name": "@hakkou_ka_chan_koshigaya",
-    "url": "https://www.threads.net/@hakkou_ka_chan_koshigaya?igshid=NTC4MTIwNjQ2YQ==",
+    "url": "https://www.threads.net/@hakkou_ka_chan_koshigaya?igshid=NTC4MTIwNjQ2YQ==&IgShid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ IgShid=NTC4MTIwNjQ2YQ== ？ igshid=NTC4MTIwNjQ2YQ== ？ IgShid=NTC4MTIwNjQ2YQ==",
+    "reason": "IgShid=NTC4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.19.39.png",
-    "id": "blk_427"
+    "id": "blk_404"
   },
   {
     "date": "2026-09-06 7:48 PM",
     "reporter": "畑ゆかり（yuima-ru理事長）",
     "name": "@bonheur.factory.s",
-    "url": "https://www.threads.net/@bonheur.factory.s?igshid=NTC4MTIwNjQ2YQ==",
+    "url": "https://www.threads.net/@bonheur.factory.s?igshid=NTC4MTIwNjQ2YQ==&IgShid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ IgShid=NTC4MTIwNjQ2YQ== ？ igshid=NTC4MTIwNjQ2YQ== ？ IgShid=NTC4MTIwNjQ2YQ==",
+    "reason": "IgShid=NTC4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.19.39.png",
-    "id": "blk_428"
+    "id": "blk_405"
   },
   {
     "date": "2026-09-07 6:18 AM",
@@ -5149,7 +4873,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "過去にDMが届き、色々調べて知り合いの警察官に相談したそうで",
     "image": "Screenshot 2026-10-20 at 9.19.44.png",
-    "id": "blk_429"
+    "id": "blk_406"
   },
   {
     "date": "2026-09-07 9:23 AM",
@@ -5161,7 +4885,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "無茶苦茶警戒してきました。",
     "image": "Screenshot 2026-10-20 at 9.19.44.png",
-    "id": "blk_430"
+    "id": "blk_407"
   },
   {
     "date": "2026-09-07 12:06 PM",
@@ -5173,7 +4897,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "ご自身の事業があるので、お誘いはお断りさせて下さいとの事で す。",
     "image": "Screenshot 2026-10-20 at 9.19.44.png",
-    "id": "blk_431"
+    "id": "blk_408"
   },
   {
     "date": "2026-09-07 2:25 PM",
@@ -5183,21 +4907,21 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ stk=N2cOYTYyOXpVYXR×",
+    "reason": "stk=N2cOYTYyOXpVYXR×",
     "image": "Screenshot 2026-10-20 at 9.19.44.png",
-    "id": "blk_432"
+    "id": "blk_409"
   },
   {
     "date": "2026-09-07 4:54 PM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@hal.book",
-    "url": "https://www.instagram.com/hal.book",
+    "url": "https://www.instagram.com/hal.book?stkn=MXZyaTJoMHdkMHZhbA==",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ stkn=MXZyaTJoMHdkMHZhbA== これ以上コミュニティ入らないそうです",
+    "reason": "これ以上コミュニティ入らないそうです",
     "image": "Screenshot 2026-10-20 at 9.19.44.png",
-    "id": "blk_433"
+    "id": "blk_410"
   },
   {
     "date": "2026-09-07 4:55 PM",
@@ -5209,55 +4933,31 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.19.44.png",
-    "id": "blk_434"
+    "id": "blk_411"
   },
   {
     "date": "2026-09-07 7:08 PM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@earlyhorse6",
-    "url": "https://www.threads.net/@earlyhorse6",
+    "url": "https://www.threads.net/@earlyhorse6?igshid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ igshid=NTC4MTIwNjQ2YQ== Sep 77:38 PM",
+    "reason": "Sep 77:38 PM",
     "image": "Screenshot 2026-10-20 at 9.19.44.png",
-    "id": "blk_435"
-  },
-  {
-    "date": "",
-    "reporter": "本多栞（RAYTUS / 秘書課）",
-    "name": "@minto_amechan",
-    "url": "https://www.threads.net/@minto_amechan",
-    "secondary_url": "",
-    "platform": "Threads",
-    "url_warning": "",
-    "reason": "私の投稿内で勝手に騒いでました（",
-    "image": "Screenshot 2026-10-20 at 9.19.50.png",
-    "id": "blk_436"
-  },
-  {
-    "date": "",
-    "reporter": "本多栞（RAYTUS / 秘書課）",
-    "name": "@non.resetlab",
-    "url": "https://www.threads.net/@non.resetlab",
-    "secondary_url": "",
-    "platform": "Threads",
-    "url_warning": "",
-    "reason": "私の投稿内で勝手に騒いでました（",
-    "image": "Screenshot 2026-10-20 at 9.19.50.png",
-    "id": "blk_437"
+    "id": "blk_412"
   },
   {
     "date": "2026-09-08 9:28 AM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@fuwafuwacororo",
-    "url": "https://www.instagram.com/fuwafuwacororo",
+    "url": "https://www.instagram.com/fuwafuwacororo?stkn=MWx4cjQ3bGRpdWZkcQ==",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ stkn=MWx4cjQ3bGRpdWZkcQ== 別にしてることがあるそうです",
+    "reason": "別にしてることがあるそうです",
     "image": "Screenshot 2026-10-20 at 9.19.50.png",
-    "id": "blk_438"
+    "id": "blk_413"
   },
   {
     "date": "2026-09-08 5:04 PM",
@@ -5269,7 +4969,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "文面で趣旨目をつたえてましたが、全く話が噛み合わずい",
     "image": "Screenshot 2026-10-20 at 9.19.50.png",
-    "id": "blk_439"
+    "id": "blk_414"
   },
   {
     "date": "2026-09-08 7:46 PM",
@@ -5281,55 +4981,31 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.19.50.png",
-    "id": "blk_440"
+    "id": "blk_415"
   },
   {
     "date": "2026-09-08 8:54 PM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@ugasen202604",
-    "url": "https://www.instagram.com/ugasen202604",
+    "url": "https://www.instagram.com/ugasen202604?stkn=MWIxa2plc201MmRVNw==",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ stkn=MWIxa2plc201MmRVNw== ネットに書かれてることを鵜呑みにしてThreadsに悪口を書いてい ます",
+    "reason": "ネットに書かれてることを鵜呑みにしてThreadsに悪口を書いてい ます",
     "image": "Screenshot 2026-10-20 at 9.19.50.png",
-    "id": "blk_441"
+    "id": "blk_416"
   },
   {
     "date": "2026-09-08 10:05 PM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@totonoe.room_l",
-    "url": "https://www.instagram.com/totonoe.room_l",
+    "url": "https://www.instagram.com/totonoe.room_l?stkn=cGJnYTduenpoZ3Ry",
     "secondary_url": "https://www.threads.net/@totonoe.room_I",
     "platform": "Instagram / Threads",
     "url_warning": "",
-    "reason": "3回話聞いて、入ると言ってましたが手続き前日にやっぱりやめる とのことで消えていきました ？ stkn=cGJnYTduenpoZ3Ry ？ Igshid=NTC4MTIwNjQ2YQ==",
+    "reason": "3回話聞いて、入ると言ってましたが手続き前日にやっぱりやめる とのことで消えていきました  ？ Igshid=NTC4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.19.50.png",
-    "id": "blk_442"
-  },
-  {
-    "date": "",
-    "reporter": "本多栞（RAYTUS / 秘書課）",
-    "name": "@eri_kamisima",
-    "url": "https://www.threads.net/@eri_kamisima",
-    "secondary_url": "https://www.instagram.com/erikamisima",
-    "platform": "Threads / Instagram",
-    "url_warning": "",
-    "reason": "アポ翌日の早朝に長文確認リストLINEが届きました 自分でやりたいが強めな方でした ？ igshid=NTc4MTIWNjQ2YQ== ？",
-    "image": "Screenshot 2026-10-20 at 9.20.00.png",
-    "id": "blk_443"
-  },
-  {
-    "date": "",
-    "reporter": "本多栞（RAYTUS / 秘書課）",
-    "name": "@eri.kamisima_official",
-    "url": "https://www.instagram.com/eri.kamisima_official?stkn=YmljZDEycnUxZg==",
-    "secondary_url": "",
-    "platform": "Instagram",
-    "url_warning": "",
-    "reason": "～別アカウント",
-    "image": "Screenshot 2026-10-20 at 9.20.00.png",
-    "id": "blk_444"
+    "id": "blk_417"
   },
   {
     "date": "2026-09-08 10:55 PM",
@@ -5339,9 +5015,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ 1gShia=NTC4MTIwNjQ2YQ==",
+    "reason": "1gShia=NTC4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.20.00.png",
-    "id": "blk_445"
+    "id": "blk_418"
   },
   {
     "date": "2026-09-09 9:22 AM",
@@ -5353,7 +5029,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "ここの話を2.3回説明聞かれていて入会はしたくないひとです。",
     "image": "Screenshot 2026-10-20 at 9.20.00.png",
-    "id": "blk_446"
+    "id": "blk_419"
   },
   {
     "date": "2026-09-09 1:46 PM",
@@ -5365,7 +5041,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "入会する！となった後 グループLINE退会、 ブロックされました® お声がけ不要です。 -sunsun",
     "image": "Screenshot 2026-10-20 at 9.20.00.png",
-    "id": "blk_447"
+    "id": "blk_420"
   },
   {
     "date": "2026-09-09 5:37 PM",
@@ -5377,7 +5053,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.20.00.png",
-    "id": "blk_448"
+    "id": "blk_421"
   },
   {
     "date": "2026-09-09 8:54 PM",
@@ -5386,10 +5062,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/sac_ccccchili.dlet?stkn=N2hwNml3emlveTM3",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "佐竹弘彬",
     "image": "Screenshot 2026-10-20 at 9.20.00.png",
-    "id": "blk_449"
+    "id": "blk_422"
   },
   {
     "date": "2026-09-09 9:01 PM",
@@ -5399,9 +5075,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "TikTok",
     "url_warning": "",
-    "reason": "？ _r=1&_t=ZS-99aaw32G1DU Tiktokの方です。相手方が年上とはいえずっとタメロだったり予定 をしっかり伝えていたのにZoomに入ってこなかったり色々あった ので関係を切る決断をしました。",
+    "reason": "_r=1&_t=ZS-99aaw32G1DU Tiktokの方です。相手方が年上とはいえずっとタメロだったり予定 をしっかり伝えていたのにZoomに入ってこなかったり色々あった ので関係を切る決断をしました。",
     "image": "Screenshot 2026-10-20 at 9.20.06.png",
-    "id": "blk_450"
+    "id": "blk_423"
   },
   {
     "date": "2026-09-09 9:56 PM",
@@ -5413,7 +5089,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "今はまだ考えていないそうです®",
     "image": "Screenshot 2026-10-20 at 9.20.06.png",
-    "id": "blk_451"
+    "id": "blk_424"
   },
   {
     "date": "2026-09-09 9:58 PM",
@@ -5425,7 +5101,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.20.06.png",
-    "id": "blk_452"
+    "id": "blk_425"
   },
   {
     "date": "2026-09-09 11:45 PM",
@@ -5437,7 +5113,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "DMしましたが、聞いたことある人でお断りしたということでし",
     "image": "Screenshot 2026-10-20 at 9.20.06.png",
-    "id": "blk_453"
+    "id": "blk_426"
   },
   {
     "date": "2026-09-10 7:15 AM",
@@ -5449,7 +5125,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "ご自身のお話を勢いよくして、 こちらの話は右から左。",
     "image": "Screenshot 2026-10-20 at 9.20.06.png",
-    "id": "blk_454"
+    "id": "blk_427"
   },
   {
     "date": "2026-09-10 8:30 PM",
@@ -5458,106 +5134,94 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/shinobu.navi?stkn=Yml5OWs4bzNvczlx",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "複数のネットワークをされてます。",
     "image": "Screenshot 2026-10-20 at 9.20.06.png",
-    "id": "blk_455"
-  },
-  {
-    "date": "",
-    "reporter": "本多栞（RAYTUS / 秘書課）",
-    "name": "@naoharart_sujibrow_himeji",
-    "url": "https://www.instagram.com/naoharart_sujibrow_himeji?stkn=M2hrMmwxNDF40GQx",
-    "secondary_url": "",
-    "platform": "Instagram",
-    "url_warning": "",
-    "reason": "",
-    "image": "Screenshot 2026-10-20 at 9.20.16.png",
-    "id": "blk_456"
+    "id": "blk_428"
   },
   {
     "date": "2026-09-10 9:42 PM",
     "reporter": "齊藤唯（Mimola）",
     "name": "@maple_clover20220205",
-    "url": "https://www.instagram.com/maple_clover20220205?igshid=NTc4MTIwNjQ2YQ==",
+    "url": "https://www.instagram.com/maple_clover20220205?igshid=NTc4MTIwNjQ2YQ==&stkn=eXJvaHViYWE4NGk3",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "何度もお声がけある方々 ？ stkn=eXJvaHViYWE4NGk3 ？ Stkn=OHRtZ2picXU5cXoz ？ stkn=bXRxdGRVZXNjaWts ？ igShia=NTC4MTIWNJQ2YQ== ？ igshid=NTc4MTIwNjQ2YQ== 自分でやる、と③ ？ igshid=NTc4MTIwNjQ2YQ== リスケのリスケでアポ出来ず",
+    "reason": "何度もお声がけある方々  ？ Stkn=OHRtZ2picXU5cXoz ？ stkn=bXRxdGRVZXNjaWts ？ igShia=NTC4MTIWNJQ2YQ== ？ igshid=NTc4MTIwNjQ2YQ== 自分でやる、と③ ？ igshid=NTc4MTIwNjQ2YQ== リスケのリスケでアポ出来ず",
     "image": "Screenshot 2026-10-20 at 9.20.16.png",
-    "id": "blk_457"
+    "id": "blk_429"
   },
   {
     "date": "2026-09-10 9:42 PM",
     "reporter": "齊藤唯（Mimola）",
     "name": "@rie_color",
-    "url": "https://www.instagram.com/rie_color?igshid=NTc4MTIwNjQ2YQ==",
+    "url": "https://www.instagram.com/rie_color?igshid=NTc4MTIwNjQ2YQ==&stkn=eXJvaHViYWE4NGk3",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "何度もお声がけある方々 ？ stkn=eXJvaHViYWE4NGk3 ？ Stkn=OHRtZ2picXU5cXoz ？ stkn=bXRxdGRVZXNjaWts ？ igShia=NTC4MTIWNJQ2YQ== ？ igshid=NTc4MTIwNjQ2YQ== 自分でやる、と③ ？ igshid=NTc4MTIwNjQ2YQ== リスケのリスケでアポ出来ず",
+    "reason": "何度もお声がけある方々  ？ Stkn=OHRtZ2picXU5cXoz ？ stkn=bXRxdGRVZXNjaWts ？ igShia=NTC4MTIWNJQ2YQ== ？ igshid=NTc4MTIwNjQ2YQ== 自分でやる、と③ ？ igshid=NTc4MTIwNjQ2YQ== リスケのリスケでアポ出来ず",
     "image": "Screenshot 2026-10-20 at 9.20.16.png",
-    "id": "blk_458"
+    "id": "blk_430"
   },
   {
     "date": "2026-09-10 9:42 PM",
     "reporter": "齊藤唯（Mimola）",
     "name": "@nanae.akishino",
-    "url": "https://www.instagram.com/nanae.akishino?igshid=NTc4MTIwNjQ2YQ==",
+    "url": "https://www.instagram.com/nanae.akishino?igshid=NTc4MTIwNjQ2YQ==&stkn=eXJvaHViYWE4NGk3",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "何度もお声がけある方々 ？ stkn=eXJvaHViYWE4NGk3 ？ Stkn=OHRtZ2picXU5cXoz ？ stkn=bXRxdGRVZXNjaWts ？ igShia=NTC4MTIWNJQ2YQ== ？ igshid=NTc4MTIwNjQ2YQ== 自分でやる、と③ ？ igshid=NTc4MTIwNjQ2YQ== リスケのリスケでアポ出来ず",
+    "reason": "何度もお声がけある方々  ？ Stkn=OHRtZ2picXU5cXoz ？ stkn=bXRxdGRVZXNjaWts ？ igShia=NTC4MTIWNJQ2YQ== ？ igshid=NTc4MTIwNjQ2YQ== 自分でやる、と③ ？ igshid=NTc4MTIwNjQ2YQ== リスケのリスケでアポ出来ず",
     "image": "Screenshot 2026-10-20 at 9.20.16.png",
-    "id": "blk_459"
+    "id": "blk_431"
   },
   {
     "date": "2026-09-10 9:42 PM",
     "reporter": "齊藤唯（Mimola）",
     "name": "@akari2518",
-    "url": "https://www.threads.net/@akari2518?igshid=NTc4MTIwNjQ2YQ==",
+    "url": "https://www.threads.net/@akari2518?igshid=NTc4MTIwNjQ2YQ==&stkn=eXJvaHViYWE4NGk3",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "何度もお声がけある方々 ？ stkn=eXJvaHViYWE4NGk3 ？ Stkn=OHRtZ2picXU5cXoz ？ stkn=bXRxdGRVZXNjaWts ？ igShia=NTC4MTIWNJQ2YQ== ？ igshid=NTc4MTIwNjQ2YQ== 自分でやる、と③ ？ igshid=NTc4MTIwNjQ2YQ== リスケのリスケでアポ出来ず",
+    "reason": "何度もお声がけある方々  ？ Stkn=OHRtZ2picXU5cXoz ？ stkn=bXRxdGRVZXNjaWts ？ igShia=NTC4MTIWNJQ2YQ== ？ igshid=NTc4MTIwNjQ2YQ== 自分でやる、と③ ？ igshid=NTc4MTIwNjQ2YQ== リスケのリスケでアポ出来ず",
     "image": "Screenshot 2026-10-20 at 9.20.16.png",
-    "id": "blk_460"
+    "id": "blk_432"
   },
   {
     "date": "2026-09-10 9:42 PM",
     "reporter": "齊藤唯（Mimola）",
     "name": "@fumi_harmonylife",
-    "url": "https://www.threads.net/@fumi_harmonylife?igshid=NTc4MTIwNjQ2YQ==",
+    "url": "https://www.threads.net/@fumi_harmonylife?igshid=NTc4MTIwNjQ2YQ==&stkn=eXJvaHViYWE4NGk3",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "何度もお声がけある方々 ？ stkn=eXJvaHViYWE4NGk3 ？ Stkn=OHRtZ2picXU5cXoz ？ stkn=bXRxdGRVZXNjaWts ？ igShia=NTC4MTIWNJQ2YQ== ？ igshid=NTc4MTIwNjQ2YQ== 自分でやる、と③ ？ igshid=NTc4MTIwNjQ2YQ== リスケのリスケでアポ出来ず",
+    "reason": "何度もお声がけある方々  ？ Stkn=OHRtZ2picXU5cXoz ？ stkn=bXRxdGRVZXNjaWts ？ igShia=NTC4MTIWNJQ2YQ== ？ igshid=NTc4MTIwNjQ2YQ== 自分でやる、と③ ？ igshid=NTc4MTIwNjQ2YQ== リスケのリスケでアポ出来ず",
     "image": "Screenshot 2026-10-20 at 9.20.16.png",
-    "id": "blk_461"
+    "id": "blk_433"
   },
   {
     "date": "2026-09-10 9:42 PM",
     "reporter": "齊藤唯（Mimola）",
     "name": "@manatsunchi",
-    "url": "https://www.threads.net/@manatsunchi?igshid=NTc4MTIwNjQ2YQ==",
+    "url": "https://www.threads.net/@manatsunchi?igshid=NTc4MTIwNjQ2YQ==&stkn=eXJvaHViYWE4NGk3",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "何度もお声がけある方々 ？ stkn=eXJvaHViYWE4NGk3 ？ Stkn=OHRtZ2picXU5cXoz ？ stkn=bXRxdGRVZXNjaWts ？ igShia=NTC4MTIWNJQ2YQ== ？ igshid=NTc4MTIwNjQ2YQ== 自分でやる、と③ ？ igshid=NTc4MTIwNjQ2YQ== リスケのリスケでアポ出来ず",
+    "reason": "何度もお声がけある方々  ？ Stkn=OHRtZ2picXU5cXoz ？ stkn=bXRxdGRVZXNjaWts ？ igShia=NTC4MTIWNJQ2YQ== ？ igshid=NTc4MTIwNjQ2YQ== 自分でやる、と③ ？ igshid=NTc4MTIwNjQ2YQ== リスケのリスケでアポ出来ず",
     "image": "Screenshot 2026-10-20 at 9.20.16.png",
-    "id": "blk_462"
+    "id": "blk_434"
   },
   {
     "date": "2026-09-10 9:42 PM",
     "reporter": "齊藤唯（Mimola）",
     "name": "@lanablanc_oita",
-    "url": "https://www.threads.net/@lanablanc_oita?igshid=NTc4MTIwNjQ2YQ==",
+    "url": "https://www.threads.net/@lanablanc_oita?igshid=NTc4MTIwNjQ2YQ==&stkn=eXJvaHViYWE4NGk3",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "何度もお声がけある方々 ？ stkn=eXJvaHViYWE4NGk3 ？ Stkn=OHRtZ2picXU5cXoz ？ stkn=bXRxdGRVZXNjaWts ？ igShia=NTC4MTIWNJQ2YQ== ？ igshid=NTc4MTIwNjQ2YQ== 自分でやる、と③ ？ igshid=NTc4MTIwNjQ2YQ== リスケのリスケでアポ出来ず",
+    "reason": "何度もお声がけある方々  ？ Stkn=OHRtZ2picXU5cXoz ？ stkn=bXRxdGRVZXNjaWts ？ igShia=NTC4MTIWNJQ2YQ== ？ igshid=NTc4MTIwNjQ2YQ== 自分でやる、と③ ？ igshid=NTc4MTIwNjQ2YQ== リスケのリスケでアポ出来ず",
     "image": "Screenshot 2026-10-20 at 9.20.16.png",
-    "id": "blk_463"
+    "id": "blk_435"
   },
   {
     "date": "2026-09-11 5:10 AM",
@@ -5569,7 +5233,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "甲賀花穂tidy.shin 一度聞いてる。 純粋な仲間集めではなく勧誘 残念です。との事。海",
     "image": "Screenshot 2026-10-20 at 9.20.16.png",
-    "id": "blk_464"
+    "id": "blk_436"
   },
   {
     "date": "2026-09-11 10:20 AM",
@@ -5581,7 +5245,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "不信感だらけとのことです♥",
     "image": "Screenshot 2026-10-20 at 9.20.16.png",
-    "id": "blk_465"
+    "id": "blk_437"
   },
   {
     "date": "2026-09-11 2:18 PM",
@@ -5590,22 +5254,22 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/megu_meguru?stkn=YzM5MGgycmIkaDZS",
     "secondary_url": "https://www.facebook.com/share/1H7GdRPEaV/",
     "platform": "Instagram / Facebook",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.20.16.png",
-    "id": "blk_466"
+    "id": "blk_438"
   },
   {
     "date": "2026-09-11 2:25 PM",
     "reporter": "上野美々（ensemble）",
     "name": "@tokachi_fujinka.salon",
-    "url": "https://www.instagram.com/tokachi_fujinka.salon",
+    "url": "https://www.instagram.com/tokachi_fujinka.salon?stkn=NmVkOGg3Z2wzbDZn",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ stkn=NmVkOGg3Z2wzbDZn 一度zoomで話しを聞いているが新しいことを始める気はないそう です！",
+    "reason": "一度zoomで話しを聞いているが新しいことを始める気はないそう です！",
     "image": "Screenshot 2026-10-20 at 9.20.16.png",
-    "id": "blk_467"
+    "id": "blk_439"
   },
   {
     "date": "2026-09-11 2:31 PM",
@@ -5617,19 +5281,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "何回かDM来ていて、お金かかるところは入れませんとのことで す。 お声がけしないでください。",
     "image": "Screenshot 2026-10-20 at 9.20.23.png",
-    "id": "blk_468"
+    "id": "blk_440"
   },
   {
     "date": "2026-09-11 11:47 PM",
     "reporter": "互野良恵（MURA）",
     "name": "@aurora_aegita",
-    "url": "https://www.threads.net/@aurora_aegita?igshid=NTc4MTIwNjQ2YQ==",
+    "url": "https://www.threads.net/@aurora_aegita?igshid=NTc4MTIwNjQ2YQ==&igShid=NTC4MTIWNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
-    "url_warning": "ドメイン誤記修復 (threaas→threads.net)",
-    "reason": "？ igShid=NTC4MTIWNjQ2YQ==",
+    "url_warning": "修復済",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.20.23.png",
-    "id": "blk_469"
+    "id": "blk_441"
   },
   {
     "date": "2026-09-12 1:59 AM",
@@ -5641,7 +5305,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "threads開いたら この投稿が出てきました。",
     "image": "Screenshot 2026-10-20 at 9.20.23.png",
-    "id": "blk_470"
+    "id": "blk_442"
   },
   {
     "date": "2026-09-12 6:14 AM",
@@ -5653,7 +5317,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "独自の考えが強く、 自分の世界で生きていきたい方でした。",
     "image": "Screenshot 2026-10-20 at 9.20.23.png",
-    "id": "blk_471"
+    "id": "blk_443"
   },
   {
     "date": "2026-09-12 10:58 AM",
@@ -5665,7 +5329,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "zoomで話すのは嫌、と 文章でメッセージきます、、。",
     "image": "Screenshot 2026-10-20 at 9.20.23.png",
-    "id": "blk_472"
+    "id": "blk_444"
   },
   {
     "date": "2026-09-12 11:21 AM",
@@ -5677,7 +5341,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "この環境は必要ないみたいなので、お声かけないであげてください",
     "image": "Screenshot 2026-10-20 at 9.20.23.png",
-    "id": "blk_473"
+    "id": "blk_445"
   },
   {
     "date": "2026-09-12 11:28 AM",
@@ -5689,7 +5353,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.20.29.png",
-    "id": "blk_474"
+    "id": "blk_446"
   },
   {
     "date": "2026-09-12 11:32 AM",
@@ -5701,7 +5365,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "過去アポしたこともあり コミュニティは入らないとのことです®",
     "image": "Screenshot 2026-10-20 at 9.20.29.png",
-    "id": "blk_475"
+    "id": "blk_447"
   },
   {
     "date": "2026-09-12 11:40 AM",
@@ -5713,7 +5377,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.20.29.png",
-    "id": "blk_476"
+    "id": "blk_448"
   },
   {
     "date": "2026-09-12 11:55 PM",
@@ -5725,7 +5389,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "そこに乗っかってる方もいます（",
     "image": "Screenshot 2026-10-20 at 9.20.29.png",
-    "id": "blk_477"
+    "id": "blk_449"
   },
   {
     "date": "2026-09-12 11:55 PM",
@@ -5737,7 +5401,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "そこに乗っかってる方もいます（",
     "image": "Screenshot 2026-10-20 at 9.20.29.png",
-    "id": "blk_478"
+    "id": "blk_450"
   },
   {
     "date": "2026-09-12 11:56 PM",
@@ -5749,19 +5413,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "↑ リスト入りして取りやめた方も便乗してます®",
     "image": "Screenshot 2026-10-20 at 9.20.29.png",
-    "id": "blk_479"
-  },
-  {
-    "date": "",
-    "reporter": "本多栞（RAYTUS / 秘書課）",
-    "name": "@koko.rainbow.tarumi",
-    "url": "https://www.threads.net/@koko.rainbow.tarumi",
-    "secondary_url": "",
-    "platform": "Threads",
-    "url_warning": "",
-    "reason": "自分の近くだけ良くしたいらしいです",
-    "image": "Screenshot 2026-10-20 at 9.20.38.png",
-    "id": "blk_480"
+    "id": "blk_451"
   },
   {
     "date": "2026-09-13 9:51 AM",
@@ -5773,7 +5425,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.20.38.png",
-    "id": "blk_481"
+    "id": "blk_452"
   },
   {
     "date": "2026-09-13 10:16 AM",
@@ -5785,7 +5437,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.20.38.png",
-    "id": "blk_482"
+    "id": "blk_453"
   },
   {
     "date": "2026-09-13 11:20 PM",
@@ -5797,7 +5449,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.20.38.png",
-    "id": "blk_483"
+    "id": "blk_454"
   },
   {
     "date": "2026-09-14 12:01 PM",
@@ -5809,7 +5461,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "超自分世界。 感じは悪く無いですが 団体に属したくないそうです。",
     "image": "Screenshot 2026-10-20 at 9.20.38.png",
-    "id": "blk_484"
+    "id": "blk_455"
   },
   {
     "date": "2026-09-14 4:24 PM",
@@ -5821,7 +5473,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "話を聞きたい、と 前向きでしたが数時間後",
     "image": "Screenshot 2026-10-20 at 9.20.38.png",
-    "id": "blk_485"
+    "id": "blk_456"
   },
   {
     "date": "2026-09-14 4:52 PM",
@@ -5833,7 +5485,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.20.38.png",
-    "id": "blk_486"
+    "id": "blk_457"
   },
   {
     "date": "2026-09-15 12:30 PM",
@@ -5845,7 +5497,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.20.38.png",
-    "id": "blk_487"
+    "id": "blk_458"
   },
   {
     "date": "2026-09-15 12:40 PM",
@@ -5857,19 +5509,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "前回もここの話を聞いたことがあり入らないと決めているそうです",
     "image": "Screenshot 2026-10-20 at 9.20.38.png",
-    "id": "blk_488"
-  },
-  {
-    "date": "",
-    "reporter": "坂井照子（AMATERAS）",
-    "name": "@_mika_222",
-    "url": "https://www.threads.net/@_mika_222?igshid=NTc4MTIwNjQ2YQ==",
-    "secondary_url": "",
-    "platform": "Threads",
-    "url_warning": "",
-    "reason": "",
-    "image": "Screenshot 2026-10-20 at 9.20.44.png",
-    "id": "blk_489"
+    "id": "blk_459"
   },
   {
     "date": "2026-09-15 6:42 PM",
@@ -5881,7 +5521,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "甲賀花穂tidy.shin アドアポ中に突然退出して ブロックされました。",
     "image": "Screenshot 2026-10-20 at 9.20.44.png",
-    "id": "blk_490"
+    "id": "blk_460"
   },
   {
     "date": "2026-09-16 11:40 AM",
@@ -5893,7 +5533,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "会長がわざわざzoomして 下さったのに、入会しなかった方です。 おせっかい不要です。",
     "image": "Screenshot 2026-10-20 at 9.20.44.png",
-    "id": "blk_491"
+    "id": "blk_461"
   },
   {
     "date": "2026-09-16 6:57 PM",
@@ -5905,7 +5545,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "ボランティアでいいし、調べれば自分で補助金の申請もできるから 大丈夫だそうです",
     "image": "Screenshot 2026-10-20 at 9.20.44.png",
-    "id": "blk_492"
+    "id": "blk_462"
   },
   {
     "date": "2026-09-17 5:30 PM",
@@ -5915,9 +5555,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ ig Shid=NTC4MTIWNjQ2YQ== 沢山聞いてるそうです！",
+    "reason": "ig Shid=NTC4MTIWNjQ2YQ== 沢山聞いてるそうです！",
     "image": "Screenshot 2026-10-20 at 9.20.44.png",
-    "id": "blk_493"
+    "id": "blk_463"
   },
   {
     "date": "2026-09-17 7:01 PM",
@@ -5929,7 +5569,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "何度もきいています。 まずは自分の力でやります。 と言っています。",
     "image": "Screenshot 2026-10-20 at 9.20.44.png",
-    "id": "blk_494"
+    "id": "blk_464"
   },
   {
     "date": "2026-09-17 7:05 PM",
@@ -5938,10 +5578,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.threads.net/@shina_totonoe",
     "secondary_url": "",
     "platform": "Threads",
-    "url_warning": "ドメイン誤記修復 (threaas→threads.net)",
+    "url_warning": "修復済",
     "reason": "今は考えてませんとのことです！ COS 17 0.22 DNA",
     "image": "Screenshot 2026-10-20 at 9.20.44.png",
-    "id": "blk_495"
+    "id": "blk_465"
   },
   {
     "date": "2026-09-17 9:23 PM",
@@ -5950,10 +5590,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/shige_p617",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "zOom直前にブロックされて連絡取れなかった方です。",
     "image": "Screenshot 2026-10-20 at 9.20.51.png",
-    "id": "blk_496"
+    "id": "blk_466"
   },
   {
     "date": "2026-09-18 10:01 AM",
@@ -5965,7 +5605,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.20.51.png",
-    "id": "blk_497"
+    "id": "blk_467"
   },
   {
     "date": "2026-09-18 10:30 AM",
@@ -5977,7 +5617,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "別の方からもお話聞いており、この会は必要ないとのことです！",
     "image": "Screenshot 2026-10-20 at 9.20.51.png",
-    "id": "blk_498"
+    "id": "blk_468"
   },
   {
     "date": "2026-09-18 12:10 PM",
@@ -5989,7 +5629,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "何回かお話し聞いてる方ですが、入る気はなさそうです！ ？ IgShid=NTC4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.20.51.png",
-    "id": "blk_499"
+    "id": "blk_469"
   },
   {
     "date": "2026-09-18 3:56 PM",
@@ -6001,7 +5641,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.20.51.png",
-    "id": "blk_500"
+    "id": "blk_470"
   },
   {
     "date": "2026-09-19 12:09 PM",
@@ -6013,7 +5653,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "33万支払ったらすぐに運営費が振り込まれるはずですよね！との クレーム。 ？ igsi=NmZ2aDN4dTdoeXg1",
     "image": "Screenshot 2026-10-20 at 9.20.51.png",
-    "id": "blk_501"
+    "id": "blk_471"
   },
   {
     "date": "2026-09-19 6:31 PM",
@@ -6025,7 +5665,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.20.51.png",
-    "id": "blk_502"
+    "id": "blk_472"
   },
   {
     "date": "2026-09-19 9:59 PM",
@@ -6037,7 +5677,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.20.51.png",
-    "id": "blk_503"
+    "id": "blk_473"
   },
   {
     "date": "2026-09-20 1:42 AM",
@@ -6049,7 +5689,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.20.51.png",
-    "id": "blk_504"
+    "id": "blk_474"
   },
   {
     "date": "2026-09-20 1:25 PM",
@@ -6061,7 +5701,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.20.58.png",
-    "id": "blk_505"
+    "id": "blk_475"
   },
   {
     "date": "2026-09-20 1:34 PM",
@@ -6073,7 +5713,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "永遠にお金と時間がないとのお話でした",
     "image": "Screenshot 2026-10-20 at 9.20.58.png",
-    "id": "blk_506"
+    "id": "blk_476"
   },
   {
     "date": "2026-09-21 12:09 AM",
@@ -6082,10 +5722,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/aaa.i2146",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "攻撃な返信でした",
     "image": "Screenshot 2026-10-20 at 9.20.58.png",
-    "id": "blk_507"
+    "id": "blk_477"
   },
   {
     "date": "2026-09-22 3:14 PM",
@@ -6097,19 +5737,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "varo.zakka？",
     "image": "Screenshot 2026-10-20 at 9.20.58.png",
-    "id": "blk_508"
-  },
-  {
-    "date": "",
-    "reporter": "浦川内陽子（M.eclat（Mimola）",
-    "name": "@o_yaro.zakka",
-    "url": "https://www.instagram.com/o_yaro.zakka?stkn=ZXlycGI1N2RKNDRp",
-    "secondary_url": "",
-    "platform": "Instagram",
-    "url_warning": "",
-    "reason": "",
-    "image": "Screenshot 2026-10-20 at 9.21.03.png",
-    "id": "blk_509"
+    "id": "blk_478"
   },
   {
     "date": "2026-09-22 4:02 PM",
@@ -6121,19 +5749,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.21.03.png",
-    "id": "blk_510"
+    "id": "blk_479"
   },
   {
     "date": "2026-09-22 8:07 PM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@yurika.t7",
-    "url": "https://www.instagram.com/yurika.t7",
+    "url": "https://www.instagram.com/yurika.t7?stkn=YTRpbXZjemiyd3h5",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ stkn=YTRpbXZjemiyd3h5 昨日入って、今日退会しました。",
+    "reason": "昨日入って、今日退会しました。",
     "image": "Screenshot 2026-10-20 at 9.21.03.png",
-    "id": "blk_511"
+    "id": "blk_480"
   },
   {
     "date": "2026-09-22 10:25 PM",
@@ -6145,19 +5773,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "畠山尚美 ？",
     "image": "Screenshot 2026-10-20 at 9.21.03.png",
-    "id": "blk_512"
+    "id": "blk_481"
   },
   {
     "date": "2026-09-22 10:26 PM",
     "reporter": "櫻井香菜子（MURA）",
     "name": "@to.dryheadspa",
-    "url": "https://www.instagram.com/to.dryheadspa",
+    "url": "https://www.instagram.com/to.dryheadspa?stkn=c29leTBhcjYON25s",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ stkn=c29leTBhcjYON25s コミュニティ興味ないそうです！",
+    "reason": "コミュニティ興味ないそうです！",
     "image": "Screenshot 2026-10-20 at 9.21.03.png",
-    "id": "blk_513"
+    "id": "blk_482"
   },
   {
     "date": "2026-09-22 11:06 PM",
@@ -6169,7 +5797,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.21.03.png",
-    "id": "blk_514"
+    "id": "blk_483"
   },
   {
     "date": "2026-09-22 11:15 PM",
@@ -6181,7 +5809,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.21.03.png",
-    "id": "blk_515"
+    "id": "blk_484"
   },
   {
     "date": "2026-09-23 3:24 PM",
@@ -6190,10 +5818,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/nattchicyan?stkn=dmg3cDJham12d2tu",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "コミュニティに入る気ない方です",
     "image": "Screenshot 2026-10-20 at 9.21.03.png",
-    "id": "blk_516"
+    "id": "blk_485"
   },
   {
     "date": "2026-09-23 6:08 PM",
@@ -6205,7 +5833,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "一度話を聞いていて、案内は不要とのこと。",
     "image": "Screenshot 2026-10-20 at 9.21.03.png",
-    "id": "blk_517"
+    "id": "blk_486"
   },
   {
     "date": "2026-09-23 9:09 PM",
@@ -6217,7 +5845,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "zoom時間に 返信あるものの、その後15分以上何の連絡もなく、z0omに入って きませんでした。",
     "image": "Screenshot 2026-10-20 at 9.21.08.png",
-    "id": "blk_518"
+    "id": "blk_487"
   },
   {
     "date": "2026-09-24 5:24 PM",
@@ -6229,19 +5857,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "自信ありありで今に満足しているようでした。 ？__pwa=1",
     "image": "Screenshot 2026-10-20 at 9.21.08.png",
-    "id": "blk_519"
+    "id": "blk_488"
   },
   {
     "date": "2026-09-24 7:53 PM",
     "reporter": "古見梨亜（enchant+）",
     "name": "@aimu_miraiedu",
-    "url": "https://www.instagram.com/aimu_miraiedu",
+    "url": "https://www.instagram.com/aimu_miraiedu?stkn=Y2ViazNIMG9zMnhz",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ stkn=Y2ViazNIMG9zMnhz アドアボ日程調整後、ゲストシート送ったら警戒心MAX。その後 Threadsで居場所作りについて怪しいというメッセージあり、ブ ロックお願いいたします＆",
+    "reason": "アドアボ日程調整後、ゲストシート送ったら警戒心MAX。その後 Threadsで居場所作りについて怪しいというメッセージあり、ブ ロックお願いいたします＆",
     "image": "Screenshot 2026-10-20 at 9.21.08.png",
-    "id": "blk_520"
+    "id": "blk_489"
   },
   {
     "date": "2026-09-25 8:48 AM",
@@ -6253,7 +5881,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "お話聞きたいと連絡くれましたが、アバターで顔出しもせずでお断 りしてます！",
     "image": "Screenshot 2026-10-20 at 9.21.08.png",
-    "id": "blk_521"
+    "id": "blk_490"
   },
   {
     "date": "2026-09-25 9:02 AM",
@@ -6265,7 +5893,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "知人（昨日お話聞かれた方）から既に話を聞いていて、今はタイミン グではないとのことです。",
     "image": "Screenshot 2026-10-20 at 9.21.08.png",
-    "id": "blk_522"
+    "id": "blk_491"
   },
   {
     "date": "2026-09-25 12:51 PM",
@@ -6277,7 +5905,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "佐賀県在住で、既に2回聞いていて、入らないとの事なので、お せっかい不要です。",
     "image": "Screenshot 2026-10-20 at 9.21.08.png",
-    "id": "blk_523"
+    "id": "blk_492"
   },
   {
     "date": "2026-09-25 11:51 PM",
@@ -6289,7 +5917,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.21.18.png",
-    "id": "blk_524"
+    "id": "blk_493"
   },
   {
     "date": "2026-09-26 4:04 PM",
@@ -6301,31 +5929,31 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "LEONやってます。",
     "image": "Screenshot 2026-10-20 at 9.21.18.png",
-    "id": "blk_525"
+    "id": "blk_494"
   },
   {
     "date": "2026-09-26 4:30 PM",
     "reporter": "いわやともみ（Blooming / 東京）",
     "name": "@shimosonet",
-    "url": "https://www.threads.net/@shimosonet",
+    "url": "https://www.threads.net/@shimosonet?igshid=NTc4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ igshid=NTc4MTIwNjQ2YQ== こんな投稿されてました。 スレッド88",
+    "reason": "こんな投稿されてました。 スレッド88",
     "image": "Screenshot 2026-10-20 at 9.21.18.png",
-    "id": "blk_526"
+    "id": "blk_495"
   },
   {
     "date": "2026-09-26 5:10 PM",
     "reporter": "小池康子（MURA）",
     "name": "@kaeruie_0412",
-    "url": "https://www.threads.net/@kaeruie_0412",
+    "url": "https://www.threads.net/@kaeruie_0412?igshid=NTc4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ igshid=NTc4MTIwNjQ2YQ== 33万あるなら子ども食堂できるとのことでthreadsに呟いてます。 33万のはたちがわるいと投稿見ました。",
+    "reason": "33万あるなら子ども食堂できるとのことでthreadsに呟いてます。 33万のはたちがわるいと投稿見ました。",
     "image": "Screenshot 2026-10-20 at 9.21.18.png",
-    "id": "blk_527"
+    "id": "blk_496"
   },
   {
     "date": "2026-09-26 5:11 PM",
@@ -6337,7 +5965,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "アドアボ直前キャンセルです。 自分勝手な理由なのでお声かけないでください。",
     "image": "Screenshot 2026-10-20 at 9.21.18.png",
-    "id": "blk_528"
+    "id": "blk_497"
   },
   {
     "date": "2026-09-26 5:27 PM",
@@ -6346,10 +5974,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.threads.net/share/",
     "secondary_url": "",
     "platform": "Threads",
-    "url_warning": "⚠️ アカウントURL不完全",
+    "url_warning": "URL不完全",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.21.18.png",
-    "id": "blk_529"
+    "id": "blk_498"
   },
   {
     "date": "2026-09-26 8:22 PM",
@@ -6361,7 +5989,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.21.18.png",
-    "id": "blk_530"
+    "id": "blk_499"
   },
   {
     "date": "2026-09-26 8:32 PM",
@@ -6373,7 +6001,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.21.18.png",
-    "id": "blk_531"
+    "id": "blk_500"
   },
   {
     "date": "2026-09-26 10:03 PM",
@@ -6385,7 +6013,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "LINKで頑張るそうです",
     "image": "Screenshot 2026-10-20 at 9.21.25.png",
-    "id": "blk_532"
+    "id": "blk_501"
   },
   {
     "date": "2026-09-27 9:31 AM",
@@ -6397,7 +6025,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "甲賀花穂tidy.shin このコメントしてきたと思ったらブロックされました。 ？ IgShid=NTC4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.21.25.png",
-    "id": "blk_533"
+    "id": "blk_502"
   },
   {
     "date": "2026-09-27 6:50 PM",
@@ -6409,19 +6037,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "お金がいるんでしょ？ 今はお金がつくれません、余裕ができたら、連絡します！ 私は何も言ってないのに、勝手に暴走",
     "image": "Screenshot 2026-10-20 at 9.21.25.png",
-    "id": "blk_534"
+    "id": "blk_503"
   },
   {
     "date": "2026-09-27 7:28 PM",
     "reporter": "井明香奈（shAdow）",
     "name": "@kaori.salon.fuwaria",
-    "url": "https://www.instagram.com/kaori.salon.fuwaria?igshid=NTC4MTIwNjQ2YQ==",
+    "url": "https://www.instagram.com/kaori.salon.fuwaria?igshid=NTC4MTIwNjQ2YQ==&stkn=MXd3bHphazdjdHI3Nw==",
     "secondary_url": "https://www.threads.net/@kaori.salon.fuwaria",
     "platform": "Instagram / Threads",
     "url_warning": "",
-    "reason": "？ stkn=MXd3bHphazdjdHI3Nw==",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.21.25.png",
-    "id": "blk_535"
+    "id": "blk_504"
   },
   {
     "date": "2026-09-27 7:42 PM",
@@ -6433,7 +6061,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "以前お話を聞いてお断りしたので、お誘いは不要とのことです。",
     "image": "Screenshot 2026-10-20 at 9.21.31.png",
-    "id": "blk_536"
+    "id": "blk_505"
   },
   {
     "date": "2026-09-27 9:14 PM",
@@ -6445,7 +6073,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "アポ中、失礼な態度の方でした",
     "image": "Screenshot 2026-10-20 at 9.21.31.png",
-    "id": "blk_537"
+    "id": "blk_506"
   },
   {
     "date": "2026-09-28 11:32 AM",
@@ -6457,19 +6085,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "どこですか？と聞かれて ネオファミリーと答えたら もう何度も聞いてお断りしてます！ と言われました！ おせっかいしないようにお願いします",
     "image": "Screenshot 2026-10-20 at 9.21.31.png",
-    "id": "blk_538"
+    "id": "blk_507"
   },
   {
     "date": "2026-09-28 12:50 PM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@saki_taisitu.kaizen",
-    "url": "https://www.instagram.com/saki_taisitu.kaizen",
+    "url": "https://www.instagram.com/saki_taisitu.kaizen?stkn=MXNxOHZrdTJ6Z2tuYg==",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ stkn=MXNxOHZrdTJ6Z2tuYg== 以前お話聞いている方です。 入る気さらさらないようなのでおせっかいしないでください。",
+    "reason": "以前お話聞いている方です。 入る気さらさらないようなのでおせっかいしないでください。",
     "image": "Screenshot 2026-10-20 at 9.21.31.png",
-    "id": "blk_539"
+    "id": "blk_508"
   },
   {
     "date": "2026-09-28 12:51 PM",
@@ -6481,7 +6109,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "世の中そう簡単にはいかないとお話されていました®",
     "image": "Screenshot 2026-10-20 at 9.21.31.png",
-    "id": "blk_540"
+    "id": "blk_509"
   },
   {
     "date": "2026-09-29 8:18 AM",
@@ -6493,19 +6121,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "ネオのことだと思います。",
     "image": "Screenshot 2026-10-20 at 9.21.31.png",
-    "id": "blk_541"
-  },
-  {
-    "date": "",
-    "reporter": "岩嶋麻由美（Blooming）",
-    "name": "@gon_apo_",
-    "url": "https://www.threads.net/@gon_apo_",
-    "secondary_url": "",
-    "platform": "Threads",
-    "url_warning": "ドメイン誤記修復 (threaas→threads.net)",
-    "reason": "人として無しです。",
-    "image": "Screenshot 2026-10-20 at 9.21.40.png",
-    "id": "blk_542"
+    "id": "blk_510"
   },
   {
     "date": "2026-09-30 12:13 PM",
@@ -6517,7 +6133,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "以前お話聞いたことがある+今はコミュニティに入るのは違う、ら しいです",
     "image": "Screenshot 2026-10-20 at 9.21.40.png",
-    "id": "blk_543"
+    "id": "blk_511"
   },
   {
     "date": "2026-09-30 12:31 PM",
@@ -6529,7 +6145,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.21.40.png",
-    "id": "blk_544"
+    "id": "blk_512"
   },
   {
     "date": "2026-09-30 6:19 PM",
@@ -6541,19 +6157,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.21.40.png",
-    "id": "blk_545"
+    "id": "blk_513"
   },
   {
     "date": "2026-09-30 6:40 PM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@manamichetti",
-    "url": "https://www.threads.net/@manamichetti",
+    "url": "https://www.threads.net/@manamichetti?IgShid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ IgShid=NTC4MTIwNjQ2YQ== お説教いただきました。 ブロックお願いします。",
+    "reason": "お説教いただきました。 ブロックお願いします。",
     "image": "Screenshot 2026-10-20 at 9.21.40.png",
-    "id": "blk_546"
+    "id": "blk_514"
   },
   {
     "date": "2026-09-30 6:45 PM",
@@ -6565,7 +6181,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.21.40.png",
-    "id": "blk_547"
+    "id": "blk_515"
   },
   {
     "date": "2026-09-30 8:52 PM",
@@ -6577,7 +6193,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.21.40.png",
-    "id": "blk_548"
+    "id": "blk_516"
   },
   {
     "date": "2026-09-30 10:53 PM",
@@ -6589,7 +6205,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "昨日アポ入れたのに今日になったら連絡なく、ブロックされてまし た。 おせっかいしないでください",
     "image": "Screenshot 2026-10-20 at 9.21.40.png",
-    "id": "blk_549"
+    "id": "blk_517"
   },
   {
     "date": "2026-10-01 9:29 AM",
@@ -6601,19 +6217,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "会長を見てるって言う割に、会長の話をしたらスルー、自分の自慢 話ばかり40分され、こちらの話はまともに聞かない失礼な人で す。",
     "image": "Screenshot 2026-10-20 at 9.21.40.png",
-    "id": "blk_550"
-  },
-  {
-    "date": "",
-    "reporter": "後藤広代（Lumiere.）",
-    "name": "@4444aaaaaccccca",
-    "url": "https://www.threads.net/@4444aaaaaccccca",
-    "secondary_url": "",
-    "platform": "Threads",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
-    "reason": "最悪です。 Zoomが決まってから連絡が取れなくなりました。 要注意人物です。",
-    "image": "Screenshot 2026-10-20 at 9.21.48.png",
-    "id": "blk_551"
+    "id": "blk_518"
   },
   {
     "date": "2026-10-01 11:00 AM",
@@ -6625,19 +6229,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "声掛け今後も必要ないとのこと",
     "image": "Screenshot 2026-10-20 at 9.21.48.png",
-    "id": "blk_552"
+    "id": "blk_519"
   },
   {
     "date": "2026-10-01 2:47 PM",
     "reporter": "服部達典（MURA）",
     "name": "@famafily",
-    "url": "https://www.instagram.com/famafily",
+    "url": "https://www.instagram.com/famafily?stkn=MW5udW5maWJnozRooQ==",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
-    "reason": "？ stkn=MW5udW5maWJnozRooQ== 考えていないそうです",
+    "url_warning": "修復済",
+    "reason": "考えていないそうです",
     "image": "Screenshot 2026-10-20 at 9.21.48.png",
-    "id": "blk_553"
+    "id": "blk_520"
   },
   {
     "date": "2026-10-01 3:57 PM",
@@ -6649,31 +6253,31 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "返信が偉そうで、丁寧な言葉ではあったけど、失礼な方。冷たい言 葉をかけられ不快でした（スルーしてわざわざ言わなくてもいい のにと思うようなお返事（）",
     "image": "Screenshot 2026-10-20 at 9.21.48.png",
-    "id": "blk_554"
+    "id": "blk_521"
   },
   {
     "date": "2026-10-01 11:40 PM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@mei_politeliving",
-    "url": "https://www.instagram.com/mei_politeliving",
+    "url": "https://www.instagram.com/mei_politeliving?stkn=dGlnaDI3ZzdkbzB6",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ stkn=dGlnaDI3ZzdkbzB6 定型文送って怒られました",
+    "reason": "定型文送って怒られました",
     "image": "Screenshot 2026-10-20 at 9.21.48.png",
-    "id": "blk_555"
+    "id": "blk_522"
   },
   {
     "date": "2026-10-02 1:16 AM",
     "reporter": "小西みゆき（Mimola）",
     "name": "@koji_sweets_ayumi",
-    "url": "https://www.instagram.com/koji_sweets_ayumi",
+    "url": "https://www.instagram.com/koji_sweets_ayumi?stkn=MXh6OTUibjUxOXIxYg==",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ stkn=MXh6OTUibjUxOXIxYg== 以前も寺子屋の話を聞いて、考えていないそうなのでおせっかい不 要な方です",
+    "reason": "以前も寺子屋の話を聞いて、考えていないそうなのでおせっかい不 要な方です",
     "image": "Screenshot 2026-10-20 at 9.21.48.png",
-    "id": "blk_556"
+    "id": "blk_523"
   },
   {
     "date": "2026-10-02 3:37 PM",
@@ -6685,19 +6289,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "有料コミュニティには入りません、とのことでした品",
     "image": "Screenshot 2026-10-20 at 9.21.48.png",
-    "id": "blk_557"
+    "id": "blk_524"
   },
   {
     "date": "2026-10-02 9:54 PM",
     "reporter": "川野弥生（enchant+）",
     "name": "@hanohano0409",
-    "url": "https://www.instagram.com/hanohano0409",
+    "url": "https://www.instagram.com/hanohano0409?stkn=MXBpYml6cz160Tc3ag==",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "UCLL 9:04 HIVI ？ stkn=MXBpYml6cz160Tc3ag== 最近話を聞いたから必要ないですとペ",
+    "reason": "UCLL 9:04 HIVI  最近話を聞いたから必要ないですとペ",
     "image": "Screenshot 2026-10-20 at 9.21.48.png",
-    "id": "blk_558"
+    "id": "blk_525"
   },
   {
     "date": "2026-10-03 5:04 PM",
@@ -6709,7 +6313,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "不要なので、二度と声かけないで欲しいとのこと。",
     "image": "Screenshot 2026-10-20 at 9.21.55.png",
-    "id": "blk_559"
+    "id": "blk_526"
   },
   {
     "date": "2026-10-03 6:55 PM",
@@ -6721,7 +6325,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.21.55.png",
-    "id": "blk_560"
+    "id": "blk_527"
   },
   {
     "date": "2026-10-04 5:02 PM",
@@ -6733,7 +6337,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.21.55.png",
-    "id": "blk_561"
+    "id": "blk_528"
   },
   {
     "date": "2026-10-04 6:16 PM",
@@ -6745,7 +6349,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.21.55.png",
-    "id": "blk_562"
+    "id": "blk_529"
   },
   {
     "date": "2026-10-04 7:23 PM",
@@ -6757,43 +6361,43 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.21.55.png",
-    "id": "blk_563"
+    "id": "blk_530"
   },
   {
     "date": "2026-10-05 7:24 AM",
     "reporter": "豊村智美（shAdow）",
     "name": "@norry_babyma.navi",
-    "url": "https://www.threads.net/@norry_babyma.navi",
+    "url": "https://www.threads.net/@norry_babyma.navi?igshid=NTc4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ igshid=NTc4MTIwNjQ2YQ== 知っている講師を使って勧誘されたと色々投稿されていました。",
+    "reason": "知っている講師を使って勧誘されたと色々投稿されていました。",
     "image": "Screenshot 2026-10-20 at 9.21.55.png",
-    "id": "blk_564"
+    "id": "blk_531"
   },
   {
     "date": "2026-10-05 10:08 AM",
     "reporter": "豊村智美（shAdow）",
     "name": "@kei_atopy",
-    "url": "https://www.threads.net/@kei_atopy",
+    "url": "https://www.threads.net/@kei_atopy?igshid=NTc4MTIWNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ igshid=NTc4MTIWNjQ2YQ== 入会金についてと2回も勧誘されたとの事です。",
+    "reason": "入会金についてと2回も勧誘されたとの事です。",
     "image": "Screenshot 2026-10-20 at 9.21.55.png",
-    "id": "blk_565"
+    "id": "blk_532"
   },
   {
     "date": "2026-10-05 10:11 AM",
     "reporter": "相良炒織（Meguria理事長）",
     "name": "@schansmile",
-    "url": "https://www.instagram.com/schansmile",
+    "url": "https://www.instagram.com/schansmile?stkn=MTM4NXpuaTkzMWNSNQ==",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ stkn=MTM4NXpuaTkzMWNSNQ== LEONで全て手に入るそうです！",
+    "reason": "LEONで全て手に入るそうです！",
     "image": "Screenshot 2026-10-20 at 9.21.55.png",
-    "id": "blk_566"
+    "id": "blk_533"
   },
   {
     "date": "2026-10-05 2:07 PM",
@@ -6805,7 +6409,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.22.03.png",
-    "id": "blk_567"
+    "id": "blk_534"
   },
   {
     "date": "2026-10-05 5:24 PM",
@@ -6817,19 +6421,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "threadsでみずからフォローしてきましたが何度も同じメッセージ が届くと怒られました",
     "image": "Screenshot 2026-10-20 at 9.22.03.png",
-    "id": "blk_568"
+    "id": "blk_535"
   },
   {
     "date": "2026-10-05 5:48 PM",
     "reporter": "澤木優里（RAYTUS）",
     "name": "@oka._.shin",
-    "url": "https://www.instagram.com/oka._.shin",
+    "url": "https://www.instagram.com/oka._.shin?stkn=CHRjdzk4c3JmMnps",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ stkn=CHRjdzk4c3JmMnps やり取りがめんどくさかったです。",
+    "reason": "やり取りがめんどくさかったです。",
     "image": "Screenshot 2026-10-20 at 9.22.03.png",
-    "id": "blk_569"
+    "id": "blk_536"
   },
   {
     "date": "2026-10-05 6:25 PM",
@@ -6838,10 +6442,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/hutoukou.h?stkn=dWh3dDBiOWikajBo",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "ヒステリック！！要注意人 主旨目的伝えたら怒り出されました人",
     "image": "Screenshot 2026-10-20 at 9.22.03.png",
-    "id": "blk_570"
+    "id": "blk_537"
   },
   {
     "date": "2026-10-05 7:58 PM",
@@ -6850,22 +6454,22 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.threads.net/@cnoyokoyama",
     "secondary_url": "",
     "platform": "Threads",
-    "url_warning": "ドメイン誤記修復 (threaas→threads.net)",
+    "url_warning": "修復済",
     "reason": "ぶった切り会長とリンクいらない、と投稿されていました。",
     "image": "Screenshot 2026-10-20 at 9.22.03.png",
-    "id": "blk_571"
+    "id": "blk_538"
   },
   {
     "date": "2026-10-05 8:00 PM",
     "reporter": "宮川亜希子（Meguria）",
     "name": "@beyond_nailtip",
-    "url": "https://www.instagram.com/beyond_nailtip",
+    "url": "https://www.instagram.com/beyond_nailtip?stkn=bzIwc292Y3EONHpu",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
-    "reason": "？ stkn=bzIwc292Y3EONHpu 今は新しいこと始めるつもりないそうです",
+    "url_warning": "修復済",
+    "reason": "今は新しいこと始めるつもりないそうです",
     "image": "Screenshot 2026-10-20 at 9.22.03.png",
-    "id": "blk_572"
+    "id": "blk_539"
   },
   {
     "date": "2026-10-05 11:09 PM",
@@ -6875,21 +6479,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ 1gShia=NTC4MTIwNjQ2YQ== 同じようなメッセージが何度も来て迷惑しているそうです。33万 も払ってコミュニティに入る気はありません！とのことです。",
+    "reason": "1gShia=NTC4MTIwNjQ2YQ== 同じようなメッセージが何度も来て迷惑しているそうです。33万 も払ってコミュニティに入る気はありません！とのことです。",
     "image": "Screenshot 2026-10-20 at 9.22.03.png",
-    "id": "blk_573"
-  },
-  {
-    "date": "",
-    "reporter": "畑ゆかり（yuima-ru理事長）",
-    "name": "@noriko.bow",
-    "url": "https://www.instagram.com/noriko.bow",
-    "secondary_url": "",
-    "platform": "Instagram",
-    "url_warning": "",
-    "reason": "？ Stkn=C3EOdWgweHVyZG9w",
-    "image": "Screenshot 2026-10-20 at 9.22.09.png",
-    "id": "blk_574"
+    "id": "blk_540"
   },
   {
     "date": "2026-10-05 11:21 PM",
@@ -6901,7 +6493,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.22.09.png",
-    "id": "blk_575"
+    "id": "blk_541"
   },
   {
     "date": "2026-10-06 12:42 AM",
@@ -6913,31 +6505,31 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.22.09.png",
-    "id": "blk_576"
+    "id": "blk_542"
   },
   {
     "date": "2026-10-06 11:50 AM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@face_yoga_mitchan",
-    "url": "https://www.instagram.com/face_yoga_mitchan",
+    "url": "https://www.instagram.com/face_yoga_mitchan?stkn=MTZ6c2FyM3g1bTV3aQ==",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ stkn=MTZ6c2FyM3g1bTV3aQ== 何度か聞いてお断りし続けてるみたいです。",
+    "reason": "何度か聞いてお断りし続けてるみたいです。",
     "image": "Screenshot 2026-10-20 at 9.22.09.png",
-    "id": "blk_577"
+    "id": "blk_543"
   },
   {
     "date": "2026-10-06 12:27 PM",
     "reporter": "上野美寿々（ensemble）",
     "name": "@shichusuimei_sachipon",
-    "url": "https://www.instagram.com/shichusuimei_sachipon",
+    "url": "https://www.instagram.com/shichusuimei_sachipon?stkn=MXhlYmljY2xyYmV20Q==",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ stkn=MXhlYmljY2xyYmV20Q== 1回話を聞いてお断りしているので、入るつもりはないそうです！",
+    "reason": "1回話を聞いてお断りしているので、入るつもりはないそうです！",
     "image": "Screenshot 2026-10-20 at 9.22.09.png",
-    "id": "blk_578"
+    "id": "blk_544"
   },
   {
     "date": "2026-10-06 2:13 PM",
@@ -6949,7 +6541,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.22.09.png",
-    "id": "blk_579"
+    "id": "blk_545"
   },
   {
     "date": "2026-10-06 7:27 PM",
@@ -6961,7 +6553,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.22.09.png",
-    "id": "blk_580"
+    "id": "blk_546"
   },
   {
     "date": "2026-10-07 12:10 AM",
@@ -6973,7 +6565,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "アボ予定組んでいましたが、アポ前にブロックされました！",
     "image": "Screenshot 2026-10-20 at 9.22.09.png",
-    "id": "blk_581"
+    "id": "blk_547"
   },
   {
     "date": "2026-10-07 7:21 AM",
@@ -6985,19 +6577,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.22.09.png",
-    "id": "blk_582"
-  },
-  {
-    "date": "",
-    "reporter": "草間真衣（MURA）",
-    "name": "@therapist_aya24",
-    "url": "https://www.threads.net/@therapist_aya24",
-    "secondary_url": "",
-    "platform": "Threads",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
-    "reason": "？ igshid=NTc4MTIwNjQ2YQ== therapist_aya24 11時間 ●ママ支援がしたい。 とかゆって、Threadsのせてる人….. ZOOMで話し聞いたら 入会金33万払えって？？ 最近そんな話ばかり... 私は自分の蔘を叶えるのに、何回詐偽みたいな事 に合わないといけないんだ。。 やっぱ、自分1人でやるしかない！！",
-    "image": "Screenshot 2026-10-20 at 9.22.17.png",
-    "id": "blk_583"
+    "id": "blk_548"
   },
   {
     "date": "2026-10-07 11:18 AM",
@@ -7009,67 +6589,67 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.22.17.png",
-    "id": "blk_584"
+    "id": "blk_549"
   },
   {
     "date": "2026-10-07 2:10 PM",
     "reporter": "服部達典（MURA）",
     "name": "@maki_y_5788",
-    "url": "https://www.instagram.com/maki_y_5788",
+    "url": "https://www.instagram.com/maki_y_5788?stkn=MWNnYXh6ODk30GZpNw==",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ stkn=MWNnYXh6ODk30GZpNw== 理学療法士や産後 といったワードでヒットしますのでご注意ください。 以前も話を聞いており、テンプレ送信に嫌気が差しているようで す。",
+    "reason": "理学療法士や産後 といったワードでヒットしますのでご注意ください。 以前も話を聞いており、テンプレ送信に嫌気が差しているようで す。",
     "image": "Screenshot 2026-10-20 at 9.22.17.png",
-    "id": "blk_585"
+    "id": "blk_550"
   },
   {
     "date": "2026-10-07 5:12 PM",
     "reporter": "上野美寿々（ensemble）",
     "name": "@greenlap_ecology",
-    "url": "https://www.instagram.com/greenlap_ecology",
+    "url": "https://www.instagram.com/greenlap_ecology?stkn=NTNSenk30TJhMTZa",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ stkn=NTNSenk30TJhMTZa ？ stkn=MXZwanVOaW8wZW1 1bA== 今の環境で満足なので入る気はないとのこと。",
+    "reason": "1bA== 今の環境で満足なので入る気はないとのこと。",
     "image": "Screenshot 2026-10-20 at 9.22.17.png",
-    "id": "blk_586"
+    "id": "blk_551"
   },
   {
     "date": "2026-10-07 5:12 PM",
     "reporter": "上野美寿々（ensemble）",
     "name": "@greenlab.ecology",
-    "url": "https://www.instagram.com/greenlab.ecology",
+    "url": "https://www.instagram.com/greenlab.ecology?stkn=NTNSenk30TJhMTZa",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ stkn=NTNSenk30TJhMTZa ？ stkn=MXZwanVOaW8wZW1 1bA== 今の環境で満足なので入る気はないとのこと。",
+    "reason": "1bA== 今の環境で満足なので入る気はないとのこと。",
     "image": "Screenshot 2026-10-20 at 9.22.17.png",
-    "id": "blk_587"
+    "id": "blk_552"
   },
   {
     "date": "2026-10-07 5:25 PM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@sodatebito",
-    "url": "https://www.threads.net/@sodatebito?igshid=NTC4MTIwNjQ2YQ==",
+    "url": "https://www.threads.net/@sodatebito?igshid=NTC4MTIwNjQ2YQ==&igshid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ igshid=NTC4MTIwNjQ2YQ==",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.22.17.png",
-    "id": "blk_588"
+    "id": "blk_553"
   },
   {
     "date": "2026-10-07 5:25 PM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@mihoiku.smile",
-    "url": "https://www.threads.net/@mihoiku.smile?igshid=NTC4MTIwNjQ2YQ==",
+    "url": "https://www.threads.net/@mihoiku.smile?igshid=NTC4MTIwNjQ2YQ==&igshid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ igshid=NTC4MTIwNjQ2YQ==",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.22.17.png",
-    "id": "blk_589"
+    "id": "blk_554"
   },
   {
     "date": "2026-10-07 5:44 PM",
@@ -7081,7 +6661,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.22.17.png",
-    "id": "blk_590"
+    "id": "blk_555"
   },
   {
     "date": "2026-10-07 7:04 PM",
@@ -7093,7 +6673,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "1人でやってく自信しかないそうです。5分でアポ終了",
     "image": "Screenshot 2026-10-20 at 9.22.17.png",
-    "id": "blk_591"
+    "id": "blk_556"
   },
   {
     "date": "2026-10-07 9:39 PM",
@@ -7105,7 +6685,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.22.25.png",
-    "id": "blk_592"
+    "id": "blk_557"
   },
   {
     "date": "2026-10-07 11:04 PM",
@@ -7117,55 +6697,55 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.22.25.png",
-    "id": "blk_593"
+    "id": "blk_558"
   },
   {
     "date": "2026-10-08 2:16 PM",
     "reporter": "上野美々（ensemble）",
     "name": "@rei_wellness_",
-    "url": "https://www.instagram.com/rei_wellness_",
+    "url": "https://www.instagram.com/rei_wellness_?stkn=ZXKWZG8xcmSwamgo",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ stkn=ZXKWZG8xcmSwamgo たくさん連絡がきていて、何度か話しもきいている。 入る気はないとのこと。",
+    "reason": "たくさん連絡がきていて、何度か話しもきいている。 入る気はないとのこと。",
     "image": "Screenshot 2026-10-20 at 9.22.25.png",
-    "id": "blk_594"
+    "id": "blk_559"
   },
   {
     "date": "2026-10-08 4:30 PM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@merci422y",
-    "url": "https://www.instagram.com/merci422y",
+    "url": "https://www.instagram.com/merci422y?stkn=bXh4NWhrNDFwbGol",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ stkn=bXh4NWhrNDFwbGol ネオの知り合いも出会うのも多いけど、私はやらないと言ってまし",
+    "reason": "ネオの知り合いも出会うのも多いけど、私はやらないと言ってまし",
     "image": "Screenshot 2026-10-20 at 9.22.25.png",
-    "id": "blk_595"
+    "id": "blk_560"
   },
   {
     "date": "2026-10-08 6:04 PM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@ume_momo333",
-    "url": "https://www.threads.net/@ume_momo333",
+    "url": "https://www.threads.net/@ume_momo333?igshid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ igshid=NTC4MTIwNjQ2YQ== 前に話を聞いた時の印象が悪く、印象よくなっても方向性が違うそ うです。",
+    "reason": "前に話を聞いた時の印象が悪く、印象よくなっても方向性が違うそ うです。",
     "image": "Screenshot 2026-10-20 at 9.22.25.png",
-    "id": "blk_596"
+    "id": "blk_561"
   },
   {
     "date": "2026-10-08 6:06 PM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@sodachi_port",
-    "url": "https://www.instagram.com/sodachi_port",
+    "url": "https://www.instagram.com/sodachi_port?stkn=MWgzb2FpN2VkbnNrNA==",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ stkn=MWgzb2FpN2VkbnNrNA== 4回目のアポでした！ コミュニティに入る気はないそうなのでお声かけ不要です●",
+    "reason": "4回目のアポでした！ コミュニティに入る気はないそうなのでお声かけ不要です●",
     "image": "Screenshot 2026-10-20 at 9.22.25.png",
-    "id": "blk_597"
+    "id": "blk_562"
   },
   {
     "date": "2026-10-08 8:29 PM",
@@ -7175,9 +6755,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ 1gShid=NTC4MTIwNjQ2YQ==",
+    "reason": "1gShid=NTC4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.22.25.png",
-    "id": "blk_598"
+    "id": "blk_563"
   },
   {
     "date": "2026-10-08 9:21 PM",
@@ -7189,7 +6769,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "見せかけの想い綴ってる方なので、みなさん騙されないように。",
     "image": "Screenshot 2026-10-20 at 9.22.32.png",
-    "id": "blk_599"
+    "id": "blk_564"
   },
   {
     "date": "2026-10-08 10:08 PM",
@@ -7201,19 +6781,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "師匠さんについてくそうです",
     "image": "Screenshot 2026-10-20 at 9.22.32.png",
-    "id": "blk_600"
+    "id": "blk_565"
   },
   {
     "date": "2026-10-08 10:42 PM",
     "reporter": "橋本久子（Mimola）",
     "name": "@10momo2022",
-    "url": "https://www.threads.net/@10momo2022",
+    "url": "https://www.threads.net/@10momo2022?igshid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ igshid=NTC4MTIwNjQ2YQ== アポを無言でキャンセルする失礼な方ですいし",
+    "reason": "アポを無言でキャンセルする失礼な方ですいし",
     "image": "Screenshot 2026-10-20 at 9.22.32.png",
-    "id": "blk_601"
+    "id": "blk_566"
   },
   {
     "date": "2026-10-09 12:35 AM",
@@ -7225,7 +6805,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "何回か聞いたことがあり、自分の好きな人だけでコミュニティをつ くりたいだけとのこと。お誘い不要です！",
     "image": "Screenshot 2026-10-20 at 9.22.32.png",
-    "id": "blk_602"
+    "id": "blk_567"
   },
   {
     "date": "2026-10-09 1:30 PM",
@@ -7237,7 +6817,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "自己紹介の時点で上から目線。コミュニティに入る気はない。10 分以内で話終わりました。",
     "image": "Screenshot 2026-10-20 at 9.22.32.png",
-    "id": "blk_603"
+    "id": "blk_568"
   },
   {
     "date": "2026-10-09 2:37 PM",
@@ -7249,55 +6829,43 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "執拗にお誘いいただいたことが何度もあり、嫌な思いをした方で す。 ？ srtk=ZWROZ2x4MG5|cjl5",
     "image": "Screenshot 2026-10-20 at 9.22.32.png",
-    "id": "blk_604"
+    "id": "blk_569"
   },
   {
     "date": "2026-10-10 1:06 AM",
     "reporter": "池原千弥子（碧春）",
     "name": "@kimama_asobi",
-    "url": "https://www.instagram.com/kimama_asobi",
+    "url": "https://www.instagram.com/kimama_asobi?dirf=MWZ3N3R1Nnlie",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
-    "reason": "？ dirf=MWZ3N3R1Nnlie TRhdg== 「一度お断りしてます。でも何度も同じ連絡が来て困ってます。」 とのことでしたので、追加しておきます。",
+    "url_warning": "修復済",
+    "reason": "TRhdg== 「一度お断りしてます。でも何度も同じ連絡が来て困ってます。」 とのことでしたので、追加しておきます。",
     "image": "Screenshot 2026-10-20 at 9.22.32.png",
-    "id": "blk_605"
-  },
-  {
-    "date": "2026-10-12 4:36 AM",
-    "reporter": "服部達典（MURA）",
-    "name": "@saku.toki.dan",
-    "url": "https://www.instagram.com/saku.toki.dan",
-    "secondary_url": "",
-    "platform": "Instagram",
-    "url_warning": "",
-    "reason": "？ dlrf=MTRoYmZzeTE2cnQzcA==",
-    "image": "Screenshot 2026-10-20 at 9.22.39.png",
-    "id": "blk_606"
+    "id": "blk_570"
   },
   {
     "date": "2026-10-10 7:23 AM",
     "reporter": "服部達典（MURA）",
     "name": "@canabell_driedflowers",
-    "url": "https://www.instagram.com/canabell_driedflowers",
+    "url": "https://www.instagram.com/canabell_driedflowers?psIn=NnZOczBiYmlkdTN4",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ psIn=NnZOczBiYmlkdTN4",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.22.39.png",
-    "id": "blk_607"
+    "id": "blk_571"
   },
   {
     "date": "2026-10-10 7:26 AM",
     "reporter": "服部達典（MURA）",
     "name": "@kiyokorihayogal",
-    "url": "https://www.instagram.com/kiyokorihayogal",
+    "url": "https://www.instagram.com/kiyokorihayogal?psIn=NG10Z3h6NTJ3eDRO",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ psIn=NG10Z3h6NTJ3eDRO",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.22.39.png",
-    "id": "blk_608"
+    "id": "blk_572"
   },
   {
     "date": "2026-10-10 7:27 AM",
@@ -7309,7 +6877,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.22.39.png",
-    "id": "blk_609"
+    "id": "blk_573"
   },
   {
     "date": "2026-10-10 8:26 AM",
@@ -7321,7 +6889,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.22.39.png",
-    "id": "blk_610"
+    "id": "blk_574"
   },
   {
     "date": "2026-10-10 9:13 AM",
@@ -7331,9 +6899,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ vrfl=eHBrb2QwdTVxbTRm",
+    "reason": "vrfl=eHBrb2QwdTVxbTRm",
     "image": "Screenshot 2026-10-20 at 9.22.39.png",
-    "id": "blk_611"
+    "id": "blk_575"
   },
   {
     "date": "2026-10-10 9:38 AM",
@@ -7343,9 +6911,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ igShia=NTC4MTIWNJQ2YQ== 地元の仲間と作っていきたいのでお誘い不要です、とのこと色人",
+    "reason": "igShia=NTC4MTIWNJQ2YQ== 地元の仲間と作っていきたいのでお誘い不要です、とのこと色人",
     "image": "Screenshot 2026-10-20 at 9.22.39.png",
-    "id": "blk_612"
+    "id": "blk_576"
   },
   {
     "date": "2026-10-10 10:23 AM",
@@ -7355,9 +6923,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ vrfl=MXdscHBSY2x1NGV5cg== マイペースに自分のやりたいように進めていきたいとのことなの で、お声がけ不要です®）",
+    "reason": "vrfl=MXdscHBSY2x1NGV5cg== マイペースに自分のやりたいように進めていきたいとのことなの で、お声がけ不要です®）",
     "image": "Screenshot 2026-10-20 at 9.22.39.png",
-    "id": "blk_613"
+    "id": "blk_577"
   },
   {
     "date": "2026-10-10 11:05 AM",
@@ -7369,7 +6937,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "Uct I0 11:05 AM 手続き中に逃亡の",
     "image": "Screenshot 2026-10-20 at 9.22.39.png",
-    "id": "blk_614"
+    "id": "blk_578"
   },
   {
     "date": "2026-10-10 1:27 PM",
@@ -7381,31 +6949,31 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "あちらからコンタクト取ってきて強引にコミュニティに入れようと してくる",
     "image": "Screenshot 2026-10-20 at 9.22.46.png",
-    "id": "blk_615"
+    "id": "blk_579"
   },
   {
     "date": "2026-10-10 8:08 PM",
     "reporter": "古見梨亜（enchant+）",
     "name": "@kukuru_no_otete",
-    "url": "https://www.instagram.com/kukuru_no_otete",
+    "url": "https://www.instagram.com/kukuru_no_otete?xtok=MXc4Z2S2NTdoYmg3Zg==",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ xtok=MXc4Z2S2NTdoYmg3Zg== Zoomでのお話はお断りしているとのことで、おせっかいなしでお 願いしますめ",
+    "reason": "Zoomでのお話はお断りしているとのことで、おせっかいなしでお 願いしますめ",
     "image": "Screenshot 2026-10-20 at 9.22.46.png",
-    "id": "blk_616"
+    "id": "blk_580"
   },
   {
     "date": "2026-10-10 8:52 PM",
     "reporter": "長野さとみ（Ablaze）",
     "name": "@synergy.bee.farm",
-    "url": "https://www.instagram.com/synergy.bee.farm",
+    "url": "https://www.instagram.com/synergy.bee.farm?srtk=MTVsCDZpdHNhZ2EyeA==",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ srtk=MTVsCDZpdHNhZ2EyeA== 一度お話しした方ではありましたが、同じ人？？って思うくらい クローザーへの態度も失礼でした。 会長とも会ったことがないから分からないとか訳わからない事言っ てたのでブロックで",
+    "reason": "一度お話しした方ではありましたが、同じ人？？って思うくらい クローザーへの態度も失礼でした。 会長とも会ったことがないから分からないとか訳わからない事言っ てたのでブロックで",
     "image": "Screenshot 2026-10-20 at 9.22.46.png",
-    "id": "blk_617"
+    "id": "blk_581"
   },
   {
     "date": "2026-10-10 9:13 PM",
@@ -7417,19 +6985,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "久保田真穂 glowell ：abo zoom中会長の悪口を言ってます。 全員ブロックしてください！ ？ obrf=MW55MnRyeWvExam 9saA==",
     "image": "Screenshot 2026-10-20 at 9.22.46.png",
-    "id": "blk_618"
-  },
-  {
-    "date": "",
-    "reporter": "坂井照子（AMATERAS）",
-    "name": "@cairo_beauty_aki",
-    "url": "https://www.instagram.com/cairo_beauty_aki",
-    "secondary_url": "",
-    "platform": "Instagram",
-    "url_warning": "",
-    "reason": "？ psIn=ZmRnNiVIZmlma3Bx",
-    "image": "Screenshot 2026-10-20 at 9.22.52.png",
-    "id": "blk_619"
+    "id": "blk_582"
   },
   {
     "date": "2026-10-10 9:28 PM",
@@ -7439,9 +6995,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ mdxt=MWFqenFidnZhdnZleg==",
+    "reason": "mdxt=MWFqenFidnZhdnZleg==",
     "image": "Screenshot 2026-10-20 at 9.22.52.png",
-    "id": "blk_620"
+    "id": "blk_583"
   },
   {
     "date": "2026-10-10 9:39 PM",
@@ -7453,7 +7009,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.22.52.png",
-    "id": "blk_621"
+    "id": "blk_584"
   },
   {
     "date": "2026-10-11 3:28 AM",
@@ -7462,94 +7018,106 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/aiko_taiwaka",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
-    "reason": "？ dlrf=aXR4enUxcTIZGxS",
+    "url_warning": "修復済",
+    "reason": "dlrf=aXR4enUxcTIZGxS",
     "image": "Screenshot 2026-10-20 at 9.22.52.png",
-    "id": "blk_622"
+    "id": "blk_585"
   },
   {
     "date": "2026-10-11 10:19 AM",
     "reporter": "古見梨亜（enchant+）",
     "name": "@nana.su_hi.slg",
-    "url": "https://www.threads.net/@nana.su_hi.slg",
+    "url": "https://www.threads.net/@nana.su_hi.slg?igshid=NTc4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ igshid=NTc4MTIwNjQ2YQ== ？ 1gShid=NTC4MTIWNQ2YQ== ネオの方から何人もメッセージが来ているということで、おせっか いなしでお願いします（ 居場所つくりの投稿していますが、コ ミュニティへの勧誘は不要とのことです。",
+    "reason": "1gShid=NTC4MTIWNQ2YQ== ネオの方から何人もメッセージが来ているということで、おせっか いなしでお願いします（ 居場所つくりの投稿していますが、コ ミュニティへの勧誘は不要とのことです。",
     "image": "Screenshot 2026-10-20 at 9.22.52.png",
-    "id": "blk_623"
+    "id": "blk_586"
   },
   {
     "date": "2026-10-11 11:14 AM",
     "reporter": "澤木優里（RAYTUS）",
     "name": "@freesiagrace_wellness",
-    "url": "https://www.instagram.com/freesiagrace_wellness",
+    "url": "https://www.instagram.com/freesiagrace_wellness?obrf=ZGkxajdxNG03cnRm",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ obrf=ZGkxajdxNG03cnRm アドバイザーzoom時間になっても来ませんでした！",
+    "reason": "アドバイザーzoom時間になっても来ませんでした！",
     "image": "Screenshot 2026-10-20 at 9.22.52.png",
-    "id": "blk_624"
+    "id": "blk_587"
   },
   {
     "date": "2026-10-11 4:14 PM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@saikyo987",
-    "url": "https://www.threads.net/@saikyo987",
+    "url": "https://www.threads.net/@saikyo987?igshid=NTc4MTIwNjQ2YQ==",
     "secondary_url": "https://www.instagram.com/saikyo987",
     "platform": "Threads / Instagram",
     "url_warning": "",
-    "reason": "？ igshid=NTc4MTIwNjQ2YQ== ？ vrfl=MWxpaDIzMGZqMWluOQ== 重度障害者。情報集め、入会する気ありません。",
+    "reason": "vrfl=MWxpaDIzMGZqMWluOQ== 重度障害者。情報集め、入会する気ありません。",
     "image": "Screenshot 2026-10-20 at 9.22.52.png",
-    "id": "blk_625"
+    "id": "blk_588"
   },
   {
     "date": "2026-10-11 6:41 PM",
     "reporter": "服部達典（MURA）",
     "name": "@la_foot_footcare",
-    "url": "https://www.instagram.com/la_foot_footcare",
+    "url": "https://www.instagram.com/la_foot_footcare?xtok=MTk3ajisaGxVY3KzMg==",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ xtok=MTk3ajisaGxVY3KzMg==",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.22.52.png",
-    "id": "blk_626"
+    "id": "blk_589"
   },
   {
     "date": "2026-10-11 9:08 PM",
     "reporter": "服部達典（MURA）",
     "name": "@dinosaur.597037",
-    "url": "https://www.instagram.com/dinosaur.597037",
+    "url": "https://www.instagram.com/dinosaur.597037?rpxt=MThtYm1IM29tZ2IVZA==",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ rpxt=MThtYm1IM29tZ2IVZA== 変わった方です。 絡むと大変なのでお気をつけください。",
+    "reason": "変わった方です。 絡むと大変なのでお気をつけください。",
     "image": "Screenshot 2026-10-20 at 9.23.00.png",
-    "id": "blk_627"
+    "id": "blk_590"
   },
   {
     "date": "2026-10-12 4:35 AM",
     "reporter": "服部達典（MURA）",
     "name": "@keisuke_aizawa222",
-    "url": "https://www.instagram.com/keisuke_aizawa222",
+    "url": "https://www.instagram.com/keisuke_aizawa222?srtk=aDdqbzJ5dmR3aWt4",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ srtk=aDdqbzJ5dmR3aWt4",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.23.00.png",
-    "id": "blk_628"
+    "id": "blk_591"
+  },
+  {
+    "date": "2026-10-12 4:36 AM",
+    "reporter": "服部達典（MURA）",
+    "name": "@saku.toki.dan",
+    "url": "https://www.instagram.com/saku.toki.dan",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "dlrf=MTRoYmZzeTE2cnQzcA==",
+    "image": "Screenshot 2026-10-20 at 9.22.39.png",
+    "id": "blk_592"
   },
   {
     "date": "2026-10-12 4:36 AM",
     "reporter": "桝田和裕（AMATERAS）",
     "name": "@ryo.fitness325",
-    "url": "https://www.instagram.com/ryo.fitness325",
+    "url": "https://www.instagram.com/ryo.fitness325?CpIK=DHJZZZE4MWQ2CTRU",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ CpIK=DHJZZZE4MWQ2CTRU",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.23.00.png",
-    "id": "blk_629"
+    "id": "blk_593"
   },
   {
     "date": "2026-10-12 8:11 AM",
@@ -7561,7 +7129,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.23.00.png",
-    "id": "blk_630"
+    "id": "blk_594"
   },
   {
     "date": "2026-10-12 8:44 AM",
@@ -7573,31 +7141,31 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.23.00.png",
-    "id": "blk_631"
+    "id": "blk_595"
   },
   {
     "date": "2026-10-12 3:52 PM",
     "reporter": "上野美々（ensemble）",
     "name": "@ito_chizuko23",
-    "url": "https://www.instagram.com/ito_chizuko23",
+    "url": "https://www.instagram.com/ito_chizuko23?exIn=MWxocHJhemlyNWcONW==",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ exIn=MWxocHJhemlyNWcONW==",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.23.00.png",
-    "id": "blk_632"
+    "id": "blk_596"
   },
   {
     "date": "2026-10-12 4:15 PM",
     "reporter": "齊藤唯（Mimola）",
     "name": "@shizukanon2025",
-    "url": "https://www.threads.net/@shizukanon2025",
+    "url": "https://www.threads.net/@shizukanon2025?igshid=NTc4MTIwNjQ2YQ==",
     "secondary_url": "https://www.instagram.com/kirari_hiroki0808",
     "platform": "Threads / Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
-    "reason": "ネオファミリー営の方です ？ igshid=NTc4MTIwNjQ2YQ== ？ obrf=bDV1Z244dmFrdmdr",
+    "url_warning": "修復済",
+    "reason": "ネオファミリー営の方です  ？ obrf=bDV1Z244dmFrdmdr",
     "image": "Screenshot 2026-10-20 at 9.23.00.png",
-    "id": "blk_633"
+    "id": "blk_597"
   },
   {
     "date": "2026-10-12 6:11 PM",
@@ -7607,9 +7175,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ igShia=NTC4MTIWNJQ2YQ== Threadsの投稿に嫌なコメント残してくるので、ブロックしておい た方がいいです！",
+    "reason": "igShia=NTC4MTIWNJQ2YQ== Threadsの投稿に嫌なコメント残してくるので、ブロックしておい た方がいいです！",
     "image": "Screenshot 2026-10-20 at 9.23.06.png",
-    "id": "blk_634"
+    "id": "blk_598"
   },
   {
     "date": "2026-10-12 6:35 PM",
@@ -7621,7 +7189,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "zoomに入ってもこず、連絡もよこさずブロックしてきた方です。",
     "image": "Screenshot 2026-10-20 at 9.23.06.png",
-    "id": "blk_635"
+    "id": "blk_599"
   },
   {
     "date": "2026-10-12 11:03 PM",
@@ -7633,31 +7201,31 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.23.06.png",
-    "id": "blk_636"
+    "id": "blk_600"
   },
   {
     "date": "2026-10-12 11:09 PM",
     "reporter": "草間真衣（MURA）",
     "name": "@yuto.lino_newbornphoto",
-    "url": "https://www.instagram.com/yuto.lino_newbornphoto",
+    "url": "https://www.instagram.com/yuto.lino_newbornphoto?srtk=C2MwbDVyexY1MzZp",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ srtk=C2MwbDVyexY1MzZp",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.23.06.png",
-    "id": "blk_637"
+    "id": "blk_601"
   },
   {
     "date": "2026-10-13 12:20 AM",
     "reporter": "中野愛子（tEaM_S.）",
     "name": "Facebookユーザー",
-    "url": "https://www.facebook.com/share/1LJ3VdvtdY/",
+    "url": "https://www.facebook.com/share/1LJ3VdvtdY/?mibextid=wwXlfr",
     "secondary_url": "",
     "platform": "Facebook",
     "url_warning": "",
-    "reason": "？ mibextid=wwXlfr",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.23.06.png",
-    "id": "blk_638"
+    "id": "blk_602"
   },
   {
     "date": "2026-10-13 8:25 AM",
@@ -7666,10 +7234,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://instagram.com/sonomam_playpark",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "値段で聞いてきます。 ？ rpxt=MTczM3ZneWxIMm5pYg%3D%3D",
     "image": "Screenshot 2026-10-20 at 9.23.06.png",
-    "id": "blk_639"
+    "id": "blk_603"
   },
   {
     "date": "2026-10-13 9:41 AM",
@@ -7679,9 +7247,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ mdxt=MWtwODJpczVzYzgZbg==",
+    "reason": "mdxt=MWtwODJpczVzYzgZbg==",
     "image": "Screenshot 2026-10-20 at 9.23.13.png",
-    "id": "blk_640"
+    "id": "blk_604"
   },
   {
     "date": "2026-10-13 2:29 PM",
@@ -7693,7 +7261,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.23.13.png",
-    "id": "blk_641"
+    "id": "blk_605"
   },
   {
     "date": "2026-10-14 12:46 PM",
@@ -7705,7 +7273,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.23.13.png",
-    "id": "blk_642"
+    "id": "blk_606"
   },
   {
     "date": "2026-10-14 2:12 PM",
@@ -7714,10 +7282,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.threads.net/@babybaby.hattatsu?igshid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.23.13.png",
-    "id": "blk_643"
+    "id": "blk_607"
   },
   {
     "date": "2026-10-14 10:11 PM",
@@ -7726,10 +7294,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://instagram.com/zun.kazoku.shukatsu",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
-    "reason": "？ dlrf=MWRoYjEWOTF4cWI2cQ%3D％3D ？ exIn=MXFOYWE2MGliY2hkMw%3D%3D 下の人はズームした上で無しになりました。",
+    "url_warning": "修復済",
+    "reason": "dlrf=MWRoYjEWOTF4cWI2cQ%3D％3D ？ exIn=MXFOYWE2MGliY2hkMw%3D%3D 下の人はズームした上で無しになりました。",
     "image": "Screenshot 2026-10-20 at 9.23.13.png",
-    "id": "blk_644"
+    "id": "blk_608"
   },
   {
     "date": "2026-10-14 10:11 PM",
@@ -7739,9 +7307,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ dlrf=MWRoYjEWOTF4cWI2cQ%3D％3D ？ exIn=MXFOYWE2MGliY2hkMw%3D%3D 下の人はズームした上で無しになりました。",
+    "reason": "dlrf=MWRoYjEWOTF4cWI2cQ%3D％3D ？ exIn=MXFOYWE2MGliY2hkMw%3D%3D 下の人はズームした上で無しになりました。",
     "image": "Screenshot 2026-10-20 at 9.23.13.png",
-    "id": "blk_645"
+    "id": "blk_609"
   },
   {
     "date": "2026-10-14 10:44 PM",
@@ -7753,43 +7321,31 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.23.13.png",
-    "id": "blk_646"
+    "id": "blk_610"
   },
   {
     "date": "2026-10-15 9:30 AM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@888irodori88",
-    "url": "https://www.threads.net/@888irodori88",
+    "url": "https://www.threads.net/@888irodori88?igShid=NTC4MTIWN",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ igShid=NTC4MTIWN」Q2YQ== お話聞かれて、お断りしているそうです。同じ内容のものがいくつ も届く、とのことなのでおせっかい不要です♪",
+    "reason": "」Q2YQ== お話聞かれて、お断りしているそうです。同じ内容のものがいくつ も届く、とのことなのでおせっかい不要です♪",
     "image": "Screenshot 2026-10-20 at 9.23.13.png",
-    "id": "blk_647"
-  },
-  {
-    "date": "",
-    "reporter": "宮川亜希子（Meguria）",
-    "name": "@natsuko7_personalcolor",
-    "url": "https://instagram.com/natsuko7_personalcolor",
-    "secondary_url": "",
-    "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
-    "reason": "？ cplk=amptY3RpOXBzenU1 今は自分の周りから少しずつやりたいそうです",
-    "image": "Screenshot 2026-10-20 at 9.23.19.png",
-    "id": "blk_648"
+    "id": "blk_611"
   },
   {
     "date": "2026-10-15 2:34 PM",
     "reporter": "後藤広代（Lumiere.）",
     "name": "@rococokana",
-    "url": "https://www.instagram.com/rococokana",
+    "url": "https://www.instagram.com/rococokana?dllrf=d2VucWOxYnVvazdr",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ dllrf=d2VucWOxYnVvazdr 偉そう、 上から目線",
+    "reason": "偉そう、 上から目線",
     "image": "Screenshot 2026-10-20 at 9.23.19.png",
-    "id": "blk_649"
+    "id": "blk_612"
   },
   {
     "date": "2026-10-15 4:45 PM",
@@ -7801,7 +7357,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "アポ後に長文DM来ました。 お誘いしないでください。",
     "image": "Screenshot 2026-10-20 at 9.23.19.png",
-    "id": "blk_650"
+    "id": "blk_613"
   },
   {
     "date": "2026-10-15 5:21 PM",
@@ -7810,22 +7366,22 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/3510.desu",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
-    "reason": "？ vrfl=MXdOMHMydHlycmQydg==",
+    "url_warning": "修復済",
+    "reason": "vrfl=MXdOMHMydHlycmQydg==",
     "image": "Screenshot 2026-10-20 at 9.23.19.png",
-    "id": "blk_651"
+    "id": "blk_614"
   },
   {
     "date": "2026-10-15 10:20 PM",
     "reporter": "桝田和裕（AMATERAS）",
     "name": "@ashibumi32",
-    "url": "https://www.instagram.com/ashibumi32",
+    "url": "https://www.instagram.com/ashibumi32?rpxt=azJ3b3ZlaDVyaDJq",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ rpxt=azJ3b3ZlaDVyaDJq",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.23.26.png",
-    "id": "blk_652"
+    "id": "blk_615"
   },
   {
     "date": "2026-10-15 10:21 PM",
@@ -7837,7 +7393,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "山口でネオの話はよく聞くとのこと。投資会社の顧客を探している ため、マッチしない方なのでお声がけしないようにして下さい。 ？ exIn=ZTBwNjFraG9xdDNx",
     "image": "Screenshot 2026-10-20 at 9.23.26.png",
-    "id": "blk_653"
+    "id": "blk_616"
   },
   {
     "date": "2026-10-15 10:28 PM",
@@ -7846,10 +7402,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/reve.pet_aroma",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "甲賀花穂tidy.shin 女性起業家だけで200人の月額千円のコミュニティに入ってるから 不要だそうです ？ mdxt=MXBkZms5NzExNDZocg==",
     "image": "Screenshot 2026-10-20 at 9.23.26.png",
-    "id": "blk_654"
+    "id": "blk_617"
   },
   {
     "date": "2026-10-15 10:39 PM",
@@ -7861,7 +7417,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "甲賀花穂tidy.shin コミュニティの話2人でまずはと、言われistしましたが 暗号資産に投資する人や 銀行に眠ってる預金を 持ってる人を探してるチーム誰か紹介してと言われました。 ？ IgShid=NTC4MTIWNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.23.26.png",
-    "id": "blk_655"
+    "id": "blk_618"
   },
   {
     "date": "2026-10-15 10:44 PM",
@@ -7873,19 +7429,19 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "良いことは言うが基本に頷くふりして聞いてないなと言う感じで した。 ？ Cplk=MTZWZ3/3bTY3Yihzbw%3D%3D",
     "image": "Screenshot 2026-10-20 at 9.23.26.png",
-    "id": "blk_656"
+    "id": "blk_619"
   },
   {
     "date": "2026-10-15 11:09 PM",
     "reporter": "畑ゆかり（yuima-ru理事長）",
     "name": "@anonn8008",
-    "url": "https://www.instagram.com/anonn8008?igshid=NTc4MTIwNjQ2YQ==",
+    "url": "https://www.instagram.com/anonn8008?igshid=NTc4MTIwNjQ2YQ==&srtk=aniraxYzVzenVj",
     "secondary_url": "https://www.threads.net/@anonn8008",
     "platform": "Instagram / Threads",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
-    "reason": "？ srtk=aniraxYzVzenVj",
+    "url_warning": "修復済",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.23.26.png",
-    "id": "blk_657"
+    "id": "blk_620"
   },
   {
     "date": "2026-10-16 12:07 AM",
@@ -7897,43 +7453,31 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "レモン農家さん 3回目でした",
     "image": "Screenshot 2026-10-20 at 9.23.26.png",
-    "id": "blk_658"
-  },
-  {
-    "date": "",
-    "reporter": "本多栞（RAYTUS / 秘書課）",
-    "name": "@detox_salon_pure",
-    "url": "https://www.instagram.com/detox_salon_pure",
-    "secondary_url": "",
-    "platform": "Instagram",
-    "url_warning": "",
-    "reason": "？ srtk=Mnh5Z2syc3pxODZ1",
-    "image": "Screenshot 2026-10-20 at 9.23.38.png",
-    "id": "blk_659"
+    "id": "blk_621"
   },
   {
     "date": "2026-10-16 11:16 AM",
     "reporter": "小池康子（MURA）",
     "name": "@pupa_singlefam",
-    "url": "https://www.threads.net/@pupa_singlefam",
+    "url": "https://www.threads.net/@pupa_singlefam?igshid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ igshid=NTC4MTIwNjQ2YQ== 。。",
+    "reason": "。。",
     "image": "Screenshot 2026-10-20 at 9.23.38.png",
-    "id": "blk_660"
+    "id": "blk_622"
   },
   {
     "date": "2026-10-16 12:46 PM",
     "reporter": "ロジャーズ優衣（enchant+）",
     "name": "@sejutsu.no.tabi",
-    "url": "https://www.instagram.com/sejutsu.no.tabi",
+    "url": "https://www.instagram.com/sejutsu.no.tabi?srtk=MTgwaGQzOXJ30G82eA==",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ srtk=MTgwaGQzOXJ30G82eA== コミュニティに参加するつもりはないそうです◎",
+    "reason": "コミュニティに参加するつもりはないそうです◎",
     "image": "Screenshot 2026-10-20 at 9.23.38.png",
-    "id": "blk_661"
+    "id": "blk_623"
   },
   {
     "date": "2026-10-16 9:58 PM",
@@ -7945,7 +7489,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "3minami？ xtok=MWE2YjcOdW4zYWQ20A==",
     "image": "Screenshot 2026-10-20 at 9.23.38.png",
-    "id": "blk_662"
+    "id": "blk_624"
   },
   {
     "date": "2026-10-17 1:54 AM",
@@ -7957,55 +7501,43 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.23.38.png",
-    "id": "blk_663"
+    "id": "blk_625"
   },
   {
     "date": "2026-10-17 10:02 AM",
     "reporter": "营名真（mimola）",
     "name": "@seto2024sato",
-    "url": "https://www.threads.net/@seto2024sato",
+    "url": "https://www.threads.net/@seto2024sato?IgShid=NTc4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ IgShid=NTc4MTIwNjQ2YQ==",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.23.38.png",
-    "id": "blk_664"
-  },
-  {
-    "date": "",
-    "reporter": "桝田和裕（AMATERAS）",
-    "name": "@syp_spring",
-    "url": "https://www.threads.net/@syp_spring",
-    "secondary_url": "https://www.instagram.com/syp_spring",
-    "platform": "Threads / Instagram",
-    "url_warning": "",
-    "reason": "入会金かけて参加することは考えていなかったとのこと ？ igShid=NTc4MTIWNjQ2YQ== ？ exIn=MTV6cm9saHpieWtzeA==",
-    "image": "Screenshot 2026-10-20 at 9.23.45.png",
-    "id": "blk_665"
+    "id": "blk_626"
   },
   {
     "date": "2026-10-17 4:12 PM",
     "reporter": "服部達典（MURA）",
     "name": "@ito_relaxation",
-    "url": "https://www.instagram.com/ito_relaxation",
+    "url": "https://www.instagram.com/ito_relaxation?xtok=bjN2MTR1d2Z1MTE4",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ xtok=bjN2MTR1d2Z1MTE4",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.23.45.png",
-    "id": "blk_666"
+    "id": "blk_627"
   },
   {
     "date": "2026-10-17 4:13 PM",
     "reporter": "服部達典（MURA）",
     "name": "@vankidsoo",
-    "url": "https://www.instagram.com/vankidsoo",
+    "url": "https://www.instagram.com/vankidsoo?rpxt=ZHV20XJiNmd2dGph",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ rpxt=ZHV20XJiNmd2dGph",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.23.45.png",
-    "id": "blk_667"
+    "id": "blk_628"
   },
   {
     "date": "2026-10-17 5:19 PM",
@@ -8017,235 +7549,67 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "DMからお声かけで、 長文が届きましたら",
     "image": "Screenshot 2026-10-20 at 9.23.45.png",
-    "id": "blk_668"
+    "id": "blk_629"
   },
   {
     "date": "2026-10-17 10:24 PM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@takeo_miyabi_insole.to.seitai",
-    "url": "https://www.instagram.com/takeo_miyabi_insole.to.seitai",
+    "url": "https://www.instagram.com/takeo_miyabi_insole.to.seitai?rpxt=anVsaDJldGN3M3Vz",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ rpxt=anVsaDJldGN3M3Vz 地域でやっていくそうです",
+    "reason": "地域でやっていくそうです",
     "image": "Screenshot 2026-10-20 at 9.23.45.png",
-    "id": "blk_669"
+    "id": "blk_630"
   },
   {
     "date": "2026-10-17 10:36 PM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@shodo.jin",
-    "url": "https://www.instagram.com/shodo.jin",
+    "url": "https://www.instagram.com/shodo.jin?psin=ZDNsbnZpMHE5Z2E4",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ psin=ZDNsbnZpMHE5Z2E4 2度お話聞いていて合わなかったとのこと",
+    "reason": "2度お話聞いていて合わなかったとのこと",
     "image": "Screenshot 2026-10-20 at 9.23.45.png",
-    "id": "blk_670"
+    "id": "blk_631"
   },
   {
     "date": "2026-10-17 10:37 PM",
     "reporter": "畑ゆかり（yuima-ru理事長）",
     "name": "@check.me_mayumi",
-    "url": "https://www.instagram.com/check.me_mayumi",
+    "url": "https://www.instagram.com/check.me_mayumi?srtk=OGZWCDB2b2dmanA3",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
-    "reason": "？ srtk=OGZWCDB2b2dmanA3",
+    "url_warning": "修復済",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.23.45.png",
-    "id": "blk_671"
+    "id": "blk_632"
   },
   {
     "date": "2026-10-17 11:43 PM",
     "reporter": "宮川亜希子（Meguria）",
     "name": "@teapilates",
-    "url": "https://www.instagram.com/teapilates",
+    "url": "https://www.instagram.com/teapilates?stkn=aGU5NGI3aHdlaHpi",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ stkn=aGU5NGI3aHdlaHpi コミュニティ入るの難しいそうです Two days ago at 8:03 AM",
+    "reason": "コミュニティ入るの難しいそうです Two days ago at 8:03 AM",
     "image": "Screenshot 2026-10-20 at 9.23.45.png",
-    "id": "blk_672"
-  },
-  {
-    "date": "",
-    "reporter": "池田真理子（Lumiere.）",
-    "name": "Facebookユーザー",
-    "url": "https://www.facebook.com/share/16H7j35ChBt/Twodaysagoat9:12AM",
-    "secondary_url": "",
-    "platform": "Facebook",
-    "url_warning": "",
-    "reason": "",
-    "image": "Screenshot 2026-10-20 at 9.23.52.png",
-    "id": "blk_673"
-  },
-  {
-    "date": "",
-    "reporter": "小西みゆき（Mimola）",
-    "name": "@harepeta",
-    "url": "https://www.instagram.com/harepeta",
-    "secondary_url": "",
-    "platform": "Instagram",
-    "url_warning": "",
-    "reason": "？ psIn=OHVnNW45YWIqLTR」 以前にもお声がけされてるそうですが入りませんとの事です Two days ago at 9:18 AM",
-    "image": "Screenshot 2026-10-20 at 9.23.52.png",
-    "id": "blk_674"
-  },
-  {
-    "date": "",
-    "reporter": "小西みゆき（Mimola）",
-    "name": "@niwakatsu_37",
-    "url": "https://www.threads.net/@niwakatsu_37",
-    "secondary_url": "",
-    "platform": "Threads",
-    "url_warning": "",
-    "reason": "こんな投稿見つけたのでシェアしておきます※ ？ igshid=NTC4MTIwNjQ2YQ== wakatsu_37 12時間 ママとこども向けのサービスが1箇所に集まった場 所を作ろうとしてます！仲間探してます！系のひと こちのDMは フルシカトしてます これから居場所作るひとたちにはめちゃくちゃ寄っ てくるんでりか てんないとなり人といことやっつと世日来のかつて ず、自分でできる範囲のことからやりましょうよ、、",
-    "image": "Screenshot 2026-10-20 at 9.23.52.png",
-    "id": "blk_675"
-  },
-  {
-    "date": "",
-    "reporter": "井明香奈（shAdow）",
-    "name": "@youmeiku311",
-    "url": "https://www.threads.net/@youmeiku311",
-    "secondary_url": "",
-    "platform": "Threads",
-    "url_warning": "",
-    "reason": "？ igshid=NTC4MTIwNjQ2YQ== Two days ago at 5:13 PM",
-    "image": "Screenshot 2026-10-20 at 9.23.52.png",
-    "id": "blk_676"
+    "id": "blk_633"
   },
   {
     "date": "2026-10-19 5:22 AM",
     "reporter": "小池康（MURA）",
     "name": "@seina.okuyama_rakuiku",
-    "url": "https://www.threads.net/@seina.okuyama_rakuiku",
+    "url": "https://www.threads.net/@seina.okuyama_rakuiku?igShid=NTc4MTIwNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ igShid=NTc4MTIwNjQ2YQ== 私の投稿を引用して黒幕は誰みたいにいわれてました。 Two days ago at 6:17 PM",
+    "reason": "私の投稿を引用して黒幕は誰みたいにいわれてました。 Two days ago at 6:17 PM",
     "image": "Screenshot 2026-10-20 at 9.23.52.png",
-    "id": "blk_677"
-  },
-  {
-    "date": "",
-    "reporter": "桝田和裕（AMATERAS）",
-    "name": "@hello.picopa",
-    "url": "https://www.threads.net/@hello.picopa",
-    "secondary_url": "",
-    "platform": "Threads",
-    "url_warning": "",
-    "reason": "？ IgShid=NTC4MTIwNjQ2YQ== Two days ago at 8:01 PM",
-    "image": "Screenshot 2026-10-20 at 9.23.52.png",
-    "id": "blk_678"
-  },
-  {
-    "date": "",
-    "reporter": "服部達典（MURA）",
-    "name": "@yuca_support_insta",
-    "url": "https://www.instagram.com/yuca_support_insta",
-    "secondary_url": "",
-    "platform": "Instagram",
-    "url_warning": "",
-    "reason": "？ srtk=MWJ3YWdxN2IwMzAzdQ== Two days ago at 8:29 PM",
-    "image": "Screenshot 2026-10-20 at 9.23.52.png",
-    "id": "blk_679"
-  },
-  {
-    "date": "",
-    "reporter": "服部達典（MURA）",
-    "name": "@02neh20",
-    "url": "https://www.threads.net/@02neh20",
-    "secondary_url": "",
-    "platform": "Threads",
-    "url_warning": "",
-    "reason": "Two days ago at 8:30 PM",
-    "image": "Screenshot 2026-10-20 at 9.24.00.png",
-    "id": "blk_680"
-  },
-  {
-    "date": "",
-    "reporter": "後藤広代（Lumiere.）",
-    "name": "@rin_ta2000",
-    "url": "https://www.instagram.com/rin_ta2000",
-    "secondary_url": "",
-    "platform": "Instagram",
-    "url_warning": "",
-    "reason": "？ rpxt=NDBpazh5YWxtZDEw こいつは最悪ですよ Two days ago at 9:08 PM",
-    "image": "Screenshot 2026-10-20 at 9.24.00.png",
-    "id": "blk_681"
-  },
-  {
-    "date": "",
-    "reporter": "宮川亜希子（Meguria）",
-    "name": "@sainowa_botanical",
-    "url": "https://www.instagram.com/sainowa_botanical",
-    "secondary_url": "",
-    "platform": "Instagram",
-    "url_warning": "",
-    "reason": "？ stkn=Ym4lajRmcmM2amRI 別のコミュニティに入っていて余裕ないそうです Two days ago at 11:21 PM",
-    "image": "Screenshot 2026-10-20 at 9.24.00.png",
-    "id": "blk_682"
-  },
-  {
-    "date": "",
-    "reporter": "宮川亜希子（Meguria）",
-    "name": "@mirainokenko.oen.planner",
-    "url": "https://www.instagram.com/mirainokenko.oen.planner",
-    "secondary_url": "",
-    "platform": "Instagram",
-    "url_warning": "",
-    "reason": "？ rpxt=MXUyNWIncXhOM3UxOA== 余裕ないそうです Two days ago at 11:23 PM",
-    "image": "Screenshot 2026-10-20 at 9.24.00.png",
-    "id": "blk_683"
-  },
-  {
-    "date": "",
-    "reporter": "ロジャーズ優衣（enchant+）",
-    "name": "@otani_colortype",
-    "url": "https://www.instagram.com/otani_colortype",
-    "secondary_url": "",
-    "platform": "Instagram",
-    "url_warning": "",
-    "reason": "コミュニティは考えていなかったり、過去にお話を聞いたことがあ る方たちです♪ ？ obrf=Y2ZObHI2aHMzY2ZV ？ psIn=MWNycmlwMHgzZHcyaQ== ？ vrfl=MWI1ZzE5c3Fsd2o1Zw== ？ dlrf=N3VxcGkzd3Q5MDA3",
-    "image": "Screenshot 2026-10-20 at 9.24.05.png",
-    "id": "blk_684"
-  },
-  {
-    "date": "",
-    "reporter": "ロジャーズ優衣（enchant+）",
-    "name": "@yukimama_wellness.life",
-    "url": "https://www.instagram.com/yukimama_wellness.life",
-    "secondary_url": "",
-    "platform": "Instagram",
-    "url_warning": "",
-    "reason": "コミュニティは考えていなかったり、過去にお話を聞いたことがあ る方たちです♪ ？ obrf=Y2ZObHI2aHMzY2ZV ？ psIn=MWNycmlwMHgzZHcyaQ== ？ vrfl=MWI1ZzE5c3Fsd2o1Zw== ？ dlrf=N3VxcGkzd3Q5MDA3",
-    "image": "Screenshot 2026-10-20 at 9.24.05.png",
-    "id": "blk_685"
-  },
-  {
-    "date": "",
-    "reporter": "ロジャーズ優衣（enchant+）",
-    "name": "@babysitter_chino",
-    "url": "https://www.instagram.com/babysitter_chino",
-    "secondary_url": "",
-    "platform": "Instagram",
-    "url_warning": "",
-    "reason": "コミュニティは考えていなかったり、過去にお話を聞いたことがあ る方たちです♪ ？ obrf=Y2ZObHI2aHMzY2ZV ？ psIn=MWNycmlwMHgzZHcyaQ== ？ vrfl=MWI1ZzE5c3Fsd2o1Zw== ？ dlrf=N3VxcGkzd3Q5MDA3",
-    "image": "Screenshot 2026-10-20 at 9.24.05.png",
-    "id": "blk_686"
-  },
-  {
-    "date": "",
-    "reporter": "ロジャーズ優衣（enchant+）",
-    "name": "@fiore.oil",
-    "url": "https://www.instagram.com/fiore.oil",
-    "secondary_url": "",
-    "platform": "Instagram",
-    "url_warning": "",
-    "reason": "コミュニティは考えていなかったり、過去にお話を聞いたことがあ る方たちです♪ ？ obrf=Y2ZObHI2aHMzY2ZV ？ psIn=MWNycmlwMHgzZHcyaQ== ？ vrfl=MWI1ZzE5c3Fsd2o1Zw== ？ dlrf=N3VxcGkzd3Q5MDA3",
-    "image": "Screenshot 2026-10-20 at 9.24.05.png",
-    "id": "blk_687"
+    "id": "blk_634"
   },
   {
     "date": "2026-10-19 9:29 AM",
@@ -8254,22 +7618,22 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/jkd.goat_design",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
+    "url_warning": "修復済",
     "reason": "何度もお声がけありしつこい、とのことでお声掛け不要です。 ？ oprf=NDk2cGgzOHNemil",
     "image": "Screenshot 2026-10-20 at 9.24.05.png",
-    "id": "blk_688"
+    "id": "blk_635"
   },
   {
     "date": "2026-10-19 9:34 AM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@nobuko.so",
-    "url": "https://www.threads.net/@nobuko.so",
+    "url": "https://www.threads.net/@nobuko.so?igshid=NTC4MTIwNjQ2YQ==",
     "secondary_url": "https://www.instagram.com/nobuko.so",
     "platform": "Threads / Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
-    "reason": "DMしたところ、 「MLMおよび33万円のぶった斬り会長云々の勧誘でしたらお断り します』とのこと。 おせっかい不要です！ ？ igshid=NTC4MTIwNjQ2YQ== ？ psIn=MXM2dTB6cGV1c2w4eA==",
+    "url_warning": "修復済",
+    "reason": "DMしたところ、 「MLMおよび33万円のぶった斬り会長云々の勧誘でしたらお断り します』とのこと。 おせっかい不要です！  ？ psIn=MXM2dTB6cGV1c2w4eA==",
     "image": "Screenshot 2026-10-20 at 9.24.05.png",
-    "id": "blk_689"
+    "id": "blk_636"
   },
   {
     "date": "2026-10-19 10:29 AM",
@@ -8281,43 +7645,43 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.24.05.png",
-    "id": "blk_690"
+    "id": "blk_637"
   },
   {
     "date": "2026-10-19 11:42 AM",
     "reporter": "坂井照子（AMATERAS）",
     "name": "@koetore_fotunevoice",
-    "url": "https://www.instagram.com/koetore_fotunevoice",
+    "url": "https://www.instagram.com/koetore_fotunevoice?obrf=MWJwbjBmbTMyemvoeg==",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ obrf=MWJwbjBmbTMyemvoeg==",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.24.05.png",
-    "id": "blk_691"
+    "id": "blk_638"
   },
   {
     "date": "2026-10-19 12:08 PM",
     "reporter": "いわやともみ（Blooming / 東京）",
     "name": "@hatsumijosan",
-    "url": "https://www.instagram.com/hatsumijosan",
+    "url": "https://www.instagram.com/hatsumijosan?exIn=bXInaTFoNG03MXB3",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ exIn=bXInaTFoNG03MXB3",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.24.05.png",
-    "id": "blk_692"
+    "id": "blk_639"
   },
   {
     "date": "2026-10-19 12:35 PM",
     "reporter": "澤木優里（RAYTUS）",
     "name": "@chou_chou_kanon",
-    "url": "https://www.instagram.com/chou_chou_kanon",
+    "url": "https://www.instagram.com/chou_chou_kanon?psIn=b21",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ psIn=b21 teHhrZzI2Njgo 3回聞いたそうです。 その上でお話をしようと言ってきますが、MLMをしているのでそ ちらの勧誘と思われます。",
+    "reason": "teHhrZzI2Njgo 3回聞いたそうです。 その上でお話をしようと言ってきますが、MLMをしているのでそ ちらの勧誘と思われます。",
     "image": "Screenshot 2026-10-20 at 9.24.05.png",
-    "id": "blk_693"
+    "id": "blk_640"
   },
   {
     "date": "2026-10-19 12:41 PM",
@@ -8326,34 +7690,34 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.threads.net/share/_pSjkr2ul/",
     "secondary_url": "",
     "platform": "Threads",
-    "url_warning": "ドメイン誤記修復 (threaas→threads.net)",
+    "url_warning": "修復済",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.24.12.png",
-    "id": "blk_694"
+    "id": "blk_641"
   },
   {
     "date": "2026-10-19 12:46 PM",
     "reporter": "宮川亜希子（Meguria）",
     "name": "@piccola_contadina2025",
-    "url": "https://www.instagram.com/piccola_contadina2025",
+    "url": "https://www.instagram.com/piccola_contadina2025?obrf=Y2k40Go2bHkxY2py",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ obrf=Y2k40Go2bHkxY2py 今コミュニティ入るつもりはないそうです",
+    "reason": "今コミュニティ入るつもりはないそうです",
     "image": "Screenshot 2026-10-20 at 9.24.12.png",
-    "id": "blk_695"
+    "id": "blk_642"
   },
   {
     "date": "2026-10-19 2:27 PM",
     "reporter": "本多栞（RAYTUS / 秘書課）",
     "name": "@birdy_yumi",
-    "url": "https://www.instagram.com/birdy_yumi",
+    "url": "https://www.instagram.com/birdy_yumi?obrf=b25sbGJhZHAwaXIn",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ obrf=b25sbGJhZHAwaXIn 入会します！からの次の日分析しました！と長文のメールをよこし 全否定。自分で公益財団を創ると言ってます！",
+    "reason": "入会します！からの次の日分析しました！と長文のメールをよこし 全否定。自分で公益財団を創ると言ってます！",
     "image": "Screenshot 2026-10-20 at 9.24.12.png",
-    "id": "blk_696"
+    "id": "blk_643"
   },
   {
     "date": "2026-10-19 5:06 PM",
@@ -8362,10 +7726,10 @@ const INITIAL_BLOCKLIST = [
     "url": "https://www.instagram.com/hapi_solana",
     "secondary_url": "",
     "platform": "Instagram",
-    "url_warning": "プロトコル誤記修復 (nttps→https)",
-    "reason": "？ vrfl=MTAyNHRveiFpeTg3Yw==",
+    "url_warning": "修復済",
+    "reason": "vrfl=MTAyNHRveiFpeTg3Yw==",
     "image": "Screenshot 2026-10-20 at 9.24.12.png",
-    "id": "blk_697"
+    "id": "blk_644"
   },
   {
     "date": "2026-10-19 5:09 PM",
@@ -8377,7 +7741,7 @@ const INITIAL_BLOCKLIST = [
     "url_warning": "",
     "reason": "",
     "image": "Screenshot 2026-10-20 at 9.24.12.png",
-    "id": "blk_698"
+    "id": "blk_645"
   },
   {
     "date": "2026-10-19 5:56 PM",
@@ -8387,45 +7751,45 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ 1gShia=NTC4MTIwNjQ2YQ==",
+    "reason": "1gShia=NTC4MTIwNjQ2YQ==",
     "image": "Screenshot 2026-10-20 at 9.24.12.png",
-    "id": "blk_699"
+    "id": "blk_646"
   },
   {
     "date": "2026-10-19 6:05 PM",
     "reporter": "服部達典（MURA）",
     "name": "@ai_mama.kosodate",
-    "url": "https://www.instagram.com/ai_mama.kosodate",
+    "url": "https://www.instagram.com/ai_mama.kosodate?obrf=MTVwdzdiY3BwYjE4eg==",
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ obrf=MTVwdzdiY3BwYjE4eg==",
+    "reason": "",
     "image": "Screenshot 2026-10-20 at 9.24.19.png",
-    "id": "blk_700"
+    "id": "blk_647"
   },
   {
     "date": "2026-10-19 6:16 PM",
     "reporter": "井峯明香奈（shAdow）",
     "name": "@yuko_the_rebirth",
-    "url": "https://www.threads.net/@yuko_the_rebirth",
+    "url": "https://www.threads.net/@yuko_the_rebirth?igShid=NTc4MTIWNjQ2YQ==",
     "secondary_url": "",
     "platform": "Threads",
     "url_warning": "",
-    "reason": "？ igShid=NTc4MTIWNjQ2YQ== io Stheode \"To ••+。。",
+    "reason": "io Stheode \"To ••+。。",
     "image": "Screenshot 2026-10-20 at 9.24.19.png",
-    "id": "blk_701"
+    "id": "blk_648"
   },
   {
     "date": "2026-10-19 7:06 PM",
     "reporter": "上野美々（ensemble）",
     "name": "（名称未記載）",
-    "url": "https://www.facepook.com/share/IKaLTExZRr/",
+    "url": "https://www.facebook.com/share/1KaLTExZRr/?mibextid=wwXlfr",
     "secondary_url": "",
-    "platform": "Web",
+    "platform": "Facebook",
     "url_warning": "",
-    "reason": "？ mibextid=wwXlfr 一回お話し聞いていて、合わないと思っているとのこと。",
+    "reason": "一回お話し聞いていて、合わないと思っているとのこと。",
     "image": "Screenshot 2026-10-20 at 9.24.19.png",
-    "id": "blk_702"
+    "id": "blk_649"
   },
   {
     "date": "2026-10-19 7:09 PM",
@@ -8435,9 +7799,9 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ mdxt=dGlqeDJqdjinqaWip 今の活動で手一杯だそうです",
+    "reason": "mdxt=dGlqeDJqdjinqaWip 今の活動で手一杯だそうです",
     "image": "Screenshot 2026-10-20 at 9.24.19.png",
-    "id": "blk_703"
+    "id": "blk_650"
   },
   {
     "date": "2026-10-19 10:02 PM",
@@ -8447,8 +7811,644 @@ const INITIAL_BLOCKLIST = [
     "secondary_url": "",
     "platform": "Instagram",
     "url_warning": "",
-    "reason": "？ dlrf=MTZ6cHdqoWNldHJIZQ== 1 hour ago Enter your comment.",
+    "reason": "dlrf=MTZ6cHdqoWNldHJIZQ== 1 hour ago Enter your comment.",
     "image": "Screenshot 2026-10-20 at 9.24.19.png",
+    "id": "blk_651"
+  },
+  {
+    "date": "",
+    "reporter": "本多栞（RAYTUS / 秘書課）",
+    "name": "@miraisha_aki",
+    "url": "https://www.threads.net/@miraisha_aki",
+    "secondary_url": "",
+    "platform": "Threads",
+    "url_warning": "",
+    "reason": "JUNI C II.O4 AIVI",
+    "image": "Screenshot 2026-10-20 at 9.12.45.png",
+    "id": "blk_652"
+  },
+  {
+    "date": "",
+    "reporter": "本多栞（RAYTUS / 秘書課）",
+    "name": "@trueselfkakuseimama",
+    "url": "https://www.threads.net/@trueselfkakuseimama",
+    "secondary_url": "",
+    "platform": "Threads",
+    "url_warning": "",
+    "reason": "以前お話聞いてお断りしたそうです！",
+    "image": "Screenshot 2026-10-20 at 9.12.59.png",
+    "id": "blk_653"
+  },
+  {
+    "date": "",
+    "reporter": "本多栞（RAYTUS / 秘書課）",
+    "name": "@tetsuniro_photographer",
+    "url": "https://www.instagram.com/tetsuniro_photographer/",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "2回目Zoomでも「魅力を感じません」と入会せず。お声がけ不要 です。",
+    "image": "Screenshot 2026-10-20 at 9.13.16.png",
+    "id": "blk_654"
+  },
+  {
+    "date": "",
+    "reporter": "杉山ななみ（RAYTUS）",
+    "name": "@sharemee_official",
+    "url": "https://www.threads.net/@sharemee_official?igshid=NTc4MTIwNjQ2YQ==",
+    "secondary_url": "",
+    "platform": "Threads",
+    "url_warning": "",
+    "reason": "私で8回目のお断りだそうです。 情報共有はどうなっているんだと言われました。 お誘いしないようお願いします。",
+    "image": "Screenshot 2026-10-20 at 9.13.29.png",
+    "id": "blk_655"
+  },
+  {
+    "date": "",
+    "reporter": "林味タ（Mimola）",
+    "name": "@ponkotsu_dekae",
+    "url": "https://www.instagram.com/ponkotsu_dekae",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "1stからアポに繋がったがそこから既読スルー4回。返信する気も ないみたいなので、絶対にお声がけしないでください。 ？ IgSh=bTZkcGtweWM2bGNi",
+    "image": "Screenshot 2026-10-20 at 9.13.50.png",
+    "id": "blk_656"
+  },
+  {
+    "date": "",
+    "reporter": "岩楯八重子（Lumiere.）",
+    "name": "@pazuru2025",
+    "url": "https://www.threads.net/@pazuru2025",
+    "secondary_url": "",
+    "platform": "Threads",
+    "url_warning": "",
+    "reason": "・被害者1号になるところでした。 ・目を覚ましましょう。 ・時間を返して。 ・本当にビジネスパートナーを探してるんです、ふざけないで。 ・離婚調停の事だって、本当かどうか.薄っぺらい などなどまだまだボロカスに言われました。 ？ IgShid=NTC4MTIWNjQ2YQ==",
+    "image": "Screenshot 2026-10-20 at 9.14.18.png",
+    "id": "blk_657"
+  },
+  {
+    "date": "",
+    "reporter": "松島巧（MAARUKU.NEO）",
+    "name": "@hana__901",
+    "url": "https://www.instagram.com/hana__901?igsh=MmZnY2",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "JUI O IU.44 HIVI 当日どころか、zoom開始してから怪しいからzoomできないとか で 文章で送ってきます。 めっちゃネガティブやばいです .5cDYwoniv",
+    "image": "Screenshot 2026-10-20 at 9.14.29.png",
+    "id": "blk_658"
+  },
+  {
+    "date": "",
+    "reporter": "中川美雪（yuima-ru）",
+    "name": "@michiko_skrg",
+    "url": "https://www.threads.net/@michiko_skrg?igshid=NTC4MTIwNjQ2YQ==",
+    "secondary_url": "",
+    "platform": "Threads",
+    "url_warning": "",
+    "reason": "JUI IU I.CO HIVI この方々、ネオのこと悪く言って盛り上がってました。 報告＆ブロックお願いします！ ？ 1gShid=NTC4MTIWNjQ2YQ==  ？ igshid=NTc4MTIwNjQ2YQ==  ？ 1gShia=NTC4MTIwNjQ2YQ== ？ Igshid=NTc4MTIwNjQ2YQ== ？ igShid=NTc4MTIwNjQ2YQ==",
+    "image": "Screenshot 2026-10-20 at 9.14.54.png",
+    "id": "blk_659"
+  },
+  {
+    "date": "",
+    "reporter": "畑ゆかり（yuima-ru理事長）",
+    "name": "@cellocafe_wanko_care",
+    "url": "https://www.threads.net/@cellocafe_wanko_care?igshid=NTc4MTIwNjQ2YQ==",
+    "secondary_url": "",
+    "platform": "Threads",
+    "url_warning": "",
+    "reason": "",
+    "image": "Screenshot 2026-10-20 at 9.15.02.png",
+    "id": "blk_660"
+  },
+  {
+    "date": "",
+    "reporter": "畑ゆかり（yuima-ru理事長）",
+    "name": "@hitomil024_chia0202",
+    "url": "https://www.threads.net/@hitomil024_chia0202/post/DalkvUBkaYu?xmt=AQGOhzTPbK9WfkAHSIX_KR8ZPOdbiGil6OZrPe-5aFKZe",
+    "secondary_url": "",
+    "platform": "Threads",
+    "url_warning": "",
+    "reason": "スレッズでつぶやいていたので、報告＆ブロックしましょう！ 7_PhWrr5L8HLnDIrFRnHfkVOt5K&slof=1",
+    "image": "Screenshot 2026-10-20 at 9.15.10.png",
+    "id": "blk_661"
+  },
+  {
+    "date": "",
+    "reporter": "本多栞（RAYTUS / 秘書課）",
+    "name": "@sato19870914",
+    "url": "https://www.threads.net/@sato19870914",
+    "secondary_url": "",
+    "platform": "Threads",
+    "url_warning": "",
+    "reason": "居場所づくりしたいですと言う割には保育士として働きたいと言っ ていたので趣旨が違うかなと思います。",
+    "image": "Screenshot 2026-10-20 at 9.15.17.png",
+    "id": "blk_662"
+  },
+  {
+    "date": "",
+    "reporter": "本多栞（RAYTUS / 秘書課）",
+    "name": "@serapisto.ai",
+    "url": "https://www.threads.net/@serapisto.ai",
+    "secondary_url": "",
+    "platform": "Threads",
+    "url_warning": "",
+    "reason": "何度かおせっかいされているそうです。。",
+    "image": "Screenshot 2026-10-20 at 9.16.15.png",
+    "id": "blk_663"
+  },
+  {
+    "date": "",
+    "reporter": "北御門祥子（Ablaze）",
+    "name": "@amu.nama_diving",
+    "url": "https://www.threads.net/@amu.nama_diving/post/DbN_6YWk&JR?xmt=AQGOni2CJ7KrzucTUnw-OPYuttejj-",
+    "secondary_url": "",
+    "platform": "Threads",
+    "url_warning": "",
+    "reason": "BVcMdMqoxI6kTKZHXIEU_FTSHVUCO39ZOVRitN3L&slof=1",
+    "image": "Screenshot 2026-10-20 at 9.16.20.png",
+    "id": "blk_664"
+  },
+  {
+    "date": "",
+    "reporter": "岩崎七菜子（tEaM_S.）",
+    "name": "Facebookユーザー",
+    "url": "https://www.facebook.com/profile.php?id=100005481338536",
+    "secondary_url": "",
+    "platform": "Facebook",
+    "url_warning": "",
+    "reason": "直前で、やむを得ない事情ならまだしも、調整可能な予定を入れて さてのキャンセルだったので、一緒に仲間として出来ないと判断し ました！",
+    "image": "Screenshot 2026-10-20 at 9.16.37.png",
+    "id": "blk_665"
+  },
+  {
+    "date": "",
+    "reporter": "岩嶋麻由美（Blooming）",
+    "name": "@yuzu_pooonn",
+    "url": "https://www.instagram.com/yuzu_pooonn?igsh=MW54cDh5MWt6bTd3cQ==",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "2度もドタキャンでその後連絡なし。とても失礼な方ですので、ブ ロックリスト入りです。",
+    "image": "Screenshot 2026-10-20 at 9.16.43.png",
+    "id": "blk_666"
+  },
+  {
+    "date": "",
+    "reporter": "相良織（Meguria理事長）",
+    "name": "@hitsujino.nami",
+    "url": "https://www.instagram.com/hitsujino.nami?utm_source=ig_web_button_share_sheet&igsh=ZDNIZDCOMzlxNw==",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "LEONコミュニティのひと。 いろいろ話しましたが、全然夢がない人だったのでzoomする時間",
+    "image": "Screenshot 2026-10-20 at 9.16.50.png",
+    "id": "blk_667"
+  },
+  {
+    "date": "",
+    "reporter": "本多栞（RAYTUS / 秘書課）",
+    "name": "@satomi.joan",
+    "url": "https://www.instagram.com/satomi.joan?igsh=d3NjeWv1na3F0b2Fr",
+    "secondary_url": "https://www.threads.net/@satomi.joan",
+    "platform": "Instagram / Threads",
+    "url_warning": "",
+    "reason": "MLM頑張ってる、入会金すごすぎて絶対入らないので話聞かな い、とのことですい）  ？ igShia=NTC4MTIWNJQ2YQ==",
+    "image": "Screenshot 2026-10-20 at 9.16.56.png",
+    "id": "blk_668"
+  },
+  {
+    "date": "",
+    "reporter": "本多栞（RAYTUS / 秘書課）",
+    "name": "@tomomi_mama.therapistmaster",
+    "url": "https://www.instagram.com/tomomi_mama.therapistmaster?igsh=NmRta3Z6bHJ2MDBj",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "",
+    "image": "Screenshot 2026-10-20 at 9.17.39.png",
+    "id": "blk_669"
+  },
+  {
+    "date": "",
+    "reporter": "榎原慈（ensemble）",
+    "name": "@chiharu3201",
+    "url": "https://www.instagram.com/chiharu3201?igsh=MWszZWJ2bTZiNGFsaQ==&igsi=MWszZWJ2bTZiNGFsaQ==",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "ネットで書かれていることを鵜呑みにしている方です。 何度もお誘い受けていて、今後もはいるつもりはないとの事です",
+    "image": "Screenshot 2026-10-20 at 9.18.10.png",
+    "id": "blk_670"
+  },
+  {
+    "date": "",
+    "reporter": "複原慈（ensemble）",
+    "name": "@takarafulcare_japan",
+    "url": "https://www.instagram.com/takarafulcare_japan",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "IgSi=ZXYzcm5pN252cjV3 会長と面談しても心が動かなかった方です",
+    "image": "Screenshot 2026-10-20 at 9.18.54.png",
+    "id": "blk_671"
+  },
+  {
+    "date": "",
+    "reporter": "片岡哉江かなえ（シャンブルカーサ）",
+    "name": "Facebookユーザー",
+    "url": "https://www.facebook.com/profile.php",
+    "secondary_url": "",
+    "platform": "Facebook",
+    "url_warning": "",
+    "reason": "LINK BNIで活動。 今で十分です、とのことです。 ？ 10=100076368546204&mibextia=wwXifr",
+    "image": "Screenshot 2026-10-20 at 9.19.00.png",
+    "id": "blk_672"
+  },
+  {
+    "date": "",
+    "reporter": "井明香奈（shAdow）",
+    "name": "@aekopoko_tochan",
+    "url": "https://www.threads.net/@aekopoko_tochan?igshid=NTC4MTIwNjQ2YQ==",
+    "secondary_url": "",
+    "platform": "Threads",
+    "url_warning": "修復済",
+    "reason": "AUg 30 11:34 AMI  アドアボ後、zoomの内容などを書面で欲しいと要求され、 文面のみでここの事など間違って認識してして欲しくないので、疑 問があればzoomで話して解消していく事を提案しても書面が欲し いと何度も言われたり等、こちらからお断りしてます♪",
+    "image": "Screenshot 2026-10-20 at 9.19.14.png",
+    "id": "blk_673"
+  },
+  {
+    "date": "",
+    "reporter": "片岡哉江かなえ（シャンブルカーサ）",
+    "name": "Facebookユーザー",
+    "url": "https://www.facebook.com/share/1BuiYdQFGy/?mibextid=wwXifr",
+    "secondary_url": "",
+    "platform": "Facebook",
+    "url_warning": "",
+    "reason": "知人で 『会長に200万円費やしたが なにもしてくれなかった。』という人の話を信じています。",
+    "image": "Screenshot 2026-10-20 at 9.19.39.png",
+    "id": "blk_674"
+  },
+  {
+    "date": "",
+    "reporter": "本多栞（RAYTUS / 秘書課）",
+    "name": "@minto_amechan",
+    "url": "https://www.threads.net/@minto_amechan",
+    "secondary_url": "",
+    "platform": "Threads",
+    "url_warning": "",
+    "reason": "私の投稿内で勝手に騒いでました（",
+    "image": "Screenshot 2026-10-20 at 9.19.50.png",
+    "id": "blk_675"
+  },
+  {
+    "date": "",
+    "reporter": "本多栞（RAYTUS / 秘書課）",
+    "name": "@non.resetlab",
+    "url": "https://www.threads.net/@non.resetlab",
+    "secondary_url": "",
+    "platform": "Threads",
+    "url_warning": "",
+    "reason": "私の投稿内で勝手に騒いでました（",
+    "image": "Screenshot 2026-10-20 at 9.19.50.png",
+    "id": "blk_676"
+  },
+  {
+    "date": "",
+    "reporter": "本多栞（RAYTUS / 秘書課）",
+    "name": "@eri_kamisima",
+    "url": "https://www.threads.net/@eri_kamisima?igshid=NTc4MTIWNjQ2YQ==",
+    "secondary_url": "https://www.instagram.com/erikamisima",
+    "platform": "Threads / Instagram",
+    "url_warning": "",
+    "reason": "アポ翌日の早朝に長文確認リストLINEが届きました 自分でやりたいが強めな方でした  ？",
+    "image": "Screenshot 2026-10-20 at 9.20.00.png",
+    "id": "blk_677"
+  },
+  {
+    "date": "",
+    "reporter": "本多栞（RAYTUS / 秘書課）",
+    "name": "@eri.kamisima_official",
+    "url": "https://www.instagram.com/eri.kamisima_official?stkn=YmljZDEycnUxZg==",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "～別アカウント",
+    "image": "Screenshot 2026-10-20 at 9.20.00.png",
+    "id": "blk_678"
+  },
+  {
+    "date": "",
+    "reporter": "本多栞（RAYTUS / 秘書課）",
+    "name": "@naoharart_sujibrow_himeji",
+    "url": "https://www.instagram.com/naoharart_sujibrow_himeji?stkn=M2hrMmwxNDF40GQx",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "",
+    "image": "Screenshot 2026-10-20 at 9.20.16.png",
+    "id": "blk_679"
+  },
+  {
+    "date": "",
+    "reporter": "本多栞（RAYTUS / 秘書課）",
+    "name": "@koko.rainbow.tarumi",
+    "url": "https://www.threads.net/@koko.rainbow.tarumi",
+    "secondary_url": "",
+    "platform": "Threads",
+    "url_warning": "",
+    "reason": "自分の近くだけ良くしたいらしいです",
+    "image": "Screenshot 2026-10-20 at 9.20.38.png",
+    "id": "blk_680"
+  },
+  {
+    "date": "",
+    "reporter": "坂井照子（AMATERAS）",
+    "name": "@_mika_222",
+    "url": "https://www.threads.net/@_mika_222?igshid=NTc4MTIwNjQ2YQ==",
+    "secondary_url": "",
+    "platform": "Threads",
+    "url_warning": "",
+    "reason": "",
+    "image": "Screenshot 2026-10-20 at 9.20.44.png",
+    "id": "blk_681"
+  },
+  {
+    "date": "",
+    "reporter": "浦川内陽子（M.eclat（Mimola）",
+    "name": "@o_yaro.zakka",
+    "url": "https://www.instagram.com/o_yaro.zakka?stkn=ZXlycGI1N2RKNDRp",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "",
+    "image": "Screenshot 2026-10-20 at 9.21.03.png",
+    "id": "blk_682"
+  },
+  {
+    "date": "",
+    "reporter": "岩嶋麻由美（Blooming）",
+    "name": "@gon_apo_",
+    "url": "https://www.threads.net/@gon_apo_",
+    "secondary_url": "",
+    "platform": "Threads",
+    "url_warning": "修復済",
+    "reason": "人として無しです。",
+    "image": "Screenshot 2026-10-20 at 9.21.40.png",
+    "id": "blk_683"
+  },
+  {
+    "date": "",
+    "reporter": "後藤広代（Lumiere.）",
+    "name": "@4444aaaaaccccca",
+    "url": "https://www.threads.net/@4444aaaaaccccca",
+    "secondary_url": "",
+    "platform": "Threads",
+    "url_warning": "修復済",
+    "reason": "最悪です。 Zoomが決まってから連絡が取れなくなりました。 要注意人物です。",
+    "image": "Screenshot 2026-10-20 at 9.21.48.png",
+    "id": "blk_684"
+  },
+  {
+    "date": "",
+    "reporter": "畑ゆかり（yuima-ru理事長）",
+    "name": "@noriko.bow",
+    "url": "https://www.instagram.com/noriko.bow?Stkn=C3EOdWgweHVyZG9w",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "",
+    "image": "Screenshot 2026-10-20 at 9.22.09.png",
+    "id": "blk_685"
+  },
+  {
+    "date": "",
+    "reporter": "草間真衣（MURA）",
+    "name": "@therapist_aya24",
+    "url": "https://www.threads.net/@therapist_aya24?igshid=NTc4MTIwNjQ2YQ==",
+    "secondary_url": "",
+    "platform": "Threads",
+    "url_warning": "修復済",
+    "reason": "therapist_aya24 11時間 ●ママ支援がしたい。 とかゆって、Threadsのせてる人….. ZOOMで話し聞いたら 入会金33万払えって？？ 最近そんな話ばかり... 私は自分の蔘を叶えるのに、何回詐偽みたいな事 に合わないといけないんだ。。 やっぱ、自分1人でやるしかない！！",
+    "image": "Screenshot 2026-10-20 at 9.22.17.png",
+    "id": "blk_686"
+  },
+  {
+    "date": "",
+    "reporter": "坂井照子（AMATERAS）",
+    "name": "@cairo_beauty_aki",
+    "url": "https://www.instagram.com/cairo_beauty_aki?psIn=ZmRnNiVIZmlma3Bx",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "",
+    "image": "Screenshot 2026-10-20 at 9.22.52.png",
+    "id": "blk_687"
+  },
+  {
+    "date": "",
+    "reporter": "宮川亜希子（Meguria）",
+    "name": "@natsuko7_personalcolor",
+    "url": "https://instagram.com/natsuko7_personalcolor",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "修復済",
+    "reason": "cplk=amptY3RpOXBzenU1 今は自分の周りから少しずつやりたいそうです",
+    "image": "Screenshot 2026-10-20 at 9.23.19.png",
+    "id": "blk_688"
+  },
+  {
+    "date": "",
+    "reporter": "本多栞（RAYTUS / 秘書課）",
+    "name": "@detox_salon_pure",
+    "url": "https://www.instagram.com/detox_salon_pure?srtk=Mnh5Z2syc3pxODZ1",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "",
+    "image": "Screenshot 2026-10-20 at 9.23.38.png",
+    "id": "blk_689"
+  },
+  {
+    "date": "",
+    "reporter": "桝田和裕（AMATERAS）",
+    "name": "@syp_spring",
+    "url": "https://www.threads.net/@syp_spring",
+    "secondary_url": "https://www.instagram.com/syp_spring",
+    "platform": "Threads / Instagram",
+    "url_warning": "",
+    "reason": "入会金かけて参加することは考えていなかったとのこと ？ igShid=NTc4MTIWNjQ2YQ== ？ exIn=MTV6cm9saHpieWtzeA==",
+    "image": "Screenshot 2026-10-20 at 9.23.45.png",
+    "id": "blk_690"
+  },
+  {
+    "date": "",
+    "reporter": "池田真理子（Lumiere.）",
+    "name": "Facebookユーザー",
+    "url": "https://www.facebook.com/share/16H7j35ChBt/Twodaysagoat9:12AM",
+    "secondary_url": "",
+    "platform": "Facebook",
+    "url_warning": "",
+    "reason": "",
+    "image": "Screenshot 2026-10-20 at 9.23.52.png",
+    "id": "blk_691"
+  },
+  {
+    "date": "",
+    "reporter": "小西みゆき（Mimola）",
+    "name": "@harepeta",
+    "url": "https://www.instagram.com/harepeta?psIn=OHVnNW45YWIqLTR",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "」 以前にもお声がけされてるそうですが入りませんとの事です Two days ago at 9:18 AM",
+    "image": "Screenshot 2026-10-20 at 9.23.52.png",
+    "id": "blk_692"
+  },
+  {
+    "date": "",
+    "reporter": "小西みゆき（Mimola）",
+    "name": "@niwakatsu_37",
+    "url": "https://www.threads.net/@niwakatsu_37?igshid=NTC4MTIwNjQ2YQ==",
+    "secondary_url": "",
+    "platform": "Threads",
+    "url_warning": "",
+    "reason": "こんな投稿見つけたのでシェアしておきます※  wakatsu_37 12時間 ママとこども向けのサービスが1箇所に集まった場 所を作ろうとしてます！仲間探してます！系のひと こちのDMは フルシカトしてます これから居場所作るひとたちにはめちゃくちゃ寄っ てくるんでりか てんないとなり人といことやっつと世日来のかつて ず、自分でできる範囲のことからやりましょうよ、、",
+    "image": "Screenshot 2026-10-20 at 9.23.52.png",
+    "id": "blk_693"
+  },
+  {
+    "date": "",
+    "reporter": "井明香奈（shAdow）",
+    "name": "@youmeiku311",
+    "url": "https://www.threads.net/@youmeiku311?igshid=NTC4MTIwNjQ2YQ==",
+    "secondary_url": "",
+    "platform": "Threads",
+    "url_warning": "",
+    "reason": "Two days ago at 5:13 PM",
+    "image": "Screenshot 2026-10-20 at 9.23.52.png",
+    "id": "blk_694"
+  },
+  {
+    "date": "",
+    "reporter": "桝田和裕（AMATERAS）",
+    "name": "@hello.picopa",
+    "url": "https://www.threads.net/@hello.picopa?IgShid=NTC4MTIwNjQ2YQ==",
+    "secondary_url": "",
+    "platform": "Threads",
+    "url_warning": "",
+    "reason": "Two days ago at 8:01 PM",
+    "image": "Screenshot 2026-10-20 at 9.23.52.png",
+    "id": "blk_695"
+  },
+  {
+    "date": "",
+    "reporter": "服部達典（MURA）",
+    "name": "@yuca_support_insta",
+    "url": "https://www.instagram.com/yuca_support_insta?srtk=MWJ3YWdxN2IwMzAzdQ==",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "Two days ago at 8:29 PM",
+    "image": "Screenshot 2026-10-20 at 9.23.52.png",
+    "id": "blk_696"
+  },
+  {
+    "date": "",
+    "reporter": "服部達典（MURA）",
+    "name": "@02neh20",
+    "url": "https://www.threads.net/@02neh20",
+    "secondary_url": "",
+    "platform": "Threads",
+    "url_warning": "",
+    "reason": "Two days ago at 8:30 PM",
+    "image": "Screenshot 2026-10-20 at 9.24.00.png",
+    "id": "blk_697"
+  },
+  {
+    "date": "",
+    "reporter": "後藤広代（Lumiere.）",
+    "name": "@rin_ta2000",
+    "url": "https://www.instagram.com/rin_ta2000?rpxt=NDBpazh5YWxtZDEw",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "こいつは最悪ですよ Two days ago at 9:08 PM",
+    "image": "Screenshot 2026-10-20 at 9.24.00.png",
+    "id": "blk_698"
+  },
+  {
+    "date": "",
+    "reporter": "宮川亜希子（Meguria）",
+    "name": "@sainowa_botanical",
+    "url": "https://www.instagram.com/sainowa_botanical?stkn=Ym4lajRmcmM2amRI",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "別のコミュニティに入っていて余裕ないそうです Two days ago at 11:21 PM",
+    "image": "Screenshot 2026-10-20 at 9.24.00.png",
+    "id": "blk_699"
+  },
+  {
+    "date": "",
+    "reporter": "宮川亜希子（Meguria）",
+    "name": "@mirainokenko.oen.planner",
+    "url": "https://www.instagram.com/mirainokenko.oen.planner?rpxt=MXUyNWIncXhOM3UxOA==",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "余裕ないそうです Two days ago at 11:23 PM",
+    "image": "Screenshot 2026-10-20 at 9.24.00.png",
+    "id": "blk_700"
+  },
+  {
+    "date": "",
+    "reporter": "ロジャーズ優衣（enchant+）",
+    "name": "@otani_colortype",
+    "url": "https://www.instagram.com/otani_colortype",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "コミュニティは考えていなかったり、過去にお話を聞いたことがあ る方たちです♪ ？ obrf=Y2ZObHI2aHMzY2ZV ？ psIn=MWNycmlwMHgzZHcyaQ== ？ vrfl=MWI1ZzE5c3Fsd2o1Zw== ？ dlrf=N3VxcGkzd3Q5MDA3",
+    "image": "Screenshot 2026-10-20 at 9.24.05.png",
+    "id": "blk_701"
+  },
+  {
+    "date": "",
+    "reporter": "ロジャーズ優衣（enchant+）",
+    "name": "@yukimama_wellness.life",
+    "url": "https://www.instagram.com/yukimama_wellness.life",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "コミュニティは考えていなかったり、過去にお話を聞いたことがあ る方たちです♪ ？ obrf=Y2ZObHI2aHMzY2ZV ？ psIn=MWNycmlwMHgzZHcyaQ== ？ vrfl=MWI1ZzE5c3Fsd2o1Zw== ？ dlrf=N3VxcGkzd3Q5MDA3",
+    "image": "Screenshot 2026-10-20 at 9.24.05.png",
+    "id": "blk_702"
+  },
+  {
+    "date": "",
+    "reporter": "ロジャーズ優衣（enchant+）",
+    "name": "@babysitter_chino",
+    "url": "https://www.instagram.com/babysitter_chino",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "コミュニティは考えていなかったり、過去にお話を聞いたことがあ る方たちです♪ ？ obrf=Y2ZObHI2aHMzY2ZV ？ psIn=MWNycmlwMHgzZHcyaQ== ？ vrfl=MWI1ZzE5c3Fsd2o1Zw== ？ dlrf=N3VxcGkzd3Q5MDA3",
+    "image": "Screenshot 2026-10-20 at 9.24.05.png",
+    "id": "blk_703"
+  },
+  {
+    "date": "",
+    "reporter": "ロジャーズ優衣（enchant+）",
+    "name": "@fiore.oil",
+    "url": "https://www.instagram.com/fiore.oil",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "コミュニティは考えていなかったり、過去にお話を聞いたことがあ る方たちです♪ ？ obrf=Y2ZObHI2aHMzY2ZV ？ psIn=MWNycmlwMHgzZHcyaQ== ？ vrfl=MWI1ZzE5c3Fsd2o1Zw== ？ dlrf=N3VxcGkzd3Q5MDA3",
+    "image": "Screenshot 2026-10-20 at 9.24.05.png",
     "id": "blk_704"
   }
 ];

@@ -570,10 +570,10 @@
       <!-- KPI Summary Cards -->
       <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
         <!-- Total -->
-        <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-xs">
+        <div onclick="filterByPlatformCard('all')" class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-xs cursor-pointer hover:border-rose-400 hover:shadow-md hover:-translate-y-0.5 transition active:scale-98 group" title="クリックしてすべてのプラットフォームを表示">
           <div class="flex items-center justify-between text-slate-400 mb-2">
-            <span class="text-xs font-bold text-slate-500">登録総数</span>
-            <div class="w-7 h-7 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center text-xs">
+            <span class="text-xs font-bold text-slate-500 group-hover:text-rose-600 transition">登録総数（すべて）</span>
+            <div class="w-7 h-7 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center text-xs group-hover:bg-rose-100 transition">
               <i class="fa-solid fa-user-slash"></i>
             </div>
           </div>
@@ -584,10 +584,10 @@
         </div>
 
         <!-- Instagram -->
-        <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-xs">
+        <div onclick="filterByPlatformCard('Instagram')" class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-xs cursor-pointer hover:border-pink-400 hover:shadow-md hover:-translate-y-0.5 transition active:scale-98 group" title="クリックしてInstagramのみに絞り込み">
           <div class="flex items-center justify-between text-slate-400 mb-2">
-            <span class="text-xs font-bold text-slate-500">Instagram</span>
-            <div class="w-7 h-7 rounded-lg bg-pink-50 text-pink-600 flex items-center justify-center text-xs">
+            <span class="text-xs font-bold text-slate-500 group-hover:text-pink-600 transition">Instagram</span>
+            <div class="w-7 h-7 rounded-lg bg-pink-50 text-pink-600 flex items-center justify-center text-xs group-hover:bg-pink-100 transition">
               <i class="fa-brands fa-instagram"></i>
             </div>
           </div>
@@ -598,10 +598,10 @@
         </div>
 
         <!-- Threads -->
-        <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-xs">
+        <div onclick="filterByPlatformCard('Threads')" class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-xs cursor-pointer hover:border-slate-600 hover:shadow-md hover:-translate-y-0.5 transition active:scale-98 group" title="クリックしてThreadsのみに絞り込み">
           <div class="flex items-center justify-between text-slate-400 mb-2">
-            <span class="text-xs font-bold text-slate-500">Threads</span>
-            <div class="w-7 h-7 rounded-lg bg-slate-100 text-slate-900 flex items-center justify-center text-xs">
+            <span class="text-xs font-bold text-slate-500 group-hover:text-slate-900 transition">Threads</span>
+            <div class="w-7 h-7 rounded-lg bg-slate-100 text-slate-900 flex items-center justify-center text-xs group-hover:bg-slate-200 transition">
               <i class="fa-brands fa-threads"></i>
             </div>
           </div>
@@ -612,10 +612,10 @@
         </div>
 
         <!-- Facebook -->
-        <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-xs">
+        <div onclick="filterByPlatformCard('Facebook')" class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-xs cursor-pointer hover:border-blue-400 hover:shadow-md hover:-translate-y-0.5 transition active:scale-98 group" title="クリックしてFacebookのみに絞り込み">
           <div class="flex items-center justify-between text-slate-400 mb-2">
-            <span class="text-xs font-bold text-slate-500">Facebook</span>
-            <div class="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-xs">
+            <span class="text-xs font-bold text-slate-500 group-hover:text-blue-600 transition">Facebook</span>
+            <div class="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-xs group-hover:bg-blue-100 transition">
               <i class="fa-brands fa-facebook"></i>
             </div>
           </div>
@@ -626,13 +626,19 @@
         </div>
 
         <!-- Others -->
-        <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-xs col-span-2 sm:col-span-1">
+        <div onclick="filterByPlatformCard('その他')" class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-xs col-span-2 sm:col-span-1 cursor-pointer hover:border-amber-400 hover:shadow-md hover:-translate-y-0.5 transition active:scale-98 group" title="クリックしてその他/Webのみに絞り込み">
           <div class="flex items-center justify-between text-slate-400 mb-2">
-            <span class="text-xs font-bold text-slate-500">その他/Web</span>
-            <div class="w-7 h-7 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center text-xs">
+            <span class="text-xs font-bold text-slate-500 group-hover:text-amber-600 transition">その他/Web</span>
+            <div class="w-7 h-7 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center text-xs group-hover:bg-amber-100 transition">
               <i class="fa-solid fa-globe"></i>
             </div>
           </div>
+          <div class="flex items-baseline gap-2">
+            <span id="blk-kpi-other" class="text-2xl sm:text-3xl font-black text-amber-600">0</span>
+            <span class="text-xs text-slate-400 font-bold">件</span>
+          </div>
+        </div>
+      </div>
           <div class="flex items-baseline gap-2">
             <span id="blk-kpi-other" class="text-2xl sm:text-3xl font-black text-amber-600">0</span>
             <span class="text-xs text-slate-400 font-bold">件</span>
@@ -683,12 +689,12 @@
           <table class="w-full text-left text-xs">
             <thead class="bg-slate-50/80 border-b border-slate-200/80 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
               <tr>
-                <th scope="col" class="py-3 px-4 w-32">登録日時</th>
-                <th scope="col" class="py-3 px-4 min-w-[160px]">氏名 / 屋号 / 表示名</th>
-                <th scope="col" class="py-3 px-4 min-w-[200px]">URL / アカウント</th>
-                <th scope="col" class="py-3 px-4 min-w-[240px]">理由・備考メモ</th>
-                <th scope="col" class="py-3 px-4 w-36">報告者</th>
-                <th scope="col" class="py-3 px-4 text-right w-24">操作</th>
+                <th scope="col" class="py-2.5 px-3 w-24 text-center shrink-0">登録日時</th>
+                <th scope="col" class="py-2.5 px-3 w-32 max-w-[130px] shrink-0">氏名 / 表示名</th>
+                <th scope="col" class="py-2.5 px-3 w-56 min-w-[190px] shrink-0">URL / アカウント</th>
+                <th scope="col" class="py-2.5 px-3 min-w-[200px]">理由・備考メモ</th>
+                <th scope="col" class="py-2.5 px-3 w-28 max-w-[115px] text-center shrink-0">報告者</th>
+                <th scope="col" class="py-2.5 px-2 text-center w-12 shrink-0">操作</th>
               </tr>
             </thead>
             <tbody id="blk-table-body" class="divide-y divide-slate-100 font-medium text-slate-700">
@@ -960,7 +966,7 @@
   </div>
 
   <!-- ==================== BLOCKLIST ENTRY (ADD/EDIT) MODAL ==================== -->
-  <div id="blocklist-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
+  <div id="blocklist-modal" onclick="if (event.target === this) closeModal('blocklist-modal')" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
     <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl border border-slate-200 relative animate-scaleUp max-h-[90vh] overflow-y-auto">
       <button onclick="closeModal('blocklist-modal')" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center transition">
         <i class="fa-solid fa-xmark"></i>
@@ -981,9 +987,9 @@
         <!-- Name / Title -->
         <div>
           <label class="block text-xs font-bold text-slate-700 mb-1">
-            対象者名 / 屋号 / 表示名 <span class="text-rose-500">*</span>
+            対象者名 / 屋号 / 表示名
           </label>
-          <input type="text" id="blk-form-name" required placeholder="例: 山田花子 / @yamada_hanako" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-rose-500">
+          <input type="text" id="blk-form-name" placeholder="例: 山田花子 / @yamada_hanako" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-rose-500">
         </div>
 
         <!-- URL & Platform -->
@@ -1057,7 +1063,7 @@
   </div>
 
   <!-- ==================== BLOCKLIST DELETE CONFIRM MODAL ==================== -->
-  <div id="blocklist-delete-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
+  <div id="blocklist-delete-modal" onclick="if (event.target === this) closeModal('blocklist-delete-modal')" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
     <div class="bg-white rounded-3xl p-6 max-w-sm w-full shadow-2xl border border-slate-200 text-center relative animate-scaleUp">
       <div class="w-12 h-12 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center mx-auto mb-4 text-xl">
         <i class="fa-solid fa-triangle-exclamation"></i>
