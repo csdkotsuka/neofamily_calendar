@@ -131,3 +131,115 @@ body {
     transform: scale(1) translateY(0);
   }
 }
+
+/* ========================================================
+   RAYTUS Official Theme Styles (本家デザイン再現)
+   ======================================================== */
+.font-zen {
+  font-family: "Zen Old Mincho", serif;
+}
+
+.raytus-nav-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  line-height: 1.15;
+  padding: 10px 4px 8px 4px;
+  color: #cbd5e1;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+.raytus-nav-link:hover {
+  color: #fbbf24;
+  border-bottom-color: #fbbf24;
+  padding-left: 8px;
+  background-color: rgba(255, 255, 255, 0.03);
+}
+.raytus-nav-en {
+  font-family: "Zen Old Mincho", serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+.raytus-nav-ja {
+  font-family: "Zen Old Mincho", serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+}
+
+/* 縦書きキャッチコピー */
+.raytus-vertical-text {
+  writing-mode: vertical-rl;
+  -webkit-writing-mode: vertical-rl;
+  font-family: "Zen Old Mincho", serif;
+  letter-spacing: 0.2em;
+  line-height: 1.8;
+}
+
+/* 本家セクション見出し (.sec-head) */
+.raytus-sec-head {
+  position: relative;
+  padding-top: 50px;
+  margin-bottom: 35px;
+}
+.raytus-sec-head__en {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  color: rgba(255, 255, 255, 0.07);
+  font-family: "Zen Old Mincho", serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 1;
+  user-select: none;
+}
+.raytus-sec-head__ja {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(90deg, #1e293b, #0f172a);
+  border-left: 4px solid #f59e0b;
+  width: min(380px, 85%);
+  padding: 12px 24px;
+  text-align: left;
+  font-family: "Zen Old Mincho", serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-weight: 700;
+  color: #ffffff;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  border-radius: 0 12px 12px 0;
+}
+
+/* 本家事業カード (.sec-service__list-item) */
+.raytus-card-item {
+  position: relative;
+  min-height: 250px;
+  border-radius: 20px;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.raytus-card-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(245, 158, 11, 0.7);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 25px rgba(245, 158, 11, 0.25);
+}
+.raytus-card-item .raytus-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.35) 0%, rgba(15, 23, 42, 0.75) 50%, rgba(10, 15, 26, 0.96) 100%);
+  transition: background 0.3s ease;
+}
+.raytus-card-item:hover .raytus-card-overlay {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.2) 0%, rgba(15, 23, 42, 0.65) 45%, rgba(10, 15, 26, 0.98) 100%);
+}
