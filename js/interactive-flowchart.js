@@ -7,76 +7,62 @@
 (function () {
   'use strict';
 
-  // --- Sound Effects using Web Audio API ---
-  let audioCtx = null;
-  let isSoundEnabled = true;
-
-  function initAudio() {
-    if (!audioCtx) {
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
-      if (AudioContext) audioCtx = new AudioContext();
-    }
-    if (audioCtx && audioCtx.state === 'suspended') {
-      audioCtx.resume();
-    }
-  }
+  // --- Sound Effects (Disabled as per user request) ---
+  let isSoundEnabled = false;
 
   function playSound(type) {
-    if (!isSoundEnabled) return;
-    try {
-      initAudio();
-      if (!audioCtx) return;
-      const now = audioCtx.currentTime;
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
+    // Sound disabled
+  }
 
-      if (type === 'select') {
-        osc.type = 'triangle';
-        osc.frequency.setValueAtTime(440, now);
-        osc.frequency.exponentialRampToValueAtTime(660, now + 0.08);
-        gain.gain.setValueAtTime(0.1, now);
-        gain.gain.linearRampToValueAtTime(0.01, now + 0.08);
-        osc.start(now);
-        osc.stop(now + 0.08);
-      } else if (type === 'goal') {
-        const notes = [
-          { f: 523.25, d: 0.1, t: 0 },
-          { f: 659.25, d: 0.1, t: 0.1 },
-          { f: 783.99, d: 0.15, t: 0.2 },
-          { f: 1046.50, d: 0.3, t: 0.3 }
-        ];
-        notes.forEach(n => {
-          const o = audioCtx.createOscillator();
-          const g = audioCtx.createGain();
-          o.type = 'triangle';
-          o.frequency.setValueAtTime(n.f, now + n.t);
-          g.gain.setValueAtTime(0.12, now + n.t);
-          g.gain.exponentialRampToValueAtTime(0.001, now + n.t + n.d);
-          o.connect(g);
-          g.connect(audioCtx.destination);
-          o.start(now + n.t);
-          o.stop(now + n.t + n.d);
-        });
-      }
-    } catch (e) {
-      // Audio fallback silent
+  window.toggleSound = function () {
+    // No-op
+  };
+
+  // --- Support & Original Images Visibility Controller ---
+  function showSupportAndOriginals(scroll = false) {
+    const container = document.getElementById('support-and-originals-container');
+    if (!container) return;
+
+    container.classList.remove('hidden');
+    // Force reflow for smooth CSS fade-in
+    void container.offsetWidth;
+    container.classList.remove('opacity-0', 'translate-y-6');
+    container.classList.add('opacity-100', 'translate-y-0');
+
+    const label = document.getElementById('label-toggle-support');
+    if (label) label.textContent = 'サポート一覧・原本を閉じる';
+
+    if (scroll) {
+      setTimeout(() => {
+        container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 150);
     }
   }
 
-  // --- Sound Toggle ---
-  window.toggleSound = function () {
-    isSoundEnabled = !isSoundEnabled;
-    const icon = document.getElementById('sound-toggle-icon');
-    const label = document.getElementById('sound-toggle-label');
-    if (icon) {
-      icon.className = isSoundEnabled ? 'fa-solid fa-volume-high text-amber-500' : 'fa-solid fa-volume-xmark text-slate-400';
+  function hideSupportAndOriginals() {
+    const container = document.getElementById('support-and-originals-container');
+    if (!container) return;
+
+    container.classList.remove('opacity-100', 'translate-y-0');
+    container.classList.add('opacity-0', 'translate-y-6');
+    setTimeout(() => {
+      if (container.classList.contains('opacity-0')) {
+        container.classList.add('hidden');
+      }
+    }, 500);
+
+    const label = document.getElementById('label-toggle-support');
+    if (label) label.textContent = 'サポート一覧・原本を表示';
+  }
+
+  window.toggleSupportAndOriginals = function () {
+    const container = document.getElementById('support-and-originals-container');
+    if (!container) return;
+    if (container.classList.contains('hidden') || container.classList.contains('opacity-0')) {
+      showSupportAndOriginals(true);
+    } else {
+      hideSupportAndOriginals();
     }
-    if (label) {
-      label.textContent = isSoundEnabled ? '効果音: ON' : '効果音: OFF';
-    }
-    if (isSoundEnabled) playSound('select');
   };
 
   // --- Support Table Highlight ---
@@ -89,7 +75,6 @@
     if (row) {
       row.classList.add('bg-amber-50', 'ring-2', 'ring-amber-400', 'animate-pulse');
       setTimeout(() => row.classList.remove('animate-pulse'), 3000);
-      row.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   }
 
@@ -124,9 +109,19 @@
     }
   }
 
+  // --- Reach Goal Helper: Show Goal node & reveal support table/originals smoothly ---
+  function onReachGoal(goalNodeId, supportRowId) {
+    showNode(goalNodeId);
+    showSupportAndOriginals(false);
+    if (supportRowId) {
+      setTimeout(() => {
+        highlightSupportRow(supportRowId);
+      }, 400);
+    }
+  }
+
   // --- Step 1: やることは明確？ ---
   window.chooseStep1 = function (val) {
-    playSound('select');
     state.step1 = val;
     setActiveChoice('step1-choices', val === 'clear' ? 'btn-step1-clear' : 'btn-step1-unclear');
 
@@ -135,9 +130,7 @@
 
     if (val === 'unclear') {
       // Show Goal: 理事長に相談
-      showNode('goal-counseling-node');
-      highlightSupportRow('support-row-counseling');
-      playSound('goal');
+      onReachGoal('goal-counseling-node', 'support-row-counseling');
     } else {
       // Show Step 2: 最新情報に触れてる？
       showNode('step2-node');
@@ -146,7 +139,6 @@
 
   // --- Step 2: 最新情報に触れてる？ ---
   window.chooseStep2 = function (val) {
-    playSound('select');
     state.step2 = val;
     setActiveChoice('step2-choices', val === 'not_latest' ? 'btn-step2-not-latest' : 'btn-step2-latest');
 
@@ -154,9 +146,7 @@
 
     if (val === 'not_latest') {
       // Show Goal: NEO構想 ぎゅっと勉強会
-      showNode('goal-neo-study-node');
-      highlightSupportRow('support-row-neo-study');
-      playSound('goal');
+      onReachGoal('goal-neo-study-node', 'support-row-neo-study');
     } else {
       // Show Step 3: Iyasaka宮に出品してる？
       showNode('step3-node');
@@ -165,7 +155,6 @@
 
   // --- Step 3: Iyasaka宮に出品してる？ ---
   window.chooseStep3 = function (val) {
-    playSound('select');
     state.step3 = val;
     setActiveChoice('step3-choices', val === 'no_iyasaka' ? 'btn-step3-no' : 'btn-step3-yes');
 
@@ -182,7 +171,6 @@
 
   // --- Step 4A: 出店申請は終わってる？ ---
   window.chooseStep4a = function (val) {
-    playSound('select');
     state.step4a = val;
     setActiveChoice('step4a-choices', val === 'apply_not_yet' ? 'btn-step4a-no' : 'btn-step4a-yes');
 
@@ -190,9 +178,7 @@
 
     if (val === 'apply_not_yet') {
       // まだ ➜ Goal: 出店申請
-      showNode('goal-apply-node');
-      highlightSupportRow('support-row-iyasaka-work');
-      playSound('goal');
+      onReachGoal('goal-apply-node', 'support-row-iyasaka-work');
     } else {
       // 終わってる ➜ Step 5A: プロフィール設定や出品方法は把握してる？
       showNode('step5a-node');
@@ -201,7 +187,6 @@
 
   // --- Step 5A: プロフィール設定や出品方法は把握してる？ ---
   window.chooseStep5a = function (val) {
-    playSound('select');
     state.step5a = val;
     setActiveChoice('step5a-choices', val === 'profile_not_yet' ? 'btn-step5a-no' : 'btn-step5a-yes');
 
@@ -209,9 +194,7 @@
 
     if (val === 'profile_not_yet') {
       // まだ / 把握してない ➜ Goal: Iyasaka宮 作業会
-      showNode('goal-iyasaka-work-node');
-      highlightSupportRow('support-row-iyasaka-work');
-      playSound('goal');
+      onReachGoal('goal-iyasaka-work-node', 'support-row-iyasaka-work');
     } else {
       // してる ➜ 勉強ジンジャー (Step 4B) へ合流！
       showNode('step4b-node');
@@ -220,7 +203,6 @@
 
   // --- Step 4B: 勉強ジンジャー出品してる？ ---
   window.chooseStep4b = function (val) {
-    playSound('select');
     state.step4b = val;
     setActiveChoice('step4b-choices', val === 'ginger_unknown' ? 'btn-step4b-unknown' : 'btn-step4b-done');
 
@@ -228,9 +210,7 @@
 
     if (val === 'ginger_unknown') {
       // やり方がわからない ➜ Goal: 勉強ジンジャー活用サポート
-      showNode('goal-ginger-node');
-      highlightSupportRow('support-row-ginger');
-      playSound('goal');
+      onReachGoal('goal-ginger-node', 'support-row-ginger');
     } else {
       // してる / 今はやらない ➜ Step 5B: EEDA動画出してる？
       showNode('step5b-node');
@@ -239,7 +219,6 @@
 
   // --- Step 5B: EEDA動画出してる？ ---
   window.chooseStep5b = function (val) {
-    playSound('select');
     state.step5b = val;
     setActiveChoice('step5b-choices', val === 'eeda_intro' ? 'btn-step5b-intro' : 'btn-step5b-work');
 
@@ -247,14 +226,10 @@
 
     if (val === 'eeda_intro') {
       // そもそもを知りたい ➜ Goal: EEDA探検ポチポチ会
-      showNode('goal-eeda-pochi-node');
-      highlightSupportRow('support-row-eeda-pochi');
-      playSound('goal');
+      onReachGoal('goal-eeda-pochi-node', 'support-row-eeda-pochi');
     } else {
       // 制作進まない / 質問したい ➜ Goal: EEDA作業会
-      showNode('goal-eeda-work-node');
-      highlightSupportRow('support-row-eeda-work');
-      playSound('goal');
+      onReachGoal('goal-eeda-work-node', 'support-row-eeda-work');
     }
   };
 
@@ -316,11 +291,17 @@
         ['goal-eeda-pochi-node', 'goal-eeda-work-node'].forEach(hideNode);
       }
     }
+
+    // Check if any goal node is still visible; if not, collapse support & originals
+    const anyGoalVisible = allNodes.some(id => id.startsWith('goal-') && !document.getElementById(id)?.classList.contains('hidden'));
+    if (!anyGoalVisible) {
+      hideSupportAndOriginals();
+    }
   }
 
   // --- Reset Entire Flowchart ---
   window.resetFlowchart = function () {
-    playSound('select');
+    hideSupportAndOriginals();
     Object.keys(state).forEach(k => state[k] = null);
     hideDownstreamFrom(1);
 
@@ -335,6 +316,23 @@
     if (root) {
       root.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
+  };
+
+  // --- Scroll to section helper ---
+  window.scrollToSection = function (sectionId) {
+    showSupportAndOriginals(false);
+    setTimeout(() => {
+      const el = document.getElementById(sectionId);
+      if (el) {
+        const headerOffset = 80;
+        const elementPosition = el.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 100);
   };
 
   // --- Copy Zoom Info Helper ---

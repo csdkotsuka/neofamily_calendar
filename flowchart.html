@@ -206,9 +206,9 @@
       </div>
 
       <div class="flex items-center gap-2 shrink-0 flex-wrap">
-        <button onclick="toggleSound()" class="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition flex items-center gap-1.5">
-          <i id="sound-toggle-icon" class="fa-solid fa-volume-high text-amber-500"></i>
-          <span id="sound-toggle-label">効果音: ON</span>
+        <button id="btn-toggle-support" onclick="toggleSupportAndOriginals()" class="px-3.5 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200/80 text-xs font-bold transition flex items-center gap-1.5 shadow-2xs">
+          <i class="fa-solid fa-list-check text-emerald-600"></i>
+          <span id="label-toggle-support">サポート一覧・原本を表示</span>
         </button>
         <button onclick="resetFlowchart()" class="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition flex items-center gap-1.5">
           <i class="fa-solid fa-rotate-left"></i>
@@ -246,6 +246,14 @@
             <button id="btn-step1-unclear" onclick="chooseStep1('unclear')" class="flow-choice-btn py-3 px-4 rounded-2xl border-2 border-slate-300 bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 cursor-pointer">
               <i class="choice-check fa-solid fa-circle-check text-amber-300 hidden"></i>
               <span>よく分かってない / 見直したい</span>
+            </button>
+          </div>
+
+          <!-- 初めて以外の人向けのクイックリンク -->
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-center">
+            <button onclick="toggleSupportAndOriginals()" class="text-xs text-slate-500 hover:text-emerald-700 font-semibold inline-flex items-center gap-1.5 py-1 px-3 rounded-xl hover:bg-emerald-50 transition cursor-pointer">
+              <i class="fa-solid fa-table-list text-emerald-600 text-[11px]"></i>
+              <span>全体のサポート一覧やNotion原本を今すぐ見たい方はこちら</span>
             </button>
           </div>
         </div>
@@ -756,6 +764,11 @@
 
 
     <!-- ======================================================== -->
+    <!-- 📋 サポート一覧 & 🖼️ 原本画像 コンテナ (初期非表示・ふわっと表示) -->
+    <!-- ======================================================== -->
+    <div id="support-and-originals-container" class="space-y-10 transition-all duration-700 ease-out hidden opacity-0 translate-y-6">
+
+    <!-- ======================================================== -->
     <!-- 📋 サポート一覧テーブル -->
     <!-- ======================================================== -->
     <section id="support-list-section" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
@@ -1066,6 +1079,8 @@
       </div>
     </section>
 
+    </div><!-- /#support-and-originals-container -->
+
   </main>
 
 
@@ -1138,6 +1153,6 @@
   </script>
 
   <!-- Interactive Flowchart Map Engine -->
-  <script src="js/interactive-flowchart.js?v=20261022_2"></script>
+  <script src="js/interactive-flowchart.js?v=20261022_3"></script>
 </body>
 </html>
