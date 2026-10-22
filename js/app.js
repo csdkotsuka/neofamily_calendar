@@ -561,7 +561,7 @@ function renderCalendarView() {
           ${daysEvents.slice(0, 2).map(ev => `
             <div class="truncate text-[10px] md:text-xs font-semibold px-1.5 py-0.5 rounded text-white cursor-pointer hover:brightness-110 active:scale-95 transition shadow-xs" 
                  style="background-color: ${ev.categoryColor || '#e11d48'};" 
-                 title="${ev.title}${daysEvents.length > 1 ? ' (同日に複数あるため週間カレンダーで表示)' : ' (クリックで詳細)'}" 
+                 title="${ev.title}${daysEvents.length > 1 ? ' (複数あるためクリックでカード一覧を表示)' : ' (クリックで詳細)'}" 
                  onclick="event.stopPropagation(); handleMonthEventClick('${dateStr}', '${ev.id}');">
               ${ev.title}
             </div>
@@ -604,13 +604,15 @@ function handleMonthEventClick(dateStr, eventId) {
   const calendarFilteredEvents = getFilteredEventsForCalendar();
   const daysEvents = calendarFilteredEvents.filter(e => e.startDate === dateStr);
 
-  if (daysEvents.length > 1) {
-    // When there are multiple events on this date, switch to week calendar so user can see time slots clearly
-    goToWeekOfDate(dateStr);
-    switchViewMode("week");
-  } else {
-    // Exactly 1 event on this date -> open detail directly
+  if (daysEvents.length === 1) {
+    // 1日に1つしかイベントが表示されてないときは詳細のウインドウが開く
     openEventDetail(eventId);
+  } else if (daysEvents.length > 1) {
+    // 複数あるときは、カード一覧のページで、その日のイベントだけ表示
+    selectedDate = dateStr;
+    switchViewMode("cards");
+    renderEventsList();
+    scrollToCardsView();
   }
 }
 
@@ -620,15 +622,27 @@ function handleMonthDayClick(dateStr) {
   const daysEvents = calendarFilteredEvents.filter(e => e.startDate === dateStr);
 
   if (daysEvents.length === 1) {
-    // Only 1 event on this date -> open detail directly
+    // 1日に1つしかイベントが表示されてないときは詳細のウインドウが開く
     openEventDetail(daysEvents[0].id);
   } else if (daysEvents.length > 1) {
-    // Multiple events on this date -> switch to week calendar to clarify time slots
-    goToWeekOfDate(dateStr);
-    switchViewMode("week");
+    // 複数あるときは、カード一覧のページで、その日のイベントだけ表示
+    selectedDate = dateStr;
+    switchViewMode("cards");
+    renderEventsList();
+    scrollToCardsView();
   } else {
-    // No events -> select date
+    // イベントがない日
     selectDate(dateStr);
+  }
+}
+
+// カード一覧表示エリアへのスムーズスクロール
+function scrollToCardsView() {
+  const target = document.getElementById("cards-view-section");
+  if (target) {
+    const yOffset = -70;
+    const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
   }
 }
 
@@ -941,6 +955,7 @@ function switchViewMode(mode) {
       cardsBtn.classList.remove("bg-white", "text-slate-700");
     }
     if (cardsView) cardsView.classList.remove("hidden");
+    renderEventsList();
   } else if (mode === "week") {
     if (weekBtn) {
       weekBtn.classList.add("bg-rose-600", "text-white", "shadow-md");
