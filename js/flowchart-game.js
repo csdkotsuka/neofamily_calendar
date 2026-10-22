@@ -393,7 +393,7 @@
       actions: [
         {
           label: 'カレンダーで次回開催日程を見る',
-          url: 'calendar',
+          url: 'calendar.html',
           icon: 'fa-regular fa-calendar-days',
           btnClass: 'bg-slate-900 hover:bg-black text-white'
         },
@@ -405,7 +405,7 @@
         },
         {
           label: '勉強会アーカイブ集を見る',
-          url: 'archive',
+          url: 'archive.html',
           icon: 'fa-solid fa-graduation-cap',
           btnClass: 'bg-indigo-600 hover:bg-indigo-700 text-white'
         }
@@ -431,7 +431,7 @@
       actions: [
         {
           label: 'Iyasaka宮 特設ページをチェック',
-          url: 'iyasaka',
+          url: 'iyasaka.html',
           icon: 'fa-solid fa-torii-gate',
           btnClass: 'bg-amber-600 hover:bg-amber-700 text-white'
         },
@@ -464,7 +464,7 @@
       actions: [
         {
           label: '次回作業会の日程をカレンダーで確認',
-          url: 'calendar',
+          url: 'calendar.html',
           icon: 'fa-regular fa-calendar-days',
           btnClass: 'bg-slate-900 hover:bg-black text-white'
         },
@@ -497,7 +497,7 @@
       actions: [
         {
           label: 'カレンダーで次回開催を確認',
-          url: 'calendar',
+          url: 'calendar.html',
           icon: 'fa-regular fa-calendar-days',
           btnClass: 'bg-slate-900 hover:bg-black text-white'
         },
@@ -530,7 +530,7 @@
       actions: [
         {
           label: 'カレンダーでポチポチ会を探す',
-          url: 'calendar',
+          url: 'calendar.html',
           icon: 'fa-regular fa-calendar-days',
           btnClass: 'bg-amber-600 hover:bg-amber-700 text-white'
         },
@@ -570,7 +570,7 @@
         },
         {
           label: '全事業紹介動画を見る',
-          url: 'raytus',
+          url: 'raytus.html',
           icon: 'fa-solid fa-play',
           btnClass: 'bg-slate-900 hover:bg-black text-white'
         }
