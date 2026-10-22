@@ -13,6 +13,7 @@ let selectedDate = null;
 let currentCategory = "all";
 let currentViewMode = "calendar"; // "cards" | "week" | "calendar"
 let currentSearch = "";
+let showPastEvents = false; // 過去のイベントの表示/折りたたみ
 let unlockedArchives = new Set(); // Stores event IDs that have been unlocked in this session
 
 // Admin Authentication & Edit State
@@ -231,6 +232,15 @@ function getFilteredEventsForCalendar() {
   });
 }
 
+// Helper to get today's date string (YYYY-MM-DD)
+function getTodayString() {
+  const now = new Date();
+  const y = now.getFullYear();
+  const m = String(now.getMonth() + 1).padStart(2, "0");
+  const d = String(now.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
+}
+
 // Render event cards list
 function renderEventsList() {
   const container = document.getElementById("events-list-container");
@@ -272,11 +282,79 @@ function renderEventsList() {
     return;
   }
 
-  container.innerHTML = filtered.map(ev => createEventCardHtml(ev)).join("");
+  // カレンダーの日付が直接選択されている場合はそのまま表示
+  if (selectedDate) {
+    container.innerHTML = filtered.map(ev => createEventCardHtml(ev)).join("");
+    return;
+  }
+
+  // 通常一覧表示: 今日以降（開催予定）と表示日以前（過去）に分離
+  const todayStr = getTodayString();
+  const upcomingEvents = filtered.filter(ev => ev.startDate >= todayStr);
+  const pastEvents = filtered.filter(ev => ev.startDate < todayStr);
+
+  let html = "";
+
+  // 1. 今日以降のイベントがある場合
+  if (upcomingEvents.length > 0) {
+    html += upcomingEvents.map(ev => createEventCardHtml(ev, false)).join("");
+  } else {
+    // 今日以降のイベントが0件の場合
+    html += `
+      <div class="col-span-full py-10 text-center bg-slate-50 rounded-3xl border border-dashed border-slate-300 p-6">
+        <div class="w-12 h-12 mx-auto mb-3 bg-white rounded-full flex items-center justify-center text-slate-400 shadow-2xs">
+          <i class="fa-regular fa-calendar-check text-xl"></i>
+        </div>
+        <h3 class="text-sm font-bold text-slate-700">本日以降に予定されている該当イベントはありません</h3>
+        <p class="text-xs text-slate-500 mt-1">過去に開催されたイベントは下記のボタンよりご確認いただけます。</p>
+      </div>
+    `;
+  }
+
+  // 2. 過去のイベントが存在する場合のボタントグル
+  if (pastEvents.length > 0) {
+    if (!showPastEvents) {
+      // 折りたたみ中（過去のイベントを表示ボタン）
+      html += `
+        <div class="col-span-full my-6 text-center">
+          <button onclick="togglePastEvents()" class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-white hover:bg-slate-100 text-slate-700 text-xs sm:text-sm font-bold border border-slate-300 shadow-xs transition hover:shadow group">
+            <i class="fa-solid fa-clock-rotate-left text-slate-500 group-hover:-rotate-45 transition duration-300"></i>
+            <span>過去のイベントを表示する（${pastEvents.length}件）</span>
+            <i class="fa-solid fa-chevron-down text-[11px] text-slate-400"></i>
+          </button>
+        </div>
+      `;
+    } else {
+      // 展開中
+      html += `
+        <div class="col-span-full my-6 flex items-center justify-between border-t border-b border-slate-200/90 py-3.5 px-5 bg-slate-100/80 rounded-2xl">
+          <div class="flex items-center gap-2.5">
+            <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-slate-200 text-slate-600 text-xs font-bold">
+              <i class="fa-solid fa-clock-rotate-left"></i>
+            </span>
+            <span class="font-bold text-xs sm:text-sm text-slate-700">過去に開催されたイベント (${pastEvents.length}件)</span>
+          </div>
+          <button onclick="togglePastEvents()" class="text-xs font-bold text-slate-600 hover:text-slate-900 flex items-center gap-1.5 transition px-3 py-1.5 rounded-lg bg-white border border-slate-200 shadow-2xs">
+            <span>折りたたむ</span>
+            <i class="fa-solid fa-chevron-up text-[10px]"></i>
+          </button>
+        </div>
+      `;
+      html += pastEvents.map(ev => createEventCardHtml(ev, true)).join("");
+    }
+  }
+
+  container.innerHTML = html;
+}
+
+// 過去のイベント表示切り替え
+function togglePastEvents() {
+  showPastEvents = !showPastEvents;
+  renderEventsList();
 }
 
 // Create Event Card HTML
-function createEventCardHtml(ev) {
+function createEventCardHtml(ev, isPast = false) {
   const [year, month, day] = ev.startDate.split("-");
   const dateObj = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
   const weekDays = ["日", "月", "火", "水", "木", "金", "土"];
@@ -294,7 +372,7 @@ function createEventCardHtml(ev) {
   const allImgs = (ev.images && ev.images.length > 0) ? ev.images : (ev.image ? [ev.image] : []);
 
   return `
-    <div onclick="openEventDetail('${ev.id}')" class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between border border-slate-200/90 hover:border-rose-400 hover:shadow-xl transition-all duration-300 cursor-pointer group">
+    <div onclick="openEventDetail('${ev.id}')" class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between border border-slate-200/90 hover:border-rose-400 hover:shadow-xl transition-all duration-300 cursor-pointer group ${isPast ? 'opacity-85 hover:opacity-100 bg-slate-50/60' : ''}">
       ${allImgs.length > 0 ? `
         <div class="relative w-full h-48 bg-slate-100 overflow-hidden">
           <img src="${allImgs[0]}" alt="${ev.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
@@ -315,10 +393,15 @@ function createEventCardHtml(ev) {
       <div class="p-5 flex-1 flex flex-col">
         <!-- Top meta -->
         <div class="flex items-center justify-between gap-2 mb-3">
-          <div class="flex items-center gap-2">
+          <div class="flex items-center gap-2 flex-wrap">
             <span class="px-2.5 py-0.5 rounded-full text-xs font-bold text-white shadow-sm" style="background-color: ${ev.categoryColor || '#e11d48'};">
               ${ev.category}
             </span>
+            ${isPast ? `
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-bold bg-slate-200 text-slate-600 border border-slate-300">
+                <i class="fa-solid fa-check text-[9px]"></i> 終了
+              </span>
+            ` : ""}
             ${locationBadge}
           </div>
           ${hasArchive && allImgs.length === 0 ? `

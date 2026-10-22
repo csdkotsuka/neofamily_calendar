@@ -572,9 +572,9 @@
             <!-- Project 1 -->
             <div class="bg-[#121824] border border-slate-800 rounded-3xl overflow-hidden p-6 sm:p-8 flex flex-col justify-between group hover:border-amber-400/60 transition shadow-xl">
               <div>
-                <img src="images/banners-raytus-terakoya.jpg" alt="寺子屋プロジェクト" class="w-full h-52 object-cover rounded-2xl mb-5 group-hover:scale-[1.02] transition duration-300">
+                <img src="images/banners-raytus-terakoya.jpg" alt="寺子屋プロジェクト" class="w-full h-auto rounded-2xl mb-5 group-hover:scale-[1.02] transition duration-300 shadow-md">
                 <span class="text-[10px] px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 font-bold">2027年開校予定</span>
-                <h4 class="text-xl font-bold text-white mt-3 group-hover:text-amber-300 transition">寺子屋プロジェクト 防府開校 2027</h4>
+                <h4 class="text-lg sm:text-xl font-bold text-white mt-3 group-hover:text-amber-300 transition">寺子屋プロジェクト 防府開校 2027</h4>
                 <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
                   子供たちが自分の「好き」や「得意」を伸ばし、社会で生き抜く力を育む新たな学びの場。地域社会と連携しながら、山口県防府市に2027年開校を目指して建設・準備が進められています。
                 </p>
@@ -591,9 +591,9 @@
             <!-- Project 2 -->
             <div class="bg-[#121824] border border-slate-800 rounded-3xl overflow-hidden p-6 sm:p-8 flex flex-col justify-between group hover:border-blue-400/60 transition shadow-xl">
               <div>
-                <img src="images/banners-raytus-basta.jpg" alt="バスタ高校" class="w-full h-52 object-cover rounded-2xl mb-5 group-hover:scale-[1.02] transition duration-300">
+                <img src="images/banners-raytus-basta.jpg" alt="バスタ高校" class="w-full h-auto rounded-2xl mb-5 group-hover:scale-[1.02] transition duration-300 shadow-md">
                 <span class="text-[10px] px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 font-bold">新校舎建設</span>
-                <h4 class="text-xl font-bold text-white mt-3 group-hover:text-blue-300 transition">バスタ高校 新校舎建設プロジェクト</h4>
+                <h4 class="text-lg sm:text-xl font-bold text-white mt-3 group-hover:text-blue-300 transition">バスタ高校 新校舎建設プロジェクト</h4>
                 <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
                   従来の教育の枠にとらわれず、生徒一人ひとりの個性を最大限に生かし自立を支援する学校創り。次世代のリーダーやクリエイターが育つ拠点として新校舎の建設が進んでいます。
                 </p>
@@ -625,7 +625,7 @@
             <div>
               <p class="text-xs sm:text-sm text-slate-400 font-serif leading-relaxed">
                 RAYTUS group.に加盟している全国の店舗・サービス一覧（全<span id="raytus-shop-count" class="text-amber-400 font-bold font-mono">85</span>件）。<br class="hidden sm:inline">
-                横にスクロールが可能です。行をタップすると各店舗の商品・詳細ページが開きます。
+                提供商品のジャンルで絞り込みが可能です。行をタップすると各店舗の商品・詳細ページが開きます。
               </p>
             </div>
             
@@ -636,16 +636,38 @@
             </div>
           </div>
 
+          <!-- 提供商品 カテゴリ分類 切り替えピルバー (5大グループ) -->
+          <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-3 mb-6 text-xs font-bold">
+            <button onclick="setRaytusShopCategory('all')" id="shop-cat-all" class="shop-cat-btn px-4 py-2 rounded-xl transition bg-amber-400 text-slate-950 shadow-md whitespace-nowrap font-zen">
+              🌟 すべて表示 (<span id="shop-count-all">85</span>)
+            </button>
+            <button onclick="setRaytusShopCategory('food')" id="shop-cat-food" class="shop-cat-btn px-4 py-2 rounded-xl transition bg-slate-900 text-slate-300 hover:text-white border border-slate-800 hover:border-slate-700 whitespace-nowrap font-zen">
+              🍙 食・グルメ・スイーツ (<span id="shop-count-food">10</span>)
+            </button>
+            <button onclick="setRaytusShopCategory('beauty-health')" id="shop-cat-beauty-health" class="shop-cat-btn px-4 py-2 rounded-xl transition bg-slate-900 text-slate-300 hover:text-white border border-slate-800 hover:border-slate-700 whitespace-nowrap font-zen">
+              💆‍♀️ 美容・健康・ボディケア (<span id="shop-count-beauty-health">24</span>)
+            </button>
+            <button onclick="setRaytusShopCategory('handmade-fashion')" id="shop-cat-handmade-fashion" class="shop-cat-btn px-4 py-2 rounded-xl transition bg-slate-900 text-slate-300 hover:text-white border border-slate-800 hover:border-slate-700 whitespace-nowrap font-zen">
+              👗 ハンドメイド・服・雑貨 (<span id="shop-count-handmade-fashion">15</span>)
+            </button>
+            <button onclick="setRaytusShopCategory('fortune-healing')" id="shop-cat-fortune-healing" class="shop-cat-btn px-4 py-2 rounded-xl transition bg-slate-900 text-slate-300 hover:text-white border border-slate-800 hover:border-slate-700 whitespace-nowrap font-zen">
+              🔮 占い・鑑定・心のケア (<span id="shop-count-fortune-healing">13</span>)
+            </button>
+            <button onclick="setRaytusShopCategory('education-business')" id="shop-cat-education-business" class="shop-cat-btn px-4 py-2 rounded-xl transition bg-slate-900 text-slate-300 hover:text-white border border-slate-800 hover:border-slate-700 whitespace-nowrap font-zen">
+              💼 学び・ビジネス・制作 (<span id="shop-count-education-business">23</span>)
+            </button>
+          </div>
+
           <!-- 加盟店テーブル wrap -->
           <div class="bg-[#121824] rounded-2xl border border-slate-800 overflow-hidden shadow-xl">
-            <div class="overflow-x-auto max-h-[520px] overflow-y-auto">
+            <div class="overflow-x-auto max-h-[560px] overflow-y-auto">
               <table class="w-full text-left border-collapse text-xs sm:text-sm font-zen">
                 <thead class="bg-slate-900 text-amber-300 sticky top-0 z-10 border-b border-slate-800 shadow-xs">
                   <tr>
-                    <th class="p-3.5 sm:p-4 font-bold whitespace-nowrap">店舗名・会社名</th>
-                    <th class="p-3.5 sm:p-4 font-bold whitespace-nowrap">代表者名</th>
-                    <th class="p-3.5 sm:p-4 font-bold">提供商品・サービス</th>
-                    <th class="p-3.5 sm:p-4 font-bold whitespace-nowrap">所在地・エリア</th>
+                    <th class="p-3 sm:p-4 font-bold w-1/4 min-w-[120px]">店舗名・会社名</th>
+                    <th class="p-3 sm:p-4 font-bold w-1/6 min-w-[85px]">代表者名</th>
+                    <th class="p-3 sm:p-4 font-bold min-w-[160px]">提供商品・サービス</th>
+                    <th class="p-3 sm:p-4 font-bold w-1/5 min-w-[95px]">所在地・エリア</th>
                   </tr>
                 </thead>
                 <tbody id="raytus-shop-tbody" class="divide-y divide-slate-800/60">
@@ -1399,33 +1421,93 @@
       business: 'bg-blue-500/20 text-blue-300 border border-blue-500/30'
     };
 
-    // 加盟店一覧 (SHOP) の描画
+    // ============================================
+    // 加盟店一覧 (SHOP) の絞り込み & 描画
+    // ============================================
+    let currentShopCategory = 'all';
+
+    const SHOP_CATEGORY_BADGES = {
+      'food': '<span class="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">🍙 食・グルメ</span>',
+      'beauty-health': '<span class="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-pink-500/20 text-pink-300 border border-pink-500/30">💆‍♀️ 美容・健康</span>',
+      'handmade-fashion': '<span class="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">👗 ハンドメイド</span>',
+      'fortune-healing': '<span class="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">🔮 占い・心のケア</span>',
+      'education-business': '<span class="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30">💼 学び・ビジネス</span>'
+    };
+
+    function setRaytusShopCategory(cat) {
+      currentShopCategory = cat;
+      document.querySelectorAll('.shop-cat-btn').forEach(btn => {
+        btn.className = 'shop-cat-btn px-4 py-2 rounded-xl transition bg-slate-900 text-slate-300 hover:text-white border border-slate-800 hover:border-slate-700 whitespace-nowrap font-zen';
+      });
+      const activeBtn = document.getElementById(`shop-cat-${cat}`);
+      if (activeBtn) {
+        activeBtn.className = 'shop-cat-btn px-4 py-2 rounded-xl transition bg-amber-400 text-slate-950 shadow-md whitespace-nowrap font-zen';
+      }
+      renderRaytusShops();
+    }
+
     function renderRaytusShops() {
       const container = document.getElementById('raytus-shop-tbody');
       if (!container || typeof RAYTUS_SHOPS === 'undefined') return;
       const q = (document.getElementById('raytus-shop-search')?.value || '').toLowerCase().trim();
       const countEl = document.getElementById('raytus-shop-count');
 
+      // 各カテゴリの件数カウント更新
+      const counts = { all: RAYTUS_SHOPS.length, food: 0, 'beauty-health': 0, 'handmade-fashion': 0, 'fortune-healing': 0, 'education-business': 0 };
+      RAYTUS_SHOPS.forEach(s => {
+        if (s.category && counts[s.category] !== undefined) {
+          counts[s.category]++;
+        }
+      });
+      Object.keys(counts).forEach(k => {
+        const el = document.getElementById(`shop-count-${k}`);
+        if (el) el.textContent = counts[k];
+      });
+
       const filtered = RAYTUS_SHOPS.filter(s => {
+        if (currentShopCategory !== 'all' && s.category !== currentShopCategory) {
+          return false;
+        }
         if (!q) return true;
         return `${s.name} ${s.rep} ${s.product} ${s.area}`.toLowerCase().includes(q);
       });
 
       if (countEl) countEl.textContent = filtered.length;
 
-      container.innerHTML = filtered.map(s => `
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <tr>
+            <td colspan="4" class="p-8 text-center text-slate-400">
+              <i class="fa-solid fa-store-slash text-2xl text-slate-600 mb-2"></i>
+              <p class="text-xs">該当する加盟店は見つかりませんでした。</p>
+              <button onclick="setRaytusShopCategory('all'); document.getElementById('raytus-shop-search').value = ''; renderRaytusShops();" class="mt-2 text-xs text-amber-400 hover:underline">
+                条件をリセット
+              </button>
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(s => {
+        const catBadge = SHOP_CATEGORY_BADGES[s.category] || '';
+        return `
         <tr class="hover:bg-slate-800/60 transition border-b border-slate-800/80 cursor-pointer" onclick="window.open('${s.link}', '_blank')">
-          <td class="p-3.5 sm:p-4 font-bold text-white whitespace-nowrap">
-            <div class="flex items-center gap-1.5">
-              <span class="hover:text-amber-300 transition">${s.name}</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-500"></i>
+          <td class="p-3 sm:p-4 font-bold text-white break-words">
+            <div class="space-y-1">
+              ${catBadge}
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="hover:text-amber-300 transition leading-snug">${s.name}</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-500 shrink-0"></i>
+              </div>
             </div>
           </td>
-          <td class="p-3.5 sm:p-4 text-slate-300 whitespace-nowrap">${s.rep}</td>
-          <td class="p-3.5 sm:p-4 text-slate-300 min-w-[220px] leading-relaxed text-xs">${s.product}</td>
-          <td class="p-3.5 sm:p-4 text-slate-400 whitespace-pre-line text-xs">${s.area}</td>
+          <td class="p-3 sm:p-4 text-slate-300 break-words leading-snug">${s.rep}</td>
+          <td class="p-3 sm:p-4 text-slate-300 leading-relaxed text-xs break-words">${s.product}</td>
+          <td class="p-3 sm:p-4 text-slate-400 whitespace-pre-line text-xs break-words leading-snug">${s.area}</td>
         </tr>
-      `).join('');
+      `;
+      }).join('');
     }
 
     // 公式ブログ (BLOG) の描画
@@ -1713,10 +1795,10 @@
             showToast(`🎯 「${catName}」の事業を表示しました`);
           }
         }, 150);
-      } else if (window.location.hash === '#raytus-services-section') {
+      } else if (window.location.hash === '#raytus-services-section' || urlParams.get('from') === 'flowchart') {
         setTimeout(() => {
           scrollToSection('raytus-services-section');
-        }, 150);
+        }, 200);
       }
     });
   </script>
