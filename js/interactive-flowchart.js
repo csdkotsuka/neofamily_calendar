@@ -131,6 +131,7 @@
   };
 
   // --- Flowchart State ---
+  const STATE_KEY = 'neofamily_flowchart_state';
   const state = {
     step1: null,   // 'clear' | 'unclear'
     step2: null,   // 'not_latest' | 'latest'
@@ -140,6 +141,14 @@
     step4b: null,  // 'ginger_unknown' | 'ginger_done'
     step5b: null   // 'eeda_intro' | 'eeda_work'
   };
+
+  function saveState() {
+    try {
+      sessionStorage.setItem(STATE_KEY, JSON.stringify(state));
+    } catch (e) {
+      // Ignore storage errors
+    }
+  }
 
   // --- Helper to toggle buttons visually ---
   function setActiveChoice(groupId, activeBtnId) {
@@ -162,12 +171,12 @@
   }
 
   // --- Reach Goal Helper: Show Goal node smoothly (without auto-opening support table) ---
-  function onReachGoal(goalNodeId) {
-    showNode(goalNodeId);
+  function onReachGoal(goalNodeId, smooth = true) {
+    showNode(goalNodeId, smooth);
   }
 
   // --- Step 1: やることは明確？ ---
-  window.chooseStep1 = function (val) {
+  window.chooseStep1 = function (val, smooth = true) {
     state.step1 = val;
     setActiveChoice('step1-choices', val === 'clear' ? 'btn-step1-clear' : 'btn-step1-unclear');
 
@@ -176,15 +185,16 @@
 
     if (val === 'unclear') {
       // Show Goal: 理事長に相談
-      onReachGoal('goal-counseling-node');
+      onReachGoal('goal-counseling-node', smooth);
     } else {
       // Show Step 2: 最新情報に触れてる？
-      showNode('step2-node');
+      showNode('step2-node', smooth);
     }
+    saveState();
   };
 
   // --- Step 2: 最新情報に触れてる？ ---
-  window.chooseStep2 = function (val) {
+  window.chooseStep2 = function (val, smooth = true) {
     state.step2 = val;
     setActiveChoice('step2-choices', val === 'not_latest' ? 'btn-step2-not-latest' : 'btn-step2-latest');
 
@@ -192,15 +202,16 @@
 
     if (val === 'not_latest') {
       // Show Goal: NEO構想 ぎゅっと勉強会
-      onReachGoal('goal-neo-study-node');
+      onReachGoal('goal-neo-study-node', smooth);
     } else {
       // Show Step 3: Iyasaka宮に出品してる？
-      showNode('step3-node');
+      showNode('step3-node', smooth);
     }
+    saveState();
   };
 
   // --- Step 3: Iyasaka宮に出品してる？ ---
-  window.chooseStep3 = function (val) {
+  window.chooseStep3 = function (val, smooth = true) {
     state.step3 = val;
     setActiveChoice('step3-choices', val === 'no_iyasaka' ? 'btn-step3-no' : 'btn-step3-yes');
 
@@ -208,15 +219,16 @@
 
     if (val === 'no_iyasaka') {
       // 出してない ➜ Step 4A: 出店申請は終わってる？
-      showNode('step4a-node');
+      showNode('step4a-node', smooth);
     } else {
       // 出してる ➜ Step 4B: 勉強ジンジャー出品してる？
-      showNode('step4b-node');
+      showNode('step4b-node', smooth);
     }
+    saveState();
   };
 
   // --- Step 4A: 出店申請は終わってる？ ---
-  window.chooseStep4a = function (val) {
+  window.chooseStep4a = function (val, smooth = true) {
     state.step4a = val;
     setActiveChoice('step4a-choices', val === 'apply_not_yet' ? 'btn-step4a-no' : 'btn-step4a-yes');
 
@@ -224,15 +236,16 @@
 
     if (val === 'apply_not_yet') {
       // まだ ➜ Goal: 出店申請
-      onReachGoal('goal-apply-node');
+      onReachGoal('goal-apply-node', smooth);
     } else {
       // 終わってる ➜ Step 5A: プロフィール設定や出品方法は把握してる？
-      showNode('step5a-node');
+      showNode('step5a-node', smooth);
     }
+    saveState();
   };
 
   // --- Step 5A: プロフィール設定や出品方法は把握してる？ ---
-  window.chooseStep5a = function (val) {
+  window.chooseStep5a = function (val, smooth = true) {
     state.step5a = val;
     setActiveChoice('step5a-choices', val === 'profile_not_yet' ? 'btn-step5a-no' : 'btn-step5a-yes');
 
@@ -240,15 +253,16 @@
 
     if (val === 'profile_not_yet') {
       // まだ / 把握してない ➜ Goal: Iyasaka宮 作業会
-      onReachGoal('goal-iyasaka-work-node');
+      onReachGoal('goal-iyasaka-work-node', smooth);
     } else {
       // してる ➜ 勉強ジンジャー (Step 4B) へ合流！
-      showNode('step4b-node');
+      showNode('step4b-node', smooth);
     }
+    saveState();
   };
 
   // --- Step 4B: 勉強ジンジャー出品してる？ ---
-  window.chooseStep4b = function (val) {
+  window.chooseStep4b = function (val, smooth = true) {
     state.step4b = val;
     setActiveChoice('step4b-choices', val === 'ginger_unknown' ? 'btn-step4b-unknown' : 'btn-step4b-done');
 
@@ -256,15 +270,16 @@
 
     if (val === 'ginger_unknown') {
       // やり方がわからない ➜ Goal: 勉強ジンジャー活用サポート
-      onReachGoal('goal-ginger-node');
+      onReachGoal('goal-ginger-node', smooth);
     } else {
       // してる / 今はやらない ➜ Step 5B: EEDA動画出してる？
-      showNode('step5b-node');
+      showNode('step5b-node', smooth);
     }
+    saveState();
   };
 
   // --- Step 5B: EEDA動画出してる？ ---
-  window.chooseStep5b = function (val) {
+  window.chooseStep5b = function (val, smooth = true) {
     state.step5b = val;
     setActiveChoice('step5b-choices', val === 'eeda_intro' ? 'btn-step5b-intro' : 'btn-step5b-work');
 
@@ -272,22 +287,25 @@
 
     if (val === 'eeda_intro') {
       // そもそもを知りたい ➜ Goal: EEDA探検ポチポチ会
-      onReachGoal('goal-eeda-pochi-node');
+      onReachGoal('goal-eeda-pochi-node', smooth);
     } else {
       // 制作進まない / 質問したい ➜ Goal: EEDA作業会
-      onReachGoal('goal-eeda-work-node');
+      onReachGoal('goal-eeda-work-node', smooth);
     }
+    saveState();
   };
 
   // --- Show Node with smooth scroll ---
-  function showNode(id) {
+  function showNode(id, smooth = true) {
     const el = document.getElementById(id);
     if (!el) return;
     el.classList.remove('hidden');
     el.classList.add('flex');
-    setTimeout(() => {
-      el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }, 100);
+    if (smooth) {
+      setTimeout(() => {
+        el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 100);
+    }
   }
 
   function hideNode(id) {
@@ -350,6 +368,11 @@
 
   // --- Reset Entire Flowchart ---
   window.resetFlowchart = function () {
+    try {
+      sessionStorage.removeItem(STATE_KEY);
+    } catch (e) {
+      // Ignore
+    }
     hideSupportAndOriginals();
     filterSupportRows('all');
     Object.keys(state).forEach(k => state[k] = null);
@@ -367,6 +390,56 @@
       root.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   };
+
+  // --- Restore State from sessionStorage ---
+  function restoreState() {
+    try {
+      const raw = sessionStorage.getItem(STATE_KEY);
+      if (!raw) return;
+      const saved = JSON.parse(raw);
+      if (!saved || typeof saved !== 'object') return;
+
+      if (saved.step1) {
+        window.chooseStep1(saved.step1, false);
+      }
+      if (saved.step2) {
+        window.chooseStep2(saved.step2, false);
+      }
+      if (saved.step3) {
+        window.chooseStep3(saved.step3, false);
+      }
+      if (saved.step4a) {
+        window.chooseStep4a(saved.step4a, false);
+      }
+      if (saved.step5a) {
+        window.chooseStep5a(saved.step5a, false);
+      }
+      if (saved.step4b) {
+        window.chooseStep4b(saved.step4b, false);
+      }
+      if (saved.step5b) {
+        window.chooseStep5b(saved.step5b, false);
+      }
+
+      // Scroll to the active deepest node
+      setTimeout(() => {
+        const visibleGoals = document.querySelectorAll('.flow-node-appear:not(.hidden)');
+        if (visibleGoals.length > 0) {
+          const lastVisible = visibleGoals[visibleGoals.length - 1];
+          lastVisible.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }, 150);
+    } catch (e) {
+      console.warn('Failed to restore flowchart state', e);
+    }
+  }
+
+  // 自動復元の実行
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', restoreState);
+  } else {
+    restoreState();
+  }
 
   // --- Scroll to section helper ---
   window.scrollToSection = function (sectionId) {

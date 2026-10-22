@@ -1133,12 +1133,62 @@ let allMembersProgress = [];
 let currentAdminRole = "admin"; // "admin" or "mentor"
 let selectedMentorFilter = "all";
 
-// 担当サポート者リスト
-const MENTORS_LIST = [
-  { id: "mentor_tanaka", name: "田中 リーダー" },
-  { id: "mentor_sato", name: "佐藤 リーダー" },
-  { id: "mentor_suzuki", name: "鈴木 リーダー" }
-];
+// 担当サポート者（各チーム理事長・担当者）リスト動的取得
+function getMentorsList() {
+  const local = localStorage.getItem("neofamily_mentors_list");
+  if (local) {
+    try {
+      const parsed = JSON.parse(local);
+      if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+    } catch (e) {
+      console.warn("Failed to parse mentors list:", e);
+    }
+  }
+  return [
+    { id: "mentor_tanaka", name: "田中 健一", teamName: "チームAblaze", role: "理事長", email: "tanaka@example.com", status: "active" },
+    { id: "mentor_sato", name: "佐藤 美咲", teamName: "チームRe:Spark", role: "理事長", email: "sato@example.com", status: "active" },
+    { id: "mentor_suzuki", name: "鈴木 隆", teamName: "チームtidy.shin", role: "副理事長", email: "suzuki@example.com", status: "active" }
+  ];
+}
+
+function saveMentorsList(list) {
+  localStorage.setItem("neofamily_mentors_list", JSON.stringify(list));
+  populateMentorSelects();
+  renderMembersTable();
+}
+
+// 担当者セレクトUIの動的更新
+function populateMentorSelects() {
+  const mentors = getMentorsList();
+
+  // 1. 担当者絞り込みセレクト (mentor-select-filter)
+  const filterSel = document.getElementById("mentor-select-filter");
+  if (filterSel) {
+    const currentVal = filterSel.value;
+    filterSel.innerHTML = `
+      <option value="all">すべての担当者</option>
+      ${mentors.map(m => {
+        const count = allMembersProgress.filter(x => x.mentorId === m.id).length;
+        const team = m.teamName ? ` [${m.teamName}]` : '';
+        return `<option value="${m.id}">${m.name}${team} (担当 ${count}名)</option>`;
+      }).join("")}
+      <option value="unassigned">⚠️ 未割り当て (要対応)</option>
+    `;
+    if (currentVal) filterSel.value = currentVal;
+  }
+
+  // 2. 新規会員登録モーダルの担当者セレクト (new-member-mentor)
+  const newMemberSel = document.getElementById("new-member-mentor");
+  if (newMemberSel) {
+    newMemberSel.innerHTML = `
+      ${mentors.map(m => {
+        const team = m.teamName ? ` (${m.teamName})` : '';
+        return `<option value="${m.id}">${m.name}${team}</option>`;
+      }).join("")}
+      <option value="unassigned">未割り当て</option>
+    `;
+  }
+}
 
 // 初期サンプル会員データ（Firestore未連携時や初期表示用）
 const INITIAL_SAMPLE_MEMBERS = [
@@ -1453,6 +1503,7 @@ async function loadMembersProgressData() {
     allMembersProgress = local ? JSON.parse(local) : INITIAL_SAMPLE_MEMBERS;
   }
 
+  populateMentorSelects();
   renderMembersKPI();
   renderMembersTable();
 }
@@ -1636,18 +1687,24 @@ function renderMembersTable() {
 
     // 担当者セレクト（総責任者ビューの場合はインライン変更可能）
     let mentorCol = "";
+    const mentors = getMentorsList();
     if (currentAdminRole === "admin") {
+      const optionsHtml = mentors.map(mentor => {
+        const isSelected = m.mentorId === mentor.id ? 'selected' : '';
+        const team = mentor.teamName ? ` [${mentor.teamName}]` : '';
+        return `<option value="${mentor.id}" ${isSelected}>${mentor.name}${team}</option>`;
+      }).join("");
+
       mentorCol = `
-        <select onchange="updateMemberMentor('${m.memberId}', this.value)" class="px-2 py-1 rounded-lg bg-slate-50 border border-slate-200 text-[11px] font-bold text-slate-800 focus:outline-none focus:ring-1 focus:ring-indigo-500">
-          <option value="mentor_tanaka" ${m.mentorId === 'mentor_tanaka' ? 'selected' : ''}>田中 リーダー</option>
-          <option value="mentor_sato" ${m.mentorId === 'mentor_sato' ? 'selected' : ''}>佐藤 リーダー</option>
-          <option value="mentor_suzuki" ${m.mentorId === 'mentor_suzuki' ? 'selected' : ''}>鈴木 リーダー</option>
-          <option value="unassigned" ${(!m.mentorId || m.mentorId === 'unassigned') ? 'selected' : ''}>未割り当て</option>
+        <select onchange="updateMemberMentor('${m.memberId}', this.value)" class="px-2 py-1 rounded-lg bg-slate-50 border border-slate-200 text-[11px] font-bold text-slate-800 focus:outline-none focus:ring-1 focus:ring-indigo-500 max-w-[170px] truncate">
+          ${optionsHtml}
+          <option value="unassigned" ${(!m.mentorId || m.mentorId === 'unassigned') ? 'selected' : ''}>⚠️ 未割り当て</option>
         </select>
       `;
     } else {
-      const mentorObj = MENTORS_LIST.find(x => x.id === m.mentorId);
-      mentorCol = `<span class="text-xs font-bold text-slate-800">${mentorObj ? mentorObj.name : '未割り当て'}</span>`;
+      const mentorObj = mentors.find(x => x.id === m.mentorId);
+      const team = mentorObj?.teamName ? `<span class="text-[10px] text-slate-400 block">${mentorObj.teamName}</span>` : '';
+      mentorCol = `<div><span class="text-xs font-bold text-slate-800">${mentorObj ? mentorObj.name : '未割り当て'}</span>${team}</div>`;
     }
 
     return `
@@ -1673,13 +1730,41 @@ function renderMembersTable() {
         </td>
         <td class="py-3 px-4 text-slate-500 text-[11px] font-mono">${lastActiveText}</td>
         <td class="py-3 px-4 text-right">
-          <button onclick="openMemberDetailModal('${m.memberId}')" class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-indigo-50 text-slate-700 hover:text-indigo-700 font-bold text-[11px] transition shadow-2xs">
-            <i class="fa-solid fa-file-lines mr-0.5"></i> 詳細ログ
-          </button>
+          <div class="flex items-center justify-end gap-1.5">
+            <button onclick="openMemberDetailModal('${m.memberId}')" class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-indigo-50 text-slate-700 hover:text-indigo-700 font-bold text-[11px] transition shadow-2xs cursor-pointer" title="詳細ログ">
+              <i class="fa-solid fa-file-lines mr-0.5"></i> 詳細
+            </button>
+            <button onclick="confirmDeleteMember('${m.memberId}')" class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-rose-50 text-slate-400 hover:text-rose-600 font-bold text-[11px] transition shadow-2xs cursor-pointer" title="この会員を削除">
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+          </div>
         </td>
       </tr>
     `;
   }).join("");
+}
+
+// 会員進捗データの削除
+async function confirmDeleteMember(memberId) {
+  if (!confirm(`会員ID [${memberId}] の進捗データを完全に削除しますか？\n\n※この操作は取り消せません。`)) {
+    return;
+  }
+
+  allMembersProgress = allMembersProgress.filter(m => m.memberId !== memberId);
+  localStorage.setItem("neofamily_cached_members", JSON.stringify(allMembersProgress));
+
+  if (typeof firebase !== "undefined" && firebase.apps.length) {
+    try {
+      const db = firebase.firestore();
+      await db.collection("member_progress").doc(memberId).delete();
+    } catch (e) {
+      console.warn("[Admin] Firestore member delete error:", e);
+    }
+  }
+
+  showToast(`会員ID [${memberId}] を削除しました`);
+  renderMembersKPI();
+  renderMembersTable();
 }
 
 function filterMembersTable() {

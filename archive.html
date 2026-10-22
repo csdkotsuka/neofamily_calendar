@@ -177,7 +177,25 @@
     </div>
   </header>
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+
+    <!-- フローチャートからの遷移時専用の戻るナビゲーションバー -->
+    <div id="flowchart-return-banner" class="hidden items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200/80 shadow-xs">
+      <div class="flex items-center gap-3">
+        <span class="w-9 h-9 rounded-xl bg-amber-500 text-white flex items-center justify-center shrink-0 shadow-xs">
+          <i class="fa-solid fa-arrows-split-up-and-left text-sm"></i>
+        </span>
+        <div>
+          <p class="text-xs sm:text-sm font-black text-amber-950">参加フローチャートの途中から移動してきました</p>
+          <p class="text-[11px] text-amber-800">診断結果や回答状態はそのまま保持されています。</p>
+        </div>
+      </div>
+      <a href="flowchart" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-bold transition shadow-xs shrink-0">
+        <i class="fa-solid fa-arrow-left text-amber-400"></i>
+        <span>フローチャートに戻る</span>
+      </a>
+    </div>
+
 <!-- TAB 5: 事業紹介 & アーカイブ集 (Notion 2 複製 & 洗練) -->
     <!-- ======================================================== -->
     <div id="tab-content-archive" class="tab-content active space-y-6">
@@ -1720,6 +1738,16 @@
 
     // 初期化
     document.addEventListener('DOMContentLoaded', () => {
+      // フローチャートからの遷移チェック
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('from') === 'flowchart') {
+        const banner = document.getElementById('flowchart-return-banner');
+        if (banner) {
+          banner.classList.remove('hidden');
+          banner.classList.add('flex');
+        }
+      }
+
       if (typeof restoreOnboardingProgress === 'function') restoreOnboardingProgress();
       if (typeof updateOnboardingProgressUI === 'function') updateOnboardingProgressUI();
       if (typeof renderRaytusServices === 'function') renderRaytusServices();

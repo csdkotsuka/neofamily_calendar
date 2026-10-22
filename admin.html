@@ -218,6 +218,10 @@
 
         <!-- Header Actions -->
         <div class="flex items-center gap-2 sm:gap-3">
+          <a href="super-admin.html" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold text-purple-900 bg-purple-50 hover:bg-purple-100 border border-purple-200 transition shadow-xs">
+            <i class="fa-solid fa-crown text-purple-600"></i>
+            <span>総合管理</span>
+          </a>
           <a href="index.html" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold text-amber-900 bg-amber-100 hover:bg-amber-200 border border-amber-300 transition shadow-xs">
             <i class="fa-solid fa-compass text-amber-600"></i>
             <span>総合ポータル</span>
@@ -583,10 +587,16 @@
           </select>
 
           <!-- 新規登録/一括操作 -->
-          <button onclick="openAddMemberModal()" class="px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition shadow-xs flex items-center gap-1">
-            <i class="fa-solid fa-user-plus"></i>
-            <span>会員IDを追加</span>
-          </button>
+          <div class="flex items-center gap-2">
+            <a href="super-admin.html" class="px-3.5 py-2 rounded-xl bg-purple-50 hover:bg-purple-100 text-purple-800 border border-purple-200 text-xs font-bold transition shadow-xs flex items-center gap-1.5" title="各チーム理事長・担当者の任命と管理">
+              <i class="fa-solid fa-users-gear text-purple-600"></i>
+              <span>理事長メンバー管理</span>
+            </a>
+            <button onclick="openAddMemberModal()" class="px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition shadow-xs flex items-center gap-1">
+              <i class="fa-solid fa-user-plus"></i>
+              <span>会員IDを追加</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -1379,7 +1389,7 @@
   <!-- Application Scripts (with Cache Busting) -->
   <script src="js/events-data.js?v=20261022_2"></script>
   <script src="js/blocklist-data.js?v=20261022_1"></script>
-  <script src="js/admin.js?v=20261020_12"></script>
+  <script src="js/admin.js?v=20261022_1"></script>
   <script>
     // インライン保証：キャッシュ環境に関わらずブロックリストの手動編集・保存・永続化を100%確実に動作させる
     window.currentEditingBlocklistId = "";
