@@ -1,2 +1,8 @@
-/portal  /  301
-/portal.html  /  301
+/portal        /               301
+/portal.html   /               301
+/flowchart     /flowchart.html 200
+/raytus        /raytus.html    200
+/iyasaka       /iyasaka.html   200
+/calendar      /calendar.html  200
+/archive       /archive.html   200
+/sns           /sns.html       200

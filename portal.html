@@ -148,29 +148,37 @@
       </div>
 
       <!-- ========================================== -->
-      <!-- メインタブバー（各複製コンテンツへの切り替え） -->
+      <!-- 統一グローバルナビゲーション（個別ページ遷移） -->
       <!-- ========================================== -->
       <nav class="flex items-center gap-1 overflow-x-auto no-scrollbar py-2 border-t border-slate-100 text-xs font-bold">
-        <button onclick="switchTab('hub')" id="tab-btn-hub" class="tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 bg-slate-900 text-white shadow-xs">
+        <a href="./" id="nav-item-hub" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 bg-slate-900 text-white shadow-xs">
           <i class="fa-solid fa-compass"></i>
-          <span>総合スタートガイド</span>
-        </button>
-        <button onclick="switchTab('raytus')" id="tab-btn-raytus" class="tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+          <span>総合ポータル</span>
+        </a>
+        <a href="flowchart.html" id="nav-item-flowchart" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+          <i class="fa-solid fa-gamepad text-amber-500"></i>
+          <span>参加フロー診断</span> <span class="px-1.5 py-0.2 text-[9px] font-black rounded bg-rose-500 text-white animate-pulse">GAME</span>
+        </a>
+        <a href="raytus.html" id="nav-item-raytus" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-solid fa-globe text-slate-400"></i>
-          <span>RAYTUS 公式 & 事業紹介</span>
-        </button>
-        <button onclick="switchTab('iyasaka')" id="tab-btn-iyasaka" class="tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+          <span>RAYTUS 全事業</span>
+        </a>
+        <a href="iyasaka.html" id="nav-item-iyasaka" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-solid fa-torii-gate text-amber-600"></i>
-          <span>Iyasaka宮 (配信 & EC)</span>
-        </button>
-        <button onclick="switchTab('calendar')" id="tab-btn-calendar" class="tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+          <span>Iyasaka宮</span>
+        </a>
+        <a href="calendar.html" id="nav-item-calendar" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-regular fa-calendar-days text-rose-500"></i>
           <span>イベントカレンダー</span>
-        </button>
-        <button onclick="switchTab('sns')" id="tab-btn-sns" class="tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+        </a>
+        <a href="archive.html" id="nav-item-archive" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+          <i class="fa-solid fa-graduation-cap text-indigo-500"></i>
+          <span>勉強会アーカイブ</span>
+        </a>
+        <a href="sns.html" id="nav-item-sns" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-solid fa-share-nodes text-pink-500"></i>
           <span>公式SNS</span>
-        </button>
+        </a>
       </nav>
     </div>
   </header>
@@ -862,16 +870,47 @@
         </div>
       </div>
 
-      <!-- フローチャート セクション -->
+      <!-- フローチャート セクション（ゲーム感覚診断 & サポート一覧） -->
       <section id="flowchart-section" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
-        <div>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold mb-2">
-            <i class="fa-solid fa-arrows-split-up-and-left"></i> 迷ったらまずここ！
-          </span>
-          <h3 class="text-xl font-black text-slate-900">
-            🏹 説明会 / 作業会 参加フローチャート & サポート一覧
-          </h3>
-          <p class="text-xs text-slate-500 mt-1">※画像をタップすると全画面で拡大表示されます</p>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold mb-2">
+              <i class="fa-solid fa-arrows-split-up-and-left"></i> 迷ったらまずここ！
+            </span>
+            <h3 class="text-xl sm:text-2xl font-black text-slate-900">
+              🏹 説明会 / 作業会 参加フローチャート & サポート一覧
+            </h3>
+            <p class="text-xs text-slate-500 mt-1">
+              今の自分のフェーズにぴったりの説明会・作業会・Zoomを楽しくゲーム感覚で判定！
+            </p>
+          </div>
+          <a href="flowchart.html" class="px-5 py-3 rounded-2xl bg-gradient-to-r from-amber-500 via-rose-500 to-indigo-600 text-white font-black text-xs sm:text-sm shadow-md hover:scale-102 transition flex items-center justify-center gap-2 shrink-0">
+            <i class="fa-solid fa-gamepad text-amber-200"></i>
+            <span>診断ゲームを開く (専用ページ)</span>
+            <i class="fa-solid fa-chevron-right text-xs"></i>
+          </a>
+        </div>
+
+        <!-- 🎮 特設ゲーム案内バナー -->
+        <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white p-6 sm:p-7 shadow-md">
+          <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div class="space-y-2 max-w-xl">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-0.5 rounded-full bg-amber-400 text-slate-950 font-black text-[11px]">NEW! 動かせる体験</span>
+                <span class="text-xs text-rose-300 font-bold">NEO QUEST: イベント参加診断</span>
+              </div>
+              <h4 class="text-lg sm:text-xl font-black text-white">
+                質問にポチポチ答えるだけ！今のあなたにピッタリの会を自動判定！
+              </h4>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                「出店したいけど準備は何から？」「最新情報に追いつくには？」をゲーム感覚で楽しくナビゲート。通ったルートが光る全体マップや、サポート一覧表との連動ハイライトも搭載！
+              </p>
+            </div>
+            <a href="flowchart.html" class="px-6 py-3.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-sm transition shadow-lg flex items-center justify-center gap-2 shrink-0">
+              <i class="fa-solid fa-play"></i>
+              <span>クエストをスタートする</span>
+            </a>
+          </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -3510,8 +3549,22 @@
       }
     }
 
-    // タブ切替
+    // タブ切替（個別ページへのフォールバック対応）
     function switchTab(tabId) {
+      const pageMap = {
+        'hub': './',
+        'flowchart': 'flowchart.html',
+        'raytus': 'raytus.html',
+        'iyasaka': 'iyasaka.html',
+        'calendar': 'calendar.html',
+        'archive': 'archive.html',
+        'sns': 'sns.html'
+      };
+      // If separate page exists and target is not hub, redirect for clean independent pages
+      if (pageMap[tabId] && tabId !== 'hub') {
+        window.location.href = pageMap[tabId];
+        return;
+      }
       if (tabId === 'schedule') {
         tabId = 'hub';
         setTimeout(() => scrollToSection('schedule-section'), 150);

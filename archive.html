@@ -1,0 +1,1798 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>特別勉強会 & 定例会 動画アーカイブ集 | NEO FAMILY × RAYTUS</title>
+  <meta name="description" content="NEO FAMILYの過去の特別勉強会・合同定例会・実践講義動画をカテゴリ別に整理した完全アーカイブ集。">
+  <meta name="description" content="NEO FAMILY・RAYTUS group・Iyasaka宮の総合ポータル。新メンバー向けスタートガイド、次回定例会・Zoom情報、事業紹介動画アーカイブ、ECショップ、公式Instagramまで全てをワンストップで集約。">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&family=Zen+Old+Mincho:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Custom Styles for Calendar and Transitions -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans JP"', 'sans-serif'],
+            serif: ['"Zen Old Mincho"', 'serif'],
+            display: ['"Plus Jakarta Sans"', '"Noto Sans JP"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#fff1f2',
+              100: '#ffe4e6',
+              500: '#f43f5e',
+              600: '#e11d48',
+              700: '#be123c',
+            },
+            raytus: {
+              gold: '#c5a880',
+              goldLight: '#e4d3ba',
+              dark: '#0d0f12',
+              card: '#16191f'
+            },
+            iyasaka: {
+              main: '#c29b38',
+              bg: '#faf6ee',
+              accent: '#d97706'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(0,0,0,0.03); }
+    ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 9999px; }
+
+    /* Glass Effects */
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .glass-dark-nav {
+      background: rgba(13, 15, 18, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    /* Tab transitions */
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.25s ease-in-out;
+    }
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Raytus Video Container */
+    .raytus-video-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.45;
+      z-index: 0;
+    }
+
+    /* Smooth Scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-rose-500 selection:text-white pb-20">
+
+  <!-- ========================================== -->
+  <!-- メイン グローバルヘッダー -->
+  <!-- ========================================== -->
+  <header class="sticky top-0 z-40 glass-nav border-b border-slate-200/80 shadow-xs transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-18">
+        
+        <!-- ブランドロゴ & タイトル -->
+        <a href="./" class="flex items-center gap-3 cursor-pointer group">
+          <img src="images/logo.png" alt="NEO FAMILY Logo" class="w-10 h-10 md:w-11 md:h-11 rounded-full object-contain shadow-xs border border-amber-200/60 bg-white group-hover:scale-105 transition-transform">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-display font-black text-base md:text-lg tracking-tight text-slate-900">NEO FAMILY</span>
+              <span class="text-slate-300">×</span>
+              <span class="font-serif font-bold text-sm md:text-base text-slate-800 tracking-wider">RAYTUS</span>
+              <span class="px-1.5 py-0.5 text-[9px] font-black rounded-sm bg-amber-500/10 text-amber-700 border border-amber-300/40">PORTAL</span>
+            </div>
+            <p class="text-[11px] text-slate-500 font-medium hidden sm:block">総合ポータル & 参加ナビゲーション</p>
+          </div>
+        </a>
+
+        <!-- ヘッダー右側アクション -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <button onclick="copyZoomInfo()" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-blue-50 text-blue-700 border border-blue-200/60 hover:bg-blue-100 transition shadow-2xs">
+            <i class="fa-solid fa-video text-blue-500"></i>
+            <span>全日共通Zoom</span>
+          </button>
+          <a href="flowchart.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-50 text-amber-800 border border-amber-300/60 hover:bg-amber-100 transition shadow-2xs">
+            <i class="fa-solid fa-gamepad text-amber-600"></i>
+            <span>診断ゲーム</span>
+          </a>
+          <a href="admin.html" class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-bold text-slate-500 hover:text-slate-800 transition">
+            <i class="fa-solid fa-lock text-[10px]"></i>
+            <span class="hidden sm:inline">管理</span>
+          </a>
+        </div>
+      </div>
+
+      <nav class="flex items-center gap-1 overflow-x-auto no-scrollbar py-2 border-t border-slate-100 text-xs font-bold">
+        <a href="./" id="nav-item-hub" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+          <i class="fa-solid fa-compass"></i>
+          <span>総合ポータル</span>
+        </a>
+        <a href="flowchart.html" id="nav-item-flowchart" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+          <i class="fa-solid fa-gamepad text-amber-500"></i>
+          <span>参加フロー診断</span> <span class="px-1.5 py-0.2 text-[9px] font-black rounded bg-rose-500 text-white animate-pulse">GAME</span>
+        </a>
+        <a href="raytus.html" id="nav-item-raytus" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+          <i class="fa-solid fa-globe text-slate-400"></i>
+          <span>RAYTUS 全事業</span>
+        </a>
+        <a href="iyasaka.html" id="nav-item-iyasaka" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+          <i class="fa-solid fa-torii-gate text-amber-600"></i>
+          <span>Iyasaka宮</span>
+        </a>
+        <a href="calendar.html" id="nav-item-calendar" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+          <i class="fa-regular fa-calendar-days text-rose-500"></i>
+          <span>イベントカレンダー</span>
+        </a>
+        <a href="archive.html" id="nav-item-archive" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 bg-slate-900 text-white shadow-xs">
+          <i class="fa-solid fa-graduation-cap text-indigo-500"></i>
+          <span>勉強会アーカイブ</span>
+        </a>
+        <a href="sns.html" id="nav-item-sns" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+          <i class="fa-solid fa-share-nodes text-pink-500"></i>
+          <span>公式SNS</span>
+        </a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- ⚡️ ベテラン向け クイックアクセス HUD -->
+  <!-- ========================================== -->
+  <section class="bg-white border-b border-slate-200 py-3.5 px-4 sm:px-6 shadow-2xs">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
+      <div class="flex items-center gap-2.5 w-full md:w-auto flex-wrap">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-amber-100 text-amber-900 font-extrabold text-[11px] shrink-0">
+          <i class="fa-solid fa-bolt text-amber-600"></i> 直近の最重要予定
+        </span>
+        <div class="text-slate-700 flex flex-wrap items-center gap-1.5">
+          <span class="font-bold">次回合同定例会:</span> <span class="bg-rose-50 text-rose-700 px-2 py-0.5 rounded-md font-bold">11/2(月) 13:00〜 福岡</span>
+          <span class="hidden sm:inline text-slate-300">|</span>
+          <span class="text-slate-600">合同事業説明会: 全日共通Zoom ID: <strong class="text-slate-900">811 1315 2898</strong> (PW: 2026)</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 shrink-0 w-full md:w-auto justify-start md:justify-end">
+        <button onclick="copyZoomInfo()" class="px-3 py-1.5 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold border border-indigo-200 transition flex items-center gap-1 text-xs">
+          <i class="fa-solid fa-copy"></i>
+          <span>Zoomコピー</span>
+        </button>
+        <a href="https://us06web.zoom.us/j/81113152898?pwd=rnUDogc0paequYOxCnvXYaSs3WngG3.1" target="_blank" class="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold transition flex items-center gap-1 text-xs">
+          <i class="fa-solid fa-video"></i>
+          <span>Zoom参加</span>
+        </a>
+        <a href="https://chouseisan.com/s?h=2733ccd431d846f8bccd9c3061c0bca3" target="_blank" class="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition flex items-center gap-1 text-xs">
+          <i class="fa-solid fa-pen-to-square"></i>
+          <span>参加表明</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<!-- TAB 5: 事業紹介 & アーカイブ集 (Notion 2 複製 & 洗練) -->
+    <!-- ======================================================== -->
+    <div id="tab-content-archive" class="tab-content active space-y-6">
+      <!-- 検索・フィルターバー -->
+      <div class="bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div class="relative w-full sm:w-72">
+          <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+          <input type="text" id="archive-search-input" onkeyup="filterArchives()" placeholder="事業名やキーワードで検索..." class="w-full pl-8 pr-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-xs focus:outline-none focus:border-rose-500 transition">
+        </div>
+        <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar w-full sm:w-auto text-xs font-bold">
+          <button onclick="setArchiveCategory('all')" id="cat-btn-all" class="cat-btn px-3 py-1.5 rounded-lg bg-slate-900 text-white transition shadow-2xs">すべて</button>
+          <button onclick="setArchiveCategory('raytus')" id="cat-btn-raytus" class="cat-btn px-3 py-1.5 rounded-lg text-slate-600 hover:bg-slate-100 transition">RAYTUS事業 (18)</button>
+          <button onclick="setArchiveCategory('neo')" id="cat-btn-neo" class="cat-btn px-3 py-1.5 rounded-lg text-slate-600 hover:bg-slate-100 transition">NEO事業 (3)</button>
+          <button onclick="setArchiveCategory('study')" id="cat-btn-study" class="cat-btn px-3 py-1.5 rounded-lg text-slate-600 hover:bg-slate-100 transition">特別勉強会 (6)</button>
+        </div>
+      </div>
+
+      <!-- アーカイブ カードグリッド -->
+      <div id="archive-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        
+        <!-- ==================== RAYTUS 18事業 ==================== -->
+        
+        <!-- 1: ensemble -->
+        <div class="archive-card bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-rose-400 transition group" data-category="raytus care" data-title="産前産後ケア事業 ensemble">
+          <div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-slate-900 relative cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/x8XJCSYZzp0', '産前産後ケア事業：ensemble')">
+              <img src="https://img.youtube.com/vi/x8XJCSYZzp0/hqdefault.jpg" alt="ensemble" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition">
+                <div class="w-10 h-10 rounded-full bg-rose-600 text-white flex items-center justify-center shadow-md">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-rose-100 text-rose-700 font-bold">RAYTUS事業</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">産前産後ケア事業：ensemble</h4>
+            <p class="text-xs text-slate-500 mt-1">ママと赤ちゃんの心身を温かく支える産前産後トータルサポート。</p>
+          </div>
+          <button onclick="openVideoModal('https://www.youtube.com/embed/x8XJCSYZzp0', '産前産後ケア事業：ensemble')" class="mt-4 text-xs font-bold text-rose-600 hover:text-rose-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-play text-sm"></i>
+            <span>紹介動画を再生</span>
+          </button>
+        </div>
+
+        <!-- 2: RAY和おむすび -->
+        <div class="archive-card bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-amber-400 transition group" data-category="raytus food" data-title="食事業 RAY和おむすび">
+          <div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-slate-900 relative cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/rRPdgC6p5WE', '食事業：RAY和おむすび')">
+              <img src="https://img.youtube.com/vi/rRPdgC6p5WE/hqdefault.jpg" alt="RAY和おむすび" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition">
+                <div class="w-10 h-10 rounded-full bg-amber-500 text-white flex items-center justify-center shadow-md">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-bold">RAYTUS事業</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">食事業：RAY和おむすび</h4>
+            <p class="text-xs text-slate-500 mt-1">日本の伝統食「おむすび」を通じて人と人を結び、安心安全な食を届ける。</p>
+          </div>
+          <button onclick="openVideoModal('https://www.youtube.com/embed/rRPdgC6p5WE', '食事業：RAY和おむすび')" class="mt-4 text-xs font-bold text-amber-600 hover:text-amber-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-play text-sm"></i>
+            <span>紹介動画を再生</span>
+          </button>
+        </div>
+
+        <!-- 3: cocotoro. -->
+        <div class="archive-card bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-rose-400 transition group" data-category="raytus care" data-title="こころ事業 cocotoro">
+          <div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-slate-900 relative cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/SUcNAq4RaPE', 'こころ事業：cocotoro.')">
+              <img src="https://img.youtube.com/vi/SUcNAq4RaPE/hqdefault.jpg" alt="cocotoro" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition">
+                <div class="w-10 h-10 rounded-full bg-rose-600 text-white flex items-center justify-center shadow-md">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-rose-100 text-rose-700 font-bold">RAYTUS事業</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">こころ事業：cocotoro.</h4>
+            <p class="text-xs text-slate-500 mt-1">メンタルヘルスケアと心の寄り添い、内面からの輝きをサポート。</p>
+          </div>
+          <button onclick="openVideoModal('https://www.youtube.com/embed/SUcNAq4RaPE', 'こころ事業：cocotoro.')" class="mt-4 text-xs font-bold text-rose-600 hover:text-rose-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-play text-sm"></i>
+            <span>紹介動画を再生</span>
+          </button>
+        </div>
+
+        <!-- 4: jewelry Aru -->
+        <div class="archive-card bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-amber-400 transition group" data-category="raytus beauty" data-title="オーダーメイドジュエリー事業 jewelry Aru">
+          <div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-slate-900 relative cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/PFbYFr9PMEw', 'オーダーメイドジュエリー事業：jewelry Aru')">
+              <img src="https://img.youtube.com/vi/PFbYFr9PMEw/hqdefault.jpg" alt="jewelry Aru" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition">
+                <div class="w-10 h-10 rounded-full bg-amber-500 text-white flex items-center justify-center shadow-md">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-bold">RAYTUS事業</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">オーダーメイドジュエリー：jewelry Aru</h4>
+            <p class="text-xs text-slate-500 mt-1">想いを形にする一生もののカスタムジュエリー制作。</p>
+          </div>
+          <button onclick="openVideoModal('https://www.youtube.com/embed/PFbYFr9PMEw', 'オーダーメイドジュエリー事業：jewelry Aru')" class="mt-4 text-xs font-bold text-amber-600 hover:text-amber-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-play text-sm"></i>
+            <span>紹介動画を再生</span>
+          </button>
+        </div>
+
+        <!-- 5: Raysring -->
+        <div class="archive-card bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-rose-400 transition group" data-category="raytus care" data-title="ライフパートナーマッチング事業 Raysring">
+          <div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-slate-900 relative cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/XRWrVBTuF6U', 'ライフパートナーマッチング事業：Raysring')">
+              <img src="https://img.youtube.com/vi/XRWrVBTuF6U/hqdefault.jpg" alt="Raysring" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition">
+                <div class="w-10 h-10 rounded-full bg-rose-600 text-white flex items-center justify-center shadow-md">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-rose-100 text-rose-700 font-bold">RAYTUS事業</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">ライフパートナーマッチング：Raysring</h4>
+            <p class="text-xs text-slate-500 mt-1">価値観を分かち合える人生のパートナーシップ構築。</p>
+          </div>
+          <button onclick="openVideoModal('https://www.youtube.com/embed/XRWrVBTuF6U', 'ライフパートナーマッチング事業：Raysring')" class="mt-4 text-xs font-bold text-rose-600 hover:text-rose-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-play text-sm"></i>
+            <span>紹介動画を再生</span>
+          </button>
+        </div>
+
+        <!-- 6: ViVid days -->
+        <div class="archive-card bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-purple-400 transition group" data-category="raytus care" data-title="おとな世代〜シニア事業 ViVid days">
+          <div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-slate-900 relative cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/CkEcsUg_Y3s', 'おとな世代〜シニア事業：ViVid days')">
+              <img src="https://img.youtube.com/vi/CkEcsUg_Y3s/hqdefault.jpg" alt="ViVid days" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition">
+                <div class="w-10 h-10 rounded-full bg-purple-600 text-white flex items-center justify-center shadow-md">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-purple-100 text-purple-700 font-bold">RAYTUS事業</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">おとな世代〜シニア事業：ViVid days</h4>
+            <p class="text-xs text-slate-500 mt-1">年齢を重ねるごとに鮮やかに生きる、大人のためのコミュニティ。</p>
+          </div>
+          <button onclick="openVideoModal('https://www.youtube.com/embed/CkEcsUg_Y3s', 'おとな世代〜シニア事業：ViVid days')" class="mt-4 text-xs font-bold text-purple-600 hover:text-purple-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-play text-sm"></i>
+            <span>紹介動画を再生</span>
+          </button>
+        </div>
+
+        <!-- 7: ままゆね -->
+        <div class="archive-card bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-rose-400 transition group" data-category="raytus care" data-title="ママ&ベビースクール事業 ままゆね">
+          <div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-slate-900 relative cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/f7EScf-aVak', 'ママ&ベビースクール事業：ままゆね')">
+              <img src="https://img.youtube.com/vi/f7EScf-aVak/hqdefault.jpg" alt="ままゆね" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition">
+                <div class="w-10 h-10 rounded-full bg-rose-600 text-white flex items-center justify-center shadow-md">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-rose-100 text-rose-700 font-bold">RAYTUS事業</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">ママ&ベビースクール：ままゆね</h4>
+            <p class="text-xs text-slate-500 mt-1">母子のふれあいと健やかな成長を育む親子スクール。</p>
+          </div>
+          <button onclick="openVideoModal('https://www.youtube.com/embed/f7EScf-aVak', 'ママ&ベビースクール事業：ままゆね')" class="mt-4 text-xs font-bold text-rose-600 hover:text-rose-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-play text-sm"></i>
+            <span>紹介動画を再生</span>
+          </button>
+        </div>
+
+        <!-- 8: NailLAND -->
+        <div class="archive-card bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-pink-400 transition group" data-category="raytus beauty" data-title="ネイル総合事業 NailLAND">
+          <div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-slate-900 relative cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/qVvtNAyYQKk', 'ネイル総合事業：NailLAND')">
+              <img src="https://img.youtube.com/vi/qVvtNAyYQKk/hqdefault.jpg" alt="NailLAND" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition">
+                <div class="w-10 h-10 rounded-full bg-pink-600 text-white flex items-center justify-center shadow-md">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-pink-100 text-pink-700 font-bold">RAYTUS事業</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">ネイル総合事業：NailLAND</h4>
+            <p class="text-xs text-slate-500 mt-1">ネイリストの育成、サロン展開、爪の美と健康を支える総合プラットフォーム。</p>
+          </div>
+          <button onclick="openVideoModal('https://www.youtube.com/embed/qVvtNAyYQKk', 'ネイル総合事業：NailLAND')" class="mt-4 text-xs font-bold text-pink-600 hover:text-pink-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-play text-sm"></i>
+            <span>紹介動画を再生</span>
+          </button>
+        </div>
+
+        <!-- 9: ノワナスクール -->
+        <div class="archive-card bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-indigo-400 transition group" data-category="raytus care" data-title="韓国コミュニティ事業 ノワナスクール">
+          <div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-slate-900 relative cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/he4Lcckduvw', '韓国コミュニティ事業：ノワナスクール')">
+              <img src="https://img.youtube.com/vi/he4Lcckduvw/hqdefault.jpg" alt="ノワナスクール" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition">
+                <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-md">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-indigo-100 text-indigo-700 font-bold">RAYTUS事業</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">韓国コミュニティ：ノワナスクール</h4>
+            <p class="text-xs text-slate-500 mt-1">語学と文化を通じて日韓の架け橋をつくるコミュニティスクール。</p>
+          </div>
+          <button onclick="openVideoModal('https://www.youtube.com/embed/he4Lcckduvw', '韓国コミュニティ事業：ノワナスクール')" class="mt-4 text-xs font-bold text-indigo-600 hover:text-indigo-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-play text-sm"></i>
+            <span>紹介動画を再生</span>
+          </button>
+        </div>
+
+        <!-- 10: Femine -->
+        <div class="archive-card bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-purple-400 transition group" data-category="raytus beauty" data-title="フェムケア事業 Femine">
+          <div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-slate-900 relative cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/gw-bwyLDV4c', 'フェムケア事業：Femine')">
+              <img src="https://img.youtube.com/vi/gw-bwyLDV4c/hqdefault.jpg" alt="Femine" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition">
+                <div class="w-10 h-10 rounded-full bg-purple-600 text-white flex items-center justify-center shadow-md">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-purple-100 text-purple-700 font-bold">RAYTUS事業</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">フェムケア事業：Femine</h4>
+            <p class="text-xs text-slate-500 mt-1">女性特有のライフステージや身体の悩みに寄り添うフェムテックケア。</p>
+          </div>
+          <button onclick="openVideoModal('https://www.youtube.com/embed/gw-bwyLDV4c', 'フェムケア事業：Femine')" class="mt-4 text-xs font-bold text-purple-600 hover:text-purple-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-play text-sm"></i>
+            <span>紹介動画を再生</span>
+          </button>
+        </div>
+
+        <!-- 11: Ligare -->
+        <div class="archive-card bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-pink-400 transition group" data-category="raytus beauty" data-title="総合美容事業 Ligare リガーレ">
+          <div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-slate-900 relative cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/eKTUbn63_qc', '総合美容事業：Ligare（リガーレ）')">
+              <img src="https://img.youtube.com/vi/eKTUbn63_qc/hqdefault.jpg" alt="Ligare" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition">
+                <div class="w-10 h-10 rounded-full bg-pink-600 text-white flex items-center justify-center shadow-md">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-pink-100 text-pink-700 font-bold">RAYTUS事業</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">総合美容事業：Ligare（リガーレ）</h4>
+            <p class="text-xs text-slate-500 mt-1">エステ・スキンケア・インナービューティーの総合プロデュース。</p>
+          </div>
+          <button onclick="openVideoModal('https://www.youtube.com/embed/eKTUbn63_qc', '総合美容事業：Ligare（リガーレ）')" class="mt-4 text-xs font-bold text-pink-600 hover:text-pink-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-play text-sm"></i>
+            <span>紹介動画を再生</span>
+          </button>
+        </div>
+
+        <!-- 12: 稲環 -->
+        <div class="archive-card bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-amber-400 transition group" data-category="raytus food" data-title="総合食事業説明 稲環 いなわ">
+          <div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-slate-900 relative cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/K3bSbmq-_Gc', '総合食事業：稲環（いなわ）')">
+              <img src="https://img.youtube.com/vi/K3bSbmq-_Gc/hqdefault.jpg" alt="稲環" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition">
+                <div class="w-10 h-10 rounded-full bg-amber-500 text-white flex items-center justify-center shadow-md">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-bold">RAYTUS事業</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">総合食事業：稲環（いなわ）</h4>
+            <p class="text-xs text-slate-500 mt-1">循環型農業とお米・大地の恵みを届ける食の循環プロジェクト。</p>
+          </div>
+          <button onclick="openVideoModal('https://www.youtube.com/embed/K3bSbmq-_Gc', '総合食事業：稲環（いなわ）')" class="mt-4 text-xs font-bold text-amber-600 hover:text-amber-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-play text-sm"></i>
+            <span>紹介動画を再生</span>
+          </button>
+        </div>
+
+        <!-- 13: Re.Co Lab -->
+        <div class="archive-card bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-emerald-400 transition group" data-category="raytus beauty" data-title="スポーツリカバリー事業 Re.Co Lab リコラボ">
+          <div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-slate-900 relative cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/5xOAhgqME6s', 'スポーツリカバリー事業：Re.Co Lab（リコラボ）')">
+              <img src="https://img.youtube.com/vi/5xOAhgqME6s/hqdefault.jpg" alt="Re.Co Lab" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition">
+                <div class="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-md">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-100 text-emerald-700 font-bold">RAYTUS事業</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">スポーツリカバリー：Re.Co Lab</h4>
+            <p class="text-xs text-slate-500 mt-1">アスリートや日常の身体の疲労回復とコンディショニング。</p>
+          </div>
+          <button onclick="openVideoModal('https://www.youtube.com/embed/5xOAhgqME6s', 'スポーツリカバリー事業：Re.Co Lab（リコラボ）')" class="mt-4 text-xs font-bold text-emerald-600 hover:text-emerald-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-play text-sm"></i>
+            <span>紹介動画を再生</span>
+          </button>
+        </div>
+
+        <!-- 14: CORECreativeStudio -->
+        <div class="archive-card bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-indigo-400 transition group" data-category="raytus business" data-title="クリエイティブ事業 CORECreativeStudio">
+          <div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-slate-900 relative cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/CnTqMBOdvz0', 'クリエイティブ事業：CORECreativeStudio')">
+              <img src="https://img.youtube.com/vi/CnTqMBOdvz0/hqdefault.jpg" alt="CORECreativeStudio" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition">
+                <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-md">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-indigo-100 text-indigo-700 font-bold">RAYTUS事業</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">クリエイティブ：CORECreativeStudio</h4>
+            <p class="text-xs text-slate-500 mt-1">映像・デザイン・ブランディングの総合クリエイティブ支援。</p>
+          </div>
+          <button onclick="openVideoModal('https://www.youtube.com/embed/CnTqMBOdvz0', 'クリエイティブ事業：CORECreativeStudio')" class="mt-4 text-xs font-bold text-indigo-600 hover:text-indigo-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-play text-sm"></i>
+            <span>紹介動画を再生</span>
+          </button>
+        </div>
+
+        <!-- 15: このまち薬局 -->
+        <div class="archive-card bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-teal-400 transition group" data-category="raytus care" data-title="薬局事業 このまち薬局 まちのほけんしつ">
+          <div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-slate-900 relative cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/WLTNPtndUPk', '薬局事業：このまち薬局')">
+              <img src="https://img.youtube.com/vi/WLTNPtndUPk/hqdefault.jpg" alt="このまち薬局" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition">
+                <div class="w-10 h-10 rounded-full bg-teal-600 text-white flex items-center justify-center shadow-md">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-teal-100 text-teal-700 font-bold">RAYTUS事業</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">薬局事業：このまち薬局</h4>
+            <p class="text-xs text-slate-500 mt-1">地域に根ざした健康相談・まちのほけんしつ連携。</p>
+          </div>
+          <button onclick="openVideoModal('https://www.youtube.com/embed/WLTNPtndUPk', '薬局事業：このまち薬局')" class="mt-4 text-xs font-bold text-teal-600 hover:text-teal-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-play text-sm"></i>
+            <span>紹介動画を再生</span>
+          </button>
+        </div>
+
+        <!-- 16: セクシャルLABO -->
+        <div class="archive-card bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-pink-400 transition group" data-category="raytus care beauty" data-title="セクシャルウェルネス事業 セクシャルLABO">
+          <div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-slate-900 relative cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/xpGunQNr4tE', 'セクシャルウェルネス事業：セクシャルLABO')">
+              <img src="https://img.youtube.com/vi/xpGunQNr4tE/hqdefault.jpg" alt="セクシャルLABO" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition">
+                <div class="w-10 h-10 rounded-full bg-pink-600 text-white flex items-center justify-center shadow-md">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-pink-100 text-pink-700 font-bold">RAYTUS事業</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">セクシャルウェルネス：セクシャルLABO</h4>
+            <p class="text-xs text-slate-500 mt-1">正しい性の知識とウェルビーイングを学ぶ場。</p>
+          </div>
+          <button onclick="openVideoModal('https://www.youtube.com/embed/xpGunQNr4tE', 'セクシャルウェルネス事業：セクシャルLABO')" class="mt-4 text-xs font-bold text-pink-600 hover:text-pink-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-play text-sm"></i>
+            <span>紹介動画を再生</span>
+          </button>
+        </div>
+
+        <!-- 17: nail hug -->
+        <div class="archive-card bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-rose-400 transition group" data-category="raytus care beauty" data-title="おやこの爪事業 nail hug">
+          <div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-slate-900 relative cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/WO3j5E_98Go', 'おやこの爪事業：nail hug')">
+              <img src="https://img.youtube.com/vi/WO3j5E_98Go/hqdefault.jpg" alt="nail hug" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition">
+                <div class="w-10 h-10 rounded-full bg-rose-600 text-white flex items-center justify-center shadow-md">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-rose-100 text-rose-700 font-bold">RAYTUS事業</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">おやこの爪事業：nail hug</h4>
+            <p class="text-xs text-slate-500 mt-1">親子のスキンシップと爪のお手入れを通じた愛の育み。</p>
+          </div>
+          <button onclick="openVideoModal('https://www.youtube.com/embed/WO3j5E_98Go', 'おやこの爪事業：nail hug')" class="mt-4 text-xs font-bold text-rose-600 hover:text-rose-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-play text-sm"></i>
+            <span>紹介動画を再生</span>
+          </button>
+        </div>
+
+        <!-- 18: 片付けの窓口 -->
+        <div class="archive-card bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-emerald-400 transition group" data-category="raytus care" data-title="お片付け事業 片付けの窓口 スッキリッチ">
+          <div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-slate-900 relative cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/pUvEZ-U4tnw', 'お片付け事業：片付けの窓口')">
+              <img src="https://img.youtube.com/vi/pUvEZ-U4tnw/hqdefault.jpg" alt="片付けの窓口" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition">
+                <div class="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-md">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-100 text-emerald-700 font-bold">RAYTUS事業</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">お片付け事業：片付けの窓口</h4>
+            <p class="text-xs text-slate-500 mt-1">住空間を整えて人生の運気と思考をクリアにするお片付けサポート。</p>
+          </div>
+          <button onclick="openVideoModal('https://www.youtube.com/embed/pUvEZ-U4tnw', 'お片付け事業：片付けの窓口')" class="mt-4 text-xs font-bold text-emerald-600 hover:text-emerald-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-play text-sm"></i>
+            <span>紹介動画を再生</span>
+          </button>
+        </div>
+
+
+        <!-- ==================== 関連 & NEO FAMILY 事業 ==================== -->
+
+        <!-- 19: 確定申告事業：ラクシン -->
+        <div class="archive-card bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-blue-400 transition group" data-category="neo business" data-title="確定申告事業 ラクシン">
+          <div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-slate-900 relative cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/xj3e86mFEMo', '確定申告事業：ラクシン')">
+              <img src="https://img.youtube.com/vi/xj3e86mFEMo/hqdefault.jpg" alt="ラクシン" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition">
+                <div class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-md">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-blue-100 text-blue-700 font-bold">関連コミュニティ事業</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">確定申告事業：ラクシン</h4>
+            <p class="text-xs text-slate-500 mt-1">個人事業主やフリーランスの税務・確定申告をわかりやすくサポート。</p>
+          </div>
+          <button onclick="openVideoModal('https://www.youtube.com/embed/xj3e86mFEMo', '確定申告事業：ラクシン')" class="mt-4 text-xs font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-play text-sm"></i>
+            <span>紹介動画を再生</span>
+          </button>
+        </div>
+
+        <!-- 20: IDIO JAPAN協会 -->
+        <div class="archive-card bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-indigo-400 transition group" data-category="neo" data-title="IDIO JAPAN協会">
+          <div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-slate-900 relative cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/iLH7fKyP1Hw', 'IDIO JAPAN協会')">
+              <img src="https://img.youtube.com/vi/iLH7fKyP1Hw/hqdefault.jpg" alt="IDIO JAPAN協会" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition">
+                <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-md">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-indigo-100 text-indigo-700 font-bold">NEO FAMILY事業</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">IDIO JAPAN協会</h4>
+            <p class="text-xs text-slate-500 mt-1">個々の才能を発掘し社会へ還元する教育・共育の推進組織。</p>
+          </div>
+          <button onclick="openVideoModal('https://www.youtube.com/embed/iLH7fKyP1Hw', 'IDIO JAPAN協会')" class="mt-4 text-xs font-bold text-indigo-600 hover:text-indigo-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-play text-sm"></i>
+            <span>紹介動画を再生</span>
+          </button>
+        </div>
+
+        <!-- 21: BKレーベル -->
+        <div class="archive-card bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-amber-400 transition group" data-category="neo" data-title="BKレーベル">
+          <div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-slate-900 relative cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/bir0V33Rol8', 'BKレーベル')">
+              <img src="https://img.youtube.com/vi/bir0V33Rol8/hqdefault.jpg" alt="BKレーベル" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition">
+                <div class="w-10 h-10 rounded-full bg-amber-500 text-white flex items-center justify-center shadow-md">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-bold">NEO FAMILY事業</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">BKレーベル</h4>
+            <p class="text-xs text-slate-500 mt-1">ぶった斬り会長によるブランディング＆コンテンツレーベル。</p>
+          </div>
+          <button onclick="openVideoModal('https://www.youtube.com/embed/bir0V33Rol8', 'BKレーベル')" class="mt-4 text-xs font-bold text-amber-600 hover:text-amber-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-play text-sm"></i>
+            <span>紹介動画を再生</span>
+          </button>
+        </div>
+
+        <!-- 22: NEO FAMILY.事務局 -->
+        <div class="archive-card bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-slate-400 transition group" data-category="neo business" data-title="事務事業 NEO FAMILY 事務局">
+          <div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-slate-900 relative cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/B6m8mOEsw84', '事務事業：NEO FAMILY.事務局')">
+              <img src="https://img.youtube.com/vi/B6m8mOEsw84/hqdefault.jpg" alt="NEO FAMILY 事務局" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition">
+                <div class="w-10 h-10 rounded-full bg-slate-800 text-white flex items-center justify-center shadow-md">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-bold">NEO FAMILY事業</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">事務事業：NEO FAMILY.事務局</h4>
+            <p class="text-xs text-slate-500 mt-1">全体の運営管理、イベント進行、会員サポートを担う中核組織。</p>
+          </div>
+          <button onclick="openVideoModal('https://www.youtube.com/embed/B6m8mOEsw84', '事務事業：NEO FAMILY.事務局')" class="mt-4 text-xs font-bold text-slate-700 hover:text-slate-900 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-play text-sm"></i>
+            <span>紹介動画を再生</span>
+          </button>
+        </div>
+
+
+        <!-- ==================== NEO FAMILY 特別勉強会 ==================== -->
+
+        <!-- 23: 勉強会 第1夜 -->
+        <div class="archive-card bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-rose-400 transition group" data-category="study" data-title="特別編 第一夜 Ablaze代表 Re Spark代表">
+          <div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-slate-900 relative cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/zTGEDq3kAjI', '特別編｜第一夜：Ablaze代表＆Re:Spark+代表')">
+              <img src="https://img.youtube.com/vi/zTGEDq3kAjI/hqdefault.jpg" alt="第1夜" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition">
+                <div class="w-10 h-10 rounded-full bg-rose-600 text-white flex items-center justify-center shadow-md">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-rose-100 text-rose-700 font-bold">特別勉強会</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">特別編｜第一夜</h4>
+            <p class="text-xs text-slate-500 mt-1">登壇：Ablaze代表 ＆ Re:Spark+代表</p>
+          </div>
+          <button onclick="openVideoModal('https://www.youtube.com/embed/zTGEDq3kAjI', '特別編｜第一夜：Ablaze代表＆Re:Spark+代表')" class="mt-4 text-xs font-bold text-rose-600 hover:text-rose-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-play text-sm"></i>
+            <span>動画を再生</span>
+          </button>
+        </div>
+
+        <!-- 24: 勉強会 第2夜 -->
+        <div class="archive-card bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-rose-400 transition group" data-category="study" data-title="特別編 第二夜 tidy shin代表 L Ohana代表">
+          <div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-slate-900 relative cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/YmARyoWu5gU', '特別編｜第二夜：tidy.shin代表＆L’Ohana代表')">
+              <img src="https://img.youtube.com/vi/YmARyoWu5gU/hqdefault.jpg" alt="第2夜" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition">
+                <div class="w-10 h-10 rounded-full bg-rose-600 text-white flex items-center justify-center shadow-md">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-rose-100 text-rose-700 font-bold">特別勉強会</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">特別編｜第二夜</h4>
+            <p class="text-xs text-slate-500 mt-1">登壇：tidy.shin代表 ＆ L’Ohana代表</p>
+          </div>
+          <button onclick="openVideoModal('https://www.youtube.com/embed/YmARyoWu5gU', '特別編｜第二夜：tidy.shin代表＆L’Ohana代表')" class="mt-4 text-xs font-bold text-rose-600 hover:text-rose-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-play text-sm"></i>
+            <span>動画を再生</span>
+          </button>
+        </div>
+
+        <!-- 25: 勉強会 第3夜 -->
+        <div class="archive-card bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-rose-400 transition group" data-category="study" data-title="特別編 第三夜 K pays Fellow代表 mico group代表">
+          <div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-slate-900 relative cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/Wlsup7qmy88', '特別編｜第三夜：K-pays Fellow代表＆∞mico group代表')">
+              <img src="https://img.youtube.com/vi/Wlsup7qmy88/hqdefault.jpg" alt="第3夜" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition">
+                <div class="w-10 h-10 rounded-full bg-rose-600 text-white flex items-center justify-center shadow-md">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-rose-100 text-rose-700 font-bold">特別勉強会</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">特別編｜第三夜</h4>
+            <p class="text-xs text-slate-500 mt-1">登壇：K-pays Fellow代表 ＆ ∞mico group代表</p>
+          </div>
+          <button onclick="openVideoModal('https://www.youtube.com/embed/Wlsup7qmy88', '特別編｜第三夜：K-pays Fellow代表＆∞mico group代表')" class="mt-4 text-xs font-bold text-rose-600 hover:text-rose-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-play text-sm"></i>
+            <span>動画を再生</span>
+          </button>
+        </div>
+
+        <!-- 26: 勉強会 第4夜 -->
+        <div class="archive-card bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-rose-400 transition group" data-category="study" data-title="特別編 第四夜 RAYTUS group 理事長 REALISE代表">
+          <div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-slate-900 relative cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/a379lr1GxgI', '特別編｜第四夜：RAYTUS group.理事長&REALISE代表')">
+              <img src="https://img.youtube.com/vi/a379lr1GxgI/hqdefault.jpg" alt="第4夜" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition">
+                <div class="w-10 h-10 rounded-full bg-rose-600 text-white flex items-center justify-center shadow-md">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-rose-100 text-rose-700 font-bold">特別勉強会</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">特別編｜第四夜</h4>
+            <p class="text-xs text-slate-500 mt-1">登壇：RAYTUS group.理事長 ＆ REALISE代表</p>
+          </div>
+          <button onclick="openVideoModal('https://www.youtube.com/embed/a379lr1GxgI', '特別編｜第四夜：RAYTUS group.理事長&REALISE代表')" class="mt-4 text-xs font-bold text-rose-600 hover:text-rose-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-play text-sm"></i>
+            <span>動画を再生</span>
+          </button>
+        </div>
+
+        <!-- 27: 勉強会 第5夜 -->
+        <div class="archive-card bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-rose-400 transition group" data-category="study" data-title="特別編 第五夜 RAYTUS group 代表 Dynamite L代表">
+          <div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-slate-900 relative cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/n2kR7sXx5tM', '特別編｜第五夜：RAYTUS group.代表&Dynamite L代表')">
+              <img src="https://img.youtube.com/vi/n2kR7sXx5tM/hqdefault.jpg" alt="第5夜" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition">
+                <div class="w-10 h-10 rounded-full bg-rose-600 text-white flex items-center justify-center shadow-md">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-rose-100 text-rose-700 font-bold">特別勉強会</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">特別編｜第五夜</h4>
+            <p class="text-xs text-slate-500 mt-1">登壇：RAYTUS group.代表 ＆ Dynamite L代表</p>
+          </div>
+          <button onclick="openVideoModal('https://www.youtube.com/embed/n2kR7sXx5tM', '特別編｜第五夜：RAYTUS group.代表&Dynamite L代表')" class="mt-4 text-xs font-bold text-rose-600 hover:text-rose-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-play text-sm"></i>
+            <span>動画を再生</span>
+          </button>
+        </div>
+
+        <!-- 28: 勉強会 第6夜 -->
+        <div class="archive-card bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-rose-400 transition group" data-category="study" data-title="特別編 第六夜 常勝会HD 代表 Say A s One代表 SHINO organic代表">
+          <div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-slate-900 relative cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/BX1EA7QhLj8', '特別編｜第六夜：常勝会HD.代表 &Say-A\'s One代表 &SHINO organic代表')">
+              <img src="https://img.youtube.com/vi/BX1EA7QhLj8/hqdefault.jpg" alt="第6夜" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition">
+                <div class="w-10 h-10 rounded-full bg-rose-600 text-white flex items-center justify-center shadow-md">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-rose-100 text-rose-700 font-bold">特別勉強会</span>
+            <h4 class="font-bold text-slate-900 text-sm mt-1">特別編｜第六夜</h4>
+            <p class="text-xs text-slate-500 mt-1">登壇：常勝会HD.代表 ＆ Say-A's One代表 ＆ SHINO organic代表</p>
+          </div>
+          <button onclick="openVideoModal('https://www.youtube.com/embed/BX1EA7QhLj8', '特別編｜第六夜：常勝会HD.代表 &Say-A\'s One代表 &SHINO organic代表')" class="mt-4 text-xs font-bold text-rose-600 hover:text-rose-700 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-play text-sm"></i>
+            <span>動画を再生</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ======================================================== -->
+    
+  </main>
+
+<!-- フッター -->
+  <!-- ========================================== -->
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8 px-4 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <img src="images/logo.png" alt="Logo" class="w-6 h-6 object-contain">
+        <span class="font-bold text-slate-800">NEO FAMILY × RAYTUS group 統合ポータル</span>
+      </div>
+      <div class="flex items-center gap-4 text-slate-600">
+        <button onclick="switchTab('calendar')" class="hover:text-rose-600 font-medium">イベントカレンダー</button>
+        <a href="calendar.html" target="_blank" class="hover:text-rose-600 font-medium">単体カレンダー</a>
+        <a href="https://raytus-group.com" target="_blank" class="hover:text-slate-900">RAYTUS公式</a>
+        <a href="https://community-iyasakagu.jp" target="_blank" class="hover:text-slate-900">Iyasaka宮</a>
+        <a href="https://www.instagram.com/raytus_group.official" target="_blank" class="hover:text-slate-900">Instagram</a>
+        <a href="https://www.tiktok.com/@buttagiri888?_r=1&_t=ZS-9AgCrWXIl6a" target="_blank" class="hover:text-slate-900">TikTok(会長)</a>
+      </div>
+      <p class="text-[11px] text-slate-400">© 2026 NEO FAMILY. & RAYTUS group. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+
+  <!-- ======================================================== -->
+  <!-- モーダル群 -->
+  <!-- ======================================================== -->
+
+  <!-- 1. 💡 上層部への改善提案モーダル -->
+  <!-- ========================================== -->
+  <!-- 会員ID ログイン / ログアウト モーダル -->
+  <!-- ========================================== -->
+  <div id="member-id-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-slate-200 relative animate-scaleUp">
+      <button onclick="closeModal('member-id-modal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 w-8 h-8 rounded-full flex items-center justify-center bg-slate-100 transition" title="閉じる">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="text-center space-y-2 mb-6">
+        <div class="w-14 h-14 mx-auto rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl shadow-sm">
+          <i class="fa-solid fa-id-card"></i>
+        </div>
+        <h3 class="text-xl font-black text-slate-900">会員IDで進捗を記録・同期</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          会員IDを入力すると、閲覧したコンテンツやチェックリストの達成状況がクラウドに保存され、サポート担当者に共有されます。スマホとPCの間でも自動で同期されます。
+        </p>
+      </div>
+
+      <!-- ログイン中表示 -->
+      <div id="member-logged-in-view" class="hidden space-y-4">
+        <div class="p-4 rounded-2xl bg-indigo-50/70 border border-indigo-200 text-center space-y-1">
+          <span class="text-[10px] font-bold text-indigo-600 uppercase tracking-wider">現在ログイン中の会員ID</span>
+          <div class="text-2xl font-black text-slate-900 font-mono tracking-wider" id="modal-current-member-id">--</div>
+          <p class="text-[11px] text-emerald-600 font-bold flex items-center justify-center gap-1">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>閲覧ログをリアルタイム記録中</span>
+          </p>
+        </div>
+
+        <div class="text-xs text-slate-500 space-y-1 bg-slate-50 p-3 rounded-xl">
+          <p>💡 別の端末（スマホ・PC）でも同じ会員IDを入力すると、進捗が引き継がれます。</p>
+          <p>⚠️ ログアウトすると、閲覧ログの記録が停止します。</p>
+        </div>
+
+        <button onclick="logoutMember()" class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-rose-50 text-slate-700 hover:text-rose-600 font-bold text-xs transition border border-slate-200 flex items-center justify-center gap-1.5">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          <span>ログアウト（記録を停止）</span>
+        </button>
+      </div>
+
+      <!-- 未ログイン入力フォーム -->
+      <form id="member-id-form" onsubmit="handleMemberLogin(event)" class="space-y-4">
+        <div>
+          <label for="input-member-id" class="block text-xs font-bold text-slate-700 mb-1.5">会員ID（半角英数字）</label>
+          <div class="relative">
+            <input type="text" id="input-member-id" required placeholder="例: 1234abc" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm font-mono font-bold tracking-wider">
+          </div>
+          <p class="text-[11px] text-slate-400 mt-1">※パスワードは不要です。割り振られた会員IDをご入力ください。</p>
+        </div>
+
+        <button type="submit" class="w-full py-3 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-bold rounded-xl shadow-md transition flex items-center justify-center gap-2 text-xs">
+          <i class="fa-solid fa-check"></i>
+          <span>会員IDを設定して閲覧を開始</span>
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+
+  <div id="proposal-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl border border-slate-200 space-y-6">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+        <div class="flex items-center gap-2.5">
+          <span class="w-8 h-8 rounded-xl bg-amber-100 text-amber-700 font-bold flex items-center justify-center">💡</span>
+          <h3 class="font-black text-lg text-slate-900">上層部・運営向け ポータル設計提案書</h3>
+        </div>
+        <button onclick="closeModal('proposal-modal')" class="text-slate-400 hover:text-slate-700 w-8 h-8 rounded-full flex items-center justify-center bg-slate-100">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
+        <div class="p-4 rounded-2xl bg-rose-50 border border-rose-200">
+          <h4 class="font-bold text-rose-800 text-sm mb-1">【現在の課題】グループ参入者の迷子化と情報の分散</h4>
+          <p class="text-xs text-rose-900/80">
+            「どこで何ができるのか」「自分は何をすればいいか分からない」という声が初心者に多発。公式サイト、Notion（複数ページ）、Iyasaka宮（WordPress）、LINE、Instagramに情報が散らばり、ベテランもZoomリンクや定例会申請を探すのに手間取っていました。
+          </p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-blue-50 border border-blue-200">
+          <h4 class="font-bold text-blue-800 text-sm mb-1">【本プロトタイプによる解決アプローチ】</h4>
+          <ul class="text-xs text-blue-900/80 space-y-2 list-disc list-inside">
+            <li><strong>習熟度別HUD（初心者/ベテラン切替）:</strong> 初心者には4ステップガイドと診断フローを表示し、ベテランには即座に今日のZoomや定例会参加リンクを使えるショートカットバーを提供。</li>
+            <li><strong>ブランド世界観の完全内包（複製＆改善）:</strong> RAYTUSの洗練された高級感、Iyasaka宮の親しみやすさ、Notionのアーカイブ性を損なわずに1つのポータルに凝縮。</li>
+            <li><strong>インライン体験の強化:</strong> YouTube動画はページ内でそのままモーダル再生、高解像度フローチャートはワンタップ拡大、ECはカゴ体験をシミュレーション可能。</li>
+          </ul>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-amber-50 border border-amber-200">
+          <h4 class="font-bold text-amber-800 text-sm mb-1">【上層部への提案ストーリー】</h4>
+          <p class="text-xs text-amber-900/80">
+            「既存サイトを壊して作り直す」のではなく、「すべての資産を美しく束ねるハブ（ポータル）を置く」ことで、開発工数を抑えつつ参入者の定着率とコミュニティ内の経済循環を最大化できます。
+          </p>
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-slate-100 flex justify-end">
+        <button onclick="closeModal('proposal-modal')" class="px-5 py-2.5 rounded-xl bg-slate-900 text-white font-bold text-xs hover:bg-black transition">
+          閉じる
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. グループ構造図モーダル -->
+  <div id="structure-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 space-y-6">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+        <h3 class="font-black text-lg text-slate-900 flex items-center gap-2">
+          <i class="fa-solid fa-sitemap text-rose-500"></i>
+          <span>グループの全体構造と役割</span>
+        </h3>
+        <button onclick="closeModal('structure-modal')" class="text-slate-400 hover:text-slate-700 w-8 h-8 rounded-full flex items-center justify-center bg-slate-100">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="space-y-3 text-xs sm:text-sm">
+        <div class="p-4 rounded-2xl bg-slate-900 text-white">
+          <span class="text-[10px] text-amber-400 font-bold uppercase tracking-wider">Foundation / Vision</span>
+          <h4 class="font-serif font-bold text-base text-amber-200 mt-0.5">RAYTUS group.</h4>
+          <p class="text-xs text-slate-300 mt-1">「あなたの人生に光を足す」。企業理念、各種事業（全18事業）、教育プロジェクト（寺子屋、バスタ高校）の母体。</p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-950">
+          <span class="text-[10px] text-rose-600 font-bold uppercase tracking-wider">Family / Comrades</span>
+          <h4 class="font-bold text-base text-rose-700 mt-0.5">NEO FAMILY</h4>
+          <p class="text-xs text-rose-900/80 mt-1">仲間が集い、学び、助け合うコミュニティ。合同定例会、合同事業説明会、特別勉強会、イベントカレンダーを共有。</p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-[#faf6ee] border border-amber-300 text-amber-950">
+          <span class="text-[10px] text-amber-700 font-bold uppercase tracking-wider">Commerce & Streaming</span>
+          <h4 class="font-bold text-base text-amber-800 mt-0.5">Iyasaka宮（イヤサカグ）</h4>
+          <p class="text-xs text-amber-900/80 mt-1">経済の循環プラットフォーム。イヤサカスタジオ配信、加盟店出店、イヤスタ限定商品の購入・販売。</p>
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-slate-100 flex justify-end">
+        <button onclick="closeModal('structure-modal')" class="px-5 py-2.5 rounded-xl bg-slate-900 text-white font-bold text-xs hover:bg-black transition">
+          閉じる
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. 動画再生モーダル (YouTube Embed) -->
+  <div id="video-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-slate-950 rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl border border-slate-800 flex flex-col">
+      <div class="p-4 border-b border-slate-800 flex items-center justify-between text-white">
+        <h4 id="video-modal-title" class="font-bold text-sm truncate pr-4">動画タイトル</h4>
+        <button onclick="closeVideoModal()" class="text-slate-400 hover:text-white w-8 h-8 rounded-full flex items-center justify-center bg-slate-900">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="aspect-video w-full bg-black">
+        <iframe id="video-iframe" class="w-full h-full" src="" title="Video Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. 画像拡大ライトボックス -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4" onclick="closeModal('lightbox-modal')">
+    <div class="relative max-w-5xl max-h-[92vh] flex flex-col items-center" onclick="event.stopPropagation()">
+      <div class="w-full flex items-center justify-between text-white mb-2 px-2">
+        <span id="lightbox-title" class="text-sm font-bold truncate">画像プレビュー</span>
+        <button onclick="closeModal('lightbox-modal')" class="text-white hover:text-amber-400 text-lg w-8 h-8 flex items-center justify-center">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <img id="lightbox-img" src="" alt="Enlarged" class="max-h-[82vh] max-w-full rounded-2xl object-contain shadow-2xl border border-white/20">
+    </div>
+  </div>
+
+  <!-- 5. ショッピングカート & ダミー注文モーダル -->
+  <div id="cart-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-200 space-y-4">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+        <h3 class="font-black text-base text-slate-900 flex items-center gap-2">
+          <i class="fa-solid fa-cart-shopping text-amber-600"></i>
+          <span>お買い物カゴ (ECシミュレーター)</span>
+        </h3>
+        <button onclick="closeModal('cart-modal')" class="text-slate-400 hover:text-slate-700 w-8 h-8 rounded-full flex items-center justify-center bg-slate-100">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div id="cart-items-container" class="space-y-3 max-h-60 overflow-y-auto pr-1">
+        <!-- 動的投入 -->
+      </div>
+
+      <div class="pt-3 border-t border-slate-100 space-y-3">
+        <div class="flex items-center justify-between text-sm font-bold text-slate-900">
+          <span>合計金額:</span>
+          <span id="cart-total-price" class="text-base text-rose-600">¥0</span>
+        </div>
+        <p class="text-[11px] text-slate-400 text-center">※デモ環境のため実際の決済・請求は発生しません</p>
+        <button onclick="checkoutCart()" class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs transition shadow-sm flex items-center justify-center gap-2">
+          <i class="fa-solid fa-check"></i>
+          <span>注文内容を確認して完了する</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. RAYTUS 事業詳細 & YouTube再生モーダル -->
+  <div id="raytus-service-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4" onclick="if(event.target === this) closeRaytusServiceModal()">
+    <div class="relative w-full max-w-3xl bg-[#11141a] border border-amber-500/40 rounded-3xl p-6 sm:p-8 text-white max-h-[92vh] overflow-y-auto shadow-2xl modal-enter">
+      <button onclick="closeRaytusServiceModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white flex items-center justify-center transition z-20">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+      <div id="raytus-service-modal-content">
+        <!-- Injected via openRaytusServiceModal -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. イベント詳細モーダル (カレンダー用) -->
+  <div id="event-detail-modal" onclick="if(event.target === this) closeEventDetail()" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm overflow-y-auto cursor-pointer">
+    <div class="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl p-6 md:p-8 modal-enter my-8 max-h-[90vh] overflow-y-auto cursor-default">
+      <button onclick="closeEventDetail()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition z-10">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+      <div id="event-detail-content">
+        <!-- Injected via app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. アーカイブ管理モーダル -->
+  <div id="archive-admin-modal" onclick="if(event.target === this) closeArchiveAdminModal()" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm cursor-pointer overflow-y-auto">
+    <div class="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl p-6 md:p-8 modal-enter max-h-[90vh] overflow-y-auto cursor-default">
+      <button onclick="closeArchiveAdminModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+      <div class="mb-5">
+        <h3 class="text-base font-black text-slate-900 flex items-center gap-2">
+          <i class="fa-solid fa-film text-rose-600"></i> アーカイブ動画URLの登録・管理
+        </h3>
+        <p id="admin-event-title" class="text-xs text-rose-600 font-bold mt-1 line-clamp-1"></p>
+        <p class="text-xs text-slate-500 mt-1">YouTubeまたはZoom録画のURLを登録すると、カレンダーに動画が公開されます。</p>
+      </div>
+      <div class="space-y-4 text-xs">
+        <div class="flex items-center gap-2.5 p-3.5 bg-rose-50/70 rounded-2xl border border-rose-200">
+          <input type="checkbox" id="admin-has-archive" class="w-4 h-4 rounded text-rose-600 focus:ring-rose-500">
+          <label for="admin-has-archive" class="font-bold text-slate-900 cursor-pointer">このイベントのアーカイブ動画を公開する</label>
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">
+            <i class="fa-brands fa-youtube text-red-600 mr-1"></i> アーカイブURL (YouTube / Zoom録画等)
+          </label>
+          <input type="url" id="admin-archive-url" placeholder="例: https://youtu.be/... または Zoom録画URL" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 font-medium">
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">補足メモ・案内文（任意）</label>
+          <textarea id="admin-archive-notes" rows="2" placeholder="例: 10/2 東京定例会のYouTube録画アーカイブです。" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500"></textarea>
+        </div>
+        <div class="flex items-center gap-3 pt-3">
+          <button type="button" onclick="saveArchiveAdminSettings()" class="flex-1 py-3 bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-700 hover:to-rose-800 text-white font-bold rounded-xl shadow-md transition flex items-center justify-center gap-1.5 text-xs">
+            <i class="fa-solid fa-check"></i> 設定を保存する
+          </button>
+          <button type="button" onclick="closeArchiveAdminModal()" class="px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl transition text-xs">
+            キャンセル
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9. 管理者ログインモーダル -->
+  <div id="admin-login-modal" onclick="if(event.target === this) closeAdminLoginModal()" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm cursor-pointer">
+    <div class="relative w-full max-w-sm bg-white rounded-3xl shadow-2xl p-6 md:p-8 modal-enter cursor-default">
+      <button onclick="closeAdminLoginModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition">
+        <i class="fa-solid fa-xmark text-xs"></i>
+      </button>
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 mx-auto mb-3 bg-gradient-to-tr from-slate-900 to-slate-700 rounded-2xl flex items-center justify-center text-white text-xl shadow-md">
+          <i class="fa-solid fa-shield-halved text-amber-400"></i>
+        </div>
+        <h3 class="text-lg font-black text-slate-900">管理者ログイン</h3>
+        <p class="text-xs text-slate-500 mt-1">運営管理者用のパスコードを入力してください。</p>
+      </div>
+      <form onsubmit="handleAdminLogin(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">管理者パスコード</label>
+          <input type="password" id="admin-passcode-input" required placeholder="パスコードを入力" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-rose-500 text-sm font-semibold">
+          <p id="admin-login-error" class="hidden text-xs text-rose-600 font-bold mt-1.5"></p>
+        </div>
+        <button type="submit" class="w-full py-2.5 bg-slate-900 hover:bg-black text-white font-bold rounded-xl text-xs shadow-md transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i> ログイン
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- トースト通知コンテナ -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 pointer-events-none space-y-2"></div>
+
+
+  <!-- ======================================================== -->
+  <!-- JavaScript ロジック -->
+  <!-- ======================================================== -->
+  <script>
+    // カートデータ（LocalStorage連携）
+    let cart = [];
+
+    // モード切替（初心者 / ベテラン）
+    function setPortalMode(mode) {
+      const beginnerGuide = document.getElementById('beginner-starter-guide');
+      const veteranHud = document.getElementById('veteran-hud');
+      const btnBeginner = document.getElementById('mode-btn-beginner');
+      const btnVeteran = document.getElementById('mode-btn-veteran');
+
+      if (mode === 'beginner') {
+        beginnerGuide.classList.remove('hidden');
+        btnBeginner.className = 'px-2.5 sm:px-3 py-1.5 rounded-lg transition bg-white text-rose-600 shadow-xs flex items-center gap-1.5';
+        btnVeteran.className = 'px-2.5 sm:px-3 py-1.5 rounded-lg transition text-slate-600 hover:text-slate-900 flex items-center gap-1.5';
+        showToast('🔰 初心者スタートガイドを表示しました');
+      } else {
+        beginnerGuide.classList.add('hidden');
+        btnVeteran.className = 'px-2.5 sm:px-3 py-1.5 rounded-lg transition bg-white text-amber-700 shadow-xs flex items-center gap-1.5';
+        btnBeginner.className = 'px-2.5 sm:px-3 py-1.5 rounded-lg transition text-slate-600 hover:text-slate-900 flex items-center gap-1.5';
+        showToast('⚡️ ベテラン早見モードに切り替えました');
+      }
+    }
+
+    // スタートガイド 4ステップカード開閉 (初期は閉じたタイトルのみ、クリックでトグル展開)
+    function toggleStepCard(stepNum) {
+      const content = document.getElementById(`step-content-${stepNum}`);
+      const arrowIcon = document.querySelector(`#step-arrow-${stepNum} i`);
+      const btn = document.querySelector(`button[onclick="toggleStepCard(${stepNum})"]`);
+      if (!content) return;
+
+      const isHidden = content.classList.contains('hidden');
+      if (isHidden) {
+        content.classList.remove('hidden');
+        if (arrowIcon) arrowIcon.style.transform = 'rotate(180deg)';
+        if (btn) btn.setAttribute('aria-expanded', 'true');
+      } else {
+        content.classList.add('hidden');
+        if (arrowIcon) arrowIcon.style.transform = 'rotate(0deg)';
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      }
+    }
+
+    // タブ切替（個別ページ間のシームレス遷移）
+    // タブ切替（個別ページ間のシームレス遷移）
+    function switchTab(tabId) {
+      const pageMap = {
+        'hub': './',
+        'flowchart': 'flowchart.html',
+        'raytus': 'raytus.html',
+        'iyasaka': 'iyasaka.html',
+        'calendar': 'calendar.html',
+        'archive': 'archive.html',
+        'sns': 'sns.html'
+      };
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      const targetPage = pageMap[tabId];
+      if (targetPage && !currentPage.includes(targetPage.replace('.html', ''))) {
+        window.location.href = targetPage;
+        return;
+      }
+      const pageMap = {
+        'hub': './',
+        'flowchart': 'flowchart.html',
+        'raytus': 'raytus.html',
+        'iyasaka': 'iyasaka.html',
+        'calendar': 'calendar.html',
+        'archive': 'archive.html',
+        'sns': 'sns.html'
+      };
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      const targetPage = pageMap[tabId];
+      if (targetPage && !currentPage.includes(targetPage.replace('.html', ''))) {
+        window.location.href = targetPage;
+        return;
+      }
+      if (tabId === 'schedule') {
+        tabId = 'hub';
+        setTimeout(() => scrollToSection('schedule-section'), 150);
+      }
+      if (tabId === 'archive') {
+        tabId = 'raytus';
+        setTimeout(() => scrollToSection('raytus-services-section'), 150);
+      }
+
+      // 全コンテンツを非アクティブ
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      // 対象コンテンツを表示
+      const target = document.getElementById(`tab-content-${tabId}`);
+      if (target) target.classList.add('active');
+
+      // タブボタンのアクティブ状態更新
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.className = 'tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100';
+      });
+      const activeBtn = document.getElementById(`tab-btn-${tabId}`);
+      if (activeBtn) {
+        activeBtn.className = 'tab-btn whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 bg-slate-900 text-white shadow-xs';
+      }
+
+      if (tabId === 'calendar' && typeof renderApp === 'function') {
+        if (typeof switchViewMode === 'function') {
+          switchViewMode('calendar');
+        }
+        renderApp();
+      }
+      if (tabId === 'raytus') {
+        renderRaytusServices();
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // セクションへのスクロール
+    function scrollToSection(sectionId) {
+      setTimeout(() => {
+        const el = document.getElementById(sectionId);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+
+    // モーダル操作
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // 動画モーダル
+    function openVideoModal(url, title) {
+      document.getElementById('video-modal-title').textContent = title;
+      document.getElementById('video-iframe').src = url + '?autoplay=1';
+      openModal('video-modal');
+
+      // 閲覧ログの記録
+      if (typeof trackContentView === 'function') {
+        trackContentView(url, title);
+      }
+    }
+
+    function closeVideoModal() {
+      document.getElementById('video-iframe').src = '';
+      closeModal('video-modal');
+    }
+
+    // ライトボックス
+    function openLightbox(src, title) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox-title').textContent = title;
+      openModal('lightbox-modal');
+    }
+
+    // Zoom情報コピー
+    function copyZoomInfo() {
+      const text = `【合同事業説明会 Zoom情報】\nミーティングID: 811 1315 2898\nパスコード: 2026\nURL: https://us06web.zoom.us/j/81113152898?pwd=rnUDogc0paequYOxCnvXYaSs3WngG3.1`;
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('📋 Zoom情報をクリップボードにコピーしました！');
+      }).catch(() => {
+        showToast('コピーに失敗しました');
+      });
+    }
+
+    // トースト通知
+    function showToast(msg) {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = 'px-4 py-2.5 rounded-xl bg-slate-900/95 text-white text-xs font-bold shadow-xl border border-slate-700 pointer-events-auto transform transition-all duration-300 translate-y-2 opacity-0 flex items-center gap-2';
+      toast.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400"></i><span>${msg}</span>`;
+      container.appendChild(toast);
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-2', 'opacity-0');
+      }, 10);
+
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+
+    // カート機能
+    function addToCart(name, price, img) {
+      cart.push({ id: Date.now(), name, price, img });
+      updateCartUI();
+      showToast(`🛒 「${name}」をカゴに追加しました！`);
+    }
+
+    function removeFromCart(id) {
+      cart = cart.filter(item => item.id !== id);
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const countEl1 = document.getElementById('header-cart-count');
+      const countEl2 = document.getElementById('iyasaka-cart-badge');
+      const container = document.getElementById('cart-items-container');
+      const totalEl = document.getElementById('cart-total-price');
+
+      countEl1.textContent = cart.length;
+      countEl2.textContent = cart.length;
+
+      if (cart.length === 0) {
+        container.innerHTML = '<p class="text-xs text-slate-400 text-center py-6">カゴの中は空です</p>';
+        totalEl.textContent = '¥0';
+        return;
+      }
+
+      let total = 0;
+      container.innerHTML = cart.map(item => {
+        total += item.price;
+        return `
+          <div class="flex items-center justify-between p-2 rounded-xl bg-slate-50 border border-slate-200 text-xs">
+            <div class="flex items-center gap-2.5">
+              <img src="${item.img}" class="w-10 h-10 rounded-lg object-cover">
+              <div>
+                <p class="font-bold text-slate-800 line-clamp-1">${item.name}</p>
+                <p class="text-slate-500 font-bold">¥${item.price.toLocaleString()}</p>
+              </div>
+            </div>
+            <button onclick="removeFromCart(${item.id})" class="text-slate-400 hover:text-rose-500 p-1">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+        `;
+      }).join('');
+
+      totalEl.textContent = `¥${total.toLocaleString()}`;
+    }
+
+    function checkoutCart() {
+      if (cart.length === 0) {
+        alert('カゴの中に商品がありません');
+        return;
+      }
+      alert('ご注文シミュレーション完了！\n（デモ版のため実際の請求・発送は行われません。本番の購入はIyasaka宮ECショップより承ります）');
+      cart = [];
+      updateCartUI();
+      closeModal('cart-modal');
+    }
+
+    // アーカイブ フィルター
+    function setArchiveCategory(cat) {
+      document.querySelectorAll('.cat-btn').forEach(b => {
+        b.className = 'cat-btn px-3 py-1.5 rounded-lg text-slate-600 hover:bg-slate-100 transition';
+      });
+      const targetBtn = document.getElementById(`cat-btn-${cat}`);
+      if (targetBtn) targetBtn.className = 'cat-btn px-3 py-1.5 rounded-lg bg-slate-900 text-white transition shadow-2xs';
+
+      const cards = document.querySelectorAll('.archive-card');
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-category') || '';
+        if (cat === 'all' || cardCat.includes(cat)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function filterArchives() {
+      const q = document.getElementById('archive-search-input').value.toLowerCase();
+      const cards = document.querySelectorAll('.archive-card');
+      cards.forEach(card => {
+        const title = (card.getAttribute('data-title') || '').toLowerCase();
+        if (!q || title.includes(q)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // クイック診断から事業へジャンプ
+    function filterAndJumpArchive(cat) {
+      switchTab('raytus');
+      setRaytusCategory(cat);
+      scrollToSection('raytus-services-section');
+      showToast(`🎯 「${CATEGORY_NAMES[cat] || cat}」の事業を表示しました`);
+    }
+
+    // ============================================
+    // RAYTUS Services Logic (Grouping, Filter, Modal)
+    // ============================================
+    let currentRaytusCategory = 'all';
+
+    const CATEGORY_NAMES = {
+      care: '子育て・女性・ファミリー',
+      food: '食・農業・ウェルネス',
+      beauty: '美容・ジュエリー・フェムケア',
+      life: '暮らし・シニア・パートナー',
+      business: 'ビジネス・事務・クリエイティブ'
+    };
+
+    const CATEGORY_COLORS = {
+      care: 'bg-rose-500/20 text-rose-300 border border-rose-500/30',
+      food: 'bg-amber-500/20 text-amber-300 border border-amber-500/30',
+      beauty: 'bg-pink-500/20 text-pink-300 border border-pink-500/30',
+      life: 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30',
+      business: 'bg-blue-500/20 text-blue-300 border border-blue-500/30'
+    };
+
+    // 加盟店一覧 (SHOP) の描画
+    function renderRaytusShops() {
+      const container = document.getElementById('raytus-shop-tbody');
+      if (!container || typeof RAYTUS_SHOPS === 'undefined') return;
+      const q = (document.getElementById('raytus-shop-search')?.value || '').toLowerCase().trim();
+      const countEl = document.getElementById('raytus-shop-count');
+
+      const filtered = RAYTUS_SHOPS.filter(s => {
+        if (!q) return true;
+        return `${s.name} ${s.rep} ${s.product} ${s.area}`.toLowerCase().includes(q);
+      });
+
+      if (countEl) countEl.textContent = filtered.length;
+
+      container.innerHTML = filtered.map(s => `
+        <tr class="hover:bg-slate-800/60 transition border-b border-slate-800/80 cursor-pointer" onclick="window.open('${s.link}', '_blank')">
+          <td class="p-3.5 sm:p-4 font-bold text-white whitespace-nowrap">
+            <div class="flex items-center gap-1.5">
+              <span class="hover:text-amber-300 transition">${s.name}</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-500"></i>
+            </div>
+          </td>
+          <td class="p-3.5 sm:p-4 text-slate-300 whitespace-nowrap">${s.rep}</td>
+          <td class="p-3.5 sm:p-4 text-slate-300 min-w-[220px] leading-relaxed text-xs">${s.product}</td>
+          <td class="p-3.5 sm:p-4 text-slate-400 whitespace-pre-line text-xs">${s.area}</td>
+        </tr>
+      `).join('');
+    }
+
+    // 公式ブログ (BLOG) の描画
+    function renderRaytusBlogs() {
+      const container = document.getElementById('raytus-blog-grid');
+      if (!container || typeof RAYTUS_BLOGS === 'undefined') return;
+
+      container.innerHTML = RAYTUS_BLOGS.map(b => `
+        <a href="${b.link}" target="_blank" class="group bg-[#121824] rounded-2xl overflow-hidden border border-slate-800 hover:border-amber-400/60 transition shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="aspect-video w-full overflow-hidden bg-slate-900 relative">
+              <img src="${b.image}" alt="${b.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+              <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded bg-black/70 text-amber-300 font-bold text-[10px] backdrop-blur-xs font-zen">
+                REPORT
+              </span>
+            </div>
+            <div class="p-4 sm:p-5">
+              <span class="text-[11px] text-slate-400 font-mono">${b.date}</span>
+              <h4 class="text-sm sm:text-base font-zen font-bold text-white group-hover:text-amber-300 transition mt-1.5 line-clamp-2 leading-snug">
+                ${b.title}
+              </h4>
+            </div>
+          </div>
+          <div class="px-4 pb-4 pt-2 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold text-amber-400">
+            <span>記事を読む</span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+          </div>
+        </a>
+      `).join('');
+    }
+
+    function renderRaytusServices() {
+      const container = document.getElementById('raytus-services-grid');
+      if (!container || typeof RAYTUS_SERVICES === 'undefined') return;
+
+      const searchVal = (document.getElementById('raytus-service-search')?.value || '').toLowerCase().trim();
+      const noResults = document.getElementById('raytus-no-results');
+
+      const filtered = RAYTUS_SERVICES.filter((item) => {
+        if (currentRaytusCategory !== 'all' && item.category !== currentRaytusCategory) {
+          return false;
+        }
+        if (searchVal) {
+          const matchText = `${item.businessName} ${item.companyName} ${item.manager} ${item.tagline} ${item.target}`.toLowerCase();
+          if (!matchText.includes(searchVal)) return false;
+        }
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = '';
+        if (noResults) noResults.classList.remove('hidden');
+        return;
+      }
+
+      if (noResults) noResults.classList.add('hidden');
+
+            container.innerHTML = filtered.map(item => {
+        const originalIndex = RAYTUS_SERVICES.indexOf(item);
+        const catLabel = CATEGORY_NAMES[item.category] || '事業';
+        const catColor = CATEGORY_COLORS[item.category] || 'bg-slate-800 text-slate-300';
+        const hasVideo = !!item.videoId;
+
+        return `
+          <div onclick="openRaytusServiceModal(${originalIndex})" class="raytus-card-item group" style="background-image: url('${item.bgImage}');">
+            <div class="raytus-card-overlay"></div>
+            
+            <div class="relative z-10 p-5 sm:p-6 h-full flex flex-col justify-between">
+              
+              <!-- 上部バッジエリア -->
+              <div class="flex items-center justify-between gap-2">
+                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold ${catColor}">
+                  ${catLabel}
+                </span>
+
+                ${hasVideo ? `
+                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-rose-600/90 text-white flex items-center gap-1 shadow-md backdrop-blur-xs">
+                  <i class="fa-brands fa-youtube"></i> 公式動画あり
+                </span>
+                ` : `
+                <span class="text-[10px] text-slate-400 font-zen">事業詳細</span>
+                `}
+              </div>
+
+              <!-- 中央〜下部テキスト（本家 sec-service__list-item 完全準拠） -->
+              <div class="mt-10">
+                <p class="business-name text-[11px] sm:text-xs font-zen text-amber-300/95 tracking-widest font-semibold mb-1">
+                  ${item.businessName}
+                </p>
+                
+                <h4 class="company-name text-lg sm:text-xl font-zen font-bold text-white group-hover:text-amber-300 transition duration-300">
+                  ${item.companyName}
+                </h4>
+
+                <p class="tagline text-xs text-slate-300/90 font-zen mt-2 line-clamp-2 leading-relaxed">
+                  ${item.tagline.replace(/\n/g, ' ')}
+                </p>
+                
+                <div class="mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-slate-400 font-zen">
+                  <span>責任者: <strong class="text-white">${item.manager}</strong></span>
+                  <span class="text-amber-300 group-hover:translate-x-1 transition font-bold flex items-center gap-1">
+                    <span>詳細を見る</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function setRaytusCategory(cat) {
+      currentRaytusCategory = cat;
+      document.querySelectorAll('.raytus-cat-btn').forEach(btn => {
+        btn.className = 'raytus-cat-btn px-4 py-2 rounded-xl transition bg-slate-900 text-slate-300 hover:text-white border border-slate-800 hover:border-slate-700 whitespace-nowrap';
+      });
+      const activeBtn = document.getElementById(`raytus-cat-${cat}`);
+      if (activeBtn) {
+        activeBtn.className = 'raytus-cat-btn px-4 py-2 rounded-xl transition bg-amber-400 text-slate-950 shadow-md whitespace-nowrap';
+      }
+      renderRaytusServices();
+    }
+
+    function filterRaytusServices() {
+      renderRaytusServices();
+    }
+
+    function openRaytusServiceModal(index) {
+      if (typeof RAYTUS_SERVICES === 'undefined' || !RAYTUS_SERVICES[index]) return;
+      const item = RAYTUS_SERVICES[index];
+      const catLabel = CATEGORY_NAMES[item.category] || '事業';
+      const catColor = CATEGORY_COLORS[item.category] || 'bg-slate-800 text-slate-300';
+
+      const content = document.getElementById('raytus-service-modal-content');
+      if (!content) return;
+
+      content.innerHTML = `
+        <div class="flex items-start justify-between gap-4 mb-4 pr-8">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold ${catColor}">${catLabel}</span>
+              <span class="text-xs font-serif text-amber-300 tracking-wider">${item.companyName}</span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-serif font-bold text-white">${item.businessName}</h3>
+            <p class="text-xs text-slate-400 mt-1 flex items-center gap-1.5">
+              <i class="fa-solid fa-user-tie text-amber-400"></i>
+              <span>事業責任者: <strong class="text-white">${item.manager}</strong></span>
+            </p>
+          </div>
+        </div>
+
+        ${item.videoId ? `
+        <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-2xl bg-black mb-5 border border-slate-700">
+          <iframe src="https://www.youtube.com/embed/${item.videoId}?autoplay=1" title="${item.businessName}" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        ` : `
+        <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-xl bg-slate-900 mb-5 relative border border-slate-700">
+          <img src="${item.bgImage}" alt="${item.businessName}" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+            <span class="text-xs text-slate-300">${item.companyName} 公式紹介</span>
+          </div>
+        </div>
+        `}
+
+        <div class="space-y-4 text-xs text-slate-200">
+          <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <h4 class="text-xs font-serif font-bold text-amber-300 mb-1 flex items-center gap-1.5">
+              <i class="fa-solid fa-quote-left"></i> 理念・コンセプト
+            </h4>
+            <div class="leading-relaxed whitespace-pre-line text-slate-300 text-xs sm:text-sm">
+              ${item.tagline}
+            </div>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-400/20">
+            <h4 class="text-xs font-serif font-bold text-amber-300 mb-1 flex items-center gap-1.5">
+              <i class="fa-solid fa-bullseye"></i> こんな方へ / 参画対象
+            </h4>
+            <div class="leading-relaxed whitespace-pre-line text-slate-200">
+              ${item.target}
+            </div>
+          </div>
+
+          <div class="pt-2 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-2">
+              ${item.videoId ? `
+              <a href="https://youtu.be/${item.videoId}" target="_blank" class="px-3.5 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold transition flex items-center gap-1.5 text-xs">
+                <i class="fa-brands fa-youtube"></i> YouTubeで開く
+              </a>
+              ` : ''}
+              <a href="https://raytus-group.com/service/" target="_blank" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white font-serif transition flex items-center gap-1.5 text-xs border border-white/20">
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> 公式HPで確認
+              </a>
+            </div>
+            <button onclick="closeRaytusServiceModal(); switchTab('hub'); scrollToSection('schedule-section');" class="px-4 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold transition flex items-center gap-1.5 text-xs">
+              <i class="fa-regular fa-calendar-check"></i> 定例会・説明会に参加する
+            </button>
+          </div>
+        </div>
+      `;
+
+      openModal('raytus-service-modal');
+      if (item.videoId && typeof trackContentView === 'function') {
+        trackContentView('https://www.youtube.com/embed/' + item.videoId, item.businessName + '：' + item.companyName);
+      }
+    }
+
+    function closeRaytusServiceModal() {
+      const content = document.getElementById('raytus-service-modal-content');
+      if (content) content.innerHTML = '';
+      closeModal('raytus-service-modal');
+    }
+
+    // SNSフィルター切替
+    function setSnsFilter(type) {
+      const btnAll = document.getElementById('sns-filter-all');
+      const btnYoutube = document.getElementById('sns-filter-youtube');
+      const btnTiktok = document.getElementById('sns-filter-tiktok');
+      const btnInsta = document.getElementById('sns-filter-instagram');
+      const secYoutube = document.getElementById('sns-section-youtube');
+      const secTiktok = document.getElementById('sns-section-tiktok');
+      const secInsta = document.getElementById('sns-section-instagram');
+
+      // リセット
+      [btnAll, btnYoutube, btnTiktok, btnInsta].filter(Boolean).forEach(b => {
+        b.className = 'px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition flex items-center gap-1';
+      });
+
+      if (type === 'all') {
+        if (btnAll) btnAll.className = 'px-3 py-1.5 rounded-lg bg-white text-slate-900 shadow-2xs transition';
+        if (secYoutube) secYoutube.style.display = 'block';
+        if (secTiktok) secTiktok.style.display = 'block';
+        if (secInsta) secInsta.style.display = 'block';
+      } else if (type === 'youtube') {
+        if (btnYoutube) btnYoutube.className = 'px-3 py-1.5 rounded-lg bg-white text-slate-900 shadow-2xs transition flex items-center gap-1';
+        if (secYoutube) secYoutube.style.display = 'block';
+        if (secTiktok) secTiktok.style.display = 'none';
+        if (secInsta) secInsta.style.display = 'none';
+      } else if (type === 'tiktok') {
+        if (btnTiktok) btnTiktok.className = 'px-3 py-1.5 rounded-lg bg-white text-slate-900 shadow-2xs transition flex items-center gap-1';
+        if (secYoutube) secYoutube.style.display = 'none';
+        if (secTiktok) secTiktok.style.display = 'block';
+        if (secInsta) secInsta.style.display = 'none';
+      } else if (type === 'instagram') {
+        if (btnInsta) btnInsta.className = 'px-3 py-1.5 rounded-lg bg-white text-slate-900 shadow-2xs transition flex items-center gap-1';
+        if (secYoutube) secYoutube.style.display = 'none';
+        if (secTiktok) secTiktok.style.display = 'none';
+        if (secInsta) secInsta.style.display = 'block';
+      }
+    }
+
+    // ESCキーでモーダルを閉じる
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        ['proposal-modal', 'structure-modal', 'video-modal', 'lightbox-modal', 'cart-modal', 'raytus-service-modal', 'event-detail-modal', 'archive-admin-modal', 'admin-login-modal'].forEach(closeModal);
+        closeVideoModal();
+        closeRaytusServiceModal();
+      }
+    });
+
+    // 初期化
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof restoreOnboardingProgress === 'function') restoreOnboardingProgress();
+      if (typeof updateOnboardingProgressUI === 'function') updateOnboardingProgressUI();
+      if (typeof renderRaytusServices === 'function') renderRaytusServices();
+      if (typeof renderRaytusShops === 'function') renderRaytusShops();
+      if (typeof renderRaytusBlogs === 'function') renderRaytusBlogs();
+      if (typeof updateCartUI === 'function') updateCartUI();
+    });
+  </script>
+
+  <!-- Firebase SDK (v10 compat) -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+
+  <!-- RAYTUS Services Data & Calendar Data & App Scripts -->
+  <script src="js/raytus-shop-data.js?v=20261021_1"></script>
+  <script src="js/raytus-services-data.js?v=20261020_12"></script>
+  <script src="js/events-data.js?v=20261022_1"></script>
+  <script src="js/member-tracker.js?v=20261020_12"></script>
+  <script src="js/app.js?v=20261020_12"></script>
+</body>
+</html>
+
