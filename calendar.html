@@ -57,7 +57,7 @@
     }
   </script>
 </head>
-<body class="text-slate-800 antialiased pb-24">
+<body class="text-slate-800 antialiased">
 
   <!-- Top Navigation (Not Sticky) -->
   <header class="glass-header border-b border-slate-200/80 bg-white/90">
@@ -80,17 +80,13 @@
 
         <!-- ヘッダー右側アクション（全ページ共通） -->
         <div class="flex items-center gap-2 sm:gap-3">
-          <button onclick="copyZoomInfo()" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-blue-50 text-blue-700 border border-blue-200/60 hover:bg-blue-100 transition shadow-2xs">
-            <i class="fa-solid fa-video text-blue-500"></i>
-            <span>全日共通Zoom</span>
-          </button>
           <a href="flowchart" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-50 text-amber-800 border border-amber-300/60 hover:bg-amber-100 transition shadow-2xs">
             <i class="fa-solid fa-arrows-split-up-and-left text-amber-600"></i>
             <span>参加フロー</span>
           </a>
-          <a id="btn-admin-login" href="admin.html" class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-bold text-slate-500 hover:text-slate-800 transition">
-            <i class="fa-solid fa-lock text-[10px]"></i>
-            <span class="hidden sm:inline">管理</span>
+          <a id="btn-admin-login" href="admin.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-800 bg-slate-100 hover:bg-slate-200 border border-slate-300 shadow-2xs transition">
+            <i class="fa-solid fa-lock text-slate-600 text-[11px]"></i>
+            <span>管理</span>
           </a>
 
           <!-- Group shown when ADMIN -->

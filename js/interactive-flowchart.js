@@ -161,13 +161,9 @@
     }
   }
 
-  // --- Reach Goal Helper: Show Goal node & reveal filtered support table/originals smoothly ---
-  function onReachGoal(goalNodeId, supportRowId) {
+  // --- Reach Goal Helper: Show Goal node smoothly (without auto-opening support table) ---
+  function onReachGoal(goalNodeId) {
     showNode(goalNodeId);
-    showSupportAndOriginals(false);
-    setTimeout(() => {
-      filterSupportRows(supportRowId);
-    }, 200);
   }
 
   // --- Step 1: やることは明確？ ---
@@ -179,8 +175,8 @@
     hideDownstreamFrom(1);
 
     if (val === 'unclear') {
-      // Show Goal: 理事長に相談（原本一覧にはないため理事長案内を表示）
-      onReachGoal('goal-counseling-node', 'counseling');
+      // Show Goal: 理事長に相談
+      onReachGoal('goal-counseling-node');
     } else {
       // Show Step 2: 最新情報に触れてる？
       showNode('step2-node');
@@ -196,7 +192,7 @@
 
     if (val === 'not_latest') {
       // Show Goal: NEO構想 ぎゅっと勉強会
-      onReachGoal('goal-neo-study-node', 'support-row-neo-study');
+      onReachGoal('goal-neo-study-node');
     } else {
       // Show Step 3: Iyasaka宮に出品してる？
       showNode('step3-node');
@@ -228,7 +224,7 @@
 
     if (val === 'apply_not_yet') {
       // まだ ➜ Goal: 出店申請
-      onReachGoal('goal-apply-node', 'support-row-iyasaka-work');
+      onReachGoal('goal-apply-node');
     } else {
       // 終わってる ➜ Step 5A: プロフィール設定や出品方法は把握してる？
       showNode('step5a-node');
@@ -244,7 +240,7 @@
 
     if (val === 'profile_not_yet') {
       // まだ / 把握してない ➜ Goal: Iyasaka宮 作業会
-      onReachGoal('goal-iyasaka-work-node', 'support-row-iyasaka-work');
+      onReachGoal('goal-iyasaka-work-node');
     } else {
       // してる ➜ 勉強ジンジャー (Step 4B) へ合流！
       showNode('step4b-node');
@@ -260,7 +256,7 @@
 
     if (val === 'ginger_unknown') {
       // やり方がわからない ➜ Goal: 勉強ジンジャー活用サポート
-      onReachGoal('goal-ginger-node', 'support-row-ginger');
+      onReachGoal('goal-ginger-node');
     } else {
       // してる / 今はやらない ➜ Step 5B: EEDA動画出してる？
       showNode('step5b-node');
@@ -276,10 +272,10 @@
 
     if (val === 'eeda_intro') {
       // そもそもを知りたい ➜ Goal: EEDA探検ポチポチ会
-      onReachGoal('goal-eeda-pochi-node', 'support-row-eeda-pochi');
+      onReachGoal('goal-eeda-pochi-node');
     } else {
       // 制作進まない / 質問したい ➜ Goal: EEDA作業会
-      onReachGoal('goal-eeda-work-node', 'support-row-eeda-pochi');
+      onReachGoal('goal-eeda-work-node');
     }
   };
 
