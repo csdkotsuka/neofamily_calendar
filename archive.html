@@ -136,7 +136,7 @@
             <i class="fa-solid fa-video text-blue-500"></i>
             <span>全日共通Zoom</span>
           </button>
-          <a href="flowchart.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-50 text-amber-800 border border-amber-300/60 hover:bg-amber-100 transition shadow-2xs">
+          <a href="flowchart" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-50 text-amber-800 border border-amber-300/60 hover:bg-amber-100 transition shadow-2xs">
             <i class="fa-solid fa-gamepad text-amber-600"></i>
             <span>診断ゲーム</span>
           </a>
@@ -152,27 +152,27 @@
           <i class="fa-solid fa-compass"></i>
           <span>総合ポータル</span>
         </a>
-        <a href="flowchart.html" id="nav-item-flowchart" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+        <a href="flowchart" id="nav-item-flowchart" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-solid fa-gamepad text-amber-500"></i>
           <span>参加フロー診断</span> <span class="px-1.5 py-0.2 text-[9px] font-black rounded bg-rose-500 text-white animate-pulse">GAME</span>
         </a>
-        <a href="raytus.html" id="nav-item-raytus" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+        <a href="raytus" id="nav-item-raytus" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-solid fa-globe text-slate-400"></i>
           <span>RAYTUS 全事業</span>
         </a>
-        <a href="iyasaka.html" id="nav-item-iyasaka" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+        <a href="iyasaka" id="nav-item-iyasaka" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-solid fa-torii-gate text-amber-600"></i>
           <span>Iyasaka宮</span>
         </a>
-        <a href="calendar.html" id="nav-item-calendar" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+        <a href="calendar" id="nav-item-calendar" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-regular fa-calendar-days text-rose-500"></i>
           <span>イベントカレンダー</span>
         </a>
-        <a href="archive.html" id="nav-item-archive" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 bg-slate-900 text-white shadow-xs">
+        <a href="archive" id="nav-item-archive" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 bg-slate-900 text-white shadow-xs">
           <i class="fa-solid fa-graduation-cap text-indigo-500"></i>
           <span>勉強会アーカイブ</span>
         </a>
-        <a href="sns.html" id="nav-item-sns" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+        <a href="sns" id="nav-item-sns" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-solid fa-share-nodes text-pink-500"></i>
           <span>公式SNS</span>
         </a>
@@ -850,7 +850,7 @@
       </div>
       <div class="flex items-center gap-4 text-slate-600">
         <button onclick="switchTab('calendar')" class="hover:text-rose-600 font-medium">イベントカレンダー</button>
-        <a href="calendar.html" target="_blank" class="hover:text-rose-600 font-medium">単体カレンダー</a>
+        <a href="calendar" target="_blank" class="hover:text-rose-600 font-medium">単体カレンダー</a>
         <a href="https://raytus-group.com" target="_blank" class="hover:text-slate-900">RAYTUS公式</a>
         <a href="https://community-iyasakagu.jp" target="_blank" class="hover:text-slate-900">Iyasaka宮</a>
         <a href="https://www.instagram.com/raytus_group.official" target="_blank" class="hover:text-slate-900">Instagram</a>
@@ -1217,12 +1217,12 @@
     function switchTab(tabId) {
       const pageMap = {
         'hub': './',
-        'flowchart': 'flowchart.html',
-        'raytus': 'raytus.html',
-        'iyasaka': 'iyasaka.html',
-        'calendar': 'calendar.html',
-        'archive': 'archive.html',
-        'sns': 'sns.html'
+        'flowchart': 'flowchart',
+        'raytus': 'raytus',
+        'iyasaka': 'iyasaka',
+        'calendar': 'calendar',
+        'archive': 'archive',
+        'sns': 'sns'
       };
       const currentPage = window.location.pathname.split('/').pop() || 'index.html';
       const targetPage = pageMap[tabId];
@@ -1232,12 +1232,12 @@
       }
       const pageMap = {
         'hub': './',
-        'flowchart': 'flowchart.html',
-        'raytus': 'raytus.html',
-        'iyasaka': 'iyasaka.html',
-        'calendar': 'calendar.html',
-        'archive': 'archive.html',
-        'sns': 'sns.html'
+        'flowchart': 'flowchart',
+        'raytus': 'raytus',
+        'iyasaka': 'iyasaka',
+        'calendar': 'calendar',
+        'archive': 'archive',
+        'sns': 'sns'
       };
       const currentPage = window.location.pathname.split('/').pop() || 'index.html';
       const targetPage = pageMap[tabId];
