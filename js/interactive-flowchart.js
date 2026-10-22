@@ -30,7 +30,7 @@
     container.classList.add('opacity-100', 'translate-y-0');
 
     const label = document.getElementById('label-toggle-support');
-    if (label) label.textContent = 'サポート一覧・原本を閉じる';
+    if (label) label.textContent = 'サポート一覧を閉じる';
 
     if (scroll) {
       setTimeout(() => {
@@ -52,7 +52,7 @@
     }, 500);
 
     const label = document.getElementById('label-toggle-support');
-    if (label) label.textContent = 'サポート一覧・原本を表示';
+    if (label) label.textContent = 'サポート一覧を表示';
   }
 
   window.toggleSupportAndOriginals = function () {

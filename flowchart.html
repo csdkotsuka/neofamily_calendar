@@ -201,18 +201,18 @@
           説明会 / 作業会 参加フローチャート
         </h1>
         <p class="text-xs sm:text-sm text-slate-500 mt-1">
-          選択肢を1つ選ぶごとに、その下のノードが段階的に現れます。今のあなたの状況にピッタリの会を見つけましょう！
+          質問に答えるだけで、今のあなたに最適な参加先が見つかります。
         </p>
       </div>
 
       <div class="flex items-center gap-2 shrink-0 flex-wrap">
         <button id="btn-toggle-support" onclick="toggleSupportAndOriginals()" class="px-3.5 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200/80 text-xs font-bold transition flex items-center gap-1.5 shadow-2xs">
           <i class="fa-solid fa-list-check text-emerald-600"></i>
-          <span id="label-toggle-support">サポート一覧・原本を表示</span>
+          <span id="label-toggle-support">サポート一覧を表示</span>
         </button>
         <button onclick="resetFlowchart()" class="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition flex items-center gap-1.5">
           <i class="fa-solid fa-rotate-left"></i>
-          <span>最初からやり直す</span>
+          <span>やり直す</span>
         </button>
       </div>
     </div>
@@ -226,7 +226,7 @@
       <div class="flex flex-col items-center max-w-2xl mx-auto space-y-6">
 
         <!-- ==================== STEP 1 ==================== -->
-        <div id="step1-node" class="w-full bg-white rounded-3xl p-5 sm:p-6 border-2 border-slate-300/80 shadow-sm text-center space-y-4">
+        <div id="step1-node" class="w-full bg-white rounded-3xl p-5 sm:p-6 border-2 border-slate-300/80 shadow-sm text-center space-y-3.5">
           <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-slate-100 text-slate-600 text-[11px] font-black uppercase">
             <span>START</span>
           </div>
@@ -234,26 +234,26 @@
             やることは明確？
           </h2>
           <p class="text-xs text-slate-500 max-w-md mx-auto">
-            活動の目的や、自分が今取り組むべき方向性のイメージは掴めていますか？
+            活動の目的や方向性は決まっていますか？
           </p>
 
           <!-- 選択肢ボタン群 -->
-          <div id="step1-choices" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+          <div id="step1-choices" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
             <button id="btn-step1-clear" onclick="chooseStep1('clear')" class="flow-choice-btn py-3 px-4 rounded-2xl border-2 border-slate-300 bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 cursor-pointer">
               <i class="choice-check fa-solid fa-circle-check text-amber-300 hidden"></i>
               <span>明確 / なんとなく</span>
             </button>
             <button id="btn-step1-unclear" onclick="chooseStep1('unclear')" class="flow-choice-btn py-3 px-4 rounded-2xl border-2 border-slate-300 bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 cursor-pointer">
               <i class="choice-check fa-solid fa-circle-check text-amber-300 hidden"></i>
-              <span>よく分かってない / 見直したい</span>
+              <span>よく分からない / 見直したい</span>
             </button>
           </div>
 
-          <!-- 初めて以外の人向けのクイックリンク -->
+          <!-- クイックリンク -->
           <div class="pt-2 border-t border-slate-100 flex items-center justify-center">
             <button onclick="toggleSupportAndOriginals()" class="text-xs text-slate-500 hover:text-emerald-700 font-semibold inline-flex items-center gap-1.5 py-1 px-3 rounded-xl hover:bg-emerald-50 transition cursor-pointer">
               <i class="fa-solid fa-table-list text-emerald-600 text-[11px]"></i>
-              <span>全体のサポート一覧やNotion原本を今すぐ見たい方はこちら</span>
+              <span>全体のサポート一覧を直接見る</span>
             </button>
           </div>
         </div>
@@ -262,39 +262,39 @@
         <!-- ==================== GOAL: 理事長に相談 ==================== -->
         <div id="goal-counseling-node" class="hidden flow-node-appear w-full flex-col items-center space-y-3">
           <div class="text-purple-600 font-bold text-xs flex items-center gap-1">
-            <span>▼ よく分かってない / 見直したい</span>
+            <span>▼ よく分からない / 見直したい</span>
           </div>
           <div class="w-0.5 h-6 bg-purple-300"></div>
 
-          <div class="w-full bg-gradient-to-br from-purple-700 via-indigo-800 to-slate-900 text-white rounded-3xl p-6 sm:p-7 shadow-lg space-y-4 text-center sm:text-left">
+          <div class="w-full bg-gradient-to-br from-purple-700 via-indigo-800 to-slate-900 text-white rounded-3xl p-5 sm:p-6 shadow-lg space-y-3.5 text-center sm:text-left">
             <div class="flex items-center justify-between flex-wrap gap-2">
               <span class="px-2.5 py-0.5 rounded-full bg-amber-400 text-slate-950 text-xs font-black">
-                GOAL: おすすめの参加先
+                おすすめの参加先
               </span>
-              <span class="text-xs text-purple-200">随時受付（RAYTUS公式LINE）</span>
+              <span class="text-xs text-purple-200">随時受付</span>
             </div>
             
             <div class="flex items-center gap-3">
-              <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-2xl text-amber-300 shrink-0">
+              <div class="w-11 h-11 rounded-2xl bg-white/10 flex items-center justify-center text-xl text-amber-300 shrink-0">
                 <i class="fa-solid fa-handshake"></i>
               </div>
               <div>
-                <h3 class="text-xl sm:text-2xl font-black text-white">理事長に相談</h3>
-                <p class="text-xs text-purple-200 mt-0.5">活動の軸を整理・再スタート</p>
+                <h3 class="text-lg sm:text-xl font-black text-white">理事長に相談</h3>
+                <p class="text-xs text-purple-200">活動の方向性を個別に整理・再スタート</p>
               </div>
             </div>
 
             <p class="text-xs sm:text-sm text-white/90 leading-relaxed">
-              「何から手をつけて良いか迷っている」「方針を一度整理したい」ときは、無理に手を動かすよりも原点に立ち返るのが一番の近道です。各人が所属するチームの理事長にご相談ください。
+              「何から始めるか迷う」「方針を整理したい」ときは、無理に手を動かすより原点に立ち返るのが一番の近道です。各人が所属するチームの理事長へ直接ご相談ください。
             </p>
 
-            <div class="pt-2 flex flex-col sm:flex-row items-center gap-3">
-              <div class="w-full sm:w-auto px-5 py-3 rounded-xl bg-purple-900/60 border border-purple-400/40 text-purple-100 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm">
+            <div class="pt-1 flex flex-col sm:flex-row items-center gap-2.5">
+              <div class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-purple-900/60 border border-purple-400/40 text-purple-100 font-bold text-xs sm:text-sm flex items-center justify-center gap-2">
                 <i class="fa-solid fa-users text-amber-300"></i>
-                <span>各人が所属するチームの理事長にご相談ください</span>
+                <span>各理事長へ直接ご相談ください</span>
               </div>
-              <button onclick="resetFlowchart()" class="text-xs text-white/80 hover:text-white px-3 py-2 cursor-pointer">
-                他のルートも試す
+              <button onclick="resetFlowchart()" class="text-xs text-white/80 hover:text-white px-3 py-1.5 cursor-pointer">
+                やり直す
               </button>
             </div>
           </div>
@@ -308,7 +308,7 @@
           </div>
           <div class="w-0.5 h-6 bg-blue-300"></div>
 
-          <div class="w-full bg-white rounded-3xl p-5 sm:p-6 border-2 border-slate-300/80 shadow-sm text-center space-y-4">
+          <div class="w-full bg-white rounded-3xl p-5 sm:p-6 border-2 border-slate-300/80 shadow-sm text-center space-y-3.5">
             <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-blue-50 text-blue-700 text-[11px] font-black uppercase">
               <span>STEP 2</span>
             </div>
@@ -316,10 +316,10 @@
               最新情報に触れてる？
             </h2>
             <p class="text-xs text-slate-500 max-w-md mx-auto">
-              定例会や全体の構想、公式共有情報などを定期的にキャッチアップできていますか？
+              定例会や全体の最新動向を定期的に追えていますか？
             </p>
 
-            <div id="step2-choices" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+            <div id="step2-choices" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
               <button id="btn-step2-not-latest" onclick="chooseStep2('not_latest')" class="flow-choice-btn py-3 px-4 rounded-2xl border-2 border-slate-300 bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 cursor-pointer">
                 <i class="choice-check fa-solid fa-circle-check text-amber-300 hidden"></i>
                 <span>全然触れてない</span>
@@ -340,44 +340,40 @@
           </div>
           <div class="w-0.5 h-6 bg-blue-300"></div>
 
-          <div class="w-full bg-gradient-to-br from-blue-700 via-indigo-800 to-slate-900 text-white rounded-3xl p-6 sm:p-7 shadow-lg space-y-4 text-center sm:text-left">
+          <div class="w-full bg-gradient-to-br from-blue-700 via-indigo-800 to-slate-900 text-white rounded-3xl p-5 sm:p-6 shadow-lg space-y-3.5 text-center sm:text-left">
             <div class="flex items-center justify-between flex-wrap gap-2">
               <span class="px-2.5 py-0.5 rounded-full bg-amber-400 text-slate-950 text-xs font-black">
-                GOAL: おすすめの参加先
+                おすすめの参加先
               </span>
-              <span class="text-xs text-blue-200">月4回開催（朝・夜各2回）</span>
+              <span class="text-xs text-blue-200">月4回（朝夜各2回）</span>
             </div>
             
             <div class="flex items-center gap-3">
-              <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-2xl text-amber-300 shrink-0">
+              <div class="w-11 h-11 rounded-2xl bg-white/10 flex items-center justify-center text-xl text-amber-300 shrink-0">
                 <i class="fa-solid fa-book-open"></i>
               </div>
               <div>
-                <h3 class="text-xl sm:text-2xl font-black text-white">NEO構想 ぎゅっと勉強会</h3>
-                <p class="text-xs text-blue-200 mt-0.5">短時間で基本と重要ポイントをインプット</p>
+                <h3 class="text-lg sm:text-xl font-black text-white">NEO構想 ぎゅっと勉強会</h3>
+                <p class="text-xs text-blue-200">基本と重要ポイントを短時間でインプット</p>
               </div>
             </div>
 
             <p class="text-xs sm:text-sm text-white/90 leading-relaxed">
-              最新情報に追いついていないときは、まずここからスタート！NEOの全体像と直近の重要トピックが短時間でぎゅっと学べます。
+              NEOの全体像と直近の重要トピックが短時間で学べます。最新情報に追いつきたい方はまずここから！
             </p>
 
-            <div class="p-3 rounded-xl bg-white/10 border border-white/20 text-xs text-amber-200">
-              💡 <strong>より深く知りたい方へ:</strong> 「特別勉強会アーカイブ」（公式LINE / アーカイブページ）も用意されています。
-            </div>
-
-            <div class="pt-2 flex flex-col sm:flex-row items-center gap-3 flex-wrap">
-              <a href="calendar" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-slate-900 hover:bg-black text-white font-black text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-md">
+            <div class="pt-1 flex flex-col sm:flex-row items-center gap-2.5 flex-wrap">
+              <a href="calendar" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1.5 shadow-md">
                 <i class="fa-regular fa-calendar-days text-amber-400"></i>
-                <span>カレンダーで次回日程を見る</span>
+                <span>日程を調べる</span>
               </a>
-              <button onclick="copyZoomInfo()" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-black text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-md">
+              <button onclick="copyZoomInfo()" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1.5 shadow-md">
                 <i class="fa-solid fa-copy"></i>
-                <span>全日共通Zoom情報をコピー</span>
+                <span>Zoom情報をコピー</span>
               </button>
-              <a href="archive" class="w-full sm:w-auto px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1.5">
+              <a href="archive" class="w-full sm:w-auto px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition flex items-center justify-center gap-1">
                 <i class="fa-solid fa-graduation-cap"></i>
-                <span>アーカイブ集を見る</span>
+                <span>アーカイブ集</span>
               </a>
             </div>
           </div>
@@ -391,7 +387,7 @@
           </div>
           <div class="w-0.5 h-6 bg-emerald-300"></div>
 
-          <div class="w-full bg-white rounded-3xl p-5 sm:p-6 border-2 border-slate-300/80 shadow-sm text-center space-y-4">
+          <div class="w-full bg-white rounded-3xl p-5 sm:p-6 border-2 border-slate-300/80 shadow-sm text-center space-y-3.5">
             <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-black uppercase">
               <span>STEP 3</span>
             </div>
@@ -399,10 +395,10 @@
               Iyasaka宮に出品してる？
             </h2>
             <p class="text-xs text-slate-500 max-w-md mx-auto">
-              公式マルシェ「Iyasaka宮」にあなたの商品・サービスを出品した実績はありますか？
+              公式マルシェ「Iyasaka宮」に出品したことはありますか？
             </p>
 
-            <div id="step3-choices" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+            <div id="step3-choices" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
               <button id="btn-step3-no" onclick="chooseStep3('no_iyasaka')" class="flow-choice-btn py-3 px-4 rounded-2xl border-2 border-slate-300 bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 cursor-pointer">
                 <i class="choice-check fa-solid fa-circle-check text-amber-300 hidden"></i>
                 <span>出してない</span>
@@ -423,7 +419,7 @@
           </div>
           <div class="w-0.5 h-6 bg-rose-300"></div>
 
-          <div class="w-full bg-white rounded-3xl p-5 sm:p-6 border-2 border-slate-300/80 shadow-sm text-center space-y-4">
+          <div class="w-full bg-white rounded-3xl p-5 sm:p-6 border-2 border-slate-300/80 shadow-sm text-center space-y-3.5">
             <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-rose-50 text-rose-700 text-[11px] font-black uppercase">
               <span>STEP 4A</span>
             </div>
@@ -431,10 +427,10 @@
               出店申請は終わってる？
             </h2>
             <p class="text-xs text-slate-500 max-w-md mx-auto">
-              Iyasaka宮への出店者としての公式登録・申請手続きは完了していますか？
+              出店者としての公式登録・申請手続きはお済みですか？
             </p>
 
-            <div id="step4a-choices" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+            <div id="step4a-choices" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
               <button id="btn-step4a-no" onclick="chooseStep4a('apply_not_yet')" class="flow-choice-btn py-3 px-4 rounded-2xl border-2 border-slate-300 bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 cursor-pointer">
                 <i class="choice-check fa-solid fa-circle-check text-amber-300 hidden"></i>
                 <span>まだ</span>
@@ -455,36 +451,36 @@
           </div>
           <div class="w-0.5 h-6 bg-rose-300"></div>
 
-          <div class="w-full bg-gradient-to-br from-rose-700 via-pink-800 to-slate-900 text-white rounded-3xl p-6 sm:p-7 shadow-lg space-y-4 text-center sm:text-left">
+          <div class="w-full bg-gradient-to-br from-rose-700 via-pink-800 to-slate-900 text-white rounded-3xl p-5 sm:p-6 shadow-lg space-y-3.5 text-center sm:text-left">
             <div class="flex items-center justify-between flex-wrap gap-2">
               <span class="px-2.5 py-0.5 rounded-full bg-amber-400 text-slate-950 text-xs font-black">
-                GOAL: おすすめの参加先
+                おすすめの参加先
               </span>
-              <span class="text-xs text-rose-200">随時受付（簡単3分）</span>
+              <span class="text-xs text-rose-200">随時受付（約3分）</span>
             </div>
             
             <div class="flex items-center gap-3">
-              <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-2xl text-amber-300 shrink-0">
+              <div class="w-11 h-11 rounded-2xl bg-white/10 flex items-center justify-center text-xl text-amber-300 shrink-0">
                 <i class="fa-solid fa-torii-gate"></i>
               </div>
               <div>
-                <h3 class="text-xl sm:text-2xl font-black text-white">出店申請</h3>
-                <p class="text-xs text-rose-200 mt-0.5">まずは出店者登録をスタート！</p>
+                <h3 class="text-lg sm:text-xl font-black text-white">出店申請</h3>
+                <p class="text-xs text-rose-200">まずは出店者登録をスタート！</p>
               </div>
             </div>
 
             <p class="text-xs sm:text-sm text-white/90 leading-relaxed">
-              まずはIyasaka宮への出店申請を行いましょう！簡単3分で申請可能です。出店申請が済むとマイページや管理画面が利用可能になります。
+              まずはIyasaka宮への公式出店申請（約3分）から！完了後にマイページや商品登録が可能になります。
             </p>
 
-            <div class="pt-2 flex flex-col sm:flex-row items-center gap-3 flex-wrap">
-              <a href="https://community-iyasakagu.jp/vendor_application/" target="_blank" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-md">
+            <div class="pt-1 flex flex-col sm:flex-row items-center gap-2.5 flex-wrap">
+              <a href="https://community-iyasakagu.jp/vendor_application/" target="_blank" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1.5 shadow-md">
                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                <span>公式出店申請フォームを開く</span>
+                <span>出店申請フォームを開く</span>
               </a>
-              <a href="iyasaka" class="w-full sm:w-auto px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1.5">
+              <a href="iyasaka" class="w-full sm:w-auto px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition flex items-center justify-center gap-1">
                 <i class="fa-solid fa-torii-gate"></i>
-                <span>Iyasaka宮 特設ページを見る</span>
+                <span>Iyasaka宮ページ</span>
               </a>
             </div>
           </div>
@@ -498,7 +494,7 @@
           </div>
           <div class="w-0.5 h-6 bg-blue-300"></div>
 
-          <div class="w-full bg-white rounded-3xl p-5 sm:p-6 border-2 border-slate-300/80 shadow-sm text-center space-y-4">
+          <div class="w-full bg-white rounded-3xl p-5 sm:p-6 border-2 border-slate-300/80 shadow-sm text-center space-y-3.5">
             <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-blue-50 text-blue-700 text-[11px] font-black uppercase">
               <span>STEP 5A</span>
             </div>
@@ -506,17 +502,17 @@
               プロフィール設定や出品方法は把握してる？
             </h2>
             <p class="text-xs text-slate-500 max-w-md mx-auto">
-              管理画面の操作や、魅力的なプロフィール・商品の登録方法に不安はありませんか？
+              管理画面の操作や商品登録の流れは把握できていますか？
             </p>
 
-            <div id="step5a-choices" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+            <div id="step5a-choices" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
               <button id="btn-step5a-no" onclick="chooseStep5a('profile_not_yet')" class="flow-choice-btn py-3 px-4 rounded-2xl border-2 border-slate-300 bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 cursor-pointer">
                 <i class="choice-check fa-solid fa-circle-check text-amber-300 hidden"></i>
-                <span>まだ / 把握してない</span>
+                <span>まだ / 不安</span>
               </button>
               <button id="btn-step5a-yes" onclick="chooseStep5a('profile_done')" class="flow-choice-btn py-3 px-4 rounded-2xl border-2 border-slate-300 bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 cursor-pointer">
                 <i class="choice-check fa-solid fa-circle-check text-amber-300 hidden"></i>
-                <span>してる</span>
+                <span>把握してる</span>
               </button>
             </div>
           </div>
@@ -526,40 +522,40 @@
         <!-- ==================== GOAL: Iyasaka宮 作業会 ==================== -->
         <div id="goal-iyasaka-work-node" class="hidden flow-node-appear w-full flex-col items-center space-y-3">
           <div class="text-amber-600 font-bold text-xs flex items-center gap-1">
-            <span>▼ まだ / 把握してない</span>
+            <span>▼ まだ / 不安</span>
           </div>
           <div class="w-0.5 h-6 bg-amber-300"></div>
 
-          <div class="w-full bg-gradient-to-br from-amber-600 via-orange-700 to-slate-900 text-white rounded-3xl p-6 sm:p-7 shadow-lg space-y-4 text-center sm:text-left">
+          <div class="w-full bg-gradient-to-br from-amber-600 via-orange-700 to-slate-900 text-white rounded-3xl p-5 sm:p-6 shadow-lg space-y-3.5 text-center sm:text-left">
             <div class="flex items-center justify-between flex-wrap gap-2">
               <span class="px-2.5 py-0.5 rounded-full bg-amber-400 text-slate-950 text-xs font-black">
-                GOAL: おすすめの参加先
+                おすすめの参加先
               </span>
               <span class="text-xs text-amber-200">月2回日中 ＆ 毎週火曜21:00 Zoom</span>
             </div>
             
             <div class="flex items-center gap-3">
-              <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-2xl text-amber-300 shrink-0">
+              <div class="w-11 h-11 rounded-2xl bg-white/10 flex items-center justify-center text-xl text-amber-300 shrink-0">
                 <i class="fa-solid fa-laptop-code"></i>
               </div>
               <div>
-                <h3 class="text-xl sm:text-2xl font-black text-white">Iyasaka宮 作業会 (整え会)</h3>
-                <p class="text-xs text-amber-200 mt-0.5">出品準備やプロフィール設定を仲間と一緒に進める！</p>
+                <h3 class="text-lg sm:text-xl font-black text-white">Iyasaka宮 作業会 (整え会)</h3>
+                <p class="text-xs text-amber-200">出品準備やプロフ設定を仲間と一緒に進める！</p>
               </div>
             </div>
 
             <p class="text-xs sm:text-sm text-white/90 leading-relaxed">
-              「設定画面がよくわからない」「どんな商品写真や説明文を書けばいいか迷う」という方にぴったり。みんなで集まって手を動かし、その場で疑問を解消できます。毎週火曜21:00〜の「Iyasaka宮サポートZoomライブ」も超おすすめです！
+              プロフィール設定や出品準備を仲間と一緒に進める作業会です。毎週火曜21:00〜のサポートZoomもおすすめ！
             </p>
 
-            <div class="pt-2 flex flex-col sm:flex-row items-center gap-3 flex-wrap">
-              <a href="calendar" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-slate-900 hover:bg-black text-white font-black text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-md">
+            <div class="pt-1 flex flex-col sm:flex-row items-center gap-2.5 flex-wrap">
+              <a href="calendar" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1.5 shadow-md">
                 <i class="fa-regular fa-calendar-days text-amber-400"></i>
-                <span>カレンダーで日程を見る</span>
+                <span>日程を調べる</span>
               </a>
-              <button onclick="copyZoomInfo()" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-black text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-md">
+              <button onclick="copyZoomInfo()" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1.5 shadow-md">
                 <i class="fa-solid fa-copy"></i>
-                <span>火曜21:00 Zoom情報をコピー</span>
+                <span>火曜21:00 Zoomコピー</span>
               </button>
             </div>
           </div>
@@ -573,7 +569,7 @@
           </div>
           <div class="w-0.5 h-6 bg-purple-300"></div>
 
-          <div class="w-full bg-white rounded-3xl p-5 sm:p-6 border-2 border-slate-300/80 shadow-sm text-center space-y-4">
+          <div class="w-full bg-white rounded-3xl p-5 sm:p-6 border-2 border-slate-300/80 shadow-sm text-center space-y-3.5">
             <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-purple-50 text-purple-700 text-[11px] font-black uppercase">
               <span>STEP 4B</span>
             </div>
@@ -581,17 +577,17 @@
               勉強ジンジャー出品してる？
             </h2>
             <p class="text-xs text-slate-500 max-w-md mx-auto">
-              学びとアウトプットを加速する勉強ジンジャーへの参加状況を教えてください。
+              勉強ジンジャーでの出品・参加状況を教えてください。
             </p>
 
-            <div id="step4b-choices" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+            <div id="step4b-choices" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
               <button id="btn-step4b-unknown" onclick="chooseStep4b('ginger_unknown')" class="flow-choice-btn py-3 px-4 rounded-2xl border-2 border-slate-300 bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 cursor-pointer">
                 <i class="choice-check fa-solid fa-circle-check text-amber-300 hidden"></i>
                 <span>やり方がわからない</span>
               </button>
               <button id="btn-step4b-done" onclick="chooseStep4b('ginger_done')" class="flow-choice-btn py-3 px-4 rounded-2xl border-2 border-slate-300 bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 cursor-pointer">
                 <i class="choice-check fa-solid fa-circle-check text-amber-300 hidden"></i>
-                <span>してる / 今はやらない</span>
+                <span>出してる / やらない</span>
               </button>
             </div>
           </div>
@@ -605,36 +601,36 @@
           </div>
           <div class="w-0.5 h-6 bg-purple-300"></div>
 
-          <div class="w-full bg-gradient-to-br from-purple-700 via-indigo-800 to-slate-900 text-white rounded-3xl p-6 sm:p-7 shadow-lg space-y-4 text-center sm:text-left">
+          <div class="w-full bg-gradient-to-br from-purple-700 via-indigo-800 to-slate-900 text-white rounded-3xl p-5 sm:p-6 shadow-lg space-y-3.5 text-center sm:text-left">
             <div class="flex items-center justify-between flex-wrap gap-2">
               <span class="px-2.5 py-0.5 rounded-full bg-amber-400 text-slate-950 text-xs font-black">
-                GOAL: おすすめの参加先
+                おすすめの参加先
               </span>
-              <span class="text-xs text-purple-200">月2回開催（昼・夜各1回）</span>
+              <span class="text-xs text-purple-200">月2回（昼夜各1回）</span>
             </div>
             
             <div class="flex items-center gap-3">
-              <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-2xl text-amber-300 shrink-0">
+              <div class="w-11 h-11 rounded-2xl bg-white/10 flex items-center justify-center text-xl text-amber-300 shrink-0">
                 <i class="fa-solid fa-mortar-pestle"></i>
               </div>
               <div>
-                <h3 class="text-xl sm:text-2xl font-black text-white">勉強ジンジャー活用サポート</h3>
-                <p class="text-xs text-purple-200 mt-0.5">活用方法や投稿方法をゼロから学ぶ！</p>
+                <h3 class="text-lg sm:text-xl font-black text-white">勉強ジンジャー活用サポート</h3>
+                <p class="text-xs text-purple-200">活用方法や投稿方法をゼロから学ぶ！</p>
               </div>
             </div>
 
             <p class="text-xs sm:text-sm text-white/90 leading-relaxed">
-              勉強ジンジャーへの投稿方法や、出品コンテンツをより魅力的に届けるノウハウを丁寧にサポートします。昼・夜の2枠があるため、忙しい方でも参加しやすい体制が整っています。
+              勉強ジンジャーへの出品方法やコンテンツ作りのノウハウを丁寧に学べるサポート会です（昼・夜の月2回開催）。
             </p>
 
-            <div class="pt-2 flex flex-col sm:flex-row items-center gap-3 flex-wrap">
-              <a href="calendar" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-slate-900 hover:bg-black text-white font-black text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-md">
+            <div class="pt-1 flex flex-col sm:flex-row items-center gap-2.5 flex-wrap">
+              <a href="calendar" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1.5 shadow-md">
                 <i class="fa-regular fa-calendar-days text-amber-400"></i>
-                <span>カレンダーで日程を見る</span>
+                <span>日程を調べる</span>
               </a>
-              <a href="https://line.me/R/ti/p/@raytus" target="_blank" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-md">
+              <a href="https://line.me/R/ti/p/@raytus" target="_blank" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1.5 shadow-md">
                 <i class="fa-brands fa-line"></i>
-                <span>公式LINEで質問する</span>
+                <span>LINEで質問</span>
               </a>
             </div>
           </div>
@@ -644,11 +640,11 @@
         <!-- ==================== STEP 5B ==================== -->
         <div id="step5b-node" class="hidden flow-node-appear w-full flex-col items-center space-y-3">
           <div class="text-indigo-600 font-bold text-xs flex items-center gap-1">
-            <span>▼ してる / 今はやらない</span>
+            <span>▼ 出してる / やらない</span>
           </div>
           <div class="w-0.5 h-6 bg-indigo-300"></div>
 
-          <div class="w-full bg-white rounded-3xl p-5 sm:p-6 border-2 border-slate-300/80 shadow-sm text-center space-y-4">
+          <div class="w-full bg-white rounded-3xl p-5 sm:p-6 border-2 border-slate-300/80 shadow-sm text-center space-y-3.5">
             <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-indigo-50 text-indigo-700 text-[11px] font-black uppercase">
               <span>STEP 5B</span>
             </div>
@@ -656,17 +652,17 @@
               EEDA動画出してる？
             </h2>
             <p class="text-xs text-slate-500 max-w-md mx-auto">
-              次世代動画プラットフォームEEDAでの動画公開や制作の状況はいかがですか？
+              次世代動画EEDAでの制作・動画公開状況はいかがですか？
             </p>
 
-            <div id="step5b-choices" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+            <div id="step5b-choices" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
               <button id="btn-step5b-intro" onclick="chooseStep5b('eeda_intro')" class="flow-choice-btn py-3 px-4 rounded-2xl border-2 border-slate-300 bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 cursor-pointer">
                 <i class="choice-check fa-solid fa-circle-check text-amber-300 hidden"></i>
-                <span>そもそもを知りたい</span>
+                <span>基本を知りたい</span>
               </button>
               <button id="btn-step5b-work" onclick="chooseStep5b('eeda_work')" class="flow-choice-btn py-3 px-4 rounded-2xl border-2 border-slate-300 bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 cursor-pointer">
                 <i class="choice-check fa-solid fa-circle-check text-amber-300 hidden"></i>
-                <span>制作進まない / 質問したい</span>
+                <span>制作で質問したい</span>
               </button>
             </div>
           </div>
@@ -676,40 +672,40 @@
         <!-- ==================== GOAL: EEDA探検ポチポチ会 ==================== -->
         <div id="goal-eeda-pochi-node" class="hidden flow-node-appear w-full flex-col items-center space-y-3">
           <div class="text-yellow-600 font-bold text-xs flex items-center gap-1">
-            <span>▼ そもそもを知りたい</span>
+            <span>▼ 基本を知りたい</span>
           </div>
           <div class="w-0.5 h-6 bg-yellow-300"></div>
 
-          <div class="w-full bg-gradient-to-br from-yellow-500 via-amber-600 to-slate-900 text-white rounded-3xl p-6 sm:p-7 shadow-lg space-y-4 text-center sm:text-left">
+          <div class="w-full bg-gradient-to-br from-yellow-500 via-amber-600 to-slate-900 text-white rounded-3xl p-5 sm:p-6 shadow-lg space-y-3.5 text-center sm:text-left">
             <div class="flex items-center justify-between flex-wrap gap-2">
               <span class="px-2.5 py-0.5 rounded-full bg-slate-900 text-amber-300 text-xs font-black">
-                GOAL: おすすめの参加先
+                おすすめの参加先
               </span>
-              <span class="text-xs text-amber-100">月4〜8回 活発に開催中！</span>
+              <span class="text-xs text-amber-100">月4〜8回開催</span>
             </div>
             
             <div class="flex items-center gap-3">
-              <div class="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center text-2xl text-white shrink-0">
+              <div class="w-11 h-11 rounded-2xl bg-white/20 flex items-center justify-center text-xl text-white shrink-0">
                 <i class="fa-solid fa-compass"></i>
               </div>
               <div>
-                <h3 class="text-xl sm:text-2xl font-black text-white">EEDA探検ポチポチ会</h3>
-                <p class="text-xs text-amber-100 mt-0.5">動画やコンテンツをみんなで探索・気づき共有！</p>
+                <h3 class="text-lg sm:text-xl font-black text-white">EEDA探検ポチポチ会</h3>
+                <p class="text-xs text-amber-100">動画やコンテンツをみんなで探索・気づき共有！</p>
               </div>
             </div>
 
             <p class="text-xs sm:text-sm text-white/90 leading-relaxed">
-              「EEDAってどんな仕組み？」「どんな動画が出てるの？」という疑問を楽しみながら解消できるカジュアルな探索イベントです。参加者同士でポチポチ操作しながら、新しい発見を共有しましょう！
+              EEDAの仕組みや動画を仲間とカジュアルに探索し、気づきを共有する会です。
             </p>
 
-            <div class="pt-2 flex flex-col sm:flex-row items-center gap-3 flex-wrap">
-              <a href="calendar" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-slate-900 hover:bg-black text-white font-black text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-md">
+            <div class="pt-1 flex flex-col sm:flex-row items-center gap-2.5 flex-wrap">
+              <a href="calendar" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1.5 shadow-md">
                 <i class="fa-regular fa-calendar-days text-amber-400"></i>
-                <span>カレンダーで日程を見る</span>
+                <span>日程を調べる</span>
               </a>
-              <button onclick="copyZoomInfo()" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-black text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-md">
+              <button onclick="copyZoomInfo()" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1.5 shadow-md">
                 <i class="fa-solid fa-copy"></i>
-                <span>全日共通Zoom情報をコピー</span>
+                <span>Zoom情報をコピー</span>
               </button>
             </div>
           </div>
@@ -719,40 +715,40 @@
         <!-- ==================== GOAL: EEDA作業会 ==================== -->
         <div id="goal-eeda-work-node" class="hidden flow-node-appear w-full flex-col items-center space-y-3">
           <div class="text-rose-600 font-bold text-xs flex items-center gap-1">
-            <span>▼ 制作進まない / 質問したい</span>
+            <span>▼ 制作で質問したい</span>
           </div>
           <div class="w-0.5 h-6 bg-rose-300"></div>
 
-          <div class="w-full bg-gradient-to-br from-rose-600 via-pink-700 to-slate-900 text-white rounded-3xl p-6 sm:p-7 shadow-lg space-y-4 text-center sm:text-left">
+          <div class="w-full bg-gradient-to-br from-rose-600 via-pink-700 to-slate-900 text-white rounded-3xl p-5 sm:p-6 shadow-lg space-y-3.5 text-center sm:text-left">
             <div class="flex items-center justify-between flex-wrap gap-2">
               <span class="px-2.5 py-0.5 rounded-full bg-amber-400 text-slate-950 text-xs font-black">
-                GOAL: おすすめの参加先
+                おすすめの参加先
               </span>
-              <span class="text-xs text-rose-200">随時リクエスト開催（公式LINE）</span>
+              <span class="text-xs text-rose-200">随時リクエスト開催</span>
             </div>
             
             <div class="flex items-center gap-3">
-              <div class="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center text-2xl text-white shrink-0">
+              <div class="w-11 h-11 rounded-2xl bg-white/20 flex items-center justify-center text-xl text-white shrink-0">
                 <i class="fa-solid fa-clapperboard"></i>
               </div>
               <div>
-                <h3 class="text-xl sm:text-2xl font-black text-white">EEDA作業会</h3>
-                <p class="text-xs text-rose-200 mt-0.5">疑問や悩みをその場で質問・解決できる作業会！</p>
+                <h3 class="text-lg sm:text-xl font-black text-white">EEDA作業会</h3>
+                <p class="text-xs text-rose-200">制作の疑問をその場で質問・解決できる作業会！</p>
               </div>
             </div>
 
             <p class="text-xs sm:text-sm text-white/90 leading-relaxed">
-              動画の企画・編集・アップロードなど、制作の手が止まってしまった時に仲間やサポートメンバーと一緒に作業を進められます。開催のご要望はRAYTUS group.公式LINEまでお気軽にメッセージをお寄せください！
+              動画の企画・編集・制作を進める作業会です。開催リクエストは公式LINEまでお気軽にどうぞ！
             </p>
 
-            <div class="pt-2 flex flex-col sm:flex-row items-center gap-3 flex-wrap">
-              <a href="https://line.me/R/ti/p/@raytus" target="_blank" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-black text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-md">
+            <div class="pt-1 flex flex-col sm:flex-row items-center gap-2.5 flex-wrap">
+              <a href="https://line.me/R/ti/p/@raytus" target="_blank" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1.5 shadow-md">
                 <i class="fa-brands fa-line text-base"></i>
-                <span>RAYTUS公式LINEで開催リクエスト</span>
+                <span>LINEで開催リクエスト</span>
               </a>
-              <a href="raytus" class="w-full sm:w-auto px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1.5">
+              <a href="raytus" class="w-full sm:w-auto px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition flex items-center justify-center gap-1">
                 <i class="fa-solid fa-play"></i>
-                <span>全事業紹介動画を見る</span>
+                <span>事業紹介動画</span>
               </a>
             </div>
           </div>
@@ -764,15 +760,15 @@
 
 
     <!-- ======================================================== -->
-    <!-- 📋 サポート一覧 & 🖼️ 原本画像 コンテナ (初期非表示・ふわっと表示) -->
+    <!-- 📋 サポート一覧コンテナ (初期非表示・ふわっと表示) -->
     <!-- ======================================================== -->
-    <div id="support-and-originals-container" class="space-y-10 transition-all duration-700 ease-out hidden opacity-0 translate-y-6">
+    <div id="support-and-originals-container" class="space-y-6 transition-all duration-700 ease-out hidden opacity-0 translate-y-6">
 
     <!-- ======================================================== -->
     <!-- 📋 サポート一覧テーブル -->
     <!-- ======================================================== -->
-    <section id="support-list-section" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+    <section id="support-list-section" class="bg-white rounded-3xl p-5 sm:p-7 border border-slate-200 shadow-sm space-y-4">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
         <div>
           <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold mb-1">
             <i class="fa-solid fa-list-check"></i> 公式サポート体系
@@ -781,43 +777,42 @@
             RAYTUS group. サポート一覧
           </h2>
           <p class="text-xs text-slate-500 mt-0.5">
-            メンバーの活動と成長を多角的にバックアップする場が用意されています。
+            定期開催されている公式サポート枠（全7件）です。
           </p>
         </div>
 
         <div class="flex items-center gap-2">
-          <a href="calendar" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-bold transition flex items-center gap-1.5 shadow-xs">
+          <a href="calendar" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-bold transition flex items-center gap-1.5 shadow-xs">
             <i class="fa-regular fa-calendar-days text-amber-400"></i>
-            <span>カレンダーで日程を調べる</span>
+            <span>カレンダーで調べる</span>
           </a>
         </div>
       </div>
 
       <!-- 診断結果フィルター表示バー (診断結果に応じたサポートのみ表示中の場合に表示) -->
-      <div id="support-filter-notice" class="hidden items-center justify-between flex-wrap gap-2.5 p-3 sm:p-3.5 rounded-2xl bg-amber-50 border border-amber-200">
+      <div id="support-filter-notice" class="hidden items-center justify-between flex-wrap gap-2 p-3 rounded-2xl bg-amber-50 border border-amber-200">
         <div class="flex items-center gap-2">
-          <span class="w-6 h-6 rounded-lg bg-amber-500 text-white flex items-center justify-center text-xs font-bold shrink-0">
+          <span class="w-5 h-5 rounded-md bg-amber-500 text-white flex items-center justify-center text-[10px] font-bold shrink-0">
             <i class="fa-solid fa-check"></i>
           </span>
           <p class="text-xs font-bold text-amber-900">
-            フローチャート診断結果に該当するサポートを表示しています
+            診断結果に該当するサポートを表示中
           </p>
         </div>
-        <button type="button" onclick="resetSupportTableFilter()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white hover:bg-amber-100 text-amber-900 text-xs font-bold border border-amber-300 shadow-2xs transition">
+        <button type="button" onclick="resetSupportTableFilter()" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-white hover:bg-amber-100 text-amber-900 text-xs font-bold border border-amber-300 shadow-2xs transition">
           <i class="fa-solid fa-list text-amber-600"></i>
-          <span>すべてのサポート（全7件）を表示</span>
+          <span>全7件を表示</span>
         </button>
       </div>
 
-      <!-- 理事長相談ゴール到達時の特別案内 (原本一覧には載っていないため) -->
-      <div id="support-counseling-notice" class="hidden p-4 rounded-2xl bg-indigo-50 border border-indigo-200 text-indigo-950 space-y-1.5">
-        <div class="flex items-center gap-2 text-indigo-900 font-black text-xs sm:text-sm">
+      <!-- 理事長相談ゴール到達時の案内 -->
+      <div id="support-counseling-notice" class="hidden p-3.5 rounded-2xl bg-indigo-50 border border-indigo-200 text-indigo-950 space-y-1">
+        <div class="flex items-center gap-2 text-indigo-900 font-bold text-xs sm:text-sm">
           <i class="fa-solid fa-handshake text-indigo-600"></i>
           <span>理事長へのご相談について</span>
         </div>
         <p class="text-xs leading-relaxed text-indigo-800">
-          「活動の方向性の見直しや相談」は公式サポート一覧の定期枠ではなく、<strong>各人が所属するチームの理事長へ直接ご相談</strong>いただく形となります。<br class="hidden sm:inline">
-          ※以下には、RAYTUS group.公式の定期開催サポート一覧（全7件）を参考として掲載しています。
+          個別の方針相談は、所属チームの理事長へ直接ご連絡ください。（以下は定期サポート一覧です）
         </p>
       </div>
 
@@ -825,7 +820,7 @@
       <div class="flex items-center justify-between text-xs text-slate-500 sm:hidden">
         <span class="inline-flex items-center gap-1.5 text-[11px] font-bold text-amber-800 bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-200">
           <i class="fa-solid fa-arrows-left-right text-amber-600"></i>
-          <span>表は左右にスクロールしてご覧いただけます</span>
+          <span>左右スクロールで全体をご覧いただけます</span>
         </span>
       </div>
 
@@ -1036,58 +1031,6 @@
       </div>
     </section>
 
-
-    <!-- ======================================================== -->
-    <!-- 🖼️ 原本画像 (Notion版) 拡大ギャラリー -->
-    <!-- ======================================================== -->
-    <section id="original-images-section" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
-      <div>
-        <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-xs font-bold mb-1">
-          <i class="fa-solid fa-file-image"></i> 原本アーカイブ
-        </span>
-        <h2 class="text-xl font-black text-slate-900">
-          🖼️ 公式Notion原本 画像ギャラリー
-        </h2>
-        <p class="text-xs text-slate-500 mt-0.5">※画像をタップすると全画面で高解像度拡大表示されます</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        
-        <!-- フローチャート画像原本 -->
-        <div class="border border-slate-200 rounded-2xl p-3.5 bg-slate-50 cursor-pointer group hover:border-blue-400 transition" onclick="openLightbox('images/notion-event-flow.jpg', 'イベント参加フローチャート原本')">
-          <div class="flex items-center justify-between text-xs font-bold text-slate-700 mb-2.5">
-            <span class="flex items-center gap-1.5">
-              <i class="fa-solid fa-sitemap text-blue-600"></i>
-              <span>イベント参加フロー（原本）</span>
-            </span>
-            <span class="text-blue-600 group-hover:underline flex items-center gap-1 text-[11px]">
-              <i class="fa-solid fa-magnifying-glass-plus"></i> タップで拡大
-            </span>
-          </div>
-          <div class="rounded-xl overflow-hidden bg-white shadow-2xs border border-slate-200/60">
-            <img src="images/notion-event-flow.jpg" alt="イベント参加フロー" class="w-full h-auto object-contain group-hover:scale-102 transition duration-300">
-          </div>
-        </div>
-
-        <!-- サポート一覧画像原本 -->
-        <div class="border border-slate-200 rounded-2xl p-3.5 bg-slate-50 cursor-pointer group hover:border-emerald-400 transition" onclick="openLightbox('images/notion-support-list.jpg', 'サポート一覧原本')">
-          <div class="flex items-center justify-between text-xs font-bold text-slate-700 mb-2.5">
-            <span class="flex items-center gap-1.5">
-              <i class="fa-solid fa-table-list text-emerald-600"></i>
-              <span>サポート一覧（原本）</span>
-            </span>
-            <span class="text-emerald-600 group-hover:underline flex items-center gap-1 text-[11px]">
-              <i class="fa-solid fa-magnifying-glass-plus"></i> タップで拡大
-            </span>
-          </div>
-          <div class="rounded-xl overflow-hidden bg-white shadow-2xs border border-slate-200/60">
-            <img src="images/notion-support-list.jpg" alt="サポート一覧" class="w-full h-auto object-contain group-hover:scale-102 transition duration-300">
-          </div>
-        </div>
-
-      </div>
-    </section>
-
     </div><!-- /#support-and-originals-container -->
 
   </main>
@@ -1118,50 +1061,7 @@
     </div>
   </footer>
 
-
-  <!-- ======================================================== -->
-  <!-- LIGHTBOX MODAL (画像拡大モーダル) -->
-  <!-- ======================================================== -->
-  <div id="lightbox-modal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md items-center justify-center p-4">
-    <button onclick="closeModal('lightbox-modal')" class="absolute top-4 right-4 sm:top-6 sm:right-6 w-11 h-11 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center text-lg transition z-50">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
-    <div class="max-w-5xl max-h-[90vh] overflow-auto flex flex-col items-center">
-      <h3 id="lightbox-title" class="text-white text-sm sm:text-base font-bold mb-3"></h3>
-      <img id="lightbox-img" src="" alt="拡大表示" class="max-w-full max-h-[80vh] object-contain rounded-xl shadow-2xl">
-    </div>
-  </div>
-
-  <!-- Lightbox Script -->
-  <script>
-    function openLightbox(src, title) {
-      const modal = document.getElementById('lightbox-modal');
-      const img = document.getElementById('lightbox-img');
-      const titleEl = document.getElementById('lightbox-title');
-      if (modal && img) {
-        img.src = src;
-        if (titleEl) titleEl.textContent = title || '';
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-        document.body.style.overflow = 'hidden';
-      }
-    }
-
-    function closeModal(id) {
-      const modal = document.getElementById(id);
-      if (modal) {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-        document.body.style.overflow = '';
-      }
-    }
-
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeModal('lightbox-modal');
-    });
-  </script>
-
   <!-- Interactive Flowchart Map Engine -->
-  <script src="js/interactive-flowchart.js?v=20261022_4"></script>
+  <script src="js/interactive-flowchart.js?v=20261022_5"></script>
 </body>
 </html>
