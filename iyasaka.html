@@ -835,23 +835,7 @@
     }
 
     // タブ切替（個別ページ間のシームレス遷移）
-    // タブ切替（個別ページ間のシームレス遷移）
     function switchTab(tabId) {
-      const pageMap = {
-        'hub': './',
-        'flowchart': 'flowchart',
-        'raytus': 'raytus',
-        'iyasaka': 'iyasaka',
-        'calendar': 'calendar',
-        'archive': 'archive',
-        'sns': 'sns'
-      };
-      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-      const targetPage = pageMap[tabId];
-      if (targetPage && !currentPage.includes(targetPage.replace('.html', ''))) {
-        window.location.href = targetPage;
-        return;
-      }
       const pageMap = {
         'hub': './',
         'flowchart': 'flowchart',
