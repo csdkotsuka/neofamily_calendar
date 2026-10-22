@@ -65,18 +65,70 @@
     }
   };
 
-  // --- Support Table Highlight ---
-  function highlightSupportRow(rowId) {
-    document.querySelectorAll('.support-table-row').forEach(r => {
+  // --- Support Table Filter & Highlight (Only show highlighted rows on goal reach) ---
+  function filterSupportRows(targetRowId) {
+    const notice = document.getElementById('support-filter-notice');
+    const counselingNotice = document.getElementById('support-counseling-notice');
+    const rows = document.querySelectorAll('.support-table-row');
+
+    if (counselingNotice) counselingNotice.classList.add('hidden');
+
+    if (!targetRowId || targetRowId === 'all') {
+      // すべて表示
+      rows.forEach(r => {
+        r.classList.remove('hidden');
+        r.classList.remove('bg-amber-50', 'ring-2', 'ring-amber-400', 'animate-pulse');
+      });
+      if (notice) {
+        notice.classList.add('hidden');
+        notice.classList.remove('flex');
+      }
+      return;
+    }
+
+    if (targetRowId === 'counseling') {
+      // 理事長相談（サポート一覧原本にはないため全件+案内表示）
+      rows.forEach(r => {
+        r.classList.remove('hidden');
+        r.classList.remove('bg-amber-50', 'ring-2', 'ring-amber-400', 'animate-pulse');
+      });
+      if (notice) {
+        notice.classList.add('hidden');
+        notice.classList.remove('flex');
+      }
+      if (counselingNotice) counselingNotice.classList.remove('hidden');
+      return;
+    }
+
+    // 指定されたサポート行のみを表示（色づけ）
+    let matched = false;
+    rows.forEach(r => {
       r.classList.remove('bg-amber-50', 'ring-2', 'ring-amber-400', 'animate-pulse');
+      if (r.id === targetRowId) {
+        r.classList.remove('hidden');
+        r.classList.add('bg-amber-50', 'ring-2', 'ring-amber-400');
+        matched = true;
+      } else {
+        r.classList.add('hidden');
+      }
     });
-    if (!rowId) return;
-    const row = document.getElementById(rowId);
-    if (row) {
-      row.classList.add('bg-amber-50', 'ring-2', 'ring-amber-400', 'animate-pulse');
-      setTimeout(() => row.classList.remove('animate-pulse'), 3000);
+
+    if (notice) {
+      if (matched) {
+        notice.classList.remove('hidden');
+        notice.classList.add('flex');
+      } else {
+        notice.classList.add('hidden');
+        notice.classList.remove('flex');
+        rows.forEach(r => r.classList.remove('hidden'));
+      }
     }
   }
+
+  // フィルターリセット用グローバル関数
+  window.resetSupportTableFilter = function () {
+    filterSupportRows('all');
+  };
 
   // --- Flowchart State ---
   const state = {
@@ -109,15 +161,13 @@
     }
   }
 
-  // --- Reach Goal Helper: Show Goal node & reveal support table/originals smoothly ---
+  // --- Reach Goal Helper: Show Goal node & reveal filtered support table/originals smoothly ---
   function onReachGoal(goalNodeId, supportRowId) {
     showNode(goalNodeId);
     showSupportAndOriginals(false);
-    if (supportRowId) {
-      setTimeout(() => {
-        highlightSupportRow(supportRowId);
-      }, 400);
-    }
+    setTimeout(() => {
+      filterSupportRows(supportRowId);
+    }, 200);
   }
 
   // --- Step 1: やることは明確？ ---
@@ -129,8 +179,8 @@
     hideDownstreamFrom(1);
 
     if (val === 'unclear') {
-      // Show Goal: 理事長に相談
-      onReachGoal('goal-counseling-node', 'support-row-counseling');
+      // Show Goal: 理事長に相談（原本一覧にはないため理事長案内を表示）
+      onReachGoal('goal-counseling-node', 'counseling');
     } else {
       // Show Step 2: 最新情報に触れてる？
       showNode('step2-node');
@@ -229,7 +279,7 @@
       onReachGoal('goal-eeda-pochi-node', 'support-row-eeda-pochi');
     } else {
       // 制作進まない / 質問したい ➜ Goal: EEDA作業会
-      onReachGoal('goal-eeda-work-node', 'support-row-eeda-work');
+      onReachGoal('goal-eeda-work-node', 'support-row-eeda-pochi');
     }
   };
 
@@ -271,37 +321,41 @@
 
     if (level === 1) {
       allNodes.forEach(hideNode);
-      highlightSupportRow(null);
+      filterSupportRows('all');
     } else if (level === 2) {
       allNodes.slice(2).forEach(hideNode);
-      highlightSupportRow(null);
+      filterSupportRows('all');
     } else if (level === 3) {
       allNodes.slice(4).forEach(hideNode);
-      highlightSupportRow(null);
+      filterSupportRows('all');
     } else if (level === 4) {
       if (branch === 'a') {
         ['goal-apply-node', 'step5a-node', 'goal-iyasaka-work-node'].forEach(hideNode);
       } else {
         ['goal-ginger-node', 'step5b-node', 'goal-eeda-pochi-node', 'goal-eeda-work-node'].forEach(hideNode);
       }
+      filterSupportRows('all');
     } else if (level === 5) {
       if (branch === 'a') {
         ['goal-iyasaka-work-node'].forEach(hideNode);
       } else {
         ['goal-eeda-pochi-node', 'goal-eeda-work-node'].forEach(hideNode);
       }
+      filterSupportRows('all');
     }
 
     // Check if any goal node is still visible; if not, collapse support & originals
     const anyGoalVisible = allNodes.some(id => id.startsWith('goal-') && !document.getElementById(id)?.classList.contains('hidden'));
     if (!anyGoalVisible) {
       hideSupportAndOriginals();
+      filterSupportRows('all');
     }
   }
 
   // --- Reset Entire Flowchart ---
   window.resetFlowchart = function () {
     hideSupportAndOriginals();
+    filterSupportRows('all');
     Object.keys(state).forEach(k => state[k] = null);
     hideDownstreamFrom(1);
 
