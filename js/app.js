@@ -366,6 +366,12 @@ function createEventCardHtml(ev) {
               <span>${ev.fee} ${ev.capacity ? `· 定員: ${ev.capacity}` : ''}</span>
             </div>
           ` : ""}
+          ${(ev.creator || ev.registeredBy) ? `
+            <div class="flex items-start gap-2">
+              <i class="fa-solid fa-id-badge mt-0.5 text-slate-400 w-3.5 text-center"></i>
+              <span class="line-clamp-1 text-slate-500">登録者: <span class="text-slate-700 font-medium">${ev.creator || ev.registeredBy}</span></span>
+            </div>
+          ` : ""}
         </div>
       </div>
 
@@ -1011,6 +1017,12 @@ function openEventDetail(eventId) {
         <div>
           <span class="font-bold text-slate-500 block mb-1">定員</span>
           <span class="text-slate-800 font-semibold">${ev.capacity}</span>
+        </div>
+      ` : ""}
+      ${(ev.creator || ev.registeredBy) ? `
+        <div>
+          <span class="font-bold text-slate-500 block mb-1">イベント登録者</span>
+          <span class="text-slate-800 font-semibold">${ev.creator || ev.registeredBy}</span>
         </div>
       ` : ""}
     </div>
@@ -1838,6 +1850,9 @@ function openEditEventModal(eventId) {
   document.getElementById("new-event-end-time").value = ev.endTime || "15:00";
   document.getElementById("new-event-location").value = ev.location || "";
   document.getElementById("new-event-presenter").value = ev.presenter || "";
+  if (document.getElementById("new-event-creator")) {
+    document.getElementById("new-event-creator").value = ev.creator || ev.registeredBy || "";
+  }
   document.getElementById("new-event-fee").value = ev.fee || "";
   document.getElementById("new-event-zoom-url").value = ev.zoomUrl || "";
   document.getElementById("new-event-zoom-id").value = ev.zoomMeetingId || "";
@@ -2040,6 +2055,7 @@ async function handleCreateEventSubmit(e) {
   const endTime = document.getElementById("new-event-end-time").value;
   const location = document.getElementById("new-event-location").value.trim() || (locationType === "online" ? "Zoom オンライン" : "会場未定");
   const presenter = document.getElementById("new-event-presenter").value.trim();
+  const creator = document.getElementById("new-event-creator") ? document.getElementById("new-event-creator").value.trim() : "";
   const fee = document.getElementById("new-event-fee").value.trim();
   const zoomUrl = document.getElementById("new-event-zoom-url").value.trim();
   const zoomId = document.getElementById("new-event-zoom-id").value.trim();
@@ -2076,6 +2092,8 @@ async function handleCreateEventSubmit(e) {
     fee: fee,
     capacity: "",
     presenter: presenter,
+    creator: creator,
+    registeredBy: creator,
     image: selectedEventImages[0] || "",
     images: [...selectedEventImages],
     description: description,

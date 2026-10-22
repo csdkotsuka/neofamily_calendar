@@ -838,6 +838,9 @@ function openEditEventModal(eventId) {
   document.getElementById("new-event-end-time").value = ev.endTime || "15:00";
   document.getElementById("new-event-location").value = ev.location || "";
   document.getElementById("new-event-presenter").value = ev.presenter || "";
+  if (document.getElementById("new-event-creator")) {
+    document.getElementById("new-event-creator").value = ev.creator || ev.registeredBy || "";
+  }
   document.getElementById("new-event-fee").value = ev.fee || "";
   document.getElementById("new-event-zoom-url").value = ev.zoomUrl || "";
   document.getElementById("new-event-zoom-id").value = ev.zoomMeetingId || "";
@@ -925,6 +928,7 @@ async function handleCreateEvent(e) {
   const endTime = document.getElementById("new-event-end-time").value || "15:00";
   const location = document.getElementById("new-event-location").value.trim();
   const presenter = document.getElementById("new-event-presenter").value.trim();
+  const creator = document.getElementById("new-event-creator") ? document.getElementById("new-event-creator").value.trim() : "";
   const fee = document.getElementById("new-event-fee").value.trim();
   const zoomUrl = document.getElementById("new-event-zoom-url").value.trim();
   const zoomId = document.getElementById("new-event-zoom-id").value.trim();
@@ -952,6 +956,8 @@ async function handleCreateEvent(e) {
     endTime,
     location,
     presenter,
+    creator,
+    registeredBy: creator,
     fee,
     zoomUrl,
     zoomMeetingId: zoomId,

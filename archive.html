@@ -927,8 +927,8 @@
   </div>
 
 
-  <div id="proposal-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl border border-slate-200 space-y-6">
+  <div id="proposal-modal" onclick="if(event.target === this) closeModal('proposal-modal')" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4 cursor-pointer overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl border border-slate-200 space-y-6 cursor-default">
       <div class="flex items-center justify-between pb-4 border-b border-slate-100">
         <div class="flex items-center gap-2.5">
           <span class="w-8 h-8 rounded-xl bg-amber-100 text-amber-700 font-bold flex items-center justify-center">💡</span>
@@ -973,8 +973,8 @@
   </div>
 
   <!-- 2. グループ構造図モーダル -->
-  <div id="structure-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 space-y-6">
+  <div id="structure-modal" onclick="if(event.target === this) closeModal('structure-modal')" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4 cursor-pointer overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 space-y-6 cursor-default">
       <div class="flex items-center justify-between pb-4 border-b border-slate-100">
         <h3 class="font-black text-lg text-slate-900 flex items-center gap-2">
           <i class="fa-solid fa-sitemap text-rose-500"></i>

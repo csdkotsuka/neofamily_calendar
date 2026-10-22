@@ -889,8 +889,8 @@
   </div>
 
 
-  <div id="proposal-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl border border-slate-200 space-y-6">
+  <div id="proposal-modal" onclick="if(event.target === this) closeModal('proposal-modal')" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4 cursor-pointer overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl border border-slate-200 space-y-6 cursor-default">
       <div class="flex items-center justify-between pb-4 border-b border-slate-100">
         <div class="flex items-center gap-2.5">
           <span class="w-8 h-8 rounded-xl bg-amber-100 text-amber-700 font-bold flex items-center justify-center">💡</span>
@@ -935,8 +935,8 @@
   </div>
 
   <!-- 2. グループ構造図モーダル -->
-  <div id="structure-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 space-y-6">
+  <div id="structure-modal" onclick="if(event.target === this) closeModal('structure-modal')" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4 cursor-pointer overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 space-y-6 cursor-default">
       <div class="flex items-center justify-between pb-4 border-b border-slate-100">
         <h3 class="font-black text-lg text-slate-900 flex items-center gap-2">
           <i class="fa-solid fa-sitemap text-rose-500"></i>
@@ -1232,7 +1232,15 @@
     function scrollToSection(sectionId) {
       setTimeout(() => {
         const el = document.getElementById(sectionId);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
+        if (el) {
+          const headerOffset = 80;
+          const elementPosition = el.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
       }, 100);
     }
 
@@ -1709,11 +1717,13 @@
     }
 
     // ESCキーでモーダルを閉じる
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        ['proposal-modal', 'structure-modal', 'video-modal', 'lightbox-modal', 'cart-modal', 'raytus-service-modal', 'event-detail-modal', 'archive-admin-modal', 'admin-login-modal'].forEach(closeModal);
-        closeVideoModal();
-        closeRaytusServiceModal();
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' || e.key === 'Esc' || e.keyCode === 27) {
+        ['proposal-modal', 'structure-modal', 'video-modal', 'lightbox-modal', 'cart-modal', 'raytus-service-modal', 'event-detail-modal', 'archive-admin-modal', 'admin-login-modal'].forEach(id => {
+          if (typeof closeModal === 'function') closeModal(id);
+        });
+        if (typeof closeVideoModal === 'function') closeVideoModal();
+        if (typeof closeRaytusServiceModal === 'function') closeRaytusServiceModal();
       }
     });
 
@@ -1725,6 +1735,26 @@
       if (typeof renderRaytusShops === 'function') renderRaytusShops();
       if (typeof renderRaytusBlogs === 'function') renderRaytusBlogs();
       if (typeof updateCartUI === 'function') updateCartUI();
+
+      // URLクエリパラメータ(?cat=...)またはハッシュによる事業絞り込み＆スクロール
+      const urlParams = new URLSearchParams(window.location.search);
+      const catParam = urlParams.get('cat');
+      if (catParam) {
+        setTimeout(() => {
+          if (typeof setRaytusCategory === 'function') {
+            setRaytusCategory(catParam);
+          }
+          scrollToSection('raytus-services-section');
+          if (typeof showToast === 'function') {
+            const catName = (typeof CATEGORY_NAMES !== 'undefined' && CATEGORY_NAMES[catParam]) || catParam;
+            showToast(`🎯 「${catName}」の事業を表示しました`);
+          }
+        }, 150);
+      } else if (window.location.hash === '#raytus-services-section') {
+        setTimeout(() => {
+          scrollToSection('raytus-services-section');
+        }, 150);
+      }
     });
   </script>
 
