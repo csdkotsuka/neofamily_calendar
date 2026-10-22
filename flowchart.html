@@ -793,22 +793,30 @@
         </div>
       </div>
 
-      <!-- テーブル本体 -->
-      <div class="overflow-x-auto rounded-2xl border border-slate-200">
-        <table class="w-full text-left text-xs sm:text-sm border-collapse">
+      <!-- スマホ向け横スクロール案内バッジ -->
+      <div class="flex items-center justify-between text-xs text-slate-500 sm:hidden">
+        <span class="inline-flex items-center gap-1.5 text-[11px] font-bold text-amber-800 bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-200">
+          <i class="fa-solid fa-arrows-left-right text-amber-600"></i>
+          <span>表は左右にスクロールしてご覧いただけます</span>
+        </span>
+      </div>
+
+      <!-- テーブル本体 (横スクロール対応 & 内容が縦長に潰れない最小幅760px) -->
+      <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-2xs">
+        <table class="w-full min-w-[760px] text-left text-xs sm:text-sm border-collapse table-fixed">
           <thead>
             <tr class="bg-slate-900 text-white text-[11px] sm:text-xs uppercase tracking-wider font-extrabold">
-              <th class="py-3.5 px-4 sm:px-6">サポート名</th>
-              <th class="py-3.5 px-4 sm:px-6">内容・目的</th>
-              <th class="py-3.5 px-4 sm:px-6 whitespace-nowrap">開催頻度 / 日時</th>
-              <th class="py-3.5 px-4 sm:px-6 text-right">アクション</th>
+              <th class="py-3.5 px-4 w-[210px]">サポート名</th>
+              <th class="py-3.5 px-4 min-w-[290px]">内容・目的</th>
+              <th class="py-3.5 px-3 w-[130px] text-center">開催頻度 / 日時</th>
+              <th class="py-3.5 px-4 w-[130px] text-right">アクション</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-slate-200/80 bg-white">
             
             <!-- 1. NEO構想 ぎゅっと勉強会 -->
             <tr id="support-row-neo-study" class="support-table-row hover:bg-slate-50/80 transition">
-              <td class="py-4 px-4 sm:px-6 font-bold text-slate-900 flex items-center gap-3">
+              <td class="py-4 px-4 font-bold text-slate-900 flex items-center gap-3">
                 <div class="w-8 h-8 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center shrink-0">
                   <i class="fa-solid fa-book-open"></i>
                 </div>
@@ -817,16 +825,16 @@
                   <span class="text-[10px] text-blue-600 font-semibold">短時間で基本をインプット</span>
                 </div>
               </td>
-              <td class="py-4 px-4 sm:px-6 text-slate-600 text-xs leading-relaxed">
+              <td class="py-4 px-4 text-slate-600 text-xs sm:text-[13px] leading-relaxed">
                 短時間で基本とポイントを学べる勉強会。NEO構想の動向や全体方針をキャッチアップできます。
               </td>
-              <td class="py-4 px-4 sm:px-6 whitespace-nowrap">
-                <span class="px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 font-bold text-xs border border-blue-200/60">
-                  月4回（朝夜各2回）
+              <td class="py-4 px-3 text-center">
+                <span class="inline-block px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 font-bold text-[11px] border border-blue-200/60 leading-tight">
+                  月4回<br><span class="text-[10px] opacity-80">(朝夜各2回)</span>
                 </span>
               </td>
-              <td class="py-4 px-4 sm:px-6 text-right whitespace-nowrap">
-                <a href="calendar" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition">
+              <td class="py-4 px-4 text-right whitespace-nowrap">
+                <a href="calendar" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition shadow-2xs">
                   <i class="fa-regular fa-calendar-days text-slate-500"></i>
                   <span>日程</span>
                 </a>
@@ -835,7 +843,7 @@
 
             <!-- 2. 情報整理会 -->
             <tr id="support-row-info" class="support-table-row hover:bg-slate-50/80 transition">
-              <td class="py-4 px-4 sm:px-6 font-bold text-slate-900 flex items-center gap-3">
+              <td class="py-4 px-4 font-bold text-slate-900 flex items-center gap-3">
                 <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
                   <i class="fa-solid fa-list-check"></i>
                 </div>
@@ -844,16 +852,16 @@
                   <span class="text-[10px] text-emerald-600 font-semibold">やることの明確化</span>
                 </div>
               </td>
-              <td class="py-4 px-4 sm:px-6 text-slate-600 text-xs leading-relaxed">
+              <td class="py-4 px-4 text-slate-600 text-xs sm:text-[13px] leading-relaxed">
                 溢れる情報を整理し、自分が今取り組むべき優先タスクや活動方針を明確にする会。
               </td>
-              <td class="py-4 px-4 sm:px-6 whitespace-nowrap">
-                <span class="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 font-bold text-xs border border-emerald-200/60">
+              <td class="py-4 px-3 text-center">
+                <span class="inline-block px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 font-bold text-[11px] border border-emerald-200/60 leading-tight">
                   月2回
                 </span>
               </td>
-              <td class="py-4 px-4 sm:px-6 text-right whitespace-nowrap">
-                <a href="calendar" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition">
+              <td class="py-4 px-4 text-right whitespace-nowrap">
+                <a href="calendar" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition shadow-2xs">
                   <i class="fa-regular fa-calendar-days text-slate-500"></i>
                   <span>日程</span>
                 </a>
@@ -862,7 +870,7 @@
 
             <!-- 3. Iyasaka整え作業会 & サポートZoom -->
             <tr id="support-row-iyasaka-work" class="support-table-row hover:bg-slate-50/80 transition">
-              <td class="py-4 px-4 sm:px-6 font-bold text-slate-900 flex items-center gap-3">
+              <td class="py-4 px-4 font-bold text-slate-900 flex items-center gap-3">
                 <div class="w-8 h-8 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center shrink-0">
                   <i class="fa-solid fa-torii-gate"></i>
                 </div>
@@ -871,16 +879,16 @@
                   <span class="text-[10px] text-amber-600 font-semibold">出品準備・プロフ設定</span>
                 </div>
               </td>
-              <td class="py-4 px-4 sm:px-6 text-slate-600 text-xs leading-relaxed">
+              <td class="py-4 px-4 text-slate-600 text-xs sm:text-[13px] leading-relaxed">
                 Iyasaka宮のプロフィール設定や出品準備を進める作業会。毎週火曜21:00〜のZoomライブでは質問も自由に行えます。
               </td>
-              <td class="py-4 px-4 sm:px-6 whitespace-nowrap">
-                <span class="px-2.5 py-1 rounded-full bg-amber-50 text-amber-800 font-bold text-xs border border-amber-200/60">
-                  月2回（日中） / 毎週火曜21:00
+              <td class="py-4 px-3 text-center">
+                <span class="inline-block px-2 py-1 rounded-lg bg-amber-50 text-amber-800 font-bold text-[11px] border border-amber-200/60 leading-tight">
+                  月2回(日中)<br><span class="text-[10px] opacity-80">毎週火曜21:00</span>
                 </span>
               </td>
-              <td class="py-4 px-4 sm:px-6 text-right whitespace-nowrap">
-                <a href="iyasaka" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-amber-100 hover:bg-amber-200 text-amber-900 text-xs font-bold transition">
+              <td class="py-4 px-4 text-right whitespace-nowrap">
+                <a href="iyasaka" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-amber-100 hover:bg-amber-200 text-amber-900 text-xs font-bold transition shadow-2xs">
                   <i class="fa-solid fa-torii-gate"></i>
                   <span>宮ページ</span>
                 </a>
@@ -889,7 +897,7 @@
 
             <!-- 4. 勉強ジンジャーサポート -->
             <tr id="support-row-ginger" class="support-table-row hover:bg-slate-50/80 transition">
-              <td class="py-4 px-4 sm:px-6 font-bold text-slate-900 flex items-center gap-3">
+              <td class="py-4 px-4 font-bold text-slate-900 flex items-center gap-3">
                 <div class="w-8 h-8 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center shrink-0">
                   <i class="fa-solid fa-graduation-cap"></i>
                 </div>
@@ -898,16 +906,16 @@
                   <span class="text-[10px] text-purple-600 font-semibold">投稿方法・活用ノウハウ</span>
                 </div>
               </td>
-              <td class="py-4 px-4 sm:px-6 text-slate-600 text-xs leading-relaxed">
+              <td class="py-4 px-4 text-slate-600 text-xs sm:text-[13px] leading-relaxed">
                 勉強ジンジャーの活用方法や投稿方法を学ぶサポート。出品や情報発信の第一歩を支えます。
               </td>
-              <td class="py-4 px-4 sm:px-6 whitespace-nowrap">
-                <span class="px-2.5 py-1 rounded-full bg-purple-50 text-purple-700 font-bold text-xs border border-purple-200/60">
-                  月2回（昼夜各1回）
+              <td class="py-4 px-3 text-center">
+                <span class="inline-block px-2.5 py-1 rounded-lg bg-purple-50 text-purple-700 font-bold text-[11px] border border-purple-200/60 leading-tight">
+                  月2回<br><span class="text-[10px] opacity-80">(昼夜各1回)</span>
                 </span>
               </td>
-              <td class="py-4 px-4 sm:px-6 text-right whitespace-nowrap">
-                <a href="calendar" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition">
+              <td class="py-4 px-4 text-right whitespace-nowrap">
+                <a href="calendar" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition shadow-2xs">
                   <i class="fa-regular fa-calendar-days text-slate-500"></i>
                   <span>日程</span>
                 </a>
@@ -916,7 +924,7 @@
 
             <!-- 5. EEDA探検ポチポチ会 -->
             <tr id="support-row-eeda-pochi" class="support-table-row hover:bg-slate-50/80 transition">
-              <td class="py-4 px-4 sm:px-6 font-bold text-slate-900 flex items-center gap-3">
+              <td class="py-4 px-4 font-bold text-slate-900 flex items-center gap-3">
                 <div class="w-8 h-8 rounded-xl bg-yellow-100 text-yellow-800 flex items-center justify-center shrink-0">
                   <i class="fa-solid fa-compass"></i>
                 </div>
@@ -925,16 +933,16 @@
                   <span class="text-[10px] text-yellow-700 font-semibold">動画探索・気づき共有</span>
                 </div>
               </td>
-              <td class="py-4 px-4 sm:px-6 text-slate-600 text-xs leading-relaxed">
+              <td class="py-4 px-4 text-slate-600 text-xs sm:text-[13px] leading-relaxed">
                 EEDA動画やコンテンツを一緒に探索し、気づきや発見を共有する会。制作相談ができる作業会も随時開催。
               </td>
-              <td class="py-4 px-4 sm:px-6 whitespace-nowrap">
-                <span class="px-2.5 py-1 rounded-full bg-yellow-50 text-yellow-800 font-bold text-xs border border-yellow-200/60">
+              <td class="py-4 px-3 text-center">
+                <span class="inline-block px-2.5 py-1 rounded-lg bg-yellow-50 text-yellow-800 font-bold text-[11px] border border-yellow-200/60 leading-tight">
                   月4〜8回
                 </span>
               </td>
-              <td class="py-4 px-4 sm:px-6 text-right whitespace-nowrap">
-                <a href="calendar" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition">
+              <td class="py-4 px-4 text-right whitespace-nowrap">
+                <a href="calendar" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition shadow-2xs">
                   <i class="fa-regular fa-calendar-days text-slate-500"></i>
                   <span>日程</span>
                 </a>
@@ -943,7 +951,7 @@
 
             <!-- 6. 夢広場 -->
             <tr id="support-row-dream" class="support-table-row hover:bg-slate-50/80 transition">
-              <td class="py-4 px-4 sm:px-6 font-bold text-slate-900 flex items-center gap-3">
+              <td class="py-4 px-4 font-bold text-slate-900 flex items-center gap-3">
                 <div class="w-8 h-8 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center shrink-0">
                   <i class="fa-solid fa-heart"></i>
                 </div>
@@ -952,16 +960,16 @@
                   <span class="text-[10px] text-rose-600 font-semibold">夢と目標を語り合う場</span>
                 </div>
               </td>
-              <td class="py-4 px-4 sm:px-6 text-slate-600 text-xs leading-relaxed">
+              <td class="py-4 px-4 text-slate-600 text-xs sm:text-[13px] leading-relaxed">
                 仲間と一緒に自分の夢や目標、これからのビジョンを温かく語り合うコミュニティ交流の場。
               </td>
-              <td class="py-4 px-4 sm:px-6 whitespace-nowrap">
-                <span class="px-2.5 py-1 rounded-full bg-rose-50 text-rose-700 font-bold text-xs border border-rose-200/60">
-                  第4水曜日 21:30〜
+              <td class="py-4 px-3 text-center">
+                <span class="inline-block px-2.5 py-1 rounded-lg bg-rose-50 text-rose-700 font-bold text-[11px] border border-rose-200/60 leading-tight">
+                  第4水曜<br><span class="text-[10px] opacity-80">21:30〜</span>
                 </span>
               </td>
-              <td class="py-4 px-4 sm:px-6 text-right whitespace-nowrap">
-                <a href="calendar" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition">
+              <td class="py-4 px-4 text-right whitespace-nowrap">
+                <a href="calendar" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition shadow-2xs">
                   <i class="fa-regular fa-calendar-days text-slate-500"></i>
                   <span>日程</span>
                 </a>
@@ -970,7 +978,7 @@
 
             <!-- 7. RAYTUS体験談シェア会 -->
             <tr id="support-row-share" class="support-table-row hover:bg-slate-50/80 transition">
-              <td class="py-4 px-4 sm:px-6 font-bold text-slate-900 flex items-center gap-3">
+              <td class="py-4 px-4 font-bold text-slate-900 flex items-center gap-3">
                 <div class="w-8 h-8 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center shrink-0">
                   <i class="fa-solid fa-comments"></i>
                 </div>
@@ -979,16 +987,16 @@
                   <span class="text-[10px] text-teal-600 font-semibold">実践事例・生の声</span>
                 </div>
               </td>
-              <td class="py-4 px-4 sm:px-6 text-slate-600 text-xs leading-relaxed">
+              <td class="py-4 px-4 text-slate-600 text-xs sm:text-[13px] leading-relaxed">
                 メンバーが実際に体験した成果や活動の実践事例をリアルに共有し、刺激とヒントを得る会。
               </td>
-              <td class="py-4 px-4 sm:px-6 whitespace-nowrap">
-                <span class="px-2.5 py-1 rounded-full bg-teal-50 text-teal-800 font-bold text-xs border border-teal-200/60">
-                  月2回（随時開催）
+              <td class="py-4 px-3 text-center">
+                <span class="inline-block px-2.5 py-1 rounded-lg bg-teal-50 text-teal-800 font-bold text-[11px] border border-teal-200/60 leading-tight">
+                  月2回<br><span class="text-[10px] opacity-80">(随時)</span>
                 </span>
               </td>
-              <td class="py-4 px-4 sm:px-6 text-right whitespace-nowrap">
-                <a href="calendar" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition">
+              <td class="py-4 px-4 text-right whitespace-nowrap">
+                <a href="calendar" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition shadow-2xs">
                   <i class="fa-regular fa-calendar-days text-slate-500"></i>
                   <span>日程</span>
                 </a>
@@ -997,7 +1005,7 @@
 
             <!-- 8. 理事長相談 -->
             <tr id="support-row-counseling" class="support-table-row hover:bg-slate-50/80 transition">
-              <td class="py-4 px-4 sm:px-6 font-bold text-slate-900 flex items-center gap-3">
+              <td class="py-4 px-4 font-bold text-slate-900 flex items-center gap-3">
                 <div class="w-8 h-8 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center shrink-0">
                   <i class="fa-solid fa-handshake"></i>
                 </div>
@@ -1006,18 +1014,18 @@
                   <span class="text-[10px] text-indigo-600 font-semibold">個別方針整理・相談</span>
                 </div>
               </td>
-              <td class="py-4 px-4 sm:px-6 text-slate-600 text-xs leading-relaxed">
+              <td class="py-4 px-4 text-slate-600 text-xs sm:text-[13px] leading-relaxed">
                 活動の方向性の見直しや相談など。各人が所属するチームの理事長にご相談ください。
               </td>
-              <td class="py-4 px-4 sm:px-6 whitespace-nowrap">
-                <span class="px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 font-bold text-xs border border-indigo-200/60">
+              <td class="py-4 px-3 text-center">
+                <span class="inline-block px-2.5 py-1 rounded-lg bg-indigo-50 text-indigo-700 font-bold text-[11px] border border-indigo-200/60 leading-tight">
                   随時受付
                 </span>
               </td>
-              <td class="py-4 px-4 sm:px-6 text-right whitespace-nowrap">
-                <span class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 text-xs font-bold whitespace-nowrap">
+              <td class="py-4 px-4 text-right whitespace-nowrap">
+                <span class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-slate-100 text-slate-700 text-xs font-bold whitespace-nowrap shadow-2xs">
                   <i class="fa-solid fa-users text-slate-500"></i>
-                  <span>各理事長にご相談ください</span>
+                  <span>各理事長へ</span>
                 </span>
               </td>
             </tr>
