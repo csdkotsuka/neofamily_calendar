@@ -30,7 +30,7 @@ def main():
             ('hub', './', 'fa-solid fa-compass', '総合ポータル', ''),
             ('flowchart', 'flowchart.html', 'fa-solid fa-gamepad text-amber-500', '参加フロー診断', '<span class="px-1.5 py-0.2 text-[9px] font-black rounded bg-rose-500 text-white animate-pulse">GAME</span>'),
             ('raytus', 'raytus.html', 'fa-solid fa-globe text-slate-400', 'RAYTUS 全事業', ''),
-            ('iyasaka', 'iyasaka.html', 'fa-solid fa-torii-gate text-amber-600', 'Iyasaka宮', ''),
+            ('iyasaka', 'https://shopping.community-iyasakagu.jp/', 'fa-solid fa-torii-gate text-amber-600', 'Iyasaka宮 (EC)', '<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-amber-500"></i>'),
             ('calendar', 'calendar.html', 'fa-regular fa-calendar-days text-rose-500', 'イベントカレンダー', ''),
             ('caravan', 'caravan.html', 'fa-solid fa-bullhorn text-rose-500', '会長トークショー', ''),
             ('archive', 'archive.html', 'fa-solid fa-graduation-cap text-indigo-500', '勉強会アーカイブ', ''),
@@ -39,12 +39,16 @@ def main():
 
         nav_html = '      <nav class="flex items-center gap-1 overflow-x-auto no-scrollbar py-2 border-t border-slate-100 text-xs font-bold">\n'
         for key, url, icon, label, badge in items:
+            is_external = url.startswith('http')
+            target_attr = ' target="_blank" rel="noopener noreferrer"' if is_external else ''
             if key == active_page:
                 cls = "nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 bg-slate-900 text-white shadow-xs"
+            elif is_external:
+                cls = "nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-amber-800 bg-amber-50 hover:bg-amber-100 border border-amber-200/60 shadow-2xs"
             else:
                 cls = "nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100"
             badge_html = f" {badge}" if badge else ""
-            nav_html += f'        <a href="{url}" id="nav-item-{key}" class="{cls}">\n          <i class="{icon}"></i>\n          <span>{label}</span>{badge_html}\n        </a>\n'
+            nav_html += f'        <a href="{url}" id="nav-item-{key}" class="{cls}"{target_attr}>\n          <i class="{icon}"></i>\n          <span>{label}</span>{badge_html}\n        </a>\n'
         nav_html += '      </nav>\n'
         return nav_html
 
@@ -73,6 +77,11 @@ def main():
 
         <!-- ヘッダー右側アクション -->
         <div class="flex items-center gap-2 sm:gap-3">
+          <a href="https://shopping.community-iyasakagu.jp/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-50 text-amber-800 border border-amber-300/60 hover:bg-amber-100 transition shadow-2xs">
+            <i class="fa-solid fa-cart-shopping text-amber-600"></i>
+            <span>Iyasaka宮 EC</span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-amber-500"></i>
+          </a>
           <button onclick="copyZoomInfo()" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-blue-50 text-blue-700 border border-blue-200/60 hover:bg-blue-100 transition shadow-2xs">
             <i class="fa-solid fa-video text-blue-500"></i>
             <span>全日共通Zoom</span>
