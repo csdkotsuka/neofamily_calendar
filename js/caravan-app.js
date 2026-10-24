@@ -8,9 +8,8 @@ const GOOGLE_CALENDAR_ID = "c_1518f8a0d81830bb6be2a84b4ee3c865b33db3e46ca58d12d9
 // State
 let allEvents = [];
 let currentYear = 2026;
-let currentMonth = 10; // 0-indexed: 10 = November (イベントが11月のため初期表示を11月に)
+let currentMonth = 10; // 0-indexed: 10 = November (全トークショー集中月のため初期表示を11月に)
 let selectedDate = null;
-let currentCategory = "all";
 let currentViewMode = "calendar"; // "calendar" | "week" | "cards"
 let currentSearch = "";
 
@@ -55,22 +54,12 @@ function initEventListeners() {
     });
   }
 
-  // Close modal on Escape
+  // Close modal on Escape key
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       closeEventModal();
     }
   });
-
-  // Modal backdrop click
-  const modalBackdrop = document.getElementById("event-modal-backdrop");
-  if (modalBackdrop) {
-    modalBackdrop.addEventListener("click", (e) => {
-      if (e.target === modalBackdrop) {
-        closeEventModal();
-      }
-    });
-  }
 }
 
 // Filtered Events
@@ -141,11 +130,27 @@ function changeMonth(delta) {
   renderCalendarView();
 }
 
-function goToCurrentMonth() {
-  currentYear = 2026;
-  currentMonth = 10; // 11月
-  selectedDate = null;
+// Go to today (Month view)
+function goToToday() {
+  const now = new Date();
+  const today = (now.getFullYear() === 2026) ? now : new Date(2026, 9, 25);
+  currentYear = today.getFullYear();
+  currentMonth = today.getMonth();
+  const mStr = String(currentMonth + 1).padStart(2, "0");
+  const dStr = String(today.getDate()).padStart(2, "0");
+  selectedDate = `${currentYear}-${mStr}-${dStr}`;
   renderCalendarView();
+}
+
+// Go to today (Week view)
+function goToTodayWeek() {
+  const now = new Date();
+  const today = (now.getFullYear() === 2026) ? now : new Date(2026, 9, 25);
+  const day = today.getDay();
+  currentWeekStartDate = new Date(today);
+  currentWeekStartDate.setDate(today.getDate() - day);
+  currentWeekStartDate.setHours(0, 0, 0, 0);
+  renderWeekView();
 }
 
 // Render Native Month Calendar
@@ -295,9 +300,9 @@ function renderEventsList() {
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
           ` : `
             <div class="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-rose-900 via-slate-900 to-indigo-950 p-6 text-center text-white">
-              <span class="px-2.5 py-1 rounded-full text-[10px] font-black bg-rose-500 text-white mb-2 shadow">長野開催決定！</span>
-              <p class="font-black text-lg text-white">ぶった斬り会長トークショー</p>
-              <p class="text-xs text-rose-200 font-medium mt-1">in 長野（11/11開催）</p>
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-black bg-rose-500 text-white mb-2 shadow">会長トークショー</span>
+              <p class="font-black text-lg text-white">${escapeHtml(ev.title)}</p>
+              <p class="text-xs text-rose-200 font-medium mt-1">${escapeHtml(ev.subtitle || '')}</p>
             </div>
           `}
           <!-- Category & Fee Badges -->
@@ -448,22 +453,12 @@ function changeWeek(delta) {
   renderWeekView();
 }
 
-function goToCurrentWeek() {
-  const target = new Date(2026, 10, 8);
-  const day = target.getDay();
-  currentWeekStartDate = new Date(target);
-  currentWeekStartDate.setDate(target.getDate() - day);
-  currentWeekStartDate.setHours(0, 0, 0, 0);
-  renderWeekView();
-}
-
-// Modal Detail
+// Modal Detail (ESCキーまたは外側クリックで閉じる)
 function openEventDetail(eventId) {
   const ev = allEvents.find(e => e.id === eventId);
   if (!ev) return;
 
   const modal = document.getElementById("event-modal");
-  const modalBackdrop = document.getElementById("event-modal-backdrop");
   const modalBody = document.getElementById("event-modal-body");
   if (!modal || !modalBody) return;
 
@@ -472,7 +467,7 @@ function openEventDetail(eventId) {
 
   modalBody.innerHTML = `
     <!-- Modal Header -->
-    <div class="relative bg-slate-900 text-white p-6 -m-6 mb-6 rounded-t-3xl overflow-hidden">
+    <div class="relative bg-slate-900 text-white p-6 -m-6 sm:-m-8 mb-6 rounded-t-3xl overflow-hidden">
       ${ev.image ? `
         <div class="absolute inset-0 opacity-25">
           <img src="${escapeHtml(ev.image)}" class="w-full h-full object-cover">
@@ -492,19 +487,16 @@ function openEventDetail(eventId) {
             ${ev.fee || '無料'}
           </span>
         </div>
-        <h2 class="text-xl md:text-2xl font-black text-white leading-tight mb-2">
+        <h2 class="text-xl md:text-2xl font-black text-white leading-tight mb-2 pr-8">
           ${escapeHtml(ev.title)}
         </h2>
         <p class="text-xs text-rose-200 font-medium">
           ${escapeHtml(ev.subtitle || '')}
         </p>
       </div>
-      <button onclick="closeEventModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center transition z-20">
-        <i class="fa-solid fa-xmark text-sm"></i>
-      </button>
     </div>
 
-    <!-- Info Grid -->
+    <!-- Quick Info Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6 bg-slate-50 p-4 rounded-2xl border border-slate-200/80 text-xs">
       <div class="flex items-center gap-2.5 text-slate-700">
         <i class="fa-regular fa-calendar-days text-rose-600 text-base shrink-0"></i>
@@ -566,28 +558,31 @@ function openEventDetail(eventId) {
     </div>
 
     <!-- Actions: Google Calendar & ICS Download -->
-    <div class="flex items-center gap-2.5 flex-wrap pt-2 border-t border-slate-200">
+    <div class="flex items-center gap-2.5 flex-wrap pt-3 border-t border-slate-200">
       <a href="${googleUrl}" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs transition flex items-center justify-center gap-2 shadow-sm">
         <i class="fa-brands fa-google text-sm"></i> Googleカレンダー追加
       </a>
       <button onclick="downloadSingleICS('${ev.id}')" class="flex-1 py-3 px-4 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs transition flex items-center justify-center gap-2 shadow-sm">
         <i class="fa-solid fa-calendar-plus text-sm"></i> スマホに登録 (.ics)
       </button>
-      <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ev.location)}" target="_blank" rel="noopener noreferrer" class="py-3 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs transition flex items-center justify-center gap-1.5">
-        <i class="fa-solid fa-map-location-dot"></i> 地図
-      </a>
+      <button onclick="closeEventModal()" class="py-3 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center justify-center">
+        閉じる
+      </button>
     </div>
   `;
 
-  modalBackdrop.classList.remove("hidden");
   modal.classList.remove("hidden");
+  modal.classList.add("flex");
+  document.body.style.overflow = "hidden";
 }
 
 function closeEventModal() {
   const modal = document.getElementById("event-modal");
-  const modalBackdrop = document.getElementById("event-modal-backdrop");
-  if (modal) modal.classList.add("hidden");
-  if (modalBackdrop) modalBackdrop.classList.add("hidden");
+  if (modal) {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+  }
+  document.body.style.overflow = "";
 }
 
 // Download single ICS
@@ -597,7 +592,7 @@ function downloadSingleICS(eventId) {
 
   const sDate = ev.startDate.replace(/-/g, "") + "T" + ev.startTime.replace(/:/g, "") + "00";
   const eDate = ev.endDate.replace(/-/g, "") + "T" + ev.endTime.replace(/:/g, "") + "00";
-  const desc = ev.description.replace(/\n/g, "\\n");
+  const desc = (ev.description || "").replace(/\n/g, "\\n");
 
   const ics = [
     "BEGIN:VCALENDAR",
@@ -612,7 +607,7 @@ function downloadSingleICS(eventId) {
     `DTEND;TZID=Asia/Tokyo:${eDate}`,
     `SUMMARY:${ev.title}`,
     `DESCRIPTION:${desc}`,
-    `LOCATION:${ev.location}`,
+    `LOCATION:${ev.location || ""}`,
     "END:VEVENT",
     "END:VCALENDAR"
   ].join("\r\n");
@@ -633,7 +628,7 @@ function getGoogleCalendarUrl(ev) {
   const sDate = ev.startDate.replace(/-/g, "") + "T" + ev.startTime.replace(/:/g, "") + "00";
   const eDate = ev.endDate.replace(/-/g, "") + "T" + ev.endTime.replace(/:/g, "") + "00";
 
-  let details = `${ev.subtitle || ""}\n\n${ev.description}`;
+  let details = `${ev.subtitle || ""}\n\n${ev.description || ""}`;
   if (ev.fee) details += `\n\n参加費: ${ev.fee}`;
   if (ev.capacity) details += `\n定員: ${ev.capacity}`;
 

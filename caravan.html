@@ -7,7 +7,7 @@
   <meta name="description" content="ぶった斬り会長トークショー・マルシェ公式スケジュール。Googleカレンダー追加、スマホカレンダー登録対応。">
   <meta property="og:title" content="会長トークショー カレンダー | NEO FAMILY">
   <meta property="og:description" content="ぶった斬り会長トークショー公式日程カレンダー">
-  <meta property="og:image" content="images/logo.png">
+  <meta property="og:image" content="images/kusanagi_face.jpg">
   <meta property="og:type" content="website">
 
   <!-- Tailwind CSS CDN -->
@@ -61,15 +61,13 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 md:h-18">
         
-        <!-- ブランドロゴ & タイトル -->
+        <!-- ブランドロゴ（会長の顔写真） & タイトル -->
         <a href="./" class="flex items-center gap-3 cursor-pointer group">
-          <img src="images/logo.png" alt="NEO FAMILY Logo" class="w-10 h-10 md:w-11 md:h-11 rounded-full object-contain shadow-xs border border-amber-200/60 bg-white group-hover:scale-105 transition-transform">
+          <img src="images/kusanagi_face.jpg" alt="ぶった斬り会長" class="w-10 h-10 md:w-11 md:h-11 rounded-full object-cover shadow-sm border-2 border-rose-300 bg-white group-hover:scale-105 transition-transform">
           <div>
             <div class="flex items-center gap-2">
-              <span class="font-display font-black text-base md:text-lg tracking-tight text-slate-900">NEO FAMILY</span>
-              <span class="text-slate-300">×</span>
-              <span class="font-serif font-bold text-sm md:text-base text-slate-800 tracking-wider">RAYTUS</span>
-              <span class="px-1.5 py-0.5 text-[9px] font-black rounded-sm bg-rose-500/10 text-rose-700 border border-rose-300/40">TALK</span>
+              <span class="font-display font-black text-base md:text-lg tracking-tight text-slate-900">ぶった斬り会長</span>
+              <span class="px-2 py-0.5 text-[10px] font-black rounded-md bg-rose-500 text-white tracking-wide shadow-xs">TALK SHOW</span>
             </div>
             <p class="text-[11px] text-slate-500 font-medium hidden sm:block">総合ポータル & 会長トークショー</p>
           </div>
@@ -126,7 +124,7 @@
     </div>
   </header>
 
-  <!-- Controls Bar: View Switcher & Search -->
+  <!-- Controls Bar: View Switcher & Search (テキスト最小限・絞り込みなし) -->
   <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 pb-2">
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
       
@@ -179,8 +177,9 @@
             <h2 id="week-range-title" class="text-xl md:text-2xl font-black text-slate-900 tracking-tight">
               2026年 11月8日(日) 〜 11月14日(土)
             </h2>
-            <button onclick="goToCurrentWeek()" class="text-xs font-bold px-2.5 py-1 bg-rose-50 text-rose-700 border border-rose-200 rounded-lg hover:bg-rose-100 transition">
-              今週
+            <button onclick="goToTodayWeek()" class="text-xs font-bold px-2.5 py-1 bg-rose-50 text-rose-700 border border-rose-200 rounded-lg hover:bg-rose-100 transition shadow-2xs flex items-center gap-1">
+              <i class="fa-regular fa-calendar-check text-[11px]"></i>
+              <span>今日へ移動</span>
             </button>
           </div>
           <div class="flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl">
@@ -214,8 +213,9 @@
             <h2 id="calendar-month-title" class="text-xl md:text-2xl font-black text-slate-900 tracking-tight">
               2026年 11月
             </h2>
-            <button onclick="goToCurrentMonth()" class="text-xs font-bold px-2.5 py-1 bg-rose-50 text-rose-700 border border-rose-200 rounded-lg hover:bg-rose-100 transition">
-              今月
+            <button onclick="goToToday()" class="text-xs font-bold px-2.5 py-1 bg-rose-50 text-rose-700 border border-rose-200 rounded-lg hover:bg-rose-100 transition shadow-2xs flex items-center gap-1">
+              <i class="fa-regular fa-calendar-check text-[11px]"></i>
+              <span>今日へ移動</span>
             </button>
           </div>
           <div class="flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl">
@@ -248,10 +248,12 @@
 
   </main>
 
-  <!-- Event Detail Modal -->
-  <div id="event-modal-backdrop" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden transition-opacity"></div>
-  <div id="event-modal" class="fixed inset-0 z-50 overflow-y-auto hidden flex items-center justify-center p-4">
-    <div class="relative bg-white rounded-3xl max-w-2xl w-full p-6 shadow-2xl border border-slate-200 my-8 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+  <!-- Event Detail Modal (ESCキーまたは外側クリックで閉じる) -->
+  <div id="event-modal" onclick="if(event.target === this) closeEventModal()" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm cursor-pointer overflow-y-auto">
+    <div class="relative w-full max-w-2xl bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-200 my-8 cursor-default" onclick="event.stopPropagation()">
+      <button onclick="closeEventModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition z-10" title="閉じる (ESC)">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
       <div id="event-modal-body">
         <!-- Rendered dynamically via caravan-app.js -->
       </div>
@@ -259,7 +261,7 @@
   </div>
 
   <!-- Application Scripts -->
-  <script src="js/caravan-events-data.js?v=20261025_2"></script>
-  <script src="js/caravan-app.js?v=20261025_2"></script>
+  <script src="js/caravan-events-data.js?v=20261025_3"></script>
+  <script src="js/caravan-app.js?v=20261025_3"></script>
 </body>
 </html>

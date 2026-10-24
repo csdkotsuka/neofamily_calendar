@@ -681,14 +681,31 @@ function changeWeek(delta) {
   renderWeekView();
 }
 
-// Go to current week
-function goToCurrentWeek() {
-  const today = new Date(2026, 9, 18);
+// Go to today in month calendar
+function goToToday() {
+  const now = new Date();
+  const today = (now.getFullYear() === 2026) ? now : new Date(2026, 9, 25);
+  currentYear = today.getFullYear();
+  currentMonth = today.getMonth();
+  const mStr = String(currentMonth + 1).padStart(2, "0");
+  const dStr = String(today.getDate()).padStart(2, "0");
+  selectedDate = `${currentYear}-${mStr}-${dStr}`;
+  renderCalendarView();
+}
+
+// Go to current week / today week
+function goToTodayWeek() {
+  const now = new Date();
+  const today = (now.getFullYear() === 2026) ? now : new Date(2026, 9, 25);
   const day = today.getDay();
   currentWeekStartDate = new Date(today);
   currentWeekStartDate.setDate(today.getDate() - day);
   currentWeekStartDate.setHours(0, 0, 0, 0);
   renderWeekView();
+}
+
+function goToCurrentWeek() {
+  goToTodayWeek();
 }
 
 // Layout overlapping events in the same day

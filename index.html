@@ -1896,9 +1896,6 @@
           <button data-category="定例会" onclick="selectCategory('定例会')" class="category-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
             🍜 定例会
           </button>
-          <button data-category="トークショー" onclick="selectCategory('トークショー')" class="category-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
-            🎤 会長トークショー
-          </button>
           <button data-category="事業説明会" onclick="selectCategory('事業説明会')" class="category-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
             📢 事業説明会
           </button>
@@ -1928,8 +1925,9 @@
               <h2 id="week-range-title" class="text-xl md:text-2xl font-black text-slate-900 tracking-tight">
                 2026年 10月18日(日) 〜 10月24日(土)
               </h2>
-              <button onclick="goToCurrentWeek()" class="text-xs font-bold px-2.5 py-1 bg-rose-50 text-rose-700 border border-rose-200 rounded-lg hover:bg-rose-100 transition">
-                今週
+              <button onclick="goToTodayWeek()" class="text-xs font-bold px-2.5 py-1 bg-rose-50 text-rose-700 border border-rose-200 rounded-lg hover:bg-rose-100 transition shadow-2xs flex items-center gap-1">
+                <i class="fa-regular fa-calendar-check text-[11px]"></i>
+                <span>今日へ移動</span>
               </button>
             </div>
             <div class="flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl">
@@ -1961,8 +1959,9 @@
               <h2 id="calendar-month-title" class="text-xl md:text-2xl font-black text-slate-900 tracking-tight">
                 2026年 10月
               </h2>
-              <button onclick="selectDate('2026-10-18')" class="text-xs font-bold px-2.5 py-1 bg-rose-50 text-rose-700 border border-rose-200 rounded-lg hover:bg-rose-100 transition">
-                今日
+              <button onclick="goToToday()" class="text-xs font-bold px-2.5 py-1 bg-rose-50 text-rose-700 border border-rose-200 rounded-lg hover:bg-rose-100 transition shadow-2xs flex items-center gap-1">
+                <i class="fa-regular fa-calendar-check text-[11px]"></i>
+                <span>今日へ移動</span>
               </button>
             </div>
             <div class="flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl">

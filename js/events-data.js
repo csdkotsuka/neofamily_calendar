@@ -1,7 +1,6 @@
 /**
  * NEO FAMILY Events Dataset
- * Generated from LINE Group Chat Notices & Provided Data
- * Total events: 62
+ * Total events: 52
  */
 
 const INITIAL_EVENTS = [
@@ -243,37 +242,6 @@ const INITIAL_EVENTS = [
     ]
   },
   {
-    "id": "event-20261011-sendai",
-    "title": "ぶった斬り会長トークショー in 仙台",
-    "subtitle": "『人生を動かす、出会いと一歩』仙台から広げていく！",
-    "category": "トークショー",
-    "categoryColor": "#2563eb",
-    "startDate": "2026-10-11",
-    "startTime": "11:00",
-    "endDate": "2026-10-11",
-    "endTime": "13:30",
-    "location": "フォレスト仙台 第6会議室（仙台市青葉区柏木1丁目2-45）",
-    "locationType": "offline",
-    "fee": "1,500円",
-    "capacity": "限定人数",
-    "presenter": "ぶった斬り会長（主催: まちのほけんしつ）",
-    "image": "images/S__222453768.jpg",
-    "description": "夢が、リアルな目標に変わるとき。これからの時代をどう生きるのか。誰と未来をつくっていくのか。\nSNS総フォロワー24万人超！100億企業を2度創り上げた会長が、仙台でしか聞けない話をお届けします🔥\n受付: 10:30〜 / 開演: 11:00〜13:30",
-    "registrationUrl": "https://forms.gle/example-sendai",
-    "zoomUrl": "",
-    "zoomMeetingId": "",
-    "zoomPasscode": "",
-    "archive": {
-      "hasArchive": false,
-      "archiveUrl": "",
-      "password": "",
-      "notes": ""
-    },
-    "images": [
-      "images/S__222453768.jpg"
-    ]
-  },
-  {
     "id": "event-20261011-kidswell-briefing",
     "title": "一般社団法人 Kids Well Academy 事業説明会",
     "subtitle": "全国メンバー789名！子どもの未来と女性の可能性を拓く",
@@ -393,38 +361,6 @@ const INITIAL_EVENTS = [
     "images": []
   },
   {
-    "id": "event-20261015-sanzensango",
-    "title": "Kids Well Academy 産前産後オンライントークショー",
-    "subtitle": "産婦人科医 谷川真奈美先生 × ぶった斬り会長 特別対談！",
-    "category": "トークショー",
-    "categoryColor": "#2563eb",
-    "startDate": "2026-10-15",
-    "startTime": "21:00",
-    "endDate": "2026-10-15",
-    "endTime": "22:30",
-    "location": "Zoom オンライン",
-    "locationType": "online",
-    "fee": "参加費無料",
-    "capacity": "制限なし",
-    "presenter": "産婦人科医 谷川真奈美先生 × ぶった斬り会長",
-    "image": "images/S__65536042.jpg",
-    "description": "🌼参加費無料🌼 一社）キッズウェルアカデミー産前産後部門主催！\n第1部: 産婦人科医 谷川真奈美先生による妊娠中〜産後の「これってどうなの？」Q&A\n第2部: ぶった斬り会長による産前産後の女性やご家族へ向けた熱いメッセージ！\n妊婦中の方、ご家族、産後のママ、これからサポートしたい方必見です✨",
-    "registrationUrl": "",
-    "zoomUrl": "https://us06web.zoom.us/j/85114082179?pwd=H6RsVfuiWOWcflK6zqOumOM4mTsqgJ.1",
-    "zoomMeetingId": "851 1408 2179",
-    "zoomPasscode": "koeki",
-    "archive": {
-      "hasArchive": false,
-      "archiveUrl": "",
-      "password": "",
-      "notes": ""
-    },
-    "images": [
-      "images/S__65536042.jpg",
-      "images/S__66052141.jpg"
-    ]
-  },
-  {
     "id": "event-20261016-nougyo-taidan",
     "title": "スペシャル対談！農業組合が目指す、安全安心の基準とは？",
     "subtitle": "食と農のリアルを語る！しの夫婦 × 武ちゃん農場",
@@ -453,38 +389,6 @@ const INITIAL_EVENTS = [
     },
     "images": [
       "images/S__58589208.jpg"
-    ]
-  },
-  {
-    "id": "event-20261017-yamaguchi",
-    "title": "ぶった斬り会長トークショー in 山口",
-    "subtitle": "『未来を変えるのは 特別な誰かじゃない。』全国寺子屋PJ来春OPEN！",
-    "category": "トークショー",
-    "categoryColor": "#2563eb",
-    "startDate": "2026-10-17",
-    "startTime": "13:00",
-    "endDate": "2026-10-17",
-    "endTime": "16:00",
-    "location": "KDDI 維新ホール 会議室205B・205C（山口市小郡令和1丁目1-1）",
-    "locationType": "offline",
-    "fee": "1,000円（事前申込制）",
-    "capacity": "先着50名（託児あり）",
-    "presenter": "ぶった斬り会長（主催: Kids Well Academy 山口支部）",
-    "image": "images/S__2687068.jpg",
-    "description": "子どもたちの未来も 地域のこれから。誰か一人に任せるのではなく、地域の人たちと手を取り合いみんなで未来をつくっていく。\n全国寺子屋プロジェクト来春山口に第一拠点OPEN！\n13:00 事前交流会 / 13:30 受付 / 14:10 トークショー開始 / 15:30 撮影・質問・交流タイム",
-    "registrationUrl": "https://forms.gle/example-yamaguchi",
-    "zoomUrl": "",
-    "zoomMeetingId": "",
-    "zoomPasscode": "",
-    "archive": {
-      "hasArchive": false,
-      "archiveUrl": "",
-      "password": "",
-      "notes": ""
-    },
-    "images": [
-      "images/S__2687068.jpg",
-      "images/S__2687069.jpg"
     ]
   },
   {
@@ -727,37 +631,6 @@ const INITIAL_EVENTS = [
       "password": "",
       "notes": ""
     }
-  },
-  {
-    "id": "event-20261023-kaicho-online",
-    "title": "ぶった斬り会長 オンライントークショー",
-    "subtitle": "＼頑張る女性の未来を全力応援❤️‍🔥／ 参加無料・Zoom開催！",
-    "category": "トークショー",
-    "categoryColor": "#2563eb",
-    "startDate": "2026-10-23",
-    "startTime": "13:00",
-    "endDate": "2026-10-23",
-    "endTime": "14:00",
-    "location": "Zoom オンライン（全国どこからでもOK）",
-    "locationType": "online",
-    "fee": "参加無料",
-    "capacity": "全国接続",
-    "presenter": "ぶった斬り会長",
-    "image": "images/event-20261023-kaicho-online.jpg",
-    "description": "今の自分から、もっと可能性を広げたい女性へ‼️\n「仕事も家庭も大切にしたい！」「もっと自分らしく輝きたい！」「夢を一緒に叶える仲間がほしい！」\n「人生の環境」そのものをもっと豊かにしていくヒントをぜひ受け取ってください！10/23はZoomに大集合🔥",
-    "registrationUrl": "https://forms.gle/iKhKs7iBC9qxxnZU9",
-    "zoomUrl": "https://us06web.zoom.us/j/81890481169?pwd=0KxrUprbijVXhTHWE8gzsyRccRbTap.1",
-    "zoomMeetingId": "818 9048 1169",
-    "zoomPasscode": "",
-    "archive": {
-      "hasArchive": false,
-      "archiveUrl": "",
-      "password": "",
-      "notes": ""
-    },
-    "images": [
-      "images/event-20261023-kaicho-online.jpg"
-    ]
   },
   {
     "id": "event-20261023-snack-aki",
@@ -1446,39 +1319,6 @@ const INITIAL_EVENTS = [
     "images": []
   },
   {
-    "id": "event-20261103-okinawa-marche",
-    "title": "BKマルシェ 沖縄 ＆ ぶった斬り会長 オンライントークショー",
-    "subtitle": "つながる・ひろがる 笑顔の輪🌺 お気に入りを見つける。人とつながる。入場無料！",
-    "category": "リアルイベント",
-    "categoryColor": "#059669",
-    "startDate": "2026-11-03",
-    "startTime": "10:00",
-    "endDate": "2026-11-03",
-    "endTime": "16:00",
-    "isAllDay": false,
-    "location": "沖縄工芸の杜 エントランスホール（沖縄県豊見城市字豊見城 1114-1）",
-    "locationType": "hybrid",
-    "fee": "入場無料",
-    "capacity": "",
-    "presenter": "ぶった斬り会長（オンライン登壇 13:00〜14:00）",
-    "image": "images/S__15147119.jpg",
-    "images": [
-      "images/S__15147119.jpg",
-      "images/S__47866071.jpg"
-    ],
-    "description": "🌺 つながる・ひろがる 笑顔の輪【BKマルシェ 沖縄】入場無料！\n人と人とが繋がる場所、想いが集まるマルシェ。新しい出会いが広がるワクワクの1日✨\n\n【ブース内容】\n・ハンドメイド雑貨（想いがこもった素敵な作品がいっぱい）\n・フード＆スイーツ（おいしいフードやドリンク）\n・ワークショップ（大人も子どもも楽しめる体験）\n・リラクゼーション（心も体も癒やされるリラックス空間）\n\n💻【同日開催】ぶった斬り会長 オンライントークショー\n・時間: 13:00〜14:00\n・テーマ:「その一歩が、未来を変える。」\nやりたいことを実現してきた会長が、今の時代に大切な一歩を語ります。\n\n開催場所: 沖縄工芸の杜 エントランスホール（豊見城市字豊見城 1114-1）",
-    "registrationUrl": "",
-    "zoomUrl": "",
-    "zoomMeetingId": "",
-    "zoomPasscode": "",
-    "archive": {
-      "hasArchive": false,
-      "archiveUrl": "",
-      "password": "",
-      "notes": ""
-    }
-  },
-  {
     "id": "event-20261104-mohatsu-2",
     "title": "ムダに毛の多いようへい先生プレゼンツ【発毛・脱毛】知ると変わる、毎日のヘアケア。",
     "subtitle": "会長お墨付き！Q-more.・エイジングショット代理店の皆さまも必見の無料セミナー第2回",
@@ -1537,133 +1377,6 @@ const INITIAL_EVENTS = [
       "notes": ""
     },
     "images": []
-  },
-  {
-    "id": "event-20261107-kamaishi",
-    "title": "ぶった斬り会長トークショー in 釜石",
-    "subtitle": "🔥ついに岩手・釜石に降臨！『自分の可能性を信じて踏み出す勇気！』",
-    "category": "トークショー",
-    "categoryColor": "#2563eb",
-    "startDate": "2026-11-07",
-    "startTime": "13:20",
-    "endDate": "2026-11-07",
-    "endTime": "15:30",
-    "location": "釜石市立唐丹小学校 第2体育館（岩手県釜石市唐丹町小白浜314）",
-    "locationType": "offline",
-    "fee": "1,500円",
-    "capacity": "定員30名（限定）",
-    "presenter": "ぶった斬り会長（主催: RAYTUS group. / maKeRs.）",
-    "image": "images/S__12903041.jpg",
-    "description": "ママだから、女性だからと諦めていませんか？\nママの力になりたい、子どものために何かしたい、地域で何かを始めたい方へ。\nタイムスケジュール:\n13:00 受付開始\n13:20 開演（司会・主催トーク）\n13:30 会長トークショー\n14:30 質問タイム\n15:00 参加者交流・写真撮影\n15:30 終了",
-    "registrationUrl": "https://docs.google.com/forms/d/e/1FAIpQLSf3Htezufrldkd1rvj3J_hphpd_aZ2yA8tbm3EWv22GZ6WH1g/viewform",
-    "zoomUrl": "",
-    "zoomMeetingId": "",
-    "zoomPasscode": "",
-    "archive": {
-      "hasArchive": false,
-      "archiveUrl": "",
-      "password": "",
-      "notes": ""
-    },
-    "images": [
-      "images/S__12903041.jpg",
-      "images/S__13713537.jpg"
-    ]
-  },
-  {
-    "id": "event-20261111-nagano",
-    "title": "ぶった斬り会長トークショー in 長野",
-    "subtitle": "『「私」を諦めないママへ。』〜自分らしく生きるママが笑顔でいられる場所をつくる〜",
-    "category": "トークショー",
-    "categoryColor": "#2563eb",
-    "startDate": "2026-11-11",
-    "startTime": "13:00",
-    "endDate": "2026-11-11",
-    "endTime": "15:00",
-    "location": "長野市リサイクルプラザ 2階会議室（長野県長野市松岡2丁目26-7・駐車場あり）",
-    "locationType": "offline",
-    "fee": "1,000円",
-    "capacity": "定員50名",
-    "presenter": "ぶった斬り会長",
-    "image": "images/S__339189766.jpg",
-    "description": "ついに長野で開催決定！！\n【受付】12:30 / 【開演】13:00〜15:00\n長野駅から車で約12分、バス利用可（サンマリーン下車）。\n笑顔でいられる場所と新しい一歩を踏み出す勇気を受け取りに来てください！",
-    "registrationUrl": "https://docs.google.com/forms/d/e/1FAIpQLScu6Nl0xjryWN0PtWY9E0kNkP68Wyq_N_QIckG8P-fAkNGXIw/viewform",
-    "zoomUrl": "",
-    "zoomMeetingId": "",
-    "zoomPasscode": "",
-    "archive": {
-      "hasArchive": false,
-      "archiveUrl": "",
-      "password": "",
-      "notes": ""
-    },
-    "images": [
-      "images/S__339189766.jpg"
-    ]
-  },
-  {
-    "id": "event-20261115-kochi",
-    "title": "土佐寺子屋キャラバン × ぶった斬り会長トークショー in 高知",
-    "subtitle": "＼高知初開催‼️30名様限定・お弁当付き🍱 子どもの未来×女性の可能性／",
-    "category": "トークショー",
-    "categoryColor": "#2563eb",
-    "startDate": "2026-11-15",
-    "startTime": "10:00",
-    "endDate": "2026-11-15",
-    "endTime": "15:15",
-    "isAllDay": false,
-    "location": "高知市土佐山 かわせみ（無料駐車場あり）",
-    "locationType": "offline",
-    "fee": "3,000円（お弁当付き・30名限定 / お子様無料・託児ルームあり）",
-    "capacity": "30名様限定（託児ルームあり）",
-    "presenter": "ぶった斬り会長（主催: キッズウェルアカデミー高知 / 後援: 公益財団法人 NEW TERAKOYA、MIRAIを創る会）",
-    "image": "images/S__14049391.jpg",
-    "images": [
-      "images/S__14049391.jpg"
-    ],
-    "description": "＼高知初開催‼️ 30名様限定🔥／\nSNS総フォロワー24万人超！国連女性フォーラムでも登壇・表彰された「ぶった斬り会長」が高知へ！\n「夢を形にしたい！」「何か始めてみたい！」「今の自分から一歩踏み出したい！」そんな方にぜひ来てほしいイベントです🌈\n\n【当日のスケジュール】\n・10:00〜12:00 寺子屋レクリエーション（子供たちはたっぷり遊ぶ♪）\n・12:15〜13:00 お弁当交流会🍱（みんなで楽しくつながろう♪）\n・13:15〜13:30 トークショー受付\n・13:30〜13:45 キッズショー\n・13:45〜14:45 会長トークショー（子育て、夢、人とのつながり…）\n・14:45〜15:15 質問交流会（直接質問できる特別な時間）\n\n👶託児ルームもありますので、小さなお子さま連れも大歓迎です💕\n子供はたっぷり遊んで、ママは刺激とワクワクのリフレッシュな1日に！\n\n📍 場所：高知市土佐山 かわせみ（無料駐車場あり）\n🗺️ Google Map: https://maps.app.goo.gl/pCbdtBTADJAsjp8U7?g_st=ipc\n📝 予約フォーム: https://forms.gle/DxGY9MZ7ASC2LsmT6",
-    "registrationUrl": "https://forms.gle/DxGY9MZ7ASC2LsmT6",
-    "zoomUrl": "",
-    "zoomMeetingId": "",
-    "zoomPasscode": "",
-    "archive": {
-      "hasArchive": false,
-      "archiveUrl": "",
-      "password": "",
-      "notes": ""
-    }
-  },
-  {
-    "id": "event-20261116-ehime",
-    "title": "第7回 IN 愛媛 BKマルシェ＆ぶった斬り会長トークショー",
-    "subtitle": "🎊BKマルシェ1周年記念✨ 総勢24店舗大集合＆ぶった斬り会長リアルトークショー",
-    "category": "リアルイベント",
-    "categoryColor": "#059669",
-    "startDate": "2026-11-16",
-    "startTime": "10:30",
-    "endDate": "2026-11-16",
-    "endTime": "16:00",
-    "isAllDay": false,
-    "location": "松山観光港 ターミナル研修室（愛媛県松山市高浜町5丁目2259-1）",
-    "locationType": "offline",
-    "fee": "参加費 FREE（入場無料・トークショー事前申込制）",
-    "capacity": "マルシェ総勢24店舗",
-    "presenter": "ぶった斬り会長 / 主催: BKマルシェ実行委員会 / 後援: 公益財団法人 NEW TERAKOYA MIRAIを創る会、公益財団法人 NEW TERAKOYA 桜会",
-    "image": "images/S__14049403.jpg",
-    "images": [
-      "images/S__14049403.jpg"
-    ],
-    "description": "🎊✨ BKマルシェ1周年記念 ✨🎊\n「女性の挑戦が、未来を変える。頑張る女性を本気で応援します！」\nおかげさまでBKマルシェも1周年を迎えます🥹💕 今回も総勢24店舗が大集合！\n\n【当日のプログラム】\n・10:30〜 マルシェ開始（総勢24店舗・ハンドメイド・フード・リラクゼーション等）\n・13:00〜14:15 🔥ぶった斬り会長 リアルトークショー（本音で語る！起業のリアルと成功のヒント）\n　※トークショー中、マルシェは一時中断します\n・16:00 終了\n\nこんな方におすすめ！\n✔ 起業を考えている・始めたばかりの女性\n✔ ビジネスのヒントや人脈を広げたい方\n✔ 自分らしい働き方を実現したい方\n\n🎟️ 参加費無料・事前申込制\n👇 トークショーのお申し込みフォームはこちら:\nhttps://docs.google.com/forms/d/e/1FAIpQLSeOZkZjcD5DXGQDC-C8VY3hrWbDYCXJLIDt9tN9LLnPP_lfYQ/viewform",
-    "registrationUrl": "https://docs.google.com/forms/d/e/1FAIpQLSeOZkZjcD5DXGQDC-C8VY3hrWbDYCXJLIDt9tN9LLnPP_lfYQ/viewform",
-    "zoomUrl": "",
-    "zoomMeetingId": "",
-    "zoomPasscode": "",
-    "archive": {
-      "hasArchive": false,
-      "archiveUrl": "",
-      "password": "",
-      "notes": ""
-    }
   },
   {
     "id": "event-20261118-kochi-omusubi-koza",
@@ -1789,37 +1502,6 @@ const INITIAL_EVENTS = [
       "notes": ""
     },
     "images": []
-  },
-  {
-    "id": "event-20261128-nagoya-marche",
-    "title": "BKマルシェ＆ぶった斬り会長トークショー in 名古屋",
-    "subtitle": "＼託児つき👶✨ 参加費無料／ ママの挑戦が家族の未来を変える！",
-    "category": "リアルイベント",
-    "categoryColor": "#059669",
-    "startDate": "2026-11-28",
-    "startTime": "10:00",
-    "endDate": "2026-11-28",
-    "endTime": "16:00",
-    "location": "LDK覚王山 レンタルスペース（愛知県名古屋市千種区田代本通2-1 X-over21 2F）",
-    "locationType": "offline",
-    "fee": "参加費無料（事前申込制）",
-    "capacity": "マルシェ20店以上・飲食ブースあり",
-    "presenter": "ぶった斬り会長（後援: 公益財団法人NEW TERAKOYA MIRAIを創る会）",
-    "image": "images/S__5799969.jpg",
-    "description": "20店以上のマルシェで自分の時間を取り戻すひととき。\n🛍 マルシェ: 10:00〜16:00\n🎤 トークショー＆交流会: 13:00〜15:30（※13:00〜14:30はマルシェ一時中断）\n託児つきでお子様連れも安心！女性やママに自分らしい生き方・あり方を届けます✨",
-    "registrationUrl": "https://forms.gle/LS9njxxJhKviedMu5",
-    "zoomUrl": "",
-    "zoomMeetingId": "",
-    "zoomPasscode": "",
-    "archive": {
-      "hasArchive": false,
-      "archiveUrl": "",
-      "password": "",
-      "notes": ""
-    },
-    "images": [
-      "images/S__5799969.jpg"
-    ]
   },
   {
     "id": "event-20261202-xmas-party",

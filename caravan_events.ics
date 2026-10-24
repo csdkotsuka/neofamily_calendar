@@ -1,13 +1,81 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//NEO FAMILY//President Caravan Calendar//JA
+PRODID:-//NEO FAMILY//President Talkshow Calendar//JA
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:ぶった斬り会長 全国キャラバンカレンダー
+X-WR-CALNAME:ぶった斬り会長トークショー カレンダー
 X-WR-TIMEZONE:Asia/Tokyo
 BEGIN:VEVENT
-UID:event-20261107-kamaishi-talkshow@caravan.neofamily.jp
-DTSTAMP:20261024T232456Z
+UID:event-20261011-sendai@talkshow.neofamily.jp
+DTSTAMP:20261024T235147Z
+DTSTART;TZID=Asia/Tokyo:20261011T110000
+DTEND;TZID=Asia/Tokyo:20261011T133000
+SUMMARY:ぶった斬り会長トークショー in 仙台
+DESCRIPTION:夢が、リアルな目標に変わるとき。これからの時代をどう生きるのか。誰と未来をつくっていくのか。
+SNS総フォロワー24万人超！100億企業を2度創り上げた会長が、仙台でしか聞けない話をお届けします🔥
+受付: 10:30〜 / 開演: 11:00〜13:30
+LOCATION:フォレスト仙台 第6会議室（仙台市青葉区柏木1丁目2-45）
+END:VEVENT
+BEGIN:VEVENT
+UID:event-20261015-sanzensango@talkshow.neofamily.jp
+DTSTAMP:20261024T235147Z
+DTSTART;TZID=Asia/Tokyo:20261015T210000
+DTEND;TZID=Asia/Tokyo:20261015T223000
+SUMMARY:Kids Well Academy 産前産後オンライントークショー
+DESCRIPTION:🌼参加費無料🌼 一社）キッズウェルアカデミー産前産後部門主催！
+第1部: 産婦人科医 谷川真奈美先生による妊娠中〜産後の「これってどうなの？」Q&A
+第2部: ぶった斬り会長による産前産後の女性やご家族へ向けた熱いメッセージ！
+妊婦中の方、ご家族、産後のママ、これからサポートしたい方必見です✨
+LOCATION:Zoom オンライン
+END:VEVENT
+BEGIN:VEVENT
+UID:event-20261017-yamaguchi@talkshow.neofamily.jp
+DTSTAMP:20261024T235147Z
+DTSTART;TZID=Asia/Tokyo:20261017T130000
+DTEND;TZID=Asia/Tokyo:20261017T160000
+SUMMARY:ぶった斬り会長トークショー in 山口
+DESCRIPTION:子どもたちの未来も 地域のこれから。誰か一人に任せるのではなく、地域の人たちと手を取り合いみんなで未来をつくっていく。
+全国寺子屋プロジェクト来春山口に第一拠点OPEN！
+13:00 事前交流会 / 13:30 受付 / 14:10 トークショー開始 / 15:30 撮影・質問・交流タイム
+LOCATION:KDDI 維新ホール 会議室205B・205C（山口市小郡令和1丁目1-1）
+END:VEVENT
+BEGIN:VEVENT
+UID:event-20261023-kaicho-online@talkshow.neofamily.jp
+DTSTAMP:20261024T235147Z
+DTSTART;TZID=Asia/Tokyo:20261023T130000
+DTEND;TZID=Asia/Tokyo:20261023T140000
+SUMMARY:ぶった斬り会長 オンライントークショー
+DESCRIPTION:今の自分から、もっと可能性を広げたい女性へ‼️
+「仕事も家庭も大切にしたい！」「もっと自分らしく輝きたい！」「夢を一緒に叶える仲間がほしい！」
+「人生の環境」そのものをもっと豊かにしていくヒントをぜひ受け取ってください！10/23はZoomに大集合🔥
+LOCATION:Zoom オンライン（全国どこからでもOK）
+END:VEVENT
+BEGIN:VEVENT
+UID:event-20261103-okinawa-marche@talkshow.neofamily.jp
+DTSTAMP:20261024T235147Z
+DTSTART;TZID=Asia/Tokyo:20261103T100000
+DTEND;TZID=Asia/Tokyo:20261103T160000
+SUMMARY:BKマルシェ 沖縄 ＆ ぶった斬り会長 オンライントークショー
+DESCRIPTION:🌺 つながる・ひろがる 笑顔の輪【BKマルシェ 沖縄】入場無料！
+人と人とが繋がる場所、想いが集まるマルシェ。新しい出会いが広がるワクワクの1日✨
+
+【ブース内容】
+・ハンドメイド雑貨（想いがこもった素敵な作品がいっぱい）
+・フード＆スイーツ（おいしいフードやドリンク）
+・ワークショップ（大人も子どもも楽しめる体験）
+・リラクゼーション（心も体も癒やされるリラックス空間）
+
+💻【同日開催】ぶった斬り会長 オンライントークショー
+・時間: 13:00〜14:00
+・テーマ:「その一歩が、未来を変える。」
+やりたいことを実現してきた会長が、今の時代に大切な一歩を語ります。
+
+開催場所: 沖縄工芸の杜 エントランスホール（豊見城市字豊見城 1114-1）
+LOCATION:沖縄工芸の杜 エントランスホール（沖縄県豊見城市字豊見城 1114-1）
+END:VEVENT
+BEGIN:VEVENT
+UID:event-20261107-kamaishi-talkshow@talkshow.neofamily.jp
+DTSTAMP:20261024T235147Z
 DTSTART;TZID=Asia/Tokyo:20261107T130000
 DTEND;TZID=Asia/Tokyo:20261107T153000
 SUMMARY:ぶった斬り会長トークショー in 釜石
@@ -30,8 +98,8 @@ DESCRIPTION:【ぶった斬り会長トークショー in 釜石】
 LOCATION:釜石市立 唐丹小学校 第2体育館（岩手県釜石市唐丹町小白浜 314）
 END:VEVENT
 BEGIN:VEVENT
-UID:event-20261111-nagano-talkshow@caravan.neofamily.jp
-DTSTAMP:20261024T232456Z
+UID:event-20261111-nagano-talkshow@talkshow.neofamily.jp
+DTSTAMP:20261024T235147Z
 DTSTART;TZID=Asia/Tokyo:20261111T130000
 DTEND;TZID=Asia/Tokyo:20261111T150000
 SUMMARY:ぶった斬り会長トークショー in 長野（11/11開催）
@@ -45,8 +113,8 @@ DESCRIPTION:【11月11日 長野開催決定！】
 LOCATION:長野市内（会場詳細調整中）
 END:VEVENT
 BEGIN:VEVENT
-UID:event-20261114-nagano-talkshow@caravan.neofamily.jp
-DTSTAMP:20261024T232456Z
+UID:event-20261114-nagano-talkshow@talkshow.neofamily.jp
+DTSTAMP:20261024T235147Z
 DTSTART;TZID=Asia/Tokyo:20261114T130000
 DTEND;TZID=Asia/Tokyo:20261114T150000
 SUMMARY:ぶった斬り会長トークショー in 長野
@@ -61,8 +129,8 @@ DESCRIPTION:【ついに長野で開催！ぶった斬り会長トークショ�
 LOCATION:リサイクルプラザ 2階会議室（長野市松岡2-26-7）
 END:VEVENT
 BEGIN:VEVENT
-UID:event-20261115-kochi-terakoya@caravan.neofamily.jp
-DTSTAMP:20261024T232456Z
+UID:event-20261115-kochi-terakoya@talkshow.neofamily.jp
+DTSTAMP:20261024T235147Z
 DTSTART;TZID=Asia/Tokyo:20261115T100000
 DTEND;TZID=Asia/Tokyo:20261115T151500
 SUMMARY:土佐寺子屋キャラバン＆ぶった斬り会長トークショー in 高知
@@ -86,8 +154,8 @@ DESCRIPTION:【高知初開催！土佐寺子屋キャラバン＆ぶった斬�
 LOCATION:高知市土佐山 かわせみ（高知初開催 / 無料駐車場あり）
 END:VEVENT
 BEGIN:VEVENT
-UID:event-20261116-ehime-bkmarche@caravan.neofamily.jp
-DTSTAMP:20261024T232456Z
+UID:event-20261116-ehime-bkmarche@talkshow.neofamily.jp
+DTSTAMP:20261024T235147Z
 DTSTART;TZID=Asia/Tokyo:20261116T103000
 DTEND;TZID=Asia/Tokyo:20261116T160000
 SUMMARY:第7回 IN愛媛 BKマルシェ＆ぶった斬り会長トークショー
@@ -107,8 +175,8 @@ DESCRIPTION:【第7回 IN愛媛 BKマルシェ＆ぶった斬り会長トーク�
 LOCATION:松山観光港ターミナル研修室（愛媛県松山市高浜町5丁目2259-1）
 END:VEVENT
 BEGIN:VEVENT
-UID:event-20261128-nagoya-bkmarche@caravan.neofamily.jp
-DTSTAMP:20261024T232456Z
+UID:event-20261128-nagoya-bkmarche@talkshow.neofamily.jp
+DTSTAMP:20261024T235147Z
 DTSTART;TZID=Asia/Tokyo:20261128T100000
 DTEND;TZID=Asia/Tokyo:20261128T160000
 SUMMARY:BKマルシェ＆トークショー in 名古屋
@@ -128,8 +196,8 @@ DESCRIPTION:【BKマルシェ＆トークショー in 名古屋】
 LOCATION:LDK覚王山（愛知県名古屋市千種区田代本通2丁目1 X-OVER 21 2階）
 END:VEVENT
 BEGIN:VEVENT
-UID:event-20261129-hamamatsu-specialtalk@caravan.neofamily.jp
-DTSTAMP:20261024T232456Z
+UID:event-20261129-hamamatsu-specialtalk@talkshow.neofamily.jp
+DTSTAMP:20261024T235147Z
 DTSTART;TZID=Asia/Tokyo:20261129T133000
 DTEND;TZID=Asia/Tokyo:20261129T160000
 SUMMARY:ぶった斬り会長 SPECIAL TALK「これからのシニアがもっと輝く時代へ」in 浜松
