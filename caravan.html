@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ぶった斬り会長 全国キャラバン＆マルシェ 特設カレンダー | NEO FAMILY</title>
+  <meta name="description" content="ぶった斬り会長の全国キャラバン、トークショー、マルシェ、特別講演の公式スケジュール。Googleカレンダー連携、スマホカレンダー一括ダウンロード対応。">
+  <meta property="og:title" content="ぶった斬り会長 全国キャラバン＆マルシェ 特設カレンダー">
+  <meta property="og:description" content="ぶった斬り会長の全国キャラバン、トークショー、マルシェの公式日程カレンダー">
+  <meta property="og:image" content="images/logo.png">
+  <meta property="og:type" content="website">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+
+  <!-- PWA Web App Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#f43f5e">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans JP"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', '"Noto Sans JP"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#fff1f2',
+              100: '#ffe4e6',
+              500: '#f43f5e',
+              600: '#e11d48',
+              700: '#be123c',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="text-slate-800 antialiased bg-slate-50/50">
+
+  <!-- Top Navigation -->
+  <header class="glass-header border-b border-slate-200/80 bg-white/95 sticky top-0 z-40 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-18">
+        
+        <!-- ブランドロゴ & タイトル -->
+        <a href="./" class="flex items-center gap-3 cursor-pointer group">
+          <img src="images/logo.png" alt="NEO FAMILY Logo" class="w-10 h-10 md:w-11 md:h-11 rounded-full object-contain shadow-xs border border-amber-200/60 bg-white group-hover:scale-105 transition-transform">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-display font-black text-base md:text-lg tracking-tight text-slate-900">NEO FAMILY</span>
+              <span class="text-slate-300">×</span>
+              <span class="font-serif font-bold text-sm md:text-base text-slate-800 tracking-wider">RAYTUS</span>
+              <span class="px-1.5 py-0.5 text-[9px] font-black rounded-sm bg-rose-500/10 text-rose-700 border border-rose-300/40">TOUR</span>
+            </div>
+            <p class="text-[11px] text-slate-500 font-medium hidden sm:block">ぶった斬り会長 全国キャラバン特設カレンダー</p>
+          </div>
+        </a>
+
+        <!-- ヘッダー右側アクション -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <!-- 通常カレンダーへの切り替えボタン -->
+          <a href="calendar" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 transition shadow-2xs">
+            <i class="fa-regular fa-calendar-days text-rose-500"></i>
+            <span class="hidden sm:inline">通常イベントカレンダーへ</span>
+            <span class="sm:hidden">通常カレンダー</span>
+          </a>
+          <a href="flowchart" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-50 text-amber-800 border border-amber-300/60 hover:bg-amber-100 transition shadow-2xs">
+            <i class="fa-solid fa-arrows-split-up-and-left text-amber-600"></i>
+            <span>参加フロー</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- 統一グローバルナビゲーション -->
+      <!-- ========================================== -->
+      <nav class="flex items-center gap-1 overflow-x-auto no-scrollbar py-2 border-t border-slate-100 text-xs font-bold">
+        <a href="./" id="nav-item-hub" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+          <i class="fa-solid fa-compass"></i>
+          <span>総合ポータル</span>
+        </a>
+        <a href="flowchart" id="nav-item-flowchart" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+          <i class="fa-solid fa-arrows-split-up-and-left text-amber-500"></i>
+          <span>参加フローチャート</span> 
+        </a>
+        <a href="raytus" id="nav-item-raytus" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+          <i class="fa-solid fa-globe text-slate-400"></i>
+          <span>RAYTUS 全事業</span>
+        </a>
+        <a href="iyasaka" id="nav-item-iyasaka" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+          <i class="fa-solid fa-torii-gate text-amber-600"></i>
+          <span>Iyasaka宮</span>
+        </a>
+        <a href="calendar" id="nav-item-calendar" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+          <i class="fa-regular fa-calendar-days text-rose-500"></i>
+          <span>イベントカレンダー</span>
+        </a>
+        <a href="caravan" id="nav-item-caravan" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 bg-rose-600 text-white shadow-xs">
+          <i class="fa-solid fa-bullhorn text-amber-300"></i>
+          <span>会長全国キャラバン</span>
+          <span class="px-1.5 py-0.2 text-[9px] font-black rounded bg-amber-400 text-slate-900">特設</span>
+        </a>
+        <a href="archive" id="nav-item-archive" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+          <i class="fa-solid fa-graduation-cap text-indigo-500"></i>
+          <span>勉強会アーカイブ</span>
+        </a>
+        <a href="sns" id="nav-item-sns" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+          <i class="fa-solid fa-share-nodes text-pink-500"></i>
+          <span>公式SNS</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- 🎤 ヒーローバナー & カレンダー連携バー -->
+  <!-- ========================================== -->
+  <section class="bg-gradient-to-r from-rose-900 via-slate-900 to-indigo-950 text-white py-8 px-4 sm:px-6 lg:px-8 border-b border-rose-800/40 shadow-md relative overflow-hidden">
+    <div class="absolute -right-20 -top-20 w-80 h-80 bg-rose-500/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+      <div class="space-y-2">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="px-2.5 py-1 rounded-full text-[10px] font-black bg-rose-500 text-white shadow uppercase tracking-wider">
+            OFFICIAL TOUR CALENDAR
+          </span>
+          <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-white/10 text-rose-200 border border-white/20">
+            2026年11月 全国巡回
+          </span>
+          <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-400 text-slate-950 font-black">
+            全7日程 公開中
+          </span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white flex items-center gap-2.5">
+          <span>ぶった斬り会長 全国キャラバン＆マルシェ</span>
+        </h1>
+        <p class="text-xs sm:text-sm text-rose-100/90 font-medium max-w-2xl leading-relaxed">
+          釜石・長野・高知・愛媛・名古屋・浜松へ！全国各地で開催される会長トークショー、マルシェ、寺子屋キャラバン、特別講演の特設公式カレンダーです。
+        </p>
+      </div>
+
+      <!-- カレンダー連携アクション -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 shrink-0">
+        <!-- Google Calendar 公式登録 -->
+        <a href="https://calendar.google.com/calendar/render?cid=c_1518f8a0d81830bb6be2a84b4ee3c865b33db3e46ca58d12d91443101f9fb611%40group.calendar.google.com" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs shadow-lg transition flex items-center justify-center gap-2 border border-blue-400/40">
+          <i class="fa-brands fa-google text-sm"></i>
+          <span>Googleカレンダーに追加</span>
+        </a>
+
+        <!-- スマホ一括登録 (.ics) -->
+        <button onclick="downloadAllCaravanICS()" class="px-4 py-2.5 rounded-xl bg-white hover:bg-rose-50 text-rose-900 font-black text-xs shadow-lg transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-calendar-arrow-down text-rose-600"></i>
+          <span>スマホに一括登録 (.ics)</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- Controls Bar: View Switcher, Search & Filters -->
+  <!-- ========================================== -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 pb-2">
+    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+      
+      <!-- View Switcher Tabs -->
+      <div class="flex items-center p-1 bg-slate-200/80 rounded-2xl w-full lg:w-auto shadow-inner overflow-x-auto no-scrollbar">
+        <button id="btn-view-calendar" onclick="switchViewMode('calendar')" class="flex-1 md:flex-initial px-4 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 bg-rose-600 text-white shadow-md whitespace-nowrap">
+          <i class="fa-regular fa-calendar-days"></i>
+          <span>月間カレンダー</span>
+        </button>
+        <button id="btn-view-cards" onclick="switchViewMode('cards')" class="flex-1 md:flex-initial px-4 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 bg-white text-slate-700 hover:bg-slate-100 whitespace-nowrap">
+          <i class="fa-solid fa-grip"></i>
+          <span>カード一覧 (チラシ画像)</span>
+        </button>
+        <button id="btn-view-week" onclick="switchViewMode('week')" class="flex-1 md:flex-initial px-4 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 bg-white text-slate-700 hover:bg-slate-100 whitespace-nowrap">
+          <i class="fa-solid fa-calendar-week"></i>
+          <span>週間表示</span>
+        </button>
+        <button id="btn-view-google" onclick="switchViewMode('google-embed')" class="flex-1 md:flex-initial px-4 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 bg-white text-slate-700 hover:bg-slate-100 whitespace-nowrap">
+          <i class="fa-brands fa-google text-blue-500"></i>
+          <span>Google埋め込み</span>
+        </button>
+      </div>
+
+      <!-- Search Box -->
+      <div class="relative w-full lg:w-80">
+        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+        <input type="text" id="search-input" placeholder="地域名、会場、イベント名を検索..." class="w-full pl-9 pr-4 py-2 bg-white rounded-xl text-xs font-medium border border-slate-200 focus:outline-none focus:ring-2 focus:ring-rose-500 shadow-xs">
+      </div>
+    </div>
+
+    <!-- 地域フィルター -->
+    <div class="flex items-center gap-2 overflow-x-auto py-2.5 mt-2 no-scrollbar">
+      <span class="text-[11px] font-black text-slate-400 whitespace-nowrap mr-1 flex items-center gap-1">
+        <i class="fa-solid fa-location-dot text-indigo-500"></i> 地域:
+      </span>
+      <button data-region="all" onclick="selectRegion('all')" class="region-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-indigo-600 text-white shadow-xs">
+        全地域
+      </button>
+      <button data-region="岩手" onclick="selectRegion('岩手')" class="region-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+        岩手・釜石 (11/7)
+      </button>
+      <button data-region="長野" onclick="selectRegion('長野')" class="region-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+        長野 (11/11 & 11/14)
+      </button>
+      <button data-region="高知" onclick="selectRegion('高知')" class="region-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+        高知 (11/15)
+      </button>
+      <button data-region="愛媛" onclick="selectRegion('愛媛')" class="region-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+        愛媛・松山 (11/16)
+      </button>
+      <button data-region="愛知" onclick="selectRegion('愛知')" class="region-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+        愛知・名古屋 (11/28)
+      </button>
+      <button data-region="静岡" onclick="selectRegion('静岡')" class="region-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+        静岡・浜松 (11/29)
+      </button>
+    </div>
+
+    <!-- カテゴリフィルター -->
+    <div class="flex items-center gap-2 overflow-x-auto py-1 no-scrollbar">
+      <span class="text-[11px] font-black text-slate-400 whitespace-nowrap mr-1 flex items-center gap-1">
+        <i class="fa-solid fa-tag text-rose-500"></i> 種別:
+      </span>
+      <button data-category="all" onclick="selectCategory('all')" class="category-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-rose-600 text-white shadow-xs">
+        すべて表示
+      </button>
+      <button data-category="トークショー" onclick="selectCategory('トークショー')" class="category-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+        🎤 会長トークショー
+      </button>
+      <button data-category="マルシェ・トークショー" onclick="selectCategory('マルシェ・トークショー')" class="category-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+        🌿 マルシェ＆トークショー
+      </button>
+      <button data-category="キャラバン・体験" onclick="selectCategory('キャラバン・体験')" class="category-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+        ⛩️ 寺子屋キャラバン
+      </button>
+      <button data-category="トークショー・講演" onclick="selectCategory('トークショー・講演')" class="category-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+        👵 シニア特別講演
+      </button>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- Main Content Container -->
+  <!-- ========================================== -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 pb-16">
+
+    <!-- Mode 1: Native Month Calendar View (Default) -->
+    <section id="calendar-view-section">
+      <div class="glass-card rounded-3xl p-4 sm:p-6 md:p-8 border border-slate-200 mb-8 bg-white shadow-xs">
+        <!-- Calendar Header -->
+        <div class="flex items-center justify-between mb-6 flex-wrap gap-3">
+          <div class="flex items-center gap-3">
+            <h2 id="calendar-month-title" class="text-xl md:text-2xl font-black text-slate-900 tracking-tight">
+              2026年 11月
+            </h2>
+            <button onclick="goToNovember()" class="text-xs font-bold px-2.5 py-1 bg-rose-50 text-rose-700 border border-rose-200 rounded-lg hover:bg-rose-100 transition shadow-2xs">
+              キャラバン開催月（11月）へ
+            </button>
+          </div>
+          <div class="flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl">
+            <button onclick="changeMonth(-1)" title="前の月" class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-600 hover:bg-white hover:shadow-xs transition">
+              <i class="fa-solid fa-chevron-left text-xs"></i>
+            </button>
+            <button onclick="changeMonth(1)" title="次の月" class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-600 hover:bg-white hover:shadow-xs transition">
+              <i class="fa-solid fa-chevron-right text-xs"></i>
+            </button>
+          </div>
+        </div>
+
+        <p class="text-xs text-slate-500 mb-4 flex items-center gap-1">
+          <i class="fa-regular fa-calendar-check text-rose-500"></i>
+          日付枠内のイベントをクリックすると詳細モーダル・チラシ画像が表示されます。
+        </p>
+
+        <!-- Day Names Header -->
+        <div class="grid grid-cols-7 text-center text-xs font-bold py-2 border-b border-slate-200 mb-2">
+          <div class="text-rose-600 font-extrabold">日</div>
+          <div class="text-slate-600">月</div>
+          <div class="text-slate-600">火</div>
+          <div class="text-slate-600">水</div>
+          <div class="text-slate-600">木</div>
+          <div class="text-slate-600">金</div>
+          <div class="text-blue-600 font-extrabold">土</div>
+        </div>
+
+        <!-- Month Grid -->
+        <div id="calendar-days-grid" class="grid grid-cols-7 gap-1.5 md:gap-2">
+          <!-- Rendered via caravan.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Mode 2: Cards View -->
+    <section id="cards-view-section" class="hidden">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-lg font-black text-slate-900 flex items-center gap-2">
+          <i class="fa-solid fa-images text-rose-500"></i>
+          <span>キャラバン＆マルシェ 一覧カード（チラシ画像付き）</span>
+        </h2>
+        <span class="text-xs font-bold text-slate-500">全7会場</span>
+      </div>
+
+      <!-- Event Cards Grid -->
+      <div id="events-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Rendered via caravan.js -->
+      </div>
+    </section>
+
+    <!-- Mode 3: Week Timetable View -->
+    <section id="week-view-section" class="hidden">
+      <div class="glass-card rounded-3xl p-4 sm:p-6 md:p-8 border border-slate-200 mb-8 bg-white shadow-xs">
+        <div class="flex items-center justify-between mb-4 flex-wrap gap-3">
+          <div class="flex items-center gap-3">
+            <h2 id="week-range-title" class="text-xl md:text-2xl font-black text-slate-900 tracking-tight">
+              2026年 11月8日(日) 〜 11月14日(土)
+            </h2>
+            <button onclick="goToCurrentWeek()" class="text-xs font-bold px-2.5 py-1 bg-rose-50 text-rose-700 border border-rose-200 rounded-lg hover:bg-rose-100 transition">
+              キャラバン第2週
+            </button>
+          </div>
+          <div class="flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl">
+            <button onclick="changeWeek(-1)" title="前の週" class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-600 hover:bg-white hover:shadow-xs transition">
+              <i class="fa-solid fa-chevron-left text-xs"></i>
+            </button>
+            <button onclick="changeWeek(1)" title="次の週" class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-600 hover:bg-white hover:shadow-xs transition">
+              <i class="fa-solid fa-chevron-right text-xs"></i>
+            </button>
+          </div>
+        </div>
+
+        <div id="week-timetable-container" class="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-xs">
+          <!-- Rendered via caravan.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Mode 4: Google Calendar Embed View -->
+    <section id="google-view-section" class="hidden">
+      <div class="glass-card rounded-3xl p-4 sm:p-6 md:p-8 border border-slate-200 mb-8 bg-white shadow-xs">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+          <div>
+            <h2 class="text-xl font-black text-slate-900 flex items-center gap-2">
+              <i class="fa-brands fa-google text-blue-600"></i>
+              <span>Googleカレンダー公式ビュー（埋め込み）</span>
+            </h2>
+            <p class="text-xs text-slate-500 mt-1">
+              カレンダーID: <code class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-mono text-[11px]">c_1518f8a0d81830bb6be2a84b4ee3c865b33db3e46ca58d12d91443101f9fb611@group.calendar.google.com</code>
+            </p>
+          </div>
+          <a href="https://calendar.google.com/calendar/render?cid=c_1518f8a0d81830bb6be2a84b4ee3c865b33db3e46ca58d12d91443101f9fb611%40group.calendar.google.com" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl shadow-xs transition flex items-center justify-center gap-1.5 shrink-0">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Googleカレンダーを別窓で開く
+          </a>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-inner bg-slate-100 aspect-[4/3] md:aspect-[16/10] w-full">
+          <iframe 
+            src="https://calendar.google.com/calendar/embed?src=c_1518f8a0d81830bb6be2a84b4ee3c865b33db3e46ca58d12d91443101f9fb611%40group.calendar.google.com&ctz=Asia%2FTokyo" 
+            style="border: 0" 
+            width="100%" 
+            height="100%" 
+            frameborder="0" 
+            scrolling="no">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================== -->
+  <!-- Event Detail Modal -->
+  <!-- ========================================== -->
+  <div id="event-modal-backdrop" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+  <div id="event-modal" class="fixed inset-0 z-50 overflow-y-auto hidden flex items-center justify-center p-4">
+    <div class="relative bg-white rounded-3xl max-w-2xl w-full p-6 shadow-2xl border border-slate-200 my-8 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+      <div id="event-modal-body">
+        <!-- Rendered dynamically via caravan.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/caravan-events-data.js?v=20261025_1"></script>
+  <script src="js/caravan.js?v=20261025_1"></script>
+</body>
+</html>

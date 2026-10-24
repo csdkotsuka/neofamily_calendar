@@ -32,6 +32,7 @@ def main():
             ('raytus', 'raytus.html', 'fa-solid fa-globe text-slate-400', 'RAYTUS 全事業', ''),
             ('iyasaka', 'iyasaka.html', 'fa-solid fa-torii-gate text-amber-600', 'Iyasaka宮', ''),
             ('calendar', 'calendar.html', 'fa-regular fa-calendar-days text-rose-500', 'イベントカレンダー', ''),
+            ('caravan', 'caravan.html', 'fa-solid fa-bullhorn text-rose-500', '会長全国キャラバン', '<span class="px-1.5 py-0.2 text-[9px] font-black rounded bg-amber-400 text-slate-900">特設</span>'),
             ('archive', 'archive.html', 'fa-solid fa-graduation-cap text-indigo-500', '勉強会アーカイブ', ''),
             ('sns', 'sns.html', 'fa-solid fa-share-nodes text-pink-500', '公式SNS', '')
         ]

@@ -107,7 +107,7 @@
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased selection:bg-rose-500 selection:text-white">
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-rose-500 selection:text-white pb-20">
 
   <!-- ========================================== -->
   <!-- メイン グローバルヘッダー -->
@@ -132,13 +132,17 @@
 
         <!-- ヘッダー右側アクション -->
         <div class="flex items-center gap-2 sm:gap-3">
-          <a href="flowchart" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-50 text-amber-800 border border-amber-300/60 hover:bg-amber-100 transition shadow-2xs">
-            <i class="fa-solid fa-arrows-split-up-and-left text-amber-600"></i>
-            <span>参加フロー</span>
+          <button onclick="copyZoomInfo()" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-blue-50 text-blue-700 border border-blue-200/60 hover:bg-blue-100 transition shadow-2xs">
+            <i class="fa-solid fa-video text-blue-500"></i>
+            <span>全日共通Zoom</span>
+          </button>
+          <a href="flowchart.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-50 text-amber-800 border border-amber-300/60 hover:bg-amber-100 transition shadow-2xs">
+            <i class="fa-solid fa-gamepad text-amber-600"></i>
+            <span>診断ゲーム</span>
           </a>
-          <a href="admin.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-800 bg-slate-100 hover:bg-slate-200 border border-slate-300 shadow-2xs transition">
-            <i class="fa-solid fa-lock text-slate-600 text-[11px]"></i>
-            <span>管理</span>
+          <a href="admin.html" class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-bold text-slate-500 hover:text-slate-800 transition">
+            <i class="fa-solid fa-lock text-[10px]"></i>
+            <span class="hidden sm:inline">管理</span>
           </a>
         </div>
       </div>
@@ -148,27 +152,31 @@
           <i class="fa-solid fa-compass"></i>
           <span>総合ポータル</span>
         </a>
-        <a href="flowchart" id="nav-item-flowchart" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
-          <i class="fa-solid fa-arrows-split-up-and-left text-amber-500"></i>
-          <span>参加フローチャート</span> 
+        <a href="flowchart.html" id="nav-item-flowchart" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+          <i class="fa-solid fa-gamepad text-amber-500"></i>
+          <span>参加フロー診断</span> <span class="px-1.5 py-0.2 text-[9px] font-black rounded bg-rose-500 text-white animate-pulse">GAME</span>
         </a>
-        <a href="raytus" id="nav-item-raytus" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+        <a href="raytus.html" id="nav-item-raytus" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-solid fa-globe text-slate-400"></i>
           <span>RAYTUS 全事業</span>
         </a>
-        <a href="iyasaka" id="nav-item-iyasaka" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 bg-slate-900 text-white shadow-xs">
+        <a href="iyasaka.html" id="nav-item-iyasaka" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 bg-slate-900 text-white shadow-xs">
           <i class="fa-solid fa-torii-gate text-amber-600"></i>
           <span>Iyasaka宮</span>
         </a>
-        <a href="calendar" id="nav-item-calendar" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+        <a href="calendar.html" id="nav-item-calendar" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-regular fa-calendar-days text-rose-500"></i>
           <span>イベントカレンダー</span>
         </a>
-        <a href="archive" id="nav-item-archive" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+        <a href="caravan.html" id="nav-item-caravan" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+          <i class="fa-solid fa-bullhorn text-rose-500"></i>
+          <span>会長全国キャラバン</span> <span class="px-1.5 py-0.2 text-[9px] font-black rounded bg-amber-400 text-slate-900">特設</span>
+        </a>
+        <a href="archive.html" id="nav-item-archive" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-solid fa-graduation-cap text-indigo-500"></i>
           <span>勉強会アーカイブ</span>
         </a>
-        <a href="sns" id="nav-item-sns" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+        <a href="sns.html" id="nav-item-sns" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-solid fa-share-nodes text-pink-500"></i>
           <span>公式SNS</span>
         </a>
@@ -176,6 +184,39 @@
 
     </div>
   </header>
+
+  <!-- ========================================== -->
+  <!-- ⚡️ ベテラン向け クイックアクセス HUD -->
+  <!-- ========================================== -->
+  <section class="bg-white border-b border-slate-200 py-3.5 px-4 sm:px-6 shadow-2xs">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
+      <div class="flex items-center gap-2.5 w-full md:w-auto flex-wrap">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-amber-100 text-amber-900 font-extrabold text-[11px] shrink-0">
+          <i class="fa-solid fa-bolt text-amber-600"></i> 直近の最重要予定
+        </span>
+        <div class="text-slate-700 flex flex-wrap items-center gap-1.5">
+          <span class="font-bold">次回合同定例会:</span> <span class="bg-rose-50 text-rose-700 px-2 py-0.5 rounded-md font-bold">11/2(月) 13:00〜 福岡</span>
+          <span class="hidden sm:inline text-slate-300">|</span>
+          <span class="text-slate-600">合同事業説明会: 全日共通Zoom ID: <strong class="text-slate-900">811 1315 2898</strong> (PW: 2026)</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 shrink-0 w-full md:w-auto justify-start md:justify-end">
+        <button onclick="copyZoomInfo()" class="px-3 py-1.5 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold border border-indigo-200 transition flex items-center gap-1 text-xs">
+          <i class="fa-solid fa-copy"></i>
+          <span>Zoomコピー</span>
+        </button>
+        <a href="https://us06web.zoom.us/j/81113152898?pwd=rnUDogc0paequYOxCnvXYaSs3WngG3.1" target="_blank" class="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold transition flex items-center gap-1 text-xs">
+          <i class="fa-solid fa-video"></i>
+          <span>Zoom参加</span>
+        </a>
+        <a href="https://chouseisan.com/s?h=2733ccd431d846f8bccd9c3061c0bca3" target="_blank" class="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition flex items-center gap-1 text-xs">
+          <i class="fa-solid fa-pen-to-square"></i>
+          <span>参加表明</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
 
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 <!-- TAB 3: Iyasaka宮 コミュニティ & EC 複製 (IYASAKA) -->
@@ -433,8 +474,9 @@
         <img src="images/logo.png" alt="Logo" class="w-6 h-6 object-contain">
         <span class="font-bold text-slate-800">NEO FAMILY × RAYTUS group 統合ポータル</span>
       </div>
-      <div class="flex items-center gap-4 text-slate-600">
+      <div class="flex items-center gap-4 text-slate-600 flex-wrap justify-center">
         <button onclick="switchTab('calendar')" class="hover:text-rose-600 font-medium">イベントカレンダー</button>
+        <a href="caravan" class="hover:text-rose-600 font-bold text-rose-600">会長キャラバン</a>
         <a href="calendar" target="_blank" class="hover:text-rose-600 font-medium">単体カレンダー</a>
         <a href="https://raytus-group.com" target="_blank" class="hover:text-slate-900">RAYTUS公式</a>
         <a href="https://community-iyasakagu.jp" target="_blank" class="hover:text-slate-900">Iyasaka宮</a>
@@ -797,7 +839,7 @@
       }
     }
 
-    // タブ切替（個別ページ間のシームレス遷移）
+    // タブ切替（個別ページへのフォールバック対応）
     function switchTab(tabId) {
       const pageMap = {
         'hub': './',
@@ -805,13 +847,13 @@
         'raytus': 'raytus',
         'iyasaka': 'iyasaka',
         'calendar': 'calendar',
+        'caravan': 'caravan',
         'archive': 'archive',
         'sns': 'sns'
       };
-      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-      const targetPage = pageMap[tabId];
-      if (targetPage && !currentPage.includes(targetPage.replace('.html', ''))) {
-        window.location.href = targetPage;
+      // If separate page exists and target is not hub, redirect for clean independent pages
+      if (pageMap[tabId] && tabId !== 'hub') {
+        window.location.href = pageMap[tabId];
         return;
       }
       if (tabId === 'schedule') {
@@ -855,7 +897,15 @@
     function scrollToSection(sectionId) {
       setTimeout(() => {
         const el = document.getElementById(sectionId);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
+        if (el) {
+          const headerOffset = 80;
+          const elementPosition = el.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
       }, 100);
     }
 
@@ -1024,10 +1074,7 @@
 
     // クイック診断から事業へジャンプ
     function filterAndJumpArchive(cat) {
-      switchTab('raytus');
-      setRaytusCategory(cat);
-      scrollToSection('raytus-services-section');
-      showToast(`🎯 「${CATEGORY_NAMES[cat] || cat}」の事業を表示しました`);
+      window.location.href = `raytus?cat=${encodeURIComponent(cat)}#raytus-services-section`;
     }
 
     // ============================================
@@ -1332,11 +1379,13 @@
     }
 
     // ESCキーでモーダルを閉じる
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        ['proposal-modal', 'structure-modal', 'video-modal', 'lightbox-modal', 'cart-modal', 'raytus-service-modal', 'event-detail-modal', 'archive-admin-modal', 'admin-login-modal'].forEach(closeModal);
-        closeVideoModal();
-        closeRaytusServiceModal();
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' || e.key === 'Esc' || e.keyCode === 27) {
+        ['proposal-modal', 'structure-modal', 'video-modal', 'lightbox-modal', 'cart-modal', 'raytus-service-modal', 'event-detail-modal', 'archive-admin-modal', 'admin-login-modal'].forEach(id => {
+          if (typeof closeModal === 'function') closeModal(id);
+        });
+        if (typeof closeVideoModal === 'function') closeVideoModal();
+        if (typeof closeRaytusServiceModal === 'function') closeRaytusServiceModal();
       }
     });
 
@@ -1348,6 +1397,26 @@
       if (typeof renderRaytusShops === 'function') renderRaytusShops();
       if (typeof renderRaytusBlogs === 'function') renderRaytusBlogs();
       if (typeof updateCartUI === 'function') updateCartUI();
+
+      // URLクエリパラメータ(?cat=...)またはハッシュによる事業絞り込み＆スクロール
+      const urlParams = new URLSearchParams(window.location.search);
+      const catParam = urlParams.get('cat');
+      if (catParam) {
+        setTimeout(() => {
+          if (typeof setRaytusCategory === 'function') {
+            setRaytusCategory(catParam);
+          }
+          scrollToSection('raytus-services-section');
+          if (typeof showToast === 'function') {
+            const catName = (typeof CATEGORY_NAMES !== 'undefined' && CATEGORY_NAMES[catParam]) || catParam;
+            showToast(`🎯 「${catName}」の事業を表示しました`);
+          }
+        }, 150);
+      } else if (window.location.hash === '#raytus-services-section') {
+        setTimeout(() => {
+          scrollToSection('raytus-services-section');
+        }, 150);
+      }
     });
   </script>
 
@@ -1361,7 +1430,7 @@
   <script src="js/raytus-services-data.js?v=20261020_12"></script>
   <script src="js/events-data.js?v=20261024_1"></script>
   <script src="js/member-tracker.js?v=20261020_12"></script>
-  <script src="js/app.js?v=20261020_12"></script>
+  <script src="js/app.js?v=20261022_15"></script>
 </body>
 </html>
 

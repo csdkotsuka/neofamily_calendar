@@ -1,0 +1,151 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NEO FAMILY//President Caravan Calendar//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:ぶった斬り会長 全国キャラバンカレンダー
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VEVENT
+UID:event-20261107-kamaishi-talkshow@caravan.neofamily.jp
+DTSTAMP:20261024T232456Z
+DTSTART;TZID=Asia/Tokyo:20261107T130000
+DTEND;TZID=Asia/Tokyo:20261107T153000
+SUMMARY:ぶった斬り会長トークショー in 釜石
+DESCRIPTION:【ぶった斬り会長トークショー in 釜石】
+ママの力になりたい、子どもたちのために何かしたい、地域で何かを始めたい、自分の経験や得意を活かしたい方へ！
+
+■タイムスケジュール
+・13:00 受付開始
+・13:20 開演（司会・主催トーク）
+・13:30 会長トークショー
+・14:30 会長への質問タイム
+・15:00 参加者交流・写真撮影
+・15:30 終了
+
+リアルな言葉で背中を押します！あなたの一歩が、あなたの未来を変えていきます。
+
+会場：釜石市立 唐丹小学校 第2体育館（岩手県釜石市唐丹町小白浜 314）
+定員：30名
+主催：RAYTUS group.
+LOCATION:釜石市立 唐丹小学校 第2体育館（岩手県釜石市唐丹町小白浜 314）
+END:VEVENT
+BEGIN:VEVENT
+UID:event-20261111-nagano-talkshow@caravan.neofamily.jp
+DTSTAMP:20261024T232456Z
+DTSTART;TZID=Asia/Tokyo:20261111T130000
+DTEND;TZID=Asia/Tokyo:20261111T150000
+SUMMARY:ぶった斬り会長トークショー in 長野（11/11開催）
+DESCRIPTION:【11月11日 長野開催決定！】
+ぶった斬り会長の長野トークショー開催が決定いたしました！
+詳細な会場、タイムスケジュール、お申し込み方法等は決定次第、当カレンダーにて随時アップデートいたします。
+
+日時：2026年11月11日（水）13:00〜15:00予定
+場所：長野市内
+登壇：ぶった斬り会長
+LOCATION:長野市内（会場詳細調整中）
+END:VEVENT
+BEGIN:VEVENT
+UID:event-20261114-nagano-talkshow@caravan.neofamily.jp
+DTSTAMP:20261024T232456Z
+DTSTART;TZID=Asia/Tokyo:20261114T130000
+DTEND;TZID=Asia/Tokyo:20261114T150000
+SUMMARY:ぶった斬り会長トークショー in 長野
+DESCRIPTION:【ついに長野で開催！ぶった斬り会長トークショー】
+「私」を諦めないママへ
+〜自分らしく生きるママが、笑顔でいられる「場所」をつくる〜
+
+日時：2026年11月14日（土）13:00～15:00（受付開始 12:30）
+会場：リサイクルプラザ 2階会議室（長野市松岡2-26-7）
+参加費：1,000円
+定員：50名
+LOCATION:リサイクルプラザ 2階会議室（長野市松岡2-26-7）
+END:VEVENT
+BEGIN:VEVENT
+UID:event-20261115-kochi-terakoya@caravan.neofamily.jp
+DTSTAMP:20261024T232456Z
+DTSTART;TZID=Asia/Tokyo:20261115T100000
+DTEND;TZID=Asia/Tokyo:20261115T151500
+SUMMARY:土佐寺子屋キャラバン＆ぶった斬り会長トークショー in 高知
+DESCRIPTION:【高知初開催！土佐寺子屋キャラバン＆ぶった斬り会長トークショー】
+子供の未来×女性の可能性！夢を語れる仲間に出会う一日。
+学び・つながり・夢がつまった特別な一日。託児ルームあり、お弁当交流会あり、小さなお子さま連れでも安心！
+
+■スケジュール
+・10:00～12:00 寺子屋レクレーション
+・12:15～13:00 お弁当交流会
+・13:15～13:30 トークショー受付
+・13:30～13:45 キッズショー
+・13:45～14:45 会長トークショー
+・14:45～15:15 質問交流会
+
+会場：高知市土佐山 かわせみ
+定員：30名様限定
+参加費：￥3,000（お弁当付き・お子様無料）
+主催：キッズウェルアカデミー高知
+後援：公益財団法人 NEW TERAKOYA
+LOCATION:高知市土佐山 かわせみ（高知初開催 / 無料駐車場あり）
+END:VEVENT
+BEGIN:VEVENT
+UID:event-20261116-ehime-bkmarche@caravan.neofamily.jp
+DTSTAMP:20261024T232456Z
+DTSTART;TZID=Asia/Tokyo:20261116T103000
+DTEND;TZID=Asia/Tokyo:20261116T160000
+SUMMARY:第7回 IN愛媛 BKマルシェ＆ぶった斬り会長トークショー
+DESCRIPTION:【第7回 IN愛媛 BKマルシェ＆ぶった斬り会長トークショー】
+頑張る女性を応援するマルシェ総勢24店舗が集結！
+起業を考えている・始めたばかりの女性、ビジネスのヒントや人脈を広げたい方、自分らしい働き方を実現したい方におすすめ！
+
+■当日のプログラム
+・10:30～ マルシェ開始（総勢24店舗）
+・13:00～14:15 ぶった斬り会長 トークショー（※トークショー中マルシェ一時中断）
+・16:00 終了
+
+会場：松山観光港ターミナル研修室（愛媛県松山市高浜町5丁目2259-1）
+参加費：無料（事前申込制）
+主催：公益財団法人NEW TERAKOYA MIRAIを創る会、BKマルシェ実行委員会
+後援：公益財団法人 NEW TERAKOYA 桜会
+LOCATION:松山観光港ターミナル研修室（愛媛県松山市高浜町5丁目2259-1）
+END:VEVENT
+BEGIN:VEVENT
+UID:event-20261128-nagoya-bkmarche@caravan.neofamily.jp
+DTSTAMP:20261024T232456Z
+DTSTART;TZID=Asia/Tokyo:20261128T100000
+DTEND;TZID=Asia/Tokyo:20261128T160000
+SUMMARY:BKマルシェ＆トークショー in 名古屋
+DESCRIPTION:【BKマルシェ＆トークショー in 名古屋】
+ママの挑戦が家族の未来を変える〜あなたは今何に挑戦したいですか？〜
+1人の女性として、自分に戻るひととき。深呼吸できる“わたしの時間”を・・・
+託児あり、20店以上のマルシェ、軽食販売・飲食スペースあり！
+
+■タイムスケジュール
+・マルシェ：10:00～16:00
+・ぶった斬り会長トークショー＋交流会：13:00～15:30（※13:00〜14:30はマルシェ一時中断）
+
+日時：2026年11月28日（土）
+場所：LDK覚王山（愛知県名古屋市千種区田代本通2丁目1 X-OVER 21 2階）
+参加費：無料（事前申込制）
+後援：公益財団法人NEW TERAKOYA MIRAIを創る会
+LOCATION:LDK覚王山（愛知県名古屋市千種区田代本通2丁目1 X-OVER 21 2階）
+END:VEVENT
+BEGIN:VEVENT
+UID:event-20261129-hamamatsu-specialtalk@caravan.neofamily.jp
+DTSTAMP:20261024T232456Z
+DTSTART;TZID=Asia/Tokyo:20261129T133000
+DTEND;TZID=Asia/Tokyo:20261129T160000
+SUMMARY:ぶった斬り会長 SPECIAL TALK「これからのシニアがもっと輝く時代へ」in 浜松
+DESCRIPTION:【ぶった斬り会長 SPECIAL TALK in 浜松】
+これからのシニアがもっと輝く時代へーこれからのシニア社会をどうつくっていくのか。
+多くの女性やシニアの挑戦を応援し、新しい社会の仕組みづくりに取り組むぶった斬り会長の特別講演！
+
+■日時・スケジュール
+2026年11月29日（日）
+・13:30 受付開始
+・14:00～15:30 講演
+・15:30～16:00 交流タイム（写真撮影など）
+
+会場：アクトシティ浜松 研修交流センター 401会議室（静岡県浜松市中央区中央3-9-1）
+参加費：無料（事前申込制）
+主催：公益財団法人 NEW TERAKOYA（社会支援団体 MIRAIを創る会）、ピンピンころりん事業、静岡県後援会
+LOCATION:アクトシティ浜松 研修交流センター 401会議室（静岡県浜松市中央区中央3-9-1）
+END:VEVENT
+END:VCALENDAR

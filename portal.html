@@ -171,6 +171,11 @@
           <i class="fa-regular fa-calendar-days text-rose-500"></i>
           <span>イベントカレンダー</span>
         </a>
+        <a href="caravan" id="nav-item-caravan" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+          <i class="fa-solid fa-bullhorn text-rose-500"></i>
+          <span>会長全国キャラバン</span>
+          <span class="px-1.5 py-0.2 text-[9px] font-black rounded bg-amber-400 text-slate-900">特設</span>
+        </a>
         <a href="archive" id="nav-item-archive" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-solid fa-graduation-cap text-indigo-500"></i>
           <span>勉強会アーカイブ</span>
@@ -774,6 +779,43 @@
               直近の定例会・説明会参加フロー & 年間予定
             </h2>
             <p class="text-xs text-slate-500 mt-1">次回定例会への参加表明や共通Zoom、説明会フローチャートをまとめて確認できます</p>
+          </div>
+        </div>
+
+        <!-- 🎤 ぶった斬り会長 全国キャラバン＆マルシェ 特設カレンダー カード -->
+        <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-rose-950 via-slate-900 to-indigo-950 text-white p-6 sm:p-8 border border-rose-800/60 shadow-lg">
+          <div class="absolute -right-16 -top-16 w-64 h-64 bg-rose-500/20 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+            <div class="space-y-2.5 max-w-2xl">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="px-2.5 py-1 rounded-full text-[10px] font-black bg-rose-600 text-white shadow uppercase tracking-wider">
+                  特設カレンダー
+                </span>
+                <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-white/10 text-rose-200 border border-white/20">
+                  2026年11月 全国巡回
+                </span>
+                <span class="px-2.5 py-1 rounded-full text-[10px] font-black bg-amber-400 text-slate-950">
+                  全7日程（釜石・長野・高知・愛媛・名古屋・浜松）
+                </span>
+              </div>
+              <h3 class="text-2xl sm:text-3xl font-black text-white tracking-tight leading-snug">
+                ぶった斬り会長 全国キャラバン＆マルシェ 特設カレンダー
+              </h3>
+              <p class="text-xs sm:text-sm text-rose-100/90 leading-relaxed font-medium">
+                全国各地で開催される会長トークショー、女性起業・マルシェ、寺子屋キャラバン、シニア特別講演の専用スケジュール！チラシ画像の閲覧、Googleカレンダー同期（カレンダーID連携）、スマホへの一括登録（.ics）に対応しています。
+              </p>
+            </div>
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0 w-full lg:w-auto">
+              <a href="caravan" class="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 hover:to-rose-600 text-white font-black text-xs sm:text-sm shadow-md transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-calendar-days text-amber-300"></i>
+                <span>キャラバンカレンダーを見る</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+              </a>
+              <a href="https://calendar.google.com/calendar/render?cid=c_1518f8a0d81830bb6be2a84b4ee3c865b33db3e46ca58d12d91443101f9fb611%40group.calendar.google.com" target="_blank" rel="noopener noreferrer" class="px-4 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition border border-white/20 flex items-center justify-center gap-2">
+                <i class="fa-brands fa-google text-blue-400"></i>
+                <span>Googleカレンダー追加</span>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -3153,8 +3195,9 @@
         <img src="images/logo.png" alt="Logo" class="w-6 h-6 object-contain">
         <span class="font-bold text-slate-800">NEO FAMILY × RAYTUS group 統合ポータル</span>
       </div>
-      <div class="flex items-center gap-4 text-slate-600">
+      <div class="flex items-center gap-4 text-slate-600 flex-wrap justify-center">
         <button onclick="switchTab('calendar')" class="hover:text-rose-600 font-medium">イベントカレンダー</button>
+        <a href="caravan" class="hover:text-rose-600 font-bold text-rose-600">会長キャラバン</a>
         <a href="calendar" target="_blank" class="hover:text-rose-600 font-medium">単体カレンダー</a>
         <a href="https://raytus-group.com" target="_blank" class="hover:text-slate-900">RAYTUS公式</a>
         <a href="https://community-iyasakagu.jp" target="_blank" class="hover:text-slate-900">Iyasaka宮</a>
@@ -3525,6 +3568,7 @@
         'raytus': 'raytus',
         'iyasaka': 'iyasaka',
         'calendar': 'calendar',
+        'caravan': 'caravan',
         'archive': 'archive',
         'sns': 'sns'
       };
