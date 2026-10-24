@@ -1,12 +1,11 @@
 /**
-/**
- * ぶった斬り会長 全国キャラバン & マルシェ・トークショー イベントデータ
+ * ぶった斬り会長 トークショー イベントデータ
  * カレンダーID: c_1518f8a0d81830bb6be2a84b4ee3c865b33db3e46ca58d12d91443101f9fb611@group.calendar.google.com
  */
 
 const CARAVAN_CALENDAR_ID = "c_1518f8a0d81830bb6be2a84b4ee3c865b33db3e46ca58d12d91443101f9fb611@group.calendar.google.com";
 
-const CARAVAN_EVENTS = [
+const INITIAL_CARAVAN_EVENTS = [
   {
     "id": "event-20261107-kamaishi-talkshow",
     "title": "ぶった斬り会長トークショー in 釜石",
@@ -27,16 +26,6 @@ const CARAVAN_EVENTS = [
     "organizer": "主催：RAYTUS group.",
     "image": "images/caravan/S__14254161.jpg",
     "description": "【ぶった斬り会長トークショー in 釜石】\nママの力になりたい、子どもたちのために何かしたい、地域で何かを始めたい、自分の経験や得意を活かしたい方へ！\n\n■タイムスケジュール\n・13:00 受付開始\n・13:20 開演（司会・主催トーク）\n・13:30 会長トークショー\n・14:30 会長への質問タイム\n・15:00 参加者交流・写真撮影\n・15:30 終了\n\nリアルな言葉で背中を押します！あなたの一歩が、あなたの未来を変えていきます。\n\n会場：釜石市立 唐丹小学校 第2体育館（岩手県釜石市唐丹町小白浜 314）\n定員：30名\n主催：RAYTUS group.",
-    "registrationUrl": "",
-    "zoomUrl": "",
-    "zoomMeetingId": "",
-    "zoomPasscode": "",
-    "archive": {
-      "hasArchive": false,
-      "archiveUrl": "",
-      "password": "",
-      "notes": ""
-    },
     "images": [
       "images/caravan/S__14254161.jpg"
     ]
@@ -59,18 +48,8 @@ const CARAVAN_EVENTS = [
     "capacity": "調整中",
     "presenter": "ぶった斬り会長",
     "organizer": "主催：RAYTUS group.",
-    "image": "images/logo.png",
+    "image": "",
     "description": "【11月11日 長野開催決定！】\nぶった斬り会長の長野トークショー開催が決定いたしました！\n詳細な会場、タイムスケジュール、お申し込み方法等は決定次第、当カレンダーにて随時アップデートいたします。\n\n日時：2026年11月11日（水）13:00〜15:00予定\n場所：長野市内\n登壇：ぶった斬り会長",
-    "registrationUrl": "",
-    "zoomUrl": "",
-    "zoomMeetingId": "",
-    "zoomPasscode": "",
-    "archive": {
-      "hasArchive": false,
-      "archiveUrl": "",
-      "password": "",
-      "notes": ""
-    },
     "images": []
   },
   {
@@ -93,16 +72,6 @@ const CARAVAN_EVENTS = [
     "organizer": "RAYTUS group. / 長野運営チーム",
     "image": "images/caravan/S__14254162.jpg",
     "description": "【ついに長野で開催！ぶった斬り会長トークショー】\n「私」を諦めないママへ\n〜自分らしく生きるママが、笑顔でいられる「場所」をつくる〜\n\n日時：2026年11月14日（土）13:00～15:00（受付開始 12:30）\n会場：リサイクルプラザ 2階会議室（長野市松岡2-26-7）\n参加費：1,000円\n定員：50名",
-    "registrationUrl": "",
-    "zoomUrl": "",
-    "zoomMeetingId": "",
-    "zoomPasscode": "",
-    "archive": {
-      "hasArchive": false,
-      "archiveUrl": "",
-      "password": "",
-      "notes": ""
-    },
     "images": [
       "images/caravan/S__14254162.jpg"
     ]
@@ -111,7 +80,7 @@ const CARAVAN_EVENTS = [
     "id": "event-20261115-kochi-terakoya",
     "title": "土佐寺子屋キャラバン＆ぶった斬り会長トークショー in 高知",
     "subtitle": "夢は、ひとりでは育たない。出会いが、未来を変える一日。女性をもっと輝かせたいんじゃ！【高知初開催】",
-    "category": "キャラバン・体験",
+    "category": "トークショー",
     "categoryColor": "#d97706",
     "region": "高知",
     "startDate": "2026-11-15",
@@ -127,16 +96,6 @@ const CARAVAN_EVENTS = [
     "organizer": "主催：キッズウェルアカデミー高知 / 後援：公益財団法人 NEW TERAKOYA",
     "image": "images/caravan/S__14254163.jpg",
     "description": "【高知初開催！土佐寺子屋キャラバン＆ぶった斬り会長トークショー】\n子供の未来×女性の可能性！夢を語れる仲間に出会う一日。\n学び・つながり・夢がつまった特別な一日。託児ルームあり、お弁当交流会あり、小さなお子さま連れでも安心！\n\n■スケジュール\n・10:00～12:00 寺子屋レクレーション\n・12:15～13:00 お弁当交流会\n・13:15～13:30 トークショー受付\n・13:30～13:45 キッズショー\n・13:45～14:45 会長トークショー\n・14:45～15:15 質問交流会\n\n会場：高知市土佐山 かわせみ\n定員：30名様限定\n参加費：￥3,000（お弁当付き・お子様無料）\n主催：キッズウェルアカデミー高知\n後援：公益財団法人 NEW TERAKOYA",
-    "registrationUrl": "",
-    "zoomUrl": "",
-    "zoomMeetingId": "",
-    "zoomPasscode": "",
-    "archive": {
-      "hasArchive": false,
-      "archiveUrl": "",
-      "password": "",
-      "notes": ""
-    },
     "images": [
       "images/caravan/S__14254163.jpg"
     ]
@@ -145,7 +104,7 @@ const CARAVAN_EVENTS = [
     "id": "event-20261116-ehime-bkmarche",
     "title": "第7回 IN愛媛 BKマルシェ＆ぶった斬り会長トークショー",
     "subtitle": "女性の挑戦が、未来を変える。本音で語る！起業のリアルと成功のヒント【総勢24店舗集結！】",
-    "category": "マルシェ・トークショー",
+    "category": "トークショー",
     "categoryColor": "#059669",
     "region": "愛媛",
     "startDate": "2026-11-16",
@@ -161,16 +120,6 @@ const CARAVAN_EVENTS = [
     "organizer": "主催：公益財団法人NEW TERAKOYA MIRAIを創る会、BKマルシェ実行委員会 / 後援：公益財団法人 NEW TERAKOYA 桜会",
     "image": "images/caravan/S__14254164.jpg",
     "description": "【第7回 IN愛媛 BKマルシェ＆ぶった斬り会長トークショー】\n頑張る女性を応援するマルシェ総勢24店舗が集結！\n起業を考えている・始めたばかりの女性、ビジネスのヒントや人脈を広げたい方、自分らしい働き方を実現したい方におすすめ！\n\n■当日のプログラム\n・10:30～ マルシェ開始（総勢24店舗）\n・13:00～14:15 ぶった斬り会長 トークショー（※トークショー中マルシェ一時中断）\n・16:00 終了\n\n会場：松山観光港ターミナル研修室（愛媛県松山市高浜町5丁目2259-1）\n参加費：無料（事前申込制）\n主催：公益財団法人NEW TERAKOYA MIRAIを創る会、BKマルシェ実行委員会\n後援：公益財団法人 NEW TERAKOYA 桜会",
-    "registrationUrl": "",
-    "zoomUrl": "",
-    "zoomMeetingId": "",
-    "zoomPasscode": "",
-    "archive": {
-      "hasArchive": false,
-      "archiveUrl": "",
-      "password": "",
-      "notes": ""
-    },
     "images": [
       "images/caravan/S__14254164.jpg"
     ]
@@ -179,7 +128,7 @@ const CARAVAN_EVENTS = [
     "id": "event-20261128-nagoya-bkmarche",
     "title": "BKマルシェ＆トークショー in 名古屋",
     "subtitle": "ママの挑戦が家族の未来を変える 〜あなたは今何に挑戦したいですか？ 20店以上のマルシェ〜",
-    "category": "マルシェ・トークショー",
+    "category": "トークショー",
     "categoryColor": "#059669",
     "region": "愛知",
     "startDate": "2026-11-28",
@@ -195,16 +144,6 @@ const CARAVAN_EVENTS = [
     "organizer": "後援：公益財団法人NEW TERAKOYA MIRAIを創る会",
     "image": "images/caravan/S__14254165.jpg",
     "description": "【BKマルシェ＆トークショー in 名古屋】\nママの挑戦が家族の未来を変える〜あなたは今何に挑戦したいですか？〜\n1人の女性として、自分に戻るひととき。深呼吸できる“わたしの時間”を・・・\n託児あり、20店以上のマルシェ、軽食販売・飲食スペースあり！\n\n■タイムスケジュール\n・マルシェ：10:00～16:00\n・ぶった斬り会長トークショー＋交流会：13:00～15:30（※13:00〜14:30はマルシェ一時中断）\n\n日時：2026年11月28日（土）\n場所：LDK覚王山（愛知県名古屋市千種区田代本通2丁目1 X-OVER 21 2階）\n参加費：無料（事前申込制）\n後援：公益財団法人NEW TERAKOYA MIRAIを創る会",
-    "registrationUrl": "",
-    "zoomUrl": "",
-    "zoomMeetingId": "",
-    "zoomPasscode": "",
-    "archive": {
-      "hasArchive": false,
-      "archiveUrl": "",
-      "password": "",
-      "notes": ""
-    },
     "images": [
       "images/caravan/S__14254165.jpg"
     ]
@@ -213,7 +152,7 @@ const CARAVAN_EVENTS = [
     "id": "event-20261129-hamamatsu-specialtalk",
     "title": "ぶった斬り会長 SPECIAL TALK「これからのシニアがもっと輝く時代へ」in 浜松",
     "subtitle": "まだまだ、これから。ーこれからのシニア社会をどうつくっていくのか",
-    "category": "トークショー・講演",
+    "category": "トークショー",
     "categoryColor": "#4f46e5",
     "region": "静岡",
     "startDate": "2026-11-29",
@@ -229,16 +168,6 @@ const CARAVAN_EVENTS = [
     "organizer": "主催：公益財団法人 NEW TERAKOYA（社会支援団体 MIRAIを創る会）、ピンピンころりん事業、静岡県後援会",
     "image": "images/caravan/S__14254166.jpg",
     "description": "【ぶった斬り会長 SPECIAL TALK in 浜松】\nこれからのシニアがもっと輝く時代へーこれからのシニア社会をどうつくっていくのか。\n多くの女性やシニアの挑戦を応援し、新しい社会の仕組みづくりに取り組むぶった斬り会長の特別講演！\n\n■日時・スケジュール\n2026年11月29日（日）\n・13:30 受付開始\n・14:00～15:30 講演\n・15:30～16:00 交流タイム（写真撮影など）\n\n会場：アクトシティ浜松 研修交流センター 401会議室（静岡県浜松市中央区中央3-9-1）\n参加費：無料（事前申込制）\n主催：公益財団法人 NEW TERAKOYA（社会支援団体 MIRAIを創る会）、ピンピンころりん事業、静岡県後援会",
-    "registrationUrl": "",
-    "zoomUrl": "",
-    "zoomMeetingId": "",
-    "zoomPasscode": "",
-    "archive": {
-      "hasArchive": false,
-      "archiveUrl": "",
-      "password": "",
-      "notes": ""
-    },
     "images": [
       "images/caravan/S__14254166.jpg"
     ]
