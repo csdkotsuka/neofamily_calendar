@@ -1,18 +1,44 @@
 # Cloudflare Static Assets Ignore
-.git
+# Only files required for website hosting will be included.
+
+# Version Control & Local Environments
+.git/
 .git/**
-.github
+.github/
 .github/**
 .DS_Store
-.wrangler
+.wrangler/
 .wrangler/**
-prvided data
+node_modules/
+node_modules/**
+
+# Raw Data, Scratch & YouTube/Design Working Assets (DO NOT DEPLOY)
+prvided data/
 prvided data/**
-provided data
+provided data/
 provided data/**
-scripts
+assets/
+assets/**
+scratch/
+scratch/**
+scripts/
 scripts/**
+functions/
+functions/**
+
+# Development & Documentation Files
 *.py
 *.swift
 *.md
-functions/**
+*.rtf
+*.txt
+*.jsonc
+*.log
+*.sh
+
+# Unused heavy/non-ASCII documents in images
+images/*.pdf
+images/notion_3309c8ef*
+images/notion_3599c8ef*
+images/notion_3709c8ef*
+images/notion_3889c8ef*
