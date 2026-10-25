@@ -1,7 +1,7 @@
 /**
  * ぶった斬り会長 トークショー イベントデータ
  * カレンダーID: c_1518f8a0d81830bb6be2a84b4ee3c865b33db3e46ca58d12d91443101f9fb611@group.calendar.google.com
- * Total events: 12
+ * Total events: 11
  */
 
 const CARAVAN_CALENDAR_ID = "c_1518f8a0d81830bb6be2a84b4ee3c865b33db3e46ca58d12d91443101f9fb611@group.calendar.google.com";
@@ -209,46 +209,14 @@ const INITIAL_CARAVAN_EVENTS = [
   },
   {
     "id": "event-20261111-nagano-talkshow",
-    "title": "ぶった斬り会長トークショー in 長野（11/11開催）",
-    "subtitle": "【長野追加開催決定！】ぶった斬り会長が長野に登場！",
+    "title": "ぶった斬り会長トークショー in 長野",
+    "subtitle": "「私」を諦めないママへ 〜自分らしく生きるママが、笑顔でいられる「場所」をつくる〜 ついに長野で開催！",
     "category": "トークショー",
     "categoryColor": "#e11d48",
     "region": "長野",
     "startDate": "2026-11-11",
     "startTime": "13:00",
     "endDate": "2026-11-11",
-    "endTime": "15:00",
-    "isAllDay": false,
-    "location": "長野市内（会場詳細調整中）",
-    "locationType": "offline",
-    "fee": "調整中",
-    "capacity": "調整中",
-    "presenter": "ぶった斬り会長",
-    "organizer": "主催：RAYTUS group.",
-    "image": "images/logo.png",
-    "description": "【11月11日 長野開催決定！】\nぶった斬り会長の長野トークショー開催が決定いたしました！\n詳細な会場、タイムスケジュール、お申し込み方法等は決定次第、当カレンダーにて随時アップデートいたします。\n\n日時：2026年11月11日（水）13:00〜15:00予定\n場所：長野市内\n登壇：ぶった斬り会長",
-    "registrationUrl": "",
-    "zoomUrl": "",
-    "zoomMeetingId": "",
-    "zoomPasscode": "",
-    "archive": {
-      "hasArchive": false,
-      "archiveUrl": "",
-      "password": "",
-      "notes": ""
-    },
-    "images": []
-  },
-  {
-    "id": "event-20261114-nagano-talkshow",
-    "title": "ぶった斬り会長トークショー in 長野",
-    "subtitle": "「私」を諦めないママへ 〜自分らしく生きるママが、笑顔でいられる「場所」をつくる〜 ついに長野で開催！",
-    "category": "トークショー",
-    "categoryColor": "#e11d48",
-    "region": "長野",
-    "startDate": "2026-11-14",
-    "startTime": "13:00",
-    "endDate": "2026-11-14",
     "endTime": "15:00",
     "isAllDay": false,
     "location": "リサイクルプラザ 2階会議室（長野市松岡2-26-7）",
@@ -258,7 +226,7 @@ const INITIAL_CARAVAN_EVENTS = [
     "presenter": "ぶった斬り会長",
     "organizer": "RAYTUS group. / 長野運営チーム",
     "image": "images/caravan/S__14254162.jpg",
-    "description": "【ついに長野で開催！ぶった斬り会長トークショー】\n「私」を諦めないママへ\n〜自分らしく生きるママが、笑顔でいられる「場所」をつくる〜\n\n日時：2026年11月14日（土）13:00～15:00（受付開始 12:30）\n会場：リサイクルプラザ 2階会議室（長野市松岡2-26-7）\n参加費：1,000円\n定員：50名",
+    "description": "【ついに長野で開催！ぶった斬り会長トークショー】\n「私」を諦めないママへ\n〜自分らしく生きるママが、笑顔でいられる「場所」をつくる〜\n\n日時：2026年11月11日（水）13:00～15:00（受付開始 12:30）\n会場：リサイクルプラザ 2階会議室（長野市松岡2-26-7）\n参加費：1,000円\n定員：50名",
     "registrationUrl": "",
     "zoomUrl": "",
     "zoomMeetingId": "",
@@ -410,3 +378,8 @@ const INITIAL_CARAVAN_EVENTS = [
     ]
   }
 ];
+
+if (typeof window !== 'undefined') {
+  window.CARAVAN_CALENDAR_ID = CARAVAN_CALENDAR_ID;
+  window.CARAVAN_EVENTS_DATA = INITIAL_CARAVAN_EVENTS;
+}

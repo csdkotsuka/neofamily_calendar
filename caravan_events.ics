@@ -7,7 +7,7 @@ X-WR-CALNAME:ぶった斬り会長 トークショー
 X-WR-TIMEZONE:Asia/Tokyo
 BEGIN:VEVENT
 UID:event-20261011-sendai@neofamily.jp
-DTSTAMP:20261025T001940Z
+DTSTAMP:20261025T024709Z
 DTSTART;TZID=Asia/Tokyo:20261011T110000
 DTEND;TZID=Asia/Tokyo:20261011T133000
 SUMMARY:ぶった斬り会長トークショー in 仙台
@@ -17,7 +17,7 @@ URL:https://forms.gle/example-sendai
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261015-sanzensango@neofamily.jp
-DTSTAMP:20261025T001940Z
+DTSTAMP:20261025T024709Z
 DTSTART;TZID=Asia/Tokyo:20261015T210000
 DTEND;TZID=Asia/Tokyo:20261015T223000
 SUMMARY:Kids Well Academy 産前産後オンライントークショー
@@ -27,7 +27,7 @@ URL:https://us06web.zoom.us/j/85114082179?pwd=H6RsVfuiWOWcflK6zqOumOM4mTsqgJ.1
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261017-yamaguchi@neofamily.jp
-DTSTAMP:20261025T001940Z
+DTSTAMP:20261025T024709Z
 DTSTART;TZID=Asia/Tokyo:20261017T130000
 DTEND;TZID=Asia/Tokyo:20261017T160000
 SUMMARY:ぶった斬り会長トークショー in 山口
@@ -37,7 +37,7 @@ URL:https://forms.gle/example-yamaguchi
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261023-kaicho-online@neofamily.jp
-DTSTAMP:20261025T001940Z
+DTSTAMP:20261025T024709Z
 DTSTART;TZID=Asia/Tokyo:20261023T130000
 DTEND;TZID=Asia/Tokyo:20261023T140000
 SUMMARY:ぶった斬り会長 オンライントークショー
@@ -47,7 +47,7 @@ URL:https://forms.gle/iKhKs7iBC9qxxnZU9
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261103-okinawa-marche@neofamily.jp
-DTSTAMP:20261025T001940Z
+DTSTAMP:20261025T024709Z
 DTSTART;TZID=Asia/Tokyo:20261103T100000
 DTEND;TZID=Asia/Tokyo:20261103T160000
 SUMMARY:BKマルシェ＆ぶった斬り会長 オンライントークショー IN 沖縄
@@ -57,7 +57,7 @@ URL:https://forms.gle/ViPmVjdkkpt2JXwD7
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261107-kamaishi-talkshow@neofamily.jp
-DTSTAMP:20261025T001940Z
+DTSTAMP:20261025T024709Z
 DTSTART;TZID=Asia/Tokyo:20261107T130000
 DTEND;TZID=Asia/Tokyo:20261107T153000
 SUMMARY:ぶった斬り会長トークショー in 釜石
@@ -66,25 +66,16 @@ LOCATION:釜石市立 唐丹小学校 第2体育館（岩手県釜石市唐丹�
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261111-nagano-talkshow@neofamily.jp
-DTSTAMP:20261025T001940Z
+DTSTAMP:20261025T024709Z
 DTSTART;TZID=Asia/Tokyo:20261111T130000
 DTEND;TZID=Asia/Tokyo:20261111T150000
-SUMMARY:ぶった斬り会長トークショー in 長野（11/11開催）
-DESCRIPTION:【11月11日 長野開催決定！】\nぶった斬り会長の長野トークショー開催が決定いたしました！\n詳細な会場、タイムスケジュール、お申し込み方法等は決定次第、当カレンダーにて随時アップデートいたします。\n\n日時：2026年11月11日（水）13:00〜15:00予定\n場所：長野市内\n登壇：ぶった斬り会長
-LOCATION:長野市内（会場詳細調整中）
-END:VEVENT
-BEGIN:VEVENT
-UID:event-20261114-nagano-talkshow@neofamily.jp
-DTSTAMP:20261025T001940Z
-DTSTART;TZID=Asia/Tokyo:20261114T130000
-DTEND;TZID=Asia/Tokyo:20261114T150000
 SUMMARY:ぶった斬り会長トークショー in 長野
-DESCRIPTION:【ついに長野で開催！ぶった斬り会長トークショー】\n「私」を諦めないママへ\n〜自分らしく生きるママが、笑顔でいられる「場所」をつくる〜\n\n日時：2026年11月14日（土）13:00～15:00（受付開始 12:30）\n会場：リサイクルプラザ 2階会議室（長野市松岡2-26-7）\n参加費：1,000円\n定員：50名
+DESCRIPTION:【ついに長野で開催！ぶった斬り会長トークショー】\n「私」を諦めないママへ\n〜自分らしく生きるママが、笑顔でいられる「場所」をつくる〜\n\n日時：2026年11月11日（水）13:00～15:00（受付開始 12:30）\n会場：リサイクルプラザ 2階会議室（長野市松岡2-26-7）\n参加費：1,000円\n定員：50名
 LOCATION:リサイクルプラザ 2階会議室（長野市松岡2-26-7）
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261115-kochi-terakoya@neofamily.jp
-DTSTAMP:20261025T001940Z
+DTSTAMP:20261025T024709Z
 DTSTART;TZID=Asia/Tokyo:20261115T100000
 DTEND;TZID=Asia/Tokyo:20261115T151500
 SUMMARY:土佐寺子屋キャラバン＆ぶった斬り会長トークショー in 高知
@@ -93,7 +84,7 @@ LOCATION:高知市土佐山 かわせみ（高知初開催 / 無料駐車場あ�
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261116-ehime-bkmarche@neofamily.jp
-DTSTAMP:20261025T001940Z
+DTSTAMP:20261025T024709Z
 DTSTART;TZID=Asia/Tokyo:20261116T103000
 DTEND;TZID=Asia/Tokyo:20261116T160000
 SUMMARY:第7回 IN愛媛 BKマルシェ＆ぶった斬り会長トークショー
@@ -102,7 +93,7 @@ LOCATION:松山観光港ターミナル研修室（愛媛県松山市高浜町5�
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261128-nagoya-bkmarche@neofamily.jp
-DTSTAMP:20261025T001940Z
+DTSTAMP:20261025T024709Z
 DTSTART;TZID=Asia/Tokyo:20261128T100000
 DTEND;TZID=Asia/Tokyo:20261128T160000
 SUMMARY:BKマルシェ＆トークショー in 名古屋
@@ -111,7 +102,7 @@ LOCATION:LDK覚王山（愛知県名古屋市千種区田代本通2丁目1 X-OVE
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261129-hamamatsu-specialtalk@neofamily.jp
-DTSTAMP:20261025T001940Z
+DTSTAMP:20261025T024709Z
 DTSTART;TZID=Asia/Tokyo:20261129T133000
 DTEND;TZID=Asia/Tokyo:20261129T160000
 SUMMARY:ぶった斬り会長 SPECIAL TALK「これからのシニアがもっと輝く時代へ」in 浜松
