@@ -139,10 +139,11 @@ const INITIAL_CARAVAN_EVENTS = [
   },
   {
     "id": "event-20261103-okinawa-marche",
-    "title": "BKマルシェ 沖縄 ＆ ぶった斬り会長 オンライントークショー",
-    "subtitle": "つながる・ひろがる 笑顔の輪🌺 お気に入りを見つける。人とつながる。入場無料！",
-    "category": "トークショー",
+    "title": "BKマルシェ＆ぶった斬り会長 オンライントークショー IN 沖縄",
+    "subtitle": "その一歩が、未来を変える。総勢28店舗集結！人と人とが繋がる思いが集まるマルシェ",
+    "category": "トークショー・マルシェ",
     "categoryColor": "#e11d48",
+    "region": "沖縄",
     "startDate": "2026-11-03",
     "startTime": "10:00",
     "endDate": "2026-11-03",
@@ -151,15 +152,17 @@ const INITIAL_CARAVAN_EVENTS = [
     "location": "沖縄工芸の杜 エントランスホール（沖縄県豊見城市字豊見城 1114-1）",
     "locationType": "hybrid",
     "fee": "入場無料",
-    "capacity": "",
-    "presenter": "ぶった斬り会長（オンライン登壇 13:00〜14:00）",
-    "image": "images/S__15147119.jpg",
+    "capacity": "28店舗・来場自由",
+    "presenter": "ぶった斬り会長（オンライン登壇 13:30〜14:30）",
+    "organizer": "BKマルシェ＆ぶった斬り会長トークショー沖縄実行委員会",
+    "image": "images/caravan/S__15892572.jpg",
     "images": [
+      "images/caravan/S__15892572.jpg",
       "images/S__15147119.jpg",
       "images/S__47866071.jpg"
     ],
-    "description": "🌺 つながる・ひろがる 笑顔の輪【BKマルシェ 沖縄】入場無料！\n人と人とが繋がる場所、想いが集まるマルシェ。新しい出会いが広がるワクワクの1日✨\n\n【ブース内容】\n・ハンドメイド雑貨（想いがこもった素敵な作品がいっぱい）\n・フード＆スイーツ（おいしいフードやドリンク）\n・ワークショップ（大人も子どもも楽しめる体験）\n・リラクゼーション（心も体も癒やされるリラックス空間）\n\n💻【同日開催】ぶった斬り会長 オンライントークショー\n・時間: 13:00〜14:00\n・テーマ:「その一歩が、未来を変える。」\nやりたいことを実現してきた会長が、今の時代に大切な一歩を語ります。\n\n開催場所: 沖縄工芸の杜 エントランスホール（豊見城市字豊見城 1114-1）",
-    "registrationUrl": "",
+    "description": "その一歩が、未来を変える。IN 沖縄\nBKマルシェ＆ぶった斬り会長 オンライントークショー🌺 入場無料！\n\nやりたいことがある。叶えたい夢がある。\n自分の未来を動かすために、今何をする？\n総勢28店舗集結！人と人とが繋がる、想いが集まるマルシェ✨\n\n【当日のプログラム】\n・10:00〜 マルシェ開始\n・13:30〜14:30 ぶった斬り会長 オンライントークショー\n※トークショー開催中、マルシェは一時中断します。\n・16:00 終了\n\n【会場】\n沖縄工芸の杜 エントランスホール\n（沖縄県豊見城市字豊見城1114-1）\n\n【参加費】\n入場無料\n\n【お申し込み】\n下記フォームよりお申し込みください。\nhttps://forms.gle/ViPmVjdkkpt2JXwD7",
+    "registrationUrl": "https://forms.gle/ViPmVjdkkpt2JXwD7",
     "zoomUrl": "",
     "zoomMeetingId": "",
     "zoomPasscode": "",
@@ -168,8 +171,7 @@ const INITIAL_CARAVAN_EVENTS = [
       "archiveUrl": "",
       "password": "",
       "notes": ""
-    },
-    "region": "沖縄"
+    }
   },
   {
     "id": "event-20261107-kamaishi-talkshow",
