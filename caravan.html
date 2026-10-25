@@ -167,15 +167,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Filter Pills (絞り込みボタン) -->
-    <div class="flex items-center gap-2 overflow-x-auto py-2.5 mt-2 no-scrollbar">
-      <button id="btn-past-caravan-filter" onclick="togglePastEvents()" class="px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition border border-slate-200 bg-white text-slate-700 hover:bg-slate-100 shadow-2xs flex items-center gap-1.5 shrink-0">
-        <i class="fa-solid fa-clock-rotate-left text-slate-500"></i>
-        <span id="past-caravan-filter-text">過去のイベントを表示</span>
-        <span id="past-caravan-count-badge" class="px-1.5 py-0.2 rounded-full text-[10px] bg-slate-100 text-slate-600 font-bold"></span>
-      </button>
-    </div>
   </section>
 
   <!-- Main Content Container -->
@@ -185,6 +176,29 @@
     <section id="cards-view-section" class="hidden">
       <!-- Selected date indicator if active -->
       <div id="selected-date-indicator" class="hidden"></div>
+
+      <!-- カード一覧専用: 月別絞り込み ＆ 過去イベント表示バー -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-4 pt-1 no-scrollbar flex-wrap sm:flex-nowrap">
+        <div id="cards-month-filters" class="flex items-center gap-1.5 shrink-0">
+          <button data-month="all" onclick="selectCardMonth('all')" class="month-filter-btn px-3.5 py-1.5 rounded-full text-xs font-black whitespace-nowrap transition bg-rose-600 text-white shadow-xs">
+            すべて表示
+          </button>
+          <button data-month="2026-10" onclick="selectCardMonth('2026-10')" class="month-filter-btn px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+            2026年 10月開催一覧
+          </button>
+          <button data-month="2026-11" onclick="selectCardMonth('2026-11')" class="month-filter-btn px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+            2026年 11月開催一覧
+          </button>
+        </div>
+
+        <div class="h-4 w-px bg-slate-300 mx-1 shrink-0"></div>
+
+        <button id="btn-past-events-filter" onclick="togglePastEvents()" class="px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition border border-slate-200 bg-white text-slate-700 hover:bg-slate-100 shadow-2xs flex items-center gap-1.5 shrink-0">
+          <i class="fa-solid fa-clock-rotate-left text-slate-500"></i>
+          <span id="past-events-filter-text">過去のイベントを表示</span>
+          <span id="past-events-filter-badge" class="px-1.5 py-0.2 rounded-full text-[10px] bg-slate-100 text-slate-600 font-bold"></span>
+        </button>
+      </div>
 
       <!-- Event Cards Grid -->
       <div id="events-list-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

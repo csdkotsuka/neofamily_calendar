@@ -14,6 +14,7 @@ let currentCategory = "all";
 let currentViewMode = "calendar"; // "cards" | "week" | "calendar"
 let currentSearch = "";
 let showPastEvents = false; // 過去のイベントの表示/折りたたみ
+let selectedCardMonth = "all"; // "all" | "2026-10" | "2026-11" など
 let unlockedArchives = new Set(); // Stores event IDs that have been unlocked in this session
 
 // Admin Authentication & Edit State
@@ -250,8 +251,9 @@ function renderEventsList() {
   const todayStr = getTodayString();
   const pastEvents = filtered.filter(ev => ev.startDate < todayStr);
 
-  // Update Past Events Filter Button in top bar
+  // Update Past Events Filter Button & Month Filters
   updatePastEventsFilterUI(pastEvents.length);
+  updateMonthFilterUI();
   
   // Date filter indicator
   const dateIndicator = document.getElementById("selected-date-indicator");
@@ -298,27 +300,42 @@ function renderEventsList() {
 
   let html = "";
 
-  if (displayEvents.length === 0) {
+  // 年月（YYYY-MM）ごとにグループ化（10月開催一覧、11月開催一覧）
+  const monthGroups = {};
+  displayEvents.forEach(ev => {
+    const monthKey = ev.startDate.substring(0, 7); // e.g. "2026-10"
+    if (selectedCardMonth === "all" || selectedCardMonth === monthKey) {
+      if (!monthGroups[monthKey]) monthGroups[monthKey] = [];
+      monthGroups[monthKey].push(ev);
+    }
+  });
+
+  const sortedMonthKeys = Object.keys(monthGroups).sort();
+
+  if (sortedMonthKeys.length === 0) {
+    const targetMonthName = selectedCardMonth !== "all" ? `${parseInt(selectedCardMonth.split('-')[1])}月` : "選択した期間";
+    const hasPastInSelectedMonth = pastEvents.some(ev => selectedCardMonth === "all" || ev.startDate.startsWith(selectedCardMonth));
+
     html += `
-      <div class="col-span-full py-10 text-center bg-slate-50 rounded-3xl border border-dashed border-slate-300 p-6">
-        <div class="w-12 h-12 mx-auto mb-3 bg-white rounded-full flex items-center justify-center text-slate-400 shadow-2xs">
+      <div class="col-span-full py-12 text-center bg-white rounded-3xl border border-slate-200 p-8 shadow-xs">
+        <div class="w-12 h-12 mx-auto mb-3 bg-slate-100 rounded-full flex items-center justify-center text-slate-400">
           <i class="fa-regular fa-calendar-check text-xl"></i>
         </div>
-        <h3 class="text-sm font-bold text-slate-700">本日以降に予定されている該当イベントはありません</h3>
-        <p class="text-xs text-slate-500 mt-1">過去に開催されたイベントは下記のボタンよりご確認いただけます。</p>
+        <h3 class="text-sm font-bold text-slate-700">${targetMonthName}に予定されている該当イベントはありません</h3>
+        ${hasPastInSelectedMonth && !showPastEvents ? `
+          <p class="text-xs text-slate-500 mt-1 mb-4">過去に開催されたイベントがあります。「過去のイベントを表示」からご確認いただけます。</p>
+          <button onclick="togglePastEvents()" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-white shadow-xs hover:bg-black transition">
+            <i class="fa-solid fa-clock-rotate-left"></i> 過去のイベントを表示する
+          </button>
+        ` : `
+          <p class="text-xs text-slate-500 mt-1">他の月を選択するか、「すべて表示」をお試しください。</p>
+          <button onclick="selectCardMonth('all')" class="mt-3 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-rose-50 text-rose-700 hover:bg-rose-100 border border-rose-200 transition">
+            すべて表示に戻す
+          </button>
+        `}
       </div>
     `;
   } else {
-    // 年月（YYYY-MM）ごとにグループ化（10月開催一覧、11月開催一覧）
-    const monthGroups = {};
-    displayEvents.forEach(ev => {
-      const monthKey = ev.startDate.substring(0, 7); // e.g. "2026-10"
-      if (!monthGroups[monthKey]) monthGroups[monthKey] = [];
-      monthGroups[monthKey].push(ev);
-    });
-
-    const sortedMonthKeys = Object.keys(monthGroups).sort();
-
     sortedMonthKeys.forEach(monthKey => {
       const [year, month] = monthKey.split("-");
       const monthEvents = monthGroups[monthKey];
@@ -376,6 +393,28 @@ function renderEventsList() {
   container.innerHTML = html;
 }
 
+// カード一覧 月別フィルター選択
+function selectCardMonth(monthKey) {
+  selectedCardMonth = monthKey;
+  updateMonthFilterUI();
+  renderEventsList();
+}
+
+// カード一覧 月別フィルターUI更新
+function updateMonthFilterUI() {
+  const container = document.getElementById("cards-month-filters");
+  if (!container) return;
+  const buttons = container.querySelectorAll(".month-filter-btn");
+  buttons.forEach(btn => {
+    const m = btn.getAttribute("data-month");
+    if (m === selectedCardMonth) {
+      btn.className = "month-filter-btn px-3.5 py-1.5 rounded-full text-xs font-black whitespace-nowrap transition bg-rose-600 text-white shadow-xs";
+    } else {
+      btn.className = "month-filter-btn px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200";
+    }
+  });
+}
+
 // 過去イベントフィルターUIの更新
 function updatePastEventsFilterUI(pastCount) {
   const btn = document.getElementById("btn-past-events-filter");
@@ -388,10 +427,10 @@ function updatePastEventsFilterUI(pastCount) {
 
   if (btn && text) {
     if (showPastEvents) {
-      btn.className = "px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition border border-slate-900 bg-slate-900 text-white shadow-sm flex items-center gap-1.5 shrink-0";
+      btn.className = "px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition border border-slate-900 bg-slate-900 text-white shadow-sm flex items-center gap-1.5 shrink-0";
       text.textContent = "過去のイベントを表示中";
     } else {
-      btn.className = "px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition border border-slate-200 bg-white text-slate-700 hover:bg-slate-100 shadow-2xs flex items-center gap-1.5 shrink-0";
+      btn.className = "px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition border border-slate-200 bg-white text-slate-700 hover:bg-slate-100 shadow-2xs flex items-center gap-1.5 shrink-0";
       text.textContent = "過去のイベントを表示";
     }
   }
@@ -1068,6 +1107,7 @@ function resetFilters() {
   currentCategory = "all";
   currentSearch = "";
   selectedDate = null;
+  selectedCardMonth = "all";
   const searchInput = document.getElementById("search-input");
   if (searchInput) searchInput.value = "";
   selectCategory("all");
