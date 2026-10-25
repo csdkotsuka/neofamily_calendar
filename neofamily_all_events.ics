@@ -7,38 +7,36 @@ X-WR-CALNAME:NEO FAMILY イベントカレンダー
 X-WR-TIMEZONE:Asia/Tokyo
 BEGIN:VEVENT
 UID:event-20261002-tokyo-teirei@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261002T130000
 DTEND;TZID=Asia/Tokyo:20261002T160000
 SUMMARY:NEO FAMILY 10月 東京定例会
-DESCRIPTION:【毎月2日は定例会！】
-10/2の東京定例会は熱気あふれる500名以上が参加！サプライズ発表や新プロジェクトの始動など盛りだくさんの内容でした。定例会は積極的に参加して、熱量を浴びながらしっかり情報を取りに行きましょう🔥
+DESCRIPTION:【毎月2日は定例会！】\n10/2の東京定例会は熱気あふれる500名以上が参加！サプライズ発表や新プロジェクトの始動など盛りだくさんの内容でした。定例会は積極的に参加して、熱量を浴びながらしっかり情報を取りに行きましょう🔥
 LOCATION:東京会場 / 大阪サテライト会場 / Zoom配信
 URL:https://us06web.zoom.us/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261003-bengyo-ginger@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261003T220000
 DTEND;TZID=Asia/Tokyo:20261003T230000
 SUMMARY:⛩️ 勉強ジンジャー 配信
-DESCRIPTION:今夜【10月3日（土）22:00〜】⛩️ 勉強ジンジャーにて特別配信！
-この度の売上は、全額定例会の会場費の補填になります。
+DESCRIPTION:今夜【10月3日（土）22:00〜】⛩️ 勉強ジンジャーにて特別配信！\nこの度の売上は、全額定例会の会場費の補填になります。
 LOCATION:オンライン配信（勉強ジンジャー）
+URL:https://shopping.community-iyasakagu.jp/product/school_course1208/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261004-fruits@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261004T131500
 DTEND;TZID=Asia/Tokyo:20261004T160000
 SUMMARY:🍇🍑 フルーツ＆交流会イベント
-DESCRIPTION:葡萄や桃など季節のフルーツを味わいながら仲間と交流できる特別イベント！
-生産者さんの想いやこだわりを直接お届けする機会です。
+DESCRIPTION:葡萄や桃など季節のフルーツを味わいながら仲間と交流できる特別イベント！\n生産者さんの想いやこだわりを直接お届けする機会です。
 LOCATION:現地会場（12:50 受付スタート）
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261004-bengyo-ginger@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261004T213000
 DTEND;TZID=Asia/Tokyo:20261004T223000
 SUMMARY:⛩️ 勉強ジンジャー 夜の配信
@@ -47,18 +45,17 @@ LOCATION:オンライン配信（勉強ジンジャー）
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261009-luce@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261009T210000
 DTEND;TZID=Asia/Tokyo:20261009T220000
 SUMMARY:美容事業 LUCE スクール事業 Zoom説明会
-DESCRIPTION:トピック: 美容事業LUCE スクール事業
-美容事業の立ち上げやスクール展開について詳しくお話しします。
+DESCRIPTION:トピック: 美容事業LUCE スクール事業\n美容事業の立ち上げやスクール展開について詳しくお話しします。
 LOCATION:Zoom オンライン
 URL:https://us06web.zoom.us/j/81588983331?pwd=xxx
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261009-livepark@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261009T230000
 DTEND;TZID=Asia/Tokyo:20261009T240000
 SUMMARY:🪷 LIVEPARK 深夜配信
@@ -67,897 +64,439 @@ LOCATION:LIVEPARK
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261010-makers@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261010T200000
 DTEND;TZID=Asia/Tokyo:20261010T213000
 SUMMARY:ものづくり事業 maKeRs. 事業説明会
-DESCRIPTION:10月10日（土）20:00〜の説明会に会長が最初の15分間参加してくださいます！🔥
-ものづくり事業maKeRs.のビジョンやこれからの展開について熱く語っていただきます。
+DESCRIPTION:10月10日（土）20:00〜の説明会に会長が最初の15分間参加してくださいます！🔥\nものづくり事業maKeRs.のビジョンやこれからの展開について熱く語っていただきます。
 LOCATION:Zoom オンライン
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261010-fukushi@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261010T220000
 DTEND;TZID=Asia/Tokyo:20261010T230000
 SUMMARY:福祉支援事業 〜みんなのて〜 事業説明【会長zoom！】
-DESCRIPTION:【福祉支援事業】〜みんなのて〜 初回会長zoom‼️
-10月10日22時〜 トピック: 福祉事業zoom
-手を取り合って創る新しい福祉の形。会長自らが熱く解説します！
+DESCRIPTION:【福祉支援事業】〜みんなのて〜 初回会長zoom‼️\n10月10日22時〜 トピック: 福祉事業zoom\n手を取り合って創る新しい福祉の形。会長自らが熱く解説します！
 LOCATION:Zoom オンライン
 URL:https://us06web.zoom.us/j/84617755146?pwd=xxx
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261011-kidswell-briefing@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261011T200000
 DTEND;TZID=Asia/Tokyo:20261011T213000
 SUMMARY:一般社団法人 Kids Well Academy 事業説明会
-DESCRIPTION:🌈 10/11(日) 20:00〜 Kids Well Academy 事業説明会開催！
-全国各地で急速に仲間が広がっているKids Well Academyの理念、活動内容、今後のプロジェクトについて詳しくお伝えします。
+DESCRIPTION:🌈 10/11(日) 20:00〜 Kids Well Academy 事業説明会開催！\n全国各地で急速に仲間が広がっているKids Well Academyの理念、活動内容、今後のプロジェクトについて詳しくお伝えします。
 LOCATION:Zoom オンライン
 URL:https://us06web.zoom.us/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261013-raytus-joint-1@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261013T210000
 DTEND;TZID=Asia/Tokyo:20261013T223000
 SUMMARY:📢 RAYTUS group. 合同事業説明会【DAY 1】
-DESCRIPTION:RAYTUS group.が誇る注目の事業部が一堂に会する合同事業説明会！
-耳だけ参加も大歓迎。色んな事業のお話を聞いて、自分にぴったりの関わり方を見つけてください。
+DESCRIPTION:RAYTUS group.が誇る注目の事業部が一堂に会する合同事業説明会！\n耳だけ参加も大歓迎。色んな事業のお話を聞いて、自分にぴったりの関わり方を見つけてください。
 LOCATION:Zoom オンライン
 URL:https://us06web.zoom.us/j/81113152898?pwd=rnUDogc0paequYOxCnvXYaSs3WngG3.1
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261014-raytus-joint-2@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261014T160000
 DTEND;TZID=Asia/Tokyo:20261014T220000
 SUMMARY:📢 RAYTUS group. 合同事業説明会【DAY 2】
-DESCRIPTION:【14日（水）16:00〜 / 20:00〜 / 21:00〜】
-食事業：RAY和おむすび、セクシャルウェルネス事業：セクシャルLABO、確定申告事業：ラクシンなど登壇！
-リアルタイムで色んな事業の話を聞きに来てください✨
+DESCRIPTION:【14日（水）16:00〜 / 20:00〜 / 21:00〜】\n食事業：RAY和おむすび、セクシャルウェルネス事業：セクシャルLABO、確定申告事業：ラクシンなど登壇！\nリアルタイムで色んな事業の話を聞きに来てください✨
 LOCATION:Zoom オンライン
 URL:https://us06web.zoom.us/j/81113152898?pwd=rnUDogc0paequYOxCnvXYaSs3WngG3.1
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261015-day-study@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261015T130000
 DTEND;TZID=Asia/Tokyo:20261015T150000
 SUMMARY:📝 公財 NEW TERAKOYA 昼の勉強会・交流会
-DESCRIPTION:【開催日】10月15日 13:00〜15:00
-公益財団法人 NEW TERAKOYAの勉強会②。出欠回答フォームより事前にエントリーください。
+DESCRIPTION:【開催日】10月15日 13:00〜15:00\n公益財団法人 NEW TERAKOYAの勉強会②。出欠回答フォームより事前にエントリーください。
 LOCATION:Zoom オンライン
+URL:https://chouseisan.com/s?h=5524b1d6363544d7aeb3ff1d89ec1b37
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261016-nougyo-taidan@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261016T210000
 DTEND;TZID=Asia/Tokyo:20261016T220000
 SUMMARY:スペシャル対談！農業組合が目指す、安全安心の基準とは？
-DESCRIPTION:土と輪農業組合が届ける安全安心の基準とは？笑顔になる魔法の農法と、これからの日本の食についての熱い対談！
-日々の食事や健康を大切にしたい方必見です。
+DESCRIPTION:土と輪農業組合が届ける安全安心の基準とは？笑顔になる魔法の農法と、これからの日本の食についての熱い対談！\n日々の食事や健康を大切にしたい方必見です。
 LOCATION:オンライン配信
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261018-remiko@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261018T210000
 DTEND;TZID=Asia/Tokyo:20261018T220000
 SUMMARY:れみこ先生 説明会 Zoom
-DESCRIPTION:トピック: れみこ先生説明会
-時刻: 2026年10月18日 09:00 PM
-たくさんのご参加をお待ちしております！
+DESCRIPTION:トピック: れみこ先生説明会\n時刻: 2026年10月18日 09:00 PM\nたくさんのご参加をお待ちしております！
 LOCATION:Zoom オンライン
 URL:https://us06web.zoom.us/j/87901178475?pwd=zZMDiF5XBObPZjIls45erGQsCejMF9.1
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261018-bengyo-ginger-yukari@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261018T220000
 DTEND;TZID=Asia/Tokyo:20261018T230000
 SUMMARY:⛩️ 勉強ジンジャー『教育×スピリチュアル』はたゆかり
-DESCRIPTION:学校の中って実際どうなの？疑問・質問にお答えします！
-家での子どもの様子、これで大丈夫？日頃から聞けないようなことズバリ聞いてください！
-学校現場とスピリチュアルの観点から私の経験と共にお話しし、最後には必要なメッセージをリーディングでお伝えします✨
+DESCRIPTION:学校の中って実際どうなの？疑問・質問にお答えします！\n家での子どもの様子、これで大丈夫？日頃から聞けないようなことズバリ聞いてください！\n学校現場とスピリチュアルの観点から私の経験と共にお話しし、最後には必要なメッセージをリーディングでお伝えします✨
 LOCATION:オンライン配信（勉強ジンジャー）
+URL:https://shopping.community-iyasakagu.jp/product/school_course1247/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261019-mohatsu-1@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261019T210000
 DTEND;TZID=Asia/Tokyo:20261019T220000
 SUMMARY:ネオ会員限定・無料オンラインセミナー「毛髪について」第1回
-DESCRIPTION:みんなで楽しく学んで、毛髪の知識までフサフサにしちゃいましょう！
-Q-more.開発者のようへい先生が科学的根拠に基づいた頭皮・毛髪ケアの真実をわかりやすく伝授します。
+DESCRIPTION:みんなで楽しく学んで、毛髪の知識までフサフサにしちゃいましょう！\nQ-more.開発者のようへい先生が科学的根拠に基づいた頭皮・毛髪ケアの真実をわかりやすく伝授します。
 LOCATION:Zoom オンライン
 URL:https://us06web.zoom.us/j/84430427414?pwd=qWAuDlRpSpZusd16LGaawgD4tNUeVs.1
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261020-iyasuta-mimola@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261020T210000
 DTEND;TZID=Asia/Tokyo:20261020T220000
 SUMMARY:📣✨【会長コマース❣️イヤスタのお知らせ】Mimolaグループ特別編
-DESCRIPTION:📣✨【会長コマース❣️
-　イヤスタのお知らせ】✨
-
-今回のイヤスタは
-Mimolaグループ特別編❣️
-
-みなさん、こんにちは☺️💕
-Mimola理事長の岩崎ゆかです✨
-
-10/20(火) 21:00～
-
-今回はなんと、会長コマース‼️
-Mimolaグループの4名が登場します✨
-
-💚 坂本有莉菜
-女性専門「身体を育てる整体」
-
-🍪 太田美穂さん
-https://www.instagram.com/mamyu.seitai_kuumuus?srtk=dmI0M29rMG5lbXhs&utm_source=qr
-https://www.instagram.com/cafe_and_cake_yui_niigata?srtk=cGc3amhubTVkMWd0
-みんな大好き♡おいしいアレが登場！
-
-🎁 園田美緒さん
-https://www.instagram.com/mimimade_108?psln=cDVkNDZvY2JmZm93
-大切な思い出をカタチにするアイテム✨
-
-☕️ 山本瑛子さん
-https://www.instagram.com/suuha_1121?rpxt=MjNvaHdkazNwZXpm
-毎日の暮らしに取り入れたい、
-ほっこり癒やされるアイテム♡
-
-それぞれの想いや商品が
-破格の価格で紹介される特別な回です🥰
-
-ぜひみなさんにも見ていただけたら嬉しいです💚
-
-🕘 配信：10/20（火）21:00〜
-
-📺 視聴はこちら👇
-https://events.livepark.jp/videos/cZGBlCyhHEU
-
-どんな特別な内容になっているのか、
-楽しみに観にきてください〜😆✨
+DESCRIPTION:📣✨【会長コマース❣️\n　イヤスタのお知らせ】✨\n\n今回のイヤスタは\nMimolaグループ特別編❣️\n\nみなさん、こんにちは☺️💕\nMimola理事長の岩崎ゆかです✨\n\n10/20(火) 21:00～\n\n今回はなんと、会長コマース‼️\nMimolaグループの4名が登場します✨\n\n💚 坂本有莉菜\n女性専門「身体を育てる整体」\n\n🍪 太田美穂さん\nhttps://www.instagram.com/mamyu.seitai_kuumuus?srtk=dmI0M29rMG5lbXhs&utm_source=qr\nhttps://www.instagram.com/cafe_and_cake_yui_niigata?srtk=cGc3amhubTVkMWd0\nみんな大好き♡おいしいアレが登場！\n\n🎁 園田美緒さん\nhttps://www.instagram.com/mimimade_108?psln=cDVkNDZvY2JmZm93\n大切な思い出をカタチにするアイテム✨\n\n☕️ 山本瑛子さん\nhttps://www.instagram.com/suuha_1121?rpxt=MjNvaHdkazNwZXpm\n毎日の暮らしに取り入れたい、\nほっこり癒やされるアイテム♡\n\nそれぞれの想いや商品が\n破格の価格で紹介される特別な回です🥰\n\nぜひみなさんにも見ていただけたら嬉しいです💚\n\n🕘 配信：10/20（火）21:00〜\n\n📺 視聴はこちら👇\nhttps://events.livepark.jp/videos/cZGBlCyhHEU\n\nどんな特別な内容になっているのか、\n楽しみに観にきてください〜😆✨
 LOCATION:LIVEPARK オンライン配信（発見！IYASUTA）
+URL:https://events.livepark.jp/videos/cZGBlCyhHEU
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261021-kaicho-gurokon@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261021T210000
 DTEND;TZID=Asia/Tokyo:20261021T220000
 SUMMARY:📢 ぶった斬り会長 合同グルコン「主婦の方が稼げる根拠とは⁉️」
-DESCRIPTION:📢 こんや！ 10/21 21時〜
-ぶった斬り会長合同グルコンです✨
-
-さて‼️今日のテーマは…
-個人事業主より何も知らない「主婦」の方が稼げる🔥
-とはどういうことなのか⁉️
-
-会長はいつも『主婦は大丈夫じゃ！』というのですが…その根拠とは⁉️
-みなさん気になりませんかー⁉️ 会長自ら解説してくれます🙌✨
-
-▶︎コミュニケーション会員
-▶︎運営会員　合同
-
-会長から無料で直接学べる月に一度の貴重なチャンス‼️✨
-皆さま積極的にご参加ください⭐️
+DESCRIPTION:📢 こんや！ 10/21 21時〜\nぶった斬り会長合同グルコンです✨\n\nさて‼️今日のテーマは…\n個人事業主より何も知らない「主婦」の方が稼げる🔥\nとはどういうことなのか⁉️\n\n会長はいつも『主婦は大丈夫じゃ！』というのですが…その根拠とは⁉️\nみなさん気になりませんかー⁉️ 会長自ら解説してくれます🙌✨\n\n▶︎コミュニケーション会員\n▶︎運営会員　合同\n\n会長から無料で直接学べる月に一度の貴重なチャンス‼️✨\n皆さま積極的にご参加ください⭐️
 LOCATION:Zoom オンライン
 URL:https://us06web.zoom.us/j/88257025834?pwd=UCD7vXd4Wb2tSchrokwBGcgU5q6bam.1
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261022-machinohokenshitsu@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261022T200000
 DTEND;TZID=Asia/Tokyo:20261022T210000
 SUMMARY:まちのほけんしつ 事業説明会
-DESCRIPTION:健康や予防に関わる活動がしたい、自分の資格や経験を活かしたい、まちのほけんしつの活動が気になる方へ。
-医療・健康・発達・栄養など様々な分野の仲間と一緒に地域貢献の輪を広げましょう！
+DESCRIPTION:健康や予防に関わる活動がしたい、自分の資格や経験を活かしたい、まちのほけんしつの活動が気になる方へ。\n医療・健康・発達・栄養など様々な分野の仲間と一緒に地域貢献の輪を広げましょう！
 LOCATION:Zoom オンライン
 URL:https://us06web.zoom.us/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261022-osakana@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261022T210000
 DTEND;TZID=Asia/Tokyo:20261022T220000
 SUMMARY:＼お魚🐟食べよう週間／ 企画メンバー募集 事業説明会 Zoom
-DESCRIPTION:「魚って身体にいいのは分かってるけど、調理が面倒・子どもが食べてくれない…」
-管理栄養士・料理人・保育士など専門職が集まって、魚のレシピや栄養の知識をカタチにする新プロジェクト！
-料理好き、食育に興味のある方、ぜひ説明会を覗きに来てください🥰
+DESCRIPTION:「魚って身体にいいのは分かってるけど、調理が面倒・子どもが食べてくれない…」\n管理栄養士・料理人・保育士など専門職が集まって、魚のレシピや栄養の知識をカタチにする新プロジェクト！\n料理好き、食育に興味のある方、ぜひ説明会を覗きに来てください🥰
 LOCATION:Zoom オンライン
 URL:https://us06web.zoom.us/j/86984245385?pwd=g0Sn20DCizVZ7ViHwhavyK57U6dBg8.1
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261022-seitai-balm@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261022T220000
 DTEND;TZID=Asia/Tokyo:20261022T230000
 SUMMARY:✨「バカ売れ整体バーム」TheraMove Balm 特別説明会
-DESCRIPTION:10/22（木）22:00〜
-
-みんな使ってる❕
-「バカ売れ整体バーム」
-たったの9ヶ月で全国で累計4,000個突破‼️
-
-「えっ⁉️なんで⁉️」
-あまりの即効性と万能性に驚きの声リピーターが続出❕
-整体バーム『TheraMove Balm』
-
-✅天然由来成分で超安心❕
-✅1gで1,000円する成分も❕
-✅奇跡の配合であらゆる痛みに❕
-
-さらに今回は…ぶった斬り会長とのコラボ❣️
-新ラベルの『ファミリーバーム』Verも新登場しました‼️
-
-【今回の説明会では】
-✅ 天然成分だけで整体を受けたあとのような感覚になる理由
-✅ 人気の秘密
-✅ 小顔、皮膚のトラブルにも！？
-✅ 超お得意なお金のお話し
-を一挙公開します‼️
-
-・スポーツの疲労 / 肩こりや腰痛 / 怪我や皮膚トラブル
-などのお悩みをお抱えのあなた❕今日からその痛みとおさらばです👋
-
-驚きの動画の数々はこちら：
-https://www.instagram.com/nekturn_dance_seitai/
+DESCRIPTION:10/22（木）22:00〜\n\nみんな使ってる❕\n「バカ売れ整体バーム」\nたったの9ヶ月で全国で累計4,000個突破‼️\n\n「えっ⁉️なんで⁉️」\nあまりの即効性と万能性に驚きの声リピーターが続出❕\n整体バーム『TheraMove Balm』\n\n✅天然由来成分で超安心❕\n✅1gで1,000円する成分も❕\n✅奇跡の配合であらゆる痛みに❕\n\nさらに今回は…ぶった斬り会長とのコラボ❣️\n新ラベルの『ファミリーバーム』Verも新登場しました‼️\n\n【今回の説明会では】\n✅ 天然成分だけで整体を受けたあとのような感覚になる理由\n✅ 人気の秘密\n✅ 小顔、皮膚のトラブルにも！？\n✅ 超お得意なお金のお話し\nを一挙公開します‼️\n\n・スポーツの疲労 / 肩こりや腰痛 / 怪我や皮膚トラブル\nなどのお悩みをお抱えのあなた❕今日からその痛みとおさらばです👋\n\n驚きの動画の数々はこちら：\nhttps://www.instagram.com/nekturn_dance_seitai/
 LOCATION:Zoom オンライン
-URL:https://us06web.zoom.us/j/81758041069?pwd=AQIjvXDvQjuc9m3HK5i0bvfupDMFFa.1
+URL:https://www.instagram.com/nekturn_dance_seitai/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261023-snack-aki@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261023T220000
 DTEND;TZID=Asia/Tokyo:20261023T230000
 SUMMARY:🍷 スナック亜希 🍷 特別オープン
-DESCRIPTION:借金600万から年商7億へ。人生って波瀾万丈！でも、だからこそ面白い！
-10月は一晩だけオープンします🍷 仲間づくりのことからプライベートまでいろいろお話しして楽しい時間を過ごしましょう❤️
-売上は全額定例会会場費の補填になります！
+DESCRIPTION:借金600万から年商7億へ。人生って波瀾万丈！でも、だからこそ面白い！\n10月は一晩だけオープンします🍷 仲間づくりのことからプライベートまでいろいろお話しして楽しい時間を過ごしましょう❤️\n売上は全額定例会会場費の補填になります！
 LOCATION:⛩️ 勉強ジンジャーにて配信
+URL:https://community-iyasakagu.jp/subschool/course/school_course1260/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261024-tosa-terakoya@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261024T100000
 DTEND;TZID=Asia/Tokyo:20261024T153000
 SUMMARY:第2回 TOSA寺子屋交流会（親子で楽しむ ハロウィン寺子屋）
-DESCRIPTION:🎃✨ 親子で楽しむ＼ハロウィン寺子屋開催👻💕／
-
-ママたちは一緒におかず作り♪ 子どもたちはハロウィンワークショップ！
-そして、みんなで作ったおかずを囲んで一緒にお昼ごはんを楽しみませんか？🍙💕
-今回はなんと「軸が整うおむすび」を無料でご提供します🍙✨
-午後からはじゃんけん列車大会も開催🚃✨
-親子で楽しみながらリフレッシュして、ママ同士もつながれる一日に！
-
-【当日のスケジュール】
-・10:00〜 ママ：みんなでおかず作り / 子ども：ハロウィンワークショップ
-・12:00〜 『軸が整うおむすび』無料提供＆みんなで作ったおかずでランチ
-・13:30〜 じゃんけん列車大会🚃
-・14:30〜 フリータイム
-・15:30までに解散予定
-
-📝 お申し込みフォーム: https://forms.gle/TNzFBA7Po9NJPsVf9
-【主催】一般社団法人KidsWell Academy 高知
-【後援】公益財団法人NEW TERAKOYA MIRAIを創る会
+DESCRIPTION:🎃✨ 親子で楽しむ＼ハロウィン寺子屋開催👻💕／\n\nママたちは一緒におかず作り♪ 子どもたちはハロウィンワークショップ！\nそして、みんなで作ったおかずを囲んで一緒にお昼ごはんを楽しみませんか？🍙💕\n今回はなんと「軸が整うおむすび」を無料でご提供します🍙✨\n午後からはじゃんけん列車大会も開催🚃✨\n親子で楽しみながらリフレッシュして、ママ同士もつながれる一日に！\n\n【当日のスケジュール】\n・10:00〜 ママ：みんなでおかず作り / 子ども：ハロウィンワークショップ\n・12:00〜 『軸が整うおむすび』無料提供＆みんなで作ったおかずでランチ\n・13:30〜 じゃんけん列車大会🚃\n・14:30〜 フリータイム\n・15:30までに解散予定\n\n📝 お申し込みフォーム: https://forms.gle/TNzFBA7Po9NJPsVf9\n【主催】一般社団法人KidsWell Academy 高知\n【後援】公益財団法人NEW TERAKOYA MIRAIを創る会
 LOCATION:高知県高知市三里公民館
+URL:https://forms.gle/TNzFBA7Po9NJPsVf9
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261024-meiji-retreat@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261024T120000
 DTEND;TZID=Asia/Tokyo:20261025T150000
 SUMMARY:🌿 明治温泉リトリート『子どもたちの特別体験』
-DESCRIPTION:自然の中で、ココロもカラダも満たされる大冒険！
-🔥 焚き火体験（火付けチャレンジ＆焼き芋）
-🎁 本気の宝さがし（1位の子には好きなものを買ってもらえる権利！）
-🌿 デジタルデトックス（スマホを離れ、リアルな五感体験に夢中になる1泊2日）
-子どもたちにとって一生忘れられない最高の思い出を！
+DESCRIPTION:自然の中で、ココロもカラダも満たされる大冒険！\n🔥 焚き火体験（火付けチャレンジ＆焼き芋）\n🎁 本気の宝さがし（1位の子には好きなものを買ってもらえる権利！）\n🌿 デジタルデトックス（スマホを離れ、リアルな五感体験に夢中になる1泊2日）\n子どもたちにとって一生忘れられない最高の思い出を！
 LOCATION:長野県・山の宿 明治温泉 御射鹿の湯（長野県茅野市豊平4734）
+URL:https://lin.ee/MV2THFy
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261024-zubari-aging-shot-2@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261024T210000
 DTEND;TZID=Asia/Tokyo:20261024T213000
 SUMMARY:🔥📸 第2回！ズバリ言うわよ！ present by エイジングショットFC事業
-DESCRIPTION:ねぇ、ちょっと待って…🤣‼️ あなたは、自分の顔に隠れたクセに気づいてる？😳
-
-顔の写真を見てみると、自分では当たり前だと思っていた表情や身体の使い方のクセに気づくきっかけがあるかもしれません👀✨
-今回も実際のお写真をもとにお顔のお悩みをズバリ解説します‼️🔥
-
-【今回のお悩み】
-😳 「顔が長く見える！特に顎の長さが気になる！」
-なぜそう見えるのか？普段の何気ないクセが関係しているのか？
-ご本人からは「めちゃくちゃ変わった！」「ありえないぐらい楽！！」という感想も😍✨
-
-✨ エイジングショット × 再生美容 ✨
-エイジングショットで取り扱うのは、ヒト臍帯由来の幹細胞培養上清液。
-美容の現場で新たな選択肢として取り入れられている再生美容の可能性をお伝えします！
-
-💎 美容の可能性を広げたい方
-💎 お客様に新しい美容の選択肢を届けたい方
-💎 エイジングショットを導入しているけれど理解を深めたい方
-ぜひチェックしてください🔥
-
-🎬 ご視聴はこちら：
-https://events.livepark.jp/videos/8lBRwHGTCrd
+DESCRIPTION:ねぇ、ちょっと待って…🤣‼️ あなたは、自分の顔に隠れたクセに気づいてる？😳\n\n顔の写真を見てみると、自分では当たり前だと思っていた表情や身体の使い方のクセに気づくきっかけがあるかもしれません👀✨\n今回も実際のお写真をもとにお顔のお悩みをズバリ解説します‼️🔥\n\n【今回のお悩み】\n😳 「顔が長く見える！特に顎の長さが気になる！」\nなぜそう見えるのか？普段の何気ないクセが関係しているのか？\nご本人からは「めちゃくちゃ変わった！」「ありえないぐらい楽！！」という感想も😍✨\n\n✨ エイジングショット × 再生美容 ✨\nエイジングショットで取り扱うのは、ヒト臍帯由来の幹細胞培養上清液。\n美容の現場で新たな選択肢として取り入れられている再生美容の可能性をお伝えします！\n\n💎 美容の可能性を広げたい方\n💎 お客様に新しい美容の選択肢を届けたい方\n💎 エイジングショットを導入しているけれど理解を深めたい方\nぜひチェックしてください🔥\n\n🎬 ご視聴はこちら：\nhttps://events.livepark.jp/videos/8lBRwHGTCrd
 LOCATION:LIVEPARK（オンライン生配信）
+URL:https://events.livepark.jp/videos/8lBRwHGTCrd
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261025-ehime-kenkofes@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261025T130000
 DTEND;TZID=Asia/Tokyo:20261025T163000
 SUMMARY:まちほけ愛媛支部 『健康フェス』マルシェ
-DESCRIPTION:【まちほけ愛媛支部 主催】
-まちのほけん事業部として『健康フェス』のマルシェを開催致します✨
-お子さま連れ大歓迎！病院に行くほどでもない地域寄り添い型の健康サポートです。
-
-🍁 秋のテーマは『足』〜観光シーズン到来・足元から健康に！〜
-今回はメンバーに足測定士さんも加わり、看護師・鍼灸整体師・アロマセラピストナースの各視点からアプローチします。
-
-【出展ブース】
-・🩺 看護師（500円）：血圧・生活習慣チェック、秋バテや自律神経のミニ相談、足裏チェック、シナプソロジー体験
-・🏃 整体師（1,000〜2,000円）：姿勢チェック、肩・首・背中ストレッチ、運動指導
-・🦶 義肢装具士（500円）：歩行改善・動きやすい体づくり施術、足形診断・お子さまの足・靴・インソール相談
-・🌿 アロマセラピスト（1,000円）：お好みの香り選び、香りのアロマクリーム作り
-・📝 最後に「わたしの秋の健康カルテ」へ体験をチェック＆記録できます！
-
-※ 会場詳細: https://www.ehime-joseizaidan.com/
+DESCRIPTION:【まちほけ愛媛支部 主催】\nまちのほけん事業部として『健康フェス』のマルシェを開催致します✨\nお子さま連れ大歓迎！病院に行くほどでもない地域寄り添い型の健康サポートです。\n\n🍁 秋のテーマは『足』〜観光シーズン到来・足元から健康に！〜\n今回はメンバーに足測定士さんも加わり、看護師・鍼灸整体師・アロマセラピストナースの各視点からアプローチします。\n\n【出展ブース】\n・🩺 看護師（500円）：血圧・生活習慣チェック、秋バテや自律神経のミニ相談、足裏チェック、シナプソロジー体験\n・🏃 整体師（1,000〜2,000円）：姿勢チェック、肩・首・背中ストレッチ、運動指導\n・🦶 義肢装具士（500円）：歩行改善・動きやすい体づくり施術、足形診断・お子さまの足・靴・インソール相談\n・🌿 アロマセラピスト（1,000円）：お好みの香り選び、香りのアロマクリーム作り\n・📝 最後に「わたしの秋の健康カルテ」へ体験をチェック＆記録できます！\n\n※ 会場詳細: https://www.ehime-joseizaidan.com/
 LOCATION:愛媛県男女共同参画センター（愛媛県松山市山越町450番地5）
+URL:https://www.ehime-joseizaidan.com/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261025-remiko-taiwa@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261025T210000
 DTEND;TZID=Asia/Tokyo:20261025T220000
 SUMMARY:精神科専門医 れみこ先生が教える！『人の心に届く、対話の心理学』
-DESCRIPTION:NEO FAMILY.限定❣️特別無料講座
-精神科専門医 れみこ先生が教える！『人の心に届く、対話の心理学』
-
-💭「良かれと思って言ったのに、伝わらない…」
-💭「あの人、本当は何を考えているの？」
-💭「どうすれば、もっと人間関係がうまくいく？」
-そんな疑問を、精神科専門医の視点から楽しく解き明かします！😆✨
-
-❤️ 恋愛・夫婦関係に！
-🤝 職場・人間関係に！
-💎 営業・ビジネスに！
-
-大学病院や精神科救急、企業研修や有料のカウンセリング講座も手がけるれみこ先生‼️
-その専門知識を、NEO FAMILY.限定で無料でお届けします🎉
-講座では、メンバーだけの🌸特別情報もご案内予定🌸🎁
+DESCRIPTION:NEO FAMILY.限定❣️特別無料講座\n精神科専門医 れみこ先生が教える！『人の心に届く、対話の心理学』\n\n💭「良かれと思って言ったのに、伝わらない…」\n💭「あの人、本当は何を考えているの？」\n💭「どうすれば、もっと人間関係がうまくいく？」\nそんな疑問を、精神科専門医の視点から楽しく解き明かします！😆✨\n\n❤️ 恋愛・夫婦関係に！\n🤝 職場・人間関係に！\n💎 営業・ビジネスに！\n\n大学病院や精神科救急、企業研修や有料のカウンセリング講座も手がけるれみこ先生‼️\nその専門知識を、NEO FAMILY.限定で無料でお届けします🎉\n講座では、メンバーだけの🌸特別情報もご案内予定🌸🎁
 LOCATION:Zoom オンライン
 URL:https://us06web.zoom.us/j/85864096749?pwd=yiknu6hYRqwVeIbM1NbbjOiJbVwnBH.1
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261025-bengyo-ginger-yuka-aki@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261025T213000
 DTEND;TZID=Asia/Tokyo:20261025T223000
 SUMMARY:⛩️ 勉強ジンジャー「普通の看護師ママがここまできた！事業を立ち上げたことがない私がままゆねを立ち上げた歴史」
-DESCRIPTION:【✨勉強ジンジャー開催✨】
-
-🗓️ 10月25日（土）21:30〜22:30
-💻 勉強ジンジャーにて特別配信
-
-はじめまして♪
-Mimola理事長でままゆねの責任者をしております、岩崎ゆかです✨
-
-この度なんと、RAYTUS group 代表の草彅あきさんと共に勉強ジンジャーを開催します❣️
-
-事業を立ち上げたことがない私がままゆねを立ち上げるまでの歴史✨
-あきさんの「あの一言」がなければ、今のままゆねはなかったかもしれない！？
-普通の看護師ママだった私が、夢をカタチにしていくまでのストーリー✨
-そんな師匠・あきさんと送る特別な1時間❣️
-
-事業立ち上げに興味がある方も、夢をカタチにしたい方も、ぜひ遊びに来てください❤️
-
-🔗 参加申込み・詳細:
-https://community-iyasakagu.jp/subschool/course/school_course1281/
-
-※この度の売上は、全額定例会の会場費の補填になります✨
+DESCRIPTION:【✨勉強ジンジャー開催✨】\n\n🗓️ 10月25日（日）21:30〜22:30\n💻 勉強ジンジャーにて特別配信\n\n事業立ち上げに興味ある！ママ支援に興味がある方集合〜📣✨\nスペシャルゲスト⭐️ RAYTUS group 代表の草彅あきさんをお迎えしてお話しします✨\n\nはじめまして♪\nMimola理事長で、ままゆねの責任者をしております岩崎ゆかです✨\nこの度なんと、RAYTUS group 代表の草彅あきさんと共に勉強ジンジャー開催します✨\n\n事業を立ち上げたことがない私がままゆねを立ち上げるまでの歴史✨\nあきさんの「あの一言」がなければ、今のままゆねはなかったかもしれない！？\n普通の看護師ママだった私が、夢をカタチにしていくまでのストーリー✨\nそんな師匠・あきさんと送る特別な1時間❣️\n\n事業立ち上げに興味がある方も、夢をカタチにしたい方も、ぜひ遊びに来てください❤️\n\n🔗 参加申込み・詳細:\nhttps://community-iyasakagu.jp/subschool/course/school_course1281/\n\n※この度の売上は、全額定例会の会場費の補填になります✨
 LOCATION:オンライン配信（勉強ジンジャー）
+URL:https://community-iyasakagu.jp/subschool/course/school_course1281/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261026-bengyo-ginger-nanako-yuko@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261026T140000
 DTEND;TZID=Asia/Tokyo:20261026T150000
 SUMMARY:⛩️ 勉強ジンジャー「引き寄せ力強化 〜あなたの成功への道しるべ〜」
-DESCRIPTION:⛩️ 勉強ジンジャー開催 ⛩️
-
-RAYTUS group. ここWA理事長 山田優子 ＆ tEaM_S. 岩﨑七菜子理事長がコラボ開催！
-
-✨ カラー × 星読み ✨
-「星と色が導く、あなたの成功への道しるべ」〜引き寄せ力強化〜
-
-色で現在地を知り、星からのエネルギーチャージで引き寄せ力ＵＰ🌟
-この1時間は、星と色を使ってあなたの引き寄せ力を爆上げします🌈
-
-【前半】
-色の専門家 ゆこが、あなたが今日選んだ「服の色」から今のあなたへのカラーメッセージをお届け。
-
-【後半】
-星を詠み解く伴走者 七菜子が、イーグルズゲートの星を読み解き、見るだけでエネルギーチャージされるパワースポット・明治温泉の画像をシェア。
-あなたの未来をつかみ取るのは、あなたです✨
-
-●こんな方へおススメ
-🍀 ステージアップしたい！
-🍀 本質で生きたい
-🍀 現在の自分の状態を知り、飛躍のために整えたい
-🍀 自分の感覚をもっと磨いて研ぎ澄ませたい
-🍀 意図設定のヒントが欲しい
-
-🔗 参加申込み・詳細:
-https://community-iyasakagu.jp/subschool/course/school_course1270/
-
-※この度の売上は、全額定例会の会場費の補填になります！たくさんのお仲間のご参加をお待ちしております☺️
+DESCRIPTION:⛩️ 勉強ジンジャー開催 ⛩️\n\nRAYTUS group. ここWA理事長 山田優子 ＆ tEaM_S. 岩﨑七菜子理事長がコラボ開催！\n\n✨ カラー × 星読み ✨\n「星と色が導く、あなたの成功への道しるべ」〜引き寄せ力強化〜\n\n色で現在地を知り、星からのエネルギーチャージで引き寄せ力ＵＰ🌟\nこの1時間は、星と色を使ってあなたの引き寄せ力を爆上げします🌈\n\n【前半】\n色の専門家 ゆこが、あなたが今日選んだ「服の色」から今のあなたへのカラーメッセージをお届け。\n\n【後半】\n星を詠み解く伴走者 七菜子が、イーグルズゲートの星を読み解き、見るだけでエネルギーチャージされるパワースポット・明治温泉の画像をシェア。\nあなたの未来をつかみ取るのは、あなたです✨\n\n●こんな方へおススメ\n🍀 ステージアップしたい！\n🍀 本質で生きたい\n🍀 現在の自分の状態を知り、飛躍のために整えたい\n🍀 自分の感覚をもっと磨いて研ぎ澄ませたい\n🍀 意図設定のヒントが欲しい\n\n🔗 参加申込み・詳細:\nhttps://community-iyasakagu.jp/subschool/course/school_course1270/\n\n※この度の売上は、全額定例会の会場費の補填になります！たくさんのお仲間のご参加をお待ちしております☺️
 LOCATION:オンライン配信（勉強ジンジャー）
+URL:https://community-iyasakagu.jp/subschool/course/school_course1270/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261026-biyo-joukiyeki@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261026T210000
 DTEND;TZID=Asia/Tokyo:20261026T220000
 SUMMARY:美容事業 スキルアップ勉強会『上清液セールストーク』
-DESCRIPTION:⚫10/26（月）21:00〜22:00
-上清液セールストーク 他製品との違い・伝え方！
-エイジングショットが気になる方もレンタルプランの方も必見の勉強会です。
+DESCRIPTION:⚫10/26（月）21:00〜22:00\n上清液セールストーク 他製品との違い・伝え方！\nエイジングショットが気になる方もレンタルプランの方も必見の勉強会です。
 LOCATION:Zoom オンライン
 URL:https://us06web.zoom.us/j/3225518128?pwd=sckjacS9yVFmD6cPMlz6xsz0Hg2HpU.1&omn=85457501076
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261026-sanpun-cooking@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261026T210000
 DTEND;TZID=Asia/Tokyo:20261026T220000
 SUMMARY:🍳 億稼ぐのは「3分クッキング」？！成功する簡単なポイント
-DESCRIPTION:10/26は何の日でしょうか⁉️
-会長勉強ジンジャー開催日‼️
-※最低200人以上で開催❤️‍🔥
-
-今回のテーマは…
-【簡単に稼ぐポイント💡】
-
-10/26（月）21:00〜
-説得力の塊❗️会長から直伝のチャンス💰✨✨
-ご夫婦やご家族でzoomに集合してもよし⭕️💻
-周りの人もみーんなで稼いでいこう😎❤️‍🔥❤️‍🔥❤️‍🔥
-
-リアル参加できなくてもアーカイブあります‼️
-とにかく視聴権の購入お願いします‼️
-
-※購入リンクはこちら👇
-https://community-iyasakagu.jp/subschool/course/school_course1266/
+DESCRIPTION:10/26は何の日でしょうか⁉️\n会長勉強ジンジャー開催日‼️\n※最低200人以上で開催❤️‍🔥\n\n今回のテーマは…\n【簡単に稼ぐポイント💡】\n\n10/26（月）21:00〜\n説得力の塊❗️会長から直伝のチャンス💰✨✨\nご夫婦やご家族でzoomに集合してもよし⭕️💻\n周りの人もみーんなで稼いでいこう😎❤️‍🔥❤️‍🔥❤️‍🔥\n\nリアル参加できなくてもアーカイブあります‼️\nとにかく視聴権の購入お願いします‼️\n\n※購入リンクはこちら👇\nhttps://community-iyasakagu.jp/subschool/course/school_course1266/
 LOCATION:Zoom オンライン
+URL:https://community-iyasakagu.jp/subschool/course/school_course1266/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261027-bengyo-ginger-shiori@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261027T210000
 DTEND;TZID=Asia/Tokyo:20261027T220000
 SUMMARY:🚒🔥 勉強ジンジャー「かつて消防車と言われた女がRAYTUS No.2と呼ばれるようになるまで」
-DESCRIPTION:🚒🔥 勉強ジンジャー開催🔥🚒
-enchant+理事長🩵青山しおりです☺️
-
-10/27(火) 21:00～
-
-＼かつて消防車🚒と言われた女が／
-RAYTUS No.2と呼ばれるようになるまで✨
-
-https://community-iyasakagu.jp/subschool/course/school_course1284/
-
-2022年5月、会長との出会い
-当時の私は、とにかく泣き虫！！
-ネガティブ全開！メンタル弱子！🤣
-そんな私に会長がつけたあだ名は…なんと「消防車🚒」笑
-
-そんな私が会長からマインドを学び、たった1年でネガティブを克服！！
-✔️ 人の目を気にして言えなかったことも言えるように！
-✔️ 我慢ばかりの自分から卒業！
-✔️ モラハラ旦那との離婚も決断！
-
-そして今では、なんと…
-👑 「RAYTUS No.2」 と呼ばれるまでに！！✨
-
-人は何歳からでも変われる！！
-昔の私みたいに「変わりたいのに変われない」「すぐネガティブになっちゃう」そんな人にこそ聞いてほしい！！
-🚒消防車からRAYTUS No.2へ👑 その秘密、全部お話ししちゃいます😆❤️
-
-※この度の売上は、全額定例会の会場費の補填になります！
+DESCRIPTION:🚒🔥 勉強ジンジャー開催🔥🚒\nenchant+理事長🩵青山しおりです☺️\n\n10/27(火) 21:00～\n\n＼かつて消防車🚒と言われた女が／\nRAYTUS No.2と呼ばれるようになるまで✨\n\nhttps://community-iyasakagu.jp/subschool/course/school_course1284/\n\n2022年5月、会長との出会い\n当時の私は、とにかく泣き虫！！\nネガティブ全開！メンタル弱子！🤣\nそんな私に会長がつけたあだ名は…なんと「消防車🚒」笑\n\nそんな私が会長からマインドを学び、たった1年でネガティブを克服！！\n✔️ 人の目を気にして言えなかったことも言えるように！\n✔️ 我慢ばかりの自分から卒業！\n✔️ モラハラ旦那との離婚も決断！\n\nそして今では、なんと…\n👑 「RAYTUS No.2」 と呼ばれるまでに！！✨\n\n人は何歳からでも変われる！！\n昔の私みたいに「変わりたいのに変われない」「すぐネガティブになっちゃう」そんな人にこそ聞いてほしい！！\n🚒消防車からRAYTUS No.2へ👑 その秘密、全部お話ししちゃいます😆❤️\n\n※この度の売上は、全額定例会の会場費の補填になります！
 LOCATION:オンライン配信（勉強ジンジャー）
+URL:https://community-iyasakagu.jp/subschool/course/school_course1284/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261028-bengyo-ginger-doubutsu@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261028T220000
 DTEND;TZID=Asia/Tokyo:20261028T230000
 SUMMARY:⛩️ 勉強ジンジャー「動物を守る、その先へ。」🐶🐱
-DESCRIPTION:⛩️勉強ジンジャーのお知らせ📢
-
-【Couleur理事長 菅野美穂】
-【CHOICE理事長 大葉美穂】
-
-🗓 10/28(水) ⏰ 22:00〜23:00
-🐶🐱 動物を守る、その先へ。
-
-🐕犬派の美穂 ✖️ 猫派の美穂🐈‍⬛
-✨ダブル美穂がお届けする✨
-人も動物も、自分らしく輝ける社会を考える60分🌈
-
-動物大好きな2人が、それぞれの視点から「動物保護」と「これからの未来」について語ります🌈
-動物を守ることは、命を救うことだけじゃない🐕
-動物たちが幸せに暮らせること、そして関わる人たちも笑顔で自分らしく生きられること🐈‍⬛
-人が動物を助けるだけでなく、動物たちが人の心を支えることもある🐎
-
-難しい勉強会ではなく、未来について楽しくお話しする時間です☺️
-
-＊みなさんのご参加が【全額定例会会場費】の補填になります💕
-https://community-iyasakagu.jp/subschool/course/school_course1273/
+DESCRIPTION:⛩️勉強ジンジャーのお知らせ📢\n\n【Couleur理事長 菅野美穂】\n【CHOICE理事長 大葉美穂】\n\n🗓 10/28(水) ⏰ 22:00〜23:00\n🐶🐱 動物を守る、その先へ。\n\n🐕犬派の美穂 ✖️ 猫派の美穂🐈‍⬛\n✨ダブル美穂がお届けする✨\n人も動物も、自分らしく輝ける社会を考える60分🌈\n\n動物大好きな2人が、それぞれの視点から「動物保護」と「これからの未来」について語ります🌈\n動物を守ることは、命を救うことだけじゃない🐕\n動物たちが幸せに暮らせること、そして関わる人たちも笑顔で自分らしく生きられること🐈‍⬛\n人が動物を助けるだけでなく、動物たちが人の心を支えることもある🐎\n\n難しい勉強会ではなく、未来について楽しくお話しする時間です☺️\n\n＊みなさんのご参加が【全額定例会会場費】の補填になります💕\nhttps://community-iyasakagu.jp/subschool/course/school_course1273/
 LOCATION:オンライン配信（勉強ジンジャー）
+URL:https://community-iyasakagu.jp/subschool/course/school_course1273/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261029-bengyo-ginger-komi-ria@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261029T200000
 DTEND;TZID=Asia/Tokyo:20261029T210000
 SUMMARY:🦍 勉強ジンジャー「“お利口さん”の檻から、一歩外へ」
-DESCRIPTION:父も母も私もB型！
-「純粋ゴリラ」の私ですが、以前は人の目を気にして、周りに合わせてばかりでした😂
-
-看護師として働きながら、気づけば会話は不満や愚痴ばかり🌀
-私自身も、それが当たり前になっていました😭
-
-そんな私が、環境や仲間との出会いを通して、自分の「やりたい」に向かって動き始めるまでの経験をお話しします✨️
-
-●こんな方へおすすめ
-🍀人の目を気にせず、自分らしく動きたい！
-🍀周りに合わせて、自分の気持ちを後回しにしがち
-🍀「ママだから」「今さら」と挑戦をためらっている
-🍀やりたいことはあるけど、一歩が踏み出せない
-🍀環境や考え方を変えて、ステージアップしたい！
-
-私もまだ挑戦の途中ですが、皆さんが自分の「やりたい」に向き合い、一歩踏み出すヒントになれば嬉しいです☺️✨
-※売上げは、定例会の会場費に充てさせていただきます✨
-
-B型さんも、そうでない方も大歓迎🦍♪ たくさんのお仲間のご参加、お待ちしています🌸
+DESCRIPTION:父も母も私もB型！\n「純粋ゴリラ」の私ですが、以前は人の目を気にして、周りに合わせてばかりでした😂\n\n看護師として働きながら、気づけば会話は不満や愚痴ばかり🌀\n私自身も、それが当たり前になっていました😭\n\nそんな私が、環境や仲間との出会いを通して、自分の「やりたい」に向かって動き始めるまでの経験をお話しします✨️\n\n●こんな方へおすすめ\n🍀人の目を気にせず、自分らしく動きたい！\n🍀周りに合わせて、自分の気持ちを後回しにしがち\n🍀「ママだから」「今さら」と挑戦をためらっている\n🍀やりたいことはあるけど、一歩が踏み出せない\n🍀環境や考え方を変えて、ステージアップしたい！\n\n私もまだ挑戦の途中ですが、皆さんが自分の「やりたい」に向き合い、一歩踏み出すヒントになれば嬉しいです☺️✨\n※売上げは、定例会の会場費に充てさせていただきます✨\n\nB型さんも、そうでない方も大歓迎🦍♪ たくさんのお仲間のご参加、お待ちしています🌸
 LOCATION:⛩️ 勉強ジンジャー（オンライン）
+URL:https://shopping.community-iyasakagu.jp/product/school_course1289/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261029-diet-qa@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261029T210000
 DTEND;TZID=Asia/Tokyo:20261029T220000
 SUMMARY:まるっと解決 ダイエットQ&A（食事・運動・習慣・リバウンドなど）
-DESCRIPTION:気になることなんでも聞いてね！
-まるっと解決 ダイエットQ&A
-
-🗓️ 10/29（木）21:00〜22:00
-
-・食事のコツは？
-・効率よくやせる方法は？
-・リバウンドしない秘訣は？
-食事・運動・習慣・モチベーションなど、ダイエットのお悩みをまるごと解決！
-
-登壇：
-🥗 食べ痩せダイエットコーチ 中岡真沙美
-🎤 ファシリテーター 坂井照子
+DESCRIPTION:気になることなんでも聞いてね！\nまるっと解決 ダイエットQ&A\n\n🗓️ 10/29（木）21:00〜22:00\n\n・食事のコツは？\n・効率よくやせる方法は？\n・リバウンドしない秘訣は？\n食事・運動・習慣・モチベーションなど、ダイエットのお悩みをまるごと解決！\n\n登壇：\n🥗 食べ痩せダイエットコーチ 中岡真沙美\n🎤 ファシリテーター 坂井照子
 LOCATION:Zoom オンライン
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261029-bengyo-ginger-shinkawa@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261029T213000
 DTEND;TZID=Asia/Tokyo:20261029T223000
 SUMMARY:⛩️勉強ジンジャー⛩️ セルフ小顔メンテナンス＆歪みセルフチェックと整え
-DESCRIPTION:⛩️勉強ジンジャー⛩️
-
-【shAdow理事長 新川晶子】
-
-10月29日 21時30〜
-
-✴︎✴︎✴︎✴︎✴︎✴︎✴︎✴︎✴︎✴︎
-
-セルフ小顔メンテナンス‼️
-　　　　&
-歪みセルフチェックと整え‼️
-
-✴︎✴︎✴︎✴︎✴︎✴︎✴︎✴︎✴︎✴︎
-
-◼︎顔のむくみが気になる方
-◼︎歪みに悩んでいる方　など
-
-身体の仕組みも学びながら
-セルフでできる
-プチケア方法をお届けします☺️
-
-パーソナルトレーナー兼
-整体師の新川が
-独自で作った『顔骨小顔メソッド』
-
-－－－－－－－
-
-⛩️勉強ジンジャー⛩️
-
-🗓️10月29日(木)
-⏰21:30〜22:30
-
-※みなさんのご参加が
-【全額定例会会場費】の補填💕
-ありがとう
-
-https://community-iyasakagu.jp/subschool/course/school_course1265/
+DESCRIPTION:⛩️勉強ジンジャー⛩️\n\n【shAdow理事長 新川晶子】\n\n10月29日 21時30〜\n\n✴︎✴︎✴︎✴︎✴︎✴︎✴︎✴︎✴︎✴︎\n\nセルフ小顔メンテナンス‼️\n　　　　&\n歪みセルフチェックと整え‼️\n\n✴︎✴︎✴︎✴︎✴︎✴︎✴︎✴︎✴︎✴︎\n\n◼︎顔のむくみが気になる方\n◼︎歪みに悩んでいる方　など\n\n身体の仕組みも学びながら\nセルフでできる\nプチケア方法をお届けします☺️\n\nパーソナルトレーナー兼\n整体師の新川が\n独自で作った『顔骨小顔メソッド』\n\n－－－－－－－\n\n⛩️勉強ジンジャー⛩️\n\n🗓️10月29日(木)\n⏰21:30〜22:30\n\n※みなさんのご参加が\n【全額定例会会場費】の補填💕\nありがとう\n\nhttps://community-iyasakagu.jp/subschool/course/school_course1265/
 LOCATION:オンライン配信（⛩️勉強ジンジャー⛩️）
+URL:https://community-iyasakagu.jp/subschool/course/school_course1265/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261030-livecommerce@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261030T200000
 DTEND;TZID=Asia/Tokyo:20261030T213000
 SUMMARY:＼ライブコマーサー無料セミナー／ 新しい販売のカタチ
-DESCRIPTION:今、TikTok等で大注目の「ライブコマース」！
-🔥ライブコマースとは？
-🔥ライブで商品を売るために必要なこと
-🔥商品の魅力を引き出す伝え方
-🔥視聴者の「欲しい！」を生み出す販売の基礎
-🔥ライブコマーサーという新しい働き方
-初心者の方にも分かりやすくお伝えします！
+DESCRIPTION:今、TikTok等で大注目の「ライブコマース」！\n🔥ライブコマースとは？\n🔥ライブで商品を売るために必要なこと\n🔥商品の魅力を引き出す伝え方\n🔥視聴者の「欲しい！」を生み出す販売の基礎\n🔥ライブコマーサーという新しい働き方\n初心者の方にも分かりやすくお伝えします！
 LOCATION:オンライン配信
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261030-rijicho-ginger-nagoya@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261030T200000
 DTEND;TZID=Asia/Tokyo:20261030T210000
 SUMMARY:⛩️ 理事長ジンジャー「それ、どうやっとるの？あなたにもなれる！美容の秘訣教えてあげる♥」
-DESCRIPTION:⛩️ 理事長ジンジャー 配信
-
-それ、どうやっとるの？あなたにもなれる！美容の秘訣教えてあげる♥
-キレイも元気も年齢に負けない。今よりもっと、好きな私へ。
-
-🗓️ 10月30日（金）20:00〜21:00
-いくえとまゆみの美と健康の名古屋弁トーク✨
+DESCRIPTION:⛩️ 理事長ジンジャー 配信\n\nそれ、どうやっとるの？あなたにもなれる！美容の秘訣教えてあげる♥\nキレイも元気も年齢に負けない。今よりもっと、好きな私へ。\n\n🗓️ 10月30日（金）20:00〜21:00\nいくえとまゆみの美と健康の名古屋弁トーク✨
 LOCATION:オンライン配信（理事長ジンジャー）
+URL:https://community-iyasakagu.jp/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261030-hoken-money-seminar@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261030T200000
 DTEND;TZID=Asia/Tokyo:20261030T210000
 SUMMARY:💡 フリーランス自衛術＆成長戦略 ～会社は守ってくれない！病気・ケガ・借入リスクに備える完全ガイド～
-DESCRIPTION:フリーランス・個人事業主の方必見！無料マネーセミナー開催のお知らせ💡
-
-フリーランス自衛術＆成長戦略
-～会社は守ってくれない！病気・ケガ・借入リスクに備える完全ガイド～
-
-「もし明日、病気やケガで仕事ができなくなったら？」
-「売上はあるのに、なぜかお金が手元に残らない…」
-「将来の年金や老後資金、このままで大丈夫？」
-「事業を大きくしたいけれど、借入や万が一のリスクが不安…」
-フリーランスや個人事業主は、自由に働ける一方で、会社員なら受けられる保障や福利厚生を自分で準備しなければなりません。
-自分と家族、そして大切な事業を守りながら、将来の成長につなげるお金の戦略をわかりやすくお伝えします！
-
-📚 セミナーで学べること
-✅ 病気・ケガで働けなくなったときの収入減少への備え
-✅ 医療費や生活費に困らないための資金準備
-✅ フリーランスが知っておきたい年金・老後資金の考え方
-✅ 節税制度を活用しながら、手元にお金を残す方法
-✅ 事業拡大に伴う借入リスクと、万が一に備える考え方
-✅ 将来の法人化も見据えた資産形成のステップ
-
-🎁 参加者限定・無料個別相談もご用意！
-
-参加をご希望の方は調整さんよりお申込みください：
-https://chouseisan.com/s?h=4fa29be4f6844f8ab5d6afb881d151d5
+DESCRIPTION:フリーランス・個人事業主の方必見！無料マネーセミナー開催のお知らせ💡\n\nフリーランス自衛術＆成長戦略\n～会社は守ってくれない！病気・ケガ・借入リスクに備える完全ガイド～\n\n「もし明日、病気やケガで仕事ができなくなったら？」\n「売上はあるのに、なぜかお金が手元に残らない…」\n「将来の年金や老後資金、このままで大丈夫？」\n「事業を大きくしたいけれど、借入や万が一のリスクが不安…」\nフリーランスや個人事業主は、自由に働ける一方で、会社員なら受けられる保障や福利厚生を自分で準備しなければなりません。\n自分と家族、そして大切な事業を守りながら、将来の成長につなげるお金の戦略をわかりやすくお伝えします！\n\n📚 セミナーで学べること\n✅ 病気・ケガで働けなくなったときの収入減少への備え\n✅ 医療費や生活費に困らないための資金準備\n✅ フリーランスが知っておきたい年金・老後資金の考え方\n✅ 節税制度を活用しながら、手元にお金を残す方法\n✅ 事業拡大に伴う借入リスクと、万が一に備える考え方\n✅ 将来の法人化も見据えた資産形成のステップ\n\n🎁 参加者限定・無料個別相談もご用意！\n\n参加をご希望の方は調整さんよりお申込みください：\nhttps://chouseisan.com/s?h=4fa29be4f6844f8ab5d6afb881d151d5
 LOCATION:Zoom オンライン
+URL:https://chouseisan.com/s?h=4fa29be4f6844f8ab5d6afb881d151d5
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261030-night-study@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261030T210000
 DTEND;TZID=Asia/Tokyo:20261030T230000
 SUMMARY:📝 NEW TERAKOYA 夜の勉強会・交流会
-DESCRIPTION:【開催日】10月30日 21:00〜23:00
-10月の活動を振り返り、次月へのステップをつなぐ夜の勉強会です。
+DESCRIPTION:【開催日】10月30日 21:00〜23:00\n10月の活動を振り返り、次月へのステップをつなぐ夜の勉強会です。
 LOCATION:Zoom オンライン
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261031-bengyo-ginger-furuichi-mika@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261031T210000
 DTEND;TZID=Asia/Tokyo:20261031T220000
 SUMMARY:🌈 勉強ジンジャー「ゲイ夫×ストレート妻の、新しい家族のカタチ♡」～シリーズ第1回“出会い編”～
-DESCRIPTION:皆さんこんにちは！
-常勝会・Harmony支部理事長のみかりんこと古市美香です😊
-
-実は私……世間では一風変わった結婚をしています！！！
-それは……旦那さんがゲイであること！！
-
-え？？どゆこと！？いつ知ったの？初めから知ってたの？子どもはどうやって？
-皆さんの疑問質問にもお答えしながら、世の中の「当たり前」や「常識」をぶっ壊しにいく1時間✨
-ハロウィンの夜は、みんなここに集まれーーー！🙌
-
-_________________________
-🌈 ちょっと聞いてほしい、我が家の話🤣❤️
-ゲイの夫×ストレート妻の、新しい家族のカタチ。～シリーズ第1回“出会い編”～
-
-出会いも、恋愛も、家族のカタチも、我が家はちょっと個性的！？
-笑いありのお話をしながら、「家族・愛・幸せに正解ってあるの？」をゆるっと考えてみませんか？🥰
-
-⚠️重要⚠️
-売上は全て、NEO FAMILY. 定例会の会場費に充てられます‼️
-みんなで創るNEO FAMILY. ❣️是非、多くの方のご参加をお待ちしております💓
+DESCRIPTION:皆さんこんにちは！\n常勝会・Harmony支部理事長のみかりんこと古市美香です😊\n\n実は私……世間では一風変わった結婚をしています！！！\nそれは……旦那さんがゲイであること！！\n\nえ？？どゆこと！？いつ知ったの？初めから知ってたの？子どもはどうやって？\n皆さんの疑問質問にもお答えしながら、世の中の「当たり前」や「常識」をぶっ壊しにいく1時間✨\nハロウィンの夜は、みんなここに集まれーーー！🙌\n\n_________________________\n🌈 ちょっと聞いてほしい、我が家の話🤣❤️\nゲイの夫×ストレート妻の、新しい家族のカタチ。～シリーズ第1回“出会い編”～\n\n出会いも、恋愛も、家族のカタチも、我が家はちょっと個性的！？\n笑いありのお話をしながら、「家族・愛・幸せに正解ってあるの？」をゆるっと考えてみませんか？🥰\n\n⚠️重要⚠️\n売上は全て、NEO FAMILY. 定例会の会場費に充てられます‼️\nみんなで創るNEO FAMILY. ❣️是非、多くの方のご参加をお待ちしております💓
 LOCATION:⛩️ 勉強ジンジャー（オンライン）
+URL:https://community-iyasakagu.jp/subschool/course/school_course1267/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261102-machihoke-fukuoka@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261102T100000
 DTEND;TZID=Asia/Tokyo:20261102T113000
 SUMMARY:出張！まちのほけんしつ in 福岡（聞ける・話せる・体験できる！）
-DESCRIPTION:聞ける・話せる・体験できる！
-出張！まちのほけんしつ in 福岡
-
-🗓️ 11月2日（月）10:00〜11:30（11月福岡定例会の当日午前開催！）
-📍 会場：ふれあい貸し会議室 博多東（博多駅 徒歩1分）
-🎁 参加無料・子連れOK
-
-【10:10～10:40｜聞ける・話せるお話し会】
-子育ての「こんなとき、どうしたら？」を専門家と一緒に。
-・ブース①：マインドリセットナース みか / 管理栄養士 松田かなめ
-「家族のこと、自分のこと。誰に相談したらいい？子育てから介護まで、日々の不安を専門職と考える30分」
-・ブース②：発達育児を支える看護師 えりな / 管理栄養士 ありさ
-「栄養が心配。でも、無理には食べさせたくない。わが子に合う食事を考えるお話し会」
-
-【10:50～11:20｜ママのセルフケア体験】
-心身共にリラックスして、自分をいたわる時間に。
-・ブース①：柔道整復師 ももか / セラピスト ゆうこ / ハンドケア みさき
-「足・手・心から自分をいたわる3人の専門家によるセルフケア体験」
-・ブース②：整体師 美川浩一郎 / イーマ・サウンドセラピスト＆コーチ FUMI
-「自分を大切にする時間 イーマ・サウンドセラピー体験 / テラヘルツかっさ体験」
+DESCRIPTION:聞ける・話せる・体験できる！\n出張！まちのほけんしつ in 福岡\n\n🗓️ 11月2日（月）10:00〜11:30（11月福岡定例会の当日午前開催！）\n📍 会場：ふれあい貸し会議室 博多東（博多駅 徒歩1分）\n🎁 参加無料・子連れOK\n\n【10:10～10:40｜聞ける・話せるお話し会】\n子育ての「こんなとき、どうしたら？」を専門家と一緒に。\n・ブース①：マインドリセットナース みか / 管理栄養士 松田かなめ\n「家族のこと、自分のこと。誰に相談したらいい？子育てから介護まで、日々の不安を専門職と考える30分」\n・ブース②：発達育児を支える看護師 えりな / 管理栄養士 ありさ\n「栄養が心配。でも、無理には食べさせたくない。わが子に合う食事を考えるお話し会」\n\n【10:50～11:20｜ママのセルフケア体験】\n心身共にリラックスして、自分をいたわる時間に。\n・ブース①：柔道整復師 ももか / セラピスト ゆうこ / ハンドケア みさき\n「足・手・心から自分をいたわる3人の専門家によるセルフケア体験」\n・ブース②：整体師 美川浩一郎 / イーマ・サウンドセラピスト＆コーチ FUMI\n「自分を大切にする時間 イーマ・サウンドセラピー体験 / テラヘルツかっさ体験」
 LOCATION:ふれあい貸し会議室 博多東（博多駅 徒歩1分）
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261102-fukuoka-teirei@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261102T130000
 DTEND;TZID=Asia/Tokyo:20261102T160000
 SUMMARY:🍜 NEO FAMILY 11月 福岡定例会
-DESCRIPTION:【11/2 福岡定例会に集まれ❣️】
-東京500名超えに続く11月定例会は福岡🍜！
-家族食堂という名の子ども食堂を作りたい！その想いが形になる福岡✨
-リアル推奨🖐️ リアルを体感せずしてネオの熱量は浴びれません！今からスケジュールを押さえておいてください！
+DESCRIPTION:【11/2 福岡定例会に集まれ❣️】\n東京500名超えに続く11月定例会は福岡🍜！\n家族食堂という名の子ども食堂を作りたい！その想いが形になる福岡✨\nリアル推奨🖐️ リアルを体感せずしてネオの熱量は浴びれません！今からスケジュールを押さえておいてください！
 LOCATION:福岡市内 会場（リアル推奨！）
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261104-mohatsu-2@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261104T210000
 DTEND;TZID=Asia/Tokyo:20261104T220000
 SUMMARY:ムダに毛の多いようへい先生プレゼンツ【発毛・脱毛】知ると変わる、毎日のヘアケア。
-DESCRIPTION:会長お墨付き👀 ムダに毛の多いようへい先生プレゼンツ👨‍🏫
-今回のテーマは【発毛・脱毛】✨
-
-生える毛、抜ける毛、その違い、気になりませんか？👀
-髪にとって、めちゃくちゃ大事な今回のお話！！
-知っているだけで普段のヘアケアが変わるかも🤭
-
-そして！Q-more.・エイジングショットの代理店の皆さまも必見です✨
-お客様へのご提案に「なんとなくおすすめ」から「理由も伝えておすすめ」できる知識を！！
-その毛量も説得力のひとつ👏 Q-more.開発者のようへい先生から直接学べる大チャンスです！ぜひ一緒に学びましょう🙌
-
-【今後のスケジュール】
-第2回：11/4（水）21:00～22:00
-第3回：12/4（金）21:00～22:00
+DESCRIPTION:会長お墨付き👀 ムダに毛の多いようへい先生プレゼンツ👨‍🏫\n今回のテーマは【発毛・脱毛】✨\n\n生える毛、抜ける毛、その違い、気になりませんか？👀\n髪にとって、めちゃくちゃ大事な今回のお話！！\n知っているだけで普段のヘアケアが変わるかも🤭\n\nそして！Q-more.・エイジングショットの代理店の皆さまも必見です✨\nお客様へのご提案に「なんとなくおすすめ」から「理由も伝えておすすめ」できる知識を！！\nその毛量も説得力のひとつ👏 Q-more.開発者のようへい先生から直接学べる大チャンスです！ぜひ一緒に学びましょう🙌\n\n【今後のスケジュール】\n第2回：11/4（水）21:00～22:00\n第3回：12/4（金）21:00～22:00
 LOCATION:Zoom オンライン
 URL:https://us06web.zoom.us/j/84430427414?pwd=qWAuDlRpSpZusd16LGaawgD4tNUeVs.1
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261105-joukiyeki-2@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261105T210000
 DTEND;TZID=Asia/Tokyo:20261105T220000
 SUMMARY:美容事業 上清液勉強会
-DESCRIPTION:⚫11/5（木）21:00〜22:00
-美容事業の知識を深め、現場で活かせる実践的スキルを身につけます。
+DESCRIPTION:⚫11/5（木）21:00〜22:00\n美容事業の知識を深め、現場で活かせる実践的スキルを身につけます。
 LOCATION:Zoom オンライン
 URL:https://us06web.zoom.us/j/3225518128?pwd=sckjacS9yVFmD6cPMlz6xsz0Hg2HpU.1&omn=85457501076
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261118-kochi-omusubi-koza@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261118T100000
 DTEND;TZID=Asia/Tokyo:20261118T150000
 SUMMARY:おむすび師認定講座 & Ray和おむすび師認定トレーナー講座
-DESCRIPTION:🌱 心と身体を整える方法を学びたい方
-🌱 自分でおむすび会を開催してみたい方
-
-おむすびで人と未来をつなぐ認定講座を高知で開催します！
-受講希望の方は公式LINEに「お名前とおむすび師希望 or 認定トレーナー希望」とメッセージをお送りください。
-
-【受講料】
-・おむすび師認定講座: ¥22,000
-　詳細: https://shopping.community-iyasakagu.jp/product/cms0500031_product0006/
-・Ray和おむすび師認定トレーナー講座 (会員限定): ¥49,500
-　詳細: https://shopping.community-iyasakagu.jp/product/cms0500031_product0007/
-
-お問い合わせ【公式LINE】: https://line.me/R/ti/p/@324cghvb
+DESCRIPTION:🌱 心と身体を整える方法を学びたい方\n🌱 自分でおむすび会を開催してみたい方\n\nおむすびで人と未来をつなぐ認定講座を高知で開催します！\n受講希望の方は公式LINEに「お名前とおむすび師希望 or 認定トレーナー希望」とメッセージをお送りください。\n\n【受講料】\n・おむすび師認定講座: ¥22,000\n　詳細: https://shopping.community-iyasakagu.jp/product/cms0500031_product0006/\n・Ray和おむすび師認定トレーナー講座 (会員限定): ¥49,500\n　詳細: https://shopping.community-iyasakagu.jp/product/cms0500031_product0007/\n\nお問い合わせ【公式LINE】: https://line.me/R/ti/p/@324cghvb
 LOCATION:一時預かり専門託児所 憩い〜ikoi〜（〒781-0262 高知県高知市浦戸528-1）
+URL:https://shopping.community-iyasakagu.jp/product/cms0500031_product0006/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261118-soba-to-yu@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261118T103000
 DTEND;TZID=Asia/Tokyo:20261118T160000
 SUMMARY:蕎麦と湯。 土と輪農業組合×明治温泉
-DESCRIPTION:農業／農家普及活動イベント第1弾！
-農家でありそば打ち職人の方が生で披露し体験もできる！二八そばをみんなで美味しく堪能！
-10:30 集合・受付
-11:00 そば打ちデモンストレーション＆解説
-12:30 調理・茹で方の解説
-13:00 試食会
-14:00 解散 / 16:00 広間にて交流（自由参加）
-宿泊希望の方は明治温泉公式LINEよりご予約可能です♨️
+DESCRIPTION:農業／農家普及活動イベント第1弾！\n農家でありそば打ち職人の方が生で披露し体験もできる！二八そばをみんなで美味しく堪能！\n10:30 集合・受付\n11:00 そば打ちデモンストレーション＆解説\n12:30 調理・茹で方の解説\n13:00 試食会\n14:00 解散 / 16:00 広間にて交流（自由参加）\n宿泊希望の方は明治温泉公式LINEよりご予約可能です♨️
 LOCATION:山の宿 明治温泉／食堂（長野県茅野市豊平4734）
+URL:https://lin.ee/ng9Xhsn
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261119-kochi-omusubi@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261119T113000
 DTEND;TZID=Asia/Tokyo:20261119T133000
 SUMMARY:親子で楽しく 軸が整うおむすび会
-DESCRIPTION:愛情たっぷりの高知のお米を使った『軸が整うおむすび会』を開催します❣️
-元保育園の園庭・室内でのびのび過ごせます。遊びながらママはゆっくりおむすび時間♡
-
-【スケジュール】
-1. ご挨拶
-2. 美味しいご飯の炊き方
-3. みんなでおむすび作り
-4. わくわくのおむすび実験
-5. 食事を楽しむ
-
-【献立】
-★ 無農薬米おむすび
-★ 無農薬野菜お漬物
-★ 無農薬野菜のお味噌汁
-
-おむすびを結びながら、心と身体をゆるめ、自分自身の軸が整っていくような特別な感覚を体験してみてください✨
-お子さまからご年配の方までどなたでもご参加いただけます！
-お問い合わせ: 公式LINE https://line.me/R/ti/p/@324cghvb
+DESCRIPTION:愛情たっぷりの高知のお米を使った『軸が整うおむすび会』を開催します❣️\n元保育園の園庭・室内でのびのび過ごせます。遊びながらママはゆっくりおむすび時間♡\n\n【スケジュール】\n1. ご挨拶\n2. 美味しいご飯の炊き方\n3. みんなでおむすび作り\n4. わくわくのおむすび実験\n5. 食事を楽しむ\n\n【献立】\n★ 無農薬米おむすび\n★ 無農薬野菜お漬物\n★ 無農薬野菜のお味噌汁\n\nおむすびを結びながら、心と身体をゆるめ、自分自身の軸が整っていくような特別な感覚を体験してみてください✨\nお子さまからご年配の方までどなたでもご参加いただけます！\nお問い合わせ: 公式LINE https://line.me/R/ti/p/@324cghvb
 LOCATION:一時預かり専門託児所 憩い〜ikoi〜（よりみちテラス内 / 〒781-0262 高知県高知市浦戸528-1 駐車場あり）
+URL:https://line.me/R/ti/p/@324cghvb
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261119-joukiyeki-3@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261119T210000
 DTEND;TZID=Asia/Tokyo:20261119T220000
 SUMMARY:美容事業 上清液セールストーク勉強会
-DESCRIPTION:⚫11/19（木）21:00〜22:00
-上清液セールストーク 他製品との違い・伝え方の実践セミナーです。
+DESCRIPTION:⚫11/19（木）21:00〜22:00\n上清液セールストーク 他製品との違い・伝え方の実践セミナーです。
 LOCATION:Zoom オンライン
 URL:https://us06web.zoom.us/j/3225518128?pwd=sckjacS9yVFmD6cPMlz6xsz0Hg2HpU.1&omn=85457501076
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261202-xmas-party@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261202T114500
 DTEND;TZID=Asia/Tokyo:20261202T143000
 SUMMARY:NEO託児 LITTLE CHRISTMAS PARTY 2026
-DESCRIPTION:大人も子どもも楽しむ特別なクリスマスパーティー！
-公式LINEのリッチメニュー「クリスマスパーティー託児のお申し込みはこちら」より専用フォームにてお申し込みください🎄🎅
+DESCRIPTION:大人も子どもも楽しむ特別なクリスマスパーティー！\n公式LINEのリッチメニュー「クリスマスパーティー託児のお申し込みはこちら」より専用フォームにてお申し込みください🎄🎅
 LOCATION:ハイアット リージェンシー 東京（東京都新宿区西新宿2丁目7-2）
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261204-mohatsu-3@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20261204T210000
 DTEND;TZID=Asia/Tokyo:20261204T220000
 SUMMARY:ネオ会員限定・無料オンラインセミナー「毛髪について」第3回
@@ -967,13 +506,11 @@ URL:https://us06web.zoom.us/j/84430427414?pwd=qWAuDlRpSpZusd16LGaawgD4tNUeVs.1
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20270105-nagoya-teirei@neofamily.jp
-DTSTAMP:20261024T235147Z
+DTSTAMP:20261025T011751Z
 DTSTART;TZID=Asia/Tokyo:20270105T130000
 DTEND;TZID=Asia/Tokyo:20270105T160000
 SUMMARY:🏯 NEO FAMILY 1月 名古屋定例会
-DESCRIPTION:【2027年 年明け最初の定例会は名古屋で開催決定！】
-新年の熱量を浴びる1月定例会は、1月5日（火）に名古屋にて開催いたします🔥
-新年一発目の熱量と最新情報を掴みに、ぜひ名古屋会場またはオンライン（Zoom）でご参加ください。今からスケジュールを確保しておきましょう！
+DESCRIPTION:【2027年 年明け最初の定例会は名古屋で開催決定！】\n新年の熱量を浴びる1月定例会は、1月5日（火）に名古屋にて開催いたします🔥\n新年一発目の熱量と最新情報を掴みに、ぜひ名古屋会場またはオンライン（Zoom）でご参加ください。今からスケジュールを確保しておきましょう！
 LOCATION:名古屋市内 会場 / Zoom配信
 END:VEVENT
 END:VCALENDAR
