@@ -106,6 +106,7 @@
       scroll-behavior: smooth;
     }
   </style>
+
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-rose-500 selection:text-white pb-20">
 
@@ -137,7 +138,7 @@
             <span>Iyasaka宮</span>
             <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-amber-500"></i>
           </a>
-          <a href="flowchart" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-50 text-amber-800 border border-amber-300/60 hover:bg-amber-100 transition shadow-2xs">
+          <a href="flowchart.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-50 text-amber-800 border border-amber-300/60 hover:bg-amber-100 transition shadow-2xs">
             <i class="fa-solid fa-arrows-split-up-and-left text-amber-600"></i>
             <span>参加フロー</span>
           </a>
@@ -153,27 +154,27 @@
           <i class="fa-solid fa-compass"></i>
           <span>総合ポータル</span>
         </a>
-        <a href="flowchart" id="nav-item-flowchart" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+        <a href="flowchart.html" id="nav-item-flowchart" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-solid fa-arrows-split-up-and-left text-amber-500"></i>
           <span>参加フローチャート</span>
         </a>
-        <a href="raytus" id="nav-item-raytus" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 bg-slate-900 text-white shadow-xs">
+        <a href="raytus.html" id="nav-item-raytus" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 bg-slate-900 text-white shadow-xs">
           <i class="fa-solid fa-globe text-slate-400"></i>
           <span>RAYTUS 全事業</span>
         </a>
-        <a href="calendar" id="nav-item-calendar" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+        <a href="calendar.html" id="nav-item-calendar" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-regular fa-calendar-days text-rose-500"></i>
           <span>イベントカレンダー</span>
         </a>
-        <a href="caravan" id="nav-item-caravan" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+        <a href="caravan.html" id="nav-item-caravan" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-solid fa-bullhorn text-rose-500"></i>
           <span>会長トークショー</span>
         </a>
-        <a href="archive" id="nav-item-archive" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+        <a href="archive.html" id="nav-item-archive" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-solid fa-graduation-cap text-indigo-500"></i>
           <span>勉強会アーカイブ</span>
         </a>
-        <a href="sns" id="nav-item-sns" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+        <a href="sns.html" id="nav-item-sns" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-solid fa-share-nodes text-pink-500"></i>
           <span>公式SNS</span>
         </a>
@@ -216,89 +217,127 @@
 
 
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-<!-- TAB 2: RAYTUS group 公式HP & 全事業紹介・アーカイブ (RAYTUS) -->
+<!-- TAB 2: RAYTUS group 全31事業紹介 & データベース（ライトテーマ統一） -->
     <!-- ======================================================== -->
-    <div id="tab-content-raytus" class="tab-content active space-y-12">
-      
-      <!-- RAYTUS 公式ページ コンテナ（本家の公式Webデザイン・世界観を完全再現） -->
-      <div class="bg-[#0b0f17] text-white rounded-3xl overflow-hidden border border-slate-800 shadow-2xl relative font-zen">
-        
+    <div id="tab-content-raytus" class="tab-content active space-y-8">
+
+      <div class="relative">
+
         <!-- ============================================== -->
-        <!-- 本家トップ ヒーローセクション（本家公式ビジュアル＆動画） -->
+        <!-- RAYTUS トップヒーロー ＆ 目次（クイックジャンプ） -->
         <!-- ============================================== -->
-        <div class="relative min-h-[580px] lg:min-h-[640px] flex flex-col justify-between p-6 sm:p-10 lg:p-14 overflow-hidden bg-[#0b0f17]">
+        <div id="raytus-hero-section" class="relative bg-white/95 backdrop-blur-md rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs p-6 sm:p-10 lg:p-12 mb-8">
           
-          <!-- 右側シネマティック動画 & 写真 (本家クリア表示) -->
-          <div class="absolute right-0 top-0 bottom-0 w-full lg:w-[48%] overflow-hidden pointer-events-none z-0">
-            <video class="w-full h-full object-cover opacity-75 lg:opacity-100" playsinline loop autoplay muted src="https://raytus-group.com/wp-content/themes/raytus-theme/video/1130-2.mp4" poster="images/raytus-top-hero.jpg"></video>
-            <!-- 左端と下端の自然なフェード（写真の中央〜右側は完全にクリア） -->
-            <div class="absolute inset-y-0 left-0 w-24 sm:w-36 bg-gradient-to-r from-[#0b0f17] to-transparent"></div>
-            <div class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#0b0f17] to-transparent"></div>
-          </div>
+          <!-- 背景装飾（上品なゴールド・アンバーのグラデーション） -->
+          <div class="absolute inset-0 bg-gradient-to-br from-amber-50/70 via-white to-slate-50/80 pointer-events-none"></div>
+          <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-amber-200/20 blur-3xl pointer-events-none"></div>
 
-
-
-          <!-- メインコンテンツ（左側ナビ ＆ 中央縦書きコピー） -->
-          <div class="relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center my-auto">
+          <!-- メインコンテンツ -->
+          <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
-            <!-- 左側: 公式ロゴ & 本家ナビゲーションリスト (7項目) -->
+            <!-- 左側: 公式ロゴ & 洗練された目次ナビゲーション -->
             <div class="lg:col-span-7 space-y-6">
               
-              <!-- 公式ロゴ -->
-              <div class="max-w-[260px] sm:max-w-[300px]">
-                <img src="images/raytus_logo.png" alt="RAYTUS Logo" class="w-full object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">
+              <!-- 公式ロゴ & キャッチコピー -->
+              <div class="space-y-2">
+                <div class="max-w-[260px] sm:max-w-[300px]">
+                  <img src="images/raytus_logo.png" alt="RAYTUS Logo" class="w-full object-contain filter drop-shadow-xs">
+                </div>
+                <p class="text-xs sm:text-sm font-serif text-amber-800/90 font-medium tracking-wider">
+                  仲間の未来の夢をプロデュースするコミュニティ RAYTUS group.
+                </p>
               </div>
 
-              <!-- 本家公式スタイルの下線付きナビゲーション -->
-              <nav class="max-w-md space-y-1.5 pt-2">
-                <a onclick="scrollToSection('raytus-about-section')" class="raytus-nav-link group">
-                  <span class="raytus-nav-en text-white group-hover:text-amber-300">ABOUT</span>
-                  <span class="raytus-nav-ja text-slate-400 group-hover:text-amber-200">企業情報</span>
-                </a>
-                <a onclick="scrollToSection('raytus-services-section')" class="raytus-nav-link group">
-                  <span class="raytus-nav-en text-white group-hover:text-amber-300">SERVICE</span>
-                  <span class="raytus-nav-ja text-slate-400 group-hover:text-amber-200">事業内容（31事業 & 動画）</span>
-                </a>
-                <a onclick="scrollToSection('raytus-community-section')" class="raytus-nav-link group">
-                  <span class="raytus-nav-en text-white group-hover:text-amber-300">COMMUNITY</span>
-                  <span class="raytus-nav-ja text-slate-400 group-hover:text-amber-200">グループコミュニティ</span>
-                </a>
-                <a onclick="scrollToSection('raytus-shop-section')" class="raytus-nav-link group">
-                  <span class="raytus-nav-en text-white group-hover:text-amber-300">SHOP</span>
-                  <span class="raytus-nav-ja text-slate-400 group-hover:text-amber-200">加盟店紹介（全85店）</span>
-                </a>
-                <a onclick="scrollToSection('raytus-news-section')" class="raytus-nav-link group">
-                  <span class="raytus-nav-en text-white group-hover:text-amber-300">NEWS RELEASE</span>
-                  <span class="raytus-nav-ja text-slate-400 group-hover:text-amber-200">お知らせ</span>
-                </a>
-                <a onclick="scrollToSection('raytus-blog-section')" class="raytus-nav-link group">
-                  <span class="raytus-nav-en text-white group-hover:text-amber-300">BLOG</span>
-                  <span class="raytus-nav-ja text-slate-400 group-hover:text-amber-200">ブログ・活動レポート</span>
-                </a>
-                <a href="https://www.instagram.com/raytus_group.official" target="_blank" class="raytus-nav-link group">
-                  <span class="raytus-nav-en text-white group-hover:text-amber-300">INSTAGRAM</span>
-                  <span class="raytus-nav-ja text-slate-400 group-hover:text-amber-200">インスタグラム <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1"></i></span>
-                </a>
-              </nav>
+              <!-- 目次（クイックジャンプ）: 必要な4項目に厳選 -->
+              <div class="pt-2">
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                  <span class="text-xs font-bold text-slate-700 tracking-wider font-zen">目次 / クイックジャンプ</span>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-w-lg">
+                  <!-- 1. SERVICE -->
+                  <a onclick="scrollToSection('raytus-services-section')" class="flex items-center justify-between p-3.5 rounded-2xl bg-amber-50/50 hover:bg-amber-100/70 border border-amber-200/70 transition shadow-2xs group cursor-pointer">
+                    <div class="flex items-center gap-3">
+                      <div class="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-700 flex items-center justify-center font-bold text-sm group-hover:scale-105 transition">
+                        <i class="fa-solid fa-shapes"></i>
+                      </div>
+                      <div>
+                        <span class="block text-xs font-serif font-bold text-amber-950 group-hover:text-amber-800 transition">SERVICE</span>
+                        <span class="block text-[11px] text-slate-600 font-medium">事業内容（31事業 & 動画）</span>
+                      </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-down text-xs text-amber-500 group-hover:translate-y-0.5 transition pr-1"></i>
+                  </a>
 
-              <!-- 本家公式 2大プロジェクトバナー -->
+                  <!-- 2. COMMUNITY -->
+                  <a onclick="scrollToSection('raytus-community-section')" class="flex items-center justify-between p-3.5 rounded-2xl bg-amber-50/50 hover:bg-amber-100/70 border border-amber-200/70 transition shadow-2xs group cursor-pointer">
+                    <div class="flex items-center gap-3">
+                      <div class="w-9 h-9 rounded-xl bg-purple-500/10 text-purple-700 flex items-center justify-center font-bold text-sm group-hover:scale-105 transition">
+                        <i class="fa-solid fa-users"></i>
+                      </div>
+                      <div>
+                        <span class="block text-xs font-serif font-bold text-amber-950 group-hover:text-amber-800 transition">COMMUNITY</span>
+                        <span class="block text-[11px] text-slate-600 font-medium">グループコミュニティ</span>
+                      </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-down text-xs text-amber-500 group-hover:translate-y-0.5 transition pr-1"></i>
+                  </a>
+
+                  <!-- 3. PROJECTS -->
+                  <a onclick="scrollToSection('raytus-projects-section')" class="flex items-center justify-between p-3.5 rounded-2xl bg-amber-50/50 hover:bg-amber-100/70 border border-amber-200/70 transition shadow-2xs group cursor-pointer">
+                    <div class="flex items-center gap-3">
+                      <div class="w-9 h-9 rounded-xl bg-blue-500/10 text-blue-700 flex items-center justify-center font-bold text-sm group-hover:scale-105 transition">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                      </div>
+                      <div>
+                        <span class="block text-xs font-serif font-bold text-amber-950 group-hover:text-amber-800 transition">PROJECTS</span>
+                        <span class="block text-[11px] text-slate-600 font-medium">2大未来創造プロジェクト</span>
+                      </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-down text-xs text-amber-500 group-hover:translate-y-0.5 transition pr-1"></i>
+                  </a>
+
+                  <!-- 4. SHOP -->
+                  <a onclick="scrollToSection('raytus-shop-section')" class="flex items-center justify-between p-3.5 rounded-2xl bg-amber-50/50 hover:bg-amber-100/70 border border-amber-200/70 transition shadow-2xs group cursor-pointer">
+                    <div class="flex items-center gap-3">
+                      <div class="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-700 flex items-center justify-center font-bold text-sm group-hover:scale-105 transition">
+                        <i class="fa-solid fa-store"></i>
+                      </div>
+                      <div>
+                        <span class="block text-xs font-serif font-bold text-amber-950 group-hover:text-amber-800 transition">SHOP</span>
+                        <span class="block text-[11px] text-slate-600 font-medium">加盟店紹介（全85店）</span>
+                      </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-down text-xs text-amber-500 group-hover:translate-y-0.5 transition pr-1"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- 2大プロジェクトバナー -->
               <div class="pt-2 max-w-lg grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <a href="https://raytus-group.com/news/2026/10/08/terakoya-open-hofu-2027/" target="_blank" class="group block rounded-xl overflow-hidden border border-slate-700/80 hover:border-amber-400 transition shadow-lg bg-slate-900/60">
-                  <img src="images/banners-raytus-terakoya.jpg" alt="寺子屋プロジェクト" class="w-full h-auto object-cover group-hover:opacity-85 transition">
+                <a href="https://raytus-group.com/news/2026/10/08/terakoya-open-hofu-2027/" target="_blank" class="group block rounded-xl overflow-hidden border border-slate-200 hover:border-amber-400 transition shadow-xs bg-white">
+                  <img src="images/banners-raytus-terakoya.jpg" alt="寺子屋プロジェクト" class="w-full h-auto object-cover group-hover:opacity-90 transition">
                 </a>
-                <a href="https://raytus-group.com/news/2026/10/08/basta-school-building-construction-project/" target="_blank" class="group block rounded-xl overflow-hidden border border-slate-700/80 hover:border-amber-400 transition shadow-lg bg-slate-900/60">
-                  <img src="images/banners-raytus-basta.jpg" alt="バスタ高校 新校舎建設プロジェクト" class="w-full h-auto object-cover group-hover:opacity-85 transition">
+                <a href="https://raytus-group.com/news/2026/10/08/basta-school-building-construction-project/" target="_blank" class="group block rounded-xl overflow-hidden border border-slate-200 hover:border-amber-400 transition shadow-xs bg-white">
+                  <img src="images/banners-raytus-basta.jpg" alt="バスタ高校 新校舎建設プロジェクト" class="w-full h-auto object-cover group-hover:opacity-90 transition">
                 </a>
               </div>
 
             </div>
 
-            <!-- 中央〜右側: ボックス枠を撤去し、写真を遮らないクリアな縦書きコピー -->
-            <div class="lg:col-span-5 flex justify-center lg:justify-start pointer-events-none py-6 lg:py-0">
-              <div class="raytus-vertical-text text-xl sm:text-2xl lg:text-3xl font-light text-white select-none drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
-                <p class="tracking-widest drop-shadow-md">あなたの人生に</p>
-                <p class="mt-4 tracking-widest drop-shadow-md"><span class="text-amber-300 font-normal">光（RAY）</span>を<span class="text-amber-300 font-normal">足す（TUS）</span>。</p>
-                <p class="mt-6 text-xs text-slate-300 tracking-normal font-sans drop-shadow-md" style="writing-mode: horizontal-tb;">仲間の未来の夢をプロデュースするコミュニティ RAYTUS group.</p>
+            <!-- 右側: 縦書き理念コピー -->
+            <div class="lg:col-span-5 flex justify-center lg:justify-end py-4 lg:py-0">
+              <div class="bg-gradient-to-b from-amber-50/90 to-white/90 border border-amber-200/60 rounded-3xl p-6 sm:p-8 shadow-xs flex items-center gap-6">
+                <div class="raytus-vertical-text text-xl sm:text-2xl font-light text-slate-800 select-none">
+                  <p class="tracking-widest font-serif">あなたの人生に</p>
+                  <p class="mt-4 tracking-widest font-serif"><span class="text-amber-600 font-bold">光（RAY）</span>を<span class="text-amber-600 font-bold">足す（TUS）</span>。</p>
+                </div>
+                <div class="h-44 w-[1px] bg-amber-200/80"></div>
+                <div class="text-xs text-slate-600 font-serif space-y-2 max-w-[160px] leading-relaxed">
+                  <p class="font-bold text-amber-900">RAYTUS group.</p>
+                  <p>一人ひとりの心に秘めた想いや才能を最短で引き出し、セカンドキャリアをプロデュース。</p>
+                </div>
               </div>
             </div>
 
@@ -307,9 +346,9 @@
         </div>
 
         <!-- ============================================== -->
-        <!-- SERVICE セクション（本家デザイン完全再現 ＋ 31事業・動画アーカイブ） -->
+        <!-- SERVICE セクション（31事業・動画アーカイブ・ライトテーマ） -->
         <!-- ============================================== -->
-        <div id="raytus-services-section" class="p-6 sm:p-10 lg:p-14 border-t border-slate-800 bg-[#0d1118]">
+        <div id="raytus-services-section" class="bg-white rounded-3xl border border-slate-200/80 shadow-xs p-6 sm:p-10 lg:p-12 mb-8">
           
           <!-- 本家 sec-head 見出し -->
           <div class="raytus-sec-head">
@@ -318,178 +357,58 @@
           </div>
 
           <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
-            <p class="text-xs sm:text-sm text-slate-400 font-serif leading-relaxed">
+            <p class="text-xs sm:text-sm text-slate-500 font-serif leading-relaxed">
               ※事業名を押すと詳しい内容をご覧いただけます。<br class="hidden sm:inline">
               Notion公式に収録された紹介動画（YouTube）もその場で再生・確認できます。
             </p>
             
             <!-- 検索入力 -->
             <div class="relative w-full md:w-80 shrink-0">
-              <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
-              <input type="text" id="raytus-service-search" oninput="filterRaytusServices()" placeholder="事業名・責任者・キーワード検索..." class="w-full pl-9 pr-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition">
+              <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+              <input type="text" id="raytus-service-search" oninput="filterRaytusServices()" placeholder="事業名・責任者・キーワード検索..." class="w-full pl-9 pr-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white transition">
             </div>
           </div>
 
           <!-- カテゴリ分類 切り替えピルバー (5大グループ) -->
           <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-3 mb-8 text-xs font-bold">
-            <button onclick="setRaytusCategory('all')" id="raytus-cat-all" class="raytus-cat-btn px-4 py-2 rounded-xl transition bg-amber-400 text-slate-950 shadow-md whitespace-nowrap font-zen">
+            <button onclick="setRaytusCategory('all')" id="raytus-cat-all" class="raytus-cat-btn px-3.5 sm:px-4 py-2 rounded-xl transition bg-amber-500 text-slate-950 font-black shadow-xs border border-amber-500 whitespace-nowrap font-zen">
               🌟 すべて表示 (<span id="count-all">31</span>)
             </button>
-            <button onclick="setRaytusCategory('care')" id="raytus-cat-care" class="raytus-cat-btn px-4 py-2 rounded-xl transition bg-slate-900 text-slate-300 hover:text-white border border-slate-800 hover:border-slate-700 whitespace-nowrap font-zen">
+            <button onclick="setRaytusCategory('care')" id="raytus-cat-care" class="raytus-cat-btn px-3.5 sm:px-4 py-2 rounded-xl transition bg-white text-slate-600 hover:text-slate-900 border border-slate-200 hover:bg-slate-50 shadow-2xs whitespace-nowrap font-zen">
               👶 子育て・女性・ファミリー (<span id="count-care">5</span>)
             </button>
-            <button onclick="setRaytusCategory('food')" id="raytus-cat-food" class="raytus-cat-btn px-4 py-2 rounded-xl transition bg-slate-900 text-slate-300 hover:text-white border border-slate-800 hover:border-slate-700 whitespace-nowrap font-zen">
+            <button onclick="setRaytusCategory('food')" id="raytus-cat-food" class="raytus-cat-btn px-3.5 sm:px-4 py-2 rounded-xl transition bg-white text-slate-600 hover:text-slate-900 border border-slate-200 hover:bg-slate-50 shadow-2xs whitespace-nowrap font-zen">
               🍙 食・農業・ウェルネス (<span id="count-food">4</span>)
             </button>
-            <button onclick="setRaytusCategory('beauty')" id="raytus-cat-beauty" class="raytus-cat-btn px-4 py-2 rounded-xl transition bg-slate-900 text-slate-300 hover:text-white border border-slate-800 hover:border-slate-700 whitespace-nowrap font-zen">
+            <button onclick="setRaytusCategory('beauty')" id="raytus-cat-beauty" class="raytus-cat-btn px-3.5 sm:px-4 py-2 rounded-xl transition bg-white text-slate-600 hover:text-slate-900 border border-slate-200 hover:bg-slate-50 shadow-2xs whitespace-nowrap font-zen">
               💄 美容・ジュエリー・フェムケア (<span id="count-beauty">5</span>)
             </button>
-            <button onclick="setRaytusCategory('life')" id="raytus-cat-life" class="raytus-cat-btn px-4 py-2 rounded-xl transition bg-slate-900 text-slate-300 hover:text-white border border-slate-800 hover:border-slate-700 whitespace-nowrap font-zen">
+            <button onclick="setRaytusCategory('life')" id="raytus-cat-life" class="raytus-cat-btn px-3.5 sm:px-4 py-2 rounded-xl transition bg-white text-slate-600 hover:text-slate-900 border border-slate-200 hover:bg-slate-50 shadow-2xs whitespace-nowrap font-zen">
               🤝 暮らし・シニア・パートナー (<span id="count-life">7</span>)
             </button>
-            <button onclick="setRaytusCategory('business')" id="raytus-cat-business" class="raytus-cat-btn px-4 py-2 rounded-xl transition bg-slate-900 text-slate-300 hover:text-white border border-slate-800 hover:border-slate-700 whitespace-nowrap font-zen">
-              💼 ビジネス・事務・クリエイティブ (<span id="count-business">10</span>)
+            <button onclick="setRaytusCategory('business')" id="raytus-cat-business" class="raytus-cat-btn px-3.5 sm:px-4 py-2 rounded-xl transition bg-white text-slate-600 hover:text-slate-900 border border-slate-200 hover:bg-slate-50 shadow-2xs whitespace-nowrap font-zen">
+              💼 ビジネス・事務・制作 (<span id="count-business">10</span>)
             </button>
           </div>
 
-          <!-- 事業カード グリッド（JavaScriptで動的生成：本家 sec-service__list-item 仕様） -->
+          <!-- 31事業 カードグリッド -->
           <div id="raytus-services-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Injected via renderRaytusServices() -->
+            <!-- JavaScriptで動的生成 -->
           </div>
 
-          <!-- 0件ヒット時のプレースホルダー -->
-          <div id="raytus-no-results" class="hidden py-16 text-center border border-slate-800 rounded-3xl bg-slate-900/50">
-            <i class="fa-solid fa-shapes text-3xl text-slate-600 mb-3"></i>
-            <h4 class="text-sm font-bold text-slate-300 font-zen">該当する事業が見つかりませんでした</h4>
-            <p class="text-xs text-slate-500 mt-1 font-zen">検索条件を変更するか、カテゴリーを「すべて表示」に戻してください。</p>
-            <button onclick="setRaytusCategory('all'); document.getElementById('raytus-service-search').value = ''; filterRaytusServices();" class="mt-4 px-4 py-2 rounded-xl bg-amber-400 text-slate-950 text-xs font-bold font-zen">
-              条件をリセット
-            </button>
+          <!-- 検索該当なしメッセージ -->
+          <div id="raytus-no-results" class="hidden py-16 text-center border border-slate-200 rounded-3xl bg-slate-50">
+            <i class="fa-solid fa-magnifying-glass text-3xl text-slate-300 mb-3"></i>
+            <p class="text-sm font-bold text-slate-600 font-zen">該当する事業が見つかりませんでした</p>
+            <p class="text-xs text-slate-400 mt-1 font-zen">キーワードやカテゴリを変更してお試しください</p>
           </div>
 
         </div>
 
         <!-- ============================================== -->
-        <!-- ABOUT セクション（本家デザイン完全再現：理念・代表挨拶・概要） -->
+        <!-- COMMUNITY セクション（グループコミュニティ一覧・ライトテーマ） -->
         <!-- ============================================== -->
-        <div id="raytus-about-section" class="p-6 sm:p-10 lg:p-14 border-t border-slate-800 bg-[#0b0f17]">
-          
-          <!-- 本家 sec-head 見出し -->
-          <div class="raytus-sec-head">
-            <p class="raytus-sec-head__en">ABOUT</p>
-            <h3 class="raytus-sec-head__ja">私たちの思い</h3>
-          </div>
-
-          <!-- 本家 sec-vision 文面 -->
-          <div class="max-w-4xl mx-auto my-12 text-center space-y-6">
-            <p class="text-base sm:text-lg text-slate-200 font-zen leading-loose">
-              一人ひとりの心に秘めた想いや才能を最短で引き出し、<br class="hidden sm:inline">
-              あなたのセカンドキャリアをプロデュースいたします。
-            </p>
-            <p class="text-base sm:text-lg text-slate-200 font-zen leading-loose">
-              古き良き時代(アナログ)を大切に、実業は最先端(デジタル)を活用し、<br class="hidden sm:inline">
-              活動支援、経済的自立、社会貢献を実現します。
-            </p>
-            <p class="text-base sm:text-lg text-slate-200 font-zen leading-loose">
-              あなたの人生に、<span class="text-amber-300 font-bold">光(RAY)</span>を<span class="text-amber-300 font-bold">足す(TUS)</span>。その光で世界を照らし輝かす。<br class="hidden sm:inline">
-              そんな想いで活動する団体です。
-            </p>
-            <div class="pt-6 flex justify-center">
-              <img src="images/raytus_logo.png" alt="RAYTUS ロゴ" class="h-10 opacity-70">
-            </div>
-          </div>
-
-          <!-- 代表挨拶ブロック（本家 sec-about 完全再現） -->
-          <div class="max-w-5xl mx-auto my-16 bg-[#121824] rounded-3xl p-6 sm:p-10 lg:p-12 border border-slate-800 shadow-xl">
-            <div class="text-left mb-8 border-b border-slate-800 pb-4">
-              <span class="text-xs font-zen font-bold tracking-widest text-amber-400 uppercase">MESSAGE</span>
-              <h4 class="text-2xl sm:text-3xl font-zen font-bold text-white mt-1">代表挨拶</h4>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-start">
-              <!-- 代表写真 -->
-              <div class="md:col-span-5 flex flex-col items-center">
-                <div class="rounded-2xl overflow-hidden border border-slate-700/80 shadow-2xl max-w-sm w-full bg-slate-900">
-                  <img src="images/kusanagi_face.jpg" onerror="this.src='https://raytus-group.com/wp-content/themes/raytus-theme/image/about-image.jpg'" alt="RAYTUS group.代表 草彅亜希" class="w-full h-auto object-cover">
-                </div>
-                <div class="mt-4 text-center">
-                  <p class="text-xs text-slate-400 font-zen">RAYTUS group. 代表理事 / 国連IDIO-DEVNET 理事</p>
-                  <p class="text-lg font-zen font-bold text-white mt-0.5 tracking-wider">草彅 亜希 <span class="text-xs text-amber-300 font-normal">Aki Kusanagi</span></p>
-                </div>
-              </div>
-
-              <!-- 代表メッセージ本文 -->
-              <div class="md:col-span-7 space-y-4 text-sm font-zen leading-relaxed text-slate-300">
-                <h5 class="text-lg sm:text-xl font-bold text-amber-300 font-zen pb-2">
-                  あなたの輝く人生のお手伝い
-                </h5>
-                <p>
-                  長く美容業界に勤めてきましたが、美しさとは、外見だけにとらわれない健康や心のあり方が大切だという信念を持ちました。<br>
-                  <strong class="text-white">輝く人生を描いて欲しい。</strong>
-                </p>
-                <p>
-                  私自身女性として、結婚や出産など、そのときのステージで制限がついたり諦めることもあり、そんな経験から、いくつからでも可能性は無限大、人生はどこからでも意思ひとつでリスタートできるのだと、チャレンジ精神に溢れた明るく前向きな人生を描く方を増やしたい思いで起業しました。
-                </p>
-                <p>
-                  皆さまの事業に、人生に、彩りと輝きを足していただけるよう、精一杯活動いたします。
-                </p>
-                
-                <div class="pt-4 border-t border-slate-800 text-right">
-                  <p class="text-xs text-slate-400">RAYTUS group.代表理事 国連IDIO-DEVNET 理事</p>
-                  <p class="text-xl font-serif tracking-widest text-white mt-1">Aki <span class="text-amber-400 font-normal">K</span>usanagi</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 企業概要（本家 sec-overview 完全再現） -->
-          <div class="max-w-4xl mx-auto my-12">
-            <h4 class="text-xl font-zen font-bold text-white mb-6 pl-3 border-l-4 border-amber-400">企業概要</h4>
-            <div class="bg-[#121824] rounded-2xl border border-slate-800 overflow-hidden text-xs sm:text-sm font-zen">
-              <dl class="divide-y divide-slate-800">
-                <div class="p-4 sm:grid sm:grid-cols-3 sm:gap-4 bg-slate-900/40">
-                  <dt class="font-bold text-amber-300">コミュニティ名</dt>
-                  <dd class="mt-1 sm:mt-0 sm:col-span-2 text-white">RAYTUS group.</dd>
-                </div>
-                <div class="p-4 sm:grid sm:grid-cols-3 sm:gap-4">
-                  <dt class="font-bold text-amber-300">設立</dt>
-                  <dd class="mt-1 sm:mt-0 sm:col-span-2 text-slate-300">2022年3月24日</dd>
-                </div>
-                <div class="p-4 sm:grid sm:grid-cols-3 sm:gap-4 bg-slate-900/40">
-                  <dt class="font-bold text-amber-300">代表</dt>
-                  <dd class="mt-1 sm:mt-0 sm:col-span-2 text-white">草彅 亜希</dd>
-                </div>
-                <div class="p-4 sm:grid sm:grid-cols-3 sm:gap-4">
-                  <dt class="font-bold text-amber-300">事業内容</dt>
-                  <dd class="mt-1 sm:mt-0 sm:col-span-2 text-slate-300 space-y-1">
-                    <p>1. コミュニティ運営</p>
-                    <p>2. コミュニティサイト、EC（電子商取引）サイト、ウェブサイトの企画、制作ならびに運営</p>
-                    <p>3. 各種イベント、講習会、セミナー、研修会等の企画、制作ならびに実施 他</p>
-                  </dd>
-                </div>
-                <div class="p-4 sm:grid sm:grid-cols-3 sm:gap-4 bg-slate-900/40">
-                  <dt class="font-bold text-amber-300">関連会社</dt>
-                  <dd class="mt-1 sm:mt-0 sm:col-span-2 text-slate-300">株式会社K-pays holdings</dd>
-                </div>
-                <div class="p-4 sm:grid sm:grid-cols-3 sm:gap-4">
-                  <dt class="font-bold text-amber-300">公式URL</dt>
-                  <dd class="mt-1 sm:mt-0 sm:col-span-2 text-slate-300">
-                    <a href="https://raytus-group.com" target="_blank" class="text-amber-400 hover:underline flex items-center gap-1">
-                      <span>https://raytus-group.com</span>
-                      <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                    </a>
-                  </dd>
-                </div>
-              </dl>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- ============================================== -->
-        <!-- COMMUNITY セクション（本家デザイン完全再現：グループコミュニティ一覧） -->
-        <!-- ============================================== -->
-        <div id="raytus-community-section" class="p-6 sm:p-10 lg:p-14 border-t border-slate-800 bg-[#0d1118]">
+        <div id="raytus-community-section" class="bg-white rounded-3xl border border-slate-200/80 shadow-xs p-6 sm:p-10 lg:p-12 mb-8">
           
           <!-- 本家 sec-head 見出し -->
           <div class="raytus-sec-head">
@@ -497,93 +416,93 @@
             <h3 class="raytus-sec-head__ja">グループコミュニティ</h3>
           </div>
 
-          <p class="text-xs sm:text-sm text-slate-400 font-serif leading-relaxed mb-8">
+          <p class="text-xs sm:text-sm text-slate-500 font-serif leading-relaxed mb-8">
             一人ひとりの才能や個性を最短で引き出し、セカンドキャリアを伴走するRAYTUSの多彩なチーム。
           </p>
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 font-zen">
             
             <!-- Community 1: RAYTUS -->
-            <div class="bg-[#141822] rounded-2xl p-6 border border-slate-800 hover:border-amber-400/60 transition shadow-lg flex flex-col justify-between">
+            <div class="bg-slate-50/70 rounded-2xl p-6 border border-slate-200/80 hover:border-amber-400 hover:bg-white hover:shadow-md transition shadow-2xs flex flex-col justify-between">
               <div>
-                <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold">母体・理念</span>
-                <h4 class="text-xl font-bold text-white mt-2">RAYTUS</h4>
-                <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 font-bold border border-amber-200/60">母体・理念</span>
+                <h4 class="text-xl font-bold text-slate-900 mt-2">RAYTUS</h4>
+                <p class="text-xs text-slate-600 mt-2 leading-relaxed">
                   一人ひとりの心に秘めた想いや才能を最短で引き出し、セカンドキャリアをプロデュース。古き良き時代のアナログを大切に、最先端デジタルを活用して経済的自立と社会貢献を実現します。
                 </p>
               </div>
-              <div class="mt-4 pt-4 border-t border-slate-800 text-xs text-slate-400">
-                <span>理事長: <strong class="text-white">草彅 亜希</strong></span>
+              <div class="mt-4 pt-4 border-t border-slate-200 text-xs text-slate-500">
+                <span>理事長: <strong class="text-slate-800">草彅 亜希</strong></span>
               </div>
             </div>
 
             <!-- Community 2: enchant+ -->
-            <div class="bg-[#141822] rounded-2xl p-6 border border-slate-800 hover:border-amber-400/60 transition shadow-lg flex flex-col justify-between">
+            <div class="bg-slate-50/70 rounded-2xl p-6 border border-slate-200/80 hover:border-purple-400 hover:bg-white hover:shadow-md transition shadow-2xs flex flex-col justify-between">
               <div>
-                <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 font-bold">クリエイティブ</span>
-                <h4 class="text-xl font-bold text-white mt-2">enchant+ (アンシャンテ)</h4>
-                <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-800 font-bold border border-purple-200/60">クリエイティブ</span>
+                <h4 class="text-xl font-bold text-slate-900 mt-2">enchant+ (アンシャンテ)</h4>
+                <p class="text-xs text-slate-600 mt-2 leading-relaxed">
                   「能力を付与する」、そしてフランス語で「出会ってくれてありがとう」。人を喜ばせ、魔法のように人々を魅了し続けていく共創チームです。
                 </p>
               </div>
-              <div class="mt-4 pt-4 border-t border-slate-800 text-xs text-slate-400">
-                <span>代表: <strong class="text-white">川野 弥生</strong></span>
+              <div class="mt-4 pt-4 border-t border-slate-200 text-xs text-slate-500">
+                <span>代表: <strong class="text-slate-800">川野 弥生</strong></span>
               </div>
             </div>
 
             <!-- Community 3: yuima-ru -->
-            <div class="bg-[#141822] rounded-2xl p-6 border border-slate-800 hover:border-amber-400/60 transition shadow-lg flex flex-col justify-between">
+            <div class="bg-slate-50/70 rounded-2xl p-6 border border-slate-200/80 hover:border-emerald-400 hover:bg-white hover:shadow-md transition shadow-2xs flex flex-col justify-between">
               <div>
-                <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold">共育・助け合い</span>
-                <h4 class="text-xl font-bold text-white mt-2">yuima-ru (ゆいまーる)</h4>
-                <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold border border-emerald-200/60">共育・助け合い</span>
+                <h4 class="text-xl font-bold text-slate-900 mt-2">yuima-ru (ゆいまーる)</h4>
+                <p class="text-xs text-slate-600 mt-2 leading-relaxed">
                   沖縄の方言「結い（協働・助け合い）」から名付けられたチーム。教育・共育・暮らしの中で互いに支え合い、誰もが居場所を持てる温かい連帯を創ります。
                 </p>
               </div>
-              <div class="mt-4 pt-4 border-t border-slate-800 text-xs text-slate-400">
-                <span>理事長: <strong class="text-white">畑 ゆかり</strong></span>
+              <div class="mt-4 pt-4 border-t border-slate-200 text-xs text-slate-500">
+                <span>理事長: <strong class="text-slate-800">畑 ゆかり</strong></span>
               </div>
             </div>
 
             <!-- Community 4: MAARUKU -->
-            <div class="bg-[#141822] rounded-2xl p-6 border border-slate-800 hover:border-amber-400/60 transition shadow-lg flex flex-col justify-between">
+            <div class="bg-slate-50/70 rounded-2xl p-6 border border-slate-200/80 hover:border-rose-400 hover:bg-white hover:shadow-md transition shadow-2xs flex flex-col justify-between">
               <div>
-                <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-300 font-bold">調和・円満</span>
-                <h4 class="text-xl font-bold text-white mt-2">MAARUKU (まあるく)</h4>
-                <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-                  角を立てず、すべての人が丸く円満に繋がり合えるコミュニティ。互いの個性を認め合い、心地よい循環を生み出す場を提供します。
+                <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-800 font-bold border border-rose-200/60">共創</span>
+                <h4 class="text-xl font-bold text-slate-900 mt-2">MAARUKU (まあるく)</h4>
+                <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                  人と人、事業と事業が丸くつながり、調和と発展を生み出すコミュニティ。多様なバックグラウンドを持つ仲間が集い、新たなシナジーを生み出します。
                 </p>
               </div>
-              <div class="mt-4 pt-4 border-t border-slate-800 text-xs text-slate-400">
-                <span>代表: <strong class="text-white">MAARUKU 運営チーム</strong></span>
+              <div class="mt-4 pt-4 border-t border-slate-200 text-xs text-slate-500">
+                <span>理事長: <strong class="text-slate-800">田上 順子</strong></span>
               </div>
             </div>
 
-            <!-- Community 5: Couleur -->
-            <div class="bg-[#141822] rounded-2xl p-6 border border-slate-800 hover:border-amber-400/60 transition shadow-lg flex flex-col justify-between">
+            <!-- Community 5: はるいろ -->
+            <div class="bg-slate-50/70 rounded-2xl p-6 border border-slate-200/80 hover:border-pink-400 hover:bg-white hover:shadow-md transition shadow-2xs flex flex-col justify-between">
               <div>
-                <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 font-bold">彩り・個性</span>
-                <h4 class="text-xl font-bold text-white mt-2">Couleur (クルール)</h4>
-                <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-                  フランス語で「彩り・色」。一人ひとりが自分だけの色（魅力）を発揮し、カラフルに世界を彩っていく女性・起業家コミュニティです。
+                <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-pink-100 text-pink-800 font-bold border border-pink-200/60">ぬくもり</span>
+                <h4 class="text-xl font-bold text-slate-900 mt-2">はるいろ</h4>
+                <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                  春のような温もりと優しさで、誰もが安心して自分の想いを表現できる場を提供。個々の歩みに寄り添いながら、彩り豊かな未来を育みます。
                 </p>
               </div>
-              <div class="mt-4 pt-4 border-t border-slate-800 text-xs text-slate-400">
-                <span>代表: <strong class="text-white">Couleur 運営チーム</strong></span>
+              <div class="mt-4 pt-4 border-t border-slate-200 text-xs text-slate-500">
+                <span>代表: <strong class="text-slate-800">長沼 ひとみ</strong></span>
               </div>
             </div>
 
             <!-- Community 6: Mimola -->
-            <div class="bg-[#141822] rounded-2xl p-6 border border-slate-800 hover:border-amber-400/60 transition shadow-lg flex flex-col justify-between">
+            <div class="bg-slate-50/70 rounded-2xl p-6 border border-slate-200/80 hover:border-blue-400 hover:bg-white hover:shadow-md transition shadow-2xs flex flex-col justify-between">
               <div>
-                <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold">サロン・ウェルネス</span>
-                <h4 class="text-xl font-bold text-white mt-2">Mimola (ミモラ)</h4>
-                <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-                  サロン運営やセラピストたちが知恵と技術を持ち寄り、学びと実践を深めるチーム。心身の美と癒やしを社会に届けています。
+                <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-800 font-bold border border-blue-200/60">未来創生</span>
+                <h4 class="text-xl font-bold text-slate-900 mt-2">Mimola (ミモラ)</h4>
+                <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                  新しい価値を創造し、次世代へとつなぐイノベーションコミュニティ。一人ひとりの可能性を解き放ち、持続可能な未来への挑戦を後押しします。
                 </p>
               </div>
-              <div class="mt-4 pt-4 border-t border-slate-800 text-xs text-slate-400">
-                <span>代表: <strong class="text-white">Mimola 運営チーム</strong></span>
+              <div class="mt-4 pt-4 border-t border-slate-200 text-xs text-slate-500">
+                <span>理事長: <strong class="text-slate-800">岩崎 由夏</strong></span>
               </div>
             </div>
 
@@ -592,9 +511,9 @@
         </div>
 
         <!-- ============================================== -->
-        <!-- PROJECTS セクション（本家デザイン完全再現：公式プロジェクト） -->
+        <!-- PROJECTS セクション（公式プロジェクト・ライトテーマ） -->
         <!-- ============================================== -->
-        <div id="raytus-projects-section" class="p-6 sm:p-10 lg:p-14 border-t border-slate-800 bg-[#0b0f17]">
+        <div id="raytus-projects-section" class="bg-white rounded-3xl border border-slate-200/80 shadow-xs p-6 sm:p-10 lg:p-12 mb-8">
           
           <!-- 本家 sec-head 見出し -->
           <div class="raytus-sec-head">
@@ -602,46 +521,50 @@
             <h3 class="raytus-sec-head__ja">次世代育成・未来創造プロジェクト</h3>
           </div>
 
-          <p class="text-xs sm:text-sm text-slate-400 font-serif leading-relaxed mb-8">
+          <p class="text-xs sm:text-sm text-slate-500 font-serif leading-relaxed mb-8">
             RAYTUS groupが全力で取り組む注目の教育・社会支援プロジェクト
           </p>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 font-zen">
             <!-- Project 1 -->
-            <div class="bg-[#121824] border border-slate-800 rounded-3xl overflow-hidden p-6 sm:p-8 flex flex-col justify-between group hover:border-amber-400/60 transition shadow-xl">
+            <div class="bg-slate-50/70 border border-slate-200/80 rounded-3xl overflow-hidden p-6 sm:p-8 flex flex-col justify-between group hover:border-amber-400 hover:bg-white hover:shadow-md transition shadow-2xs">
               <div>
-                <img src="images/banners-raytus-terakoya.jpg" alt="寺子屋プロジェクト" class="w-full h-52 object-cover rounded-2xl mb-5 group-hover:scale-[1.02] transition duration-300">
-                <span class="text-[10px] px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 font-bold">2027年開校予定</span>
-                <h4 class="text-xl font-bold text-white mt-3 group-hover:text-amber-300 transition">寺子屋プロジェクト 防府開校 2027</h4>
-                <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
+                <div class="overflow-hidden rounded-2xl mb-5 bg-slate-100">
+                  <img src="images/banners-raytus-terakoya.jpg" alt="寺子屋プロジェクト" class="w-full h-52 object-cover group-hover:scale-[1.02] transition duration-300">
+                </div>
+                <span class="text-[10px] px-3 py-1 rounded-full bg-amber-100 text-amber-800 font-bold border border-amber-200/60">2027年開校予定</span>
+                <h4 class="text-xl font-bold text-slate-900 mt-3 group-hover:text-amber-700 transition">寺子屋プロジェクト 防府開校 2027</h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
                   子供たちが自分の「好き」や「得意」を伸ばし、社会で生き抜く力を育む新たな学びの場。地域社会と連携しながら、山口県防府市に2027年開校を目指して建設・準備が進められています。
                 </p>
               </div>
-              <div class="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between">
-                <a href="https://raytus-group.com/news/2026/10/08/terakoya-open-hofu-2027/" target="_blank" class="text-xs font-bold text-amber-300 hover:text-amber-200 flex items-center gap-1.5">
+              <div class="mt-8 pt-4 border-t border-slate-200 flex items-center justify-between">
+                <a href="https://raytus-group.com/news/2026/10/08/terakoya-open-hofu-2027/" target="_blank" class="text-xs font-bold text-amber-700 hover:text-amber-800 flex items-center gap-1.5">
                   <span>詳細プロジェクト記事を見る</span>
                   <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                 </a>
-                <span class="text-xs text-slate-500">山口県防府市</span>
+                <span class="text-xs text-slate-400">山口県防府市</span>
               </div>
             </div>
 
             <!-- Project 2 -->
-            <div class="bg-[#121824] border border-slate-800 rounded-3xl overflow-hidden p-6 sm:p-8 flex flex-col justify-between group hover:border-blue-400/60 transition shadow-xl">
+            <div class="bg-slate-50/70 border border-slate-200/80 rounded-3xl overflow-hidden p-6 sm:p-8 flex flex-col justify-between group hover:border-blue-400 hover:bg-white hover:shadow-md transition shadow-2xs">
               <div>
-                <img src="images/banners-raytus-basta.jpg" alt="バスタ高校" class="w-full h-52 object-cover rounded-2xl mb-5 group-hover:scale-[1.02] transition duration-300">
-                <span class="text-[10px] px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 font-bold">新校舎建設</span>
-                <h4 class="text-xl font-bold text-white mt-3 group-hover:text-blue-300 transition">バスタ高校 新校舎建設プロジェクト</h4>
-                <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
+                <div class="overflow-hidden rounded-2xl mb-5 bg-slate-100">
+                  <img src="images/banners-raytus-basta.jpg" alt="バスタ高校" class="w-full h-52 object-cover group-hover:scale-[1.02] transition duration-300">
+                </div>
+                <span class="text-[10px] px-3 py-1 rounded-full bg-blue-100 text-blue-800 font-bold border border-blue-200/60">新校舎建設</span>
+                <h4 class="text-xl font-bold text-slate-900 mt-3 group-hover:text-blue-700 transition">バスタ高校 新校舎建設プロジェクト</h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
                   従来の教育の枠にとらわれず、生徒一人ひとりの個性を最大限に生かし自立を支援する学校創り。次世代のリーダーやクリエイターが育つ拠点として新校舎の建設が進んでいます。
                 </p>
               </div>
-              <div class="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between">
-                <a href="https://raytus-group.com/news/2026/10/08/basta-school-building-construction-project/" target="_blank" class="text-xs font-bold text-blue-300 hover:text-blue-200 flex items-center gap-1.5">
+              <div class="mt-8 pt-4 border-t border-slate-200 flex items-center justify-between">
+                <a href="https://raytus-group.com/news/2026/10/08/basta-school-building-construction-project/" target="_blank" class="text-xs font-bold text-blue-700 hover:text-blue-800 flex items-center gap-1.5">
                   <span>新校舎建設ニュースを見る</span>
                   <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                 </a>
-                <span class="text-xs text-slate-500">学校創造プロジェクト</span>
+                <span class="text-xs text-slate-400">学校創造プロジェクト</span>
               </div>
             </div>
           </div>
@@ -649,9 +572,9 @@
         </div>
 
         <!-- ============================================== -->
-        <!-- SHOP セクション（本家 加盟店紹介・全85店データベース） -->
+        <!-- SHOP セクション（加盟店紹介・全85店・ライトテーマ） -->
         <!-- ============================================== -->
-        <div id="raytus-shop-section" class="p-6 sm:p-10 lg:p-14 border-t border-slate-800 bg-[#0d1118]">
+        <div id="raytus-shop-section" class="bg-white rounded-3xl border border-slate-200/80 shadow-xs p-6 sm:p-10 lg:p-12 mb-8">
           
           <!-- 本家 sec-head 見出し -->
           <div class="raytus-sec-head">
@@ -661,24 +584,24 @@
 
           <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
             <div>
-              <p class="text-xs sm:text-sm text-slate-400 font-serif leading-relaxed">
-                RAYTUS group.に加盟している全国の店舗・サービス一覧（全<span id="raytus-shop-count" class="text-amber-400 font-bold font-mono">85</span>件）。<br class="hidden sm:inline">
+              <p class="text-xs sm:text-sm text-slate-500 font-serif leading-relaxed">
+                RAYTUS group.に加盟している全国の店舗・サービス一覧（全<span id="raytus-shop-count" class="text-amber-600 font-bold font-mono">85</span>件）。<br class="hidden sm:inline">
                 横にスクロールが可能です。行をタップすると各店舗の商品・詳細ページが開きます。
               </p>
             </div>
             
             <!-- 加盟店検索入力 -->
             <div class="relative w-full md:w-80 shrink-0">
-              <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
-              <input type="text" id="raytus-shop-search" oninput="renderRaytusShops()" placeholder="店舗名・代表者・商品・地域で検索..." class="w-full pl-9 pr-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition font-zen">
+              <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+              <input type="text" id="raytus-shop-search" oninput="renderRaytusShops()" placeholder="店舗名・代表者・商品・地域で検索..." class="w-full pl-9 pr-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white transition font-zen">
             </div>
           </div>
 
           <!-- 加盟店テーブル wrap -->
-          <div class="bg-[#121824] rounded-2xl border border-slate-800 overflow-hidden shadow-xl">
+          <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-2xs">
             <div class="overflow-x-auto max-h-[520px] overflow-y-auto">
               <table class="w-full text-left border-collapse text-xs sm:text-sm font-zen">
-                <thead class="bg-slate-900 text-amber-300 sticky top-0 z-10 border-b border-slate-800 shadow-xs">
+                <thead class="bg-slate-50 text-slate-700 font-bold sticky top-0 z-10 border-b border-slate-200 shadow-2xs">
                   <tr>
                     <th class="p-3.5 sm:p-4 font-bold whitespace-nowrap">店舗名・会社名</th>
                     <th class="p-3.5 sm:p-4 font-bold whitespace-nowrap">代表者名</th>
@@ -686,7 +609,7 @@
                     <th class="p-3.5 sm:p-4 font-bold whitespace-nowrap">所在地・エリア</th>
                   </tr>
                 </thead>
-                <tbody id="raytus-shop-tbody" class="divide-y divide-slate-800/60">
+                <tbody id="raytus-shop-tbody" class="divide-y divide-slate-100">
                   <!-- Injected via renderRaytusShops() -->
                 </tbody>
               </table>
@@ -695,7 +618,7 @@
 
           <div class="mt-4 flex items-center justify-between text-xs text-slate-500 font-zen">
             <span>※各加盟店へのご注文・お問い合わせはリンク先の商品ページより承ります</span>
-            <a href="https://raytus-group.com/shop/" target="_blank" class="text-amber-400 hover:underline flex items-center gap-1">
+            <a href="https://raytus-group.com/shop/" target="_blank" class="text-amber-700 hover:text-amber-800 font-bold flex items-center gap-1">
               <span>本家サイトで確認</span>
               <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
             </a>
@@ -703,103 +626,11 @@
 
         </div>
 
-        <!-- ============================================== -->
-        <!-- NEWS RELEASE セクション（本家 公式お知らせ一覧） -->
-        <!-- ============================================== -->
-        <div id="raytus-news-section" class="p-6 sm:p-10 lg:p-14 border-t border-slate-800 bg-[#0b0f17]">
-          
-          <!-- 本家 sec-head 見出し -->
-          <div class="raytus-sec-head">
-            <p class="raytus-sec-head__en">NEWS</p>
-            <h3 class="raytus-sec-head__ja">お知らせ</h3>
-          </div>
-
-          <p class="text-xs sm:text-sm text-slate-400 font-serif leading-relaxed mb-8">
-            RAYTUS group.の最新リリースやプロジェクト進行状況のご案内
-          </p>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 font-zen">
-            
-            <!-- News 1 -->
-            <a href="https://raytus-group.com/news/2026/10/08/terakoya-open-hofu-2027/" target="_blank" class="group bg-[#121824] rounded-2xl p-6 border border-slate-800 hover:border-amber-400/60 transition shadow-lg flex flex-col justify-between">
-              <div>
-                <div class="flex items-center justify-between text-xs mb-3">
-                  <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold text-[10px]">プロジェクト開校</span>
-                  <span class="text-slate-400 font-mono">2026.10.08</span>
-                </div>
-                <h4 class="text-base sm:text-lg font-bold text-white group-hover:text-amber-300 transition leading-snug">
-                  2027年春、山口県防府市台道に「寺子屋」がオープンします。
-                </h4>
-                <p class="text-xs text-slate-400 mt-2.5 leading-relaxed line-clamp-3">
-                  子供たちが自分の「好き」や「得意」を伸ばし、社会で生き抜く力を育む新たな学びの場。地域社会と連携しながら建設・準備が進められています。
-                </p>
-              </div>
-              <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold text-amber-400">
-                <span>詳細記事を見る</span>
-                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-              </div>
-            </a>
-
-            <!-- News 2 -->
-            <a href="https://raytus-group.com/news/2026/10/08/basta-school-building-construction-project/" target="_blank" class="group bg-[#121824] rounded-2xl p-6 border border-slate-800 hover:border-blue-400/60 transition shadow-lg flex flex-col justify-between">
-              <div>
-                <div class="flex items-center justify-between text-xs mb-3">
-                  <span class="px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-300 font-bold text-[10px]">国際支援・学校建設</span>
-                  <span class="text-slate-400 font-mono">2026.10.08</span>
-                </div>
-                <h4 class="text-base sm:text-lg font-bold text-white group-hover:text-blue-300 transition leading-snug">
-                  バングラデシュに学校を建てます。バスタ高校 新校舎建設プロジェクト
-                </h4>
-                <p class="text-xs text-slate-400 mt-2.5 leading-relaxed line-clamp-3">
-                  従来の教育の枠にとらわれず、生徒一人ひとりの個性を最大限に生かし自立を支援する学校創り。次世代のリーダーやクリエイターが育つ拠点として建設が進んでいます。
-                </p>
-              </div>
-              <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold text-blue-400">
-                <span>詳細記事を見る</span>
-                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-              </div>
-            </a>
-
-          </div>
-
-        </div>
-
-        <!-- ============================================== -->
-        <!-- BLOG セクション（本家 公式ブログ・イベントレポート） -->
-        <!-- ============================================== -->
-        <div id="raytus-blog-section" class="p-6 sm:p-10 lg:p-14 border-t border-slate-800 bg-[#0d1118]">
-          
-          <!-- 本家 sec-head 見出し -->
-          <div class="raytus-sec-head">
-            <p class="raytus-sec-head__en">BLOG</p>
-            <h3 class="raytus-sec-head__ja">公式ブログ・レポート</h3>
-          </div>
-
-          <p class="text-xs sm:text-sm text-slate-400 font-serif leading-relaxed mb-8">
-            コミュニティの熱気あふれるイベントレポートや、メンバーの挑戦のストーリーをお届けします。
-          </p>
-
-          <div id="raytus-blog-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 font-zen">
-            <!-- Injected via renderRaytusBlogs() -->
-          </div>
-
-        </div>
-
-        <!-- 本家フッター -->
-        <div class="p-6 sm:p-8 border-t border-slate-800/80 text-center text-xs text-slate-500 font-zen flex items-center justify-between flex-wrap gap-4 bg-[#080b11]">
-          <span>COPYRIGHT. RAYTUS® group. ALL RIGHTS RESERVED.</span>
-          <div class="flex items-center gap-6">
-            <a href="https://raytus-group.com" target="_blank" class="text-slate-400 hover:text-white transition">raytus-group.com</a>
-            <a href="https://raytus-group.com/privacy-policy/" target="_blank" class="text-slate-400 hover:text-white transition">プライバシーポリシー</a>
-          </div>
-        </div>
-
       </div>
+
     </div>
 
-
-
-        <!-- ======================================================== -->
+    <!-- ======================================================== -->
     
   </main>
 
@@ -1335,8 +1166,9 @@
       const container = document.getElementById('cart-items-container');
       const totalEl = document.getElementById('cart-total-price');
 
-      countEl1.textContent = cart.length;
-      countEl2.textContent = cart.length;
+      if (countEl1) countEl1.textContent = cart.length;
+      if (countEl2) countEl2.textContent = cart.length;
+      if (!container || !totalEl) return;
 
       if (cart.length === 0) {
         container.innerHTML = '<p class="text-xs text-slate-400 text-center py-6">カゴの中は空です</p>';
@@ -1415,7 +1247,7 @@
     }
 
     // ============================================
-    // RAYTUS Services Logic (Grouping, Filter, Modal)
+    // RAYTUS Services Logic (Grouping, Filter, Modal) - Light Theme
     // ============================================
     let currentRaytusCategory = 'all';
 
@@ -1428,14 +1260,14 @@
     };
 
     const CATEGORY_COLORS = {
-      care: 'bg-rose-500/20 text-rose-300 border border-rose-500/30',
-      food: 'bg-amber-500/20 text-amber-300 border border-amber-500/30',
-      beauty: 'bg-pink-500/20 text-pink-300 border border-pink-500/30',
-      life: 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30',
-      business: 'bg-blue-500/20 text-blue-300 border border-blue-500/30'
+      care: 'bg-rose-50 text-rose-700 border border-rose-200',
+      food: 'bg-amber-50 text-amber-800 border border-amber-200',
+      beauty: 'bg-pink-50 text-pink-700 border border-pink-200',
+      life: 'bg-emerald-50 text-emerald-700 border border-emerald-200',
+      business: 'bg-blue-50 text-blue-700 border border-blue-200'
     };
 
-    // 加盟店一覧 (SHOP) の描画
+    // 加盟店一覧 (SHOP) の描画（ライトテーマ対応）
     function renderRaytusShops() {
       const container = document.getElementById('raytus-shop-tbody');
       if (!container || typeof RAYTUS_SHOPS === 'undefined') return;
@@ -1450,49 +1282,21 @@
       if (countEl) countEl.textContent = filtered.length;
 
       container.innerHTML = filtered.map(s => `
-        <tr class="hover:bg-slate-800/60 transition border-b border-slate-800/80 cursor-pointer" onclick="window.open('${s.link}', '_blank')">
-          <td class="p-3.5 sm:p-4 font-bold text-white whitespace-nowrap">
+        <tr class="hover:bg-amber-50/50 transition border-b border-slate-100 cursor-pointer" onclick="window.open('${s.link}', '_blank')">
+          <td class="p-3.5 sm:p-4 font-bold text-slate-900 whitespace-nowrap">
             <div class="flex items-center gap-1.5">
-              <span class="hover:text-amber-300 transition">${s.name}</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-500"></i>
+              <span class="hover:text-amber-600 transition">${s.name}</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i>
             </div>
           </td>
-          <td class="p-3.5 sm:p-4 text-slate-300 whitespace-nowrap">${s.rep}</td>
-          <td class="p-3.5 sm:p-4 text-slate-300 min-w-[220px] leading-relaxed text-xs">${s.product}</td>
-          <td class="p-3.5 sm:p-4 text-slate-400 whitespace-pre-line text-xs">${s.area}</td>
+          <td class="p-3.5 sm:p-4 text-slate-700 whitespace-nowrap font-medium">${s.rep}</td>
+          <td class="p-3.5 sm:p-4 text-slate-600 min-w-[220px] leading-relaxed text-xs">${s.product}</td>
+          <td class="p-3.5 sm:p-4 text-slate-500 whitespace-pre-line text-xs">${s.area}</td>
         </tr>
       `).join('');
     }
 
-    // 公式ブログ (BLOG) の描画
-    function renderRaytusBlogs() {
-      const container = document.getElementById('raytus-blog-grid');
-      if (!container || typeof RAYTUS_BLOGS === 'undefined') return;
-
-      container.innerHTML = RAYTUS_BLOGS.map(b => `
-        <a href="${b.link}" target="_blank" class="group bg-[#121824] rounded-2xl overflow-hidden border border-slate-800 hover:border-amber-400/60 transition shadow-lg flex flex-col justify-between">
-          <div>
-            <div class="aspect-video w-full overflow-hidden bg-slate-900 relative">
-              <img src="${b.image}" alt="${b.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
-              <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded bg-black/70 text-amber-300 font-bold text-[10px] backdrop-blur-xs font-zen">
-                REPORT
-              </span>
-            </div>
-            <div class="p-4 sm:p-5">
-              <span class="text-[11px] text-slate-400 font-mono">${b.date}</span>
-              <h4 class="text-sm sm:text-base font-zen font-bold text-white group-hover:text-amber-300 transition mt-1.5 line-clamp-2 leading-snug">
-                ${b.title}
-              </h4>
-            </div>
-          </div>
-          <div class="px-4 pb-4 pt-2 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold text-amber-400">
-            <span>記事を読む</span>
-            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-          </div>
-        </a>
-      `).join('');
-    }
-
+    // 31事業 (SERVICE) の描画（ライトテーマ対応カード）
     function renderRaytusServices() {
       const container = document.getElementById('raytus-services-grid');
       if (!container || typeof RAYTUS_SERVICES === 'undefined') return;
@@ -1519,56 +1323,51 @@
 
       if (noResults) noResults.classList.add('hidden');
 
-            container.innerHTML = filtered.map(item => {
+      container.innerHTML = filtered.map(item => {
         const originalIndex = RAYTUS_SERVICES.indexOf(item);
         const catLabel = CATEGORY_NAMES[item.category] || '事業';
-        const catColor = CATEGORY_COLORS[item.category] || 'bg-slate-800 text-slate-300';
+        const catColor = CATEGORY_COLORS[item.category] || 'bg-slate-100 text-slate-700 border border-slate-200';
         const hasVideo = !!item.videoId;
 
         return `
-          <div onclick="openRaytusServiceModal(${originalIndex})" class="raytus-card-item group" style="background-image: url('${item.bgImage}');">
-            <div class="raytus-card-overlay"></div>
-            
-            <div class="relative z-10 p-5 sm:p-6 h-full flex flex-col justify-between">
-              
-              <!-- 上部バッジエリア -->
-              <div class="flex items-center justify-between gap-2">
-                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold ${catColor}">
-                  ${catLabel}
-                </span>
-
-                ${hasVideo ? `
-                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-rose-600/90 text-white flex items-center gap-1 shadow-md backdrop-blur-xs">
-                  <i class="fa-brands fa-youtube"></i> 公式動画あり
-                </span>
-                ` : `
-                <span class="text-[10px] text-slate-400 font-zen">事業詳細</span>
-                `}
-              </div>
-
-              <!-- 中央〜下部テキスト（本家 sec-service__list-item 完全準拠） -->
-              <div class="mt-10">
-                <p class="business-name text-[11px] sm:text-xs font-zen text-amber-300/95 tracking-widest font-semibold mb-1">
-                  ${item.businessName}
-                </p>
-                
-                <h4 class="company-name text-lg sm:text-xl font-zen font-bold text-white group-hover:text-amber-300 transition duration-300">
-                  ${item.companyName}
-                </h4>
-
-                <p class="tagline text-xs text-slate-300/90 font-zen mt-2 line-clamp-2 leading-relaxed">
-                  ${item.tagline.replace(/\n/g, ' ')}
-                </p>
-                
-                <div class="mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-slate-400 font-zen">
-                  <span>責任者: <strong class="text-white">${item.manager}</strong></span>
-                  <span class="text-amber-300 group-hover:translate-x-1 transition font-bold flex items-center gap-1">
-                    <span>詳細を見る</span>
-                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          <div onclick="openRaytusServiceModal(${originalIndex})" class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-2xs hover:shadow-md hover:border-amber-400 transition cursor-pointer flex flex-col justify-between group">
+            <div>
+              <!-- サムネイル画像 -->
+              <div class="aspect-video w-full overflow-hidden bg-slate-100 relative">
+                <img src="${item.bgImage}" alt="${item.businessName}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+                <div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+                  <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold ${catColor} shadow-2xs backdrop-blur-xs">
+                    ${catLabel}
                   </span>
                 </div>
+                ${hasVideo ? `
+                <span class="absolute top-2.5 right-2.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-rose-600 text-white flex items-center gap-1 shadow-md">
+                  <i class="fa-brands fa-youtube"></i> 動画あり
+                </span>
+                ` : ''}
               </div>
 
+              <!-- カード本文 -->
+              <div class="p-5">
+                <p class="text-[11px] font-serif font-bold text-amber-700 tracking-wider mb-1 line-clamp-1">
+                  ${item.businessName}
+                </p>
+                <h4 class="text-base sm:text-lg font-serif font-bold text-slate-900 group-hover:text-amber-700 transition leading-snug">
+                  ${item.companyName}
+                </h4>
+                <p class="text-xs text-slate-500 font-serif mt-2 line-clamp-2 leading-relaxed">
+                  ${item.tagline.split('\n').join(' ')}
+                </p>
+              </div>
+            </div>
+
+            <!-- カードフッター -->
+            <div class="px-5 pb-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+              <span>責任者: <strong class="text-slate-800 font-bold">${item.manager}</strong></span>
+              <span class="text-amber-600 font-bold flex items-center gap-1 group-hover:translate-x-0.5 transition">
+                <span>詳細を見る</span>
+                <i class="fa-solid fa-chevron-right text-[10px]"></i>
+              </span>
             </div>
           </div>
         `;
@@ -1578,11 +1377,11 @@
     function setRaytusCategory(cat) {
       currentRaytusCategory = cat;
       document.querySelectorAll('.raytus-cat-btn').forEach(btn => {
-        btn.className = 'raytus-cat-btn px-4 py-2 rounded-xl transition bg-slate-900 text-slate-300 hover:text-white border border-slate-800 hover:border-slate-700 whitespace-nowrap';
+        btn.className = 'raytus-cat-btn px-3.5 sm:px-4 py-2 rounded-xl transition bg-white text-slate-600 hover:text-slate-900 border border-slate-200 hover:bg-slate-50 shadow-2xs whitespace-nowrap text-xs font-bold';
       });
       const activeBtn = document.getElementById(`raytus-cat-${cat}`);
       if (activeBtn) {
-        activeBtn.className = 'raytus-cat-btn px-4 py-2 rounded-xl transition bg-amber-400 text-slate-950 shadow-md whitespace-nowrap';
+        activeBtn.className = 'raytus-cat-btn px-3.5 sm:px-4 py-2 rounded-xl transition bg-amber-500 text-slate-950 font-black shadow-xs border border-amber-500 whitespace-nowrap text-xs';
       }
       renderRaytusServices();
     }
@@ -1595,7 +1394,7 @@
       if (typeof RAYTUS_SERVICES === 'undefined' || !RAYTUS_SERVICES[index]) return;
       const item = RAYTUS_SERVICES[index];
       const catLabel = CATEGORY_NAMES[item.category] || '事業';
-      const catColor = CATEGORY_COLORS[item.category] || 'bg-slate-800 text-slate-300';
+      const catColor = CATEGORY_COLORS[item.category] || 'bg-slate-100 text-slate-700 border border-slate-200';
 
       const content = document.getElementById('raytus-service-modal-content');
       if (!content) return;
@@ -1604,45 +1403,45 @@
         <div class="flex items-start justify-between gap-4 mb-4 pr-8">
           <div>
             <div class="flex items-center gap-2 mb-1.5">
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold ${catColor}">${catLabel}</span>
-              <span class="text-xs font-serif text-amber-300 tracking-wider">${item.companyName}</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold ${catColor}">${catLabel}</span>
+              <span class="text-xs font-serif text-amber-700 font-bold tracking-wider">${item.companyName}</span>
             </div>
-            <h3 class="text-xl sm:text-2xl font-serif font-bold text-white">${item.businessName}</h3>
-            <p class="text-xs text-slate-400 mt-1 flex items-center gap-1.5">
-              <i class="fa-solid fa-user-tie text-amber-400"></i>
-              <span>事業責任者: <strong class="text-white">${item.manager}</strong></span>
+            <h3 class="text-xl sm:text-2xl font-serif font-bold text-slate-900">${item.businessName}</h3>
+            <p class="text-xs text-slate-500 mt-1 flex items-center gap-1.5">
+              <i class="fa-solid fa-user-tie text-amber-600"></i>
+              <span>事業責任者: <strong class="text-slate-800">${item.manager}</strong></span>
             </p>
           </div>
         </div>
 
         ${item.videoId ? `
-        <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-2xl bg-black mb-5 border border-slate-700">
+        <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-md bg-black mb-5 border border-slate-200">
           <iframe src="https://www.youtube.com/embed/${item.videoId}?autoplay=1" title="${item.businessName}" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         ` : `
-        <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-xl bg-slate-900 mb-5 relative border border-slate-700">
+        <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-sm bg-slate-100 mb-5 relative border border-slate-200">
           <img src="${item.bgImage}" alt="${item.businessName}" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
-            <span class="text-xs text-slate-300">${item.companyName} 公式紹介</span>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-4">
+            <span class="text-xs text-white font-medium">${item.companyName} 公式紹介</span>
           </div>
         </div>
         `}
 
-        <div class="space-y-4 text-xs text-slate-200">
-          <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
-            <h4 class="text-xs font-serif font-bold text-amber-300 mb-1 flex items-center gap-1.5">
+        <div class="space-y-4 text-xs text-slate-700">
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h4 class="text-xs font-serif font-bold text-amber-800 mb-1 flex items-center gap-1.5">
               <i class="fa-solid fa-quote-left"></i> 理念・コンセプト
             </h4>
-            <div class="leading-relaxed whitespace-pre-line text-slate-300 text-xs sm:text-sm">
+            <div class="leading-relaxed whitespace-pre-line text-slate-600 text-xs sm:text-sm">
               ${item.tagline}
             </div>
           </div>
 
-          <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-400/20">
-            <h4 class="text-xs font-serif font-bold text-amber-300 mb-1 flex items-center gap-1.5">
+          <div class="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80">
+            <h4 class="text-xs font-serif font-bold text-amber-900 mb-1 flex items-center gap-1.5">
               <i class="fa-solid fa-bullseye"></i> こんな方へ / 参画対象
             </h4>
-            <div class="leading-relaxed whitespace-pre-line text-slate-200">
+            <div class="leading-relaxed whitespace-pre-line text-slate-700">
               ${item.target}
             </div>
           </div>
@@ -1650,15 +1449,15 @@
           <div class="pt-2 flex flex-wrap items-center justify-between gap-3">
             <div class="flex items-center gap-2">
               ${item.videoId ? `
-              <a href="https://youtu.be/${item.videoId}" target="_blank" class="px-3.5 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold transition flex items-center gap-1.5 text-xs">
+              <a href="https://youtu.be/${item.videoId}" target="_blank" class="px-3.5 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold transition flex items-center gap-1.5 text-xs shadow-xs">
                 <i class="fa-brands fa-youtube"></i> YouTubeで開く
               </a>
               ` : ''}
-              <a href="https://raytus-group.com/service/" target="_blank" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white font-serif transition flex items-center gap-1.5 text-xs border border-white/20">
+              <a href="https://raytus-group.com/service/" target="_blank" class="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-serif transition flex items-center gap-1.5 text-xs border border-slate-300">
                 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> 公式HPで確認
               </a>
             </div>
-            <button onclick="closeRaytusServiceModal(); switchTab('hub'); scrollToSection('schedule-section');" class="px-4 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold transition flex items-center gap-1.5 text-xs">
+            <button onclick="closeRaytusServiceModal(); switchTab('hub'); scrollToSection('schedule-section');" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold transition flex items-center gap-1.5 text-xs shadow-xs">
               <i class="fa-regular fa-calendar-check"></i> 定例会・説明会に参加する
             </button>
           </div>

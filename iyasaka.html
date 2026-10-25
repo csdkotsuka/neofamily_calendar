@@ -137,7 +137,7 @@
             <span>Iyasaka宮</span>
             <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-amber-500"></i>
           </a>
-          <a href="flowchart" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-50 text-amber-800 border border-amber-300/60 hover:bg-amber-100 transition shadow-2xs">
+          <a href="flowchart.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-50 text-amber-800 border border-amber-300/60 hover:bg-amber-100 transition shadow-2xs">
             <i class="fa-solid fa-arrows-split-up-and-left text-amber-600"></i>
             <span>参加フロー</span>
           </a>
@@ -153,27 +153,27 @@
           <i class="fa-solid fa-compass"></i>
           <span>総合ポータル</span>
         </a>
-        <a href="flowchart" id="nav-item-flowchart" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+        <a href="flowchart.html" id="nav-item-flowchart" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-solid fa-arrows-split-up-and-left text-amber-500"></i>
           <span>参加フローチャート</span>
         </a>
-        <a href="raytus" id="nav-item-raytus" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+        <a href="raytus.html" id="nav-item-raytus" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-solid fa-globe text-slate-400"></i>
           <span>RAYTUS 全事業</span>
         </a>
-        <a href="calendar" id="nav-item-calendar" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+        <a href="calendar.html" id="nav-item-calendar" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-regular fa-calendar-days text-rose-500"></i>
           <span>イベントカレンダー</span>
         </a>
-        <a href="caravan" id="nav-item-caravan" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+        <a href="caravan.html" id="nav-item-caravan" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-solid fa-bullhorn text-rose-500"></i>
           <span>会長トークショー</span>
         </a>
-        <a href="archive" id="nav-item-archive" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+        <a href="archive.html" id="nav-item-archive" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-solid fa-graduation-cap text-indigo-500"></i>
           <span>勉強会アーカイブ</span>
         </a>
-        <a href="sns" id="nav-item-sns" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
+        <a href="sns.html" id="nav-item-sns" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-solid fa-share-nodes text-pink-500"></i>
           <span>公式SNS</span>
         </a>
@@ -995,8 +995,9 @@
       const container = document.getElementById('cart-items-container');
       const totalEl = document.getElementById('cart-total-price');
 
-      countEl1.textContent = cart.length;
-      countEl2.textContent = cart.length;
+      if (countEl1) countEl1.textContent = cart.length;
+      if (countEl2) countEl2.textContent = cart.length;
+      if (!container || !totalEl) return;
 
       if (cart.length === 0) {
         container.innerHTML = '<p class="text-xs text-slate-400 text-center py-6">カゴの中は空です</p>';
@@ -1075,7 +1076,7 @@
     }
 
     // ============================================
-    // RAYTUS Services Logic (Grouping, Filter, Modal)
+    // RAYTUS Services Logic (Grouping, Filter, Modal) - Light Theme
     // ============================================
     let currentRaytusCategory = 'all';
 
@@ -1088,14 +1089,14 @@
     };
 
     const CATEGORY_COLORS = {
-      care: 'bg-rose-500/20 text-rose-300 border border-rose-500/30',
-      food: 'bg-amber-500/20 text-amber-300 border border-amber-500/30',
-      beauty: 'bg-pink-500/20 text-pink-300 border border-pink-500/30',
-      life: 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30',
-      business: 'bg-blue-500/20 text-blue-300 border border-blue-500/30'
+      care: 'bg-rose-50 text-rose-700 border border-rose-200',
+      food: 'bg-amber-50 text-amber-800 border border-amber-200',
+      beauty: 'bg-pink-50 text-pink-700 border border-pink-200',
+      life: 'bg-emerald-50 text-emerald-700 border border-emerald-200',
+      business: 'bg-blue-50 text-blue-700 border border-blue-200'
     };
 
-    // 加盟店一覧 (SHOP) の描画
+    // 加盟店一覧 (SHOP) の描画（ライトテーマ対応）
     function renderRaytusShops() {
       const container = document.getElementById('raytus-shop-tbody');
       if (!container || typeof RAYTUS_SHOPS === 'undefined') return;
@@ -1110,49 +1111,21 @@
       if (countEl) countEl.textContent = filtered.length;
 
       container.innerHTML = filtered.map(s => `
-        <tr class="hover:bg-slate-800/60 transition border-b border-slate-800/80 cursor-pointer" onclick="window.open('${s.link}', '_blank')">
-          <td class="p-3.5 sm:p-4 font-bold text-white whitespace-nowrap">
+        <tr class="hover:bg-amber-50/50 transition border-b border-slate-100 cursor-pointer" onclick="window.open('${s.link}', '_blank')">
+          <td class="p-3.5 sm:p-4 font-bold text-slate-900 whitespace-nowrap">
             <div class="flex items-center gap-1.5">
-              <span class="hover:text-amber-300 transition">${s.name}</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-500"></i>
+              <span class="hover:text-amber-600 transition">${s.name}</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i>
             </div>
           </td>
-          <td class="p-3.5 sm:p-4 text-slate-300 whitespace-nowrap">${s.rep}</td>
-          <td class="p-3.5 sm:p-4 text-slate-300 min-w-[220px] leading-relaxed text-xs">${s.product}</td>
-          <td class="p-3.5 sm:p-4 text-slate-400 whitespace-pre-line text-xs">${s.area}</td>
+          <td class="p-3.5 sm:p-4 text-slate-700 whitespace-nowrap font-medium">${s.rep}</td>
+          <td class="p-3.5 sm:p-4 text-slate-600 min-w-[220px] leading-relaxed text-xs">${s.product}</td>
+          <td class="p-3.5 sm:p-4 text-slate-500 whitespace-pre-line text-xs">${s.area}</td>
         </tr>
       `).join('');
     }
 
-    // 公式ブログ (BLOG) の描画
-    function renderRaytusBlogs() {
-      const container = document.getElementById('raytus-blog-grid');
-      if (!container || typeof RAYTUS_BLOGS === 'undefined') return;
-
-      container.innerHTML = RAYTUS_BLOGS.map(b => `
-        <a href="${b.link}" target="_blank" class="group bg-[#121824] rounded-2xl overflow-hidden border border-slate-800 hover:border-amber-400/60 transition shadow-lg flex flex-col justify-between">
-          <div>
-            <div class="aspect-video w-full overflow-hidden bg-slate-900 relative">
-              <img src="${b.image}" alt="${b.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
-              <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded bg-black/70 text-amber-300 font-bold text-[10px] backdrop-blur-xs font-zen">
-                REPORT
-              </span>
-            </div>
-            <div class="p-4 sm:p-5">
-              <span class="text-[11px] text-slate-400 font-mono">${b.date}</span>
-              <h4 class="text-sm sm:text-base font-zen font-bold text-white group-hover:text-amber-300 transition mt-1.5 line-clamp-2 leading-snug">
-                ${b.title}
-              </h4>
-            </div>
-          </div>
-          <div class="px-4 pb-4 pt-2 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold text-amber-400">
-            <span>記事を読む</span>
-            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-          </div>
-        </a>
-      `).join('');
-    }
-
+    // 31事業 (SERVICE) の描画（ライトテーマ対応カード）
     function renderRaytusServices() {
       const container = document.getElementById('raytus-services-grid');
       if (!container || typeof RAYTUS_SERVICES === 'undefined') return;
@@ -1179,56 +1152,52 @@
 
       if (noResults) noResults.classList.add('hidden');
 
-            container.innerHTML = filtered.map(item => {
+      container.innerHTML = filtered.map(item => {
         const originalIndex = RAYTUS_SERVICES.indexOf(item);
         const catLabel = CATEGORY_NAMES[item.category] || '事業';
-        const catColor = CATEGORY_COLORS[item.category] || 'bg-slate-800 text-slate-300';
+        const catColor = CATEGORY_COLORS[item.category] || 'bg-slate-100 text-slate-700 border border-slate-200';
         const hasVideo = !!item.videoId;
 
         return `
-          <div onclick="openRaytusServiceModal(${originalIndex})" class="raytus-card-item group" style="background-image: url('${item.bgImage}');">
-            <div class="raytus-card-overlay"></div>
-            
-            <div class="relative z-10 p-5 sm:p-6 h-full flex flex-col justify-between">
-              
-              <!-- 上部バッジエリア -->
-              <div class="flex items-center justify-between gap-2">
-                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold ${catColor}">
-                  ${catLabel}
-                </span>
-
-                ${hasVideo ? `
-                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-rose-600/90 text-white flex items-center gap-1 shadow-md backdrop-blur-xs">
-                  <i class="fa-brands fa-youtube"></i> 公式動画あり
-                </span>
-                ` : `
-                <span class="text-[10px] text-slate-400 font-zen">事業詳細</span>
-                `}
-              </div>
-
-              <!-- 中央〜下部テキスト（本家 sec-service__list-item 完全準拠） -->
-              <div class="mt-10">
-                <p class="business-name text-[11px] sm:text-xs font-zen text-amber-300/95 tracking-widest font-semibold mb-1">
-                  ${item.businessName}
-                </p>
-                
-                <h4 class="company-name text-lg sm:text-xl font-zen font-bold text-white group-hover:text-amber-300 transition duration-300">
-                  ${item.companyName}
-                </h4>
-
-                <p class="tagline text-xs text-slate-300/90 font-zen mt-2 line-clamp-2 leading-relaxed">
-                  ${item.tagline.replace(/\n/g, ' ')}
-                </p>
-                
-                <div class="mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-slate-400 font-zen">
-                  <span>責任者: <strong class="text-white">${item.manager}</strong></span>
-                  <span class="text-amber-300 group-hover:translate-x-1 transition font-bold flex items-center gap-1">
-                    <span>詳細を見る</span>
-                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          <div onclick="openRaytusServiceModal(${originalIndex})" class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-2xs hover:shadow-md hover:border-amber-400 transition cursor-pointer flex flex-col justify-between group">
+            <div>
+              <!-- サムネイル画像 -->
+              <div class="aspect-video w-full overflow-hidden bg-slate-100 relative">
+                <img src="${item.bgImage}" alt="${item.businessName}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+                <div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+                  <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold ${catColor} shadow-2xs backdrop-blur-xs">
+                    ${catLabel}
                   </span>
                 </div>
+                ${hasVideo ? `
+                <span class="absolute top-2.5 right-2.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-rose-600 text-white flex items-center gap-1 shadow-md">
+                  <i class="fa-brands fa-youtube"></i> 動画あり
+                </span>
+                ` : ''}
               </div>
 
+              <!-- カード本文 -->
+              <div class="p-5">
+                <p class="text-[11px] font-serif font-bold text-amber-700 tracking-wider mb-1 line-clamp-1">
+                  ${item.businessName}
+                </p>
+                <h4 class="text-base sm:text-lg font-serif font-bold text-slate-900 group-hover:text-amber-700 transition leading-snug">
+                  ${item.companyName}
+                </h4>
+                <p class="text-xs text-slate-500 font-serif mt-2 line-clamp-2 leading-relaxed">
+                  ${item.tagline.replace(/
+/g, ' ')}
+                </p>
+              </div>
+            </div>
+
+            <!-- カードフッター -->
+            <div class="px-5 pb-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+              <span>責任者: <strong class="text-slate-800 font-bold">${item.manager}</strong></span>
+              <span class="text-amber-600 font-bold flex items-center gap-1 group-hover:translate-x-0.5 transition">
+                <span>詳細を見る</span>
+                <i class="fa-solid fa-chevron-right text-[10px]"></i>
+              </span>
             </div>
           </div>
         `;
@@ -1238,11 +1207,11 @@
     function setRaytusCategory(cat) {
       currentRaytusCategory = cat;
       document.querySelectorAll('.raytus-cat-btn').forEach(btn => {
-        btn.className = 'raytus-cat-btn px-4 py-2 rounded-xl transition bg-slate-900 text-slate-300 hover:text-white border border-slate-800 hover:border-slate-700 whitespace-nowrap';
+        btn.className = 'raytus-cat-btn px-3.5 sm:px-4 py-2 rounded-xl transition bg-white text-slate-600 hover:text-slate-900 border border-slate-200 hover:bg-slate-50 shadow-2xs whitespace-nowrap text-xs font-bold';
       });
       const activeBtn = document.getElementById(`raytus-cat-${cat}`);
       if (activeBtn) {
-        activeBtn.className = 'raytus-cat-btn px-4 py-2 rounded-xl transition bg-amber-400 text-slate-950 shadow-md whitespace-nowrap';
+        activeBtn.className = 'raytus-cat-btn px-3.5 sm:px-4 py-2 rounded-xl transition bg-amber-500 text-slate-950 font-black shadow-xs border border-amber-500 whitespace-nowrap text-xs';
       }
       renderRaytusServices();
     }
@@ -1255,7 +1224,7 @@
       if (typeof RAYTUS_SERVICES === 'undefined' || !RAYTUS_SERVICES[index]) return;
       const item = RAYTUS_SERVICES[index];
       const catLabel = CATEGORY_NAMES[item.category] || '事業';
-      const catColor = CATEGORY_COLORS[item.category] || 'bg-slate-800 text-slate-300';
+      const catColor = CATEGORY_COLORS[item.category] || 'bg-slate-100 text-slate-700 border border-slate-200';
 
       const content = document.getElementById('raytus-service-modal-content');
       if (!content) return;
@@ -1264,45 +1233,45 @@
         <div class="flex items-start justify-between gap-4 mb-4 pr-8">
           <div>
             <div class="flex items-center gap-2 mb-1.5">
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold ${catColor}">${catLabel}</span>
-              <span class="text-xs font-serif text-amber-300 tracking-wider">${item.companyName}</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold ${catColor}">${catLabel}</span>
+              <span class="text-xs font-serif text-amber-700 font-bold tracking-wider">${item.companyName}</span>
             </div>
-            <h3 class="text-xl sm:text-2xl font-serif font-bold text-white">${item.businessName}</h3>
-            <p class="text-xs text-slate-400 mt-1 flex items-center gap-1.5">
-              <i class="fa-solid fa-user-tie text-amber-400"></i>
-              <span>事業責任者: <strong class="text-white">${item.manager}</strong></span>
+            <h3 class="text-xl sm:text-2xl font-serif font-bold text-slate-900">${item.businessName}</h3>
+            <p class="text-xs text-slate-500 mt-1 flex items-center gap-1.5">
+              <i class="fa-solid fa-user-tie text-amber-600"></i>
+              <span>事業責任者: <strong class="text-slate-800">${item.manager}</strong></span>
             </p>
           </div>
         </div>
 
         ${item.videoId ? `
-        <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-2xl bg-black mb-5 border border-slate-700">
+        <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-md bg-black mb-5 border border-slate-200">
           <iframe src="https://www.youtube.com/embed/${item.videoId}?autoplay=1" title="${item.businessName}" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         ` : `
-        <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-xl bg-slate-900 mb-5 relative border border-slate-700">
+        <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-sm bg-slate-100 mb-5 relative border border-slate-200">
           <img src="${item.bgImage}" alt="${item.businessName}" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
-            <span class="text-xs text-slate-300">${item.companyName} 公式紹介</span>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-4">
+            <span class="text-xs text-white font-medium">${item.companyName} 公式紹介</span>
           </div>
         </div>
         `}
 
-        <div class="space-y-4 text-xs text-slate-200">
-          <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
-            <h4 class="text-xs font-serif font-bold text-amber-300 mb-1 flex items-center gap-1.5">
+        <div class="space-y-4 text-xs text-slate-700">
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h4 class="text-xs font-serif font-bold text-amber-800 mb-1 flex items-center gap-1.5">
               <i class="fa-solid fa-quote-left"></i> 理念・コンセプト
             </h4>
-            <div class="leading-relaxed whitespace-pre-line text-slate-300 text-xs sm:text-sm">
+            <div class="leading-relaxed whitespace-pre-line text-slate-600 text-xs sm:text-sm">
               ${item.tagline}
             </div>
           </div>
 
-          <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-400/20">
-            <h4 class="text-xs font-serif font-bold text-amber-300 mb-1 flex items-center gap-1.5">
+          <div class="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80">
+            <h4 class="text-xs font-serif font-bold text-amber-900 mb-1 flex items-center gap-1.5">
               <i class="fa-solid fa-bullseye"></i> こんな方へ / 参画対象
             </h4>
-            <div class="leading-relaxed whitespace-pre-line text-slate-200">
+            <div class="leading-relaxed whitespace-pre-line text-slate-700">
               ${item.target}
             </div>
           </div>
@@ -1310,15 +1279,15 @@
           <div class="pt-2 flex flex-wrap items-center justify-between gap-3">
             <div class="flex items-center gap-2">
               ${item.videoId ? `
-              <a href="https://youtu.be/${item.videoId}" target="_blank" class="px-3.5 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold transition flex items-center gap-1.5 text-xs">
+              <a href="https://youtu.be/${item.videoId}" target="_blank" class="px-3.5 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold transition flex items-center gap-1.5 text-xs shadow-xs">
                 <i class="fa-brands fa-youtube"></i> YouTubeで開く
               </a>
               ` : ''}
-              <a href="https://raytus-group.com/service/" target="_blank" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white font-serif transition flex items-center gap-1.5 text-xs border border-white/20">
+              <a href="https://raytus-group.com/service/" target="_blank" class="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-serif transition flex items-center gap-1.5 text-xs border border-slate-300">
                 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> 公式HPで確認
               </a>
             </div>
-            <button onclick="closeRaytusServiceModal(); switchTab('hub'); scrollToSection('schedule-section');" class="px-4 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold transition flex items-center gap-1.5 text-xs">
+            <button onclick="closeRaytusServiceModal(); switchTab('hub'); scrollToSection('schedule-section');" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold transition flex items-center gap-1.5 text-xs shadow-xs">
               <i class="fa-regular fa-calendar-check"></i> 定例会・説明会に参加する
             </button>
           </div>
