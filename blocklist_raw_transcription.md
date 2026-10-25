@@ -1,6 +1,6 @@
-# LINE Note ブロックリスト スクリーンショット純粋文字起こし（全114枚）
+# LINE Note ブロックリスト スクリーンショット純粋文字起こし（全119枚）
 
-提供いただいた全114枚のスクリーンショット（`prvided data/BlockList`）を、画像の上から下へ（Y座標順）そのまま忠実に文字起こしした原文データです。
+提供いただいた全119枚のスクリーンショット（`prvided data/BlockList`）を、画像の上から下へ（Y座標順）そのまま忠実に文字起こしした原文データです。
 
 ## [01/97] `Screenshot 2026-10-20 at 9.12.28.png`
 ```text
@@ -4892,4 +4892,180 @@ https://www.instagram.com/nijirosinkyu?vrfl=MWg3M2oyM25uN2xtYg==
 服部達典/MURA
 https://www.instagram.com/mayu_coach.mama?psln=MThpd2lycW5jamo5Mw==
 2 hours ago
+```
+
+## [115/119] `Screenshot 2026-10-25 at 20.34.58.png`
+```text
+服部達典/MURA
+https://www.instagram.com/kosodatemama0524?rpxt=YmxrZ2RpcDMxbjc1
+https://www.instagram.com/cherilu_yn?maxt=bGlqMDhmbjJOczRu
+https://www.instagram.com/herb_nemokoro?rpxt=ZzImaWpucHFqMHEx
+https://www.instagram.com/romy.yade?exln=ajdhcnYxYmx5Nmsx
+Two days ago at 5:08 AM
+
+森崎江里／愛知県/RAYTUS
+誰かのやりとり、スクショで晒されてますい。
+コメントのやつも報告とブロックお願いします
+Two days ago at 8:22 AM
+
+齊藤唯/Mimola
+https://www.threads.com/@magier_2023?igshid=NTc4MTIwNjQ2YQ==
+Two days ago at 8:49 AM
+
+森崎江里／愛知県/RAYTUS
+https://www.threads.com/@rina.s0527
+Two days ago at 9:28 AM
+
+相良沙織/Meguria理事長
+@森崎江里／愛知県/RAYTUS さんのいう方のリンクはこちら
+通報もよろしくお願い申し上げます。
+https://www.threads.com/@rina.s0527
+Two days ago at 9:46 AM
+
+坂本有莉菜/Mimola
+https://www.threads.com/@tomopooh1113?igshid=NTc4MTIwNjQ2YQ==
+Two days ago at 11:19 AM
+```
+
+## [116/119] `Screenshot 2026-10-25 at 20.34.49.png`
+```text
+井峯明香奈/shAdow
+https://www.threads.com/@shimosonet?igshid=NTc4MTIwNjQ2YQ==
+Two days ago at 2:27 PM
+
+畑ゆかり/yuima-ru理事長
+ぶった斬り会長・・名指しでした
+https://www.threads.com/@matsunaga_haruna?igshid=NTc4MTIwNjQ2YQ==
+Two days ago at 3:09 PM
+
+井峯明香奈/shAdow
+https://www.threads.com/@yokoyama_ibaraki?igshid=NTc4MTIwNjQ2YQ==
+Two days ago at 5:43 PM
+
+城間千聖/enLIGHT
+https://www.instagram.com/artmake_momoka?exln=b29zenRzcjUybThs
+Two days ago at 7:54 PM
+
+石崎七菜子/tEaM_S.
+ファーストして興味あるフリして、なんの断りもなくブロック＆zoom来ずでした
+https://www.threads.com/@holitaku_pickleball
+Two days ago at 8:42 PM
+
+ロジャーズ優衣\enchant+
+https://www.threads.com/@poochan5676?igshid=NTc4MTIwNjQ2YQ==
+Two days ago at 10:37 PM
+```
+
+## [117/119] `Screenshot 2026-10-25 at 20.34.41.png`
+```text
+Two days ago at 10:37 PM
+
+ロジャーズ優衣\enchant+
+https://www.instagram.com/ayumi.reborn?xtok=MXRkZzUwaWlwdm5leA==
+Two days ago at 10:57 PM
+
+小野八音/yaShine
+何度も声かけいただき
+ZOOMもしてお断りしました、とのことです！
+https://www.instagram.com/tomo.ninkatsueiyou?srtk=MWxtYjJ4aWM3bXlodg==
+Two days ago at 11:34 PM
+
+桝田和裕/AMATERAS
+https://www.threads.com/@nobu491004?igshid=NTc4MTIwNjQ2YQ==
+Yesterday at 12:16 AM
+
+南藍/tidy.shin代表
+言っていることに信ぴょう性がなく、マウント取ってくる。
+https://www.threads.com/@mochi_creative123?igshid=NTc4MTIwNjQ2YQ==
+Yesterday at 12:43 AM
+
+城間千聖/enLIGHT
+https://www.instagram.com/sato_aoi_photo?psln=MWp5bGtncmZpYTE4OA==
+何度も声かけしているようです。Zoom面談をした上でお断りしたそう。
+Yesterday at 9:44 AM
+
+ロジャーズ優衣\enchant+
+https://www.threads.com/@nijirosinkyu?igshid=NTc4MTIwNjQ2YQ==
+https://www.instagram.com/nijirosinkyu?vrfl=MWg3M2oyM25uN2xtYg==
+向こうからメッセージをいただきましたが、NEOに会うのは3回目だったそうです🙏
+Yesterday at 10:10 AM
+```
+
+## [118/119] `Screenshot 2026-10-25 at 20.34.35.png`
+```text
+だったそうです🙏
+Yesterday at 10:10 AM
+
+服部達典/MURA
+https://www.instagram.com/mayu_coach.mama?psln=MThpd2lycW5jamo5Mw==
+Yesterday at 12:51 PM
+
+服部達典/MURA
+https://www.instagram.com/meina_clo?dlrf=MTBzc2x6eXlyejh1OA==
+Yesterday at 4:21 PM
+
+井峯明香奈/shAdow
+https://www.threads.com/@naomi_futoukoukids_mama?igshid=NTc4MTIwNjQ2YQ==
+Yesterday at 4:45 PM
+
+井峯明香奈/shAdow
+https://www.threads.com/@hiroshi_yamauchi_55?igshid=NTc4MTIwNjQ2YQ==
+Yesterday at 4:47 PM
+
+井峯明香奈/shAdow
+https://www.threads.com/@hirachi_ceo?igshid=NTc4MTIwNjQ2YQ==
+Yesterday at 4:48 PM
+
+井峯明香奈/shAdow
+https://www.threads.com/@river_cangoxina?igshid=NTc4MTIwNjQ2YQ==
+Yesterday at 4:49 PM
+
+坂本有莉菜/Mimola
+聞いたことある〜から
+根掘り葉掘り聞いてきます。
+自分の人生たのし〜なので
+おせっかい不用です。
+https://www.instagram.com/riku_nurse.mama?srtk=MWNkOTBuYjM2MGdjbA==
+Yesterday at 9:35 PM
+
+岸部千夏/Couleur
+https://www.threads.com/@life_dorm.azusa
+Yesterday at 11:17 PM
+```
+
+## [119/119] `Screenshot 2026-10-25 at 20.34.29.png`
+```text
+長野さとみ/Ablaze
+会長の偽アカです
+https://www.instagram.com/camila812583?cplk=ZWJvYzc1dXI5dXN6
+14 hours ago
+
+服部達典/MURA
+https://www.instagram.com/yunyun.kazamaura?psln=MWRIdjBiaWl5bXluYg==
+ネットワークに集中したいとのことです。
+12 hours ago
+
+いわやともみ/Blooming/東京
+https://www.instagram.com/rinrin_neko?cplk=MXFjYmUzczVtNHo2Mg==
+4 hours ago
+
+小西みゆき/Mimola
+会長のなりすましです
+https://lite.tiktok.com/t/ZS9ydKNtKv7xS-8wliv/
+4 hours ago
+
+中嶋初美/glowell/大阪
+腹が立ちました。
+コメントは、恐らくお仲間の方かと思いますが、投稿主はブロック
+で良いかと思います！
+https://www.threads.com/@kodomo_mirai_ouentai
+53 minutes ago
+
+畠山尚美
+https://www.threads.com/@momikaemasa?igshid=NTc4MTIwNjQ2YQ==
+何度もネオファミリーの話しは聞いてる
+
+ネクストエイドが1番とやってるそう。
+ネオに入る気全くなく時間の無駄です
+8 minutes ago
 ```

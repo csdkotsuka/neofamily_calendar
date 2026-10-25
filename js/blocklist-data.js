@@ -1,6 +1,6 @@
 /**
  * NEO FAMILY Calendar - Blocklist Data (v5 Enriched Profile Names)
- * Total items: 770
+ * Total items: 780
  */
 var INITIAL_BLOCKLIST = [
   {
@@ -1165,10 +1165,10 @@ var INITIAL_BLOCKLIST = [
     "reporter": "畑ゆかり（yuima-ru理事長）",
     "name": "子ども未来応援隊",
     "url": "https://www.instagram.com/kodomo_mirai_ouentai?igsh=MITITYWZvYnNqM3ZIZQ==",
-    "secondary_url": "",
-    "platform": "Instagram",
+    "secondary_url": "https://www.threads.com/@kodomo_mirai_ouentai",
+    "platform": "Instagram / Threads",
     "url_warning": "修復済",
-    "reason": "",
+    "reason": "【2026-10-25 中嶋初美（glowell / 大阪）報告】腹が立ちました。コメントは、恐らくお仲間の方かと思いますが、投稿主はブロックで良いかと思います！",
     "image": "Screenshot 2026-10-20 at 9.13.50.png",
     "id": "blk_085",
     "serialNo": 90
@@ -10012,5 +10012,135 @@ var INITIAL_BLOCKLIST = [
     "image": "Screenshot 2026-10-24 at 15.11.48.png",
     "id": "blk_770",
     "serialNo": 770
+  },
+  {
+    "date": "2026-10-24 16:21",
+    "reporter": "服部達典（MURA）",
+    "name": "黒原めいな｜ケルベロスDr. (@meina_clo)",
+    "url": "https://www.instagram.com/meina_clo?dlrf=MTBzc2x6eXlyejh1OA==",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "",
+    "image": "Screenshot 2026-10-25 at 20.34.35.png",
+    "id": "blk_771",
+    "serialNo": 771
+  },
+  {
+    "date": "2026-10-24 16:48",
+    "reporter": "井峯明香奈（shAdow）",
+    "name": "ひらち (@hirachi_ceo)",
+    "url": "https://www.threads.com/@hirachi_ceo?igshid=NTc4MTIwNjQ2YQ==",
+    "secondary_url": "",
+    "platform": "Threads",
+    "url_warning": "",
+    "reason": "",
+    "image": "Screenshot 2026-10-25 at 20.34.35.png",
+    "id": "blk_772",
+    "serialNo": 772
+  },
+  {
+    "date": "2026-10-24 16:49",
+    "reporter": "井峯明香奈（shAdow）",
+    "name": "RIVER (@river_cangoxina)",
+    "url": "https://www.threads.com/@river_cangoxina?igshid=NTc4MTIwNjQ2YQ==",
+    "secondary_url": "",
+    "platform": "Threads",
+    "url_warning": "",
+    "reason": "",
+    "image": "Screenshot 2026-10-25 at 20.34.35.png",
+    "id": "blk_773",
+    "serialNo": 773
+  },
+  {
+    "date": "2026-10-24 21:35",
+    "reporter": "坂本有莉菜（Mimola）",
+    "name": "りくまま⌇多忙看護師ママの辞める道 (@riku_nurse.mama)",
+    "url": "https://www.instagram.com/riku_nurse.mama?srtk=MWNkOTBuYjM2MGdjbA==",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "聞いたことある〜から根掘り葉掘り聞いてきます。自分の人生たのし〜なのでおせっかい不用です。",
+    "image": "Screenshot 2026-10-25 at 20.34.35.png",
+    "id": "blk_774",
+    "serialNo": 774
+  },
+  {
+    "date": "2026-10-24 23:17",
+    "reporter": "岸部千夏（Couleur）",
+    "name": "Azusa｜HSP専門キャリアコーチ&カウンセラー (@life_dorm.azusa)",
+    "url": "https://www.threads.com/@life_dorm.azusa",
+    "secondary_url": "",
+    "platform": "Threads",
+    "url_warning": "",
+    "reason": "",
+    "image": "Screenshot 2026-10-25 at 20.34.35.png",
+    "id": "blk_775",
+    "serialNo": 775
+  },
+  {
+    "date": "2026-10-25 06:34",
+    "reporter": "長野さとみ（Ablaze）",
+    "name": "Camila Valentina（会長偽アカウント）",
+    "url": "https://www.instagram.com/camila812583?cplk=ZWJvYzc1dXI5dXN6",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "会長の偽アカです",
+    "image": "Screenshot 2026-10-25 at 20.34.29.png",
+    "id": "blk_776",
+    "serialNo": 776
+  },
+  {
+    "date": "2026-10-25 08:34",
+    "reporter": "服部達典（MURA）",
+    "name": "ゆん🌈34歳で大学病院勤務を退職してフリーランス看護師に転身した3児のママ (@yunyun.kazamaura)",
+    "url": "https://www.instagram.com/yunyun.kazamaura?psln=MWRIdjBiaWl5bXluYg==",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "ネットワークに集中したいとのことです。",
+    "image": "Screenshot 2026-10-25 at 20.34.29.png",
+    "id": "blk_777",
+    "serialNo": 777
+  },
+  {
+    "date": "2026-10-25 16:34",
+    "reporter": "いわやともみ（Blooming / 東京）",
+    "name": "Rin★🐱 (@rinrin_neko)",
+    "url": "https://www.instagram.com/rinrin_neko?cplk=MXFjYmUzczVtNHo2Mg==",
+    "secondary_url": "",
+    "platform": "Instagram",
+    "url_warning": "",
+    "reason": "",
+    "image": "Screenshot 2026-10-25 at 20.34.29.png",
+    "id": "blk_778",
+    "serialNo": 778
+  },
+  {
+    "date": "2026-10-25 16:34",
+    "reporter": "小西みゆき（Mimola）",
+    "name": "会長なりすまし（TikTok Lite）",
+    "url": "https://lite.tiktok.com/t/ZS9ydKNtKv7xS-8wliv/",
+    "secondary_url": "",
+    "platform": "TikTok",
+    "url_warning": "",
+    "reason": "会長のなりすましです",
+    "image": "Screenshot 2026-10-25 at 20.34.29.png",
+    "id": "blk_779",
+    "serialNo": 779
+  },
+  {
+    "date": "2026-10-25 20:26",
+    "reporter": "畠山尚美",
+    "name": "momikaemasa (@momikaemasa)",
+    "url": "https://www.threads.com/@momikaemasa?igshid=NTc4MTIwNjQ2YQ==",
+    "secondary_url": "",
+    "platform": "Threads",
+    "url_warning": "",
+    "reason": "何度もネオファミリーの話しは聞いてる\nネクストエイドが1番とやってるそう。\nネオに入る気全くなく時間の無駄です",
+    "image": "Screenshot 2026-10-25 at 20.34.29.png",
+    "id": "blk_780",
+    "serialNo": 780
   }
 ];
