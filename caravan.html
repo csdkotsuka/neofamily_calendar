@@ -288,8 +288,8 @@
 
   <!-- Event Detail Modal (ESCキーまたは外側クリックで閉じる) -->
   <div id="event-modal" onclick="if(event.target === this) closeEventModal()" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm cursor-pointer overflow-y-auto">
-    <div class="relative w-full max-w-2xl bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-200 my-8 cursor-default" onclick="event.stopPropagation()">
-      <button onclick="closeEventModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition z-10" title="閉じる (ESC)">
+    <div id="event-modal-content" class="relative w-full max-w-2xl bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-200 my-8 max-h-[90vh] overflow-y-auto cursor-default overscroll-contain" style="-webkit-overflow-scrolling: touch;" onclick="event.stopPropagation()">
+      <button onclick="closeEventModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100/90 hover:bg-slate-200 text-slate-600 hover:text-slate-900 flex items-center justify-center transition z-20 shadow-sm" title="閉じる (ESC)">
         <i class="fa-solid fa-xmark text-sm"></i>
       </button>
       <div id="event-modal-body">
@@ -299,7 +299,7 @@
   </div>
 
   <!-- Application Scripts -->
-  <script src="js/caravan-events-data.js?v=20261025_3"></script>
-  <script src="js/caravan-app.js?v=20261025_3"></script>
+  <script src="js/caravan-events-data.js?v=20261025_4"></script>
+  <script src="js/caravan-app.js?v=20261025_4"></script>
 </body>
 </html>

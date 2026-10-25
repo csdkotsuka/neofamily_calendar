@@ -760,6 +760,11 @@ function openEventDetail(eventId) {
   modal.classList.remove("hidden");
   modal.classList.add("flex");
   document.body.style.overflow = "hidden";
+
+  const modalContent = document.getElementById("event-modal-content");
+  if (modalContent) {
+    modalContent.scrollTop = 0;
+  }
 }
 
 function closeEventModal() {
