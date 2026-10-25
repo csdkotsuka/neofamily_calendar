@@ -45,6 +45,16 @@ function escapeHtml(str) {
     .replace(/'/g, "&#039;");
 }
 
+// Helper to safely format text and convert URLs into clickable links
+function linkifyText(str) {
+  if (str === null || str === undefined) return "";
+  const escaped = escapeHtml(str);
+  const urlRegex = /(https?:\/\/[a-zA-Z0-9\-._~:/?#\[\]@!$&'*+,;%=]+[a-zA-Z0-9/_~#@!$&*+=])/g;
+  return escaped.replace(urlRegex, (url) => {
+    return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-rose-600 hover:text-rose-700 underline font-semibold break-all inline-flex items-center gap-1">${url} <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a>`;
+  });
+}
+
 // Initialize App
 document.addEventListener("DOMContentLoaded", () => {
   if (typeof INITIAL_CARAVAN_EVENTS !== "undefined" && Array.isArray(INITIAL_CARAVAN_EVENTS)) {
@@ -733,13 +743,38 @@ function openEventDetail(eventId) {
       </div>
     ` : ""}
 
+    <!-- Zoom Details if applicable -->
+    ${ev.zoomUrl ? `
+      <div class="bg-sky-50 border border-sky-200 rounded-2xl p-4 mb-6">
+        <h4 class="text-xs font-bold text-sky-900 mb-2 flex items-center gap-1.5">
+          <i class="fa-solid fa-video text-sky-600"></i> Zoom参加情報
+        </h4>
+        <div class="text-xs space-y-1 text-sky-800 mb-3">
+          ${ev.zoomMeetingId ? `<div><span class="font-bold">ミーティングID:</span> ${ev.zoomMeetingId}</div>` : ''}
+          ${ev.zoomPasscode ? `<div><span class="font-bold">パスコード:</span> <span class="bg-sky-200/80 px-2 py-0.5 rounded font-mono font-bold">${ev.zoomPasscode}</span></div>` : ''}
+        </div>
+        <a href="${ev.zoomUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold rounded-xl shadow transition">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Zoomに参加する
+        </a>
+      </div>
+    ` : ""}
+
+    <!-- Registration Link if applicable -->
+    ${ev.registrationUrl ? `
+      <div class="mb-6">
+        <a href="${ev.registrationUrl}" target="_blank" rel="noopener noreferrer" class="w-full py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold rounded-xl shadow-md text-xs sm:text-sm flex items-center justify-center gap-2 transition">
+          <i class="fa-solid fa-file-pen"></i> お申し込み・参加フォームはこちら
+        </a>
+      </div>
+    ` : ""}
+
     <!-- Description -->
     <div class="mb-6">
       <h4 class="text-xs font-black text-slate-900 mb-2 flex items-center gap-1.5">
         <i class="fa-solid fa-align-left text-rose-500"></i> 詳細・プログラム
       </h4>
       <div class="p-4 bg-white rounded-2xl border border-slate-200 text-xs text-slate-700 leading-relaxed whitespace-pre-line font-medium shadow-2xs">
-        ${escapeHtml(ev.description)}
+        ${linkifyText(ev.description)}
       </div>
     </div>
 

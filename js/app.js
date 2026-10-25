@@ -45,6 +45,16 @@ function escapeHtml(str) {
     .replace(/'/g, "&#039;");
 }
 
+// Helper to safely format text and convert URLs into clickable links
+function linkifyText(str) {
+  if (str === null || str === undefined) return "";
+  const escaped = escapeHtml(str);
+  const urlRegex = /(https?:\/\/[a-zA-Z0-9\-._~:/?#\[\]@!$&'*+,;%=]+[a-zA-Z0-9/_~#@!$&*+=])/g;
+  return escaped.replace(urlRegex, (url) => {
+    return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-rose-600 hover:text-rose-700 underline font-semibold break-all inline-flex items-center gap-1">${url} <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a>`;
+  });
+}
+
 // Initialize App
 document.addEventListener("DOMContentLoaded", async () => {
   loadEventsFromLocal();
@@ -1261,7 +1271,7 @@ function openEventDetail(eventId) {
     <div class="mb-6">
       <h4 class="text-sm font-bold text-slate-800 mb-2">イベント詳細</h4>
       <div class="text-xs md:text-sm text-slate-600 whitespace-pre-wrap leading-relaxed bg-white p-4 rounded-xl border border-slate-200">
-        ${ev.description}
+        ${linkifyText(ev.description)}
       </div>
     </div>
 
