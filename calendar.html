@@ -181,6 +181,12 @@
       <button data-category="リアルイベント" onclick="selectCategory('リアルイベント')" class="category-filter-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
         🌿 リアル・マルシェ・体験
       </button>
+      <div class="h-4 w-px bg-slate-300 mx-1 shrink-0"></div>
+      <button id="btn-past-events-filter" onclick="togglePastEvents()" class="px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition border border-slate-200 bg-white text-slate-700 hover:bg-slate-100 shadow-2xs flex items-center gap-1.5 shrink-0">
+        <i class="fa-solid fa-clock-rotate-left text-slate-500"></i>
+        <span id="past-events-filter-text">過去のイベントを表示</span>
+        <span id="past-events-filter-badge" class="px-1.5 py-0.2 rounded-full text-[10px] bg-slate-100 text-slate-600 font-bold"></span>
+      </button>
     </div>
   </section>
 

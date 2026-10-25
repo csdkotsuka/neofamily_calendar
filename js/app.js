@@ -247,6 +247,11 @@ function renderEventsList() {
   if (!container) return;
 
   const filtered = getFilteredEvents();
+  const todayStr = getTodayString();
+  const pastEvents = filtered.filter(ev => ev.startDate < todayStr);
+
+  // Update Past Events Filter Button in top bar
+  updatePastEventsFilterUI(pastEvents.length);
   
   // Date filter indicator
   const dateIndicator = document.getElementById("selected-date-indicator");
@@ -284,22 +289,16 @@ function renderEventsList() {
 
   // カレンダーの日付が直接選択されている場合はそのまま表示
   if (selectedDate) {
-    container.innerHTML = filtered.map(ev => createEventCardHtml(ev)).join("");
+    container.innerHTML = filtered.map(ev => createEventCardHtml(ev, ev.startDate < todayStr)).join("");
     return;
   }
 
-  // 通常一覧表示: 今日以降（開催予定）と表示日以前（過去）に分離
-  const todayStr = getTodayString();
-  const upcomingEvents = filtered.filter(ev => ev.startDate >= todayStr);
-  const pastEvents = filtered.filter(ev => ev.startDate < todayStr);
+  // 表示対象イベントの選定（過去イベントを表示するかどうか）
+  const displayEvents = showPastEvents ? filtered : filtered.filter(ev => ev.startDate >= todayStr);
 
   let html = "";
 
-  // 1. 今日以降のイベントがある場合
-  if (upcomingEvents.length > 0) {
-    html += upcomingEvents.map(ev => createEventCardHtml(ev, false)).join("");
-  } else {
-    // 今日以降のイベントが0件の場合
+  if (displayEvents.length === 0) {
     html += `
       <div class="col-span-full py-10 text-center bg-slate-50 rounded-3xl border border-dashed border-slate-300 p-6">
         <div class="w-12 h-12 mx-auto mb-3 bg-white rounded-full flex items-center justify-center text-slate-400 shadow-2xs">
@@ -309,9 +308,46 @@ function renderEventsList() {
         <p class="text-xs text-slate-500 mt-1">過去に開催されたイベントは下記のボタンよりご確認いただけます。</p>
       </div>
     `;
+  } else {
+    // 年月（YYYY-MM）ごとにグループ化（10月開催一覧、11月開催一覧）
+    const monthGroups = {};
+    displayEvents.forEach(ev => {
+      const monthKey = ev.startDate.substring(0, 7); // e.g. "2026-10"
+      if (!monthGroups[monthKey]) monthGroups[monthKey] = [];
+      monthGroups[monthKey].push(ev);
+    });
+
+    const sortedMonthKeys = Object.keys(monthGroups).sort();
+
+    sortedMonthKeys.forEach(monthKey => {
+      const [year, month] = monthKey.split("-");
+      const monthEvents = monthGroups[monthKey];
+      const monthLabel = `${parseInt(month)}月開催一覧`;
+
+      html += `
+        <!-- ${monthLabel} ヘッダー -->
+        <div class="col-span-full mt-6 mb-2 first:mt-0">
+          <div class="flex items-center justify-between pb-3 border-b-2 border-slate-200/90">
+            <div class="flex items-center gap-2.5">
+              <span class="w-8 h-8 rounded-xl bg-rose-50 text-rose-600 border border-rose-200/60 flex items-center justify-center font-black text-sm shadow-2xs">
+                <i class="fa-regular fa-calendar-days"></i>
+              </span>
+              <h3 class="text-base sm:text-lg font-black text-slate-900 tracking-tight">
+                ${year}年 ${monthLabel}
+              </h3>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 text-slate-600 border border-slate-200">
+                ${monthEvents.length}件
+              </span>
+            </div>
+          </div>
+        </div>
+      `;
+
+      html += monthEvents.map(ev => createEventCardHtml(ev, ev.startDate < todayStr)).join("");
+    });
   }
 
-  // 2. 過去のイベントが存在する場合のボタントグル
+  // 過去のイベントが存在する場合のボタントグル
   if (pastEvents.length > 0) {
     if (!showPastEvents) {
       // 折りたたみ中（過去のイベントを表示ボタン）
@@ -327,24 +363,38 @@ function renderEventsList() {
     } else {
       // 展開中
       html += `
-        <div class="col-span-full my-6 flex items-center justify-between border-t border-b border-slate-200/90 py-3.5 px-5 bg-slate-100/80 rounded-2xl">
-          <div class="flex items-center gap-2.5">
-            <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-slate-200 text-slate-600 text-xs font-bold">
-              <i class="fa-solid fa-clock-rotate-left"></i>
-            </span>
-            <span class="font-bold text-xs sm:text-sm text-slate-700">過去に開催されたイベント (${pastEvents.length}件)</span>
-          </div>
-          <button onclick="togglePastEvents()" class="text-xs font-bold text-slate-600 hover:text-slate-900 flex items-center gap-1.5 transition px-3 py-1.5 rounded-lg bg-white border border-slate-200 shadow-2xs">
-            <span>折りたたむ</span>
+        <div class="col-span-full my-6 text-center">
+          <button onclick="togglePastEvents()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold border border-slate-300 shadow-2xs transition">
             <i class="fa-solid fa-chevron-up text-[10px]"></i>
+            <span>過去のイベントを折りたたむ</span>
           </button>
         </div>
       `;
-      html += pastEvents.map(ev => createEventCardHtml(ev, true)).join("");
     }
   }
 
   container.innerHTML = html;
+}
+
+// 過去イベントフィルターUIの更新
+function updatePastEventsFilterUI(pastCount) {
+  const btn = document.getElementById("btn-past-events-filter");
+  const text = document.getElementById("past-events-filter-text");
+  const badge = document.getElementById("past-events-filter-badge");
+
+  if (badge && pastCount !== undefined) {
+    badge.textContent = `${pastCount}件`;
+  }
+
+  if (btn && text) {
+    if (showPastEvents) {
+      btn.className = "px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition border border-slate-900 bg-slate-900 text-white shadow-sm flex items-center gap-1.5 shrink-0";
+      text.textContent = "過去のイベントを表示中";
+    } else {
+      btn.className = "px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition border border-slate-200 bg-white text-slate-700 hover:bg-slate-100 shadow-2xs flex items-center gap-1.5 shrink-0";
+      text.textContent = "過去のイベントを表示";
+    }
+  }
 }
 
 // 過去のイベント表示切り替え

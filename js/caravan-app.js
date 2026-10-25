@@ -12,6 +12,16 @@ let currentMonth = 10; // 0-indexed: 10 = November (全トークショー集中�
 let selectedDate = null;
 let currentViewMode = "calendar"; // "calendar" | "week" | "cards"
 let currentSearch = "";
+let showPastEvents = false;
+
+// Helper to get today's date string (YYYY-MM-DD)
+function getTodayString() {
+  const now = new Date();
+  const y = now.getFullYear();
+  const m = String(now.getMonth() + 1).padStart(2, "0");
+  const d = String(now.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
+}
 
 // Week calendar state: 2026年11月第2週
 let currentWeekStartDate = (function() {
@@ -107,6 +117,7 @@ function switchViewMode(mode) {
 
 // Render Master
 function renderApp() {
+  updatePastEventsFilterUI();
   if (currentViewMode === "calendar") {
     renderCalendarView();
   } else if (currentViewMode === "week") {
@@ -259,24 +270,41 @@ function renderEventsList() {
   const indicator = document.getElementById("selected-date-indicator");
   if (!container) return;
 
-  let events = getFilteredEvents();
+  const todayStr = getTodayString();
+  const filtered = getFilteredEvents();
+  const pastEvents = filtered.filter(e => e.startDate < todayStr);
+
+  // Update top filter button
+  updatePastEventsFilterUI(pastEvents.length);
 
   if (selectedDate) {
-    events = events.filter(e => e.startDate === selectedDate);
+    const dateEvents = filtered.filter(e => e.startDate === selectedDate);
     if (indicator) {
       indicator.classList.remove("hidden");
       indicator.innerHTML = `
         <div class="mb-4 p-3 bg-rose-50 border border-rose-200 rounded-xl flex items-center justify-between text-xs font-bold text-rose-800">
-          <span>${formatDateJP(selectedDate)} の予定（${events.length}件）</span>
+          <span>${formatDateJP(selectedDate)} の予定（${dateEvents.length}件）</span>
           <button onclick="clearSelectedDate()" class="text-rose-600 hover:underline">すべて表示に戻す</button>
         </div>
       `;
     }
+    if (dateEvents.length === 0) {
+      container.innerHTML = `
+        <div class="col-span-full py-16 text-center">
+          <i class="fa-solid fa-calendar-xmark text-4xl text-slate-300 mb-3"></i>
+          <p class="text-slate-500 font-bold text-sm">該当するイベントが見つかりませんでした。</p>
+          <button onclick="clearSelectedDate();" class="mt-3 text-xs font-bold text-rose-600 hover:underline">全予定を表示</button>
+        </div>
+      `;
+      return;
+    }
+    container.innerHTML = dateEvents.map(ev => createCaravanEventCardHtml(ev, ev.startDate < todayStr)).join("");
+    return;
   } else {
     if (indicator) indicator.classList.add("hidden");
   }
 
-  if (events.length === 0) {
+  if (filtered.length === 0) {
     container.innerHTML = `
       <div class="col-span-full py-16 text-center">
         <i class="fa-solid fa-calendar-xmark text-4xl text-slate-300 mb-3"></i>
@@ -287,96 +315,215 @@ function renderEventsList() {
     return;
   }
 
-  container.innerHTML = events.map(ev => {
-    const googleUrl = getGoogleCalendarUrl(ev);
-    const dayOfWeek = getDayOfWeekStr(ev.startDate);
+  // 表示対象イベントの選定（過去イベントを表示するかどうか）
+  const displayEvents = showPastEvents ? filtered : filtered.filter(ev => ev.startDate >= todayStr);
 
-    return `
-      <div class="glass-card rounded-3xl overflow-hidden border border-slate-200/90 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col group bg-white">
-        <!-- Card Image Header -->
-        <div class="relative h-48 bg-slate-900 overflow-hidden cursor-pointer" onclick="openEventDetail('${ev.id}')">
-          ${ev.image ? `
-            <img src="${escapeHtml(ev.image)}" alt="${escapeHtml(ev.title)}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-          ` : `
-            <div class="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-rose-900 via-slate-900 to-indigo-950 p-6 text-center text-white">
-              <span class="px-2.5 py-1 rounded-full text-[10px] font-black bg-rose-500 text-white mb-2 shadow">会長トークショー</span>
-              <p class="font-black text-lg text-white">${escapeHtml(ev.title)}</p>
-              <p class="text-xs text-rose-200 font-medium mt-1">${escapeHtml(ev.subtitle || '')}</p>
-            </div>
-          `}
-          <!-- Category & Fee Badges -->
-          <div class="absolute top-3 left-3 flex items-center gap-1.5 flex-wrap">
-            ${ev.region ? `
-              <span class="px-2.5 py-1 rounded-full text-[10px] font-black bg-indigo-600 text-white shadow-md">
-                <i class="fa-solid fa-location-dot mr-1"></i>${escapeHtml(ev.region)}
-              </span>
-            ` : ""}
-            <span class="px-2.5 py-1 rounded-full text-[10px] font-black text-white shadow-md" style="background-color: ${ev.categoryColor || '#e11d48'};">
-              ${escapeHtml(ev.category || 'トークショー')}
-            </span>
-          </div>
-          <div class="absolute top-3 right-3">
-            <span class="px-2.5 py-1 rounded-full text-[10px] font-black bg-black/60 text-white backdrop-blur-md">
-              ${ev.fee || '無料'}
-            </span>
-          </div>
+  let html = "";
+
+  if (displayEvents.length === 0) {
+    html += `
+      <div class="col-span-full py-10 text-center bg-slate-50 rounded-3xl border border-dashed border-slate-300 p-6">
+        <div class="w-12 h-12 mx-auto mb-3 bg-white rounded-full flex items-center justify-center text-slate-400 shadow-2xs">
+          <i class="fa-regular fa-calendar-check text-xl"></i>
         </div>
-
-        <!-- Card Body -->
-        <div class="p-5 flex-1 flex flex-col justify-between">
-          <div>
-            <!-- Date & Time -->
-            <div class="flex items-center gap-2 text-rose-600 font-extrabold text-xs mb-2">
-              <i class="fa-regular fa-calendar-check text-sm"></i>
-              <span>${formatDateJP(ev.startDate)} (${dayOfWeek}) ${ev.startTime}〜${ev.endTime}</span>
-            </div>
-
-            <h3 onclick="openEventDetail('${ev.id}')" class="text-base font-black text-slate-900 hover:text-rose-600 transition cursor-pointer mb-2 leading-snug line-clamp-2">
-              ${escapeHtml(ev.title)}
-            </h3>
-
-            <p class="text-xs text-slate-600 line-clamp-2 mb-3 font-medium">
-              ${escapeHtml(ev.subtitle || ev.description)}
-            </p>
-
-            <!-- Details List -->
-            <div class="space-y-1.5 text-xs text-slate-500 border-t border-slate-100 pt-3 mb-4">
-              <div class="flex items-start gap-2">
-                <i class="fa-solid fa-map-pin text-rose-500 mt-0.5 shrink-0"></i>
-                <span class="line-clamp-1 font-medium text-slate-700">${escapeHtml(ev.location)}</span>
-              </div>
-              ${ev.capacity ? `
-                <div class="flex items-center gap-2">
-                  <i class="fa-solid fa-users text-indigo-500 shrink-0"></i>
-                  <span>定員: <strong class="text-slate-800">${escapeHtml(ev.capacity)}</strong></span>
-                </div>
-              ` : ""}
-              ${ev.organizer ? `
-                <div class="flex items-center gap-2">
-                  <i class="fa-solid fa-shield-halved text-amber-500 shrink-0"></i>
-                  <span class="truncate">${escapeHtml(ev.organizer)}</span>
-                </div>
-              ` : ""}
-            </div>
-          </div>
-
-          <!-- Actions -->
-          <div class="flex items-center gap-2 pt-3 border-t border-slate-100">
-            <button onclick="openEventDetail('${ev.id}')" class="flex-1 py-2 px-3 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-xs">
-              <i class="fa-solid fa-circle-info"></i> 詳細
-            </button>
-            <a href="${googleUrl}" target="_blank" rel="noopener noreferrer" class="py-2 px-3 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 text-xs font-bold transition flex items-center justify-center gap-1 shadow-xs" title="Googleカレンダーに追加">
-              <i class="fa-brands fa-google"></i> 追加
-            </a>
-            <button onclick="downloadSingleICS('${ev.id}')" class="py-2 px-3 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 text-xs font-bold transition flex items-center justify-center gap-1 shadow-xs" title="スマホカレンダー(.ics)に登録">
-              <i class="fa-solid fa-calendar-plus"></i> スマホ登録
-            </button>
-          </div>
-        </div>
+        <h3 class="text-sm font-bold text-slate-700">本日以降に予定されている該当イベントはありません</h3>
+        <p class="text-xs text-slate-500 mt-1">過去に開催されたイベントは「過去のイベントを表示」ボタンよりご確認いただけます。</p>
       </div>
     `;
-  }).join("");
+  } else {
+    // 年月（YYYY-MM）ごとにグループ化（10月開催一覧、11月開催一覧）
+    const monthGroups = {};
+    displayEvents.forEach(ev => {
+      const monthKey = ev.startDate.substring(0, 7); // e.g. "2026-10"
+      if (!monthGroups[monthKey]) monthGroups[monthKey] = [];
+      monthGroups[monthKey].push(ev);
+    });
+
+    const sortedMonthKeys = Object.keys(monthGroups).sort();
+
+    sortedMonthKeys.forEach(monthKey => {
+      const [year, month] = monthKey.split("-");
+      const monthEvents = monthGroups[monthKey];
+      const monthLabel = `${parseInt(month)}月開催一覧`;
+
+      html += `
+        <!-- ${monthLabel} ヘッダー -->
+        <div class="col-span-full mt-6 mb-2 first:mt-0">
+          <div class="flex items-center justify-between pb-3 border-b-2 border-slate-200/90">
+            <div class="flex items-center gap-2.5">
+              <span class="w-8 h-8 rounded-xl bg-rose-50 text-rose-600 border border-rose-200/60 flex items-center justify-center font-black text-sm shadow-2xs">
+                <i class="fa-solid fa-bullhorn"></i>
+              </span>
+              <h3 class="text-base sm:text-lg font-black text-slate-900 tracking-tight">
+                ${year}年 ${monthLabel}
+              </h3>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 text-slate-600 border border-slate-200">
+                ${monthEvents.length}件
+              </span>
+            </div>
+          </div>
+        </div>
+      `;
+
+      html += monthEvents.map(ev => createCaravanEventCardHtml(ev, ev.startDate < todayStr)).join("");
+    });
+  }
+
+  // 過去のイベントが存在する場合のボタントグル（カード一覧下部）
+  if (pastEvents.length > 0) {
+    if (!showPastEvents) {
+      html += `
+        <div class="col-span-full my-6 text-center">
+          <button onclick="togglePastEvents()" class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-white hover:bg-slate-100 text-slate-700 text-xs sm:text-sm font-bold border border-slate-300 shadow-xs transition hover:shadow group">
+            <i class="fa-solid fa-clock-rotate-left text-slate-500 group-hover:-rotate-45 transition duration-300"></i>
+            <span>過去のイベントを表示する（${pastEvents.length}件）</span>
+            <i class="fa-solid fa-chevron-down text-[11px] text-slate-400"></i>
+          </button>
+        </div>
+      `;
+    } else {
+      html += `
+        <div class="col-span-full my-6 text-center">
+          <button onclick="togglePastEvents()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold border border-slate-300 shadow-2xs transition">
+            <i class="fa-solid fa-chevron-up text-[10px]"></i>
+            <span>過去のイベントを折りたたむ</span>
+          </button>
+        </div>
+      `;
+    }
+  }
+
+  container.innerHTML = html;
+}
+
+// 過去イベントフィルターUIの更新
+function updatePastEventsFilterUI(pastCount) {
+  const btn = document.getElementById("btn-past-caravan-filter");
+  const text = document.getElementById("past-caravan-filter-text");
+  const badge = document.getElementById("past-caravan-count-badge");
+
+  if (pastCount === undefined) {
+    const todayStr = getTodayString();
+    pastCount = getFilteredEvents().filter(e => e.startDate < todayStr).length;
+  }
+
+  if (badge) {
+    badge.textContent = `${pastCount}件`;
+  }
+
+  if (btn && text) {
+    if (showPastEvents) {
+      btn.className = "px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition border border-slate-900 bg-slate-900 text-white shadow-sm flex items-center gap-1.5 shrink-0";
+      text.textContent = "過去のイベントを表示中";
+    } else {
+      btn.className = "px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition border border-slate-200 bg-white text-slate-700 hover:bg-slate-100 shadow-2xs flex items-center gap-1.5 shrink-0";
+      text.textContent = "過去のイベントを表示";
+    }
+  }
+}
+
+// 過去のイベント表示切り替え
+function togglePastEvents() {
+  showPastEvents = !showPastEvents;
+  updatePastEventsFilterUI();
+  renderEventsList();
+}
+
+// Create Caravan Event Card HTML
+function createCaravanEventCardHtml(ev, isPast = false) {
+  const googleUrl = getGoogleCalendarUrl(ev);
+  const dayOfWeek = getDayOfWeekStr(ev.startDate);
+
+  return `
+    <div class="glass-card rounded-3xl overflow-hidden border border-slate-200/90 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col group bg-white ${isPast ? "opacity-80" : ""}">
+      <!-- Card Image Header -->
+      <div class="relative h-48 bg-slate-900 overflow-hidden cursor-pointer" onclick="openEventDetail('${ev.id}')">
+        ${ev.image ? `
+          <img src="${escapeHtml(ev.image)}" alt="${escapeHtml(ev.title)}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ${isPast ? "grayscale-[30%]" : ""}">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+        ` : `
+          <div class="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-rose-900 via-slate-900 to-indigo-950 p-6 text-center text-white">
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-black bg-rose-500 text-white mb-2 shadow">会長トークショー</span>
+            <p class="font-black text-lg text-white">${escapeHtml(ev.title)}</p>
+            <p class="text-xs text-rose-200 font-medium mt-1">${escapeHtml(ev.subtitle || '')}</p>
+          </div>
+        `}
+        <!-- Category & Fee Badges -->
+        <div class="absolute top-3 left-3 flex items-center gap-1.5 flex-wrap">
+          ${isPast ? `
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-black bg-slate-800/90 text-slate-300 border border-slate-700 shadow-md">
+              <i class="fa-solid fa-check mr-1"></i>終了
+            </span>
+          ` : ""}
+          ${ev.region ? `
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-black bg-indigo-600 text-white shadow-md">
+              <i class="fa-solid fa-location-dot mr-1"></i>${escapeHtml(ev.region)}
+            </span>
+          ` : ""}
+          <span class="px-2.5 py-1 rounded-full text-[10px] font-black text-white shadow-md" style="background-color: ${ev.categoryColor || '#e11d48'};">
+            ${escapeHtml(ev.category || 'トークショー')}
+          </span>
+        </div>
+        <div class="absolute top-3 right-3">
+          <span class="px-2.5 py-1 rounded-full text-[10px] font-black bg-black/60 text-white backdrop-blur-md">
+            ${ev.fee || '無料'}
+          </span>
+        </div>
+      </div>
+
+      <!-- Card Body -->
+      <div class="p-5 flex-1 flex flex-col justify-between">
+        <div>
+          <!-- Date & Time -->
+          <div class="flex items-center gap-2 ${isPast ? 'text-slate-500' : 'text-rose-600'} font-extrabold text-xs mb-2">
+            <i class="fa-regular fa-calendar-check text-sm"></i>
+            <span>${formatDateJP(ev.startDate)} (${dayOfWeek}) ${ev.startTime}〜${ev.endTime}</span>
+          </div>
+
+          <h3 onclick="openEventDetail('${ev.id}')" class="text-base font-black text-slate-900 hover:text-rose-600 transition cursor-pointer mb-2 leading-snug line-clamp-2">
+            ${escapeHtml(ev.title)}
+          </h3>
+
+          <p class="text-xs text-slate-600 line-clamp-2 mb-3 font-medium">
+            ${escapeHtml(ev.subtitle || ev.description)}
+          </p>
+
+          <!-- Details List -->
+          <div class="space-y-1.5 text-xs text-slate-500 border-t border-slate-100 pt-3 mb-4">
+            <div class="flex items-start gap-2">
+              <i class="fa-solid fa-map-pin text-rose-500 mt-0.5 shrink-0"></i>
+              <span class="line-clamp-1 font-medium text-slate-700">${escapeHtml(ev.location)}</span>
+            </div>
+            ${ev.capacity ? `
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-users text-indigo-500 shrink-0"></i>
+                <span>定員: <strong class="text-slate-800">${escapeHtml(ev.capacity)}</strong></span>
+              </div>
+            ` : ""}
+            ${ev.organizer ? `
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-shield-halved text-amber-500 shrink-0"></i>
+                <span class="truncate">${escapeHtml(ev.organizer)}</span>
+              </div>
+            ` : ""}
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex items-center gap-2 pt-3 border-t border-slate-100">
+          <button onclick="openEventDetail('${ev.id}')" class="flex-1 py-2 px-3 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-xs">
+            <i class="fa-solid fa-circle-info"></i> 詳細
+          </button>
+          <a href="${googleUrl}" target="_blank" rel="noopener noreferrer" class="py-2 px-3 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 text-xs font-bold transition flex items-center justify-center gap-1 shadow-xs" title="Googleカレンダーに追加">
+            <i class="fa-brands fa-google"></i> 追加
+          </a>
+          <button onclick="downloadSingleICS('${ev.id}')" class="py-2 px-3 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 text-xs font-bold transition flex items-center justify-center gap-1 shadow-xs" title="スマホカレンダー(.ics)に登録">
+            <i class="fa-solid fa-calendar-plus"></i> スマホ登録
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
 }
 
 function clearSelectedDate() {
