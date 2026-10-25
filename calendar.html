@@ -82,28 +82,17 @@
         <div class="flex items-center gap-2 sm:gap-3">
           <a href="https://shopping.community-iyasakagu.jp/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-50 text-amber-800 border border-amber-300/60 hover:bg-amber-100 transition shadow-2xs">
             <i class="fa-solid fa-cart-shopping text-amber-600"></i>
-            <span>Iyasaka宮 EC</span>
+            <span>Iyasaka宮</span>
             <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-amber-500"></i>
           </a>
           <a href="flowchart" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-50 text-amber-800 border border-amber-300/60 hover:bg-amber-100 transition shadow-2xs">
             <i class="fa-solid fa-arrows-split-up-and-left text-amber-600"></i>
             <span>参加フロー</span>
           </a>
-          <a id="btn-admin-login" href="admin.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-800 bg-slate-100 hover:bg-slate-200 border border-slate-300 shadow-2xs transition">
+          <a href="admin.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-800 bg-slate-100 hover:bg-slate-200 border border-slate-300 shadow-2xs transition">
             <i class="fa-solid fa-lock text-slate-600 text-[11px]"></i>
             <span>管理</span>
           </a>
-
-          <!-- Group shown when ADMIN -->
-          <div id="admin-actions-bar" class="hidden items-center gap-1.5">
-            <a href="admin.html" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-bold text-amber-700 bg-amber-50 border border-amber-200/60 hover:bg-amber-100 transition shadow-2xs">
-              <i class="fa-solid fa-chart-line text-[10px]"></i>
-              <span class="hidden sm:inline">ダッシュボード</span>
-            </a>
-            <button onclick="adminLogout()" title="ログアウト" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-rose-50 text-slate-400 hover:text-rose-600 flex items-center justify-center text-xs transition">
-              <i class="fa-solid fa-right-from-bracket text-[10px]"></i>
-            </button>
-          </div>
         </div>
       </div>
       <!-- ========================================== -->
@@ -121,11 +110,6 @@
         <a href="raytus" id="nav-item-raytus" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:bg-slate-100">
           <i class="fa-solid fa-globe text-slate-400"></i>
           <span>RAYTUS 全事業</span>
-        </a>
-        <a href="https://shopping.community-iyasakagu.jp/" target="_blank" rel="noopener noreferrer" id="nav-item-iyasaka" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-amber-800 bg-amber-50 hover:bg-amber-100 border border-amber-200/60 shadow-2xs font-bold">
-          <i class="fa-solid fa-torii-gate text-amber-600"></i>
-          <span>Iyasaka宮 (EC)</span>
-          <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-amber-500"></i>
         </a>
         <a href="calendar" id="nav-item-calendar" class="nav-item whitespace-nowrap px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 bg-slate-900 text-white shadow-xs">
           <i class="fa-regular fa-calendar-days text-rose-500"></i>
@@ -146,24 +130,6 @@
       </nav>
     </div>
   </header>
-
-  <!-- 🎤 ぶった斬り会長トークショー 案内バナー -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-1">
-    <a href="caravan" class="group flex items-center justify-between gap-3 p-3 sm:p-3.5 rounded-2xl bg-gradient-to-r from-rose-900 via-slate-900 to-indigo-950 text-white shadow-sm hover:shadow-md transition-all border border-rose-800/50">
-      <div class="flex items-center gap-2.5">
-        <span class="w-8 h-8 rounded-xl bg-rose-500/30 border border-rose-400/40 flex items-center justify-center text-amber-300 text-sm shrink-0">
-          <i class="fa-solid fa-bullhorn"></i>
-        </span>
-        <span class="text-xs sm:text-sm font-black text-white">ぶった斬り会長トークショー（11月 全7日程）はこちら</span>
-      </div>
-      <div class="flex items-center gap-1.5 shrink-0">
-        <span class="px-3 py-1 rounded-xl bg-white text-rose-900 font-extrabold text-xs shadow-xs group-hover:bg-rose-50 transition flex items-center gap-1">
-          <span>表示する</span>
-          <i class="fa-solid fa-arrow-right text-[10px]"></i>
-        </span>
-      </div>
-    </a>
-  </section>
 
   <!-- Controls Bar: View Switcher, Search & Categories -->
   <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 pb-2">

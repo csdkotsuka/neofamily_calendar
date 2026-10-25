@@ -3,7 +3,7 @@
  * Handles PWA lifecycle, notifications, and offline caching.
  */
 
-const CACHE_NAME = "neofamily-cache-v20261025_4";
+const CACHE_NAME = "neofamily-cache-v20261025_5";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
@@ -21,6 +21,7 @@ const ASSETS_TO_CACHE = [
   "./js/events-data.js",
   "./js/caravan-events-data.js",
   "./js/caravan-app.js",
+  "./images/kaicho_face.jpg",
   "./images/kusanagi_face.jpg",
   "./js/interactive-flowchart.js",
   "./js/admin.js",

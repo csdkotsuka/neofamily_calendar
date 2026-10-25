@@ -28,9 +28,8 @@ def main():
     def get_navbar(active_page):
         items = [
             ('hub', './', 'fa-solid fa-compass', '総合ポータル', ''),
-            ('flowchart', 'flowchart.html', 'fa-solid fa-gamepad text-amber-500', '参加フロー診断', '<span class="px-1.5 py-0.2 text-[9px] font-black rounded bg-rose-500 text-white animate-pulse">GAME</span>'),
+            ('flowchart', 'flowchart.html', 'fa-solid fa-arrows-split-up-and-left text-amber-500', '参加フローチャート', ''),
             ('raytus', 'raytus.html', 'fa-solid fa-globe text-slate-400', 'RAYTUS 全事業', ''),
-            ('iyasaka', 'https://shopping.community-iyasakagu.jp/', 'fa-solid fa-torii-gate text-amber-600', 'Iyasaka宮 (EC)', '<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-amber-500"></i>'),
             ('calendar', 'calendar.html', 'fa-regular fa-calendar-days text-rose-500', 'イベントカレンダー', ''),
             ('caravan', 'caravan.html', 'fa-solid fa-bullhorn text-rose-500', '会長トークショー', ''),
             ('archive', 'archive.html', 'fa-solid fa-graduation-cap text-indigo-500', '勉強会アーカイブ', ''),
@@ -79,20 +78,16 @@ def main():
         <div class="flex items-center gap-2 sm:gap-3">
           <a href="https://shopping.community-iyasakagu.jp/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-50 text-amber-800 border border-amber-300/60 hover:bg-amber-100 transition shadow-2xs">
             <i class="fa-solid fa-cart-shopping text-amber-600"></i>
-            <span>Iyasaka宮 EC</span>
+            <span>Iyasaka宮</span>
             <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-amber-500"></i>
           </a>
-          <button onclick="copyZoomInfo()" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-blue-50 text-blue-700 border border-blue-200/60 hover:bg-blue-100 transition shadow-2xs">
-            <i class="fa-solid fa-video text-blue-500"></i>
-            <span>全日共通Zoom</span>
-          </button>
           <a href="flowchart.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-50 text-amber-800 border border-amber-300/60 hover:bg-amber-100 transition shadow-2xs">
-            <i class="fa-solid fa-gamepad text-amber-600"></i>
-            <span>診断ゲーム</span>
+            <i class="fa-solid fa-arrows-split-up-and-left text-amber-600"></i>
+            <span>参加フロー</span>
           </a>
-          <a href="admin.html" class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-bold text-slate-500 hover:text-slate-800 transition">
-            <i class="fa-solid fa-lock text-[10px]"></i>
-            <span class="hidden sm:inline">管理</span>
+          <a href="admin.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-800 bg-slate-100 hover:bg-slate-200 border border-slate-300 shadow-2xs transition">
+            <i class="fa-solid fa-lock text-slate-600 text-[11px]"></i>
+            <span>管理</span>
           </a>
         </div>
       </div>
