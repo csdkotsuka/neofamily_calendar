@@ -7,7 +7,7 @@ X-WR-CALNAME:NEO FAMILY イベントカレンダー
 X-WR-TIMEZONE:Asia/Tokyo
 BEGIN:VEVENT
 UID:event-20261002-tokyo-teirei@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261002T130000
 DTEND;TZID=Asia/Tokyo:20261002T160000
 SUMMARY:NEO FAMILY 10月 東京定例会
@@ -17,7 +17,7 @@ URL:https://us06web.zoom.us/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261003-bengyo-ginger@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261003T220000
 DTEND;TZID=Asia/Tokyo:20261003T230000
 SUMMARY:⛩️ 勉強ジンジャー 配信
@@ -27,7 +27,7 @@ URL:https://shopping.community-iyasakagu.jp/product/school_course1208/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261004-fruits@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261004T131500
 DTEND;TZID=Asia/Tokyo:20261004T160000
 SUMMARY:🍇🍑 フルーツ＆交流会イベント
@@ -36,7 +36,7 @@ LOCATION:現地会場（12:50 受付スタート）
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261004-bengyo-ginger@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261004T213000
 DTEND;TZID=Asia/Tokyo:20261004T223000
 SUMMARY:⛩️ 勉強ジンジャー 夜の配信
@@ -45,7 +45,7 @@ LOCATION:オンライン配信（勉強ジンジャー）
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261009-luce@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261009T210000
 DTEND;TZID=Asia/Tokyo:20261009T220000
 SUMMARY:美容事業 LUCE スクール事業 Zoom説明会
@@ -55,7 +55,7 @@ URL:https://us06web.zoom.us/j/81588983331?pwd=xxx
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261009-livepark@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261009T230000
 DTEND;TZID=Asia/Tokyo:20261009T240000
 SUMMARY:🪷 LIVEPARK 深夜配信
@@ -64,7 +64,7 @@ LOCATION:LIVEPARK
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261010-makers@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261010T200000
 DTEND;TZID=Asia/Tokyo:20261010T213000
 SUMMARY:ものづくり事業 maKeRs. 事業説明会
@@ -73,7 +73,7 @@ LOCATION:Zoom オンライン
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261010-fukushi@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261010T220000
 DTEND;TZID=Asia/Tokyo:20261010T230000
 SUMMARY:福祉支援事業 〜みんなのて〜 事業説明【会長zoom！】
@@ -83,7 +83,7 @@ URL:https://us06web.zoom.us/j/84617755146?pwd=xxx
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261011-kidswell-briefing@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261011T200000
 DTEND;TZID=Asia/Tokyo:20261011T213000
 SUMMARY:一般社団法人 Kids Well Academy 事業説明会
@@ -93,7 +93,7 @@ URL:https://us06web.zoom.us/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261013-raytus-joint-1@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261013T210000
 DTEND;TZID=Asia/Tokyo:20261013T223000
 SUMMARY:📢 RAYTUS group. 合同事業説明会【DAY 1】
@@ -103,7 +103,7 @@ URL:https://us06web.zoom.us/j/81113152898?pwd=rnUDogc0paequYOxCnvXYaSs3WngG3.1
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261014-raytus-joint-2@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261014T160000
 DTEND;TZID=Asia/Tokyo:20261014T220000
 SUMMARY:📢 RAYTUS group. 合同事業説明会【DAY 2】
@@ -113,7 +113,7 @@ URL:https://us06web.zoom.us/j/81113152898?pwd=rnUDogc0paequYOxCnvXYaSs3WngG3.1
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261015-day-study@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261015T130000
 DTEND;TZID=Asia/Tokyo:20261015T150000
 SUMMARY:📝 公財 NEW TERAKOYA 昼の勉強会・交流会
@@ -123,7 +123,7 @@ URL:https://chouseisan.com/s?h=5524b1d6363544d7aeb3ff1d89ec1b37
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261016-nougyo-taidan@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261016T210000
 DTEND;TZID=Asia/Tokyo:20261016T220000
 SUMMARY:スペシャル対談！農業組合が目指す、安全安心の基準とは？
@@ -132,7 +132,7 @@ LOCATION:オンライン配信
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261018-remiko@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261018T210000
 DTEND;TZID=Asia/Tokyo:20261018T220000
 SUMMARY:れみこ先生 説明会 Zoom
@@ -142,7 +142,7 @@ URL:https://us06web.zoom.us/j/87901178475?pwd=zZMDiF5XBObPZjIls45erGQsCejMF9.1
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261018-bengyo-ginger-yukari@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261018T220000
 DTEND;TZID=Asia/Tokyo:20261018T230000
 SUMMARY:⛩️ 勉強ジンジャー『教育×スピリチュアル』はたゆかり
@@ -152,7 +152,7 @@ URL:https://shopping.community-iyasakagu.jp/product/school_course1247/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261019-mohatsu-1@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261019T210000
 DTEND;TZID=Asia/Tokyo:20261019T220000
 SUMMARY:ネオ会員限定・無料オンラインセミナー「毛髪について」第1回
@@ -162,7 +162,7 @@ URL:https://us06web.zoom.us/j/84430427414?pwd=qWAuDlRpSpZusd16LGaawgD4tNUeVs.1
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261020-iyasuta-mimola@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261020T210000
 DTEND;TZID=Asia/Tokyo:20261020T220000
 SUMMARY:📣✨【会長コマース❣️イヤスタのお知らせ】Mimolaグループ特別編
@@ -172,7 +172,7 @@ URL:https://events.livepark.jp/videos/cZGBlCyhHEU
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261021-kaicho-gurokon@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261021T210000
 DTEND;TZID=Asia/Tokyo:20261021T220000
 SUMMARY:📢 ぶった斬り会長 合同グルコン「主婦の方が稼げる根拠とは⁉️」
@@ -182,7 +182,7 @@ URL:https://us06web.zoom.us/j/88257025834?pwd=UCD7vXd4Wb2tSchrokwBGcgU5q6bam.1
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261022-machinohokenshitsu@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261022T200000
 DTEND;TZID=Asia/Tokyo:20261022T210000
 SUMMARY:まちのほけんしつ 事業説明会
@@ -192,7 +192,7 @@ URL:https://us06web.zoom.us/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261022-osakana@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261022T210000
 DTEND;TZID=Asia/Tokyo:20261022T220000
 SUMMARY:＼お魚🐟食べよう週間／ 企画メンバー募集 事業説明会 Zoom
@@ -202,7 +202,7 @@ URL:https://us06web.zoom.us/j/86984245385?pwd=g0Sn20DCizVZ7ViHwhavyK57U6dBg8.1
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261022-seitai-balm@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261022T220000
 DTEND;TZID=Asia/Tokyo:20261022T230000
 SUMMARY:✨「バカ売れ整体バーム」TheraMove Balm 特別説明会
@@ -212,7 +212,7 @@ URL:https://www.instagram.com/nekturn_dance_seitai/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261023-snack-aki@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261023T220000
 DTEND;TZID=Asia/Tokyo:20261023T230000
 SUMMARY:🍷 スナック亜希 🍷 特別オープン
@@ -222,7 +222,7 @@ URL:https://community-iyasakagu.jp/subschool/course/school_course1260/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261024-tosa-terakoya@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261024T100000
 DTEND;TZID=Asia/Tokyo:20261024T153000
 SUMMARY:第2回 TOSA寺子屋交流会（親子で楽しむ ハロウィン寺子屋）
@@ -232,7 +232,7 @@ URL:https://forms.gle/TNzFBA7Po9NJPsVf9
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261024-meiji-retreat@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261024T120000
 DTEND;TZID=Asia/Tokyo:20261025T150000
 SUMMARY:🌿 明治温泉リトリート『子どもたちの特別体験』
@@ -242,7 +242,7 @@ URL:https://lin.ee/MV2THFy
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261024-zubari-aging-shot-2@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261024T210000
 DTEND;TZID=Asia/Tokyo:20261024T213000
 SUMMARY:🔥📸 第2回！ズバリ言うわよ！ present by エイジングショットFC事業
@@ -252,7 +252,7 @@ URL:https://events.livepark.jp/videos/8lBRwHGTCrd
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261025-ehime-kenkofes@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261025T130000
 DTEND;TZID=Asia/Tokyo:20261025T163000
 SUMMARY:まちほけ愛媛支部 『健康フェス』マルシェ
@@ -262,7 +262,7 @@ URL:https://www.ehime-joseizaidan.com/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261025-remiko-taiwa@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261025T210000
 DTEND;TZID=Asia/Tokyo:20261025T220000
 SUMMARY:精神科専門医 れみこ先生が教える！『人の心に届く、対話の心理学』
@@ -272,7 +272,7 @@ URL:https://us06web.zoom.us/j/85864096749?pwd=yiknu6hYRqwVeIbM1NbbjOiJbVwnBH.1
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261025-bengyo-ginger-yuka-aki@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261025T213000
 DTEND;TZID=Asia/Tokyo:20261025T223000
 SUMMARY:⛩️ 勉強ジンジャー「普通の看護師ママがここまできた！事業を立ち上げたことがない私がままゆねを立ち上げた歴史」
@@ -281,8 +281,18 @@ LOCATION:オンライン配信（勉強ジンジャー）
 URL:https://community-iyasakagu.jp/subschool/course/school_course1281/
 END:VEVENT
 BEGIN:VEVENT
+UID:event-20261026-raytus-godo-setsumeikai@neofamily.jp
+DTSTAMP:20261026T235520Z
+DTSTART;TZID=Asia/Tokyo:20261026T130000
+DTEND;TZID=Asia/Tokyo:20261026T143000
+SUMMARY:📢 RAYTUS group. 合同事業説明会
+DESCRIPTION:📢 RAYTUS group.合同事業説明会のお知らせ📢\n\n本日は下記4事業が登壇します✨\n\n--------------------\n【26日（月）13:00～】\n・韓国コミュニティ事業：ノワナスクール\n・総合美容事業：Ligare\n・ママ支援事業：ままゆね\n・スポーツリカバリー事業：Re.Co Lab\n--------------------\n\n耳だけ参加も大歓迎です💡\nリアルタイムでのみなさんのご参加お待ちしております✨\n\n🔻Zoom ID（全日共通）🔻\nhttps://us06web.zoom.us/j/81113152898?pwd=rnUDogc0paequYOxCnvXYaSs3WngG3.1\n\nミーティング ID: 811 1315 2898\nパスコード: 2026
+LOCATION:Zoom（オンライン）
+URL:https://us06web.zoom.us/j/81113152898?pwd=rnUDogc0paequYOxCnvXYaSs3WngG3.1
+END:VEVENT
+BEGIN:VEVENT
 UID:event-20261026-bengyo-ginger-nanako-yuko@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261026T140000
 DTEND;TZID=Asia/Tokyo:20261026T150000
 SUMMARY:⛩️ 勉強ジンジャー「引き寄せ力強化 〜あなたの成功への道しるべ〜」
@@ -291,8 +301,18 @@ LOCATION:オンライン配信（勉強ジンジャー）
 URL:https://community-iyasakagu.jp/subschool/course/school_course1270/
 END:VEVENT
 BEGIN:VEVENT
+UID:event-20261026-bengyo-ginger-nakajima-manami@neofamily.jp
+DTSTAMP:20261026T235520Z
+DTSTART;TZID=Asia/Tokyo:20261026T190000
+DTEND;TZID=Asia/Tokyo:20261026T200000
+SUMMARY:⛩️ 勉強ジンジャー「私の本音、どこ行った!? 😂」
+DESCRIPTION:＼ 私の本音、どこ行った!? 😂 ／\n\n10月26日（月）19:00～\n話すのに💥コンプレックス💥ある人あつまれ〜！\n\n𓇠𓇠𓇠𓇠𓇠𓇠𓇠𓇠𓇠𓇠𓇠\n🎤 MURA理事長 中嶋愛美\n🎤 MURA理事 櫻井香菜子\n𓇠𓇠𓇠𓇠𓇠𓇠𓇠𓇠𓇠𓇠𓇠\n\n人の目を気にして、嫌われるのが怖くて、言いたいことも言えない人間でした😂\n「こんなこと言ったらどう思われる？」「嫌われたらどうしよう…」\nそんなことばっかり考えて、自分の本音はどこへやら🤣\n\n話す機会も増えましたが、最初からこんな私だったわけじゃありません！（※嘘ではありません⚠️）\nじゃあ、どうやって変わったのか🤔\n今回は、そんな私の過去から今に至るまでを、包み隠さず赤裸々にお話しします🔥\n\nそして今回は‼️ スペシャルゲストにMURA理事 マシンガントークKANAKO📣こと、櫻井香菜子さんをお迎えします✨\n\n✔ 人の目が気になってしまう\n✔ 嫌われるのが怖い\n✔ 自分の意見をなかなか言えない\n\nそんな方にこそ聞いてほしい内容です🙌\n笑いあり、NGなし‼️ 楽しい時間をお届けします💃\n\nぜひ遊びに来てください❤️\n話すの苦手でも、変わりたい‼️と思っているそこのあなた🙌 お待ちしています💓\n\n･･━━･･━━･･━━･･━━･･\n購入していただいた売上は全て定例会の会場費になります💙\n･･━━･･━━･･━━･･━━･･\n🛒 視聴権の購入はこちら：\nhttps://community-iyasakagu.jp/subschool/course/school_course1268/
+LOCATION:⛩️ 勉強ジンジャー（オンライン）
+URL:https://community-iyasakagu.jp/subschool/course/school_course1268/
+END:VEVENT
+BEGIN:VEVENT
 UID:event-20261026-biyo-joukiyeki@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261026T210000
 DTEND;TZID=Asia/Tokyo:20261026T220000
 SUMMARY:美容事業 スキルアップ勉強会『上清液セールストーク』
@@ -302,7 +322,7 @@ URL:https://us06web.zoom.us/j/3225518128?pwd=sckjacS9yVFmD6cPMlz6xsz0Hg2HpU.1&om
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261026-sanpun-cooking@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261026T210000
 DTEND;TZID=Asia/Tokyo:20261026T220000
 SUMMARY:🍳 億稼ぐのは「3分クッキング」？！成功する簡単なポイント
@@ -311,8 +331,18 @@ LOCATION:Zoom オンライン
 URL:https://community-iyasakagu.jp/subschool/course/school_course1266/
 END:VEVENT
 BEGIN:VEVENT
+UID:event-20261027-liver-namikky@neofamily.jp
+DTSTAMP:20261026T235520Z
+DTSTART;TZID=Asia/Tokyo:20261027T140000
+DTEND;TZID=Asia/Tokyo:20261027T150000
+SUMMARY:📲 NEO FAMILY ライバー事業説明会＆特別番組
+DESCRIPTION:📲 ライバー事業説明会 📲\n\n昨年8月にスタートしたこの事業🎙\n\n今回のゲストは、ついにライバー1周年❣️❣️\n幼児性教育の先生 🌺なみっきー🌺（ライバーネームはなっちゃん）\n3歳と1歳の男子を育てながら、どうやって続けたのー⁉️\n率直な気持ちを聞いてみましょう🩷\n\n📅 10月27日(火) 14時～15時\n\nライバーって何してるの？ どんな人がいるの？ どんな配信なの？\n《ライバー》って言葉だけ聞いても正直よくわからなくないですか？\nそういう時は、まず✨体感✨\n\nライブパークを使用して、ポコチャ仕様の特別な説明会を行ないます♪\n顔出しなし、ラジオ感覚で参加できます📻 スタンプ機能も特別なものがあるかも…⁉️\n\nライバーってなんだろう🤔 その疑問を解決しに、ぜひお気軽に見に来てください😍\n\n前半はポコチャで活躍中の現役ライバーさんをゲストにライバー特別番組を📺\n後半はライバー事業説明会を行います✍️\n\n推しがいる人もいない人も、ポコチャを見たことがある人もない人も、覗いてみてね～🙌✨🥰\n\n🎬 ご視聴はこちら：\nhttps://events.livepark.jp/videos/HYFD7eGXFFV
+LOCATION:LIVEPARK（オンライン生配信）
+URL:https://events.livepark.jp/videos/HYFD7eGXFFV
+END:VEVENT
+BEGIN:VEVENT
 UID:event-20261027-bengyo-ginger-shiori@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261027T210000
 DTEND;TZID=Asia/Tokyo:20261027T220000
 SUMMARY:🚒🔥 勉強ジンジャー「かつて消防車と言われた女がRAYTUS No.2と呼ばれるようになるまで」
@@ -322,7 +352,7 @@ URL:https://community-iyasakagu.jp/subschool/course/school_course1284/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261028-bengyo-ginger-doubutsu@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261028T220000
 DTEND;TZID=Asia/Tokyo:20261028T230000
 SUMMARY:⛩️ 勉強ジンジャー「動物を守る、その先へ。」🐶🐱
@@ -332,7 +362,7 @@ URL:https://community-iyasakagu.jp/subschool/course/school_course1273/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261029-bengyo-ginger-komi-ria@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261029T200000
 DTEND;TZID=Asia/Tokyo:20261029T210000
 SUMMARY:🦍 勉強ジンジャー「“お利口さん”の檻から、一歩外へ」
@@ -342,7 +372,7 @@ URL:https://shopping.community-iyasakagu.jp/product/school_course1289/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261029-diet-qa@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261029T210000
 DTEND;TZID=Asia/Tokyo:20261029T220000
 SUMMARY:まるっと解決 ダイエットQ&A（食事・運動・習慣・リバウンドなど）
@@ -351,7 +381,7 @@ LOCATION:Zoom オンライン
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261029-bengyo-ginger-shinkawa@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261029T213000
 DTEND;TZID=Asia/Tokyo:20261029T223000
 SUMMARY:⛩️勉強ジンジャー⛩️ セルフ小顔メンテナンス＆歪みセルフチェックと整え
@@ -361,16 +391,17 @@ URL:https://community-iyasakagu.jp/subschool/course/school_course1265/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261030-livecommerce@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261030T200000
 DTEND;TZID=Asia/Tokyo:20261030T213000
-SUMMARY:＼ライブコマーサー無料セミナー／ 新しい販売のカタチ
-DESCRIPTION:今、TikTok等で大注目の「ライブコマース」！\n🔥ライブコマースとは？\n🔥ライブで商品を売るために必要なこと\n🔥商品の魅力を引き出す伝え方\n🔥視聴者の「欲しい！」を生み出す販売の基礎\n🔥ライブコマーサーという新しい働き方\n初心者の方にも分かりやすくお伝えします！
-LOCATION:オンライン配信
+SUMMARY:✨🎤 ライブコマーサー無料セミナー「あなたの伝える力が仕事になるかも！」
+DESCRIPTION:✨🎤 あなたの「伝える力」が仕事になるかも！🎤✨\n＼10月30日 20時 ライブコマーサー無料セミナー開催／\n\n今、TikTokなどで注目を集めている「ライブコマース」をご存じですか？😳\nライブ配信をしながら商品の魅力を伝え、視聴者とのコミュニケーションを通して購入につなげていく、新しい販売のカタチです✨\n\n今回の無料セミナーでは、テレビ通販・ライブコマースの現場で活躍する相本さち子が、\n🔥 ライブコマースとは？\n🔥 ライブで商品を売るために必要なこと\n🔥 商品の魅力を引き出す伝え方\n🔥 視聴者の「欲しい！」を生み出す販売の基礎\n🔥 ライブコマーサーという新しい働き方\nなどを、初心者の方にも分かりやすくお伝えします☺️\n\n⭐️開催日時：10月30日（金）20:00～\n⭐️参加費：無料🎁\n\n【こんな方におすすめです💁‍♀️】\n・自分の商品やサービスをもっと売りたい\n・ライブコマーサーオーディションを受ける前に予備知識がほしい\n・人前で話すことや商品を紹介することが好き\n・在宅でもできる新しい仕事に興味がある\n・自分に向いているか、まず話を聞いてみたい\n\nそして「ライブコマーサーオーディション」も来月開催予定です🎉 すでにたくさんのエントリーをいただいています！\nオーディションへの参加を決めていない方も、無料セミナーだけのご参加で大歓迎です🙌\n商品を売る方にも、誰かの商品を紹介する方にも役立つ内容です✨ ライブコマースの世界を一緒にのぞいてみませんか？☺️\n\n🔻Zoom ミーティングに参加する🔻\nhttps://us06web.zoom.us/j/81838613264?pwd=UTmQD3bKAJBtd5onNUoiox0ZRRRBsm.1
+LOCATION:Zoom（オンライン）
+URL:https://us06web.zoom.us/j/81838613264?pwd=UTmQD3bKAJBtd5onNUoiox0ZRRRBsm.1
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261030-rijicho-ginger-nagoya@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261030T200000
 DTEND;TZID=Asia/Tokyo:20261030T210000
 SUMMARY:⛩️ 理事長ジンジャー「それ、どうやっとるの？あなたにもなれる！美容の秘訣教えてあげる♥」
@@ -380,7 +411,7 @@ URL:https://community-iyasakagu.jp/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261030-hoken-money-seminar@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261030T200000
 DTEND;TZID=Asia/Tokyo:20261030T210000
 SUMMARY:💡 フリーランス自衛術＆成長戦略 ～会社は守ってくれない！病気・ケガ・借入リスクに備える完全ガイド～
@@ -390,7 +421,7 @@ URL:https://chouseisan.com/s?h=4fa29be4f6844f8ab5d6afb881d151d5
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261030-night-study@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261030T210000
 DTEND;TZID=Asia/Tokyo:20261030T230000
 SUMMARY:📝 NEW TERAKOYA 夜の勉強会・交流会
@@ -398,8 +429,18 @@ DESCRIPTION:【開催日】10月30日 21:00〜23:00\n10月の活動を振り返�
 LOCATION:Zoom オンライン
 END:VEVENT
 BEGIN:VEVENT
+UID:event-20261030-bengyo-ginger-shiraki-yuki-takashi@neofamily.jp
+DTSTAMP:20261026T235520Z
+DTSTART;TZID=Asia/Tokyo:20261030T213000
+DTEND;TZID=Asia/Tokyo:20261030T223000
+SUMMARY:📚⛩️ 勉強ジンジャー「真面目な夫と、自由すぎる妻。夫婦で人生大冒険！」
+DESCRIPTION:📚⛩️ 勉強ジンジャー開催 ⛩️📚\n\nenCORE 理事長 白木悠希、隆司です☺️\n\n📅 10月30日(金) 21:30～22:30\n参加費: 1,000円\n\n＼真面目な夫と、自由すぎる妻。／\nそんな2人が、夫婦で人生大冒険！ 🤣💕\nenCORE理事長の白木夫婦がお届けします♡\n\n👨 白木隆司（A×Ｂ＝AB型）：真面目で慎重派の夫。\n👩 白木悠希（O×Ｂ＝B型）：好奇心旺盛！楽しいこと大好き！自由すぎる妻。\n\n性格も考え方も違う2人が、夫婦で同じ環境に飛び込み、まさかの2人そろって理事長に！！😳✨\nしかも、わが家には小学1年生と0歳の子どもがいます👧👶\n仕事に家事に育児。時間がたっぷりあるわけじゃない。\nそれでも、夫婦で挑戦することを選びました🔥\n\n今回お話しするのは…\n🌈 夫婦で活動するって実際どうなの？\n🌈 性格が真逆の2人がどうやって協力している？\n🌈 小さな子どもがいても挑戦できた、リアルな時間の使い方\n🌈 コツコツ続けた先に見えた景色\n🌈 理事長になって変わったこと、そしてこれから叶えたい夢\n\nもちろん、うまくいった話ばかりじゃありません🤣\n夫婦だからこその本音や、普段は見せない裏側もお話しできたらと思っています♡\n人生、予定通りじゃつまらない！\n大人になっても、親になっても、まだまだ夢を追いかけていい。夫婦そろって、まだまだ青春！！😆🔥\n笑いあり、リアルな話ありの勉強ジンジャー♡ ぜひ気軽に遊びに来てください🥰💕\n\n※この度の売上は、全額定例会の会場費の補填になります！\n\n🛒 視聴チケットはこちら：\nhttps://shopping.community-iyasakagu.jp/product/school_course1293/
+LOCATION:⛩️ 勉強ジンジャー（オンライン）
+URL:https://shopping.community-iyasakagu.jp/product/school_course1293/
+END:VEVENT
+BEGIN:VEVENT
 UID:event-20261031-bengyo-ginger-furuichi-mika@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261031T210000
 DTEND;TZID=Asia/Tokyo:20261031T220000
 SUMMARY:🌈 勉強ジンジャー「ゲイ夫×ストレート妻の、新しい家族のカタチ♡」～シリーズ第1回“出会い編”～
@@ -409,7 +450,7 @@ URL:https://community-iyasakagu.jp/subschool/course/school_course1267/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261102-machihoke-fukuoka@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261102T100000
 DTEND;TZID=Asia/Tokyo:20261102T113000
 SUMMARY:出張！まちのほけんしつ in 福岡（聞ける・話せる・体験できる！）
@@ -418,7 +459,7 @@ LOCATION:ふれあい貸し会議室 博多東（博多駅 徒歩1分）
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261102-fukuoka-teirei@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261102T130000
 DTEND;TZID=Asia/Tokyo:20261102T160000
 SUMMARY:🍜 NEO FAMILY 11月 福岡定例会
@@ -427,7 +468,7 @@ LOCATION:福岡市内 会場（リアル推奨！）
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261104-mohatsu-2@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261104T210000
 DTEND;TZID=Asia/Tokyo:20261104T220000
 SUMMARY:ムダに毛の多いようへい先生プレゼンツ【発毛・脱毛】知ると変わる、毎日のヘアケア。
@@ -437,7 +478,7 @@ URL:https://us06web.zoom.us/j/84430427414?pwd=qWAuDlRpSpZusd16LGaawgD4tNUeVs.1
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261105-joukiyeki-2@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261105T210000
 DTEND;TZID=Asia/Tokyo:20261105T220000
 SUMMARY:美容事業 上清液勉強会
@@ -447,7 +488,7 @@ URL:https://us06web.zoom.us/j/3225518128?pwd=sckjacS9yVFmD6cPMlz6xsz0Hg2HpU.1&om
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261118-kochi-omusubi-koza@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261118T100000
 DTEND;TZID=Asia/Tokyo:20261118T150000
 SUMMARY:おむすび師認定講座 & Ray和おむすび師認定トレーナー講座
@@ -457,7 +498,7 @@ URL:https://shopping.community-iyasakagu.jp/product/cms0500031_product0006/
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261118-soba-to-yu@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261118T103000
 DTEND;TZID=Asia/Tokyo:20261118T160000
 SUMMARY:蕎麦と湯。 土と輪農業組合×明治温泉
@@ -467,7 +508,7 @@ URL:https://lin.ee/ng9Xhsn
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261119-kochi-omusubi@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261119T113000
 DTEND;TZID=Asia/Tokyo:20261119T133000
 SUMMARY:親子で楽しく 軸が整うおむすび会
@@ -477,7 +518,7 @@ URL:https://line.me/R/ti/p/@324cghvb
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261119-joukiyeki-3@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261119T210000
 DTEND;TZID=Asia/Tokyo:20261119T220000
 SUMMARY:美容事業 上清液セールストーク勉強会
@@ -487,7 +528,7 @@ URL:https://us06web.zoom.us/j/3225518128?pwd=sckjacS9yVFmD6cPMlz6xsz0Hg2HpU.1&om
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261202-xmas-party@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261202T114500
 DTEND;TZID=Asia/Tokyo:20261202T143000
 SUMMARY:NEO託児 LITTLE CHRISTMAS PARTY 2026
@@ -496,7 +537,7 @@ LOCATION:ハイアット リージェンシー 東京（東京都新宿区西新
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20261204-mohatsu-3@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20261204T210000
 DTEND;TZID=Asia/Tokyo:20261204T220000
 SUMMARY:ネオ会員限定・無料オンラインセミナー「毛髪について」第3回
@@ -506,7 +547,7 @@ URL:https://us06web.zoom.us/j/84430427414?pwd=qWAuDlRpSpZusd16LGaawgD4tNUeVs.1
 END:VEVENT
 BEGIN:VEVENT
 UID:event-20270105-nagoya-teirei@neofamily.jp
-DTSTAMP:20261025T011751Z
+DTSTAMP:20261026T235520Z
 DTSTART;TZID=Asia/Tokyo:20270105T130000
 DTEND;TZID=Asia/Tokyo:20270105T160000
 SUMMARY:🏯 NEO FAMILY 1月 名古屋定例会
