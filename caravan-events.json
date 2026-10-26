@@ -368,5 +368,39 @@
     "images": [
       "images/caravan/S__14254166.jpg"
     ]
+  },
+  {
+    "id": "event-20261206-matsuyama-pinpinkorori",
+    "title": "ピンピンコロリ「元気に生きて、最後まで自分らしく」ぶった斬り会長トークショー in 松山",
+    "subtitle": "健康・つながり・これからの人生を一緒に考えるトークショー",
+    "category": "トークショー・講演",
+    "categoryColor": "#4f46e5",
+    "region": "愛媛",
+    "startDate": "2026-12-06",
+    "startTime": "13:15",
+    "endDate": "2026-12-06",
+    "endTime": "16:00",
+    "isAllDay": false,
+    "location": "松山市男女共同参画センター（愛媛県松山市山越町450番地）",
+    "locationType": "offline",
+    "fee": "500円（現地払い）",
+    "capacity": "50名（先着順）",
+    "presenter": "ぶった斬り会長（国連IDIO / 国際女性フォーラム登壇 / SNSフォロワー22万人超）",
+    "organizer": "主催：公益財団法人 NEW TERAKOYA（社会支援団体 MIRAIを創る会） ピンピンころりん事業 愛媛後援会",
+    "image": "images/caravan/event-20261206-pinpinkorori-matsuyama.jpg",
+    "description": "【ピンピンコロリ 元気に生きて、最後まで自分らしく in 松山】\n〜健康・つながり・これからの人生を一緒に考えるトークショー〜\n\nいつまでも元気に笑って生きよう！今を楽しめば未来はもっと明るい！\nこれからの生き方のヒントがきっと見つかる、ぶった斬り会長の特別トークショーです✨\n\n■4つのテーマ\n・健康：いつまでも自分の足で動ける体づくり\n・生きがい：好きなことを楽しむ毎日\n・つながり：仲間と出会い支え合う\n・これからの生き方：今をもっと楽しむヒント\n\n■当日のプログラム\n・13:15 開場\n・13:35〜13:55 ぴんぴん体操 など（みんなで楽しく体を動かしましょう！）\n・14:00〜15:00 ぶった斬り会長 トークショー（健康・生き方のヒントが満載！）\n・15:00〜15:30 質問・交流タイム（写真撮影など）\n・16:00 閉場\n\n日時：2026年12月6日（日）13:15〜16:00（開場 13:15）\n会場：松山市男女共同参画センター（愛媛県松山市山越町450番地）\n参加費：500円（現地払い）\n定員：50名（先着順）\n主催：公益財団法人 NEW TERAKOYA（社会支援団体 MIRAIを創る会） ピンピンころりん事業 愛媛後援会",
+    "registrationUrl": "",
+    "zoomUrl": "",
+    "zoomMeetingId": "",
+    "zoomPasscode": "",
+    "archive": {
+      "hasArchive": false,
+      "archiveUrl": "",
+      "password": "",
+      "notes": ""
+    },
+    "images": [
+      "images/caravan/event-20261206-pinpinkorori-matsuyama.jpg"
+    ]
   }
 ]
