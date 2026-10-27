@@ -15,13 +15,24 @@ let currentSearch = "";
 let showPastEvents = false;
 let selectedCardMonth = "all"; // "all" | "2026-10" | "2026-11" など
 
+// Helper to get today's date safely (synchronized with 2026 timeline)
+function getTodayDate() {
+  const now = new Date();
+  if (now.getFullYear() === 2026) {
+    return now;
+  }
+  const fallback = new Date(now);
+  fallback.setFullYear(2026);
+  return fallback;
+}
+
 // Helper to get today's date string (YYYY-MM-DD)
 function getTodayString() {
-  const now = new Date();
-  const y = now.getFullYear();
-  const m = String(now.getMonth() + 1).padStart(2, "0");
-  const d = String(now.getDate()).padStart(2, "0");
-  return `${y}-${m}-${d}`;
+  const d = getTodayDate();
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
 }
 
 // Week calendar state: 2026年11月第2週
@@ -154,8 +165,7 @@ function changeMonth(delta) {
 
 // Go to today (Month view)
 function goToToday() {
-  const now = new Date();
-  const today = (now.getFullYear() === 2026) ? now : new Date(2026, 9, 25);
+  const today = getTodayDate();
   currentYear = today.getFullYear();
   currentMonth = today.getMonth();
   const mStr = String(currentMonth + 1).padStart(2, "0");
@@ -166,8 +176,7 @@ function goToToday() {
 
 // Go to today (Week view)
 function goToTodayWeek() {
-  const now = new Date();
-  const today = (now.getFullYear() === 2026) ? now : new Date(2026, 9, 25);
+  const today = getTodayDate();
   const day = today.getDay();
   currentWeekStartDate = new Date(today);
   currentWeekStartDate.setDate(today.getDate() - day);
@@ -211,6 +220,7 @@ function renderCalendarView() {
 
     const daysEvents = filtered.filter(e => e.startDate === dateStr);
     const isSelected = selectedDate === dateStr;
+    const isToday = dateStr === getTodayString();
 
     const dateObj = new Date(currentYear, currentMonth, day);
     const dayOfWeek = dateObj.getDay();
@@ -222,10 +232,10 @@ function renderCalendarView() {
     else if (isSaturday) dayNumberColor = "text-blue-600 font-extrabold";
 
     html += `
-      <div class="calendar-day-cell ${isSelected ? 'is-selected' : ''}" onclick="handleMonthDayClick('${dateStr}')">
+      <div class="calendar-day-cell ${isSelected ? 'is-selected' : ''} ${isToday ? 'is-today' : ''}" onclick="handleMonthDayClick('${dateStr}')">
         <div class="flex items-center justify-between">
           <span class="text-xs md:text-sm font-black ${dayNumberColor}">${day}</span>
-          ${daysEvents.length > 0 ? `<span class="text-[9px] font-black bg-rose-600 text-white px-1.5 py-0.2 rounded-full">${daysEvents.length}</span>` : ''}
+          ${isToday ? `<span class="text-[9px] font-extrabold bg-rose-600 text-white px-1 rounded">今日</span>` : (daysEvents.length > 0 ? `<span class="text-[9px] font-black bg-rose-600 text-white px-1.5 py-0.2 rounded-full">${daysEvents.length}</span>` : '')}
         </div>
         
         <div class="flex-1 overflow-hidden mt-1 flex flex-col gap-1">

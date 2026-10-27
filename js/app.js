@@ -5,10 +5,32 @@
 
 const GOOGLE_CALENDAR_ID = "c_5a885f7923e2170ff9b443b58c3612f4ff58809d0287730da1c1d6680bd8fa20@group.calendar.google.com";
 
+// Helper to get today's date safely (synchronized with 2026 timeline)
+function getTodayDate() {
+  const now = new Date();
+  if (now.getFullYear() === 2026) {
+    return now;
+  }
+  const fallback = new Date(now);
+  fallback.setFullYear(2026);
+  return fallback;
+}
+
+// Helper to get today's date string (YYYY-MM-DD)
+function getTodayString() {
+  const d = getTodayDate();
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+}
+
+const _initialToday = getTodayDate();
+
 // State
 let allEvents = [];
-let currentYear = 2026;
-let currentMonth = 9; // 0-indexed: 9 = October
+let currentYear = _initialToday.getFullYear();
+let currentMonth = _initialToday.getMonth(); // 0-indexed
 let selectedDate = null;
 let currentCategory = "all";
 let currentViewMode = "calendar"; // "cards" | "week" | "calendar"
@@ -26,7 +48,7 @@ let currentLogFilter = "";
 
 // Week calendar state
 let currentWeekStartDate = (function() {
-  const today = new Date(2026, 9, 18);
+  const today = getTodayDate();
   const day = today.getDay(); // 0 is Sunday
   const start = new Date(today);
   start.setDate(today.getDate() - day);
@@ -243,14 +265,7 @@ function getFilteredEventsForCalendar() {
   });
 }
 
-// Helper to get today's date string (YYYY-MM-DD)
-function getTodayString() {
-  const now = new Date();
-  const y = now.getFullYear();
-  const m = String(now.getMonth() + 1).padStart(2, "0");
-  const d = String(now.getDate()).padStart(2, "0");
-  return `${y}-${m}-${d}`;
-}
+// Helper to get today's date string (YYYY-MM-DD) is declared at top
 
 // Render event cards list
 function renderEventsList() {
@@ -638,7 +653,7 @@ function renderCalendarView() {
 
     const daysEvents = calendarFilteredEvents.filter(e => e.startDate === dateStr);
     const isSelected = selectedDate === dateStr;
-    const isToday = (currentYear === 2026 && currentMonth === 9 && day === 18); // System date: 2026-10-18
+    const isToday = (dateStr === getTodayString());
 
     const dateObj = new Date(currentYear, currentMonth, day);
     const dayOfWeek = dateObj.getDay();
@@ -782,8 +797,7 @@ function changeWeek(delta) {
 
 // Go to today in month calendar
 function goToToday() {
-  const now = new Date();
-  const today = (now.getFullYear() === 2026) ? now : new Date(2026, 9, 25);
+  const today = getTodayDate();
   currentYear = today.getFullYear();
   currentMonth = today.getMonth();
   const mStr = String(currentMonth + 1).padStart(2, "0");
@@ -794,8 +808,7 @@ function goToToday() {
 
 // Go to current week / today week
 function goToTodayWeek() {
-  const now = new Date();
-  const today = (now.getFullYear() === 2026) ? now : new Date(2026, 9, 25);
+  const today = getTodayDate();
   const day = today.getDay();
   currentWeekStartDate = new Date(today);
   currentWeekStartDate.setDate(today.getDate() - day);
@@ -910,7 +923,7 @@ function renderWeekView() {
 
   // Render 7 Day Headers
   weekDays.forEach(d => {
-    const isToday = d.dateStr === "2026-10-18";
+    const isToday = d.dateStr === getTodayString();
     const isSunday = d.dayOfWeek === 0;
     const isSaturday = d.dayOfWeek === 6;
 
@@ -963,7 +976,7 @@ function renderWeekView() {
 
   // 7 Day Columns with Events
   weekDays.forEach(d => {
-    const isToday = d.dateStr === "2026-10-18";
+    const isToday = d.dateStr === getTodayString();
     const dayEvs = filtered.filter(e => e.startDate === d.dateStr);
     const layoutItems = layoutDayEvents(dayEvs);
 
@@ -1575,7 +1588,7 @@ function generateSingleIcsContent(ev) {
     "METHOD:PUBLISH",
     "BEGIN:VEVENT",
     `UID:${ev.id}@neofamily.jp`,
-    `DTSTAMP:20261018T000000Z`,
+    `DTSTAMP:${getTodayString().replace(/-/g, '')}T000000Z`,
     `DTSTART;TZID=Asia/Tokyo:${sDate}T${sTime}`,
     `DTEND;TZID=Asia/Tokyo:${eDate}T${eTime}`,
     `SUMMARY:${cleanSummary}`,
@@ -2240,7 +2253,7 @@ function openCreateEventModal() {
   // Default date to today or selectedDate
   const dateInput = document.getElementById("new-event-date");
   if (dateInput) {
-    dateInput.value = selectedDate || "2026-10-18";
+    dateInput.value = selectedDate || getTodayString();
   }
 
   modal.classList.remove("hidden");
