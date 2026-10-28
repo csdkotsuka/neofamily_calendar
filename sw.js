@@ -3,7 +3,7 @@
  * Handles PWA lifecycle, notifications, and offline caching.
  */
 
-const CACHE_NAME = "neofamily-cache-v20261027_2";
+const CACHE_NAME = "neofamily-cache-v20261028_1";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
@@ -33,29 +33,35 @@ const ASSETS_TO_CACHE = [
   "./images/logo.png",
   "./images/icon-192.png",
   "./images/icon-512.png",
-  "./images/apple-touch-icon.png",
+  "./favicon.ico",
   "./manifest.json"
 ];
 
-// Install: Cache core assets and activate immediately
-self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ASSETS_TO_CACHE).catch((err) => {
-        console.warn("[SW] Cache prefetch error:", err);
-      });
+// Install Event
+self.addEventListener("install", (e) => {
+  e.waitUntil(
+    caches.open(CACHE_NAME).then(async (cache) => {
+      // Best-effort cache: don't let one 404 abort caching the whole app
+      for (const url of ASSETS_TO_CACHE) {
+        try {
+          await cache.add(url);
+        } catch (err) {
+          console.warn("[SW] Failed to precache asset:", url, err);
+        }
+      }
     }).then(() => self.skipWaiting())
   );
 });
 
-// Activate: Clean up old caches
-self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    caches.keys().then((cacheNames) => {
+// Activate Event
+self.addEventListener("activate", (e) => {
+  e.waitUntil(
+    caches.keys().then((keys) => {
       return Promise.all(
-        cacheNames.map((name) => {
-          if (name !== CACHE_NAME) {
-            return caches.delete(name);
+        keys.map((k) => {
+          if (k !== CACHE_NAME) {
+            console.log("[SW] Deleting old cache:", k);
+            return caches.delete(k);
           }
         })
       );
@@ -63,120 +69,109 @@ self.addEventListener("activate", (event) => {
   );
 });
 
-// Fetch: Network first, fallback to cache
-self.addEventListener("fetch", (event) => {
-  // Only handle GET requests for our origin
-  if (event.request.method !== "GET" || !event.request.url.startsWith(self.location.origin)) {
+// Fetch Event (Stale-while-revalidate for critical files, Network-first for dynamic data)
+self.addEventListener("fetch", (e) => {
+  const url = new URL(e.request.url);
+
+  // Skip non-GET requests and non-http/https
+  if (e.request.method !== "GET" || !url.protocol.startsWith("http")) {
     return;
   }
 
-  // Never cache admin console or blocklist data — always fetch fresh from network
-  if (
-    event.request.url.includes("admin") ||
-    event.request.url.includes("blocklist")
-  ) {
-    event.respondWith(fetch(event.request, { cache: "no-store" }).catch(() => fetch(event.request)));
+  // API or external calls: network only
+  if (url.pathname.startsWith("/api/") || url.hostname.includes("firestore.googleapis.com") || url.hostname.includes("googleapis.com")) {
     return;
   }
 
-  // Network-first strategy for data freshness
-  event.respondWith(
-    fetch(event.request)
-      .then((networkResponse) => {
-        if (networkResponse && networkResponse.status === 200) {
-          const responseToCache = networkResponse.clone();
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, responseToCache);
-          });
-        }
-        return networkResponse;
-      })
-      .catch(() => {
-        return caches.match(event.request);
-      })
+  // Network First with Cache Fallback for dynamic JSON and html
+  if (url.pathname.endsWith(".json") || url.pathname.endsWith(".html") || url.pathname === "/" || url.pathname === "/calendar" || url.pathname === "/caravan" || url.pathname === "/portal" || url.pathname === "/flowchart" || url.pathname === "/raytus" || url.pathname === "/iyasaka" || url.pathname === "/archive" || url.pathname === "/sns") {
+    e.respondWith(
+      fetch(e.request)
+        .then((res) => {
+          if (res.ok) {
+            const clone = res.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(e.request, clone));
+          }
+          return res;
+        })
+        .catch(async () => {
+          const cached = await caches.match(e.request);
+          if (cached) return cached;
+          if (e.request.mode === "navigate") {
+            return caches.match("./index.html");
+          }
+        })
+    );
+    return;
+  }
+
+  // Stale-While-Revalidate for JS, CSS, and Images
+  e.respondWith(
+    caches.match(e.request).then((cachedResponse) => {
+      const fetchPromise = fetch(e.request)
+        .then((networkResponse) => {
+          if (networkResponse.ok) {
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(e.request, networkResponse.clone());
+            });
+          }
+          return networkResponse;
+        })
+        .catch(() => cachedResponse);
+
+      return cachedResponse || fetchPromise;
+    })
   );
 });
 
-// ==================== NOTIFICATIONS & PUSH ====================
-
-// Receive Push Notification from Web Push Server
-self.addEventListener("push", (event) => {
-  let data = {
-    title: "【NEO FAMILY】新着イベントのお知らせ",
-    body: "カレンダーに新しいイベントが追加されました！",
-    icon: "images/apple-touch-icon.png",
-    badge: "images/icon-192.png",
-    url: "./index.html"
-  };
-
-  if (event.data) {
+// Push Notification Event
+self.addEventListener("push", (e) => {
+  let data = { title: "NEO FAMILY カレンダー", body: "新しいイベント情報があります！", url: "/" };
+  
+  if (e.data) {
     try {
-      const payload = event.data.json();
-      data = { ...data, ...payload };
-    } catch (e) {
-      data.body = event.data.text();
+      data = e.data.json();
+    } catch (err) {
+      data.body = e.data.text();
     }
   }
 
   const options = {
     body: data.body,
-    icon: data.icon || "images/apple-touch-icon.png",
-    badge: data.badge || "images/icon-192.png",
-    vibrate: [200, 100, 200],
-    data: { url: data.url || "./index.html" },
-    tag: "neofamily-event-notice",
-    renotify: true
+    icon: "./images/icon-192.png",
+    badge: "./images/icon-192.png",
+    vibrate: [100, 50, 100],
+    data: {
+      url: data.url || "/"
+    },
+    actions: [
+      { action: "open", title: "カレンダーを見る" }
+    ]
   };
 
-  event.waitUntil(
+  e.waitUntil(
     self.registration.showNotification(data.title, options)
   );
 });
 
-// Handle Message from Client Window to trigger Local ServiceWorker Notification
-self.addEventListener("message", (event) => {
-  if (event.data && event.data.type === "SHOW_NOTIFICATION") {
-    const { title, body, icon, url, eventId } = event.data;
-    const options = {
-      body: body || "カレンダーに新しいイベントが追加されました！",
-      icon: icon || "images/apple-touch-icon.png",
-      badge: "images/icon-192.png",
-      vibrate: [200, 100, 200],
-      data: {
-        url: url || "./index.html",
-        eventId: eventId || null
-      },
-      tag: "neofamily-new-event",
-      renotify: true
-    };
-    event.waitUntil(
-      self.registration.showNotification(title || "【NEO FAMILY】新着イベント！", options)
-    );
-  }
-});
+// Notification Click Event
+self.addEventListener("notificationclick", (e) => {
+  e.notification.close();
 
-// Notification Click -> Focus or open window
-self.addEventListener("notificationclick", (event) => {
-  event.notification.close();
+  const targetUrl = e.notification.data?.url || "/";
 
-  const targetUrl = (event.notification.data && event.notification.data.url) || "./index.html";
-  const eventId = event.notification.data && event.notification.data.eventId;
-
-  event.waitUntil(
-    clients.matchAll({ type: "window", includeUncontrolled: true }).then((windowClients) => {
-      // If a window is already open, focus it
-      for (let client of windowClients) {
-        if (client.url.includes("index.html") && "focus" in client) {
-          if (eventId && "postMessage" in client) {
-            client.postMessage({ type: "OPEN_EVENT_DETAIL", eventId: eventId });
-          }
+  e.waitUntil(
+    clients.matchAll({ type: "window", includeUncontrolled: true }).then((clientList) => {
+      // Focus if already open
+      for (const client of clientList) {
+        if (client.url.includes(self.location.origin) && "focus" in client) {
+          client.navigate(targetUrl);
           return client.focus();
         }
       }
-      // Otherwise open a new window
+      // Otherwise open new window
       if (clients.openWindow) {
-        const fullUrl = eventId ? `${targetUrl}#event-${eventId}` : targetUrl;
-        return clients.openWindow(fullUrl);
+        return clients.openWindow(targetUrl);
       }
     })
   );
